@@ -61,7 +61,7 @@ import java.util.Map;
 public class TestHadoopAuthBridge23 {
 
   /**
-   * set to true when metastore token manager has intitialized token manager
+   * set to true when metastore token manager has initialized token manager
    * through call to HadoopThriftAuthBridge23.Server.startDelegationTokenSecretManager
    */
   static volatile boolean isMetastoreTokenManagerInited;

@@ -69,7 +69,7 @@ public class FetchTask extends Task<FetchWork> implements Serializable {
     try {
       // Create a file system handle
       if (job == null) {
-        // The job config should be initilaized once per fetch task. In case of refetch, we should use the
+        // The job config should be initialized once per fetch task. In case of refetch, we should use the
         // same config.
         job = new JobConf(conf);
       }
