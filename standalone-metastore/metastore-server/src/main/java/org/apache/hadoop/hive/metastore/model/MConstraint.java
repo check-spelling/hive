@@ -19,15 +19,15 @@ package org.apache.hadoop.hive.metastore.model;
 
 import java.io.Serializable;
 
-/** Representing a row in the KEY_CONSTARINTS table. */
+/** Representing a row in the KEY_CONSTRAINTS table. */
 public class MConstraint
 {
-  private String constraintName; // Primary key of KEY_CONSTARINTS
-  private int position; // Primary key of KEY_CONSTARINTS
+  private String constraintName; // Primary key of KEY_CONSTRAINTS
+  private int position; // Primary key of KEY_CONSTRAINTS
   private int constraintType;
   private Integer deleteRule;
   private Integer updateRule;
-  private MTable parentTable; // Primary key of KEY_CONSTARINTS
+  private MTable parentTable; // Primary key of KEY_CONSTRAINTS
   private MTable childTable;
   private MColumnDescriptor parentColumn;
   private MColumnDescriptor childColumn;
