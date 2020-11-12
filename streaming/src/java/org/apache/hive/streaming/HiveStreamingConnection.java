@@ -493,7 +493,7 @@ public class HiveStreamingConnection implements StreamingConnection {
     return msClient;
   }
 
-  IMetaStoreClient getHeatbeatMSC() {
+  IMetaStoreClient getHeartbeatMSC() {
     connectionStats.incrementMetastoreCalls();
     return heartbeatMSClient;
   }
@@ -686,7 +686,7 @@ public class HiveStreamingConnection implements StreamingConnection {
     } finally {
       if (manageTransactions) {
         getMSC().close();
-        getHeatbeatMSC().close();
+        getHeartbeatMSC().close();
         try {
           // Close the HMS that is used for addWriteNotificationLog
           Hive.get(conf).getSynchronizedMSC().close();

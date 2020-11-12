@@ -278,7 +278,7 @@ public interface TxnStore extends Configurable {
 
   /**
    * Heartbeat a group of transactions together
-   * @param rqst set of transactions to heartbat
+   * @param rqst set of transactions to heartbeat
    * @return info on txns that were heartbeated
    * @throws MetaException
    */

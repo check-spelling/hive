@@ -412,7 +412,7 @@ public class LlapTaskUmbilicalExternalClient implements Closeable {
     public LlapTaskUmbilicalExternalImpl(Configuration conf) {
       long taskInterval = HiveConf.getTimeVar(conf,
           HiveConf.ConfVars.LLAP_DAEMON_AM_LIVENESS_CONNECTION_TIMEOUT_MS, TimeUnit.MILLISECONDS);
-      // Setup timer task to check for hearbeat timeouts
+      // Setup timer task to check for heartbeat timeouts
       this.timer = new ScheduledThreadPoolExecutor(1);
       timer.scheduleAtFixedRate(new HeartbeatCheckTask(this),
           taskInterval, taskInterval, TimeUnit.MILLISECONDS);
