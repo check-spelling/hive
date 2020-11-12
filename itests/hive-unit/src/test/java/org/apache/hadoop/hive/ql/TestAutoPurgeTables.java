@@ -380,7 +380,7 @@ public class TestAutoPurgeTables {
    * @param isAutoPurge - If set, creates a table with auto.purge with the given value
    * @param isExternal - if set creates a external table for the test
    * @param isPartitioned - if set creates a partitioned table for the test
-   * @param purgeExpected - if set the assert condition for the test is such that it expectes old
+   * @param purgeExpected - if set the assert condition for the test is such that it expects old
    *          table data to be moved to trash. If not creates a assert condition to make sure that
    *          data is not moved to trash
    * @param isTruncateTest - if set uses truncate table command for the test. Otherwise uses Insert
