@@ -446,7 +446,7 @@ public class DagUtils {
 
     if (mapWork instanceof MergeFileWork) {
       MergeFileWork mfWork = (MergeFileWork) mapWork;
-      // This mapper class is used for serializaiton/deserializaiton of merge
+      // This mapper class is used for serializaiton/deserialization of merge
       // file work.
       conf.set("mapred.mapper.class", MergeFileMapper.class.getName());
       conf.set("mapred.input.format.class", mfWork.getInputformat());
