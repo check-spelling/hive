@@ -84,12 +84,12 @@ public class <ClassName> extends VectorExpression {
    * If x and y have different sign, then the result is multiplied by -1.
    * If x and y have same sign, then the result is always positive.
    */
-  private long roundingDivision(long divident, long divisor) {
-    final long absDivident = Math.abs(divident);
+  private long roundingDivision(long dividend, long divisor) {
+    final long absDividend = Math.abs(dividend);
     final long absDivisor = Math.abs(divisor);
-    final boolean differentSigns = (divident > 0) ^ (divisor > 0);
-    final long remainder = absDivident % absDivisor;
-    long result = absDivident  / absDivisor;
+    final boolean differentSigns = (dividend > 0) ^ (divisor > 0);
+    final long remainder = absDividend % absDivisor;
+    long result = absDividend  / absDivisor;
     if (remainder*2 >= absDivisor) {
       result += 1; // round half away from 0
     }
