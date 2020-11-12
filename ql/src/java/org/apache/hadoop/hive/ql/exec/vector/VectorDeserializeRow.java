@@ -387,7 +387,7 @@ public final class VectorDeserializeRow<T extends DeserializeRead> {
   }
 
   /*
-   * Initialize one column's source deserializtion information.
+   * Initialize one column's source deserialization information.
    */
   private void initTopLevelField(int logicalColumnIndex, int projectionColumnNum,
       TypeInfo sourceTypeInfo, DataTypePhysicalVariation dataTypePhysicalVariation) {
