@@ -49,7 +49,7 @@ public class TestContext {
         Context spyContext = spy(context);
 
         // When Object store paths are used, then getMRTmpPatch() is called to get a temporary
-        // directory on the default scratch diretory location (usually /temp)
+        // directory on the default scratch directory location (usually /temp)
         Path mrTmpPath = new Path("hdfs://hostname/tmp/scratch");
         doReturn(mrTmpPath).when(spyContext).getMRTmpPath();
         assertEquals(mrTmpPath, spyContext.getTempDirForInterimJobPath(new Path("s3a://bucket/dir")));
