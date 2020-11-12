@@ -250,7 +250,7 @@ public class TestFileSinkOperator {
           break;
         case WITH_RECORD_ID_AND_PARTITION_VALUE:
           r = new RowWithPartNRecID(
-              new Text("its fleect was white as snow"),
+              new Text("its fleece was white as snow"),
               (i < 5) ? new Text("Monday") : new Text("Tuesday"),
                   new RecordIdentifier(1, 1, i));
           break;
