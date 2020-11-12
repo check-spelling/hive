@@ -64,7 +64,7 @@ public class TestRangerRestClient {
       .thenCallRealMethod();
     Mockito.when(mockClient.getRangerImportUrl(Mockito.anyString(), Mockito.anyString()))
       .thenCallRealMethod();
-    Mockito.when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY, TimeUnit.SECONDS)).thenReturn(1L);
+    Mockito.when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY, TimeUnit.SECONDS)).thenReturn(1L);
     Mockito.when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION, TimeUnit.SECONDS)).thenReturn(20L);
     Mockito.when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_JITTER, TimeUnit.SECONDS)).thenReturn(1L);
     Mockito.when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_MAX_DELAY_BETWEEN_RETRIES, TimeUnit.SECONDS))

@@ -629,7 +629,7 @@ public class HiveConf extends Configuration {
             "Name of the source cluster for the replication."),
     REPL_TARGET_CLUSTER_NAME("hive.repl.target.cluster.name", null,
             "Name of the target cluster for the replication."),
-    REPL_RETRY_INTIAL_DELAY("hive.repl.retry.initial.delay", "60s",
+    REPL_RETRY_INITIAL_DELAY("hive.repl.retry.initial.delay", "60s",
       new TimeValidator(TimeUnit.SECONDS),
       "Initial Delay before retry starts."),
     REPL_RETRY_BACKOFF_COEFFICIENT("hive.repl.retry.backoff.coefficient", 1.2f,
