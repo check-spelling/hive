@@ -226,7 +226,7 @@ public abstract class LlapAllocatorBuffer extends LlapCacheableBuffer implements
         state.wait(10);
         return true;
       } catch (InterruptedException e) {
-        LlapIoImpl.LOG.debug("Buffer incRef is deffering an interrupt");
+        LlapIoImpl.LOG.debug("Buffer incRef is deferring an interrupt");
         Thread.currentThread().interrupt();
         return false;
       }
