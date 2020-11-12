@@ -879,10 +879,10 @@ public class ASTConverter {
     }
 
     Schema(HiveJdbcConverter scan) {
-      HiveJdbcConverter jdbcHiveCoverter = scan;
-      final JdbcHiveTableScan jdbcTableScan = jdbcHiveCoverter.getTableScan();
+      HiveJdbcConverter jdbcHiveConverter = scan;
+      final JdbcHiveTableScan jdbcTableScan = jdbcHiveConverter.getTableScan();
       String tabName = jdbcTableScan.getHiveTableScan().getTableAlias();
-      for (RelDataTypeField field : jdbcHiveCoverter.getRowType().getFieldList()) {
+      for (RelDataTypeField field : jdbcHiveConverter.getRowType().getFieldList()) {
         add(new ColumnInfo(tabName, field.getName()));
       }
     }
