@@ -38,7 +38,7 @@ import com.google.common.collect.Sets.SetView;
 /**
  * This test ensures that there are no dangling q.out files in the project
  *
- * It has a cli functionlity to remove them if there are any.
+ * It has a cli functionality to remove them if there are any.
  */
 public class TestDanglingQOuts {
 

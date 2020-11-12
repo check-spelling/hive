@@ -5328,7 +5328,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
     } catch (SQLException e) {
       if (dbProduct.isTableNotExistsError(e)) {
         // If the table does not exists anymore, we disable the flag and start to work the new way
-        // This enables to switch to the new funcionality without a restart
+        // This enables to switch to the new functionality without a restart
         useMinHistoryLevel = false;
       } else {
         throw e;
@@ -5358,7 +5358,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
     } catch (SQLException e) {
       if (dbProduct.isTableNotExistsError(e)) {
         // If the table does not exists anymore, we disable the flag and start to work the new way
-        // This enables to switch to the new funcionality without a restart
+        // This enables to switch to the new functionality without a restart
         useMinHistoryLevel = false;
       } else {
         throw e;
