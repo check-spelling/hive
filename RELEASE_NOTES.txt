@@ -590,7 +590,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18084] - Upgrade checkstyle version to support lambdas
     * [HIVE-18085] - Run checkstyle on storage-api module with proper configuration
     * [HIVE-18088] - Add WM event traces at query level for debugging
-    * [HIVE-18092] - Fix exception on tables handled by HBaseHandler if columnsstats are auto-gathered
+    * [HIVE-18092] - Fix exception on tables handled by HBaseHandler if columnstats are auto-gathered
     * [HIVE-18093] - Improve logging when HoS application is killed
     * [HIVE-18095] - add a unmanaged flag to triggers (applies to container based sessions)
     * [HIVE-18096] - add a user-friendly show plan command
