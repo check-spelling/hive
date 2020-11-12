@@ -240,7 +240,7 @@ public interface AcidOutputFormat<K extends WritableComparable, V> extends HiveO
      * @since 1.3.0
      * This can be set to -1 to make the system generate old style (delta_xxxx_yyyy) file names.
      * This is primarily needed for testing to make sure 1.3 code can still read files created
-     * by older code.  Also used by Comactor.
+     * by older code.  Also used by Compactor.
      */
     public Options statementId(int id) {
       if(id >= AcidUtils.MAX_STATEMENTS_PER_TXN) {
