@@ -283,7 +283,7 @@ public class Utils {
   }
   
   /**
-   * Format elasped time
+   * Format elapsed time
    */
   public static String formatTime(long msElapsed) {
     if (msElapsed < 60000) {
