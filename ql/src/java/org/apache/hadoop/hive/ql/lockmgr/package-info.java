@@ -17,6 +17,6 @@
  */
 
 /**
- * Hive Lock Manager interfaces and some custom implmentations
+ * Hive Lock Manager interfaces and some custom implementations
  */
 package org.apache.hadoop.hive.ql.lockmgr;
