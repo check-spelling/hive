@@ -210,7 +210,7 @@ public final class MapJoinFactory {
 
       // If we are seeing this mapjoin for the first time, initialize the plan.
       // If we are seeing this mapjoin for the second or later time then atleast one of the
-      // branches for this mapjoin have been encounered. Join the plan with the plan created
+      // branches for this mapjoin have been encountered. Join the plan with the plan created
       // the first time.
       boolean local = pos != mapJoin.getConf().getPosBigTable();
       if (oldTask == null) {
