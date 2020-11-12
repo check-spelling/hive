@@ -148,7 +148,7 @@ public class ReExecDriver implements IDriver {
   @Override
   public CommandProcessorResponse run() throws CommandProcessorException {
     executionIndex = 0;
-    int maxExecutuions = 1 + coreDriver.getConf().getIntVar(ConfVars.HIVE_QUERY_MAX_REEXECUTION_COUNT);
+    int maxExecutions = 1 + coreDriver.getConf().getIntVar(ConfVars.HIVE_QUERY_MAX_REEXECUTION_COUNT);
 
 
     while (true) {
@@ -172,7 +172,7 @@ public class ReExecDriver implements IDriver {
       boolean shouldReExecute = explainReOptimization && executionIndex==1;
       shouldReExecute |= cpr == null && shouldReExecute();
 
-      if (executionIndex >= maxExecutuions || !shouldReExecute) {
+      if (executionIndex >= maxExecutions || !shouldReExecute) {
         if (cpr != null) {
           return cpr;
         } else {
