@@ -24,7 +24,7 @@ import org.apache.hadoop.hive.metastore.api.MetaException;
 import org.apache.hadoop.hive.ql.metadata.Hive;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 /**
- * Private implementaiton that returns instance of IMetaStoreClient
+ * Private implementation that returns instance of IMetaStoreClient
  */
 @Private
 public class HiveMetastoreClientFactoryImpl implements HiveMetastoreClientFactory{

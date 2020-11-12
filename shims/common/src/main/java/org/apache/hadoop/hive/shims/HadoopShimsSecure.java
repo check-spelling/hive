@@ -56,7 +56,7 @@ import org.apache.hadoop.security.Credentials;
 import org.apache.hadoop.util.Progressable;
 
 /**
- * Base implemention for shims against secure Hadoop 0.20.3/0.23.
+ * Base implementation for shims against secure Hadoop 0.20.3/0.23.
  */
 public abstract class HadoopShimsSecure implements HadoopShims {
 
