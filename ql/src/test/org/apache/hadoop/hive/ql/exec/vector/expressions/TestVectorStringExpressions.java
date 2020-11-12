@@ -207,10 +207,10 @@ public class TestVectorStringExpressions {
     int i = 0;
     b[i++] = (byte) 0xCC; // COMBINING ACUTE ACENT U+0301 (2 bytes)
     b[i++] = (byte) 0x81;
-    b[i++] = (byte) 0xE0; // DEVENAGARI LETTER KA U+0915 (3 bytes)
+    b[i++] = (byte) 0xE0; // DEVANAGARI LETTER KA U+0915 (3 bytes)
     b[i++] = (byte) 0xA4;
     b[i++] = (byte) 0x95;
-    b[i++] = (byte) 0xE0; // DEVENAGARI SIGN VIRAMA U+094D (3 bytes)
+    b[i++] = (byte) 0xE0; // DEVANAGARI SIGN VIRAMA U+094D (3 bytes)
     b[i++] = (byte) 0xA5;
     b[i++] = (byte) 0x8D;
     b[i++] = (byte) 0x20; // blank " " (1 byte)
