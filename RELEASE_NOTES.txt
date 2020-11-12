@@ -1175,7 +1175,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17389] - Yetus is always failing on rat checks
     * [HIVE-17391] - Compaction fails if there is an empty value in tblproperties
     * [HIVE-17392] - SharedWorkOptimizer might merge TS operators filtered by not equivalent semijoin operators
-    * [HIVE-17393] - AMReporter need hearbeat every external 'AM'
+    * [HIVE-17393] - AMReporter need heartbeat every external 'AM'
     * [HIVE-17394] - AvroSerde is regenerating TypeInfo objects for each nullable Avro field for every row
     * [HIVE-17401] - Hive session idle timeout doesn't function properly
     * [HIVE-17403] - Fail concatenation for unmanaged and transactional tables
