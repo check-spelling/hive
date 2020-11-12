@@ -229,8 +229,8 @@ public class TestVectorSerDeRow {
       }
       for (int i = 0; i < actualSize; i++) {
         Object actualObject = actualList.get(i);
-        Object expecedObject = expectedList.get(i);
-        if (!actualObject.equals(expecedObject)) {
+        Object expectedObject = expectedList.get(i);
+        if (!actualObject.equals(expectedObject)) {
           return "Column " + i + " is different";
         }
       }

@@ -310,7 +310,7 @@ public class TestJdbcWithLocalClusterSpark {
         + dataFilePath.toString() + "' into table " + tableName);
   }
 
-  // run given query and validate expecated result
+  // run given query and validate expected result
   private void verifyResult(String queryStr, String expString, int colPos)
       throws SQLException {
     ResultSet res = stmt.executeQuery(queryStr);

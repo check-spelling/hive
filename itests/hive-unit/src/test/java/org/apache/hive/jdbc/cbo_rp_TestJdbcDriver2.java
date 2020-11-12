@@ -1149,7 +1149,7 @@ public class cbo_rp_TestJdbcDriver2 {
       while (rs.next()) {
         String resultTableName = rs.getString("TABLE_NAME");
         assertEquals("Get by index different from get by name.", rs.getString(3), resultTableName);
-        assertEquals("Excpected a different table.", tests.get(checkPattern)[cnt], resultTableName);
+        assertEquals("Expected a different table.", tests.get(checkPattern)[cnt], resultTableName);
         String resultTableComment = rs.getString("REMARKS");
         assertTrue("Missing comment on the table.", resultTableComment.length()>0);
         String tableType = rs.getString("TABLE_TYPE");
