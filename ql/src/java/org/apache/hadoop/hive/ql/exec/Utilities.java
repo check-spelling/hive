@@ -3694,7 +3694,7 @@ public final class Utilities {
     if (dummyRow) {
       // empty files are omitted at CombineHiveInputFormat.
       // for meta-data only query, it effectively makes partition columns disappear..
-      // this could be fixed by other methods, but this seemed to be the most easy (HIVEV-2955)
+      // this could be fixed by other methods, but this seemed to be the most easy (HIVE-2955)
       recWriter.write(new Text("empty"));  // written via HiveIgnoreKeyTextOutputFormat
     }
     recWriter.close(false);
