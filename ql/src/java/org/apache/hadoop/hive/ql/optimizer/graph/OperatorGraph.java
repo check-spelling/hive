@@ -48,7 +48,7 @@ import com.google.common.collect.Sets;
  * And the actual execution time "vertex boundaries" are only there implicitly.
  *
  * The goal of this class is to parse in the different informations and provide some operations above it:
- *  - decompose the graph into "clusters" ; these are the runtime equvivalent of execution vertices.
+ *  - decompose the graph into "clusters" ; these are the runtime equivalent of execution vertices.
  *  - ensures that the plan has a valid DAG property
  *  - hidden edges are also added - for ex: "semijoin"
  *  - connections to more easily consumable graph layout tools could help understand plans better
