@@ -205,7 +205,7 @@ public class HiveProtoLoggingHook implements ExecuteWithHookContext {
               conf, clock);
         }
       } catch (IOException e) {
-        LOG.error("Unable to intialize logger, logging disabled.", e);
+        LOG.error("Unable to initialize logger, logging disabled.", e);
       }
       this.logger = tmpLogger;
       if (logger == null) {

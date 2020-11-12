@@ -46,8 +46,8 @@ public class Retryable {
   private Retryable() {
     this.retryOn = new ArrayList<>();
     this.failOn = new ArrayList<>();
-    this.initialDelayInSeconds = HiveConf.toTime(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY.defaultStrVal,
-      HiveConf.getDefaultTimeUnit(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY), TimeUnit.SECONDS);
+    this.initialDelayInSeconds = HiveConf.toTime(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY.defaultStrVal,
+      HiveConf.getDefaultTimeUnit(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY), TimeUnit.SECONDS);
     this.maxRetryDelayInSeconds = HiveConf.toTime(HiveConf.ConfVars.REPL_RETRY_MAX_DELAY_BETWEEN_RETRIES.defaultStrVal,
       HiveConf.getDefaultTimeUnit(HiveConf.ConfVars.REPL_RETRY_MAX_DELAY_BETWEEN_RETRIES), TimeUnit.SECONDS);
     this.backOff = HiveConf.ConfVars.REPL_RETRY_BACKOFF_COEFFICIENT.defaultFloatVal;
@@ -130,7 +130,7 @@ public class Retryable {
 
     public Builder withHiveConf(HiveConf conf) {
       runnable.totalDurationInSeconds = conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION, TimeUnit.SECONDS);
-      runnable.initialDelayInSeconds = conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY, TimeUnit.SECONDS);
+      runnable.initialDelayInSeconds = conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY, TimeUnit.SECONDS);
       runnable.maxRetryDelayInSeconds = conf.getTimeVar(HiveConf.ConfVars
         .REPL_RETRY_MAX_DELAY_BETWEEN_RETRIES, TimeUnit.SECONDS);
       runnable.backOff = conf.getFloatVar(HiveConf.ConfVars.REPL_RETRY_BACKOFF_COEFFICIENT);

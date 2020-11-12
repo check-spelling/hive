@@ -435,7 +435,7 @@ public class PartitionProjectionEvaluator {
         }
 
         if (ids[SERDE_INDEX] != null) {
-          // serde object must have already been intialized above in MetaStoreUtils.setNestedProperty call
+          // serde object must have already been initialized above in MetaStoreUtils.setNestedProperty call
           if (part.getSd().getSerdeInfo() == null) {
             part.getSd().setSerdeInfo(new SerDeInfo());
           }
