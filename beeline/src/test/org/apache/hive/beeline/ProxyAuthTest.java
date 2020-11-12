@@ -35,7 +35,7 @@ import org.apache.hadoop.hive.shims.Utils;
 /**
  * Simple client application to test various direct and proxy connection to HiveServer2
  * Note that it's not an automated test at this point. It requires a manually configured
- * secure HivServer2. It also requires a super user and a normal user principal.
+ * secure HiveServer2. It also requires a super user and a normal user principal.
  * Steps to run the test -
  *   kinit <super-user>
  *   hive --service jar beeline/target/hive-beeline-0.13.0-SNAPSHOT-tests.jar \
