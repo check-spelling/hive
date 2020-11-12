@@ -231,7 +231,7 @@ public class AppConfig extends Configuration {
     }
     ProxyUserSupport.processProxyuserConfig(this);
     handleHiveProperties();
-    LOG.info(dumpEnvironent());
+    LOG.info(dumpEnvironment());
   }
   /**
    * When auto-shipping hive tar (for example when hive query or pig script
@@ -292,7 +292,7 @@ public class AppConfig extends Configuration {
    * Dumps all env and config state.  Should be called once on WebHCat start up to facilitate 
    * support/debugging.  Later it may be worth adding a REST call which will return this data.
    */
-  private String dumpEnvironent() {
+  private String dumpEnvironment() {
     StringBuilder sb = TempletonUtils.dumpPropMap("========WebHCat System.getenv()========", System.getenv());
     sb.append("START========WebHCat AppConfig.iterator()========: \n");
     HiveConfUtil.dumpConfig(this, sb);
