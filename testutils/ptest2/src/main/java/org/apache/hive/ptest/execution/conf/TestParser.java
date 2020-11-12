@@ -158,7 +158,7 @@ public class TestParser {
     List<String> testBatch = Lists.newArrayList();
     for(final String test : qFileTestNames) {
       if(excluded.contains(test)) {
-        logger.info("Exlcuding test " + driver + " " + test);
+        logger.info("Excluding test " + driver + " " + test);
       } else if(isolated.contains(test)) {
         logger.info("Executing isolated test " + driver + " " + test);
         testBatches.add(new QFileTestBatch(batchIdCounter, testCasePropertyName, driver, queryFilesProperty,
