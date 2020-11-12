@@ -981,7 +981,7 @@ public class TestObjectStore {
 //    conf.setVar(HiveConf.ConfVars.METASTOREPWD, "");
 
     /*
-     we have to  add this one manually as for tests the db is initialized via the metastoreDiretSQL
+     we have to  add this one manually as for tests the db is initialized via the metastoreDirectSQL
      and we don't run the schema creation sql that includes the an insert for notification_sequence
      which can be locked. the entry in notification_sequence happens via notification_event insertion.
     */
