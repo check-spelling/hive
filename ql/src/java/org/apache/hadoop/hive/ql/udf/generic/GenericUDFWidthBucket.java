@@ -56,7 +56,7 @@ public class GenericUDFWidthBucket extends GenericUDF {
 
   private transient ObjectInspector[] objectInspectors;
   private transient ObjectInspector commonExprMinMaxOI;
-  private transient ObjectInspectorConverters.Converter epxrConverterOI;
+  private transient ObjectInspectorConverters.Converter exprConverterOI;
   private transient ObjectInspectorConverters.Converter minValueConverterOI;
   private transient ObjectInspectorConverters.Converter maxValueConverterOI;
 
@@ -88,7 +88,7 @@ public class GenericUDFWidthBucket extends GenericUDF {
 
     this.commonExprMinMaxOI = TypeInfoUtils.getStandardWritableObjectInspectorFromTypeInfo(commonExprMinMaxTypeInfo);
 
-    this.epxrConverterOI = ObjectInspectorConverters.getConverter(this.objectInspectors[0], this.commonExprMinMaxOI);
+    this.exprConverterOI = ObjectInspectorConverters.getConverter(this.objectInspectors[0], this.commonExprMinMaxOI);
     this.minValueConverterOI = ObjectInspectorConverters.getConverter(this.objectInspectors[1], this.commonExprMinMaxOI);
     this.maxValueConverterOI = ObjectInspectorConverters.getConverter(this.objectInspectors[2], this.commonExprMinMaxOI);
 
@@ -101,7 +101,7 @@ public class GenericUDFWidthBucket extends GenericUDF {
       return null;
     }
 
-    Object exprValue = this.epxrConverterOI.convert(arguments[0].get());
+    Object exprValue = this.exprConverterOI.convert(arguments[0].get());
     Object minValue = this.minValueConverterOI.convert(arguments[1].get());
     Object maxValue = this.maxValueConverterOI.convert(arguments[2].get());
 
