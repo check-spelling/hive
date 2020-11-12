@@ -1397,7 +1397,7 @@ public class MetastoreConf {
     HIVE_METRICS_REPORTER("hive.service.metrics.reporter", "hive.service.metrics.reporter", "",
         "Reporter implementations for metric class "
             + "org.apache.hadoop.hive.common.metrics.metrics2.CodahaleMetrics;" +
-            "Deprecated, use METRICS_REPORTERS instead. This configuraiton will be"
+            "Deprecated, use METRICS_REPORTERS instead. This configuration will be"
             + " overridden by HIVE_CODAHALE_METRICS_REPORTER_CLASSES and METRICS_REPORTERS if " +
             "present. Comma separated list of JMX, CONSOLE, JSON_FILE, HADOOP2"),
     // Planned to be removed in HIVE-21024

@@ -31,7 +31,7 @@ import org.apache.hadoop.hive.ql.util.DateTimeMath;
 
 /**
  * Superclass to support vectorized functions that take a long
- * and return a string, optionally with additional configuraiton arguments.
+ * and return a string, optionally with additional configuration arguments.
  * Used for bin(long), hex(long) etc.
  */
 public abstract class FuncLongToString extends VectorExpression {
