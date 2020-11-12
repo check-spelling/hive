@@ -672,7 +672,7 @@ public class GenTezUtils {
     context.getRsToSemiJoinBranchInfo().remove(rs);
   }
 
-  /** Find out if this predicate constains the synthetic predicate to be removed */
+  /** Find out if this predicate constrains the synthetic predicate to be removed */
   private static boolean removeSemiJoinPredicate(ParseContext context,
           ReduceSinkOperator rs, ExprNodeDesc nodeToRemove) {
     boolean remove = false;
