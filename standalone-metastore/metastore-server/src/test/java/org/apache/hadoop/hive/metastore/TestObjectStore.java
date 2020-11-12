@@ -777,7 +777,7 @@ public class TestObjectStore {
             "org.apache.hadoop.hive.common.metrics.metrics2.JmxMetricsReporter"
     );
 
-    // recall setup so that we get an object store with the metrics initalized
+    // recall setup so that we get an object store with the metrics initialized
     setUp();
     Counter directSqlErrors =
         Metrics.getRegistry().getCounters().get(MetricsConstants.DIRECTSQL_ERRORS);

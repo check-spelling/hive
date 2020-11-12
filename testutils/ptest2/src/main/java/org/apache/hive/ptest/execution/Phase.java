@@ -111,7 +111,7 @@ public abstract class Phase {
     }
     return toListOfResults(futures);
   }
-  protected List<RemoteCommandResult> initalizeHosts()
+  protected List<RemoteCommandResult> initializeHosts()
       throws Exception {
     List<ListenableFuture<List<RemoteCommandResult>>> futures = Lists.newArrayList();
     ListeningExecutorService executor = MoreExecutors.
@@ -121,7 +121,7 @@ public abstract class Phase {
         futures.add(executor.submit(new Callable<List<RemoteCommandResult>>() {
           @Override
           public List<RemoteCommandResult> call() throws Exception {
-            return initalizeHost(hostExecutor);
+            return initializeHost(hostExecutor);
           }
         }));
       }
@@ -140,7 +140,7 @@ public abstract class Phase {
       }
     }
   }
-  protected List<RemoteCommandResult> initalizeHost(HostExecutor hostExecutor)
+  protected List<RemoteCommandResult> initializeHost(HostExecutor hostExecutor)
       throws Exception {
     List<RemoteCommandResult> results = Lists.newArrayList();
     results.add(hostExecutor.exec("killall -q -9 java || true").get());

@@ -68,7 +68,7 @@ public class JoinOperator extends CommonJoinOperator<JoinDesc> implements Serial
     super.initializeOp(hconf);
     if (handleSkewJoin) {
       skewJoinKeyContext = new SkewJoinHandler(this);
-      skewJoinKeyContext.initiliaze(hconf);
+      skewJoinKeyContext.initialize(hconf);
       skewJoinKeyContext.setSkewJoinJobCounter(skewjoin_followup_jobs);
     }
     statsMap.put(SkewkeyTableCounter.SKEWJOINFOLLOWUPJOBS.toString(), skewjoin_followup_jobs);

@@ -130,7 +130,7 @@ public abstract class MultiValuedColumnVector extends ColumnVector {
   }
 
   /**
-   * Initializee the vector
+   * Initialize the vector
    */
   @Override
   public void init() {
