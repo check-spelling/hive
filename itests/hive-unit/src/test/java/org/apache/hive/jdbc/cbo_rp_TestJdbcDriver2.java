@@ -376,7 +376,7 @@ public class cbo_rp_TestJdbcDriver2 {
       assertEquals("42000", e.getSQLState());
     }
 
-    // verify table not fuond error
+    // verify table not found error
     try {
       stmt.executeQuery("select * from nonTable");
       fail("SQLException is expected");
