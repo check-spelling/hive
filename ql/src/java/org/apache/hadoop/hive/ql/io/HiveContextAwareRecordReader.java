@@ -229,7 +229,7 @@ public abstract class HiveContextAwareRecordReader<K extends WritableComparable,
       this.getIOContext().setBinarySearching(true);
       this.wasUsingSortedSearch = true;
     } else {
-      // Use the defalut methods for next in the child class
+      // Use the default methods for next in the child class
       this.isSorted = false;
     }
   }

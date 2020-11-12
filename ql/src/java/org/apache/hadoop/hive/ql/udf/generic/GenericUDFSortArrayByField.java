@@ -50,7 +50,7 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
  */
 @Description(name = "sort_array_by", value = "_FUNC_(array(obj1, obj2,...),'f1','f2',...,['ASC','DESC']) - "
     + "Sorts the input tuple array in user specified order(ASC,DESC) by desired field[s] name"
-    + " If sorting order is not mentioned by user then dafault sorting order is ascending",
+    + " If sorting order is not mentioned by user then default sorting order is ascending",
     extended = "Example:\n"
         + "  > SELECT _FUNC_(array(struct('g',100),struct('b',200)),'col1','ASC') FROM src LIMIT 1;\n"
         + " array(struct('b',200),struct('g',100)) ")
