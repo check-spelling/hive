@@ -421,7 +421,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16837] - MetadataOnly optimizer conflicts with count distinct rewrite
     * [HIVE-16838] - Improve plans for subqueries with non-equi co-related predicates
     * [HIVE-16848] - NPE during CachedStore refresh
-    * [HIVE-16892] - Move creation of _files from ReplCopyTask to analysis phase for boostrap replication 
+    * [HIVE-16892] - Move creation of _files from ReplCopyTask to analysis phase for bootstrap replication 
     * [HIVE-16893] - move replication dump related work in semantic analysis phase to execution phase using a task
     * [HIVE-16895] -  Multi-threaded execution of bootstrap dump of partitions
     * [HIVE-16896] - move replication load related work in semantic analysis phase to execution phase using a task
