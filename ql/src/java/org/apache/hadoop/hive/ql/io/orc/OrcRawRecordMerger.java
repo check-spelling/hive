@@ -965,7 +965,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
    *
    * @param conf the configuration
    * @param collapseEvents should the events on the same row be collapsed
-   * @param isOriginal if reading filws w/o acid schema - {@link AcidUtils.AcidBaseFileType#ORIGINAL_BASE}
+   * @param isOriginal if reading files w/o acid schema - {@link AcidUtils.AcidBaseFileType#ORIGINAL_BASE}
    * @param bucket the bucket/writer id of the file we are reading
    * @param options the options to read with
    * @param deltaDirectory the list of delta directories to include
