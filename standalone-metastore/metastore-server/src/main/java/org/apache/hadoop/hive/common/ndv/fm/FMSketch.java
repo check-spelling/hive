@@ -343,7 +343,7 @@ public class FMSketch implements NumDistinctValueEstimator {
     return lengthFor(model, getNumBitVectors());
   }
 
-  // the caller needs to gurrantee that they are the same type based on numBitVectors
+  // the caller needs to guarantee that they are the same type based on numBitVectors
   @Override
   public void mergeEstimators(NumDistinctValueEstimator o) {
     // Bitwise OR the bitvector with the bitvector in the agg buffer
