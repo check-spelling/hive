@@ -227,7 +227,7 @@ public final class LocalMapJoinProcFactory {
           new ArrayList<Operator<? extends OperatorDesc>>();
         dummyChildren.add(mapJoinOp);
         dummyOp.setChildOperators(dummyChildren);
-        // add this dummy op to the dummp operator list
+        // add this dummy op to the dummy operator list
         dummyOperators.add(dummyOp);
       }
       hashTableSinkOp.setParentOperators(smallTablesParentOp);
