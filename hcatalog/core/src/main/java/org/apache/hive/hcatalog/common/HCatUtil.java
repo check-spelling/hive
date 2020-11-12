@@ -370,7 +370,7 @@ public class HCatUtil {
    * then FosterStorageHandler is used to encapsulate the InputFormat, OutputFormat and SerDe.
    * This StorageHandler assumes the other supplied storage artifacts are for a file-based storage system.
    * @param conf job's configuration will be used to configure the Configurable StorageHandler
-   * @param storerInfo StorerInfo to definining the StorageHandler and InputFormat, OutputFormat and SerDe
+   * @param storerInfo StorerInfo to defining the StorageHandler and InputFormat, OutputFormat and SerDe
    * @return storageHandler instance
    * @throws IOException
    */
