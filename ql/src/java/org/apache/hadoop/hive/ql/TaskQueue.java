@@ -218,7 +218,7 @@ public class TaskQueue {
       if (statsTasks.containsKey(statKey)) {
         statsTasks.get(statKey).getWork().setSourceTask(mapredTask);
       } else {
-        LOG.debug("There is no correspoing statTask for: " + statKey);
+        LOG.debug("There is no corresponding statTask for: " + statKey);
       }
     }
   }

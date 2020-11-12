@@ -32,7 +32,7 @@ public class DefaultBucketMatcher implements BucketMatcher {
 
   protected final Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
-  //MAPPING: bucket_file_name_in_big_table->{alias_table->corresonding_bucket_file_names}
+  //MAPPING: bucket_file_name_in_big_table->{alias_table->corresponding_bucket_file_names}
   private Map<String, Map<String, List<String>>> aliasBucketMapping;
 
   private Map<String, Integer> bucketFileNameMapping;
