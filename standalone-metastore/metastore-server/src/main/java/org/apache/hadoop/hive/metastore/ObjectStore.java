@@ -3976,7 +3976,7 @@ public class ObjectStore implements RawStore, Configurable {
         this.tblName = normalizeIdentifier(tblName);
       } else {
         // tblName can be null in cases of Helper being used at a higher
-        // abstraction level, such as with datbases
+        // abstraction level, such as with databases
         this.tblName = null;
         this.table = null;
       }
