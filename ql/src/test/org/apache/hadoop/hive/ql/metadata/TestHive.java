@@ -129,7 +129,7 @@ public class TestHive {
     } catch (Exception e) {
       System.err.println(StringUtils.stringifyException(e));
       System.err
-          .println("Unable to close Hive Metastore using configruation: \n "
+          .println("Unable to close Hive Metastore using configuration: \n "
           + hiveConf);
       throw e;
     }

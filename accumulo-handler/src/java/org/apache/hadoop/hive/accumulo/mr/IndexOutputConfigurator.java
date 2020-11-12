@@ -22,7 +22,7 @@ import org.apache.accumulo.core.client.mapreduce.lib.impl.OutputConfigurator;
 import org.apache.hadoop.conf.Configuration;
 
 /**
- * Extension of OutputConfigurtion to support indexing.
+ * Extension of OutputConfiguration to support indexing.
  */
 public class IndexOutputConfigurator extends OutputConfigurator {
   /**
