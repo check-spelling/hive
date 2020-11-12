@@ -1568,7 +1568,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18919] - remove separate keytab setting for ZK in LLAP
     * [HIVE-18925] - Hive doesn't work when JVM is America/Bahia_Banderas time zone
     * [HIVE-18933] - disable ORC codec pool for now; remove clone
-    * [HIVE-18944] - Groupping sets position is set incorrectly during DPP
+    * [HIVE-18944] - Grouping sets position is set incorrectly during DPP
     * [HIVE-18950] - DESCRIBE EXTENDED missing details of default constraint
     * [HIVE-18951] - Fix the llapdump usage error in llapdump.sh
     * [HIVE-18955] - HoS: Unable to create Channel from class NioServerSocketChannel
