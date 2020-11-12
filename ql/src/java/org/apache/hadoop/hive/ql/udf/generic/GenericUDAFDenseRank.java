@@ -72,7 +72,7 @@ public class GenericUDAFDenseRank extends GenericUDAFRank {
 
   /**
    * Evaluator for calculating the dense rank.
-   * SELECT dense_rank(expression1[, expressionn]*) WITHIN GROUP (ORDER BY col1[, coln]*)
+   * SELECT dense_rank(expression1[, expression]*) WITHIN GROUP (ORDER BY col1[, coln]*)
    * Implementation is based on hypothetical rank calculation but the group of values are considered distinct.
    * Since the source of the input stream is not sorted a HashSet is used for filter out duplicate values
    * which can lead to OOM in large data sets.
