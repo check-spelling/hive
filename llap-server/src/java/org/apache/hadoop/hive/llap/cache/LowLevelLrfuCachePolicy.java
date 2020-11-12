@@ -1027,7 +1027,7 @@ public final class LowLevelLrfuCachePolicy extends ProactiveEvictingCachePolicy.
         heapLock.unlock();
       }
 
-      // aggregate values on the evicition short list
+      // aggregate values on the eviction short list
       try {
         listLock.lock();
         LlapCacheableBuffer scan = listHead;
