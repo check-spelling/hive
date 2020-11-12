@@ -223,7 +223,7 @@ public class Table implements Serializable {
       // set create time
       t.setCreateTime((int) (System.currentTimeMillis() / 1000));
     }
-    // Explictly set the bucketing version
+    // Explicitly set the bucketing version
     t.getParameters().put(hive_metastoreConstants.TABLE_BUCKETING_VERSION,
         "2");
     return t;

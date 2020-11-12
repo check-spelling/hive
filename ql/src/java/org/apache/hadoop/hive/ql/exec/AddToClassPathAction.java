@@ -73,7 +73,7 @@ public class AddToClassPathAction implements PrivilegedAction<UDFClassLoader> {
       // The classloader may have been closed, Cannot add to the same instance
       return !udfClassLoader.isClosed();
     }
-    // Cannot use the same classloader if it is not an instance of {@code UDFClassLoader}, or new loader was explicily
+    // Cannot use the same classloader if it is not an instance of {@code UDFClassLoader}, or new loader was explicitly
     // requested
     return false;
   }
