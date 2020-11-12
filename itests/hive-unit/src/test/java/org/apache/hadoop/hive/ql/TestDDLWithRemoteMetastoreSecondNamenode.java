@@ -269,7 +269,7 @@ public class TestDDLWithRemoteMetastoreSecondNamenode {
 
   @Test
   public void testCreateDatabaseWithTableNonDefaultNameNode() throws Exception {
-    assertTrue("Test suite should be initialied", isInitialized );
+    assertTrue("Test suite should be initialized", isInitialized );
     final String tableLocation = tmppathFs2 + "/" + Table3Name;
     final String databaseLocation = tmppathFs2 + "/" + Database1Name;
 
