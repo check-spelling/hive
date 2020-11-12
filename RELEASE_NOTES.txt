@@ -1150,7 +1150,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17313] - Potentially possible 'case fall through' in the ObjectInspectorConverters
     * [HIVE-17314] - LazySimpleSerializeWrite.writeString() contains if with an empty body
     * [HIVE-17321] - HoS: analyze ORC table doesn't compute raw data size when noscan/partialscan is not specified
-    * [HIVE-17322] - Serialise BeeLine qtest execution to prevent flakyness
+    * [HIVE-17322] - Serialise BeeLine qtest execution to prevent flakiness
     * [HIVE-17327] - LLAP IO: restrict native file ID usage to default FS to avoid hypothetical collisions when HDFS federation is used
     * [HIVE-17331] - Path must be used as key type of the pathToAliases
     * [HIVE-17333] - Schema changes in HIVE-12274 for Oracle may not work for upgrade
