@@ -258,7 +258,7 @@ public class CommonJoinTaskDispatcher extends AbstractJoinTaskDispatcher impleme
       }
 
       if (aliases.contains(mapJoinAlias)) {
-        // alias confict should not happen here.
+        // alias conflict should not happen here.
         return;
       }
     }
