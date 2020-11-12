@@ -348,7 +348,7 @@ import java.util.function.Predicate;
       RetryUtils.retry(cleanQueryDirTask, (error) -> error instanceof IOException, maxTries);
     } catch (Exception e) {
       //just log it
-      LOG.error("Faild to clean Query Working Directory [{}] due to [{}]", queryWorkingDir, e.getMessage());
+      LOG.error("Failed to clean Query Working Directory [{}] due to [{}]", queryWorkingDir, e.getMessage());
     }
   }
 
