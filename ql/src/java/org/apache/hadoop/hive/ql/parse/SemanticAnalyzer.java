@@ -11413,7 +11413,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
 
       // put all virtual columns in RowResolver.
       Iterator<VirtualColumn> vcs = VirtualColumn.getRegistry(conf).iterator();
-      // use a list for easy cumtomize
+      // use a list for easy customize
       List<VirtualColumn> vcList = new ArrayList<VirtualColumn>();
       if(!tab.isNonNative()) {
         // Virtual columns are only for native tables
