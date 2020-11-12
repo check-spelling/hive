@@ -2251,7 +2251,7 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
     testConcurrentMergeInsert("insert into source values (3, 4)", false, false,false);
   }
 
-  private void testConcurrentMergeInsert(String query, boolean sharedWrite, boolean slowCompile, boolean extectedDuplicates) throws Exception {
+  private void testConcurrentMergeInsert(String query, boolean sharedWrite, boolean slowCompile, boolean expectedDuplicates) throws Exception {
     dropTable(new String[]{"target", "source"});
     conf.setBoolVar(HiveConf.ConfVars.TXN_WRITE_X_LOCK, !sharedWrite);
     driver2.getConf().setBoolVar(HiveConf.ConfVars.TXN_WRITE_X_LOCK, !sharedWrite);
@@ -2288,8 +2288,8 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
     driver.run("select * from target");
     List res = new ArrayList();
     driver.getFetchTask().fetch(res);
-    Assert.assertEquals("Duplicate records " + (extectedDuplicates ? "" : "not") + "found",
-      extectedDuplicates ? 5 : 4, res.size());
+    Assert.assertEquals("Duplicate records " + (expectedDuplicates ? "" : "not") + "found",
+      expectedDuplicates ? 5 : 4, res.size());
     dropTable(new String[]{"target", "source"});
   }
 
