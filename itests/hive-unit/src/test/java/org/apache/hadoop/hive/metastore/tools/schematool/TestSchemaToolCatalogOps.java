@@ -477,7 +477,7 @@ public class TestSchemaToolCatalogOps {
       SchemaToolCommandLine cl = new SchemaToolCommandLine(tokenizer.getTokenArray(), null);
       task.setCommandLineArguments(cl);
     } catch (Exception e) {
-      throw new IllegalStateException("Could not parse comman line \n" + argsBase + taskArgs, e);
+      throw new IllegalStateException("Could not parse command line \n" + argsBase + taskArgs, e);
     }
 
     task.setHiveSchemaTool(schemaTool);
