@@ -1185,7 +1185,7 @@ sub checkResStatusCode{
 # Record results of the test run.  The required fields are filled in by the
 # test harness.  This call gives an individual driver a chance to fill in
 # additional fields of cmd, cmd_id, expected_results, and actual_results.
-# this function does not have to be implemened.
+# this function does not have to be implemented.
 # This is a virtual function.
 #
 # Parameters:
