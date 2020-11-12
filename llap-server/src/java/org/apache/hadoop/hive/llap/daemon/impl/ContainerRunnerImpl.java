@@ -177,7 +177,7 @@ public class ContainerRunnerImpl extends CompositeService implements ContainerRu
     tezHadoopShim = new HadoopShimsLoader(conf).getHadoopShim();
 
     LOG.info("ContainerRunnerImpl config: " +
-            "memoryPerExecutorDerviced=" + memoryPerExecutor
+            "memoryPerExecutorService=" + memoryPerExecutor
     );
   }
 
