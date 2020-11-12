@@ -842,7 +842,7 @@ import com.google.common.annotations.VisibleForTesting;
   /**
    * Marks all actual scratch columns.
    *
-   * They can be decomissioned with {@link #freeMarkedScratchColumns()}.
+   * They can be decommissioned with {@link #freeMarkedScratchColumns()}.
    */
   public void markActualScratchColumns() {
     ocm.markScratchColumns();
