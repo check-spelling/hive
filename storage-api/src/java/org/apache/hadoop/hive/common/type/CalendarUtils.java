@@ -101,18 +101,18 @@ public class CalendarUtils {
    * @return day of epoch in the hybrid Julian/Gregorian
    */
   public static int convertDateToHybrid(int proleptic) {
-    int hyrbid = proleptic;
+    int hybrid = proleptic;
     if (proleptic < SWITCHOVER_DAYS) {
       String dateStr = PROLEPTIC_DATE_FORMAT.get().format(
           new Date(TimeUnit.DAYS.toMillis(proleptic)));
       try {
-        hyrbid = (int) TimeUnit.MILLISECONDS.toDays(
+        hybrid = (int) TimeUnit.MILLISECONDS.toDays(
             HYBRID_DATE_FORMAT.get().parse(dateStr).getTime());
       } catch (ParseException e) {
         throw new IllegalArgumentException("Can't parse " + dateStr, e);
       }
     }
-    return hyrbid;
+    return hybrid;
   }
 
   public static int convertDate(int original,
