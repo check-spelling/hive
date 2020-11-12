@@ -1612,7 +1612,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19061] - WM needs to output an event for allocation update
     * [HIVE-19062] - Update constraint_partition_columns.q.out
     * [HIVE-19065] - Metastore client compatibility check should include syncMetaStoreClient
-    * [HIVE-19071] - WM: backup resource plans cannot be used without quoted idenitifiers
+    * [HIVE-19071] - WM: backup resource plans cannot be used without quoted identifiers
     * [HIVE-19072] - incorrect token handling for LLAP plugin endpoint
     * [HIVE-19073] - StatsOptimizer may mangle constant columns
     * [HIVE-19074] - Vectorization: Add llap vectorization_div0.q.out Q output file
