@@ -578,7 +578,7 @@ public class TestReplicationScenarios {
     // Table dropped after "repl dump"
     run("DROP TABLE " + dbName + ".unptned", driver);
 
-    // Partition droppped after "repl dump"
+    // Partition dropped after "repl dump"
     run("ALTER TABLE " + dbName + ".ptned " + "DROP PARTITION(b=1)", driver);
 
     run("REPL LOAD " + dbName + " INTO " + replDbName, driverMirror);
@@ -633,7 +633,7 @@ public class TestReplicationScenarios {
     // Table dropped after "repl dump"
     run("DROP TABLE " + dbName + ".unptned", driver);
 
-    // Partition droppped after "repl dump"
+    // Partition dropped after "repl dump"
     run("ALTER TABLE " + dbName + ".ptned " + "DROP PARTITION(b=1)", driver);
 
     run("REPL LOAD " + dbName + " INTO " + replDbName + lazyCopyClause, driverMirror);
