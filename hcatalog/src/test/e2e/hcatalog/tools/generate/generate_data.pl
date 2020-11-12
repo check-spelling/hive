@@ -294,13 +294,13 @@ my $testvar = "\N{U+03b1}\N{U+03b3}\N{U+03b1}\N{U+03c0}\N{U+03b7}";
 
 sub getBulkCopyCmd($$;$)
 {
-    my ($tableName, $delimeter, $filename) = @_;
+    my ($tableName, $delimiter, $filename) = @_;
 
     $filename = $tableName if (!defined($filename));
         
     return "load data local infile '" . cwd . "/$filename'
             into table $tableName
-            columns terminated by '$delimeter';" 
+            columns terminated by '$delimiter';" 
 }
 
 sub generateSecondHalfCreateTable($$$;$$$)
