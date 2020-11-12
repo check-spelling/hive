@@ -39,7 +39,7 @@ import org.apache.hadoop.io.LongWritable;
  * b) and use a.doubleValue() == b.doubleValue() is enough.
  *
  * The case of int + double will be handled by implicit type casting using
- * UDFRegistry.implicitConvertable method.
+ * UDFRegistry.implicitConvertible method.
  */
 @Description(name = "+", value = "a _FUNC_ b - Returns a+b")
 public class GenericUDFOPNumericPlus extends GenericUDFBaseNumeric {
