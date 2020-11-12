@@ -286,12 +286,12 @@ public class HiveCalciteUtil {
    * JoinPredicateInfo = JoinLeafPredicateInfo1 and JoinLeafPredicateInfo2...<br>
    * <p>
    * JoinPredicateInfo:<br>
-   * 1. preserves the order of conjuctive elements for
+   * 1. preserves the order of conjunctive elements for
    * equi-join(equiJoinPredicateElements)<br>
    * 2. Stores set of projection indexes from left and right child which is part
    * of equi join keys; the indexes are both in child and Join node schema.<br>
    * 3. Keeps a map of projection indexes that are part of join keys to list of
-   * conjuctive elements(JoinLeafPredicateInfo) that uses them.
+   * conjunctive elements(JoinLeafPredicateInfo) that uses them.
    *
    */
   public static class JoinPredicateInfo {
@@ -397,14 +397,14 @@ public class HiveCalciteUtil {
       Map<Integer, List<JoinLeafPredicateInfo>> tmpMapOfProjIndxInJoinSchemaToLeafPInfo = new HashMap<Integer, List<JoinLeafPredicateInfo>>();
       Map<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndxInJoinSchemaToLeafPInfo = new HashMap<Integer, ImmutableList<JoinLeafPredicateInfo>>();
       List<JoinLeafPredicateInfo> tmpJLPILst = null;
-      List<RexNode> conjuctiveElements;
+      List<RexNode> conjunctiveElements;
 
       // 1. Decompose Join condition to a number of leaf predicates
-      // (conjuctive elements)
-      conjuctiveElements = RelOptUtil.conjunctions(predicate);
+      // (conjunctive elements)
+      conjunctiveElements = RelOptUtil.conjunctions(predicate);
 
       // 2. Walk through leaf predicates building up JoinLeafPredicateInfo
-      for (RexNode ce : conjuctiveElements) {
+      for (RexNode ce : conjunctiveElements) {
         // 2.1 Construct JoinLeafPredicateInfo
         jlpi = JoinLeafPredicateInfo.constructJoinLeafPredicateInfo(inputs, systemFieldList, ce);
 
@@ -448,7 +448,7 @@ public class HiveCalciteUtil {
 
   /**
    * JoinLeafPredicateInfo represents leaf predicate in Join condition
-   * (conjuctive lement).<br>
+   * (conjunctive lement).<br>
    * <p>
    * JoinLeafPredicateInfo:<br>
    * 1. Stores list of expressions from left and right child which is part of
