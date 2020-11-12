@@ -52,9 +52,9 @@ public class HiveIOExceptionHandlerUtil {
    */
   public static RecordReader handleRecordReaderCreationException(Exception e,
       JobConf job) throws IOException {
-    HiveIOExceptionHandlerChain ioExpectionHandlerChain = get(job);
-    if (ioExpectionHandlerChain != null) {
-      return ioExpectionHandlerChain.handleRecordReaderCreationException(e);
+    HiveIOExceptionHandlerChain ioExceptionHandlerChain = get(job);
+    if (ioExceptionHandlerChain != null) {
+      return ioExceptionHandlerChain.handleRecordReaderCreationException(e);
     }
     throw new IOException(e);
   }
@@ -72,9 +72,9 @@ public class HiveIOExceptionHandlerUtil {
    */
   public static boolean handleRecordReaderNextException(Exception e, JobConf job)
       throws IOException {
-    HiveIOExceptionHandlerChain ioExpectionHandlerChain = get(job);
-    if (ioExpectionHandlerChain != null) {
-      return ioExpectionHandlerChain.handleRecordReaderNextException(e);
+    HiveIOExceptionHandlerChain ioExceptionHandlerChain = get(job);
+    if (ioExceptionHandlerChain != null) {
+      return ioExceptionHandlerChain.handleRecordReaderNextException(e);
     }
     throw new IOException(e);
   }
