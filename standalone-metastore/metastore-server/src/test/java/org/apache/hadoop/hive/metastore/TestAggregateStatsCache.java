@@ -66,7 +66,7 @@ public class TestAggregateStatsCache {
 
   @BeforeClass
   public static void beforeTest() {
-    // All data intitializations
+    // All data initializations
     initializeTables();
     initializePartitions();
     initializeColumns();
