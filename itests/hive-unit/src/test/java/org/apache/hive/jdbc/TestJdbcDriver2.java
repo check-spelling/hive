@@ -221,7 +221,7 @@ public class TestJdbcDriver2 {
 
 
   @Test
-  public void testExceucteUpdateCounts() throws Exception {
+  public void testExecuteUpdateCounts() throws Exception {
     Statement stmt =  con.createStatement();
     stmt.execute("set " + ConfVars.HIVE_SUPPORT_CONCURRENCY.varname + "=true");
     stmt.execute("set " + ConfVars.HIVE_TXN_MANAGER.varname +
