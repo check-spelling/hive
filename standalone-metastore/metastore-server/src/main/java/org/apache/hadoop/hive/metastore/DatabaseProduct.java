@@ -549,7 +549,7 @@ public class DatabaseProduct implements Configurable {
       }
       break;
     case SQLSERVER:
-      //2627 is unique constaint violation incl PK, 2601 - unique key
+      //2627 is unique constraint violation incl PK, 2601 - unique key
       if ((ex.getErrorCode() == 2627 || ex.getErrorCode() == 2601) && "23000".equals(ex.getSQLState())) {
         return true;
       }
