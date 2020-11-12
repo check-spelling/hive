@@ -59,7 +59,7 @@ public class TestAccumuloSerDeParameters {
   }
 
   @Test
-  public void testParseAuthorizationsFromnProperties() throws SerDeException {
+  public void testParseAuthorizationsFromProperties() throws SerDeException {
     Configuration conf = new Configuration();
     Properties properties = new Properties();
 
