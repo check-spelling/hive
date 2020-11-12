@@ -113,7 +113,7 @@ public class TestSessionUserName {
 
   /**
    * Get a mocked Hive object that does not create a real meta store client object
-   * This gets rid of the datanucleus initializtion which makes it easier
+   * This gets rid of the datanucleus initialization which makes it easier
    * to run test from IDEs
    * @param hiveConf
    * @throws MetaException
