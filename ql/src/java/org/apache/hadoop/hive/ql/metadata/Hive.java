@@ -4645,7 +4645,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
   }
 
   /**
-   * If moving across different FileSystems or differnent encryption zone, need to do a File copy instead of rename.
+   * If moving across different FileSystems or different encryption zone, need to do a File copy instead of rename.
    * TODO- consider if need to do this for different file authority.
    * @throws HiveException
    */
