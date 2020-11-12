@@ -297,7 +297,7 @@ public class SparkTask extends Task<SparkWork> {
   }
 
   /**
-   * Use the Spark metrics and calculate how much task executione time was spent performing GC
+   * Use the Spark metrics and calculate how much task execution time was spent performing GC
    * operations. If more than a defined threshold of time is spent, print out a warning on the
    * console.
    */

@@ -93,7 +93,7 @@ public class TestExecutor extends Thread {
           test.setStatus(Status.inProgress());
           test.setDequeueTime(System.currentTimeMillis());
           if(mExecutionContext == null) {
-            mExecutionContext = createExceutionContext();
+            mExecutionContext = createExecutionContext();
           }
           test.setExecutionStartTime(System.currentTimeMillis());
           TestStartRequest startRequest = test.getStartRequest();
@@ -175,7 +175,7 @@ public class TestExecutor extends Thread {
       mExecutionContext = null;
     }
   }
-  private ExecutionContext createExceutionContext()
+  private ExecutionContext createExecutionContext()
       throws ServiceNotAvailableException, InterruptedException, CreateHostsFailedException {
     long start = System.currentTimeMillis();
     LOG.info("Attempting to create a new execution context");
