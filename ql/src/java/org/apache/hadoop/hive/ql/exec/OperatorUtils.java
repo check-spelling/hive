@@ -679,7 +679,7 @@ public class OperatorUtils {
     while (!parentOps.isEmpty()) {
       Operator<?> currentOp = parentOps.pop();
       if (currentOp instanceof ReduceSinkOperator) {
-        // Dont want to follow that parent path
+        // Don't want to follow that parent path
         continue;
       }
       // If columnName is the output of a ColumnExpr get the original columnName from the Expr Map

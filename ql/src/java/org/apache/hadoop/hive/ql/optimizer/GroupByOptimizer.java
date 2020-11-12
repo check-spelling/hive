@@ -182,7 +182,7 @@ public class GroupByOptimizer extends Transform {
       boolean optimizeDistincts = false;
       boolean setBucketGroup = false;
 
-      // Dont remove the operator for distincts
+      // Don't remove the operator for distincts
       if (useMapperSort &&
           (match == GroupByOptimizerSortMatch.COMPLETE_MATCH)) {
         if (!groupByOpDesc.isDistinct()) {

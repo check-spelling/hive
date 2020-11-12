@@ -799,7 +799,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
     } catch (TException e) {
       LOG.debug("Unable to shutdown metastore client. Will try closing transport directly.", e);
     }
-    // Transport would have got closed via client.shutdown(), so we dont need this, but
+    // Transport would have got closed via client.shutdown(), so we don't need this, but
     // just in case, we make this call.
     if ((transport != null) && transport.isOpen()) {
       transport.close();

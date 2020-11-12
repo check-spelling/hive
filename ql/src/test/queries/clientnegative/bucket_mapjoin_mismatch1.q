@@ -19,7 +19,7 @@ load data local inpath '../../data/files/bmj/000000_0'
 load data local inpath '../../data/files/bmj/000001_0'
   INTO TABLE srcbucket_mapjoin_part_2 partition(ds='2008-04-08');
 
--- The number of buckets in the 2 tables above (being joined later) dont match.
+-- The number of buckets in the 2 tables above (being joined later) don't match.
 -- Throw an error if the user requested a bucketed mapjoin to be enforced.
 -- In the default case (hive.enforce.bucketmapjoin=false), the query succeeds 
 -- even though mapjoin is not being performed

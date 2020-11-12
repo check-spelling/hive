@@ -349,7 +349,7 @@ abstract public class AbstractSMBJoinProc extends AbstractBucketJoinProc impleme
     }
 
     // A join is eligible for a sort-merge join, only if it is eligible for
-    // a bucketized map join. So, we dont need to check for bucketized map
+    // a bucketized map join. So, we don't need to check for bucketized map
     // join here. We are guaranteed that the join keys contain all the
     // bucketized keys (note that the order need not be the same).
     List<String> sortColNames = new ArrayList<String>();

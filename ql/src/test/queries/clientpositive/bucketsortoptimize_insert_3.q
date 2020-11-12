@@ -20,7 +20,7 @@ FROM src
 INSERT OVERWRITE TABLE test_table1_n19 PARTITION (ds = '1') SELECT *;
 
 -- Insert data into the bucketed table by selecting from another bucketed table
--- The bucketing positions dont match - although the actual bucketing do.
+-- The bucketing positions don't match - although the actual bucketing do.
 -- This should be a map-only operation
 EXPLAIN
 INSERT OVERWRITE TABLE test_table2_n18 PARTITION (ds = '1')
@@ -39,7 +39,7 @@ CREATE TABLE test_table3_n10 (key INT, value STRING) PARTITIONED BY (ds STRING)
 CLUSTERED BY (value) SORTED BY (value) INTO 2 BUCKETS;
 
 -- Insert data into the bucketed table by selecting from another bucketed table
--- The bucketing positions dont match - this should be a map-reduce operation
+-- The bucketing positions don't match - this should be a map-reduce operation
 EXPLAIN
 INSERT OVERWRITE TABLE test_table2_n18 PARTITION (ds = '1')
 SELECT x.key, x.value from 
