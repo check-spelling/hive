@@ -59,12 +59,12 @@ public class TestTxnExIm extends TxnCommandsBaseForTests {
   public void testExportCustomDb() throws Exception {
     testExport(false);
   }
-  private void testExport(boolean useDefualtDb) throws Exception {
+  private void testExport(boolean useDefaultDb) throws Exception {
     int[][] rows1 = {{1, 2}, {3, 4}};
-    final String tblName = useDefualtDb ? "T" : "foo.T";
+    final String tblName = useDefaultDb ? "T" : "foo.T";
     runStatementOnDriver("drop table if exists " + tblName);
     runStatementOnDriver("drop table if exists TImport ");
-    if(!useDefualtDb) {
+    if(!useDefaultDb) {
       runStatementOnDriver("create database foo");
     }
     runStatementOnDriver("create table " + tblName + " (a int, b int) stored as ORC");
