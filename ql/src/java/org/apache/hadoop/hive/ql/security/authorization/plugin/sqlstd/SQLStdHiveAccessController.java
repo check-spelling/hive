@@ -238,7 +238,7 @@ public class SQLStdHiveAccessController implements HiveAccessController {
 
     try {
       // unfortunately, the metastore api revokes all privileges that match on
-      // principal, privilege object type it does not filter on the grator
+      // principal, privilege object type it does not filter on the grantor
       // username.
       // So this will revoke privileges that are granted by other users.This is
       // not SQL compliant behavior. Need to change/add a metastore api
