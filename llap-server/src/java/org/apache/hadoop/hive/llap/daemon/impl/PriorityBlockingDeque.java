@@ -111,7 +111,7 @@ public class PriorityBlockingDeque<E>
     }
 
     list.add(insertionPoint, e);
-    // Inserted in sort order. Hence no explict sort.
+    // Inserted in sort order. Hence no explicit sort.
     notEmpty.signal();
 
     return true;
