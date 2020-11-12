@@ -84,7 +84,7 @@ public class QTestDatasetHandler implements QTestOptionHandler {
 
     try {
       CommandProcessorResponse result = cliDriver.processLine(commands);
-      LOG.info("Result from cliDrriver.processLine in initFromDatasets=" + result);
+      LOG.info("Result from cliDriver.processLine in initFromDatasets=" + result);
     } catch (CommandProcessorException e) {
       Assert.fail("Failed during initFromDatasets processLine with code=" + e);
     }
@@ -95,7 +95,7 @@ public class QTestDatasetHandler implements QTestOptionHandler {
   public boolean unloadDataset(String table, CliDriver cliDriver) throws Exception {
     try {
       CommandProcessorResponse result = cliDriver.processLine("drop table " + table);
-      LOG.info("Result from cliDrriver.processLine in initFromDatasets=" + result);
+      LOG.info("Result from cliDriver.processLine in initFromDatasets=" + result);
     } catch (CommandProcessorException e) {
       Assert.fail("Failed during initFromDatasets processLine with code=" + e);
     }
