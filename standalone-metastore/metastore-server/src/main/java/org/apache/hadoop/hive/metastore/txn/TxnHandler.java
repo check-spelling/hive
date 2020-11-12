@@ -5504,7 +5504,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
             if (!isDuplicateKeyError(ex)) {
               throw new RuntimeException("Unable to lock " + quoteString(key) + " due to: " + getMessage(ex), ex);
             }
-            //if here, it means a concrurrent acquireLock() inserted the 'key'
+            //if here, it means a concurrent acquireLock() inserted the 'key'
 
             //rollback is done for the benefit of Postgres which throws (SQLState=25P02, ErrorCode=0) if
             //you attempt any stmt in a txn which had an error.

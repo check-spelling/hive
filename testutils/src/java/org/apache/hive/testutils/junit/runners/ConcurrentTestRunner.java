@@ -45,7 +45,7 @@ public class ConcurrentTestRunner extends BlockJUnit4ClassRunner {
 
     setScheduler(new ConcurrentScheduler(newFixedThreadPool(numThreads, new ConcurrentTestRunnerThreadFactory())));
 
-    System.err.println(">>> ConcurrenTestRunner initialize with " + numThreads + " threads");
+    System.err.println(">>> ConcurrentTestRunner initialize with " + numThreads + " threads");
     System.err.flush();
   }
 
