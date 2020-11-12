@@ -99,7 +99,7 @@ public class TestContainerRunnerImpl {
     srvAddress.set(serverSocket);
 
     this.metrics = LlapDaemonExecutorMetrics
-        .create("ContinerRunerTests", MetricsUtils.getUUID(), numExecutors, waitQueueSize,
+        .create("ContainerRunerTests", MetricsUtils.getUUID(), numExecutors, waitQueueSize,
             Ints.toArray(intervalList), 0, 0L, 0);
 
     for (int i = 0; i < numLocalDirs; i++) {
