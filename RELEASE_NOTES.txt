@@ -887,7 +887,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16399] - create an index for tc_txnid in TXN_COMPONENTS
     * [HIVE-16402] - Upgrade to Hadoop 2.8.0
     * [HIVE-16403] - LLAP UI shows the wrong number of executors
-    * [HIVE-16404] - Renaming of public classes in Calcite 12 breeaking druid integration
+    * [HIVE-16404] - Renaming of public classes in Calcite 12 breaking druid integration
     * [HIVE-16406] - Remove unwanted interning when creating PartitionDesc
     * [HIVE-16409] - TestEventHandlerFactory  has lacked the ASF header
     * [HIVE-16413] - Create table as select does not check ownership of the location
