@@ -4897,7 +4897,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
           pos = Integer.valueOf(pos.intValue() + 1);
         } else {
 
-          // 6.4 Build ExprNode corresponding to colums
+          // 6.4 Build ExprNode corresponding to columns
           if (expr.getType() == HiveParser.TOK_ALLCOLREF) {
             pos = genRexNodeRegex(".*",
                 expr.getChildCount() == 0 ? null : getUnescapedName((ASTNode) expr.getChild(0)).toLowerCase(),
