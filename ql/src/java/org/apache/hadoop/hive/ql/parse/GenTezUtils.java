@@ -487,7 +487,7 @@ public class GenTezUtils {
   }
 
   /**
-   * getEncosingWork finds the BaseWork any given operator belongs to.
+   * getEncodingWork finds the BaseWork any given operator belongs to.
    */
   public static BaseWork getEnclosingWork(Operator<?> op, GenTezProcContext procCtx) {
     List<Operator<?>> ops = new ArrayList<Operator<?>>();
