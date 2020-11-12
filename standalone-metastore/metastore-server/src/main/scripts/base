@@ -173,7 +173,7 @@ if [ "$SKIP_HADOOPVERSION" = false ]; then
       HADOOP_VERSION=$($HADOOP version 2>&2 | awk -F"\t" '/Hadoop/ {print $0}' | cut -d' ' -f 2);
   fi
   
-  # Save the regex to a var to workaround quoting incompatabilities
+  # Save the regex to a var to workaround quoting incompatibilities
   # between Bash 3.1 and 3.2
   hadoop_version_re="^([[:digit:]]+)\.([[:digit:]]+)(\.([[:digit:]]+))?.*$"
   
