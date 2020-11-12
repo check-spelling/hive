@@ -57,7 +57,7 @@ public class SmokeTest {
 
     File dbDir = new File(System.getProperty("java.io.tmpdir"), "internal_smoke_test");
     if (!dbDir.mkdir()) {
-      throw new RuntimeException("Unable to create direcotory " + dbDir.getAbsolutePath());
+      throw new RuntimeException("Unable to create directory " + dbDir.getAbsolutePath());
     }
     dbDir.deleteOnExit();
 
