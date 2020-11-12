@@ -729,7 +729,7 @@ public class TezSessionState {
   }
 
   protected final void cleanupDagResources() throws IOException {
-    LOG.info("Attemting to clean up resources for " + sessionId + ": " + resources);
+    LOG.info("Attempting to clean up resources for " + sessionId + ": " + resources);
     if (resources != null) {
       FileSystem fs = resources.dagResourcesDir.getFileSystem(conf);
       fs.delete(resources.dagResourcesDir, true);
