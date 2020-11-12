@@ -387,7 +387,7 @@ public class LlapUtil {
   }
 
   /**
-   * transform a byte of crendetials to a hadoop Credentials object.
+   * transform a byte of credentials to a hadoop Credentials object.
    * @param binaryCredentials credentials in byte format as they would
    *                          usually be when received from protobuffers
    * @return a hadoop Credentials object
