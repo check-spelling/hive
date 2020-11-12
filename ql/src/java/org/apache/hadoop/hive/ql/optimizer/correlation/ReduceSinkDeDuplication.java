@@ -78,7 +78,7 @@ public class ReduceSinkDeDuplication extends Transform {
         !pctx.getConf().getBoolVar(ConfVars.HIVE_CONVERT_JOIN_BUCKET_MAPJOIN_TEZ) &&
         !pctx.getConf().getBoolVar(ConfVars.HIVEDYNAMICPARTITIONHASHJOIN);
 
-    // If multiple rules can be matched with same cost, last rule will be choosen as a processor
+    // If multiple rules can be matched with same cost, last rule will be chosen as a processor
     // see DefaultRuleDispatcher#dispatch()
     Map<SemanticRule, SemanticNodeProcessor> opRules = new LinkedHashMap<SemanticRule, SemanticNodeProcessor>();
     opRules.put(new RuleRegExp("R1", RS + "%.*%" + RS + "%"),
