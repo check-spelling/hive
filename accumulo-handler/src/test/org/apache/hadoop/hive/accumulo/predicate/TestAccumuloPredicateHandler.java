@@ -614,7 +614,7 @@ public class TestAccumuloPredicateHandler {
   }
 
   @Test
-  public void testPrimitiveComparsionLookup() throws NoSuchPrimitiveComparisonException {
+  public void testPrimitiveComparisonLookup() throws NoSuchPrimitiveComparisonException {
     boolean foundLong = false;
     boolean foundString = false;
     boolean foundInt = false;

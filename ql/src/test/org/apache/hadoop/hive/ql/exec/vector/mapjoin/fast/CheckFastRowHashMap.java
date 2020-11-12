@@ -202,7 +202,7 @@ public class CheckFastRowHashMap extends CheckFastHashTable {
         }
       }
       if (!VerifyLazy.lazyCompare(typeInfo, complexFieldObj, expectedObject)) {
-        TestCase.fail("Comparision failed typeInfo " + typeInfo.toString());
+        TestCase.fail("Comparison failed typeInfo " + typeInfo.toString());
       }
     }
   }

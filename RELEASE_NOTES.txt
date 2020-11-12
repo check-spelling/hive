@@ -676,7 +676,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18673] - ErrorMsg.SPARK_JOB_MONITOR_TIMEOUT isn't formatted correctly
     * [HIVE-18677] - SparkClientImpl usage of SessionState.LogHelper doesn't respect isSilent value
     * [HIVE-18679] - create/replicate open transaction event
-    * [HIVE-18703] - Make Operator comparision to be based on some primitive
+    * [HIVE-18703] - Make Operator comparison to be based on some primitive
     * [HIVE-18715] - Remove index support from metastore
     * [HIVE-18720] - Replicate Commit Txn operation (without writes)
     * [HIVE-18745] - Fix MetaStore creation in tests, so multiple MetaStores can be started on the same machine

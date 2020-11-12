@@ -905,7 +905,7 @@ public final class HiveDecimalWritable extends FastHiveDecimal
   @Override
   public int compareTo(HiveDecimalWritable writable) {
     if (!isSet() || writable == null || !writable.isSet()) {
-      throw new RuntimeException("Invalid comparision operand(s)");
+      throw new RuntimeException("Invalid comparison operand(s)");
     }
     return fastCompareTo(writable);
   }
@@ -913,7 +913,7 @@ public final class HiveDecimalWritable extends FastHiveDecimal
   @HiveDecimalWritableVersionV2
   public int compareTo(HiveDecimal dec) {
     if (!isSet() || dec == null) {
-      throw new RuntimeException("Invalid comparision operand(s)");
+      throw new RuntimeException("Invalid comparison operand(s)");
     }
     return fastCompareTo(dec);
   }
@@ -921,7 +921,7 @@ public final class HiveDecimalWritable extends FastHiveDecimal
   @HiveDecimalWritableVersionV2
   public static int compareTo(HiveDecimal dec, HiveDecimalWritable writable) {
     if (dec == null || !writable.isSet()) {
-      throw new RuntimeException("Invalid comparision operand(s)");
+      throw new RuntimeException("Invalid comparison operand(s)");
     }
     return FastHiveDecimal.fastCompareTo(dec, writable);
   }
