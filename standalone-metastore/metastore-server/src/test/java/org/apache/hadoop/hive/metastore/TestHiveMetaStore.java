@@ -181,7 +181,7 @@ public abstract class TestHiveMetaStore {
 
   /**
    * tests create table and partition and tries to drop the table without
-   * droppping the partition
+   * dropping the partition
    *
    */
   @Test
