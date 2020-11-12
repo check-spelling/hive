@@ -252,14 +252,14 @@ public class CorrelationOptimizer extends Transform {
   private class CorrelationNodeProc implements SemanticNodeProcessor {
 
     private void analyzeReduceSinkOperatorsOfJoinOperator(JoinCondDesc[] joinConds,
-        List<Operator<? extends OperatorDesc>> rsOps, Operator<? extends OperatorDesc> curentRsOp,
+        List<Operator<? extends OperatorDesc>> rsOps, Operator<? extends OperatorDesc> currentRsOp,
         Set<ReduceSinkOperator> correlatedRsOps) {
-      if (correlatedRsOps.contains(curentRsOp)) {
+      if (correlatedRsOps.contains(currentRsOp)) {
         return;
       }
-      correlatedRsOps.add((ReduceSinkOperator) curentRsOp);
+      correlatedRsOps.add((ReduceSinkOperator) currentRsOp);
 
-      int pos = rsOps.indexOf(curentRsOp);
+      int pos = rsOps.indexOf(currentRsOp);
       for (int i = 0; i < joinConds.length; i++) {
         JoinCondDesc joinCond = joinConds[i];
         int type = joinCond.getType();
