@@ -329,19 +329,19 @@ public class TestFunctionRegistry {
 
       for (String cat2 : typeStrings) {
         TypeInfo commonClass = null;
-        boolean implicitConvertable = false;
+        boolean implicitConvertible = false;
         try {
           TypeInfo ti2 = TypeInfoUtils.getTypeInfoFromTypeString(cat2);
           try {
             commonClass = FunctionRegistry.getCommonClassForComparison(ti1, ti2);
-            //implicitConvertable = FunctionRegistry.implicitConvertable(ti1, ti2);
+            //implicitConvertible = FunctionRegistry.implicitConvertible(ti1, ti2);
           } catch (Exception err) {
             System.out.println("Failed to get common class for " + ti1 + ", " + ti2 + ": " + err);
             err.printStackTrace();
             //System.out.println("Unable to get TypeInfo for " + cat2 + ", skipping ...");
           }
           System.out.println(cat1 + " - " + cat2 + ": " + commonClass);
-          //System.out.println(cat1 + " - " + cat2 + ": " + implicitConvertable);
+          //System.out.println(cat1 + " - " + cat2 + ": " + implicitConvertible);
         } catch (Exception err) {
           System.out.println(err);
           System.out.println("Unable to get TypeInfo for " + cat2 + ", skipping ...");
