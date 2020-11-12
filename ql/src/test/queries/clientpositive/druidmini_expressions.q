@@ -188,7 +188,7 @@ SELECT sum(cint) FROM druid_table_alltypesorc WHERE cfloat= 0.011 group by cfloa
 EXPLAIN SELECT cfloat, sum(cint) FROM druid_table_alltypesorc WHERE cfloat= 0.011 group by cfloat;
 SELECT cfloat, sum(cint) FROM druid_table_alltypesorc WHERE cfloat= 0.011 group by cfloat;
 
--- Tests for testing handling of date/time funtions on druid dimensions stored as strings
+-- Tests for testing handling of date/time functions on druid dimensions stored as strings
 CREATE TABLE druid_table_n1
 STORED BY 'org.apache.hadoop.hive.druid.DruidStorageHandler'
 TBLPROPERTIES ("druid.segment.granularity" = "HOUR", "druid.query.granularity" = "MINUTE")
