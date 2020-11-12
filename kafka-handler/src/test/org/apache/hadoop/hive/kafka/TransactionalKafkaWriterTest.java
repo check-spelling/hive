@@ -209,7 +209,7 @@ public class TransactionalKafkaWriterTest {
         writer =
         new TransactionalKafkaWriter(TOPIC, properties, queryWorkingPath, fs, false);
 
-    //noinspection unused this is actually used, the contstructor start the TX that is what we need
+    //noinspection unused this is actually used, the constructor start the TX that is what we need
     TransactionalKafkaWriter
         newWriter =
         new TransactionalKafkaWriter(TOPIC, properties, queryWorkingPath, fs, false);

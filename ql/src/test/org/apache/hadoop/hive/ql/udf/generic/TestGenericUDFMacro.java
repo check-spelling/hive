@@ -88,7 +88,7 @@ public class TestGenericUDFMacro {
     Assert.assertEquals(name + "(x, y)", udf.getDisplayString(new String[] { "x", "y"}));
   }
   @Test
-  public void testNoArgsContructor() throws Exception {
+  public void testNoArgsConstructor() throws Exception {
     udf = new GenericUDFMacro();
     Assert.assertTrue(udf.isDeterministic());
     Assert.assertFalse(udf.isStateful());
