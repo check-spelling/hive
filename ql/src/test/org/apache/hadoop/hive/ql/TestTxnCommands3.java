@@ -195,7 +195,7 @@ public class TestTxnCommands3 extends TxnCommandsBaseForTests {
    * HIVE-19985
    */
   @Test
-  public void testAcidMetaColumsDecode() throws Exception {
+  public void testAcidMetaColumnsDecode() throws Exception {
     //this only applies in vectorized mode
     hiveConf.setBoolVar(HiveConf.ConfVars.HIVE_VECTORIZATION_ENABLED, true);
     hiveConf.set(MetastoreConf.ConfVars.CREATE_TABLES_AS_ACID.getVarname(), "true");

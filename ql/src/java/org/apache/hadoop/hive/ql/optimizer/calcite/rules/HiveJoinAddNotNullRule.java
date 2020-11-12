@@ -46,7 +46,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 /**
- * Responsible for adding not null rules to joins, when the declaration of a join implies that some coulmns
+ * Responsible for adding not null rules to joins, when the declaration of a join implies that some columns
  * may not be null.
  */
 public final class HiveJoinAddNotNullRule extends RelOptRule {
