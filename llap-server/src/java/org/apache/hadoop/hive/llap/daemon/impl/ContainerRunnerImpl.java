@@ -241,7 +241,7 @@ public class ContainerRunnerImpl extends CompositeService implements ContainerRu
     verifyJwtForExternalClient(request, qIdProto.getApplicationIdString(), fragmentIdString);
 
     if (LOG.isInfoEnabled()) {
-      LOG.info("Queueing container for execution: fragemendId={}, {}",
+      LOG.info("Queueing container for execution: fragementId={}, {}",
           fragmentIdString, stringifySubmitRequest(request, vertex));
     }
 
