@@ -2480,7 +2480,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
           if (isShutdown.get()) {
             return null; // We are good.
           }
-          LOG.error("Scheduler thread was interrupte without shutdown and will now exit", ie);
+          LOG.error("Scheduler thread was interrupted without shutdown and will now exit", ie);
           throw ie;
         } catch (Throwable t) {
           // TODO: we might as well kill the AM at this point. How do we do that from here?
