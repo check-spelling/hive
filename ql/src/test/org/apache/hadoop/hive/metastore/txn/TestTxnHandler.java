@@ -1539,7 +1539,7 @@ public class TestTxnHandler {
   }
 
   /**
-   * This cannnot be run against Derby (thus in UT) but it can run against MySQL.
+   * This cannot be run against Derby (thus in UT) but it can run against MySQL.
    * 1. add to metastore/pom.xml
    *     <dependency>
    *      <groupId>mysql</groupId>
