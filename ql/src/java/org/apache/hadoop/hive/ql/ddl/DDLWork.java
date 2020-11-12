@@ -36,7 +36,7 @@ public final class DDLWork implements Serializable {
   private DDLDesc ddlDesc;
   private boolean needLock = false;
 
-  /** ReadEntitites that are passed to the hooks. */
+  /** ReadEntities that are passed to the hooks. */
   private Set<ReadEntity> inputs;
   /** List of WriteEntities that are passed to the hooks. */
   private Set<WriteEntity> outputs;
