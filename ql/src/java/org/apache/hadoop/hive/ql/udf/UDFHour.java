@@ -44,7 +44,7 @@ import java.util.TimeZone;
  *
  */
 @Description(name = "hour",
-    value = "_FUNC_(param) - Returns the hour componemnt of the string/timestamp/interval",
+    value = "_FUNC_(param) - Returns the hour component of the string/timestamp/interval",
     extended ="param can be one of:\n"
     + "1. A string in the format of 'yyyy-MM-dd HH:mm:ss' or 'HH:mm:ss'.\n"
     + "2. A timestamp value\n"
