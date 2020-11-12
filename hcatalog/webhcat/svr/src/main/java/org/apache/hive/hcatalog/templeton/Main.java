@@ -274,7 +274,7 @@ public class Main {
 
   public FilterHolder makeFrameOptionFilter() {
     FilterHolder frameOptionFilter = new FilterHolder(XFrameOptionsFilter.class);
-    frameOptionFilter.setInitParameter(AppConfig.FRAME_OPTIONS_FILETER, conf.get(AppConfig.FRAME_OPTIONS_FILETER));
+    frameOptionFilter.setInitParameter(AppConfig.FRAME_OPTIONS_FILTER, conf.get(AppConfig.FRAME_OPTIONS_FILTER));
     return frameOptionFilter;
   }
 
@@ -285,7 +285,7 @@ public class Main {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-      mode = filterConfig.getInitParameter(AppConfig.FRAME_OPTIONS_FILETER);
+      mode = filterConfig.getInitParameter(AppConfig.FRAME_OPTIONS_FILTER);
       if (mode == null) {
         mode = defaultMode;
       }

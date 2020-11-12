@@ -35,7 +35,7 @@ public class UtilTest {
   }
 
   /**
-   * Test that a null pattern returns all candidates for iflterMatches.
+   * Test that a null pattern returns all candidates for filterMatches.
    * Also verify that null candidates result in an empty result list.
    */
   @Test
