@@ -229,13 +229,13 @@ public class TestSparkTask {
 
   private boolean isEmptySparkWork(SparkWork sparkWork) {
     List<BaseWork> allWorks = sparkWork.getAllWork();
-    boolean allWorksIsEmtpy = true;
+    boolean allWorksIsEmpty = true;
     for (BaseWork work : allWorks) {
       if (work.getAllOperators().size() > 0) {
-        allWorksIsEmtpy = false;
+        allWorksIsEmpty = false;
         break;
       }
     }
-    return allWorksIsEmtpy;
+    return allWorksIsEmpty;
   }
 }

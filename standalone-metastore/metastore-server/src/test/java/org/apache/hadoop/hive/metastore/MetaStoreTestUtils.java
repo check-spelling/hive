@@ -59,7 +59,7 @@ public class MetaStoreTestUtils {
   /**
    * Starts a MetaStore instance on get given port with the given configuration and Thrift bridge.
    * Use it only it the port is definitely free. For tests use startMetaStoreWithRetry instead so
-   * the MetaStore will find an emtpy port eventually, so the different tests can be run on the
+   * the MetaStore will find an empty port eventually, so the different tests can be run on the
    * same machine.
    * @param port The port to start on
    * @param bridge The bridge to use
