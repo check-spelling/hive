@@ -1380,15 +1380,15 @@ public final class ConstantPropagateProcFactory {
       }
 
       // key columns
-      ArrayList<ExprNodeDesc> newKeyEpxrs = new ArrayList<ExprNodeDesc>();
+      ArrayList<ExprNodeDesc> newKeyExprs = new ArrayList<ExprNodeDesc>();
       for (ExprNodeDesc desc : rsDesc.getKeyCols()) {
         ExprNodeDesc newDesc = foldExpr(desc, constants, cppCtx, op, 0, false);
         if (newDesc != desc && desc instanceof ExprNodeColumnDesc && newDesc instanceof ExprNodeConstantDesc) {
           ((ExprNodeConstantDesc)newDesc).setFoldedTabCol((ExprNodeColumnDesc)desc);
         }
-        newKeyEpxrs.add(newDesc);
+        newKeyExprs.add(newDesc);
       }
-      rsDesc.setKeyCols(newKeyEpxrs);
+      rsDesc.setKeyCols(newKeyExprs);
 
       // partition columns
       ArrayList<ExprNodeDesc> newPartExprs = new ArrayList<ExprNodeDesc>();
