@@ -210,7 +210,7 @@ def make_report(args):
             failed_results[host].append(test)
     if failed_results:
         print()
-        print('Some tests faled to produce a log and are not included in the report:')
+        print('Some tests failed to produce a log and are not included in the report:')
         for host in failed_results:
             print('  {0}:'.format(host))
             for test in failed_results[host]:

@@ -1553,7 +1553,7 @@ sub tmpIPCRunSplitStdoe {
     #DIE IF Test Failed, otherwise return stdout and stderr
     if ( $failed ) {
 
-        $msg = "$0::$subName FATAL: Faied from $runningSubName \nSTDOUT:" . $stdout . "\nSTDERR:" . $stderr . "\n" if ( $failed );
+        $msg = "$0::$subName FATAL: Failed from $runningSubName \nSTDOUT:" . $stdout . "\nSTDERR:" . $stderr . "\n" if ( $failed );
         print $log "$msg";
         die $msg if ( $die != "1" ); #die by defaultast
         return ( -1, $stdout, $stderr );
