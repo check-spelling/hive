@@ -225,7 +225,7 @@ public class SetSparkReducerParallelism implements SemanticNodeProcessor {
       }
       while (descendants.size() != 0) {
         Operator<? extends OperatorDesc> descendant = descendants.pop();
-        //If the decendants contains LimitOperator,return false
+        //If the descendants contains LimitOperator,return false
         if (descendant instanceof LimitOperator) {
           return false;
         }
