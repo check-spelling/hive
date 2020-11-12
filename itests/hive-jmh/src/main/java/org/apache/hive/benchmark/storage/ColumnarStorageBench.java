@@ -89,7 +89,7 @@ import java.util.Arrays;
 public class ColumnarStorageBench {
  /**
   * This test measures the performance between different columnar storage formats used
-  * by Hive. If you need to add more formats, see the 'format' gobal variable to add
+  * by Hive. If you need to add more formats, see the 'format' global variable to add
   * a new one on the list, and create a class that implements StorageFormatTest interface.
   *
   * This test uses JMH framework for benchmarking.
