@@ -8434,7 +8434,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
     conf.setBoolVar(ConfVars.HIVEOPTREDUCEDEDUPLICATION, true);
     conf.setIntVar(ConfVars.HIVEOPTREDUCEDEDUPLICATIONMINREDUCER, 1);
     These props are now enabled elsewhere (see commit diffs).  It would be better instead to throw
-    if they are not set.  For exmaple, if user has set hive.optimize.reducededuplication=false for
+    if they are not set.  For example, if user has set hive.optimize.reducededuplication=false for
     some reason, we'll run a query contrary to what they wanted...  But throwing now would be
     backwards incompatible.
     */

@@ -277,7 +277,7 @@ sub getPigCmd
     my @cmd = ("$cfg->{'pigbin'}");
 
     
-    # sets the queue, for exampel "grideng"
+    # sets the queue, for example "grideng"
     if(defined($cfg->{'queue'})) {
         push( @cmd,'-Dmapred.job.queue.name='.$cfg->{'queue'});
     }

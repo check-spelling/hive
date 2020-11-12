@@ -16,7 +16,7 @@
 # * limitations under the License.
 # */
 #
-# This is an examle of properties needed by the PTest framework which are independent
+# This is an example of properties needed by the PTest framework which are independent
 # of the per branch test profiles
 #
 javaHome = /usr/lib/jvm/java-8-openjdk-amd64
