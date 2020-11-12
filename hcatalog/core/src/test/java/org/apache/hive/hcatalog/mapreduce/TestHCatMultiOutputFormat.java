@@ -201,7 +201,7 @@ public class TestHCatMultiOutputFormat {
     hiveConf.set(HiveConf.ConfVars.METASTOREWAREHOUSE.varname, warehousedir.toString());
     try {
       hmsc = new HiveMetaStoreClient(hiveConf);
-      initalizeTables();
+      initializeTables();
     } catch (Throwable e) {
       LOG.error("Exception encountered while setting up testcase", e);
       throw new Exception(e);
@@ -210,7 +210,7 @@ public class TestHCatMultiOutputFormat {
     }
   }
 
-  private static void initalizeTables() throws Exception {
+  private static void initializeTables() throws Exception {
     for (String table : tableNames) {
       try {
         if (hmsc.getTable(DATABASE, table) != null) {

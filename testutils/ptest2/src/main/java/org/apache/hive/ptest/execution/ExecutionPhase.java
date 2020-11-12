@@ -103,7 +103,7 @@ public class ExecutionPhase extends Phase {
     }
     try {
       int expectedNumHosts = hostExecutors.size();
-      initalizeHosts();
+      initializeHosts();
       resetPerfMetrics();
       do {
         replaceBadHosts(expectedNumHosts);
@@ -188,7 +188,7 @@ public class ExecutionPhase extends Phase {
       for(Host host : executionContext.getHosts()) {
         if(!goodHosts.contains(host)) {
           HostExecutor hostExecutor = hostExecutorBuilder.build(host);
-          initalizeHost(hostExecutor);
+          initializeHost(hostExecutor);
           if(hostExecutor.isBad()) {
             executionContext.addBadHost(hostExecutor.getHost());
           } else {

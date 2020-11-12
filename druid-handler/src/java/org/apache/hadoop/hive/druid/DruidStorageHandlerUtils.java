@@ -224,7 +224,7 @@ public final class DruidStorageHandlerUtils {
   private static final int DEFAULT_MAX_TRIES = 10;
 
   static {
-    // This is needed to initliaze NullHandling for druid without guice.
+    // This is needed to initialize NullHandling for druid without guice.
     NullHandling.initializeForTests();
     // This is needed for serde of PagingSpec as it uses JacksonInject for injecting SelectQueryConfig
     InjectableValues.Std injectableValues = new InjectableValues.Std()

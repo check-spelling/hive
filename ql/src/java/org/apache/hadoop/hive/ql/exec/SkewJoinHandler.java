@@ -105,7 +105,7 @@ public class SkewJoinHandler {
     noOuterJoin = joinOp.noOuterJoin;
   }
 
-  public void initiliaze(Configuration hconf) {
+  public void initialize(Configuration hconf) {
     this.hconf = hconf;
     JoinDesc desc = joinOp.getConf();
     skewKeyDefinition = desc.getSkewKeyDefinition();
