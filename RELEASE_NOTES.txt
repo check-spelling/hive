@@ -746,7 +746,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19319] - RuntimeStats fixes
     * [HIVE-19322] - broken test: TestNegativeMinimrCliDriver#testCliDriver[minimr_broken_pipe]
     * [HIVE-19335] - Disable runtime filtering (semijoin reduction opt with bloomfilter) for external tables
-    * [HIVE-19346] - TestMiniLlapLocalCliDriver.testCliDriver[materialized_view_create_rewrite_5] failling
+    * [HIVE-19346] - TestMiniLlapLocalCliDriver.testCliDriver[materialized_view_create_rewrite_5] failing
     * [HIVE-19347] - TestTriggersWorkloadManager tests are failing consistently
     * [HIVE-19348] -  org.apache.hadoop.hive.ql.plan.mapping.TestOperatorCmp are failing
     * [HIVE-19371] - Add table ownerType to HMS thrift API
