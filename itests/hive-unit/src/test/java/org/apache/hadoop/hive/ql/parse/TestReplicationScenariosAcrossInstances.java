@@ -169,13 +169,13 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
     Path identityUdf2HdfsPath = new Path(primary.functionsRoot, "idFunc2" + File.separator + "identity_udf2.jar");
     setupUDFJarOnHDFS(identityUdfLocalPath, identityUdf1HdfsPath);
     setupUDFJarOnHDFS(identityUdfLocalPath, identityUdf2HdfsPath);
-    List<String> withClasuse = Arrays.asList("'" + HiveConf.ConfVars.REPL_RUN_DATA_COPY_TASKS_ON_TARGET.varname + "'='true'");
+    List<String> withClause = Arrays.asList("'" + HiveConf.ConfVars.REPL_RUN_DATA_COPY_TASKS_ON_TARGET.varname + "'='true'");
 
     primary.run("CREATE FUNCTION " + primaryDbName
             + ".idFunc1 as 'IdentityStringUDF' "
             + "using jar  '" + identityUdf1HdfsPath.toString() + "'");
-    WarehouseInstance.Tuple bootStrapDump = primary.dump(primaryDbName, withClasuse);
-    replica.load(replicatedDbName, primaryDbName, withClasuse)
+    WarehouseInstance.Tuple bootStrapDump = primary.dump(primaryDbName, withClause);
+    replica.load(replicatedDbName, primaryDbName, withClause)
             .run("REPL STATUS " + replicatedDbName)
             .verifyResult(bootStrapDump.lastReplicationId)
             .run("SHOW FUNCTIONS LIKE '" + replicatedDbName + "%'")
@@ -188,8 +188,8 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
             + "using jar  '" + identityUdf2HdfsPath.toString() + "'");
 
     WarehouseInstance.Tuple incrementalDump =
-            primary.dump(primaryDbName, withClasuse);
-    replica.load(replicatedDbName, primaryDbName, withClasuse)
+            primary.dump(primaryDbName, withClause);
+    replica.load(replicatedDbName, primaryDbName, withClause)
             .run("REPL STATUS " + replicatedDbName)
             .verifyResult(incrementalDump.lastReplicationId)
             .run("SHOW FUNCTIONS LIKE '" + replicatedDbName + "%'")
