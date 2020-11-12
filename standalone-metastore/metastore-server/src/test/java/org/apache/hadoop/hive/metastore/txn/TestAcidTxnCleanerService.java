@@ -81,7 +81,7 @@ public class TestAcidTxnCleanerService {
 
     // always leaves the MAX(TXN_ID) in the TXNS table
     Assert.assertEquals(1, getTxnCount());
-    // The max TxnId might be greater id the openTxns failes with slow commit and retries
+    // The max TxnId might be greater id the openTxns fails with slow commit and retries
     Assert.assertTrue("The max txnId should be at least 5", getMaxTxnId() >= 5);
   }
 
