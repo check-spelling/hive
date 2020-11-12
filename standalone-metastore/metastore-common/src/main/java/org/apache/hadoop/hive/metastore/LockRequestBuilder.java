@@ -112,7 +112,7 @@ public class LockRequestBuilder {
 
   // For reasons that are completely incomprehensible to me the semantic
   // analyzers often ask for multiple locks on the same entity (for example
-  // a shared_read and an exlcusive lock).  The db locking system gets confused
+  // a shared_read and an exclusive lock).  The db locking system gets confused
   // by this and dead locks on it.  To resolve that, we'll make sure in the
   // request that multiple locks are coalesced and promoted to the higher
   // level of locking.  To do this we put all locks components in trie based
