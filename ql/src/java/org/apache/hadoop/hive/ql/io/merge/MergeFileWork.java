@@ -169,7 +169,7 @@ public class MergeFileWork extends MapWork {
             // Add the lb path to the list of input paths
             newInputPath.add(s.getPath());
           } else {
-            // find file instead of dir. dont change inputpath
+            // find file instead of dir. don't change inputpath
             succeed = false;
           }
         }

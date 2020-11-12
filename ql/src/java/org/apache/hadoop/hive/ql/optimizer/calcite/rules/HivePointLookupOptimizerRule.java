@@ -374,7 +374,7 @@ public abstract class HivePointLookupOptimizerRule extends RelOptRule {
       RexNode opA = call.operands.get(0);
       RexNode opB = call.operands.get(1);
       if (RexUtil.isNull(opA) || RexUtil.isNull(opB)) {
-        // dont try to compare nulls
+        // don't try to compare nulls
         return null;
       }
       if (isConstExpr(opA) && isColumnExpr(opB)) {

@@ -72,7 +72,7 @@ public class FileSinkDesc extends AbstractOperatorDesc implements IStatsGatherDe
   // Consider a query like:
   // insert overwrite table T3 select ... from T1 join T2 on T1.key = T2.key;
   // where T1, T2 and T3 are sorted and bucketed by key into the same number of buckets,
-  // We dont need a reducer to enforce bucketing and sorting for T3.
+  // We don't need a reducer to enforce bucketing and sorting for T3.
   // The field below captures the fact that the reducer introduced to enforce sorting/
   // bucketing of T3 has been removed.
   // In this case, a sort-merge join is needed, and so the sort-merge join between T1 and T2

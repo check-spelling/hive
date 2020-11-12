@@ -297,7 +297,7 @@ public class TestShortestJobFirstComparator {
       r[i] = createTaskWrapper(proto, true, 100000);
     }
 
-    // Make sure we dont have evictions triggered (maxSize = taskSize)
+    // Make sure we don't have evictions triggered (maxSize = taskSize)
     EvictingPriorityBlockingQueue<TaskWrapper> queue =
             new EvictingPriorityBlockingQueue<>(new ShortestJobFirstComparator(), 50);
 
@@ -316,7 +316,7 @@ public class TestShortestJobFirstComparator {
 
   @Test(timeout = 60000)
   public void testWaitQueueEdgeCases() {
-    // Make sure we dont have evictions triggered (maxSize = taskSize)
+    // Make sure we don't have evictions triggered (maxSize = taskSize)
     EvictingPriorityBlockingQueue<TaskWrapper> queue =
             new EvictingPriorityBlockingQueue<>(new ShortestJobFirstComparator(), 10);
 
@@ -376,7 +376,7 @@ public class TestShortestJobFirstComparator {
 
   @Test(timeout = 60000)
   public void testWaitQueueAgingComplex() throws InterruptedException {
-    // Make sure we dont have evictions triggered (maxSize = taskSize)
+    // Make sure we don't have evictions triggered (maxSize = taskSize)
     EvictingPriorityBlockingQueue<TaskWrapper> queue =
             new EvictingPriorityBlockingQueue<>(new ShortestJobFirstComparator(), 10);
 

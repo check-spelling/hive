@@ -477,7 +477,7 @@ public class BucketingSortingReduceSinkOptimizer extends Transform {
           SMBJoinDesc smbJoinDesc = smbOp.getConf();
           int posBigTable = smbJoinDesc.getPosBigTable();
 
-          // join keys dont match the bucketing keys
+          // join keys don't match the bucketing keys
           List<ExprNodeDesc> keysBigTable = smbJoinDesc.getKeys().get((byte) posBigTable);
           if (keysBigTable.size() != bucketPositions.size()) {
             return null;

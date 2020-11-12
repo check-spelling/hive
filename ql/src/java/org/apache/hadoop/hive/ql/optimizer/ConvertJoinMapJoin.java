@@ -834,7 +834,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
         if (bucketingVersion == -1) {
           bucketingVersion = localVersion;
         } else if (bucketingVersion != localVersion) {
-          // versions dont match, return false.
+          // versions don't match, return false.
           LOG.debug("SMB Join can't be performed due to bucketing version mismatch");
           return false;
         }

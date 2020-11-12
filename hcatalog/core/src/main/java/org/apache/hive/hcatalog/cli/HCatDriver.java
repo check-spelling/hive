@@ -119,7 +119,7 @@ public class HCatDriver {
     } else {
       // looks like a db operation
       if (dbName.isEmpty() || dbName.equals(Warehouse.DEFAULT_DATABASE_NAME)) {
-        // We dont set perms or groups for default dir.
+        // We don't set perms or groups for default dir.
         return 0;
       } else {
         try {

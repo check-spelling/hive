@@ -6045,7 +6045,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
 
     // add a key for reduce sink
     if (groupingSetsPresent) {
-      // Note that partitioning fields dont need to change, since it is either
+      // Note that partitioning fields don't need to change, since it is either
       // partitioned randomly, or by all grouping keys + distinct keys
       processGroupingSetReduceSinkOperator(
           reduceSinkInputRowResolver2,

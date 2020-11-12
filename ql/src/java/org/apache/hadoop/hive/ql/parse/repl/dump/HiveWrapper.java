@@ -79,7 +79,7 @@ public class HiveWrapper {
     /**
      * we have to get the replicationspec before we query for the function object
      * from the hive metastore as the spec creation captures the latest event id for replication
-     * and we dont want to miss any events hence we are ok replaying some events as part of
+     * and we don't want to miss any events hence we are ok replaying some events as part of
      * incremental load to achieve a consistent state of the warehouse.
      */
     Tuple(Function<ReplicationSpec> replicationSpecFunction,
