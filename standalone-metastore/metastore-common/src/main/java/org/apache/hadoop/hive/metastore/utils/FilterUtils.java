@@ -45,7 +45,7 @@ public class FilterUtils {
 
   /**
    * Filter the DB if filtering is enabled. Otherwise, return original DB object
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param db: the database object from HMS metadata
    * @return the original database object if current user has access;
@@ -71,7 +71,7 @@ public class FilterUtils {
 
   /**
    * Filter the list of databases if filtering is enabled. Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param dbNames: the list of database names to filter
    * @return the list of database names that current user has access if filtering is enabled;
@@ -92,7 +92,7 @@ public class FilterUtils {
 
   /**
    * Filter the list of tables if filtering is enabled. Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param catName: the catalog name of the tables
    * @param dbName: the database name to the tables
@@ -114,7 +114,7 @@ public class FilterUtils {
 
   /**
    * Filter the list of tables if filtering is enabled. Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param tables: the list of table objects to filter
    * @return the list of tables that current user has access if filtering is enabled;
@@ -134,7 +134,7 @@ public class FilterUtils {
 
   /**
    * Filter the table if filtering is enabled. Otherwise, return original table object
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param table: the table object from Hive meta data
    * @return the table object if user has access or filtering is disabled;
@@ -159,7 +159,7 @@ public class FilterUtils {
 
   /**
    * Filter list of meta data of tables if filtering is enabled. Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param catName: the catalog name
    * @param dbName: the database name
@@ -187,7 +187,7 @@ public class FilterUtils {
 
   /**
    * Filter the partition if filtering is enabled. Otherwise, return original object
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param p: the partition object
    * @return the partition object that user has access or original list if filtering is disabled;
@@ -213,7 +213,7 @@ public class FilterUtils {
 
   /**
    * Filter the list of partitions if filtering is enabled. Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param partitions: the list of partitions
    * @return the list of partitions that user has access or original list if filtering is disabled;
@@ -232,7 +232,7 @@ public class FilterUtils {
 
   /**
    * Filter the list of partitions if filtering is enabled. Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param catName: the catalog name
    * @param dbName: the database name
@@ -258,7 +258,7 @@ public class FilterUtils {
 
   /**
    * Filter the list of PartitionSpec if filtering is enabled; Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param partitionSpecs: the list of PartitionSpec
    * @return the list of PartitionSpec that current user has access if filtering is enabled;
@@ -279,7 +279,7 @@ public class FilterUtils {
 
   /**
    * Filter the catalog if filtering is enabled; Otherwise, return original object
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param catalog: the catalog object
    * @return the catalog object that current user has access or filtering is disabled;
@@ -305,7 +305,7 @@ public class FilterUtils {
 
   /**
    * Filter list of catalog names if filtering is enabled; Otherwise, return original list
-   * @param isFilterEnabled true: filtering is enabled; false: filtring is disabled.
+   * @param isFilterEnabled true: filtering is enabled; false: filtering is disabled.
    * @param filterHook: the object that does filtering
    * @param catalogNames: the list of catalog names
    * @return the list of catalog names that the current user has access or

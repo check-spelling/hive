@@ -136,7 +136,7 @@ public class TestTxnCommands3 extends TxnCommandsBaseForTests {
     testDeleteEventPruning();
   }
   /**
-   * run with and w/o event fitlering enabled - should get the same results
+   * run with and w/o event filtering enabled - should get the same results
    * {@link TestVectorizedOrcAcidRowBatchReader#testDeleteEventFiltering()}
    *
    * todo: add .q test using VerifyNumReducersHook.num.reducers to make sure
