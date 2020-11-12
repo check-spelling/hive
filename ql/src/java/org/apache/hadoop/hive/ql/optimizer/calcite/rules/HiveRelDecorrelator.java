@@ -128,7 +128,7 @@ import java.util.Stack;
 
 /**
  * NOTE: this whole logic is replicated from Calcite's RelDecorrelator
- *  and is exteneded to make it suitable for HIVE
+ *  and is extended to make it suitable for HIVE
  *    We should get rid of this and replace it with Calcite's RelDecorrelator
  *    once that works with Join, Project etc instead of Join, Project.
  *    At this point this has differed from Calcite's version significantly so cannot
