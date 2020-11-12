@@ -2477,7 +2477,7 @@ public class OrcInputFormat implements InputFormat<NullWritable, OrcStruct>,
       typeDescriptionsFromHiveTypeProperty(String hiveTypeProperty,
                                            int maxColumns) {
 
-    // CONSDIER: We need a type name parser for TypeDescription.
+    // CONSIDER: We need a type name parser for TypeDescription.
 
     ArrayList<TypeInfo> typeInfoList = TypeInfoUtils.getTypeInfosFromTypeString(hiveTypeProperty);
     ArrayList<TypeDescription> typeDescrList =new ArrayList<TypeDescription>(typeInfoList.size());
