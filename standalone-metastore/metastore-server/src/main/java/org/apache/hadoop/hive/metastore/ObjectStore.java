@@ -9994,7 +9994,7 @@ public class ObjectStore implements RawStore, Configurable {
       }
       return tokenIdents;
     } finally {
-      LOG.debug("Done executing getAllTokenIdentifers with status : {}", committed);
+      LOG.debug("Done executing getAllTokenIdentifiers with status : {}", committed);
       rollbackAndCleanup(committed, query);
     }
   }

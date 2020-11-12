@@ -143,7 +143,7 @@ public class OrcRecordUpdater implements RecordUpdater {
   private StructObjectInspector recIdInspector; // OI for the record identifier struct
   private LongObjectInspector rowIdInspector; // OI for the long row id inside the recordIdentifier
   private LongObjectInspector origWriteIdInspector; // OI for the original write id inside the record
-  // identifer
+  // identifier
   private IntObjectInspector bucketInspector;
 
   static int getOperation(OrcStruct struct) {

@@ -158,7 +158,7 @@ public class HiveSchemaHelper {
     String getDelimiter();
 
     /**
-     * Get the SQL indentifier quotation character
+     * Get the SQL identifier quotation character
      */
     String getQuoteCharacter();
 
