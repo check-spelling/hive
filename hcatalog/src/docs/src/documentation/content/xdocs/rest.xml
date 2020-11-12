@@ -90,7 +90,7 @@
       <title>WebHDFS and Code Push</title>
       <p>Data and code that are used by HCatalog's REST resources must first be placed in
          Hadoop.  When placing files into HDFS is required you can use
-         whatever method is most convienient for you.  We suggest WebHDFS since it provides
+         whatever method is most convenient for you.  We suggest WebHDFS since it provides
          a REST interface for moving files into and out of HDFS.</p>
    </section>
 
