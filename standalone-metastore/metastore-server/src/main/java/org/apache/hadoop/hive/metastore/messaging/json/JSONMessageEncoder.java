@@ -59,7 +59,7 @@ public class JSONMessageEncoder implements MessageEncoder {
   }
 
   /**
-   * This is a format that's shipped, for any changes make sure that backward compatibiltiy
+   * This is a format that's shipped, for any changes make sure that backward compatibility
    * with existing messages in this format are taken care of.
    *
    */
