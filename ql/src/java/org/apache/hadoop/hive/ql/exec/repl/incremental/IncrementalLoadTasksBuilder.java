@@ -120,7 +120,7 @@ public class IncrementalLoadTasksBuilder {
       // event loads will behave similar to table loads, with one crucial difference
       // precursor order is strict, and each event must be processed after the previous one.
       // The way we handle this strict order is as follows:
-      // First, we start with a taskChainTail which is a dummy noop task (a DependecyCollectionTask)
+      // First, we start with a taskChainTail which is a dummy noop task (a DependencyCollectionTask)
       // at the head of our event chain. For each event we process, we tell analyzeTableLoad to
       // create tasks that use the taskChainTail as a dependency. Then, we collect all those tasks
       // and introduce a new barrier task(also a DependencyCollectionTask) which depends on all
