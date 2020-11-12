@@ -558,7 +558,7 @@ public class QTestUtil {
 
     try {
       cliDriver.processLine(initCommands);
-      LOG.info("Result from cliDrriver.processLine in createSources=0");
+      LOG.info("Result from cliDriver.processLine in createSources=0");
     } catch (CommandProcessorException e) {
       Assert.fail("Failed during createSources processLine with code=" + e.getResponseCode());
     }
