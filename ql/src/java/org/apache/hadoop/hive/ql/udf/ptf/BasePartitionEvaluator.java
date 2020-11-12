@@ -395,7 +395,7 @@ public class BasePartitionEvaluator {
   }
 
   /**
-   * The partition evalulator for average function
+   * The partition evaluator for average function
    * @param <ResultType>
    */
   public static abstract class AvgPartitionEvaluator<ResultType extends Writable>
