@@ -595,10 +595,10 @@ public class QBSubQuery implements ISubQueryJoinInfo {
     }
 
     // figure out if there is group by
-    boolean noImplicityGby = true;
+    boolean noImplicitlyGby = true;
     for(int i=0; i<insertClause.getChildCount(); i++) {
       if(insertClause.getChild(i).getType() == HiveParser.TOK_GROUPBY) {
-        noImplicityGby = false;
+        noImplicitlyGby = false;
         break;
       }
     }
@@ -629,7 +629,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
       //        rule we need to know about this case.
       // * NOT IN - always allow, but always return true because later subq remove rule will generate diff plan for this case
       if (hasAggregateExprs &&
-              noImplicityGby) {
+              noImplicitlyGby) {
 
         if(operator.getType() == SubQueryType.EXISTS
                 || operator.getType() == SubQueryType.NOT_EXISTS) {
