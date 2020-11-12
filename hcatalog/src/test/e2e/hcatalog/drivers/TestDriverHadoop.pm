@@ -569,21 +569,21 @@ sub compareSingleOutput
 print $log "testResult: $testResult testOutput: $testOutput benchmarkOutput: $benchmarkOutput\n";
 
     # cksum the the two files to see if they are the same
-    my ($testChksm, $benchmarkChksm);
-    IPC::Run::run((['cat', $testOutput], '|', ['cksum']), \$testChksm,
+    my ($testChksum, $benchmarkChksum);
+    IPC::Run::run((['cat', $testOutput], '|', ['cksum']), \$testChksum,
         $log) or die "$0: error: cannot run cksum on test results\n";
     IPC::Run::run((['cat', $benchmarkOutput], '|', ['cksum']),
-        \$benchmarkChksm, $log) or die "$0: error: cannot run cksum on benchmark\n";
+        \$benchmarkChksum, $log) or die "$0: error: cannot run cksum on benchmark\n";
 
-    chomp $testChksm;
-    chomp $benchmarkChksm;
-    print $log "test cksum: $testChksm\nbenchmark cksum: $benchmarkChksm\n";
+    chomp $testChksum;
+    chomp $benchmarkChksum;
+    print $log "test cksum: $testChksum\nbenchmark cksum: $benchmarkChksum\n";
 
     my $result;
-    if ($testChksm ne $benchmarkChksm) {
+    if ($testChksum ne $benchmarkChksum) {
         print $log "Test output checksum does not match benchmark checksum\n";
-        print $log "Test checksum = <$testChksm>\n";
-        print $log "Expected checksum = <$benchmarkChksm>\n";
+        print $log "Test checksum = <$testChksum>\n";
+        print $log "Expected checksum = <$benchmarkChksum>\n";
         print $log "RESULTS DIFFER: vimdiff " . cwd . "/$testOutput " . cwd . "/$benchmarkOutput\n";
     } else {
         $result = 1;
