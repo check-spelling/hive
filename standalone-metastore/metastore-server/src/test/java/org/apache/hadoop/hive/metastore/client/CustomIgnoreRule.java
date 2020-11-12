@@ -24,7 +24,7 @@ import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 /**
- * This rule checks the existance of {@link ConditionalIgnoreOnSessionHiveMetastoreClient} annotation.
+ * This rule checks the existence of {@link ConditionalIgnoreOnSessionHiveMetastoreClient} annotation.
  * If the annotation is present, skips the execution of the test.
  */
 public class CustomIgnoreRule implements TestRule {
