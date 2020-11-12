@@ -43,7 +43,7 @@ Release Notes - Hive - Version 3.1.0
     * [HIVE-19494] - Accept shade prefix during reflective instantiation of output format
     * [HIVE-19495] - Arrow SerDe itest failure
     * [HIVE-19499] - Bootstrap REPL LOAD shall add tasks to create checkpoints for db/tables/partitions.
-    * [HIVE-19500] - Prevent multiple selectivity estimations for the same variable in conjuctions
+    * [HIVE-19500] - Prevent multiple selectivity estimations for the same variable in conjunctions
     * [HIVE-19562] - Flaky test: TestMiniSparkOnYarn FileNotFoundException in spark-submit
     * [HIVE-19598] - Add Acid V1 to V2 upgrade module
     * [HIVE-19637] - Add slow test report script to testutils
