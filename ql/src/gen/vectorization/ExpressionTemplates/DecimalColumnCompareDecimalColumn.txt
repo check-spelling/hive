@@ -27,7 +27,7 @@ import org.apache.hadoop.hive.ql.exec.vector.VectorExpressionDescriptor;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 
 /**
- * Generated from template DecimalColumnCompareDecimalColumn.txt, which covers comparision
+ * Generated from template DecimalColumnCompareDecimalColumn.txt, which covers comparison
  * expressions between Decimal columns.
  */
 public class <ClassName> extends VectorExpression {

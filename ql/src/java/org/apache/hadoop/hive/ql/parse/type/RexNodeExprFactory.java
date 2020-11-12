@@ -364,7 +364,7 @@ public class RexNodeExprFactory extends ExprFactory<RexNode> {
       }
     }
 
-    // Comparision of decimal and float/double happens in float/double.
+    // Comparison of decimal and float/double happens in float/double.
     if (constantToInterpret instanceof BigDecimal) {
       BigDecimal bigDecimal = (BigDecimal) constantToInterpret;
 

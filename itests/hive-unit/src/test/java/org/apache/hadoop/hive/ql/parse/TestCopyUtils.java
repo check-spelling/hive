@@ -131,7 +131,7 @@ public class TestCopyUtils {
         .dump(primaryDbName);
 
     /*
-      We have to do a comparision on the data of table t1 in replicated database because even though the file
+      We have to do a comparison on the data of table t1 in replicated database because even though the file
       copy will fail due to impersonation failure the driver will return a success code 0. May be something to look at later
     */
     replica.load(replicatedDbName, primaryDbName)

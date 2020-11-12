@@ -177,7 +177,7 @@ triggerAndExpression
 triggerAtomExpression
 @init { gParent.pushMsg("triggerAtomExpression", state); }
 @after { gParent.popMsg(state); }
-    : identifier comparisionOperator triggerLiteral
+    : identifier comparisonOperator triggerLiteral
     ;
 
 
@@ -188,8 +188,8 @@ triggerLiteral
     | StringLiteral
     ;
 
-comparisionOperator
-@init { gParent.pushMsg("comparisionOperator", state); }
+comparisonOperator
+@init { gParent.pushMsg("comparisonOperator", state); }
 @after { gParent.popMsg(state); }
     : GREATERTHAN
     ;
