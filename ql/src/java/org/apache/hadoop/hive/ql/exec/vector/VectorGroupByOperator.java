@@ -658,7 +658,7 @@ public class VectorGroupByOperator extends Operator<GroupByDesc>
     }
 
     /**
-     * Flushes the entries in the hash table by emiting output (forward).
+     * Flushes the entries in the hash table by emitting output (forward).
      * When parameter 'all' is true all the entries are flushed.
      * @param all
      * @throws HiveException
