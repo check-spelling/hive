@@ -247,7 +247,7 @@ public class DecimalColumnStatsAggregator extends ColumnStatsAggregator implemen
           adjustedIndexMap, adjustedStatsMap, densityAvgSum / adjustedStatsMap.size());
     }
     LOG.debug(
-        "Ndv estimatation for {} is {} # of partitions requested: {} # of partitions found: {}",
+        "Ndv estimation for {} is {} # of partitions requested: {} # of partitions found: {}",
         colName, columnStatisticsData.getDecimalStats().getNumDVs(), partNames.size(),
         colStatsWithSourceInfo.size());
     statsObj.setStatsData(columnStatisticsData);
