@@ -232,7 +232,7 @@ public class OperatorGraph {
         continue;
       }
       if (g.degree(n) == 2 && g.inDegree(n) == 1) {
-        g.impode(n, new OpEdge(EdgeType.FLOW, -1));
+        g.implode(n, new OpEdge(EdgeType.FLOW, -1));
       }
     }
     nodeCluster.clear();

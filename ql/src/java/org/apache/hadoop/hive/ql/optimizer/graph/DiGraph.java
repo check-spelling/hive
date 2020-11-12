@@ -178,7 +178,7 @@ public class DiGraph<V, E> {
     return nodeOf(t).removeEdge(s, t);
   }
 
-  public void impode(V n, E edge) {
+  public void implode(V n, E edge) {
     Set<V> preds = predecessors(n);
     Set<V> succ = successors(n);
 
