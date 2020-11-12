@@ -713,7 +713,7 @@ parse_schema() {
   done < "$1";
 }
 
-# function to detemine if an argument is a number. This is used to determine the
+# function to determine if an argument is a number. This is used to determine the
 # length of the column values that are to be generated.
 is_int() {
   return $(test "$@" -eq "$@" > /dev/null 2>&1);

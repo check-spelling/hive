@@ -1316,7 +1316,7 @@ public class TestLlapTaskSchedulerService {
       ArgumentCaptor<ContainerId> cIdArgCaptor = ArgumentCaptor.forClass(ContainerId.class);
       verify(tsWrapper.mockAppCallback).preemptContainer(cIdArgCaptor.capture());
 
-      // Determin which task has been preempted. Normally task2 would be preempted based on it starting
+      // Determine which task has been preempted. Normally task2 would be preempted based on it starting
       // later. However - both may have the same start time, so either could be picked.
       Object deallocatedTask1; // De-allocated now
       Object deallocatedTask2; // Will be de-allocated later.
@@ -1420,7 +1420,7 @@ public class TestLlapTaskSchedulerService {
       ArgumentCaptor<ContainerId> cIdArgCaptor = ArgumentCaptor.forClass(ContainerId.class);
       verify(tsWrapper.mockAppCallback).preemptContainer(cIdArgCaptor.capture());
 
-      // Determin which task has been preempted. Normally task2 would be preempted based on it starting
+      // Determine which task has been preempted. Normally task2 would be preempted based on it starting
       // later. However - both may have the same start time, so either could be picked.
       Object deallocatedTask1; // De-allocated now
       Object deallocatedTask2; // Will be de-allocated later.
