@@ -440,7 +440,7 @@ public interface HadoopShims {
 
   /**
    * Check if the configured UGI has access to the path for the given file system action.
-   * Method will return successfully if action is permitted. AccessControlExceptoin will
+   * Method will return successfully if action is permitted. AccessControlException will
    * be thrown if user does not have access to perform the action. Other exceptions may
    * be thrown for non-access related errors.
    * @param fs

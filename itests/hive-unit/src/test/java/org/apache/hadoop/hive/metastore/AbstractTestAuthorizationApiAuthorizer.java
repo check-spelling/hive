@@ -98,7 +98,7 @@ public abstract class AbstractTestAuthorizationApiAuthorizer {
     } catch (MetaException e) {
       System.err.println("Caught exception");
       String exStackString = ExceptionUtils.getStackTrace(e);
-      // Check if MetaException has one of InvalidObjectException or NoSuchObjectExcetion or any exception thrown from ObjectStore , which means that the
+      // Check if MetaException has one of InvalidObjectException or NoSuchObjectException or any exception thrown from ObjectStore , which means that the
       // authorization checks passed.
       if(exStackString.contains("org.apache.hadoop.hive.metastore.api.NoSuchObjectException") ||
               exStackString.contains("org.apache.hadoop.hive.metastore.api.InvalidObjectException")) {
