@@ -319,8 +319,8 @@ class UnitTestPropertiesParser {
   private List<TestDir> processPropertyDirectories() throws IOException {
     String srcDirString = sourceDirectory.getCanonicalPath();
     List<TestDir> unitTestsDirs = Lists.newArrayList();
-    String propDirectoriies = unitRootContext.getString(PROP_DIRECTORIES, DEFAULT_PROP_DIRECTORIES);
-    Iterable<String> propDirectoriesIterable = VALUE_SPLITTER.split(propDirectoriies);
+    String propDirectories = unitRootContext.getString(PROP_DIRECTORIES, DEFAULT_PROP_DIRECTORIES);
+    Iterable<String> propDirectoriesIterable = VALUE_SPLITTER.split(propDirectories);
 
     for (String unitTestDir : propDirectoriesIterable) {
       File unitTestParent = new File(sourceDirectory, unitTestDir);
