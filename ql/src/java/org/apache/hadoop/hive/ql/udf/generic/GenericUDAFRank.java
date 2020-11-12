@@ -273,8 +273,8 @@ public class GenericUDAFRank extends AbstractGenericUDAFResolver {
    *  Hypothetical rank calculation.
    *  Calculates the rank of a hypothetical row specified by the arguments of the
    *  function in a group of values specified by the order by clause.
-   *  SELECT rank(expression1[, expressionn]*) WITHIN GROUP (ORDER BY col1[, coln]*)
-   *  (the number of rows where col1 < expression1 [and coln < expressionn]*) + 1
+   *  SELECT rank(expression1[, expression]*) WITHIN GROUP (ORDER BY col1[, coln]*)
+   *  (the number of rows where col1 < expression1 [and coln < expression]*) + 1
    */
   public static class GenericUDAFHypotheticalSetRankEvaluator extends GenericUDAFEvaluator {
     public static final String RANK_FIELD = "rank";

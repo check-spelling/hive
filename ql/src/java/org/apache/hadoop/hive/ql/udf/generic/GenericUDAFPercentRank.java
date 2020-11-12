@@ -86,7 +86,7 @@ public class GenericUDAFPercentRank extends GenericUDAFRank {
 
   /**
    * Evaluator for calculating the percent rank.
-   * SELECT percent_rank(expression1[, expressionn]*) WITHIN GROUP (ORDER BY col1[, coln]*)
+   * SELECT percent_rank(expression1[, expression]*) WITHIN GROUP (ORDER BY col1[, coln]*)
    * Implementation is based on hypothetical rank calculation: rank - 1 / count
    */
   public static class GenericUDAFHypotheticalSetPercentRankEvaluator extends GenericUDAFHypotheticalSetRankEvaluator {

@@ -460,7 +460,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
   private ASTNode joinConditionAST;
   private JoinType joinType;
   private ASTNode postJoinConditionAST;
-  private int numCorrExprsinSQ;
+  private int numCorrExpressionSQ;
   private List<ASTNode> subQueryJoinAliasExprs;
   private transient final ASTNodeOrigin originalSQASTOrigin;
 
@@ -491,7 +491,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
     this.outerQueryId = outerQueryId;
     this.sqIdx = sqIdx;
     this.alias = "sq_" + this.sqIdx;
-    this.numCorrExprsinSQ = 0;
+    this.numCorrExpressionSQ = 0;
     this.numOuterCorrExprsForHaving = 0;
     String s = ctx.getTokenRewriteStream().toString(
         originalSQAST.getTokenStartIndex(), originalSQAST.getTokenStopIndex());
@@ -851,7 +851,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
   }
 
   String getNextCorrExprAlias() {
-    return "sq_corr_" + numCorrExprsinSQ++;
+    return "sq_corr_" + numCorrExpressionSQ++;
   }
 
   /*
