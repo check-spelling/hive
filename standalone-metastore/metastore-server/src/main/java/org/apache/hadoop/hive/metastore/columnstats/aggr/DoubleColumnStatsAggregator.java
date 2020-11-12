@@ -230,7 +230,7 @@ public class DoubleColumnStatsAggregator extends ColumnStatsAggregator implement
           adjustedIndexMap, adjustedStatsMap, densityAvgSum / adjustedStatsMap.size());
     }
     LOG.debug(
-        "Ndv estimatation for {} is {}. # of partitions requested: {}. # of partitions found: {}",
+        "Ndv estimation for {} is {}. # of partitions requested: {}. # of partitions found: {}",
         colName, columnStatisticsData.getDoubleStats().getNumDVs(), partNames.size(),
         colStatsWithSourceInfo.size());
     statsObj.setStatsData(columnStatisticsData);
