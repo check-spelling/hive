@@ -2481,7 +2481,7 @@ public class AcidUtils {
      */
     public static final int ORC_ACID_VERSION = 2;
     /**
-     * Inlucde current acid version in file footer.
+     * Include current acid version in file footer.
      * @param writer - file written
      */
     public static void setAcidVersionInDataFile(Writer writer) {
