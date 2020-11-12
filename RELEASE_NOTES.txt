@@ -700,7 +700,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18864] - ValidWriteIdList snapshot seems incorrect if obtained after allocating writeId by current transaction.
     * [HIVE-18899] - Separate FetchWork required for each query that uses the results cache
     * [HIVE-18909] - Metrics for results cache
-    * [HIVE-18926] - Imporve operator-tree matching
+    * [HIVE-18926] - Improve operator-tree matching
     * [HIVE-18946] - Fix columnstats merge NPE
     * [HIVE-18961] - Error in results cache when query has identifiers with spaces
     * [HIVE-18982] - Provide a CLI option to manually trigger failover
