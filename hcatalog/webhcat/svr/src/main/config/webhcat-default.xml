@@ -118,7 +118,7 @@
   <property>
     <name>templeton.hive.extra.files</name>
     <value></value>
-    <description>The resources in this list will be localized to the node running LaunchMapper and added to HADOOP_CLASSPTH
+    <description>The resources in this list will be localized to the node running LaunchMapper and added to HADOOP_CLASSPATH
       before launching 'hive' command.  If the path /foo/bar is a directory, the contents of the the entire dir will be localized
       and ./bar/* will be added to HADOOP_CLASSPATH.  Note that since classpath path processing does not recurse into subdirectories,
       the paths in this property may be overlapping.  For example, to run Hive on Tez jobs, 3 items need to be localized:
