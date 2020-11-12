@@ -294,7 +294,7 @@ public class HcatDelegator extends LauncherDelegator {
   }
 
   /**
-   * Return a json "show table extended like" with extra info from "desc exteded"
+   * Return a json "show table extended like" with extra info from "desc extended"
    * This will return table with exact name match.
    */
   public Response descExtendedTable(String user, String db, String table)
