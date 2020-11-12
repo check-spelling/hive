@@ -134,7 +134,7 @@ public final class MapJoinFactory {
     /**
      * Initialize the current plan by adding it to root tasks. Since a reduce sink
      * cannot be present before a mapjoin, and the mapjoin operator is encountered
-     * for the first time, the task corresposding to the mapjoin is added to the
+     * for the first time, the task corresponding to the mapjoin is added to the
      * root tasks.
      *
      * @param op
