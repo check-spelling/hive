@@ -810,7 +810,7 @@ public class TypeCheckProcFactory<T> {
       if (fi.getGenericUDTF() != null) {
         throw new SemanticException(ErrorMsg.UDTF_INVALID_LOCATION.getMsg());
       }
-      // UDAF in filter condition, group-by clause, param of funtion, etc.
+      // UDAF in filter condition, group-by clause, param of function, etc.
       if (fi.getGenericUDAFResolver() != null) {
         if (isFunction) {
           throw new SemanticException(ASTErrorUtils.getMsg(

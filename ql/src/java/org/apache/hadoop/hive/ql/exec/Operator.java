@@ -717,7 +717,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
 
   /**
    * Operator specific close routine. Operators which inherents this class
-   * should overwrite this funtion for their specific cleanup routine.
+   * should overwrite this function for their specific cleanup routine.
    */
   protected void closeOp(boolean abort) throws HiveException {
   }
