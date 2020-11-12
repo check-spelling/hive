@@ -366,7 +366,7 @@ public abstract class LlapAllocatorBuffer extends LlapCacheableBuffer implements
       }
     } while (!state.compareAndSet(oldValue, newValue));
     if (LlapIoImpl.LOCKING_LOGGER.isTraceEnabled()) {
-      LlapIoImpl.LOCKING_LOGGER.trace("Discared {}", this);
+      LlapIoImpl.LOCKING_LOGGER.trace("Discard {}", this);
     }
     synchronized (state) {
       state.notifyAll();
