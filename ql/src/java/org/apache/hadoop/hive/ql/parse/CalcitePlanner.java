@@ -4698,7 +4698,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
     }
 
     /**
-     * NOTE: there can only be one select caluse since we don't handle multi destination insert.
+     * NOTE: there can only be one select clause since we don't handle multi destination insert.
      * @param isAllColRefRewrite
      *          when it is true, it means that it is called from group by *, where we use
      *          genSelectLogicalPlan to rewrite *
