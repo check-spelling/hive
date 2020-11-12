@@ -327,17 +327,17 @@ public class BasicStatsNoJobTask implements IStatsProcessor {
         }
       }
     }
-    List<FooterStatCollector> validColectors = Lists.newArrayList();
+    List<FooterStatCollector> validCollectors = Lists.newArrayList();
     for (FooterStatCollector statsCollection : scs) {
       if (statsCollection.isValid()) {
-        validColectors.add(statsCollection);
+        validCollectors.add(statsCollection);
       }
     }
 
     EnvironmentContext environmentContext = new EnvironmentContext();
     environmentContext.putToProperties(StatsSetupConst.DO_NOT_UPDATE_STATS, StatsSetupConst.TRUE);
 
-    ImmutableListMultimap<String, FooterStatCollector> collectorsByTable = Multimaps.index(validColectors, FooterStatCollector.SIMPLE_NAME_FUNCTION);
+    ImmutableListMultimap<String, FooterStatCollector> collectorsByTable = Multimaps.index(validCollectors, FooterStatCollector.SIMPLE_NAME_FUNCTION);
 
     LOG.debug("Collectors.size(): {}", collectorsByTable.keySet());
 
