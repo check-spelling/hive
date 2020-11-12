@@ -495,7 +495,7 @@ public abstract class BaseSemanticAnalyzer {
   public static String getTableAlias(ASTNode node) throws SemanticException {
     // ptf node form is: ^(TOK_PTBLFUNCTION $name $alias?
     // partitionTableFunctionSource partitioningSpec? expression*)
-    // guranteed to have an alias here: check done in processJoin
+    // guaranteed to have an alias here: check done in processJoin
     if (node.getToken().getType() == HiveParser.TOK_PTBLFUNCTION) {
       return unescapeIdentifier(node.getChild(1).getText().toLowerCase());
     }

@@ -30,7 +30,7 @@ public abstract class Redactor implements Hook, Configurable {
   private Configuration conf;
 
   /**
-   * Guranteed to be called before redactQuery is called
+   * Guaranteed to be called before redactQuery is called
    */
   public void setConf(Configuration conf) {
     this.conf = conf;
