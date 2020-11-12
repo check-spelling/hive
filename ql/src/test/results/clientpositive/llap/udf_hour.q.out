@@ -2,12 +2,12 @@ PREHOOK: query: DESCRIBE FUNCTION hour
 PREHOOK: type: DESCFUNCTION
 POSTHOOK: query: DESCRIBE FUNCTION hour
 POSTHOOK: type: DESCFUNCTION
-hour(param) - Returns the hour componemnt of the string/timestamp/interval
+hour(param) - Returns the hour component of the string/timestamp/interval
 PREHOOK: query: DESCRIBE FUNCTION EXTENDED hour
 PREHOOK: type: DESCFUNCTION
 POSTHOOK: query: DESCRIBE FUNCTION EXTENDED hour
 POSTHOOK: type: DESCFUNCTION
-hour(param) - Returns the hour componemnt of the string/timestamp/interval
+hour(param) - Returns the hour component of the string/timestamp/interval
 param can be one of:
 1. A string in the format of 'yyyy-MM-dd HH:mm:ss' or 'HH:mm:ss'.
 2. A timestamp value
