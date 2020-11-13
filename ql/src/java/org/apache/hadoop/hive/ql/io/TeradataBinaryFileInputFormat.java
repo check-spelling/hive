@@ -37,7 +37,7 @@ import org.apache.hadoop.mapred.Reporter;
  *
  * In the Teradata Binary File, each record constructs as below:
  * The first 2 bytes represents the length of the bytes next for this record.
- * Then the null bitmap whose length is depended on the number of fields is followed.
+ * Then the null bitmap whose length is dependent on the number of fields is followed.
  * Then each field of the record is serialized into bytes - the serialization strategy is decided by the type of field.
  * At last, there is one byte (0x0a) in the end of the record.
  *
