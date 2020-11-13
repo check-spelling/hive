@@ -58,7 +58,7 @@ public class TestUnitTestPropertiesParser {
 
   private static final int BATCH_SIZE_DEFAULT = 10;
 
-  private static final String TEST_CASE_PROPERT_NAME = "test";
+  private static final String TEST_CASE_PROPERTY_NAME = "test";
 
   @Test(timeout = 5000)
   public void testSimpleSetup() {
@@ -70,7 +70,7 @@ public class TestUnitTestPropertiesParser {
 
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -91,7 +91,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -112,7 +112,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -133,7 +133,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -154,7 +154,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -176,7 +176,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -199,7 +199,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -222,7 +222,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -246,7 +246,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -269,7 +269,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -293,7 +293,7 @@ public class TestUnitTestPropertiesParser {
     FileListProvider flProvider = getTestFileListProvider(baseDir, 5, 4);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -313,7 +313,7 @@ public class TestUnitTestPropertiesParser {
 
     Set<String> excludedProvided = Sets.newHashSet("Test" + MODULE1_TEST_NAME + "1");
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             excludedProvided, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -334,7 +334,7 @@ public class TestUnitTestPropertiesParser {
         .put(getUtRootPropertyName(UnitTestPropertiesParser.PROP_BATCH_SIZE), Integer.toString(0));
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -359,7 +359,7 @@ public class TestUnitTestPropertiesParser {
         Integer.toString(0));
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
 
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
@@ -391,7 +391,7 @@ public class TestUnitTestPropertiesParser {
         Integer.toString(0));
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
@@ -419,7 +419,7 @@ public class TestUnitTestPropertiesParser {
         Integer.toString(0));
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
@@ -439,7 +439,7 @@ public class TestUnitTestPropertiesParser {
         "./ ./" + MODULE1_NAME);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
@@ -460,7 +460,7 @@ public class TestUnitTestPropertiesParser {
         "./" + MODULE1_NAME + " " + "./" + MODULE2_NAME);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
@@ -480,7 +480,7 @@ public class TestUnitTestPropertiesParser {
         UnitTestPropertiesParser.PROP_INCLUDE), MODULE1_NAME);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
@@ -500,7 +500,7 @@ public class TestUnitTestPropertiesParser {
         UnitTestPropertiesParser.PROP_EXCLUDE), MODULE1_NAME);
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
@@ -525,7 +525,7 @@ public class TestUnitTestPropertiesParser {
         Integer.toString(5));
 
     UnitTestPropertiesParser parser =
-        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERT_NAME, baseDir, LOG, flProvider,
+        new UnitTestPropertiesParser(context, new AtomicInteger(1), TEST_CASE_PROPERTY_NAME, baseDir, LOG, flProvider,
             null, true);
     Collection<TestBatch> testBatchCollection = parser.generateTestBatches();
     verifyBatches(testBatchCollection,
