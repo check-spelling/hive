@@ -849,7 +849,7 @@ import com.google.common.annotations.VisibleForTesting;
   }
 
   /**
-   * Frees up actually marked scract columns.
+   * Frees up actually marked scratch columns.
    */
   public void freeMarkedScratchColumns() {
     ocm.freeMarkedScratchColumns();

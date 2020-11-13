@@ -436,7 +436,7 @@ public class TestVectorCastStatement {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow, Object[] resultObjects) {
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow, Object[] resultObjects) {
 
     boolean selectedInUse = batch.selectedInUse;
     int[] selected = batch.selected;
@@ -444,13 +444,13 @@ public class TestVectorCastStatement {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
 
       try {
-      resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
       } catch (Exception e) {
         System.out.println("here");
       }
 
       // UNDONE: Need to copy the object.
-      resultObjects[rowIndex++] = scrqtchRow[0];
+      resultObjects[rowIndex++] = scratchRow[0];
     }
   }
 
@@ -525,7 +525,7 @@ public class TestVectorCastStatement {
 
     resultVectorExtractRow.init(
         new TypeInfo[] { targetTypeInfo }, new int[] { vectorExpression.getOutputColumnNum() });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     batchSource.resetBatchIteration();
     int rowIndex = 0;
@@ -534,7 +534,7 @@ public class TestVectorCastStatement {
         break;
       }
       vectorExpression.evaluate(batch);
-      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow, resultObjects);
+      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow, resultObjects);
       rowIndex += batch.size;
     }
 

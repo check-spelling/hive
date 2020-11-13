@@ -388,16 +388,16 @@ public class TestVectorDateDiff {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow, Object[] resultObjects) {
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow, Object[] resultObjects) {
 
     boolean selectedInUse = batch.selectedInUse;
     int[] selected = batch.selected;
     for (int logicalIndex = 0; logicalIndex < batch.size; logicalIndex++) {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
-      resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
 
       // UNDONE: Need to copy the object?
-      resultObjects[rowIndex++] = scrqtchRow[0];
+      resultObjects[rowIndex++] = scratchRow[0];
     }
   }
 
@@ -444,7 +444,7 @@ public class TestVectorDateDiff {
 
     VectorExtractRow resultVectorExtractRow = new VectorExtractRow();
     resultVectorExtractRow.init(new TypeInfo[] { TypeInfoFactory.intTypeInfo }, new int[] { columns.size() });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     // System.out.println("*VECTOR EXPRESSION* " + vectorExpression.getClass().getSimpleName());
 
@@ -464,7 +464,7 @@ public class TestVectorDateDiff {
         break;
       }
       vectorExpression.evaluate(batch);
-      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow, resultObjects);
+      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow, resultObjects);
       rowIndex += batch.size;
     }
   }
