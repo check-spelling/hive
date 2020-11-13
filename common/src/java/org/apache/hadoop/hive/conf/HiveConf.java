@@ -5360,7 +5360,7 @@ public class HiveConf extends Configuration {
     HIVE_NOTIFICATION_EVENT_CONSUMERS("hive.notification.event.consumers",
         "org.apache.hadoop.hive.ql.cache.results.QueryResultsCache$InvalidationEventConsumer",
         "Comma-separated list of class names extending EventConsumer," +
-         "to handle the NotificationEvents retreived by the notification event poll."),
+         "to handle the NotificationEvents retrieved by the notification event poll."),
 
     /* BLOBSTORE section */
 
