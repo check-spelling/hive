@@ -87,7 +87,7 @@ public class GenSparkProcContext implements NodeProcessorCtx {
 
   // last work we've processed (in order to hook it up to the current
   // one.
-  public BaseWork preceedingWork;
+  public BaseWork precedingWork;
 
   // map that keeps track of the last operator of a task to the following work
   // of this operator. This is used for connecting them later.

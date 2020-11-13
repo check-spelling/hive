@@ -111,7 +111,7 @@ public class GenSparkWork implements SemanticNodeProcessor {
       work = context.rootToWorkMap.get(root);
     } else {
       // create a new vertex
-      if (context.preceedingWork == null) {
+      if (context.precedingWork == null) {
         if (smbOp == null) {
           work = utils.createMapWork(context, root, sparkWork, null);
         } else {
@@ -279,7 +279,7 @@ public class GenSparkWork implements SemanticNodeProcessor {
         + operator.getChildOperators().size());
       context.parentOfRoot = operator;
       context.currentRootOperator = operator.getChildOperators().get(0);
-      context.preceedingWork = work;
+      context.precedingWork = work;
     }
 
     return null;

@@ -126,7 +126,7 @@ public class SparkReduceSinkMapJoinProc implements SemanticNodeProcessor {
       return null;
     }
 
-    context.preceedingWork = null;
+    context.precedingWork = null;
     context.currentRootOperator = null;
 
     ReduceSinkOperator parentRS = (ReduceSinkOperator)stack.get(stack.size() - 2);

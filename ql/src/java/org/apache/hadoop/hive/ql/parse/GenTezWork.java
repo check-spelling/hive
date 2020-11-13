@@ -124,7 +124,7 @@ public class GenTezWork implements SemanticNodeProcessor {
       }
     } else {
       // create a new vertex
-      if (context.preceedingWork == null) {
+      if (context.precedingWork == null) {
         work = utils.createMapWork(context, root, tezWork, null);
       } else {
         work = GenTezUtils.createReduceWork(context, root, tezWork);
@@ -481,7 +481,7 @@ public class GenTezWork implements SemanticNodeProcessor {
       assert operator.getChildOperators().size() == 1;
       context.parentOfRoot = operator;
       context.currentRootOperator = operator.getChildOperators().get(0);
-      context.preceedingWork = work;
+      context.precedingWork = work;
     }
 
     return null;
