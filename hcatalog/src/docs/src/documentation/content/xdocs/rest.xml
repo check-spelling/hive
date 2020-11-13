@@ -121,10 +121,10 @@
         writes to.</li>
        <li><strong>templeton-console.log</strong> is what Java writes to stdout when the server is
         started.  It is a small amount of data, similar to "hcat.out".</li>
-       <li><strong>tempelton-console-error.log</strong> is what Java writes to stderr, similar to
+       <li><strong>templeton-console-error.log</strong> is what Java writes to stderr, similar to
         "hcat.err".</li>
        </ul>
-       <p>In the tempelton-log4j.properties file you can set the location of these logs using the
+       <p>In the templeton-log4j.properties file you can set the location of these logs using the
         variable templeton.log.dir.  This log4j.properties file is set in the server startup script.</p>
    </section>
 
