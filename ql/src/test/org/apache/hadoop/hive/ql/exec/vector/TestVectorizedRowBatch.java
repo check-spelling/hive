@@ -228,7 +228,7 @@ public class TestVectorizedRowBatch {
 
   private void verifyFlatten(ColumnVector v) {
 
-    // verify that flattening and unflattenting no-nulls works
+    // verify that flattening and unflattening no-nulls works
     v.noNulls = true;
     v.isNull[1] = true;
     int[] sel = {0, 2};
