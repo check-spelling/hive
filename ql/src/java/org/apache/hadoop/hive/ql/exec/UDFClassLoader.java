@@ -29,7 +29,7 @@ import org.apache.hadoop.hive.ql.session.SessionState;
  * {@link UDFClassLoader} is used to dynamically register
  * udf (and related) jars
  *
- * This was introducted to fix HIVE-11878
+ * This was introduced to fix HIVE-11878
  *
  * Each session will have its own instance of {@link UDFClassLoader}
  * This is to support HiveServer2 where there can be multiple
