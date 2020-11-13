@@ -31,7 +31,7 @@ import java.util.Objects;
  * To try to add to the class path of the existing class loader; call the above without forceNewClassLoader=true.
  * Note that a class loader might be still created as fallback method.
  * <p>
- * This is slightly inconvenient, but forces the caller code to make the doPriviliged call, rather than us making the
+ * This is slightly inconvenient, but forces the caller code to make the doPrivileged call, rather than us making the
  * call on the caller's behalf, in accordance with the security guidelines at:
  * https://docs.oracle.com/javase/8/docs/technotes/guides/security/doprivileged.html
  */
