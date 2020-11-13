@@ -2282,7 +2282,7 @@ public class TestLlapTaskSchedulerService {
 
     @Override
     protected void schedulePendingTasks() throws InterruptedException {
-      LOG.info("Attempted schedulPendingTasks");
+      LOG.info("Attempted schedulePendingTasks");
       testLock.lock();
       try {
         if (controlScheduling.get()) {

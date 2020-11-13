@@ -2470,7 +2470,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
         // will be handled in the next run.
         // A new request may come in right after this is set to false, but before the actual scheduling.
         // This will be handled in this run, but will cause an immediate run after, which is harmless.
-        // This is mainly to handle a trySchedue request while in the middle of a run - since the event
+        // This is mainly to handle a trySchedule request while in the middle of a run - since the event
         // which triggered it may not be processed for all tasks in the run.
         pendingScheduleInvocations.set(false);
         // Schedule outside of the scheduleLock - which should only be used to wait on the condition.
