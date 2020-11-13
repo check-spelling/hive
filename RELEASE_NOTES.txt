@@ -820,7 +820,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16007] - When the query does not compile the LogRunnable never stops
     * [HIVE-16025] - Where IN clause throws exception
     * [HIVE-16026] - Generated query will timeout and/or kill the druid cluster.
-    * [HIVE-16027] - <timestamp> BETWEEN <string> AND <string> must cast to TIMESTMAP
+    * [HIVE-16027] - <timestamp> BETWEEN <string> AND <string> must cast to TIMESTAMP
     * [HIVE-16044] - LLAP: Shuffle Handler keep-alive connections are closed from the server side
     * [HIVE-16053] - Remove newRatio from llap JAVA_OPTS_BASE
     * [HIVE-16057] - SchemaTool ignores --passWord argument if hadoop.security.credential.provider.path is configured

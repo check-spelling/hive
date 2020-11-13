@@ -241,7 +241,7 @@ public class TestHiveAccumuloTypes {
     dateWritable.write(out);
     m.put(cfBytes, "date".getBytes(), baos.toByteArray());
 
-    // tiemestamp
+    // timestamp
     baos.reset();
     Timestamp timestampValue = Timestamp.ofEpochMilli(System.currentTimeMillis());
     ByteStream.Output output = new ByteStream.Output();
