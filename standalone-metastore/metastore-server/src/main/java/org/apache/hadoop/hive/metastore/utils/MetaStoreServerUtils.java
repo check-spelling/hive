@@ -696,7 +696,7 @@ public class MetaStoreServerUtils {
     return getPartitionValWithInvalidCharacter(partVals, partitionValidationPattern) == null;
   }
 
-  public static void getMergableCols(ColumnStatistics csNew, Map<String, String> parameters) {
+  public static void getMergeableCols(ColumnStatistics csNew, Map<String, String> parameters) {
     List<ColumnStatisticsObj> list = new ArrayList<>();
     for (int index = 0; index < csNew.getStatsObj().size(); index++) {
       ColumnStatisticsObj statsObjNew = csNew.getStatsObj().get(index);
