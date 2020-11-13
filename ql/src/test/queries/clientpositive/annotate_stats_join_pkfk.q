@@ -65,7 +65,7 @@ create table store_n0
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              float,
-    s_tax_precentage          float
+    s_tax_percentage          float
 )
 row format delimited fields terminated by '|';
 
@@ -99,7 +99,7 @@ create table store_bigint
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              float,
-    s_tax_precentage          float
+    s_tax_percentage          float
 )
 row format delimited fields terminated by '|';
 
