@@ -1227,20 +1227,20 @@ public final class OpProcFactory {
       return null;
     }
 
-    ExprNodeDesc condn = ExprNodeDescUtils.mergePredicates(preds);
+    ExprNodeDesc cond = ExprNodeDescUtils.mergePredicates(preds);
 
-    if (op instanceof TableScanOperator && condn instanceof ExprNodeGenericFuncDesc) {
+    if (op instanceof TableScanOperator && cond instanceof ExprNodeGenericFuncDesc) {
       boolean pushFilterToStorage;
       HiveConf hiveConf = owi.getParseContext().getConf();
       pushFilterToStorage =
         hiveConf.getBoolVar(HiveConf.ConfVars.HIVEOPTPPD_STORAGE);
       if (pushFilterToStorage) {
-        condn = pushFilterToStorageHandler(
+        cond = pushFilterToStorageHandler(
           (TableScanOperator) op,
-          (ExprNodeGenericFuncDesc)condn,
+          (ExprNodeGenericFuncDesc)cond,
           owi,
           hiveConf);
-        if (condn == null) {
+        if (cond == null) {
           // we pushed the whole thing down
           return null;
         }
@@ -1252,7 +1252,7 @@ public final class OpProcFactory {
         .getChildOperators();
     op.setChildOperators(null);
     Operator<FilterDesc> output = OperatorFactory.getAndMakeChild(
-        new FilterDesc(condn, false), new RowSchema(inputRS.getSignature()), op);
+        new FilterDesc(cond, false), new RowSchema(inputRS.getSignature()), op);
     output.setChildOperators(originalChildren);
     for (Operator<? extends OperatorDesc> ch : originalChildren) {
       List<Operator<? extends OperatorDesc>> parentOperators = ch

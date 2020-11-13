@@ -294,7 +294,7 @@ public class MapJoinOperator extends AbstractMapJoinOperator<MapJoinDesc> implem
     // This will be set during the first process call or during closeOp if no rows processed.
     matchTracker = null;
 
-    isFullOuterMapJoin = (condn.length == 1 && condn[0].getType() == JoinDesc.FULL_OUTER_JOIN);
+    isFullOuterMapJoin = (cond.length == 1 && cond[0].getType() == JoinDesc.FULL_OUTER_JOIN);
     if (isFullOuterMapJoin) {
       fullOuterBigTableRetainSize = conf.getRetainList().get(posBigTable).size();
     } else {

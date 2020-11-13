@@ -39,7 +39,7 @@ import com.google.common.collect.ImmutableList;
  *    g. Array Index Access
  *    h. Sub query
  *    i. GB expr elimination
- * 2. Join Condn expr has two input RR as opposed to one.
+ * 2. Join Cond expr has two input RR as opposed to one.
  */
 
 /**

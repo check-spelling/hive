@@ -105,8 +105,8 @@ public final class ColumnPrunerProcFactory {
         Object... nodeOutputs) throws SemanticException {
       FilterOperator op = (FilterOperator) nd;
       ColumnPrunerProcCtx cppCtx = (ColumnPrunerProcCtx) ctx;
-      ExprNodeDesc condn = op.getConf().getPredicate();
-      List<FieldNode> filterOpPrunedColLists = mergeFieldNodesWithDesc(cppCtx.genColLists(op), condn);
+      ExprNodeDesc cond = op.getConf().getPredicate();
+      List<FieldNode> filterOpPrunedColLists = mergeFieldNodesWithDesc(cppCtx.genColLists(op), cond);
       List<FieldNode> filterOpPrunedColListsOrderPreserved = preserveColumnOrder(op,
           filterOpPrunedColLists);
       cppCtx.getPrunedColLists().put(op,
