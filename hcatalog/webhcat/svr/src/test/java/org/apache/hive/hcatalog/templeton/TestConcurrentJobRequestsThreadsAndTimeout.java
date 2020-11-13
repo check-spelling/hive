@@ -63,17 +63,17 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
     statusTooManyRequestsExceptionMessage = "Unable to service the status job request as "
                                  + "templeton service is busy with too many status job requests. "
                                  + "Please wait for some time before retrying the operation. "
-                                 + "Please refer to the config templeton.parallellism.job.status "
+                                 + "Please refer to the config templeton.parallelism.job.status "
                                  + "to configure concurrent requests.";
     listTooManyRequestsExceptionMessage = "Unable to service the list job request as "
                                  + "templeton service is busy with too many list job requests. "
                                  + "Please wait for some time before retrying the operation. "
-                                 + "Please refer to the config templeton.parallellism.job.list "
+                                 + "Please refer to the config templeton.parallelism.job.list "
                                  + "to configure concurrent requests.";
     submitTooManyRequestsExceptionMessage = "Unable to service the submit job request as "
                                  + "templeton service is busy with too many submit job requests. "
                                  + "Please wait for some time before retrying the operation. "
-                                 + "Please refer to the config templeton.parallellism.job.submit "
+                                 + "Please refer to the config templeton.parallelism.job.submit "
                                  + "to configure concurrent requests.";
   }
 
