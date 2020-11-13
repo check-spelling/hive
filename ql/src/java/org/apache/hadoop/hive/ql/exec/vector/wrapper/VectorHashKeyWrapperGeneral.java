@@ -182,7 +182,7 @@ public class VectorHashKeyWrapperGeneral extends VectorHashKeyWrapperBase {
   }
 
   private boolean bytesEquals(VectorHashKeyWrapperGeneral keyThat) {
-    //By the time we enter here the byteValues.lentgh and isNull must have already been compared
+    //By the time we enter here the byteValues.length and isNull must have already been compared
     for (int i = 0; i < byteValues.length; ++i) {
       // the byte comparison is potentially expensive so is better to branch on null
       if (byteLengths[i] != -1) {
