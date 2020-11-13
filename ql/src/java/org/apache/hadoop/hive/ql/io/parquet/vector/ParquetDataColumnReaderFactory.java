@@ -268,7 +268,7 @@ public final class ParquetDataColumnReaderFactory {
     }
 
     /**
-     * Enforce the max legnth of varchar or char.
+     * Enforce the max length of varchar or char.
      */
     protected String enforceMaxLength(String value) {
       return HiveBaseChar.enforceMaxLength(value, length);
