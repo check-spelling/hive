@@ -912,7 +912,7 @@ public class TestTxnCommands extends TxnCommandsBaseForTests {
   /**
    * `1` means 1 is a column name and '1' means 1 is a string literal
    * HiveConf.HIVE_QUOTEDID_SUPPORT
-   * HiveConf.HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES
+   * HiveConf.HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES
    * {@link TestTxnCommands#testMergeType2SCD01()}
    */
   @Test

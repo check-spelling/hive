@@ -4428,7 +4428,7 @@ public class HiveConf extends Configuration {
      * @deprecated Use MetastoreConf.SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES
      */
     @Deprecated
-    HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES("hive.support.special.characters.tablename", true,
+    HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES("hive.support.special.characters.tablename", true,
         "This flag should be set to true to enable support for special characters in table names.\n"
         + "When it is set to false, only [a-zA-Z_0-9]+ are supported.\n"
         + "The supported special characters are %&'()*+,-./:;<=>?[]_|{}$^!~#@ and space. This flag applies only to"
@@ -6433,7 +6433,7 @@ public class HiveConf extends Configuration {
       ConfVars.HIVE_SCHEMA_EVOLUTION.varname,
       ConfVars.HIVE_SERVER2_LOGGING_OPERATION_LEVEL.varname,
       ConfVars.HIVE_SERVER2_THRIFT_RESULTSET_SERIALIZE_IN_TASKS.varname,
-      ConfVars.HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES.varname,
+      ConfVars.HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES.varname,
       ConfVars.JOB_DEBUG_CAPTURE_STACKTRACES.varname,
       ConfVars.JOB_DEBUG_TIMEOUT.varname,
       ConfVars.LLAP_IO_ENABLED.varname,
