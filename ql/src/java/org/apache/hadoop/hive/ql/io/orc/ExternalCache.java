@@ -265,7 +265,7 @@ public class ExternalCache implements FooterCache {
 
   /**
    * Modifies the SARG, replacing column names with column indexes in target table schema. This
-   * basically does the same thing as all the shennannigans with included columns, except for the
+   * basically does the same thing as all the shenanigans with included columns, except for the
    * last step where ORC gets direct subtypes of root column and uses the ordered match to map
    * table columns to file columns. The numbers put into predicate leaf should allow to go into
    * said subtypes directly by index to get the proper index in the file.
