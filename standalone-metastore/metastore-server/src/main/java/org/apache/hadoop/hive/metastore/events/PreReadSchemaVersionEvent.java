@@ -22,10 +22,10 @@ import org.apache.hadoop.hive.metastore.api.SchemaVersion;
 
 import java.util.List;
 
-public class PreReadhSchemaVersionEvent extends PreEventContext {
+public class PreReadSchemaVersionEvent extends PreEventContext {
   private final List<SchemaVersion> schemaVersions;
 
-  public PreReadhSchemaVersionEvent(IHMSHandler handler, List<SchemaVersion> schemaVersions) {
+  public PreReadSchemaVersionEvent(IHMSHandler handler, List<SchemaVersion> schemaVersions) {
     super(PreEventType.READ_SCHEMA_VERSION, handler);
     this.schemaVersions = schemaVersions;
   }
