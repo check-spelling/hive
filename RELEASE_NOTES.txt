@@ -406,7 +406,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16727] - REPL DUMP for insert event should't fail if the table is already dropped.
     * [HIVE-16729] - Improve location validator to check for blank paths.
     * [HIVE-16747] - Remove YETUS*.sh files after a YETUS release
-    * [HIVE-16748] - Integreate YETUS to Pre-Commit
+    * [HIVE-16748] - Integrate YETUS to Pre-Commit
     * [HIVE-16750] - Support change management for rename table/partition.
     * [HIVE-16764] - Support numeric as same as decimal
     * [HIVE-16765] - ParquetFileReader should be closed to avoid resource leak
