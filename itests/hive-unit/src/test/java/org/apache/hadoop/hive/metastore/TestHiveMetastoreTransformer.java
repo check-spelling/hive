@@ -139,7 +139,7 @@ public class TestHiveMetastoreTransformer {
       tProps.put("PROPERTIES", properties.toString());
       Table tbl = createTableWithCapabilities(tProps);
 
-      setHMSClient("testTranformerWithOldTables", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
+      setHMSClient("testTransformerWithOldTables", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       Table tbl2 = client.getTable(dbName, tblName);
       assertEquals("Created and retrieved tables do not match:" + tbl2.getTableName() + ":" + tblName,
           tbl2.getTableName(), tblName);
@@ -217,7 +217,7 @@ public class TestHiveMetastoreTransformer {
           0, tbl2.getAccessType());
       assertEquals(buckets, tbl2.getSd().getNumBuckets()); // no transformation
 
-      setHMSClient("testTranformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
+      setHMSClient("testTransformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match the expected value:" + tblName,
           ACCESSTYPE_READWRITE, tbl2.getAccessType());
@@ -544,7 +544,7 @@ public class TestHiveMetastoreTransformer {
           ACCESSTYPE_READONLY, tbl2.getAccessType());
       resetHMSClient();
 
-      setHMSClient("testTranformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
+      setHMSClient("testTransformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match the expected value:" + tblName,
           ACCESSTYPE_NONE, tbl2.getAccessType());
