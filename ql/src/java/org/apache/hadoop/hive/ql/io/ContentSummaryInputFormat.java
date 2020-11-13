@@ -25,7 +25,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapred.JobConf;
 
 /**
- * ContentSummayInputFormat provides an interface to let the input format itself
+ * ContentSummaryInputFormat provides an interface to let the input format itself
  * figure the content summary for a give input path.
  */
 public interface ContentSummaryInputFormat {
