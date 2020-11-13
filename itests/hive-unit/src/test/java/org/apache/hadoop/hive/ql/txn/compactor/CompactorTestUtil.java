@@ -244,7 +244,7 @@ class CompactorTestUtil {
   }
 
   static void checkExpectedTxnsPresent(Path base, Path[] deltas, String columnNamesProperty, String columnTypesProperty,
-      int bucket, long min, long max, List<Integer> invaliWriteIDs,  int numBuckets) throws IOException {
+      int bucket, long min, long max, List<Integer> invalidWriteIDs,  int numBuckets) throws IOException {
     ValidWriteIdList writeIdList = new ValidWriteIdList() {
       @Override
       public String getTableName() {
@@ -322,8 +322,8 @@ class CompactorTestUtil {
         seenCurrentTxn = true;
       }
       if (currentTxn != identifier.getWriteId()) {
-        if (invaliWriteIDs != null) {
-          Assert.assertFalse(invaliWriteIDs.contains(identifier.getWriteId()));
+        if (invalidWriteIDs != null) {
+          Assert.assertFalse(invalidWriteIDs.contains(identifier.getWriteId()));
         }
         currentTxn++;
       }
