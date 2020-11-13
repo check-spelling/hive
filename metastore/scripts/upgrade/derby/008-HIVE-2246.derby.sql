@@ -73,7 +73,7 @@ ON
  * Migrate the partitions.
  * Update the partitions' SDS to use the parent tables' CD_ID  BEGIN
  * Derby does not allow joins in update statements, 
- * so we have to make a temporary tableh
+ * so we have to make a temporary table
  */
 DECLARE GLOBAL TEMPORARY TABLE "TMP_TBL" (
   "SD_ID" bigint not null,

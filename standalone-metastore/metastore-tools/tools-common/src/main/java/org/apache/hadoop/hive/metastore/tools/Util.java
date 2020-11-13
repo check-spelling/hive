@@ -248,8 +248,8 @@ public final class Util {
       return new TableBuilder(dbName, tableName).build();
     }
 
-    TableBuilder withType(TableType tabeType) {
-      this.tableType = tabeType;
+    TableBuilder withType(TableType tableType) {
+      this.tableType = tableType;
       return this;
     }
 
