@@ -135,7 +135,7 @@ public class SQLOperation extends ExecuteStatementOperation {
 
     final Metrics metrics = MetricsFactory.getInstance();
     this.submittedQryScp =
-        (metrics == null) ? Optional.empty() : Optional.of(metrics.createScope(MetricsConstant.HS2_SUBMITTED_QURIES));
+        (metrics == null) ? Optional.empty() : Optional.of(metrics.createScope(MetricsConstant.HS2_SUBMITTED_QUERIES));
   }
 
   @Override

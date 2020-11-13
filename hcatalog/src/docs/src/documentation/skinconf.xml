@@ -63,7 +63,7 @@ which will be used to configure the chosen Forrest skin.
 <!-- mandatory project logo
        default skin: renders it at the top -->
   <project-name>HCatalog</project-name>
-  <project-description>A table abstraction on top of data for use with java MapReduce programs, Pig scripts and Hive queryies.</project-description>
+  <project-description>A table abstraction on top of data for use with java MapReduce programs, Pig scripts and Hive queries.</project-description>
   <project-url></project-url>
   <project-logo>images/hcat-box.jpg</project-logo>
 
