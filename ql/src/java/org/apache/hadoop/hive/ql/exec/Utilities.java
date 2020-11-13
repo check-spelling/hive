@@ -4756,7 +4756,7 @@ public final class Utilities {
             throw new HiveException("LB FSOP has committed "
                 + childPath + " outside of LB directory levels " + lbLevels);
           }
-          deleteUncommitedFile(childPath, fs);
+          deleteUncommittedFile(childPath, fs);
         }
         continue;
       }
@@ -4766,14 +4766,14 @@ public final class Utilities {
           continue; // A good file.
         }
         if (!childPath.getName().equals(AcidUtils.OrcAcidVersion.ACID_FORMAT)) {
-          deleteUncommitedFile(childPath, fs);
+          deleteUncommittedFile(childPath, fs);
         }
       } else if (!child.isDirectory()) {
         if (committed.contains(childPath)) {
           throw new HiveException("Union FSOP has committed "
               + childPath + " outside of union directory " + unionSuffix);
         }
-        deleteUncommitedFile(childPath, fs);
+        deleteUncommittedFile(childPath, fs);
       } else if (childPath.getName().equals(unionSuffix)) {
         // Found the right union directory; treat it as "our" directory.
         cleanDirectInsertDirectory(childPath, fs, null, 0, committed);
@@ -4790,7 +4790,7 @@ public final class Utilities {
     }
   }
 
-  private static void deleteUncommitedFile(Path childPath, FileSystem fs)
+  private static void deleteUncommittedFile(Path childPath, FileSystem fs)
       throws IOException, HiveException {
     Utilities.FILE_OP_LOGGER.info("Deleting {} that was not committed", childPath);
     // We should actually succeed here - if we fail, don't commit the query.
