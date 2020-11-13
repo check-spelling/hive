@@ -498,14 +498,14 @@ public class FetchOperator implements Serializable {
     for (int i = 0; i < splits.size(); i++) {
       FetchInputFormatSplit split = splits.get((startIndex + i) % splits.size());
       result.add(split);
-      long splitgLength = split.getLength();
-      if (size + splitgLength >= targetSize) {
-        if (size + splitgLength > targetSize) {
+      long splitLength = split.getLength();
+      if (size + splitLength >= targetSize) {
+        if (size + splitLength > targetSize) {
           split.shrinkedLength = targetSize - size;
         }
         break;
       }
-      size += splitgLength;
+      size += splitLength;
     }
     return result;
   }
