@@ -897,7 +897,7 @@ public class TestTxnCommands extends TxnCommandsBaseForTests {
         "WHEN MATCHED THEN UPDATE set b = 1\n" +
         "WHEN MATCHED THEN DELETE\n" +
         "WHEN NOT MATCHED AND a < 1 THEN INSERT VALUES(1,2)");
-    Assert.assertEquals(ErrorMsg.MERGE_PREDIACTE_REQUIRED, ((HiveException)e.getCause()).getCanonicalErrorMsg());
+    Assert.assertEquals(ErrorMsg.MERGE_PREDICATE_REQUIRED, ((HiveException)e.getCause()).getCanonicalErrorMsg());
   }
   @Test
   public void testMergeNegative2() throws Exception {

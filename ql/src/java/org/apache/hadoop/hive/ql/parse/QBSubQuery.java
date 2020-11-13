@@ -968,9 +968,9 @@ public class QBSubQuery implements ISubQueryJoinInfo {
             rewriteCorrConjunctForHaving(conjunctAST, false, outerQueryAlias,
                 parentQueryRR, conjunct.getRightOuterColInfo());
           }
-          ASTNode joinPredciate = SubQueryUtils.alterCorrelatedPredicate(
+          ASTNode joinPredicate = SubQueryUtils.alterCorrelatedPredicate(
               conjunctAST, sqExprForCorr, true);
-          joinConditionAST = SubQueryUtils.andAST(joinConditionAST, joinPredciate);
+          joinConditionAST = SubQueryUtils.andAST(joinConditionAST, joinPredicate);
           subQueryJoinAliasExprs.add(sqExprForCorr);
           ASTNode selExpr = SubQueryUtils.createSelectItem(conjunct.getLeftExpr(), sqExprAlias);
           selectClause.addChild(selExpr);
@@ -992,9 +992,9 @@ public class QBSubQuery implements ISubQueryJoinInfo {
             rewriteCorrConjunctForHaving(conjunctAST, true, outerQueryAlias,
                 parentQueryRR, conjunct.getLeftOuterColInfo());
           }
-          ASTNode joinPredciate = SubQueryUtils.alterCorrelatedPredicate(
+          ASTNode joinPredicate = SubQueryUtils.alterCorrelatedPredicate(
               conjunctAST, sqExprForCorr, false);
-          joinConditionAST = SubQueryUtils.andAST(joinConditionAST, joinPredciate);
+          joinConditionAST = SubQueryUtils.andAST(joinConditionAST, joinPredicate);
           subQueryJoinAliasExprs.add(sqExprForCorr);
           ASTNode selExpr = SubQueryUtils.createSelectItem(conjunct.getRightExpr(), sqExprAlias);
           selectClause.addChild(selExpr);
