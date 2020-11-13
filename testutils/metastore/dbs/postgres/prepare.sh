@@ -43,7 +43,7 @@ then
 else
   echo "PostgreSQL not installed"
   # Cleanup existing installation + configuration.
-  apt-get purge -y --force-yes postgressql-9.4 || /bin/true
+  apt-get purge -y --force-yes postgresql-9.4 || /bin/true
   echo "####################################################"
   echo "Installing PostgreSQL dependencies:"
   echo "####################################################"
