@@ -28,7 +28,7 @@ PREHOOK: query: create table store_txt
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              decimal(5,2),
-    s_tax_precentage          decimal(5,2)                  
+    s_tax_percentage          decimal(5,2)                  
 )
 row format delimited fields terminated by '|' 
 stored as textfile
@@ -65,7 +65,7 @@ POSTHOOK: query: create table store_txt
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              decimal(5,2),
-    s_tax_precentage          decimal(5,2)                  
+    s_tax_percentage          decimal(5,2)                  
 )
 row format delimited fields terminated by '|' 
 stored as textfile
@@ -121,7 +121,7 @@ POSTHOOK: Lineage: store_n1.s_street_name SIMPLE [(store_txt)store_txt.FieldSche
 POSTHOOK: Lineage: store_n1.s_street_number SIMPLE [(store_txt)store_txt.FieldSchema(name:s_street_number, type:string, comment:null), ]
 POSTHOOK: Lineage: store_n1.s_street_type SIMPLE [(store_txt)store_txt.FieldSchema(name:s_street_type, type:string, comment:null), ]
 POSTHOOK: Lineage: store_n1.s_suite_number SIMPLE [(store_txt)store_txt.FieldSchema(name:s_suite_number, type:string, comment:null), ]
-POSTHOOK: Lineage: store_n1.s_tax_precentage SIMPLE [(store_txt)store_txt.FieldSchema(name:s_tax_precentage, type:decimal(5,2), comment:null), ]
+POSTHOOK: Lineage: store_n1.s_tax_percentage SIMPLE [(store_txt)store_txt.FieldSchema(name:s_tax_percentage, type:decimal(5,2), comment:null), ]
 POSTHOOK: Lineage: store_n1.s_zip SIMPLE [(store_txt)store_txt.FieldSchema(name:s_zip, type:string, comment:null), ]
 PREHOOK: query: explain vectorization expression
 select s_store_id

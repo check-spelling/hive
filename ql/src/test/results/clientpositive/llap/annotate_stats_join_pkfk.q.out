@@ -100,7 +100,7 @@ PREHOOK: query: create table store_n0
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              float,
-    s_tax_precentage          float
+    s_tax_percentage          float
 )
 row format delimited fields terminated by '|'
 PREHOOK: type: CREATETABLE
@@ -136,7 +136,7 @@ POSTHOOK: query: create table store_n0
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              float,
-    s_tax_precentage          float
+    s_tax_percentage          float
 )
 row format delimited fields terminated by '|'
 POSTHOOK: type: CREATETABLE
@@ -172,7 +172,7 @@ PREHOOK: query: create table store_bigint
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              float,
-    s_tax_precentage          float
+    s_tax_percentage          float
 )
 row format delimited fields terminated by '|'
 PREHOOK: type: CREATETABLE
@@ -208,7 +208,7 @@ POSTHOOK: query: create table store_bigint
     s_zip                     string,
     s_country                 string,
     s_gmt_offset              float,
-    s_tax_precentage          float
+    s_tax_percentage          float
 )
 row format delimited fields terminated by '|'
 POSTHOOK: type: CREATETABLE
