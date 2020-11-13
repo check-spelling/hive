@@ -872,7 +872,7 @@ public class Driver implements IDriver {
       if (driverState.isDestroyed()) {
         return;
       } else {
-        driverState.descroyed();
+        driverState.destroyed();
       }
     } finally {
       driverState.unlock();

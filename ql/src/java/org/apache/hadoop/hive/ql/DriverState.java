@@ -150,7 +150,7 @@ public class DriverState {
     return driverState == State.CLOSED;
   }
 
-  public void descroyed() {
+  public void destroyed() {
     driverState = State.DESTROYED;
   }
 
