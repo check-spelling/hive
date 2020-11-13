@@ -60,7 +60,7 @@ public abstract class MetadataOperation extends Operation {
   }
 
   /**
-   * Convert wildchars and escape sequence from JDBC format to datanucleous/regex
+   * Convert wildchars and escape sequence from JDBC format to datanucleus/regex
    */
   protected String convertIdentifierPattern(final String pattern, boolean datanucleusFormat) {
     if (pattern == null) {
@@ -71,7 +71,7 @@ public abstract class MetadataOperation extends Operation {
   }
 
   /**
-   * Convert wildchars and escape sequence of schema pattern from JDBC format to datanucleous/regex
+   * Convert wildchars and escape sequence of schema pattern from JDBC format to datanucleus/regex
    * The schema pattern treats empty string also as wildchar
    */
   protected String convertSchemaPattern(final String pattern) {
