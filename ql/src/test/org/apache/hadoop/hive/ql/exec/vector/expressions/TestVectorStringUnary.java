@@ -290,7 +290,7 @@ public class TestVectorStringUnary {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow,
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow,
       TypeInfo targetTypeInfo, Object[] resultObjects) {
 
     ObjectInspector objectInspector = TypeInfoUtils
@@ -302,14 +302,14 @@ public class TestVectorStringUnary {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
 
       try {
-        resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+        resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
       } catch (Exception e) {
         Assert.fail(e.toString());
       }
 
       Object copyResult =
           ObjectInspectorUtils.copyToStandardObject(
-              scrqtchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
+              scratchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
       resultObjects[rowIndex++] = copyResult;
     }
   }
@@ -352,7 +352,7 @@ public class TestVectorStringUnary {
 
     VectorExtractRow resultVectorExtractRow = new VectorExtractRow();
     resultVectorExtractRow.init(new TypeInfo[] { targetTypeInfo }, new int[] { columns.size() });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     // System.out.println("*VECTOR EXPRESSION* " + vectorExpression.getClass().getSimpleName());
 
@@ -371,7 +371,7 @@ public class TestVectorStringUnary {
         break;
       }
       vectorExpression.evaluate(batch);
-      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow,
+      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow,
           targetTypeInfo, resultObjects);
       rowIndex += batch.size;
     }

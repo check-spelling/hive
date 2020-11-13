@@ -609,18 +609,18 @@ public class TestVectorFilterCompare {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow,
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow,
       ObjectInspector objectInspector, Object[] resultObjects) {
 
     boolean selectedInUse = batch.selectedInUse;
     int[] selected = batch.selected;
     for (int logicalIndex = 0; logicalIndex < batch.size; logicalIndex++) {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
-      resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
 
       Object copyResult =
           ObjectInspectorUtils.copyToStandardObject(
-              scrqtchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
+              scratchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
       resultObjects[rowIndex++] = copyResult;
     }
   }
@@ -704,7 +704,7 @@ public class TestVectorFilterCompare {
     final int outputColumnNum = vectorExpression.getOutputColumnNum();
     resultVectorExtractRow.init(
         new TypeInfo[] { outputTypeInfo }, new int[] { outputColumnNum });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     // System.out.println("*VECTOR EXPRESSION* " + vectorExpression.getClass().getSimpleName());
 
@@ -740,7 +740,7 @@ public class TestVectorFilterCompare {
       vectorExpression.evaluate(batch);
 
       if (!isFilter) {
-        extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow,
+        extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow,
             objectInspector, resultObjects);
       } else {
         final int currentBatchSize = batch.size;

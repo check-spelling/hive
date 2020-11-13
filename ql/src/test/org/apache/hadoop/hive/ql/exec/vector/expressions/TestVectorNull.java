@@ -338,18 +338,18 @@ public class TestVectorNull {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow,
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow,
       ObjectInspector objectInspector, Object[] resultObjects) {
 
     boolean selectedInUse = batch.selectedInUse;
     int[] selected = batch.selected;
     for (int logicalIndex = 0; logicalIndex < batch.size; logicalIndex++) {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
-      resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
 
       Object copyResult =
           ObjectInspectorUtils.copyToStandardObject(
-              scrqtchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
+              scratchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
       resultObjects[rowIndex++] = copyResult;
     }
   }
@@ -419,13 +419,13 @@ public class TestVectorNull {
     VectorizedRowBatch batch = batchContext.createVectorizedRowBatch();
 
     VectorExtractRow resultVectorExtractRow = null;
-    Object[] scrqtchRow = null;
+    Object[] scratchRow = null;
     if (!isFilter) {
       resultVectorExtractRow = new VectorExtractRow();
       final int outputColumnNum = vectorExpression.getOutputColumnNum();
       resultVectorExtractRow.init(
           new TypeInfo[] { outputTypeInfo }, new int[] { outputColumnNum });
-      scrqtchRow = new Object[1];
+      scratchRow = new Object[1];
     }
 
     boolean copySelectedInUse = false;
@@ -449,7 +449,7 @@ public class TestVectorNull {
       vectorExpression.evaluate(batch);
 
       if (!isFilter) {
-        extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow,
+        extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow,
             objectInspector, resultObjects);
       } else {
         final int currentBatchSize = batch.size;

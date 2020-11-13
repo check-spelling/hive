@@ -352,7 +352,7 @@ public class TestVectorTimestampExtract {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow,
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow,
       TypeInfo targetTypeInfo, Object[] resultObjects) {
 
     ObjectInspector objectInspector = TypeInfoUtils
@@ -362,11 +362,11 @@ public class TestVectorTimestampExtract {
     int[] selected = batch.selected;
     for (int logicalIndex = 0; logicalIndex < batch.size; logicalIndex++) {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
-      resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
 
       Object copyResult =
           ObjectInspectorUtils.copyToStandardObject(
-              scrqtchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
+              scratchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
       resultObjects[rowIndex++] = copyResult;
     }
 
@@ -433,7 +433,7 @@ public class TestVectorTimestampExtract {
 
     resultVectorExtractRow.init(
         new TypeInfo[] { TypeInfoFactory.intTypeInfo }, new int[] { vectorExpression.getOutputColumnNum() });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     batchSource.resetBatchIteration();
     int rowIndex = 0;
@@ -442,7 +442,7 @@ public class TestVectorTimestampExtract {
         break;
       }
       vectorExpression.evaluate(batch);
-      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow,
+      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow,
           TypeInfoFactory.intTypeInfo, resultObjects);
       rowIndex += batch.size;
     }

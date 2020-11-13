@@ -396,7 +396,7 @@ public class TestVectorDateAddSub {
   }
 
   private void extractResultObjects(VectorizedRowBatch batch, int rowIndex,
-      VectorExtractRow resultVectorExtractRow, Object[] scrqtchRow,
+      VectorExtractRow resultVectorExtractRow, Object[] scratchRow,
       TypeInfo targetTypeInfo, Object[] resultObjects) {
 
     ObjectInspector objectInspector = TypeInfoUtils
@@ -406,11 +406,11 @@ public class TestVectorDateAddSub {
     int[] selected = batch.selected;
     for (int logicalIndex = 0; logicalIndex < batch.size; logicalIndex++) {
       final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
-      resultVectorExtractRow.extractRow(batch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(batch, batchIndex, scratchRow);
 
       Object copyResult =
           ObjectInspectorUtils.copyToStandardObject(
-              scrqtchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
+              scratchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
       resultObjects[rowIndex++] = copyResult;
     }
   }
@@ -456,7 +456,7 @@ public class TestVectorDateAddSub {
 
     VectorExtractRow resultVectorExtractRow = new VectorExtractRow();
     resultVectorExtractRow.init(new TypeInfo[] { TypeInfoFactory.dateTypeInfo }, new int[] { columns.size() });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     // System.out.println("*VECTOR EXPRESSION* " + vectorExpression.getClass().getSimpleName());
 
@@ -477,7 +477,7 @@ public class TestVectorDateAddSub {
         break;
       }
       vectorExpression.evaluate(batch);
-      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scrqtchRow,
+      extractResultObjects(batch, rowIndex, resultVectorExtractRow, scratchRow,
           TypeInfoFactory.dateTypeInfo, resultObjects);
       rowIndex += batch.size;
     }
