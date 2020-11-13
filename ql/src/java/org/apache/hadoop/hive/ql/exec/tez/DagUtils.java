@@ -462,7 +462,7 @@ public class DagUtils {
    * Edge between them.
    *
    * @param group The parent VertexGroup
-   * @param vConf The job conf of one of the parrent (grouped) vertices
+   * @param vConf The job conf of one of the parent (grouped) vertices
    * @param w The child vertex
    * @param edgeProp the edge property of connection between the two
    * endpoints.

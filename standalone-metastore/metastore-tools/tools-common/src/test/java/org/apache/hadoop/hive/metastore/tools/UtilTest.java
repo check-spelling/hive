@@ -68,7 +68,7 @@ public class UtilTest {
   }
 
   /**
-   * Test that multiple patterns are handled correctly. We use one positive and one negative parrent.
+   * Test that multiple patterns are handled correctly. We use one positive and one negative parent.
    */
   @Test
   public void filterMatchesMultiple() {

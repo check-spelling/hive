@@ -67,7 +67,7 @@ public class TestAddToClassPathAction {
   public void testNullClassLoader() {
     try {
       new AddToClassPathAction(null, Collections.emptyList());
-      fail("When pafrent class loader is null, IllegalArgumentException is expected!");
+      fail("When parent class loader is null, IllegalArgumentException is expected!");
     } catch (IllegalArgumentException e) {
       // pass
     }
