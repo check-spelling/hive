@@ -72,8 +72,8 @@ public class PartitionProjectionEvaluator {
     void setValue(T part, PartitionFieldNode node, Object value) throws MetaException;
   }
 
-  private final ImmutableMap<String, MutivaluedFieldSetter> multiValuedFieldSetters =
-      new ImmutableMap.Builder<String, MutivaluedFieldSetter>()
+  private final ImmutableMap<String, MultivaluedFieldSetter> multiValuedFieldSetters =
+      new ImmutableMap.Builder<String, MultivaluedFieldSetter>()
           .put("values", new PartitionValuesSetter())
           .put("parameters", new PartitionParametersSetter())
           .put("sd.cols", new PartitionSDColsSetter())
@@ -481,7 +481,7 @@ public class PartitionProjectionEvaluator {
     // note that once a multi-valued node is found the method does not recurse further
     // this is because the multi-valued setter also sets the values of all its descendents
     if (root.isMultiValued) {
-      MutivaluedFieldSetter multiValuedFieldSetter = multiValuedFieldSetters.get(root.fieldName);
+      MultivaluedFieldSetter multiValuedFieldSetter = multiValuedFieldSetters.get(root.fieldName);
       if (multiValuedFieldSetter == null) {
         throw new MetaException(
             "Cannot find multi-valued field setter for field " + root.fieldName);
@@ -668,12 +668,12 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private interface MutivaluedFieldSetter {
+  private interface MultivaluedFieldSetter {
     void setValue(PartitionFieldNode root, TreeMap<Long, Partition> partitions, TreeMap<Long, StorageDescriptor> sds,
         TreeMap<Long, SerDeInfo> serdes, TreeMap<Long, List<FieldSchema>> cds) throws MetaException;
   }
 
-  private class PartitionValuesSetter implements MutivaluedFieldSetter {
+  private class PartitionValuesSetter implements MultivaluedFieldSetter {
     private PartitionValuesSetter() {
       //
     }
@@ -690,7 +690,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionParametersSetter implements MutivaluedFieldSetter {
+  private class PartitionParametersSetter implements MultivaluedFieldSetter {
     private PartitionParametersSetter() {
       //
     }
@@ -706,7 +706,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSDColsSetter implements MutivaluedFieldSetter {
+  private class PartitionSDColsSetter implements MultivaluedFieldSetter {
     private PartitionSDColsSetter() {
       // prevent instantiation
     }
@@ -725,7 +725,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSDBucketColsSetter implements MutivaluedFieldSetter {
+  private class PartitionSDBucketColsSetter implements MultivaluedFieldSetter {
     private PartitionSDBucketColsSetter() {
       //
     }
@@ -742,7 +742,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSortColsSetter implements MutivaluedFieldSetter {
+  private class PartitionSortColsSetter implements MultivaluedFieldSetter {
     private PartitionSortColsSetter() {
       //
     }
@@ -770,7 +770,7 @@ public class PartitionProjectionEvaluator {
     return childFields;
   }
 
-  private class PartitionSDParametersSetter implements MutivaluedFieldSetter {
+  private class PartitionSDParametersSetter implements MultivaluedFieldSetter {
     private PartitionSDParametersSetter() {
       //
     }
@@ -786,7 +786,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSerdeInfoParametersSetter implements MutivaluedFieldSetter {
+  private class PartitionSerdeInfoParametersSetter implements MultivaluedFieldSetter {
     private PartitionSerdeInfoParametersSetter() {
       //
     }
@@ -803,7 +803,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSkewedColsNamesSetter implements MutivaluedFieldSetter {
+  private class PartitionSkewedColsNamesSetter implements MultivaluedFieldSetter {
     private PartitionSkewedColsNamesSetter() {
       //
     }
@@ -820,7 +820,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSkewedColsValuesSetter implements MutivaluedFieldSetter {
+  private class PartitionSkewedColsValuesSetter implements MultivaluedFieldSetter {
     private PartitionSkewedColsValuesSetter() {
       //
     }
@@ -840,7 +840,7 @@ public class PartitionProjectionEvaluator {
     }
   }
 
-  private class PartitionSkewedColValLocationMapSetter implements MutivaluedFieldSetter {
+  private class PartitionSkewedColValLocationMapSetter implements MultivaluedFieldSetter {
     private PartitionSkewedColValLocationMapSetter() {
       //
     }
