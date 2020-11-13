@@ -88,7 +88,7 @@ public class TestNoSaslAuth {
   }
 
   /**
-   * Initiate a non-sasl connection. The session hook will verfiy the user name
+   * Initiate a non-sasl connection. The session hook will verify the user name
    * set correctly
    *
    * @throws Exception
