@@ -237,8 +237,8 @@ import java.util.function.Predicate;
         table.getParameters()
             .get(KafkaTableProperties.WRITE_SEMANTIC_PROPERTY.getName())
             .equals(KafkaOutputFormat.WriteSemantic.EXACTLY_ONCE.name());
-    String optimiticCommitVal = table.getParameters().get(KafkaTableProperties.HIVE_KAFKA_OPTIMISTIC_COMMIT.getName());
-    boolean isTwoPhaseCommit = !Boolean.parseBoolean(optimiticCommitVal);
+    String optimisticCommitVal = table.getParameters().get(KafkaTableProperties.HIVE_KAFKA_OPTIMISTIC_COMMIT.getName());
+    boolean isTwoPhaseCommit = !Boolean.parseBoolean(optimisticCommitVal);
     if (!isExactlyOnce || !isTwoPhaseCommit) {
       //Case it is not 2 phase commit no open transaction to handle.
       return;
