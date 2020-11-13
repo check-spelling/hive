@@ -52,7 +52,7 @@ public class CuckooSetLong {
   /**
    * Allocate a new set to hold expectedSize values. Re-allocation to expand
    * the set is not implemented, so the expected size must be at least the
-   * size of the set to be inserteed.
+   * size of the set to be inserted.
    * @param expectedSize At least the size of the set of values that will be inserted.
    */
   public CuckooSetLong(int expectedSize) {
