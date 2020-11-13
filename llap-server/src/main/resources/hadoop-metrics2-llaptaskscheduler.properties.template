@@ -41,7 +41,7 @@
 # *.sink.timeline.class=org.apache.hadoop.metrics2.sink.timeline.HadoopTimelineMetricsSink
 # *.sink.timeline.period=60
 
-# llapdeamon metrics for all contexts (jvm,queue,executors,cache) will go to this file
+# llapdaemon metrics for all contexts (jvm,queue,executors,cache) will go to this file
 # llaptaskscheduler.sink.file.filename=llaptaskscheduler-metrics.out
 
 # to configure separate files per context define following for each context
