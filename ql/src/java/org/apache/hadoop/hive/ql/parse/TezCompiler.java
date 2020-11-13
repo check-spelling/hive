@@ -1462,7 +1462,7 @@ public class TezCompiler extends TaskCompiler {
 
   /*
    *  The algorithm looks at all the mapjoins in the operator pipeline until
-   *  it hits RS Op and for each mapjoin examines if it has paralllel semijoin
+   *  it hits RS Op and for each mapjoin examines if it has parallel semijoin
    *  edge or dynamic partition pruning.
    *
    *  As an extension, the algorithm also looks for suitable table scan operators that
