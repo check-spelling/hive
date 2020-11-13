@@ -136,7 +136,7 @@ is_clear_cache_set() {
   grep -q "CLEAR LIBRARY CACHE" $1
 }
 
-# Parses the JIRA/patch to find relavent information.
+# Parses the JIRA/patch to find relevant information.
 # Exports two variables of import:
 # * BUILD_PROFILE - the profile which the ptest server understands
 # * BUILD_OPTS - additional test options to be sent to ptest cli
