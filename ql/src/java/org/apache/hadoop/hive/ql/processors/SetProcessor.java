@@ -71,7 +71,7 @@ public class SetProcessor implements CommandProcessor {
     }
   }
 
-  private static final String[] PASSWORD_STRINGS = new String[] {"password", "paswd", "pswd"};
+  private static final String[] PASSWORD_STRINGS = new String[] {"password", "passwd", "pswd"};
 
   private static final Pattern TIME_ZONE_PATTERN =
       Pattern.compile("^time(\\s)+zone\\s", Pattern.CASE_INSENSITIVE);
