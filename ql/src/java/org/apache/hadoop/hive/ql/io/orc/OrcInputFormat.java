@@ -2058,7 +2058,7 @@ public class OrcInputFormat implements InputFormat<NullWritable, OrcStruct>,
     AcidUtils.AcidOperationalProperties acidOperationalProperties
             = AcidUtils.getAcidOperationalProperties(options.getConfiguration());
     if(!acidOperationalProperties.isSplitUpdate()) {
-      throw new IllegalStateException("Expected SpliUpdate table: " + split.getPath());
+      throw new IllegalStateException("Expected SplitUpdate table: " + split.getPath());
     }
 
     Map<String, AcidInputFormat.DeltaMetaData> pathToDeltaMetaData = new HashMap<>();
