@@ -1423,7 +1423,7 @@ public class TestReplicationScenarios {
     verifyIfTableNotExist(replDbName, "unptned", metaStoreClientMirror);
     verifyRun("SELECT * from " + replDbName + ".unptned_rn", unptn_data, driverMirror);
 
-    // verify that partition rename succeded.
+    // verify that partition rename succeeded.
     try {
       Table unptn2 = metaStoreClientMirror.getTable(replDbName, "unptned2");
       assertTrue(unptn2.getParameters().containsKey(testKey));
@@ -1435,7 +1435,7 @@ public class TestReplicationScenarios {
     verifyRun("SELECT a from " + replDbName + ".ptned WHERE b=2", empty, driverMirror);
     verifyRun("SELECT a from " + replDbName + ".ptned WHERE b=22", ptn_data_2, driverMirror);
 
-    // verify that ptned table rename succeded.
+    // verify that ptned table rename succeeded.
     verifyIfTableNotExist(replDbName, "ptned2", metaStoreClientMirror);
     verifyRun("SELECT a from " + replDbName + ".ptned2_rn WHERE b=2", ptn_data_2, driverMirror);
 
