@@ -403,7 +403,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16714] - make Task Dependency on Repl Load more intuitive
     * [HIVE-16715] - Clean up javadoc from errors in modules llap-client, metastore, spark-client
     * [HIVE-16722] - Converting bucketed non-acid table to acid should perform validation
-    * [HIVE-16727] - REPL DUMP for insert event should't fail if the table is already dropped.
+    * [HIVE-16727] - REPL DUMP for insert event shouldn't fail if the table is already dropped.
     * [HIVE-16729] - Improve location validator to check for blank paths.
     * [HIVE-16747] - Remove YETUS*.sh files after a YETUS release
     * [HIVE-16748] - Integrate YETUS to Pre-Commit

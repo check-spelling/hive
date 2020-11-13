@@ -268,7 +268,7 @@ class TezSessionPool<SessionType extends TezSessionPoolSession> {
       if (SessionState.get() == null && parentSessionState != null) {
         // Tez session relies on a threadlocal for open... If we are on some non-session thread,
         // just use the same SessionState we used for the initial sessions.
-        // Technically, given that all pool sessions are initially based on this state, shoudln't
+        // Technically, given that all pool sessions are initially based on this state, shouldn't
         // we also set this at all times and not rely on an external session stuff? We should
         // probably just get rid of the thread local usage in TezSessionState.
         SessionState.setCurrentSessionState(parentSessionState);
