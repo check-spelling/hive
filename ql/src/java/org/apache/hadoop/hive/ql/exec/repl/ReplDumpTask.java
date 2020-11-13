@@ -503,7 +503,7 @@ public class ReplDumpTask extends Task<ReplDumpWork> implements Serializable {
     return !ReplUtils.tableIncludedInReplScope(work.oldReplScope, table.getTableName());
   }
 
-  private boolean isTableSatifiesConfig(Table table) {
+  private boolean isTableSatisfiesConfig(Table table) {
     if (table == null) {
       return false;
     }
@@ -665,7 +665,7 @@ public class ReplDumpTask extends Task<ReplDumpWork> implements Serializable {
                 dumpTable(dbName, tableName, validTxnList, dbRootMetadata, dbRootData, bootDumpBeginReplId,
                         hiveDb, tableTuple, managedTblList, dataCopyAtLoad);
               }
-              if (tableList != null && isTableSatifiesConfig(table)) {
+              if (tableList != null && isTableSatisfiesConfig(table)) {
                 tableList.add(tableName);
               }
             } catch (InvalidTableException te) {
@@ -944,7 +944,7 @@ public class ReplDumpTask extends Task<ReplDumpWork> implements Serializable {
               LOG.debug(te.getMessage());
             }
             dumpConstraintMetadata(dbName, tblName, dbRoot, hiveDb);
-            if (tableList != null && isTableSatifiesConfig(table)) {
+            if (tableList != null && isTableSatisfiesConfig(table)) {
               tableList.add(tblName);
             }
           }
