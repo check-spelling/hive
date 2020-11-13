@@ -43,7 +43,7 @@ public class HivePlannerContext implements Context {
     this.calciteConfig = calciteConfig;
     this.statsSource = statsSource;
     // this is to keep track if a subquery is correlated and contains aggregate
-    // this is computed in CalcitePlanner while planning and is later required by subuery remove rule
+    // this is computed in CalcitePlanner while planning and is later required by subquery remove rule
     // hence this is passed using HivePlannerContext
     this.subqueryConfig = new SubqueryConf(corrScalarRexSQWithAgg);
     this.isCorrelatedColumns = isCorrelatedColumns;
