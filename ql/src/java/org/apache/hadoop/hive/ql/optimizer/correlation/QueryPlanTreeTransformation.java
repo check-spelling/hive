@@ -73,8 +73,8 @@ public class QueryPlanTreeTransformation {
   /**
    * Based on the correlation, we transform the query plan tree (operator tree).
    * In here, we first create DemuxOperator and all bottom ReduceSinkOperators
-   * (bottom means near TableScanOperaotr) in the correlation will be be
-   * the parents of the DemuxOperaotr. We also reassign tags to those
+   * (bottom means near TableScanOperator) in the correlation will be be
+   * the parents of the DemuxOperator. We also reassign tags to those
    * ReduceSinkOperators. Then, we use MuxOperators to replace ReduceSinkOperators
    * which are not bottom ones in this correlation.
    * Example: The original operator tree is ...
@@ -147,7 +147,7 @@ public class QueryPlanTreeTransformation {
       setNewTag(correlation, childrenOfDemux, rsop, bottomRSToNewTag);
     }
 
-    // Create the DemuxOperaotr
+    // Create the DemuxOperator
     DemuxDesc demuxDesc =
         new DemuxDesc(
             correlation.getNewTagToOldTag(),

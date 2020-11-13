@@ -644,7 +644,7 @@ public class MapJoinOperator extends AbstractMapJoinOperator<MapJoinDesc> implem
   protected void generateFullOuterSmallTableNoMatches(byte smallTablePos,
       MapJoinTableContainer substituteSmallTable) throws HiveException {
 
-    // FUTURE: Currently, in the MapJoinOperaotr, we only support FULL OUTER MapJoin for
+    // FUTURE: Currently, in the MapJoinOperator, we only support FULL OUTER MapJoin for
     // FUTURE  MapJoinBytesTableContainer.  NOTE: Vectorization code will override this method.
 
     if (matchTracker == null) {

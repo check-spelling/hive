@@ -40,7 +40,7 @@ public class VectorGroupKeyHelper extends VectorColumnSetInfo {
 
   void init(VectorExpression[] keyExpressions) throws HiveException {
 
-    // NOTE: To support pruning the grouping set id dummy key by VectorGroupbyOpeator MERGE_PARTIAL
+    // NOTE: To support pruning the grouping set id dummy key by VectorGroupbyOperator MERGE_PARTIAL
     // case, we use the keyCount passed to the constructor and not keyExpressions.length.
 
     // Inspect the output type of each key expression.  And, remember the output columns.
