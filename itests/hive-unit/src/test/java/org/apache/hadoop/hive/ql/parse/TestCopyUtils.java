@@ -110,7 +110,7 @@ public class TestCopyUtils {
 
   @Before
   public void setup() throws Throwable {
-    replV1BackwardCompat = primary.getReplivationV1CompatRule(new ArrayList<>());
+    replV1BackwardCompat = primary.getReplicationV1CompatRule(new ArrayList<>());
     primaryDbName = testName.getMethodName() + "_" + +System.currentTimeMillis();
     replicatedDbName = "replicated_" + primaryDbName;
     primary.run("create database " + primaryDbName + " WITH DBPROPERTIES ( '" +

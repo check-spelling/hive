@@ -53,7 +53,7 @@ public class TestReplAcrossInstancesWithJsonMessageFormat
 
   @Before
   public void setup() throws Throwable {
-    replV1BackwardCompat = primary.getReplivationV1CompatRule(new ArrayList<>());
+    replV1BackwardCompat = primary.getReplicationV1CompatRule(new ArrayList<>());
     super.setup();
   }
 }

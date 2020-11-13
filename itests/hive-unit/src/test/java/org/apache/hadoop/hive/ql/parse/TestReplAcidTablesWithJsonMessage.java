@@ -44,7 +44,7 @@ public class TestReplAcidTablesWithJsonMessage extends TestReplicationScenariosA
 
   @Before
   public void setup() throws Throwable {
-    replV1BackwardCompat = primary.getReplivationV1CompatRule(Collections.emptyList());
+    replV1BackwardCompat = primary.getReplicationV1CompatRule(Collections.emptyList());
     super.setup();
   }
 }
