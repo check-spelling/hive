@@ -179,7 +179,7 @@ public class TestHmsServerAuthorization {
     dbName2 = "db_test_get_fields_2";
     createEnv(conf);
 
-    // enable throwing exception, so we can check pre-envent listener is called
+    // enable throwing exception, so we can check pre-event listener is called
     TestHmsServerAuthorization.DummyAuthorizationListenerImpl.throwExceptionAtCall = true;
 
     try {
