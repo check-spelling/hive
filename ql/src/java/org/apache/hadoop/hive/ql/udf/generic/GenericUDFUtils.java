@@ -519,7 +519,7 @@ public final class GenericUDFUtils {
   }
 
   /**
-   * Finds any occurence of <code>subtext</code> from <code>text</code> in the
+   * Finds any occurrence of <code>subtext</code> from <code>text</code> in the
    * backing buffer.
    */
   public static int findText(Text text, Text subtext, int start) {

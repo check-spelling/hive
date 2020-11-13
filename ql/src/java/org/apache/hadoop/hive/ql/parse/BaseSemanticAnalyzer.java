@@ -1749,7 +1749,7 @@ public abstract class BaseSemanticAnalyzer {
       throw new SemanticException(e.getMessage(), e);
     }
     if (tab == null && throwException) {
-      // getTable needs a refactor with all ~50 occurences
+      // getTable needs a refactor with all ~50 occurrences
       throw new SemanticException(ErrorMsg.INVALID_TABLE.getMsg(TableName.fromString(tblName, null, database).getNotEmptyDbTable()));
     }
     return tab;
