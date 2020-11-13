@@ -94,7 +94,7 @@ public class MetaStoreUtils {
   public static final char CATALOG_DB_THRIFT_NAME_MARKER = '@';
 
   /**
-   * This String is used to seaprate the catalog name from the database name.  This should only
+   * This String is used to separate the catalog name from the database name.  This should only
    * be used in Strings that are prepended with {@link #CATALOG_DB_THRIFT_NAME_MARKER}.  # is
    * chosen because it is not used in regular expressions.  this is only intended for use when
    * making old Thrift calls that do not support catalog names.

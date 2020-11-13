@@ -357,7 +357,7 @@ public class TestHCatMultiOutputFormat {
    *
    * @param table table name
    * @param database database
-   * @return list of columns in comma seperated way
+   * @return list of columns in comma separated way
    * @throws Exception if any error occurs
    */
   private List<String> getTableData(String table, String database) throws Exception {
