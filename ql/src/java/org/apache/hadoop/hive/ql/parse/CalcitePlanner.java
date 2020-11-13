@@ -5088,7 +5088,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
 
       int numUdtfCols = type.getAllStructFieldNames().size();
       if (colAliases.isEmpty()) {
-        // user did not specfied alias names, infer names from outputOI
+        // user did not specified alias names, infer names from outputOI
         for (String fieldName : type.getAllStructFieldNames()) {
           colAliases.add(fieldName);
         }

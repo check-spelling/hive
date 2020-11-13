@@ -8662,7 +8662,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
 
     int numUdtfCols = outputOI.getAllStructFieldRefs().size();
     if (colAliases.isEmpty()) {
-      // user did not specfied alias names, infer names from outputOI
+      // user did not specified alias names, infer names from outputOI
       for (StructField field : outputOI.getAllStructFieldRefs()) {
         colAliases.add(field.getFieldName());
       }

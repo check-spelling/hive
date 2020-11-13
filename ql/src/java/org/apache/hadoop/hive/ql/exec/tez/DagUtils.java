@@ -1794,7 +1794,7 @@ public class DagUtils {
           return size * 1024 * 1024;
         case 'g':
         case 'G':
-          // -Xmx speficied in GB
+          // -Xmx specified in GB
           return size * 1024 * 1024 * 1024;
       }
     }
