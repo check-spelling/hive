@@ -10365,11 +10365,11 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
     List<List<ASTNode>> expr = target.getExpressions();
     for (int i = 0; i < nodeRightAliases.length; i++) {
       List<ASTNode> nodeConds = node.getExpressions().get(i + 1);
-      List<ASTNode> reordereNodeConds = new ArrayList<ASTNode>();
+      List<ASTNode> reorderNodeConds = new ArrayList<ASTNode>();
       for(int k=0; k < tgtToNodeExprMap.length; k++) {
-        reordereNodeConds.add(nodeConds.get(tgtToNodeExprMap[k]));
+        reorderNodeConds.add(nodeConds.get(tgtToNodeExprMap[k]));
       }
-      expr.add(reordereNodeConds);
+      expr.add(reorderNodeConds);
     }
 
     List<Boolean> nns = node.getNullSafes();
@@ -10646,7 +10646,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
       }
     }
 
-    // Now that we reordered QBJoinTrees, update leftaliases of all
+    // Now that we reorderd QBJoinTrees, update leftaliases of all
     // QBJoinTree from innermost to outer
     if ((trees.size() > 1) && mergedQBJTree) {
       QBJoinTree curQBJTree = null;
