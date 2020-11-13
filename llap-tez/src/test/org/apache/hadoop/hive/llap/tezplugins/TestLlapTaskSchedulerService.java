@@ -1654,7 +1654,7 @@ public class TestLlapTaskSchedulerService {
   }
 
   @Test(timeout = 10000)
-  public void testDelayedQueeTaskSelectionAfterScheduled() throws IOException,
+  public void testDelayedQueueTaskSelectionAfterScheduled() throws IOException,
       InterruptedException {
     Priority priority1 = Priority.newInstance(1);
     String [] hosts = new String[] {HOST1, HOST2};
