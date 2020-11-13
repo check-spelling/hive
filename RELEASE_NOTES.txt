@@ -718,7 +718,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19135] - Need tool to allow admins to create catalogs and move existing dbs to catalog during upgrade
     * [HIVE-19138] - Results cache: allow queries waiting on pending cache entries to check cache again if pending query fails
     * [HIVE-19141] - TestNegativeCliDriver insert_into_notnull_constraint, insert_into_acid_notnull failing
-    * [HIVE-19144] - TestSparkCliDriver:subquery_scalar - golden file needs to be udpated
+    * [HIVE-19144] - TestSparkCliDriver:subquery_scalar - golden file needs to be updated
     * [HIVE-19145] - Stabilize statsoptimizer.q test
     * [HIVE-19146] - Delete dangling q.out 
     * [HIVE-19147] - Fix PerfCliDrivers: Tpcds30T missed CAT_NAME change
