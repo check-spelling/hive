@@ -106,7 +106,7 @@ public class TestHiveMetaStoreGetMetaConf {
   }
 
   @Test
-  public void testGetMetaConfUnknownPreperty() throws TException {
+  public void testGetMetaConfUnknownProperty() throws TException {
     String unknownPropertyName = "hive.meta.foo.bar";
     thrown.expect(MetaException.class);
     thrown.expectMessage("Invalid configuration key " + unknownPropertyName);
