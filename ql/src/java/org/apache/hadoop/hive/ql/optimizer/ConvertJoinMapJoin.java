@@ -1596,7 +1596,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
     }
     // Calculate number of different entries and evaluate
     ReduceSinkOperator rsOp = (ReduceSinkOperator) joinOp.getParentOperators().get(position);
-    List<String> keys = StatsUtils.getQualifedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
+    List<String> keys = StatsUtils.getQualifiedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
     Statistics inputStats = rsOp.getStatistics();
     List<ColStatistics> columnStats = new ArrayList<>();
     for (String key : keys) {
