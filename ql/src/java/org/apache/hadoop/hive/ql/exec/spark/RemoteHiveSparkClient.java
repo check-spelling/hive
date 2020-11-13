@@ -87,12 +87,12 @@ public class RemoteHiveSparkClient implements HiveSparkClient {
   private transient List<URI> localJars = new ArrayList<URI>();
   private transient List<URI> localFiles = new ArrayList<URI>();
 
-  private final transient long sparkClientTimtout;
+  private final transient long sparkClientTimeout;
   private final String sessionId;
 
   RemoteHiveSparkClient(HiveConf hiveConf, Map<String, String> conf, String sessionId) throws Exception {
     this.hiveConf = hiveConf;
-    sparkClientTimtout = hiveConf.getTimeVar(HiveConf.ConfVars.SPARK_CLIENT_FUTURE_TIMEOUT,
+    sparkClientTimeout = hiveConf.getTimeVar(HiveConf.ConfVars.SPARK_CLIENT_FUTURE_TIMEOUT,
         TimeUnit.SECONDS);
     sparkConf = HiveSparkClientFactory.generateSparkConf(conf);
     this.conf = conf;
@@ -169,13 +169,13 @@ public class RemoteHiveSparkClient implements HiveSparkClient {
 
   @Override
   public int getExecutorCount() throws Exception {
-    return getExecutorCount(sparkClientTimtout, TimeUnit.SECONDS);
+    return getExecutorCount(sparkClientTimeout, TimeUnit.SECONDS);
   }
 
   @Override
   public int getDefaultParallelism() throws Exception {
     Future<Integer> handler = remoteClient.getDefaultParallelism();
-    return handler.get(sparkClientTimtout, TimeUnit.SECONDS);
+    return handler.get(sparkClientTimeout, TimeUnit.SECONDS);
   }
 
   @Override
@@ -221,7 +221,7 @@ public class RemoteHiveSparkClient implements HiveSparkClient {
     }
 
     JobHandle<Serializable> jobHandle = remoteClient.submit(job);
-    RemoteSparkJobStatus sparkJobStatus = new RemoteSparkJobStatus(remoteClient, jobHandle, sparkClientTimtout);
+    RemoteSparkJobStatus sparkJobStatus = new RemoteSparkJobStatus(remoteClient, jobHandle, sparkClientTimeout);
     return new RemoteSparkJobRef(hiveConf, jobHandle, sparkJobStatus);
   }
 
