@@ -207,7 +207,7 @@ public class ProxyAuthTest {
 
   // run sql operations
   private static void runTest() throws Exception {
-    // craete table and check dir ownership
+    // create table and check dir ownership
     runDMLs();
 
     // run queries

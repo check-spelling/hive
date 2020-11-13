@@ -205,7 +205,7 @@ public class TestFilterHooks {
    * This is called in each test after the configuration is set in each test case
    * @throws Exception
    */
-  protected void creatEnv(Configuration conf) throws Exception {
+  protected void createEnv(Configuration conf) throws Exception {
     client = createClient(conf);
 
     client.dropDatabase(DBNAME1, true, true, true);
@@ -255,7 +255,7 @@ public class TestFilterHooks {
     MetastoreConf.setBoolVar(conf, ConfVars.METASTORE_CLIENT_FILTER_ENABLED, false);
     DBNAME1 = "db_testHMSServerWithoutFilter_1";
     DBNAME2 = "db_testHMSServerWithoutFilter_2";
-    creatEnv(conf);
+    createEnv(conf);
 
     assertNotNull(client.getTable(DBNAME1, TAB1));
     assertEquals(2, client.getTables(DBNAME1, "*").size());
@@ -284,7 +284,7 @@ public class TestFilterHooks {
     MetastoreConf.setBoolVar(conf, ConfVars.METASTORE_SERVER_FILTER_ENABLED, true);
     DBNAME1 = "db_testHMSServerWithFilter_1";
     DBNAME2 = "db_testHMSServerWithFilter_2";
-    creatEnv(conf);
+    createEnv(conf);
 
     testFilterForDb(true);
     testFilterForTables(true);
@@ -302,7 +302,7 @@ public class TestFilterHooks {
     MetastoreConf.setBoolVar(conf, ConfVars.METASTORE_CLIENT_FILTER_ENABLED, false);
     DBNAME1 = "db_testHMSClientWithoutFilter_1";
     DBNAME2 = "db_testHMSClientWithoutFilter_2";
-    creatEnv(conf);
+    createEnv(conf);
 
     assertNotNull(client.getTable(DBNAME1, TAB1));
     assertEquals(2, client.getTables(DBNAME1, "*").size());
@@ -330,7 +330,7 @@ public class TestFilterHooks {
     MetastoreConf.setBoolVar(conf, ConfVars.METASTORE_SERVER_FILTER_ENABLED, false);
     DBNAME1 = "db_testHMSClientWithFilter_1";
     DBNAME2 = "db_testHMSClientWithFilter_2";
-    creatEnv(conf);
+    createEnv(conf);
 
     testFilterForDb(false);
     testFilterForTables(false);
