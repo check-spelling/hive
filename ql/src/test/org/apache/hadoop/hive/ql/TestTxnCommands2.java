@@ -1501,7 +1501,7 @@ public class TestTxnCommands2 {
    * Only need 1 Stats task for MERGE (currently we get 1 per branch).
    * Should also eliminate Move task - that's a general ACID task
    */
-  private void logResuts(List<String> r, String header, String prefix) {
+  private void logResults(List<String> r, String header, String prefix) {
     LOG.info(prefix + " " + header);
     StringBuilder sb = new StringBuilder();
     int numLines = 0;
@@ -1576,7 +1576,7 @@ public class TestTxnCommands2 {
       "WHEN NOT MATCHED THEN INSERT VALUES(source.a2, source.b2) ";//AND b < 1
     r = runStatementOnDriver(query);
     //r = runStatementOnDriver("explain  " + query);
-    //logResuts(r, "Explain logical1", "");
+    //logResults(r, "Explain logical1", "");
 
     r = runStatementOnDriver("select a,b from " + Table.ACIDTBL + " order by a,b");
     int[][] rExpected = {{2,2},{4,44},{5,5},{7,8},{11,11}};
