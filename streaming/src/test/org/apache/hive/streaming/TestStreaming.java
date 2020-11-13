@@ -2692,7 +2692,7 @@ public class TestStreaming {
     connection.write("name10,7,bHello streaming".getBytes());
     connection.write("name11,8,bWelcome to streaming".getBytes());
     connection.write("name12,9,bmore Streaming unlimited".getBytes());
-    connection.write("name13,10,beven more Streaming unlimited".getBytes());
+    connection.write("name13,10,even more Streaming unlimited".getBytes());
     connection.commitTransaction();
 
     recordOffsets(conf, dbLocation, offsetMap);
