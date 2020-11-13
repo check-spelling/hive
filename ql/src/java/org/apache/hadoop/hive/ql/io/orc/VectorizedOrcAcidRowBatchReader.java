@@ -124,7 +124,7 @@ public class VectorizedOrcAcidRowBatchReader
    */
   private final boolean rowIdProjected;
   /**
-   * if false, we don't need any acid medadata columns from the file because we
+   * if false, we don't need any acid metadata columns from the file because we
    * know all data in the split is valid (wrt to visible writeIDs/delete events)
    * and ROW_ID is not needed higher up in the operator pipeline
    */
