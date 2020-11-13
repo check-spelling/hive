@@ -82,7 +82,7 @@ abstract class AbstractDropPartitionAnalyzer extends AbstractAlterTableAnalyzer 
         // We just return in that case, no drop needed.
         return;
         // TODO : the contains message check is fragile, we should refactor SemanticException to be
-        // queriable for error code, and not simply have a message
+        // queryable for error code, and not simply have a message
         // NOTE : IF_EXISTS might also want to invoke this, but there's a good possibility
         // that IF_EXISTS is stricter about table existence, and applies only to the ptn.
         // Therefore, ignoring IF_EXISTS here.
