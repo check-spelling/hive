@@ -44,7 +44,7 @@ import org.apache.hadoop.io.Text;
  */
 @Description(name = "locate,position",
     value = "_FUNC_(substr, str[, pos]) - Returns the position of the first "
-    + "occurance of substr in str after position pos",
+    + "occurrence of substr in str after position pos",
     extended = "Example:\n"
     + "  > SELECT _FUNC_('bar', 'foobarbar', 5) FROM src LIMIT 1;\n" + "  7")
 public class GenericUDFLocate extends GenericUDF {

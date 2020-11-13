@@ -78,7 +78,7 @@ import org.apache.hadoop.io.Text;
              "\n" +
              "\n" +
              "If the same character is present multiple times in the" +
-             " input string, the first occurence of the character is the" +
+             " input string, the first occurrence of the character is the" +
              " one that's considered for matching. However, it is not recommended" +
              " to have the same character more than once in the from" +
              " string since it's not required and adds to confusion." +
@@ -89,7 +89,7 @@ import org.apache.hadoop.io.Text;
              "\n" +
              "_FUNC_('abcdef', 'ada', '192') returns '1bc9ef' replaces" +
              " 'a' with '1' and 'd' with '9' ignoring the second" +
-             " occurence of 'a' in the from string mapping it to '2'"
+             " occurrence of 'a' in the from string mapping it to '2'"
 )
 //@formatter:on
 public class GenericUDFTranslate extends GenericUDF {
