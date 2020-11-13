@@ -19,7 +19,7 @@
 package org.apache.hive.common.util;
 
 /**
- * Murmur3 is successor to Murmur2 fast non-crytographic hash algorithms.
+ * Murmur3 is successor to Murmur2 fast non-cryptographic hash algorithms.
  *
  * Murmur3 32 and 128 bit variants.
  * 32-bit Java port of https://code.google.com/p/smhasher/source/browse/trunk/MurmurHash3.cpp#94
