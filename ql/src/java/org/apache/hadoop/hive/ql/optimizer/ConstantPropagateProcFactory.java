@@ -356,7 +356,7 @@ public final class ConstantPropagateProcFactory {
       // Don't evaluate nondeterministic function since the value can only calculate during runtime.
       if (!isConstantFoldableUdf(udf, newExprs)) {
         if (LOG.isDebugEnabled()) {
-          LOG.debug("Function " + udf.getClass() + " is undeterministic. Don't evaluate immediately.");
+          LOG.debug("Function " + udf.getClass() + " is nondeterministic. Don't evaluate immediately.");
         }
         ((ExprNodeGenericFuncDesc) desc).setChildren(newExprs);
         return desc;
@@ -415,7 +415,7 @@ public final class ConstantPropagateProcFactory {
       // Don't evaluate nondeterministic function since the value can only calculate during runtime.
       if (!isConstantFoldableUdf(udf, newExprs)) {
         if (LOG.isDebugEnabled()) {
-          LOG.debug("Function " + udf.getClass() + " is undeterministic. Don't evaluate immediately.");
+          LOG.debug("Function " + udf.getClass() + " is nondeterministic. Don't evaluate immediately.");
         }
         ((ExprNodeGenericFuncDesc) desc).setChildren(newExprs);
         return desc;
