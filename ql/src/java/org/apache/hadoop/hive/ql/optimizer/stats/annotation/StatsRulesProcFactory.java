@@ -1828,7 +1828,7 @@ public class StatsRulesProcFactory {
    * key is primary key on relation R and foreign key on relation S in which case every tuple in S
    * will have a tuple in R T(RXS) = T(S) (we need histograms for this)</li> <li>Both R &amp; S relation
    * have same value for join-key. Ex: bool column with all true values T(RXS) = T(R) * T(S) (we
-   * need histograms for this. counDistinct = 1 and same value)</li></ul>
+   * need histograms for this. countDistinct = 1 and same value)</li></ul>
    * <p>
    * In the absence of histograms, we can use the following general case
    * <p>

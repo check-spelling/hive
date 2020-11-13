@@ -64,7 +64,7 @@ public class TestReadWriteLockMetrics {
     public static final long LOCK_HOLD_TIME = 5;   ///< lock hold time in ms
 
     private final Lock targetLock;                 ///< the lock to hold
-    private long lockCount;                        ///< loop coun
+    private long lockCount;                        ///< loop count
     private long lockWaitSum;                      ///< total lock wait time
     private long lockWaitMax;                      ///< highest lock wait time
     private long endTime;                          ///< runtime for the thread
@@ -91,7 +91,7 @@ public class TestReadWriteLockMetrics {
 
     /**
      * Returns the number of counted locks.
-     * @return The total lock loop execution coun
+     * @return The total lock loop execution count
      */
     public long getLockCount() {
       return lockCount;
