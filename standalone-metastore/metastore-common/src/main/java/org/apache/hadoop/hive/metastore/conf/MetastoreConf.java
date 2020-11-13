@@ -986,7 +986,7 @@ public class MetastoreConf {
     REPLCMRETIAN("metastore.repl.cm.retain", "hive.repl.cm.retain",  24 * 10, TimeUnit.HOURS,
         "Time to retain removed files in cmrootdir."),
     REPLCMINTERVAL("metastore.repl.cm.interval", "hive.repl.cm.interval", 3600, TimeUnit.SECONDS,
-        "Inteval for cmroot cleanup thread."),
+        "Interval for cmroot cleanup thread."),
     REPLCMENABLED("metastore.repl.cm.enabled", "hive.repl.cm.enabled", false,
         "Turn on ChangeManager, so delete files will go to cmrootdir."),
     REPLDIR("metastore.repl.rootdir", "hive.repl.rootdir", "/user/${system:user.name}/repl/",
