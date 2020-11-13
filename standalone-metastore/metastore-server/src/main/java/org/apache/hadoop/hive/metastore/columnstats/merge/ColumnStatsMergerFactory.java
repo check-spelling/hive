@@ -52,8 +52,8 @@ public class ColumnStatsMergerFactory {
    */
   public static ColumnStatsMerger getColumnStatsMerger(final ColumnStatisticsObj statsObjNew,
       final ColumnStatisticsObj statsObjOld) {
-    Objects.requireNonNull(statsObjNew, "Column 1 statistcs cannot be null");
-    Objects.requireNonNull(statsObjOld, "Column 2 statistcs cannot be null");
+    Objects.requireNonNull(statsObjNew, "Column 1 statistics cannot be null");
+    Objects.requireNonNull(statsObjOld, "Column 2 statistics cannot be null");
 
     final _Fields typeNew = statsObjNew.getStatsData().getSetField();
     final _Fields typeOld = statsObjOld.getStatsData().getSetField();
