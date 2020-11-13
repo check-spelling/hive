@@ -298,7 +298,7 @@ public class LlapDaemon extends CompositeService implements ContainerRunner, Lla
         try {
           intervalList.add(Integer.valueOf(strInterval));
         } catch (NumberFormatException e) {
-          LOG.warn("Ignoring task pre-emption metrics interval {} from {} as it is invalid",
+          LOG.warn("Ignoring task preemption metrics interval {} from {} as it is invalid",
               strInterval, Arrays.toString(strIntervals));
         }
       }

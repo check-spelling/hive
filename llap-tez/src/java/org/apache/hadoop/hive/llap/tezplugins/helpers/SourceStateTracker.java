@@ -192,7 +192,7 @@ public class SourceStateTracker {
     private VertexState lastKnownState = VertexState.RUNNING;
 
     // Used for sending notifications about a vertex completed. For canFinish
-    // Can be converted to a Tez event, if this is sufficient to decide on pre-emption
+    // Can be converted to a Tez event, if this is sufficient to decide on preemption
     private final List<LlapNodeId> interestedNodes = new LinkedList<>();
 
     // Used for sending information for scheduling priority.
