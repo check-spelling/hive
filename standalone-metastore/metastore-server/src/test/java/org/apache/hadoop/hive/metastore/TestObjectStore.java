@@ -596,7 +596,7 @@ public class TestObjectStore {
   /**
    * Creates DB1 database, TABLE1 table with 3 partitions.
    * @param withPrivileges Should we create privileges as well
-   * @param withStatistics Should we create statitics as well
+   * @param withStatistics Should we create statistics as well
    */
   private void createPartitionedTable(boolean withPrivileges, boolean withStatistics)
       throws Exception {
