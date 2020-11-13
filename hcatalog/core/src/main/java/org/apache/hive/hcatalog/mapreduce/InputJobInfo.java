@@ -117,7 +117,7 @@ public class InputJobInfo implements Serializable {
   }
 
   /**
-   * set the tablInfo instance
+   * set the tableInfo instance
    * this should be the same instance
    * determined by this object's DatabaseName and TableName
    * @param tableInfo

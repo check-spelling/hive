@@ -189,7 +189,7 @@ public final class OpProcFactory {
      * For WindowingTableFunction if:
      * a. there is a Rank/DenseRank function: if there are unpushedPred of the form
      *    rnkValue < Constant; then use the smallest Constant val as the 'rankLimit'
-     *    on the WindowingTablFn.
+     *    on the WindowingTableFn.
      * b. If there are no Wdw Fns with an End Boundary past the current row, the
      *    condition can be pushed down as a limit pushdown(mapGroupBy=true)
      *

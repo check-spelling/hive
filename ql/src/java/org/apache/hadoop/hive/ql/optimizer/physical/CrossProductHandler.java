@@ -296,8 +296,8 @@ public class CrossProductHandler implements PhysicalPlanResolver, SemanticDispat
       AbstractMapJoinOperator<? extends MapJoinDesc> mjOp = (AbstractMapJoinOperator<? extends MapJoinDesc>) nd;
       MapJoinDesc mjDesc = mjOp.getConf();
 
-      String bigTablAlias = mjDesc.getBigTableAlias();
-      if ( bigTablAlias == null ) {
+      String bigTableAlias = mjDesc.getBigTableAlias();
+      if ( bigTableAlias == null ) {
         Operator<? extends OperatorDesc> parent = null;
         for(Operator<? extends OperatorDesc> op : mjOp.getParentOperators() ) {
           if ( op instanceof TableScanOperator ) {
@@ -306,17 +306,17 @@ public class CrossProductHandler implements PhysicalPlanResolver, SemanticDispat
         }
         if ( parent != null) {
           TableScanDesc tDesc = ((TableScanOperator)parent).getConf();
-          bigTablAlias = tDesc.getAlias();
+          bigTableAlias = tDesc.getAlias();
         }
       }
-      bigTablAlias = bigTablAlias == null ? "?" : bigTablAlias;
+      bigTableAlias = bigTableAlias == null ? "?" : bigTableAlias;
 
       List<ExprNodeDesc> joinExprs = mjDesc.getKeys().values().iterator().next();
 
       if ( joinExprs.size() == 0 ) {
         warnings.add(
             String.format("Map Join %s[bigTable=%s] in task '%s' is a cross product",
-                mjOp.toString(), bigTablAlias, taskName));
+                mjOp.toString(), bigTableAlias, taskName));
       }
 
       return null;
