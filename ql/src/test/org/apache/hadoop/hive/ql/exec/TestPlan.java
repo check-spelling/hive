@@ -102,7 +102,7 @@ public class TestPlan {
       Utilities.clearWork(job);
 
       // over here we should have some checks of the deserialized object against
-      // the orginal object
+      // the original object
       // System.out.println(v1);
 
       // serialize again
