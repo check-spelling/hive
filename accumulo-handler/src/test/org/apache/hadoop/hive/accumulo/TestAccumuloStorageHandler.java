@@ -475,7 +475,7 @@ public class TestAccumuloStorageHandler {
   }
 
   @Test()
-  public void testRollbackCreateTableDoesntDeleteExternalExistentTable() throws Exception {
+  public void testRollbackCreateTableDoesNotDeleteExternalExistentTable() throws Exception {
     MockInstance inst = new MockInstance(test.getMethodName());
     Connector conn = inst.getConnector("root", new PasswordToken(""));
     AccumuloStorageHandler storageHandler = Mockito.mock(AccumuloStorageHandler.class);

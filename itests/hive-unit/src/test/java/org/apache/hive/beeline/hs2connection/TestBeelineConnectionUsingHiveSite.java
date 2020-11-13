@@ -74,7 +74,7 @@ public class TestBeelineConnectionUsingHiveSite extends BeelineWithHS2Connection
   }
 
   @Test
-  public void testBeelineDoesntUseDefaultIfU() throws Exception {
+  public void testBeelineDoesNotUseDefaultIfU() throws Exception {
     setupNoAuthHs2();
     String path = createDefaultHs2ConnectionFile();
     BeelineResult res = getBeelineOutput(path, new String[] {"-u", "invalidUrl", "-e", "show tables;" });

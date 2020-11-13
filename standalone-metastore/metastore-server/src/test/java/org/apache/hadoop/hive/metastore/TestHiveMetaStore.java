@@ -1512,7 +1512,7 @@ public abstract class TestHiveMetaStore {
         assertEquals(t.getDbName(), dbName);
       }
 
-      tableNames.add(1, "table_that_doesnt_exist");
+      tableNames.add(1, "table_that_does_not_exist");
       foundTables = client.getTableObjectsByName(dbName, tableNames);
       assertEquals(foundTables.size(), 2);
 
@@ -1527,13 +1527,13 @@ public abstract class TestHiveMetaStore {
 
       UnknownDBException udbe = null;
       try {
-        foundTables = client.getTableObjectsByName("db_that_doesnt_exist", tableNames);
+        foundTables = client.getTableObjectsByName("db_that_does_not_exist", tableNames);
       } catch (UnknownDBException e) {
         udbe = e;
       }
       assertNotNull(udbe);
       assertTrue("DB not found",
-          udbe.getMessage().contains("not find database hive.db_that_doesnt_exist"));
+          udbe.getMessage().contains("not find database hive.db_that_does_not_exist"));
 
       udbe = null;
       try {
@@ -3310,13 +3310,13 @@ public abstract class TestHiveMetaStore {
         throw new RuntimeException(ex);
       }
 
-      expectedCols.add("doesntExist");
+      expectedCols.add("doesNotExist");
       boolean exceptionFound = false;
       try {
         objStore.validateTableCols(tbl, expectedCols);
       } catch (MetaException ex) {
         assertEquals(ex.getMessage(),
-            "Column doesntExist doesn't exist in table comptbl in database compdb");
+            "Column doesNotExist doesn't exist in table comptbl in database compdb");
         exceptionFound = true;
       }
       assertTrue(exceptionFound);

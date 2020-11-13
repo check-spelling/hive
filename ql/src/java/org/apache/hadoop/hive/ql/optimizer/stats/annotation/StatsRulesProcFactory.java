@@ -529,7 +529,7 @@ public class StatsRulesProcFactory {
       // 3. Calculate IN selectivity
       double factor = 1d;
       if (multiColumn) {
-        // distinct value array doesn not help that much here; think (1,1),(1,2),(2,1),(2,2) as values
+        // distinct value array does not help that much here; think (1,1),(1,2),(2,1),(2,2) as values
         // but that will look like (1,2) as column values...
         factor *= children.size() - 1;
       }

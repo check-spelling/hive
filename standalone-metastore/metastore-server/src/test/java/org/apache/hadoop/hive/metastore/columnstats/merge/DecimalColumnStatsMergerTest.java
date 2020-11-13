@@ -172,7 +172,7 @@ public class DecimalColumnStatsMergerTest {
   }
 
   @Test
-  public void testDecimalCompareDoesntEqual() {
+  public void testDecimalCompareDoesNotEqual() {
     Assert.assertTrue(!DECIMAL_3.equals(DECIMAL_5));
   }
 
