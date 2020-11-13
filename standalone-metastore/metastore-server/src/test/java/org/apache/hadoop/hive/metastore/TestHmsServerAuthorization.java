@@ -136,7 +136,7 @@ public class TestHmsServerAuthorization {
    * This is called in each test after the configuration is set in each test case.
    * @throws Exception
    */
-  protected void creatEnv(Configuration conf) throws Exception {
+  protected void createEnv(Configuration conf) throws Exception {
     client.dropDatabase(dbName1, true, true, true);
     client.dropDatabase(dbName2, true, true, true);
     Database db1 = new DatabaseBuilder()
@@ -177,7 +177,7 @@ public class TestHmsServerAuthorization {
   public void testGetFields() throws Exception {
     dbName1 = "db_test_get_fields_1";
     dbName2 = "db_test_get_fields_2";
-    creatEnv(conf);
+    createEnv(conf);
 
     // enable throwing exception, so we can check pre-envent listener is called
     TestHmsServerAuthorization.DummyAuthorizationListenerImpl.throwExceptionAtCall = true;
