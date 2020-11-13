@@ -146,12 +146,12 @@ public class FakeVectorRowBatchFromObjectIterables extends FakeVectorRowBatchBas
             Pattern decimalPattern = Pattern.compile(
                 "decimal(?:\\((\\d+)(?:\\,(\\d+))?\\))?", Pattern.CASE_INSENSITIVE);
             Matcher mr = decimalPattern.matcher(types[i]);
-            int precission = 38;
+            int precision = 38;
             int scale = 0;
             if (mr.matches()) {
-              String typePrecission = mr.group(1);
-              if (typePrecission != null) {
-                precission = Integer.parseInt(typePrecission);
+              String typePrecision = mr.group(1);
+              if (typePrecision != null) {
+                precision = Integer.parseInt(typePrecision);
               }
               String typeScale = mr.group(2);
               if (typeScale != null) {
@@ -159,7 +159,7 @@ public class FakeVectorRowBatchFromObjectIterables extends FakeVectorRowBatchBas
               }
             }
 
-            batch.cols[i] = new DecimalColumnVector(batchSize, precission, scale);
+            batch.cols[i] = new DecimalColumnVector(batchSize, precision, scale);
             columnAssign[i] = new ColumnVectorAssign() {
                 @Override
                 public void assign(
