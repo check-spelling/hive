@@ -152,7 +152,7 @@ public final class HiveRewriteToDataSketchesRules {
       protected final List<RexNode> newProjectsAbove;
       /** The new projections expressions inserted below the aggregate
        *
-       * These projections could be used to prepocess the incoming datastream.
+       * These projections could be used to preprocess the incoming datastream.
        * For example a CAST might need to be injected.
        */
       protected final List<RexNode> newProjectsBelow;
