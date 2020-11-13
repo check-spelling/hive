@@ -76,7 +76,7 @@ public class TestFileList {
   }
 
   @Test
-  public void testStreaminOnCacheHit() throws Exception {
+  public void testStreamingOnCacheHit() throws Exception {
     Object tuple[] =  setupAndGetTuple(5, false);
     FileList fileList = (FileList) tuple[0];
     FileListStreamer fileListStreamer = (FileListStreamer) tuple[1];
