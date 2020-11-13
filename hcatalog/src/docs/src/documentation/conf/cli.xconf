@@ -197,7 +197,7 @@
        | patterns are specified, a URI is first checked against the
        | include patterns, and then against the exclude patterns.
        |
-       | Multiple patterns can be given, using muliple include or exclude
+       | Multiple patterns can be given, using multiple include or exclude
        | nodes.
        |
        | The order of the elements is not significant, as only the first
