@@ -37,7 +37,7 @@ public class ScheduledQueryExecutionsMaintTask implements MetastoreTaskThread {
   @Override
   public long initialDelay(TimeUnit unit) {
     // no delay before the first execution;
-    // after an ungracefull shutdown it might take time to notice that in-flight scheduled queries are not running anymore
+    // after an ungraceful shutdown it might take time to notice that in-flight scheduled queries are not running anymore
     return 0;
   }
 
