@@ -81,7 +81,7 @@ public class QueryTracker extends AbstractService {
     LOCK_METRICS = ReadWriteLockMetrics.createLockMetricsSource("QueryTracker");
 
     ms.register("QueryTrackerDAGLockMetrics",
-                "Lock metrics for QueryTracher DAG instances", LOCK_METRICS);
+                "Lock metrics for QueryTracker DAG instances", LOCK_METRICS);
   }
 
   private final ScheduledExecutorService executorService;
