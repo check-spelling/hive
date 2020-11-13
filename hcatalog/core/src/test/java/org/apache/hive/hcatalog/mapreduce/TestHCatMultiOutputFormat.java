@@ -313,7 +313,7 @@ public class TestHCatMultiOutputFormat {
     Assert.assertEquals("Comparing output of table " +
       tableNames[2] + " is not correct", outputs.get(2), "a,a,extra,1,ag");
 
-    // Check permisssion on partition dirs and files created
+    // Check permission on partition dirs and files created
     for (int i = 0; i < tableNames.length; i++) {
       Path partitionFile = new Path(warehousedir + "/" + tableNames[i]
         + "/ds=1/cluster=ag/part-m-00000");
