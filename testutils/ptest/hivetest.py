@@ -252,7 +252,7 @@ def propagate_hive():
 
 def segment_tests(path):
     # Removes `.q` files that should not be run on this host.  The huge shell
-    # command is slow (not really suprising considering amount of forking it has
+    # command is slow (not really surprising considering amount of forking it has
     # to do), you are welcome to make it better=).
     local.cd(code_path + path)
     tests = local.run('ls -1', quiet = True, abandon_output = False).strip().split('\n')
