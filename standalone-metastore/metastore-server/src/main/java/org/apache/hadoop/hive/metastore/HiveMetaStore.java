@@ -441,7 +441,7 @@ public class HiveMetaStore extends ThriftHiveMetastore {
     }
 
     // This will return null if the metastore is not being accessed from a metastore Thrift server,
-    // or if the TTransport being used to connect is not an instance of TSocket, or if kereberos
+    // or if the TTransport being used to connect is not an instance of TSocket, or if kerberos
     // is used
     static String getThreadLocalIpAddress() {
       return threadLocalIpAddress.get();
