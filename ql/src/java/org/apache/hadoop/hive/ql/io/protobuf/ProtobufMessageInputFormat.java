@@ -53,7 +53,7 @@ public class ProtobufMessageInputFormat<K, V extends MessageLite>
   @SuppressWarnings("unchecked")
   private Parser<V> getParser(String protoClass) throws IOException {
     if (protoClass == null) {
-      throw new IOException("Please specificy table property: " + PROTO_CLASS);
+      throw new IOException("Please specify table property: " + PROTO_CLASS);
     }
     try {
       Class<?> clazz = getClass().getClassLoader().loadClass(protoClass);
