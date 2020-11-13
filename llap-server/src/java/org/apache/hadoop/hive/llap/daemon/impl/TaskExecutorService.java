@@ -450,7 +450,7 @@ public class TaskExecutorService extends AbstractService
               }
             } else {
               if (LOG.isDebugEnabled() && lastKillTimeMs != null) {
-                LOG.debug("Grace period ended for the previous kill; preemtping more tasks");
+                LOG.debug("Grace period ended for the previous kill; preempting more tasks");
               }
               if (handleScheduleAttemptedRejection(task)) {
                 lastKillTimeMs = clock.getTime(); // We killed something.
