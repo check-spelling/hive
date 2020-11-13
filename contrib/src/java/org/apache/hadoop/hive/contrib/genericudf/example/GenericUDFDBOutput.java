@@ -100,7 +100,7 @@ public class GenericUDFDBOutput extends GenericUDF {
     for (int i = 4; i < arguments.length; i++) {
       if (arguments[i].getCategory() != ObjectInspector.Category.PRIMITIVE) {
         throw new UDFArgumentTypeException(i,
-            "The argument of function should be primative" + ", but \""
+            "The argument of function should be primitive" + ", but \""
             + arguments[i].getTypeName() + "\" is found");
       }
     }
