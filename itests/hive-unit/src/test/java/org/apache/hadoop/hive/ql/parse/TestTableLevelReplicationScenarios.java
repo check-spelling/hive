@@ -938,7 +938,7 @@ public class TestTableLevelReplicationScenarios extends BaseReplicationScenarios
   }
 
   @Test
-  public void testRenameTableScenariosWithReplacePolicyDMLOperattion() throws Throwable {
+  public void testRenameTableScenariosWithReplacePolicyDMLOperation() throws Throwable {
     String replPolicy = primaryDbName + ".'(in[0-9]+)|(out5000)|(out5001)'.'(in100)|(in200)|(in305)'";
     String lastReplId = replicateAndVerify(replPolicy, null, null, null,
             null, new String[] {}, new String[] {});

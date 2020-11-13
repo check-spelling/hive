@@ -150,7 +150,7 @@ public class JsonReporter extends ScheduledReporter {
       return;
     } catch (UnsupportedOperationException e) {
       // This shouldn't ever happen
-      LOG.error("failed to create temp file for JSON metrics: operartion not supported", e);
+      LOG.error("failed to create temp file for JSON metrics: operation not supported", e);
       return;
     }
 
