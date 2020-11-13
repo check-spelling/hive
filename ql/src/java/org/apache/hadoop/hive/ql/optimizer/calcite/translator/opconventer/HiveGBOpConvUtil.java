@@ -839,7 +839,7 @@ final class HiveGBOpConvUtil {
 
     rsGBOp2.setColumnExprMap(colExprMap);
 
-    // TODO: Shouldn't we propgate vc? is it vc col from tab or all vc
+    // TODO: Shouldn't we propagate vc? is it vc col from tab or all vc
     return new OpAttr("", new HashSet<Integer>(), rsGBOp2);
   }
 
