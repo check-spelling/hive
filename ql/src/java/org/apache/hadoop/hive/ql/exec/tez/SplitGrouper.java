@@ -200,7 +200,7 @@ public class SplitGrouper {
             TableScanOperator tableScan = (TableScanOperator) op;
             PartitionDesc partitionDesc = mapWork.getAliasToPartnInfo().get(aliases.get(0));
             isMinorCompaction &= AcidUtils.isCompactionTable(partitionDesc.getTableDesc().getProperties());
-            if (!tableScan.getConf().isTranscationalTable() && !isMinorCompaction) {
+            if (!tableScan.getConf().isTransactionalTable() && !isMinorCompaction) {
               String splitPath = getFirstSplitPath(splits);
               String errorMessage =
                   "Compactor split grouping is enabled only for transactional tables. Please check the path: "
