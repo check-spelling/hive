@@ -583,7 +583,7 @@ public final class HiveRewriteToDataSketchesRules {
       }
 
       /**
-       * The concreate rewrite should filter supported expressions.
+       * The concrete rewrite should filter supported expressions.
        *
        * @param over the windowing expression in question
        * @return
@@ -591,7 +591,7 @@ public final class HiveRewriteToDataSketchesRules {
       protected abstract boolean isApplicable1(RexOver over);
 
       /**
-       * The concreate rewrite should transform the rank value into the desired range/type/etc.
+       * The concrete rewrite should transform the rank value into the desired range/type/etc.
        *
        * @param rank the current rank value is in the range of [0,1]
        * @param over the windowing expression
