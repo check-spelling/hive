@@ -117,7 +117,7 @@ public class MetastoreConf {
   }
 
   @VisibleForTesting
-  static final String TEST_ENV_WORKAROUND = "metastore.testing.env.workaround.dont.ever.set.this.";
+  static final String TEST_ENV_WORKAROUND = "metastore.testing.env.workaround.do.not.ever.set.this.";
 
   public static enum StatsUpdateMode {
     NONE, EXISTING, ALL
