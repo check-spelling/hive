@@ -393,7 +393,7 @@ public class HCatUtil {
 
   /**
    * Create an instance of a storage handler. If storageHandler == null,
-   * then surrrogate StorageHandler is used to encapsulate the InputFormat, OutputFormat and SerDe.
+   * then surrogate StorageHandler is used to encapsulate the InputFormat, OutputFormat and SerDe.
    * This StorageHandler assumes the other supplied storage artifacts are for a file-based storage system.
    * @param conf job's configuration will be used to configure the Configurable StorageHandler
    * @param storageHandler fully qualified class name of the desired StorageHandle instance
