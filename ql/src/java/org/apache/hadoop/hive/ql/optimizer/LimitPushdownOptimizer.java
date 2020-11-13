@@ -46,7 +46,7 @@ import org.apache.hadoop.hive.ql.plan.LimitDesc;
 
 /**
  * Make RS calculate top-K selection for limit clause.
- * It's only works with RS for limit operation which means between RS and LITMIT,
+ * It's only works with RS for limit operation which means between RS and LIMIT,
  * there should not be other operators which may change number of rows like FilterOperator.
  * see {@link Operator#acceptLimitPushdown}
  *
