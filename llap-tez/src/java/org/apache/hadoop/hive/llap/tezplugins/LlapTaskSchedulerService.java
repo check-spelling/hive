@@ -1858,7 +1858,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
               // TODO Nothing else should be done for this task. Move on.
             }
 
-            // Try pre-empting a task so that a higher priority task can take it's place.
+            // Try preempting a task so that a higher priority task can take it's place.
             // Preempt only if there's no pending preemptions to avoid preempting twice for a task.
             String[] potentialHosts;
             if (scheduleResult == ScheduleResult.DELAYED_LOCALITY) {
