@@ -1496,7 +1496,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18627] - PPD: Handle FLOAT boxing differently for single/double precision constants
     * [HIVE-18628] - Make tez dag status check interval configurable
     * [HIVE-18631] - Hive metastore schema initialization failing on mysql
-    * [HIVE-18637] - WorkloadManagent Event Summary leaving subscribedCounters and currentCounters fields empty
+    * [HIVE-18637] - WorkloadManagement Event Summary leaving subscribedCounters and currentCounters fields empty
     * [HIVE-18638] - Triggers for multi-pool move, failing to initiate the move event
     * [HIVE-18641] - Remove MCreationMetadata from MTable class
     * [HIVE-18642] - incorrect assertion in TezSessionPool for WM
