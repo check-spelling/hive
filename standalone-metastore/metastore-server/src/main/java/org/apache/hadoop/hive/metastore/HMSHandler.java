@@ -8747,11 +8747,11 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
             && csOld.isSetIsStatsCompliant() && !csOld.isIsStatsCompliant();
         Partition part = mapToPart.get(entry.getKey());
         if (isInvalidTxnStats) {
-          // No columns can be merged; a shortcut for getMergableCols.
+          // No columns can be merged; a shortcut for getMergeableCols.
           csNew.setStatsObj(Lists.newArrayList());
         } else {
           // we first use getParameters() to prune the stats
-          MetaStoreServerUtils.getMergableCols(csNew, part.getParameters());
+          MetaStoreServerUtils.getMergeableCols(csNew, part.getParameters());
           // we merge those that can be merged
           if (csOld != null && csOld.getStatsObjSize() != 0 && !csNew.getStatsObj().isEmpty()) {
             MetaStoreServerUtils.mergeColStats(csNew, csOld);
@@ -8803,11 +8803,11 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       boolean isInvalidTxnStats = csOld != null
           && csOld.isSetIsStatsCompliant() && !csOld.isIsStatsCompliant();
       if (isInvalidTxnStats) {
-        // No columns can be merged; a shortcut for getMergableCols.
+        // No columns can be merged; a shortcut for getMergeableCols.
         firstColStats.setStatsObj(Lists.newArrayList());
       } else {
         Table t = getTable(catName, dbName, tableName);
-        MetaStoreServerUtils.getMergableCols(firstColStats, t.getParameters());
+        MetaStoreServerUtils.getMergeableCols(firstColStats, t.getParameters());
 
         // we merge those that can be merged
         if (csOld != null && csOld.getStatsObjSize() != 0 && !firstColStats.getStatsObj().isEmpty()) {
