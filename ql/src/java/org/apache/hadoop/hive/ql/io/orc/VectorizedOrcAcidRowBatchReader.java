@@ -750,7 +750,7 @@ public class VectorizedOrcAcidRowBatchReader
          * filter out base/delta files but this makes fewer dependencies)
          */
         OrcRawRecordMerger.TransactionMetaData syntheticTxnInfo =
-            OrcRawRecordMerger.TransactionMetaData.findWriteIDForSynthetcRowIDs(file.getPath(),
+            OrcRawRecordMerger.TransactionMetaData.findWriteIDForSyntheticRowIDs(file.getPath(),
                     rootDir, conf);
         return new OrcSplit.OffsetAndBucketProperty(-1, -1, syntheticTxnInfo.syntheticWriteId);
       }
@@ -763,7 +763,7 @@ public class VectorizedOrcAcidRowBatchReader
 
     long rowIdOffset = 0;
     OrcRawRecordMerger.TransactionMetaData syntheticTxnInfo =
-        OrcRawRecordMerger.TransactionMetaData.findWriteIDForSynthetcRowIDs(file.getPath(), rootDir, conf);
+        OrcRawRecordMerger.TransactionMetaData.findWriteIDForSyntheticRowIDs(file.getPath(), rootDir, conf);
     int bucketId = AcidUtils.parseBucketId(file.getPath());
     int bucketProperty = BucketCodec.V1.encode(new AcidOutputFormat.Options(conf)
         //statementId is from directory name (or 0 if there is none)

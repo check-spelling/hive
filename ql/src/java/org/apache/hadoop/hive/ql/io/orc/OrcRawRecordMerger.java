@@ -732,7 +732,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
     boolean isTail = true;
     RecordIdentifier minKey = null;
     RecordIdentifier maxKey = null;
-    TransactionMetaData tfp = TransactionMetaData.findWriteIDForSynthetcRowIDs(
+    TransactionMetaData tfp = TransactionMetaData.findWriteIDForSyntheticRowIDs(
       mergerOptions.getBucketPath(), mergerOptions.getRootPath(), conf);
     int bucketProperty = encodeBucketId(conf, bucket, tfp.statementId);
    /**
@@ -1076,7 +1076,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
           //if here it's a non-acid schema file - check if from before table was marked transactional
           //or in base_x/delta_x_x from Load Data
           Options readerPairOptions = mergerOptions;
-          TransactionMetaData tfp = TransactionMetaData.findWriteIDForSynthetcRowIDs(
+          TransactionMetaData tfp = TransactionMetaData.findWriteIDForSyntheticRowIDs(
             mergerOptions.getBucketPath(), mergerOptions.getRootPath(), conf);
           if(tfp.syntheticWriteId > 0) {
             readerPairOptions = modifyForNonAcidSchemaRead(mergerOptions,
@@ -1252,7 +1252,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
       this.folder = folder;
       this.statementId = statementId;
     }
-    static TransactionMetaData findWriteIDForSynthetcRowIDs(Path splitPath, Path rootPath,
+    static TransactionMetaData findWriteIDForSyntheticRowIDs(Path splitPath, Path rootPath,
       Configuration conf) throws IOException {
       Path parent = splitPath.getParent();
       if(rootPath.equals(parent)) {
