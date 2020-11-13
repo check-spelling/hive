@@ -35,7 +35,7 @@ import org.apache.hadoop.hive.ql.plan.ExprNodeGenericFuncDesc;
  * Expression processor factory for pruning. Each processor tries to
  * convert the expression subtree into a pruning expression.
  *
- * It can be used for partition prunner and list bucketing pruner.
+ * It can be used for partition pruner and list bucketing pruner.
  */
 public abstract class PrunerExpressionOperatorFactory {
 
