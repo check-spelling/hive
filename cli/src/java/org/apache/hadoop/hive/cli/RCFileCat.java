@@ -243,7 +243,7 @@ public class RCFileCat implements Tool{
     this.conf = conf;
   }
 
-  private static final String Usage = "RCFileCat [--start=start_offet] [--length=len] [--verbose] " +
+  private static final String Usage = "RCFileCat [--start=start_offset] [--length=len] [--verbose] " +
       "[--column-sizes | --column-sizes-pretty] [--file-sizes] fileName";
 
   public static void main(String[] args) {
