@@ -65,7 +65,7 @@ public abstract class GenericUDTF {
    * @param argOIs
    *          An array of ObjectInspectors for the arguments
    * @return A StructObjectInspector for output. The output struct represents a
-   *         row of the table where the fields of the stuct are the columns. The
+   *         row of the table where the fields of the struct are the columns. The
    *         field names are unimportant as they will be overridden by user
    *         supplied column aliases.
    */
