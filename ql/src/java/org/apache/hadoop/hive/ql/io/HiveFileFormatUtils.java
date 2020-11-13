@@ -138,7 +138,7 @@ public final class HiveFileFormatUtils {
       return textInputFormatCheckerMap.keySet();
     }
 
-    public Class<? extends OutputFormat> getOutputFormatSubstiture(Class<?> origin) {
+    public Class<? extends OutputFormat> getOutputFormatSubstitute(Class<?> origin) {
       return outputFormatSubstituteMap.get(origin);
     }
 
@@ -167,7 +167,7 @@ public final class HiveFileFormatUtils {
       return (Class<? extends OutputFormat>) origin;  // hive native
     }
     Class<? extends OutputFormat> substitute = FileChecker.getInstance()
-        .getOutputFormatSubstiture(origin);
+        .getOutputFormatSubstitute(origin);
     if (substitute != null) {
       return substitute;  // substituted
     }
