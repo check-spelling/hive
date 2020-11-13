@@ -123,14 +123,14 @@ public class TestRCFileCat {
 
       params = new String[] { };
       assertEquals(-1, fileCat.run(params));
-      assertTrue(dataErr.toString().contains("RCFileCat [--start=start_offet] [--length=len] [--verbose] " +
+      assertTrue(dataErr.toString().contains("RCFileCat [--start=start_offset] [--length=len] [--verbose] " +
           "[--column-sizes | --column-sizes-pretty] [--file-sizes] fileName"));
 
       dataErr.reset();
       params = new String[] { "--fakeParameter",
           "file://" + template.toURI().getPath()};
       assertEquals(-1, fileCat.run(params));
-      assertTrue(dataErr.toString().contains("RCFileCat [--start=start_offet] [--length=len] [--verbose] " +
+      assertTrue(dataErr.toString().contains("RCFileCat [--start=start_offset] [--length=len] [--verbose] " +
           "[--column-sizes | --column-sizes-pretty] [--file-sizes] fileName"));
 
     } finally {
