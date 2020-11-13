@@ -195,7 +195,7 @@ In order to run Sqoop jobsubmission tests, a RDBMS like MySQL or SQL server shou
 Sqoop export command require table already exists in the database, a table "PERSON" need to be created under
 the default database of the RDBMS installed.
 
-Here is the schema of the table writen in MySQL:
+Here is the schema of the table written in MySQL:
     CREATE TABLE `world`.`person` (
     `id` INT NOT NULL,
     `name` VARCHAR(45) NULL,

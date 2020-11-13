@@ -121,8 +121,8 @@ public class TestTaskLogProcessor {
     checkException(eofeStr, stackTraces.get(2));
   }
   
-  private void checkException(String writenText, List<String> actualTrace) throws IOException {
-    List<String> expectedLines = getLines(writenText);
+  private void checkException(String writtenText, List<String> actualTrace) throws IOException {
+    List<String> expectedLines = getLines(writtenText);
     String expected, actual; 
     for (int i=0; i<expectedLines.size(); i++) {
       expected = expectedLines.get(i);
