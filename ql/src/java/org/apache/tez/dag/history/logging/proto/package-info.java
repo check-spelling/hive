@@ -17,7 +17,7 @@
  */
 
 /**
- * Logger code copied from tez codebase, this should be removed when we swtich
+ * Logger code copied from tez codebase, this should be removed when we switch
  * to 0.9.2 tez version and we should depend on the tez libraries for this.
  */
 package org.apache.tez.dag.history.logging.proto;
