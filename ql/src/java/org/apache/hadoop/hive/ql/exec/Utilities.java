@@ -2631,7 +2631,7 @@ public final class Utilities {
       for (final Path path : pathNeedProcess) {
         // All threads share the same Configuration and JobConf based on the
         // assumption that they are thread safe if only read operations are
-        // executed. It is not stated in Hadoop's javadoc, the sourcce codes
+        // executed. It is not stated in Hadoop's javadoc, the source codes
         // clearly showed that they made efforts for it and we believe it is
         // thread safe. Will revisit this piece of codes if we find the assumption
         // is not correct.
