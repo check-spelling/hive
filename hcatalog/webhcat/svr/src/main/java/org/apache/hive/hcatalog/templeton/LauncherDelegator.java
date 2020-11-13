@@ -443,7 +443,7 @@ public class LauncherDelegator extends TempletonDelegator {
     }
   }
   /**
-   * This is called by subclasses when they determined that the sumbmitted job requires
+   * This is called by subclasses when they determined that the submitted job requires
    * metastore access (e.g. Pig job that uses HCatalog).  This then determines if
    * secure access is required and causes TempletonControllerJob to set up a delegation token.
    * @see TempletonControllerJob
