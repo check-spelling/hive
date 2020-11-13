@@ -54,7 +54,7 @@
 
 <property>
   <name>javax.jdo.option.ConnectionURL</name>
-  <!-- note: variable substituion not working here because it's loaded by jdo, not Hive -->
+  <!-- note: variable substitution not working here because it's loaded by jdo, not Hive -->
   <value>jdbc:derby:;databaseName=../build/test/junit_metastore_db;create=true</value>
 </property>
 
