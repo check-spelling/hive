@@ -1754,15 +1754,15 @@ public class TestReplicationScenarios {
     verifyRun("SELECT a from " + replDbName + ".unptned_late ORDER BY a", unptn_data, driverMirror);
 
     String[] unptn_data_after_ins = new String[] { "eleven", "thirteen", "twelve" };
-    String[] data_after_ovwrite = new String[] { "hundred" };
+    String[] data_after_overwrite = new String[] { "hundred" };
     run("INSERT INTO TABLE " + dbName + ".unptned_late values('" + unptn_data_after_ins[1] + "')", driver);
     verifySetup("SELECT a from " + dbName + ".unptned_late ORDER BY a", unptn_data_after_ins, driver);
-    run("INSERT OVERWRITE TABLE " + dbName + ".unptned values('" + data_after_ovwrite[0] + "')", driver);
-    verifySetup("SELECT a from " + dbName + ".unptned", data_after_ovwrite, driver);
+    run("INSERT OVERWRITE TABLE " + dbName + ".unptned values('" + data_after_overwrite[0] + "')", driver);
+    verifySetup("SELECT a from " + dbName + ".unptned", data_after_overwrite, driver);
 
     incrementalLoadAndVerify(dbName, replDbName);
     verifyRun("SELECT a from " + replDbName + ".unptned_late ORDER BY a", unptn_data_after_ins, driverMirror);
-    verifyRun("SELECT a from " + replDbName + ".unptned", data_after_ovwrite, driverMirror);
+    verifyRun("SELECT a from " + replDbName + ".unptned", data_after_overwrite, driverMirror);
   }
 
   @Test
@@ -2330,18 +2330,18 @@ public class TestReplicationScenarios {
     verifyRun("SELECT a from " + replDbName + ".ptned where (b=1) ORDER BY a", ptn_data_1, driverMirror);
     verifyRun("SELECT a from " + replDbName + ".ptned where (b=2) ORDER BY a", ptn_data_2, driverMirror);
 
-    String[] data_after_ovwrite = new String[] { "hundred" };
+    String[] data_after_overwrite = new String[] { "hundred" };
     // Insert overwrite on existing partition
-    run("INSERT OVERWRITE TABLE " + dbName + ".ptned partition(b=2) values('" + data_after_ovwrite[0] + "')", driver);
-    verifySetup("SELECT a from " + dbName + ".ptned where (b=2)", data_after_ovwrite, driver);
+    run("INSERT OVERWRITE TABLE " + dbName + ".ptned partition(b=2) values('" + data_after_overwrite[0] + "')", driver);
+    verifySetup("SELECT a from " + dbName + ".ptned where (b=2)", data_after_overwrite, driver);
     // Insert overwrite on dynamic partition
-    run("INSERT OVERWRITE TABLE " + dbName + ".ptned partition(b=3) values('" + data_after_ovwrite[0] + "')", driver);
-    verifySetup("SELECT a from " + dbName + ".ptned where (b=3)", data_after_ovwrite, driver);
+    run("INSERT OVERWRITE TABLE " + dbName + ".ptned partition(b=3) values('" + data_after_overwrite[0] + "')", driver);
+    verifySetup("SELECT a from " + dbName + ".ptned where (b=3)", data_after_overwrite, driver);
 
     incrementalLoadAndVerify(dbName, replDbName);
 
-    verifyRun("SELECT a from " + replDbName + ".ptned where (b=2)", data_after_ovwrite, driverMirror);
-    verifyRun("SELECT a from " + replDbName + ".ptned where (b=3)", data_after_ovwrite, driverMirror);
+    verifyRun("SELECT a from " + replDbName + ".ptned where (b=2)", data_after_overwrite, driverMirror);
+    verifyRun("SELECT a from " + replDbName + ".ptned where (b=3)", data_after_overwrite, driverMirror);
   }
 
   @Test
@@ -2418,14 +2418,14 @@ public class TestReplicationScenarios {
     run("USE " + dbName, driver);
 
     String[] ptn_data_3 = new String[] { "abraham", "bob", "carter", "david", "fisher" };
-    String[] data_after_ovwrite = new String[] { "fisher" };
+    String[] data_after_overwrite = new String[] { "fisher" };
     // Insert overwrite on existing partition
-    run("INSERT OVERWRITE TABLE " + dbName + ".namelist partition(year=1990,month=5,day=25) values('" + data_after_ovwrite[0] + "')", driver);
-    verifySetup("SELECT name from " + dbName + ".namelist where (year=1990 and month=5 and day=25)", data_after_ovwrite, driver);
+    run("INSERT OVERWRITE TABLE " + dbName + ".namelist partition(year=1990,month=5,day=25) values('" + data_after_overwrite[0] + "')", driver);
+    verifySetup("SELECT name from " + dbName + ".namelist where (year=1990 and month=5 and day=25)", data_after_overwrite, driver);
     verifySetup("SELECT name from " + dbName + ".namelist ORDER BY name", ptn_data_3, driver);
 
     incrementalLoadAndVerify(dbName, replDbName);
-    verifySetup("SELECT name from " + replDbName + ".namelist where (year=1990 and month=5 and day=25)", data_after_ovwrite, driverMirror);
+    verifySetup("SELECT name from " + replDbName + ".namelist where (year=1990 and month=5 and day=25)", data_after_overwrite, driverMirror);
     verifySetup("SELECT name from " + replDbName + ".namelist ORDER BY name", ptn_data_3, driverMirror);
   }
 
@@ -2537,8 +2537,8 @@ public class TestReplicationScenarios {
     Tuple incrementalDump = replDumpDb(dbName);
 
     // Insert overwrite on unpartitioned table
-    String[] data_after_ovwrite = new String[] { "hundred" };
-    run("INSERT OVERWRITE TABLE " + dbName + ".unptned values('" + data_after_ovwrite[0] + "')", driver);
+    String[] data_after_overwrite = new String[] { "hundred" };
+    run("INSERT OVERWRITE TABLE " + dbName + ".unptned values('" + data_after_overwrite[0] + "')", driver);
 
     // Replicate only one INSERT INTO operation on the table.
     loadAndVerify(replDbName, dbName, incrementalDump.lastReplId);
@@ -2550,7 +2550,7 @@ public class TestReplicationScenarios {
     incrementalLoadAndVerify(dbName, replDbName);
 
     // After load, shall see the overwritten data.
-    verifyRun("SELECT a from " + replDbName + ".unptned ORDER BY a", data_after_ovwrite, driverMirror);
+    verifyRun("SELECT a from " + replDbName + ".unptned ORDER BY a", data_after_overwrite, driverMirror);
   }
 
   @Test
@@ -2572,9 +2572,9 @@ public class TestReplicationScenarios {
     Tuple incrementalDump = replDumpDb(dbName);
 
     // Insert overwrite on one partition with multiple files
-    String[] data_after_ovwrite = new String[] { "hundred" };
-    run("INSERT OVERWRITE TABLE " + dbName + ".ptned partition(b=2) values('" + data_after_ovwrite[0] + "')", driver);
-    verifySetup("SELECT a from " + dbName + ".ptned where (b=2)", data_after_ovwrite, driver);
+    String[] data_after_overwrite = new String[] { "hundred" };
+    run("INSERT OVERWRITE TABLE " + dbName + ".ptned partition(b=2) values('" + data_after_overwrite[0] + "')", driver);
+    verifySetup("SELECT a from " + dbName + ".ptned where (b=2)", data_after_overwrite, driver);
 
     // Replicate only 2 INSERT INTO operations.
     loadAndVerify(replDbName, dbName, incrementalDump.lastReplId);
@@ -2589,7 +2589,7 @@ public class TestReplicationScenarios {
 
     // After load, shall see the overwritten data.
     verifyRun("SELECT a from " + replDbName + ".ptned where (b=1) ORDER BY a", ptn_data_1, driverMirror);
-    verifyRun("SELECT a from " + replDbName + ".ptned where (b=2) ORDER BY a", data_after_ovwrite, driverMirror);
+    verifyRun("SELECT a from " + replDbName + ".ptned where (b=2) ORDER BY a", data_after_overwrite, driverMirror);
   }
 
   @Test
@@ -4189,18 +4189,18 @@ public class TestReplicationScenarios {
     verifyRun("SELECT count(*) from " + replDbName + ".unptned_late", "2", driverMirror);
 
     String[] unptn_data_after_ins = new String[] { "eleven", "thirteen", "twelve" };
-    String[] data_after_ovwrite = new String[] { "hundred" };
+    String[] data_after_overwrite = new String[] { "hundred" };
     run("INSERT INTO TABLE " + dbName + ".unptned_late values('" + unptn_data_after_ins[1] + "')", driver);
     verifySetup("SELECT a from " + dbName + ".unptned_late ORDER BY a", unptn_data_after_ins, driver);
-    run("INSERT OVERWRITE TABLE " + dbName + ".unptned values('" + data_after_ovwrite[0] + "')", driver);
-    verifySetup("SELECT a from " + dbName + ".unptned", data_after_ovwrite, driver);
+    run("INSERT OVERWRITE TABLE " + dbName + ".unptned values('" + data_after_overwrite[0] + "')", driver);
+    verifySetup("SELECT a from " + dbName + ".unptned", data_after_overwrite, driver);
 
     incrementalDump = replDumpDb(dbName);
     run("REPL LOAD " + dbName + " INTO " + replDbName, driverMirror);
     verifyRun("REPL STATUS " + replDbName, incrementalDump.lastReplId, driverMirror);
 
     verifyRun("SELECT a from " + replDbName + ".unptned_late ORDER BY a", unptn_data_after_ins, driverMirror);
-    verifyRun("SELECT a from " + replDbName + ".unptned", data_after_ovwrite, driverMirror);
+    verifyRun("SELECT a from " + replDbName + ".unptned", data_after_overwrite, driverMirror);
     verifyRun("SELECT count(*) from " + replDbName + ".unptned", "1", driverMirror);
     verifyRun("SELECT count(*) from " + replDbName + ".unptned_late ", "3", driverMirror);
   }
