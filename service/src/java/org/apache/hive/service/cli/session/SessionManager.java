@@ -130,8 +130,8 @@ public class SessionManager extends CompositeService {
     initSessionImplClassName();
     Metrics metrics = MetricsFactory.getInstance();
     if(metrics != null){
-      registerOpenSesssionMetrics(metrics);
-      registerActiveSesssionMetrics(metrics);
+      registerOpenSessionMetrics(metrics);
+      registerActiveSessionMetrics(metrics);
     }
 
     userLimit = hiveConf.getIntVar(ConfVars.HIVE_SERVER2_LIMIT_CONNECTIONS_PER_USER);
@@ -151,7 +151,7 @@ public class SessionManager extends CompositeService {
     super.init(hiveConf);
   }
 
-  private void registerOpenSesssionMetrics(Metrics metrics) {
+  private void registerOpenSessionMetrics(Metrics metrics) {
     MetricsVariable<Integer> openSessionCnt = new MetricsVariable<Integer>() {
       @Override
       public Integer getValue() {
@@ -174,7 +174,7 @@ public class SessionManager extends CompositeService {
     metrics.addRatio(MetricsConstant.HS2_AVG_OPEN_SESSION_TIME, openSessionTime, openSessionCnt);
   }
 
-  private void registerActiveSesssionMetrics(Metrics metrics) {
+  private void registerActiveSessionMetrics(Metrics metrics) {
     MetricsVariable<Integer> activeSessionCnt = new MetricsVariable<Integer>() {
       @Override
       public Integer getValue() {

@@ -689,7 +689,7 @@ union TGetInfoValue {
 // The function returns general information about the data source
 // using the same keys as ODBC.
 struct TGetInfoReq {
-  // The sesssion to run this request against
+  // The session to run this request against
   1: required TSessionHandle sessionHandle
 
   2: required TGetInfoType infoType
