@@ -653,9 +653,9 @@ public class UpgradeTool {
       //cannot be acid
       return false;
     }
-    String transacationalValue = t.getParameters()
+    String transactionalValue = t.getParameters()
         .get(hive_metastoreConstants.TABLE_IS_TRANSACTIONAL);
-    if (transacationalValue != null && "true".equalsIgnoreCase(transacationalValue)) {
+    if (transactionalValue != null && "true".equalsIgnoreCase(transactionalValue)) {
       System.out.println("Found Acid table: " + Warehouse.getQualifiedName(t));
       return true;
     }

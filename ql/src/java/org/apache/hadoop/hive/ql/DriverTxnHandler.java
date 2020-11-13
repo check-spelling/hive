@@ -378,7 +378,7 @@ class DriverTxnHandler {
         String fullTableName = AcidUtils.getFullTableName(tsOp.getConf().getDatabaseName(),
             tsOp.getConf().getTableName());
         ValidWriteIdList writeIdList = txnWriteIds.getTableValidWriteIdList(fullTableName);
-        if (tsOp.getConf().isTranscationalTable() && (writeIdList == null)) {
+        if (tsOp.getConf().isTransactionalTable() && (writeIdList == null)) {
           throw new IllegalStateException(String.format(
               "ACID table: %s is missing from the ValidWriteIdList config: %s", fullTableName, txnWriteIds.toString()));
         }

@@ -2179,7 +2179,7 @@ public class AcidUtils {
    * Set the valid write id list for the current table scan.
    */
   public static void setValidWriteIdList(Configuration conf, TableScanDesc tsDesc) {
-    if (tsDesc.isTranscationalTable()) {
+    if (tsDesc.isTransactionalTable()) {
       String dbName = tsDesc.getDatabaseName();
       String tableName = tsDesc.getTableName();
       ValidWriteIdList validWriteIdList = getTableValidWriteIdList(conf,
