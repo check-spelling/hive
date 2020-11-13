@@ -210,7 +210,7 @@ public class ThriftHttpCLIService extends ThriftCLIService {
       constrainHttpMethods(context, false);
 
       // TODO: check defaults: maxTimeout, keepalive, maxBodySize,
-      // bodyRecieveDuration, etc.
+      // bodyReceiveDuration, etc.
       // Finally, start the server
       server.start();
       String msg = "Started " + ThriftHttpCLIService.class.getSimpleName() + " in " + schemeName
