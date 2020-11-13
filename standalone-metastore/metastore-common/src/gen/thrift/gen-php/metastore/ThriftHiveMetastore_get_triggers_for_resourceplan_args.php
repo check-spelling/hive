@@ -25,12 +25,12 @@ class ThriftHiveMetastore_get_triggers_for_resourceplan_args
             'var' => 'request',
             'isRequired' => false,
             'type' => TType::STRUCT,
-            'class' => '\metastore\WMGetTriggersForResourePlanRequest',
+            'class' => '\metastore\WMGetTriggersForResourcePlanRequest',
         ),
     );
 
     /**
-     * @var \metastore\WMGetTriggersForResourePlanRequest
+     * @var \metastore\WMGetTriggersForResourcePlanRequest
      */
     public $request = null;
 
@@ -64,7 +64,7 @@ class ThriftHiveMetastore_get_triggers_for_resourceplan_args
             switch ($fid) {
                 case 1:
                     if ($ftype == TType::STRUCT) {
-                        $this->request = new \metastore\WMGetTriggersForResourePlanRequest();
+                        $this->request = new \metastore\WMGetTriggersForResourcePlanRequest();
                         $xfer += $this->request->read($input);
                     } else {
                         $xfer += $input->skip($ftype);

@@ -9514,13 +9514,13 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
   }
 
   @Override
-  public WMGetTriggersForResourePlanResponse get_triggers_for_resourceplan(
-      WMGetTriggersForResourePlanRequest request)
+  public WMGetTriggersForResourcePlanResponse get_triggers_for_resourceplan(
+      WMGetTriggersForResourcePlanRequest request)
       throws NoSuchObjectException, MetaException, TException {
     try {
       List<WMTrigger> triggers =
           getMS().getTriggersForResourcePlan(request.getResourcePlanName(), request.getNs());
-      WMGetTriggersForResourePlanResponse response = new WMGetTriggersForResourePlanResponse();
+      WMGetTriggersForResourcePlanResponse response = new WMGetTriggersForResourcePlanResponse();
       response.setTriggers(triggers);
       return response;
     } catch (MetaException e) {

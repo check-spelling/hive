@@ -16,7 +16,7 @@ use Thrift\Protocol\TProtocol;
 use Thrift\Protocol\TBinaryProtocolAccelerated;
 use Thrift\Exception\TApplicationException;
 
-class WMGetTriggersForResourePlanRequest
+class WMGetTriggersForResourcePlanRequest
 {
     static public $isValidate = false;
 
@@ -56,7 +56,7 @@ class WMGetTriggersForResourePlanRequest
 
     public function getName()
     {
-        return 'WMGetTriggersForResourePlanRequest';
+        return 'WMGetTriggersForResourcePlanRequest';
     }
 
 
@@ -100,7 +100,7 @@ class WMGetTriggersForResourePlanRequest
     public function write($output)
     {
         $xfer = 0;
-        $xfer += $output->writeStructBegin('WMGetTriggersForResourePlanRequest');
+        $xfer += $output->writeStructBegin('WMGetTriggersForResourcePlanRequest');
         if ($this->resourcePlanName !== null) {
             $xfer += $output->writeFieldBegin('resourcePlanName', TType::STRING, 1);
             $xfer += $output->writeString($this->resourcePlanName);
