@@ -322,7 +322,7 @@ public class SharedWorkOptimizer extends Transform {
   }
 
   /**
-   * Analyzes the TS and exposes dynamic filters separetly.
+   * Analyzes the TS and exposes dynamic filters separately.
    */
   static class DecomposedTs {
 
