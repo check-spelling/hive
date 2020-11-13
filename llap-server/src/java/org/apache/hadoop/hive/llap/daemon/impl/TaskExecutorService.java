@@ -1003,7 +1003,7 @@ public class TaskExecutorService extends AbstractService
     //
     // If the task is removed from the queue as a result of this callback, and the scheduler happens to
     // be in the section where it's looking for a preemptible task - the scheuler may end up pulling the
-    // next pre-emptible task and killing it (an extra preemption).
+    // next preemptible task and killing it (an extra preemption).
     // TODO: This potential extra preemption can be avoided by synchronizing the entire tryScheduling block.\
     // This would essentially synchronize all operations - it would be better to see if there's an
     // approach where multiple locks could be used to avoid single threaded operation.
