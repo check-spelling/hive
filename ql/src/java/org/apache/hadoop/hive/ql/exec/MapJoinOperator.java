@@ -122,7 +122,7 @@ public class MapJoinOperator extends AbstractMapJoinOperator<MapJoinDesc> implem
 
   /*
    * Small Table key match tracking used for FULL OUTER MapJoin.  Otherwise, null.
-   * Since the Small Table hash table can be shared among vertces, we require this non-shared object
+   * Since the Small Table hash table can be shared among vertices, we require this non-shared object
    * for our vertex (i.e. operator private) key match tracking.
    */
   protected transient MatchTracker matchTracker;
