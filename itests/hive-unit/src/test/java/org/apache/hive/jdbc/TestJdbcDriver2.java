@@ -3071,10 +3071,10 @@ public class TestJdbcDriver2 {
     // Expected row count of the join query we'll run
     int expectedCount = 1028;
     int rowCount = 0;
-    boolean isResulSet =
+    boolean isResultSet =
         stmt.executeAsync("select t1.value as v11, " + "t2.value as v12 from " + tableName
             + " t1 join " + tableName + " t2 on t1.under_col = t2.under_col");
-    assertTrue(isResulSet);
+    assertTrue(isResultSet);
     ResultSet rs = stmt.getResultSet();
     assertNotNull(rs);
     // ResultSet#next blocks until the async query is complete
@@ -3094,8 +3094,8 @@ public class TestJdbcDriver2 {
   public void testCreateTableExecAsync() throws Exception {
     HiveStatement stmt = (HiveStatement) con.createStatement();
     String tblName = "testCreateTableExecAsync";
-    boolean isResulSet = stmt.executeAsync("create table " + tblName + " (col1 int , col2 string)");
-    assertFalse(isResulSet);
+    boolean isResultSet = stmt.executeAsync("create table " + tblName + " (col1 int , col2 string)");
+    assertFalse(isResultSet);
     // HiveStatement#getUpdateCount blocks until the async query is complete
     stmt.getUpdateCount();
     DatabaseMetaData metadata = con.getMetaData();
@@ -3152,9 +3152,9 @@ public class TestJdbcDriver2 {
     try {
       int rowCount = 0;
       stmt.execute("create table " + tblName + " (col1 int , col2 string)");
-      boolean isResulSet =
+      boolean isResultSet =
           stmt.executeAsync("insert overwrite table " + tblName + " select * from " + tableName);
-      assertFalse(isResulSet);
+      assertFalse(isResultSet);
       // HiveStatement#getUpdateCount blocks until the async query is complete
       rowCount = stmt.getUpdateCount();
       // Read from the new table
