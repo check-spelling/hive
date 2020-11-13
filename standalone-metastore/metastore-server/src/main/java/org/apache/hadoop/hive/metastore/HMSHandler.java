@@ -107,7 +107,7 @@ import org.apache.hadoop.hive.metastore.events.PreReadCatalogEvent;
 import org.apache.hadoop.hive.metastore.events.PreReadDatabaseEvent;
 import org.apache.hadoop.hive.metastore.events.PreReadISchemaEvent;
 import org.apache.hadoop.hive.metastore.events.PreReadTableEvent;
-import org.apache.hadoop.hive.metastore.events.PreReadhSchemaVersionEvent;
+import org.apache.hadoop.hive.metastore.events.PreReadSchemaVersionEvent;
 import org.apache.hadoop.hive.metastore.events.UpdatePartitionColumnStatEvent;
 import org.apache.hadoop.hive.metastore.events.UpdateTableColumnStatEvent;
 import org.apache.hadoop.hive.metastore.messaging.EventMessage.EventType;
@@ -9809,7 +9809,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       if (schemaVersion == null) {
         throw new NoSuchObjectException("No schema version " + version + "exists");
       }
-      firePreEvent(new PreReadhSchemaVersionEvent(this, Collections.singletonList(schemaVersion)));
+      firePreEvent(new (this, Collections.singletonList(schemaVersion)));
       return schemaVersion;
     } catch (MetaException e) {
       LOG.error("Caught exception getting schema version", e);
@@ -9830,7 +9830,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       if (schemaVersion == null) {
         throw new NoSuchObjectException("No versions of schema " + schemaName + "exist");
       }
-      firePreEvent(new PreReadhSchemaVersionEvent(this, Collections.singletonList(schemaVersion)));
+      firePreEvent(new (this, Collections.singletonList(schemaVersion)));
       return schemaVersion;
     } catch (MetaException e) {
       LOG.error("Caught exception getting latest schema version", e);
@@ -9851,7 +9851,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       if (schemaVersions == null) {
         throw new NoSuchObjectException("No versions of schema " + schemaName + "exist");
       }
-      firePreEvent(new PreReadhSchemaVersionEvent(this, schemaVersions));
+      firePreEvent(new (this, schemaVersions));
       return schemaVersions;
     } catch (MetaException e) {
       LOG.error("Caught exception getting all schema versions", e);
@@ -9911,7 +9911,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
     try {
       schemaVersions = getMS().getSchemaVersionsByColumns(rqst.getColName(),
           rqst.getColNamespace(), rqst.getType());
-      firePreEvent(new PreReadhSchemaVersionEvent(this, schemaVersions));
+      firePreEvent(new (this, schemaVersions));
       final List<SchemaVersionDescriptor> entries = new ArrayList<>(schemaVersions.size());
       schemaVersions.forEach(schemaVersion -> entries.add(
           new SchemaVersionDescriptor(schemaVersion.getSchema(), schemaVersion.getVersion())));
