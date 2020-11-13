@@ -2390,7 +2390,7 @@ public class AcidUtils {
         // and now. In the case of ACID tables the file would only have been removed by the transactional
         // cleaner thread, in which case this is currently an old base/delta which has already been
         // compacted. So a new set of base files from the compaction should exist which
-        // the current call to AcidUtils.getAcidState() would use rather than this old baes/delta.
+        // the current call to AcidUtils.getAcidState() would use rather than this old base/delta.
         // It should be ok to ignore this FileNotFound error and skip processing of this file - the list
         // of files for this old base/delta will be incomplete, but it will not matter since this base/delta
         // would be ignored (in favor of the new base files) by the selection logic in AcidUtils.getAcidState().
