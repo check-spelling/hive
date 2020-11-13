@@ -308,7 +308,7 @@ public class TestReadWriteLockMetrics {
   /**
    * Helper to convert milliseconds to nanoseconds.
    *
-   * @param ms Millisecond inpu
+   * @param ms Millisecond input
    * @return Value in nanoseconds
    */
   private static long toNano(long ms) {
