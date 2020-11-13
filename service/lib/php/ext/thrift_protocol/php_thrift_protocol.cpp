@@ -668,7 +668,7 @@ inline bool ttypes_are_compatible(int8_t t1, int8_t t2) {
 
 void binary_deserialize_spec(zval* zthis, PHPInputTransport& transport, HashTable* spec) {
   // SET and LIST have 'elem' => array('type', [optional] 'class')
-  // MAP has 'val' => array('type', [optiona] 'class')
+  // MAP has 'val' => array('type', [optional] 'class')
   TSRMLS_FETCH();
   zend_class_entry* ce = zend_get_class_entry(zthis TSRMLS_CC);
   while (true) {
