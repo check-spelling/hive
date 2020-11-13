@@ -189,7 +189,7 @@ public class CompactorMR {
 
   /**
    * Parse tblproperties to override relevant properties of compactor MR job with specified values.
-   * For example, compactor.mapreuce.map.memory.mb=1024
+   * For example, compactor.mapreduce.map.memory.mb=1024
    * @param job the compactor MR job
    * @param properties table properties
    */
