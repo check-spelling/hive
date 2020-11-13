@@ -391,7 +391,7 @@ public interface RawStore extends Configurable {
    * @param dbName database to search in
    * @param pattern pattern to match
    * @param tableType type of table to look for
-   * @param limit Maximum number of tables to return (undeterministic set)
+   * @param limit Maximum number of tables to return (nondeterministic set)
    * @return list of table names, if any
    * @throws MetaException failure in querying the RDBMS
    */
