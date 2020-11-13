@@ -185,7 +185,7 @@ public class CreateTableOperation extends DDLOperation<CreateTableDesc> {
     // fill in the table's location.
     // Note that the previous logic for some reason would make a special case if the DB was the
     // default database, and actually attempt to generate a  location.
-    // This seems incorrect and uncessary, since the metastore is just as able to fill in the
+    // This seems incorrect and unnecessary, since the metastore is just as able to fill in the
     // default table location in the case of the default DB, as it is for non-default DBs.
     Path path = null;
     if (sd.isSetLocation()) {
