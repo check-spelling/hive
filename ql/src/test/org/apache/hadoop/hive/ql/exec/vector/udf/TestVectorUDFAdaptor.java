@@ -116,7 +116,7 @@ public class TestVectorUDFAdaptor {
     b.cols[0].isRepeating = true;
     vudf.evaluate(b);
 
-    // The implementation may or may not set output it isRepeting.
+    // The implementation may or may not set output it isRepeating.
     // That is implementation-defined.
     assertTrue(b.cols[1].isRepeating && out.vector[0] == 1000
         || !b.cols[1].isRepeating && out.vector[2] == 1000);
