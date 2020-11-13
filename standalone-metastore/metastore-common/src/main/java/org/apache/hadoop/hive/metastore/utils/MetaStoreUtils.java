@@ -188,7 +188,7 @@ public class MetaStoreUtils {
   /**
    * validateName
    *
-   * Checks the name conforms to our standars which are: "[a-zA-z_0-9]+". checks
+   * Checks the name conforms to our standards which are: "[a-zA-z_0-9]+". checks
    * this is just characters and numbers and _
    *
    * @param name
