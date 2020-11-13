@@ -819,7 +819,7 @@ index 0000000..13a5336
 +import java.io.IOException;
 +
 +/**
-+ * Generic Metics interface.
++ * Generic Metrics interface.
 + */
 +public interface Metrics {
 +
