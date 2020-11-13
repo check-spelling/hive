@@ -290,10 +290,10 @@ public class MapJoinProcessor extends Transform {
 
     // outer join cannot be performed on a table which is being cached
     JoinDesc desc = op.getConf();
-    JoinCondDesc[] condns = desc.getConds();
+    JoinCondDesc[] conds = desc.getConds();
 
     if (!noCheckOuterJoin) {
-      if (checkMapJoin(mapJoinPos, condns) < 0) {
+      if (checkMapJoin(mapJoinPos, conds) < 0) {
         throw new SemanticException(ErrorMsg.NO_OUTER_MAPJOIN.getMsg());
       }
     }
@@ -709,29 +709,29 @@ public class MapJoinProcessor extends Transform {
    * mapjoin).
    *
    *
-   * @param condns
+   * @param conds
    * @return set of big table candidates
    */
-  public static Set<Integer> getBigTableCandidates(JoinCondDesc[] condns) {
-    return getBigTableCandidates(condns, /* isSupportFullOuter */ false);
+  public static Set<Integer> getBigTableCandidates(JoinCondDesc[] conds) {
+    return getBigTableCandidates(conds, /* isSupportFullOuter */ false);
   }
 
-  public static Set<Integer> getBigTableCandidates(JoinCondDesc[] condns,
+  public static Set<Integer> getBigTableCandidates(JoinCondDesc[] conds,
       boolean isSupportFullOuter) {
 
     Set<Integer> bigTableCandidates = new HashSet<Integer>();
 
-    if (condns.length == 1) {
-      JoinCondDesc condn = condns[0];
-      if (condn.getType() == JoinDesc.FULL_OUTER_JOIN) {
+    if (conds.length == 1) {
+      JoinCondDesc cond = conds[0];
+      if (cond.getType() == JoinDesc.FULL_OUTER_JOIN) {
 
         if (!isSupportFullOuter) {
           return new HashSet<Integer>();
         }
 
         // FULL OUTER MapJoin must be a single condition.
-        bigTableCandidates.add(condn.getLeft());
-        bigTableCandidates.add(condn.getRight());
+        bigTableCandidates.add(cond.getLeft());
+        bigTableCandidates.add(cond.getRight());
         return bigTableCandidates;
       }
     }
@@ -742,21 +742,21 @@ public class MapJoinProcessor extends Transform {
 
     // is the outer join that we saw most recently is a right outer join?
     boolean lastSeenRightOuterJoin = false;
-    for (JoinCondDesc condn : condns) {
-      int joinType = condn.getType();
+    for (JoinCondDesc cond : conds) {
+      int joinType = cond.getType();
       if (joinType == JoinDesc.FULL_OUTER_JOIN) {
         return new HashSet<Integer>();
       }
 
-      seenPostitions.add(condn.getLeft());
-      seenPostitions.add(condn.getRight());
+      seenPostitions.add(cond.getLeft());
+      seenPostitions.add(cond.getRight());
 
       if (joinType == JoinDesc.LEFT_OUTER_JOIN
           || joinType == JoinDesc.LEFT_SEMI_JOIN
           || joinType == JoinDesc.ANTI_JOIN) {
         seenOuterJoin = true;
         if(bigTableCandidates.size() == 0) {
-          bigTableCandidates.add(condn.getLeft());
+          bigTableCandidates.add(cond.getLeft());
         }
 
         lastSeenRightOuterJoin = false;
@@ -766,19 +766,19 @@ public class MapJoinProcessor extends Transform {
         // add all except the right side to the bad positions
         leftPosListOfLastRightOuterJoin.clear();
         leftPosListOfLastRightOuterJoin.addAll(seenPostitions);
-        leftPosListOfLastRightOuterJoin.remove(condn.getRight());
+        leftPosListOfLastRightOuterJoin.remove(cond.getRight());
 
         bigTableCandidates.clear();
-        bigTableCandidates.add(condn.getRight());
+        bigTableCandidates.add(cond.getRight());
       } else if (joinType == JoinDesc.INNER_JOIN) {
         if (!seenOuterJoin || lastSeenRightOuterJoin) {
           // is the left was at the left side of a right outer join?
-          if (!leftPosListOfLastRightOuterJoin.contains(condn.getLeft())) {
-            bigTableCandidates.add(condn.getLeft());
+          if (!leftPosListOfLastRightOuterJoin.contains(cond.getLeft())) {
+            bigTableCandidates.add(cond.getLeft());
           }
           // is the right was at the left side of a right outer join?
-          if (!leftPosListOfLastRightOuterJoin.contains(condn.getRight())) {
-            bigTableCandidates.add(condn.getRight());
+          if (!leftPosListOfLastRightOuterJoin.contains(cond.getRight())) {
+            bigTableCandidates.add(cond.getRight());
           }
         }
       }
@@ -789,12 +789,12 @@ public class MapJoinProcessor extends Transform {
 
   /**
    * @param mapJoinPos the position of big table as determined by either hints or auto conversion.
-   * @param condns the join conditions
+   * @param conds the join conditions
    * @return if given mapjoin position is a feasible big table position return same else -1.
    */
-  public static int checkMapJoin(int mapJoinPos, JoinCondDesc[] condns) {
+  public static int checkMapJoin(int mapJoinPos, JoinCondDesc[] conds) {
     Set<Integer> bigTableCandidates =
-        MapJoinProcessor.getBigTableCandidates(condns, /* isSupportFullOuter */ true);
+        MapJoinProcessor.getBigTableCandidates(conds, /* isSupportFullOuter */ true);
 
     // bigTableCandidates can never be null
     if (!bigTableCandidates.contains(mapJoinPos)) {
@@ -1270,12 +1270,12 @@ public class MapJoinProcessor extends Transform {
       JoinOperator op, boolean leftInputJoin, String[] baseSrc, List<String> mapAliases,
       int mapJoinPos, boolean noCheckOuterJoin, boolean adjustParentsChildren) throws SemanticException {
     JoinDesc desc = op.getConf();
-    JoinCondDesc[] condns = desc.getConds();
+    JoinCondDesc[] conds = desc.getConds();
     Byte[] tagOrder = desc.getTagOrder();
 
     // outer join cannot be performed on a table which is being cached
     if (!noCheckOuterJoin) {
-      if (checkMapJoin(mapJoinPos, condns) < 0) {
+      if (checkMapJoin(mapJoinPos, conds) < 0) {
         throw new SemanticException(ErrorMsg.NO_OUTER_MAPJOIN.getMsg());
       }
     }
@@ -1419,10 +1419,10 @@ public class MapJoinProcessor extends Transform {
     TableDesc keyTableDesc =
         PlanUtils.getMapJoinKeyTableDesc(hconf,
             PlanUtils.getFieldSchemasFromColumnList(keyCols, MAPJOINKEY_FIELDPREFIX));
-    JoinCondDesc[] joinCondns = op.getConf().getConds();
+    JoinCondDesc[] joinConds = op.getConf().getConds();
     MapJoinDesc mapJoinDescriptor =
         new MapJoinDesc(keyExprMap, keyTableDesc, newValueExprs, valueTableDescs,
-            valueFilteredTableDescs, outputColumnNames, mapJoinPos, joinCondns, filters,
+            valueFilteredTableDescs, outputColumnNames, mapJoinPos, joinConds, filters,
             op.getConf().getNoOuterJoin(), dumpFilePrefix,
             op.getConf().getMemoryMonitorInfo(), op.getConf().getInMemoryDataSize());
     mapJoinDescriptor.setStatistics(op.getConf().getStatistics());

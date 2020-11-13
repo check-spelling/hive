@@ -50,10 +50,10 @@ public class SparkMapJoinProcessor extends MapJoinProcessor {
           throws SemanticException {
 
     // outer join cannot be performed on a table which is being cached
-    JoinCondDesc[] condns = op.getConf().getConds();
+    JoinCondDesc[] conds = op.getConf().getConds();
 
     if (!noCheckOuterJoin) {
-      if (checkMapJoin(bigTablePos, condns) < 0) {
+      if (checkMapJoin(bigTablePos, conds) < 0) {
         throw new SemanticException(ErrorMsg.NO_OUTER_MAPJOIN.getMsg());
       }
     }

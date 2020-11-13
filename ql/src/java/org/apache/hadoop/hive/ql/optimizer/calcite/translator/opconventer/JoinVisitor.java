@@ -147,14 +147,14 @@ class JoinVisitor extends HiveRelNodeVisitor<RelNode> {
           throws SemanticException {
 
     // 1. Extract join type
-    JoinCondDesc[] joinCondns;
+    JoinCondDesc[] joinConds;
     boolean semiJoin;
     boolean noOuterJoin;
     if (join instanceof HiveMultiJoin) {
       HiveMultiJoin hmj = (HiveMultiJoin) join;
-      joinCondns = new JoinCondDesc[hmj.getJoinInputs().size()];
+      joinConds = new JoinCondDesc[hmj.getJoinInputs().size()];
       for (int i = 0; i < hmj.getJoinInputs().size(); i++) {
-        joinCondns[i] = new JoinCondDesc(new JoinCond(
+        joinConds[i] = new JoinCondDesc(new JoinCond(
                 hmj.getJoinInputs().get(i).left,
                 hmj.getJoinInputs().get(i).right,
                 transformJoinType(hmj.getJoinTypes().get(i))));
@@ -162,7 +162,7 @@ class JoinVisitor extends HiveRelNodeVisitor<RelNode> {
       semiJoin = false;
       noOuterJoin = !hmj.isOuterJoin();
     } else {
-      joinCondns = new JoinCondDesc[1];
+      joinConds = new JoinCondDesc[1];
       JoinRelType joinRelType = JoinRelType.INNER;
       if (join instanceof Join) {
         joinRelType = ((Join) join).getJoinType();
@@ -182,7 +182,7 @@ class JoinVisitor extends HiveRelNodeVisitor<RelNode> {
           joinType = transformJoinType(((Join)join).getJoinType());
           semiJoin = false;
       }
-      joinCondns[0] = new JoinCondDesc(new JoinCond(0, 1, joinType));
+      joinConds[0] = new JoinCondDesc(new JoinCond(0, 1, joinType));
       noOuterJoin = joinType != JoinType.FULLOUTER && joinType != JoinType.LEFTOUTER
               && joinType != JoinType.RIGHTOUTER;
     }
@@ -248,8 +248,8 @@ class JoinVisitor extends HiveRelNodeVisitor<RelNode> {
     }
     // 3. We populate the filters structure
     for (int i=0; i<filterExpressions.size(); i++) {
-      int leftPos = joinCondns[i].getLeft();
-      int rightPos = joinCondns[i].getRight();
+      int leftPos = joinConds[i].getLeft();
+      int rightPos = joinConds[i].getRight();
 
       for (ExprNodeDesc expr : filterExpressions.get(i)) {
         // We need to update the exprNode, as currently
@@ -261,9 +261,9 @@ class JoinVisitor extends HiveRelNodeVisitor<RelNode> {
         }
         filtersPerInput.get(inputPos).add(expr);
 
-        if (joinCondns[i].getType() == JoinDesc.FULL_OUTER_JOIN ||
-                joinCondns[i].getType() == JoinDesc.LEFT_OUTER_JOIN ||
-                joinCondns[i].getType() == JoinDesc.RIGHT_OUTER_JOIN) {
+        if (joinConds[i].getType() == JoinDesc.FULL_OUTER_JOIN ||
+                joinConds[i].getType() == JoinDesc.LEFT_OUTER_JOIN ||
+                joinConds[i].getType() == JoinDesc.RIGHT_OUTER_JOIN) {
           if (inputPos == leftPos) {
             updateFilterMap(filterMap, leftPos, rightPos);
           } else {
@@ -280,7 +280,7 @@ class JoinVisitor extends HiveRelNodeVisitor<RelNode> {
     }
 
     // 4. We create the join operator with its descriptor
-    JoinDesc desc = new JoinDesc(exprMap, outputColumnNames, noOuterJoin, joinCondns, filters, joinExpressions, null);
+    JoinDesc desc = new JoinDesc(exprMap, outputColumnNames, noOuterJoin, joinConds, filters, joinExpressions, null);
     desc.setReversedExprs(reversedExprs);
     desc.setFilterMap(filterMap);
 

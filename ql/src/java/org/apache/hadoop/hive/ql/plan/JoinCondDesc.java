@@ -50,11 +50,11 @@ public class JoinCondDesc implements Serializable {
     this.type = type;
   }
 
-  public JoinCondDesc(org.apache.hadoop.hive.ql.parse.JoinCond condn) {
-    left = condn.getLeft();
-    right = condn.getRight();
-    preserved = condn.getPreserved();
-    switch (condn.getJoinType()) {
+  public JoinCondDesc(org.apache.hadoop.hive.ql.parse.JoinCond cond) {
+    left = cond.getLeft();
+    right = cond.getRight();
+    preserved = cond.getPreserved();
+    switch (cond.getJoinType()) {
     case INNER:
       type = JoinDesc.INNER_JOIN;
       break;
