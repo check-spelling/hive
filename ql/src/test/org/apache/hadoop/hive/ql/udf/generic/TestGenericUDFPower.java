@@ -169,7 +169,7 @@ public class TestGenericUDFPower {
   }
 
   @Test
-  public void testDoulePowerDecimal() throws HiveException {
+  public void testDoublePowerDecimal() throws HiveException {
     GenericUDFPower udf = new GenericUDFPower();
 
     DoubleWritable left = new DoubleWritable(-4.52);

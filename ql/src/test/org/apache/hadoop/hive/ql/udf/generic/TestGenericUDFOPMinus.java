@@ -159,7 +159,7 @@ public class TestGenericUDFOPMinus extends AbstractTestGenericUDFOPNumeric {
   }
 
   @Test
-  public void testDouleMinusDecimal() throws HiveException {
+  public void testDoubleMinusDecimal() throws HiveException {
     GenericUDFOPMinus udf = new GenericUDFOPMinus();
 
     DoubleWritable left = new DoubleWritable(74.52);

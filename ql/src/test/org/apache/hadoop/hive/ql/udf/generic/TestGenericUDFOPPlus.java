@@ -163,7 +163,7 @@ public class TestGenericUDFOPPlus extends AbstractTestGenericUDFOPNumeric {
   }
 
   @Test
-  public void testDoulePlusDecimal() throws HiveException {
+  public void testDoublePlusDecimal() throws HiveException {
     GenericUDFOPPlus udf = new GenericUDFOPPlus();
 
     // Double

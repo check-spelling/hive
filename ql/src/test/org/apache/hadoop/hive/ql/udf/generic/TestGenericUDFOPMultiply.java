@@ -150,7 +150,7 @@ public class TestGenericUDFOPMultiply extends AbstractTestGenericUDFOPNumeric {
   }
 
   @Test
-  public void testDouleTimesDecimal() throws HiveException {
+  public void testDoubleTimesDecimal() throws HiveException {
     GenericUDFOPMultiply udf = new GenericUDFOPMultiply();
 
     DoubleWritable left = new DoubleWritable(74.52);
