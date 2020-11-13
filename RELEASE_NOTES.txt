@@ -1515,7 +1515,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18671] - lock not released after Hive on Spark query was cancelled
     * [HIVE-18674] - update Hive to use ORC 1.4.3
     * [HIVE-18675] - make HIVE_LOCKS.HL_TXNID NOT NULL
-    * [HIVE-18678] - fix exim for MM tables and reinstante the test
+    * [HIVE-18678] - fix exim for MM tables and reinstate the test
     * [HIVE-18680] - FieldTrimmer missing opportunity with SortLimit operators
     * [HIVE-18686] - Installation on Postgres and Oracle broken
     * [HIVE-18688] - Vectorization: Vectorizer Reason shouldn't be part of work-plan
