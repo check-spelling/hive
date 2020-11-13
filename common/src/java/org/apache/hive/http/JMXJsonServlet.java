@@ -113,7 +113,7 @@ import org.slf4j.LoggerFactory;
  *  
  *  The bean's name and modelerType will be returned for all beans.
  *
- *  Optional paramater "callback" should be used to deliver JSONP response.
+ *  Optional parameter "callback" should be used to deliver JSONP response.
  *  
  */
 public class JMXJsonServlet extends HttpServlet {
