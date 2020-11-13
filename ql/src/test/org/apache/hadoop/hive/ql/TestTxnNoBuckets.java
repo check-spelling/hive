@@ -662,7 +662,7 @@ ekoifman:apache-hive-3.0.0-SNAPSHOT-bin ekoifman$ tree /Users/ekoifman/dev/hiver
    * See also acid_vectorization_original*.q
    */
   @Test
-  public void testNonAcidToAcidVectorzied() throws Exception {
+  public void testNonAcidToAcidVectorized() throws Exception {
     hiveConf.setBoolVar(HiveConf.ConfVars.HIVE_VECTORIZATION_ENABLED, true);
     hiveConf.setVar(HiveConf.ConfVars.HIVEFETCHTASKCONVERSION, "none");
     //this enables vectorization of ROW__ID
@@ -710,7 +710,7 @@ ekoifman:apache-hive-3.0.0-SNAPSHOT-bin ekoifman$ tree /Users/ekoifman/dev/hiver
     checkExpected(rs, expected2, "After conversion with VC2");
     assertVectorized(shouldVectorize(), query);
 
-    //doesn't vectorize (uses neither of the Vectorzied Acid readers)
+    //doesn't vectorize (uses neither of the Vectorized Acid readers)
     query = "select ROW__ID, a, INPUT__FILE__NAME from T where b > 6 order by a";
     rs = runStatementOnDriver(query);
     Assert.assertEquals("", 2, rs.size());
