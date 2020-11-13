@@ -84,7 +84,7 @@ public class GenericUDFDBOutput extends GenericUDF {
       throws UDFArgumentTypeException {
     argumentOI = arguments;
 
-    // this should be connection url,username,password,query,column1[,columnn]*
+    // this should be connection url,username,password,query,column1[,column]*
     for (int i = 0; i < 4; i++) {
       if (arguments[i].getCategory() == ObjectInspector.Category.PRIMITIVE) {
         PrimitiveObjectInspector poi = ((PrimitiveObjectInspector) arguments[i]);

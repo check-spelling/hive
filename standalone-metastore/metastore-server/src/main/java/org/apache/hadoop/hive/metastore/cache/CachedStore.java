@@ -2401,7 +2401,7 @@ public class CachedStore implements RawStore, Configurable {
         //    the behavior same as object store.
         // 3. Partition is missing or its stat is updated by live(not yet committed) or aborted txn. In this case,
         //    colStatsWriteId is null. Thus null is returned to keep the behavior same as object store.
-        SharedCache.ColumStatsWithWriteId colStatsWriteId =
+        SharedCache.ColumnStatsWithWriteId colStatsWriteId =
             sharedCache.getPartitionColStatsFromCache(catName, dbName, tblName, partValue, colName, writeIdList);
         if (colStatsWriteId == null) {
           return null;

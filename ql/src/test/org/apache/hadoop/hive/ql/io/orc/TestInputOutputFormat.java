@@ -2428,7 +2428,7 @@ public class TestInputOutputFormat {
     LongColumnVector intColumn = (LongColumnVector) value.cols[3];
     LongColumnVector longColumn = (LongColumnVector) value.cols[4];
     DoubleColumnVector floatColumn = (DoubleColumnVector) value.cols[5];
-    DoubleColumnVector doubleCoulmn = (DoubleColumnVector) value.cols[6];
+    DoubleColumnVector doubleColumn = (DoubleColumnVector) value.cols[6];
     BytesColumnVector stringColumn = (BytesColumnVector) value.cols[7];
     DecimalColumnVector decimalColumn = (DecimalColumnVector) value.cols[8];
     LongColumnVector dateColumn = (LongColumnVector) value.cols[9];
@@ -2442,7 +2442,7 @@ public class TestInputOutputFormat {
       assertEquals("checking int " + i, i, intColumn.vector[i]);
       assertEquals("checking long " + i, i, longColumn.vector[i]);
       assertEquals("checking float " + i, i, floatColumn.vector[i], 0.0001);
-      assertEquals("checking double " + i, i, doubleCoulmn.vector[i], 0.0001);
+      assertEquals("checking double " + i, i, doubleColumn.vector[i], 0.0001);
       Text strValue = new Text();
       strValue.set(stringColumn.vector[i], stringColumn.start[i],
           stringColumn.length[i]);
