@@ -81,7 +81,7 @@ public class DummyStoreOperator extends Operator<DummyStoreDesc> implements Seri
     super.initializeOp(hconf);
     /*
      * The conversion to standard object inspector was necessitated by HIVE-5973. The issue
-     * happens when a select operator preceeds this operator as in the case of a subquery. The
+     * happens when a select operator precedes this operator as in the case of a subquery. The
      * select operator does not allocate a new object to hold the deserialized row. This affects
      * the operation of the SMB join which puts the object in a priority queue. Since all elements
      * of the priority queue point to the same object, the join was resulting in incorrect
