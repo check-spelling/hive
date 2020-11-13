@@ -125,7 +125,7 @@ public class AutoProgressor {
 
   public void go() {
     LOG.info("Running ReporterTask every " + notificationInterval
-        + " miliseconds.");
+        + " milliseconds.");
     rpTimer = new Timer(true);
 
 

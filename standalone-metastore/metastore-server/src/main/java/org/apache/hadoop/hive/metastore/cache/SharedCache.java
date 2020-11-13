@@ -185,7 +185,7 @@ public class SharedCache {
   public void setConcurrencyLevel(int cl){
     this.concurrencyLevel = cl;
   }
-  //number of miliseconds between size updates.
+  //number of milliseconds between size updates.
   public void setRefreshInterval(int interval){
     this.refreshInterval = interval;
   }
