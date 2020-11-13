@@ -113,7 +113,7 @@ public class MetaStoreUtils {
   // NOTE:
   // If the following array is updated, please also be sure to update the
   // configuration parameter documentation
-  // HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES in MetastoreConf as well.
+  // HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES in MetastoreConf as well.
   private static final char[] SPECIAL_CHARACTERS_IN_TABLE_NAMES = new char[] {
       // standard
       ' ', '"', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '[', ']',
@@ -203,7 +203,7 @@ public class MetaStoreUtils {
     StringBuilder allowedSpecialCharacters = new StringBuilder();
     if (conf != null
         && MetastoreConf.getBoolVar(conf,
-        MetastoreConf.ConfVars.SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES)) {
+        MetastoreConf.ConfVars.SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES)) {
       for (Character c : SPECIAL_CHARACTERS_IN_TABLE_NAMES) {
         allowedSpecialCharacters.append(c);
       }
