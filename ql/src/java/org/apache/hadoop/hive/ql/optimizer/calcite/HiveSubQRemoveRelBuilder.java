@@ -95,7 +95,7 @@ import java.util.TreeSet;
 /**
  * Builder for relational expressions.
  * TODO:
- *  Note that this is copied from Calcite's RelBulder
+ *  Note that this is copied from Calcite's RelBuilder
  *  because CALCITE-1493 hasn't been fixed yet
  *  This should be deleted and replaced with RelBuilder in SubqueryRemoveRule
  *  once CALCITE-1493 is fixed.
