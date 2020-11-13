@@ -91,7 +91,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     conf.setVar(HiveConf.ConfVars.PREEXECHOOKS, StringUtils.EMPTY);
 
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Verify delta directories after compaction
     List<String> actualDeltasAfterComp =
         CompactorTestUtil.getBaseOrDeltaNames(fs, AcidUtils.deltaFileFilter, table, null);
@@ -140,7 +140,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Verify delta directories after compaction
     List<String> actualDeltasAfterComp =
         CompactorTestUtil.getBaseOrDeltaNames(fs, AcidUtils.deltaFileFilter, table, null);
@@ -186,7 +186,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
         .runCompaction(conf, dbName, tableName, CompactionType.MINOR, true, partitionToday,
             partitionTomorrow, partitionYesterday);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(3);
+    verifySuccessfulTxn(3);
     // Verify delta directories after compaction in each partition
     List<String> actualDeltasAfterCompPartToday =
         CompactorTestUtil.getBaseOrDeltaNames(fs, AcidUtils.deltaFileFilter, table, partitionToday);
@@ -258,7 +258,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
         .runCompaction(conf, dbName, tableName, CompactionType.MINOR, true, partitionToday,
             partitionTomorrow, partitionYesterday);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(3);
+    verifySuccessfulTxn(3);
     // Verify delta directories after compaction in each partition
     List<String> actualDeltasAfterCompPartToday =
         CompactorTestUtil.getBaseOrDeltaNames(fs, AcidUtils.deltaFileFilter, table, partitionToday);
@@ -331,19 +331,19 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Insert test data into test table
     dataProvider.insertMmTestData(tableName);
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(2);
+    verifySuccessfulTxn(2);
     // Insert test data into test table
     dataProvider.insertMmTestData(tableName);
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(3);
+    verifySuccessfulTxn(3);
     // Verify delta directories after compaction
     List<String> actualDeltasAfterComp =
         CompactorTestUtil.getBaseOrDeltaNames(fs, AcidUtils.deltaFileFilter, table, null);
@@ -370,7 +370,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Verify delta directories after compaction
     Assert.assertEquals("Delta directories does not match after minor compaction",
         Collections.singletonList("delta_0000001_0000003_v0000007"),
@@ -383,7 +383,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MAJOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(2);
+    verifySuccessfulTxn(2);
     // Verify base directory after compaction
     Assert.assertEquals("Base directory does not match after major compaction",
         Collections.singletonList("base_0000006_v0000019"),
@@ -410,7 +410,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a major compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MAJOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Verify base directory after compaction
     Assert.assertEquals("Base directory does not match after major compaction",
         Collections.singletonList("base_0000003_v0000007"),
@@ -423,7 +423,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(2);
+    verifySuccessfulTxn(2);
     // Verify base/delta directories after compaction
     Assert.assertEquals("Base directory does not match after major compaction",
         Collections.singletonList("base_0000003_v0000007"),
@@ -467,7 +467,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
         .runCompaction(conf, dbName, tblName, CompactionType.MINOR, true, "ds=yesterday",
             "ds=today");
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(2);
+    verifySuccessfulTxn(2);
     verifyAllContents(tblName, dataProvider, expectedData);
     // Clean up
     executeStatementOnDriver("drop table " + tblName, driver);
@@ -507,7 +507,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
         .runCompaction(conf, dbName, tblName, CompactionType.MINOR, true, "ds=yesterday",
             "ds=today");
     CompactorTestUtil.runCleaner(hiveConf);
-    verifySuccessulTxn(2);
+    verifySuccessfulTxn(2);
 
     verifyAllContents(tblName, dataProvider, expectedData);
     // Clean up
@@ -550,7 +550,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a minor compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, CompactionType.MINOR, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Verify delta directories after compaction
     Assert.assertEquals("Delta directories does not match after minor compaction",
         Collections.singletonList("delta_0000001_0000009_v0000014"),
@@ -588,7 +588,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
     // Run a compaction
     CompactorTestUtil.runCompaction(conf, dbName, tableName, compactionType, true);
     CompactorTestUtil.runCleaner(conf);
-    verifySuccessulTxn(1);
+    verifySuccessfulTxn(1);
     // Verify directories after compaction
     PathFilter pathFilter = compactionType == CompactionType.MAJOR ? AcidUtils.baseFileFilter :
         AcidUtils.deltaFileFilter;
@@ -611,7 +611,7 @@ public class TestMmCompactorOnTez extends CompactorOnTezTest {
    * @param expectedCompleteCompacts number of compactions already run
    * @throws MetaException
    */
-  private void verifySuccessulTxn(int expectedCompleteCompacts) throws MetaException {
+  private void verifySuccessfulTxn(int expectedCompleteCompacts) throws MetaException {
     List<ShowCompactResponseElement> compacts =
         TxnUtils.getTxnStore(conf).showCompact(new ShowCompactRequest()).getCompacts();
     Assert.assertEquals("Completed compaction queue must contain one element",
