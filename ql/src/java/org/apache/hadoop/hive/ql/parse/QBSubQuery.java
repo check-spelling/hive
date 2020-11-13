@@ -621,7 +621,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
      * Similarly a not exists on a SubQuery with a implied GBY will always return false.
      */
       // Following is special cases for different type of subqueries which have aggregate and no implicit group by
-      // and are correlatd
+      // and are correlated
       // * EXISTS/NOT EXISTS - NOT allowed, throw an error for now. We plan to allow this later
       // * SCALAR - This should return true since later in subquery remove
       //              rule we need to know about this case.
