@@ -1387,7 +1387,7 @@ public class ObjectStore implements RawStore, Configurable {
       // If transactional non partitioned table,
       // check whether the current version table statistics
       // in the metastore comply with the client query's snapshot isolation.
-      // Note: a partitioned table has table stats and table snapshot in MPartiiton.
+      // Note: a partitioned table has table stats and table snapshot in MPartition.
       if (writeIdList != null) {
         boolean isTxn = TxnUtils.isTransactionalTable(tbl);
         if (isTxn && !areTxnStatsSupported) {
