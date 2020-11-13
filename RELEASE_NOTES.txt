@@ -1333,7 +1333,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18017] - HS2 materialized view registry init loading all tables from metastore
     * [HIVE-18026] - Hive webhcat principal configuration optimization
     * [HIVE-18046] - Metastore: default IS_REWRITE_ENABLED=false instead of NULL
-    * [HIVE-18050] - LlapServiceDriver shoud split HIVE_AUX_JARS_PATH by ':' instead of ','
+    * [HIVE-18050] - LlapServiceDriver should split HIVE_AUX_JARS_PATH by ':' instead of ','
     * [HIVE-18054] -  Make Lineage work with concurrent queries on a Session
     * [HIVE-18060] - UpdateInputAccessTimeHook fails for non-current database
     * [HIVE-18067] - Remove extraneous golden files

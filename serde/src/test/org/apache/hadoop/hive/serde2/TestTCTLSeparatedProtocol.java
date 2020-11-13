@@ -230,12 +230,12 @@ public class TestTCTLSeparatedProtocol {
     assertTrue(prot.readString().equals("bye!"));
     prot.readFieldEnd();
 
-    // shouldl return nulls at end
+    // should return nulls at end
     prot.readFieldBegin();
     assertNull(prot.readString());
     prot.readFieldEnd();
 
-    // shouldl return nulls at end
+    // should return nulls at end
     prot.readFieldBegin();
     assertNull(prot.readString());
     prot.readFieldEnd();
@@ -298,12 +298,12 @@ public class TestTCTLSeparatedProtocol {
     prot.readListEnd();
     prot.readFieldEnd();
 
-    // shouldl return nulls at end
+    // should return nulls at end
     prot.readFieldBegin();
     assertNull(prot.readString());
     prot.readFieldEnd();
 
-    // shouldl return nulls at end
+    // should return nulls at end
     prot.readFieldBegin();
     assertNull(prot.readString());
     prot.readFieldEnd();
