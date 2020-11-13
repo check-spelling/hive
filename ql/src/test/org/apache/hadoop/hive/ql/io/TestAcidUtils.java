@@ -311,7 +311,7 @@ public class TestAcidUtils {
   }
 
   @Test
-  public void testOverlapingDelta() throws Exception {
+  public void testOverlappingDelta() throws Exception {
     Configuration conf = new Configuration();
     MockFileSystem fs = new MockFileSystem(conf,
         new MockFile("mock:/tbl/part1/delta_0000063_63/bucket_0", 500, new byte[0]),
@@ -344,7 +344,7 @@ public class TestAcidUtils {
    * @throws Exception
    */
   @Test
-  public void testOverlapingDelta2() throws Exception {
+  public void testOverlappingDelta2() throws Exception {
     Configuration conf = new Configuration();
     MockFileSystem fs = new MockFileSystem(conf,
       new MockFile("mock:/tbl/part1/delta_0000063_63_0/bucket_0", 500, new byte[0]),
@@ -502,7 +502,7 @@ public class TestAcidUtils {
   }
 
   @Test
-  public void testOverlapingDeltaAndDeleteDelta() throws Exception {
+  public void testOverlappingDeltaAndDeleteDelta() throws Exception {
     Configuration conf = new Configuration();
     conf.setInt(HiveConf.ConfVars.HIVE_TXN_OPERATIONAL_PROPERTIES.varname,
         AcidOperationalProperties.getDefault().toInt());
