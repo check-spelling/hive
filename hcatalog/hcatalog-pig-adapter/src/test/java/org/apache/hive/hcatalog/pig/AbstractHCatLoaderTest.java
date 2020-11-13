@@ -448,7 +448,7 @@ public abstract class AbstractHCatLoaderTest extends HCatBaseTest {
 
     try {
       Iterator<Tuple> WIter = server.openIterator("W");
-      fail("Should failed in retriving an invalid partition");
+      fail("Should failed in retrieving an invalid partition");
     } catch (IOException ioe) {
       // expected
     }
