@@ -889,7 +889,7 @@ localize_colname() {
 }
 
 # extracts the name of the table from a create statement from the parsed SQL.
-# Assumes that the thrid SPACE-separated token is the name of the table.
+# Assumes that the third SPACE-separated token is the name of the table.
 # ex: CREATE TABLE DBS ( DB_ID bigint(20) );
 extract_tablename() {
   if [[ "$DB_SERVER" = "derby" ]]
@@ -916,7 +916,7 @@ insert_column_names() {
 }
 
 # extracts the name of the table in its native form from a create statement from the parsed SQL.
-# Assumes that the thrid SPACE-separated token is the name of the table. if there are quotes around it will 
+# Assumes that the third SPACE-separated token is the name of the table. if there are quotes around it will 
 # return the quotes too.
 # ex: CREATE TABLE DBS ( DB_ID bigint(20) );
 extract_raw_tablename() {

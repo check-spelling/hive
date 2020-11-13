@@ -1248,7 +1248,7 @@ public class ReplDumpTask extends Task<ReplDumpWork> implements Serializable {
     } else {
       return UUID.randomUUID().toString();
       // TODO: time good enough for now - we'll likely improve this.
-      // We may also work in something the equivalent of pid, thrid and move to nanos to ensure
+      // We may also work in something the equivalent of pid, third and move to nanos to ensure
       // uniqueness.
     }
   }
