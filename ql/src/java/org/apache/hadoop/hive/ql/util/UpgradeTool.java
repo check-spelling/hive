@@ -530,7 +530,7 @@ public class UpgradeTool {
         convertToAcid.add("ALTER TABLE " + Warehouse.getQualifiedName(t) + " SET TBLPROPERTIES (" +
             "'transactional'='true')");
         //do this before alterTable in case files need to be renamed, else
-        // TransactionalMetastoreListerner will squak
+        // TransactionalMetastoreListener will squak
         handleRenameFiles(t, new Path(t.getSd().getLocation()), execute, db.getConf(),
             t.getSd().getBucketColsSize() > 0, pw);
         if(execute) {

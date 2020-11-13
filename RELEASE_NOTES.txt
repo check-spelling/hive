@@ -631,7 +631,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18288] - merge/concat not supported on Acid table
     * [HIVE-18294] - add switch to make acid table the default
     * [HIVE-18315] - update tests use non-acid tables
-    * [HIVE-18317] - Improve error messages in TransactionalValidationListerner
+    * [HIVE-18317] - Improve error messages in TransactionalValidationListener
     * [HIVE-18323] - Vectorization: add the support of timestamp in VectorizedPrimitiveColumnReader for parquet
     * [HIVE-18366] - Update HBaseSerDe to use hbase.mapreduce.hfileoutputformat.table.name instead of hbase.table.name as the table name property
     * [HIVE-18368] - Improve Spark Debug RDD Graph
