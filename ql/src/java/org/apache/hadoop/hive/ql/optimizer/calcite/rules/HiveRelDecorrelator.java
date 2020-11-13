@@ -2393,7 +2393,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
         //   Aggregate (groupby(all left input refs)
         //                 agg0(rewritten expression),
         //                 agg1()...)
-        //     Project-B' (rewriten original projected exprs)
+        //     Project-B' (rewritten original projected exprs)
         //       Join(replace corvar w/ input ref from LeftInputRel)
         //         LeftInputRel
         //         RightInputRel
@@ -2460,7 +2460,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
         //   Aggregate (groupby(all left input refs)
         //                 agg0(rewritten expression),
         //                 agg1()...)
-        //     Project-B' (rewriten original projected exprs)
+        //     Project-B' (rewritten original projected exprs)
         //       Join (LOJ cond = true)
         //         LeftInputRel
         //         RightInputRel
