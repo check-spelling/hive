@@ -5472,7 +5472,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * @param fast2 word 2
    * @param scaleDown the number of integer digits to scale
    * @param fastResult an object to reuse
-   * @return was the operation successfule?
+   * @return was the operation successful?
    */
   public static boolean fastRoundFractionalUp(
       int fastSignum, long fast0, long fast1, long fast2,
@@ -5582,7 +5582,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * @param fast2 word 2
    * @param scaleDown the number of integer digits to scale
    * @param fastResult an object to reuse
-   * @return was the operation successfule?
+   * @return was the operation successful?
    */
   public static boolean fastRoundFractionalHalfUp(
       int fastSignum, long fast0, long fast1, long fast2,
@@ -5657,7 +5657,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * @param fast4 word 4
    * @param scaleDown the number of integer digits to scale
    * @param fastResult an object to reuse
-   * @return was the operation successfule?
+   * @return was the operation successful?
    */
   public static boolean fastRoundFractionalHalfUp5Words(
       int fastSignum, long fast0, long fast1, long fast2, long fast3, long fast4,
@@ -5856,7 +5856,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * @param fast2 word 2
    * @param scaleDown the number of integer digits to scale
    * @param fastResult an object to reuse
-   * @return was the operation successfule?
+   * @return was the operation successful?
    */
   public static boolean fastRoundFractionalHalfEven(
       int fastSignum, long fast0, long fast1, long fast2,
@@ -6036,7 +6036,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * @param fast2 word 2
    * @param scaleUp the number of integer digits to scale up by
    * @param fastResult an object to reuse
-   * @return was the operation successfule?
+   * @return was the operation successful?
    */
   public static boolean fastScaleUp(
       long fast0, long fast1, long fast2,
