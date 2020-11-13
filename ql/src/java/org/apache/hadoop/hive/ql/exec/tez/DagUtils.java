@@ -199,7 +199,7 @@ public class DagUtils {
   /**
    * Notifiers to synchronize resource localization across threads. If one thread is localizing
    * a file, other threads can wait on the corresponding notifier object instead of just sleeping
-   * before re-checking HDFS. This is used just to avoid unnecesary waits; HDFS check still needs
+   * before re-checking HDFS. This is used just to avoid unnecessary waits; HDFS check still needs
    * to be performed to make sure the resource is there and matches the expected file.
    */
   private final ConcurrentHashMap<String, Object> copyNotifiers = new ConcurrentHashMap<>();
