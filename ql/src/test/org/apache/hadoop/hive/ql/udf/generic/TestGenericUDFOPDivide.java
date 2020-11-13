@@ -150,7 +150,7 @@ public class TestGenericUDFOPDivide extends AbstractTestGenericUDFOPNumeric {
   }
 
   @Test
-  public void testDouleDivideDecimal() throws HiveException {
+  public void testDoubleDivideDecimal() throws HiveException {
     GenericUDFOPDivide udf = new GenericUDFOPDivide();
 
     DoubleWritable left = new DoubleWritable(74.52);
