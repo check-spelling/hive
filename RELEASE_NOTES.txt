@@ -817,7 +817,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-15829] - LLAP text cache: disable memory tracking on the writer
     * [HIVE-15883] - HBase mapped table in Hive insert fail for decimal
     * [HIVE-15995] - Syncing metastore table with serde schema
-    * [HIVE-16007] - When the query does not complie the LogRunnable never stops
+    * [HIVE-16007] - When the query does not compile the LogRunnable never stops
     * [HIVE-16025] - Where IN clause throws exception
     * [HIVE-16026] - Generated query will timeout and/or kill the druid cluster.
     * [HIVE-16027] - <timestamp> BETWEEN <string> AND <string> must cast to TIMESTMAP
@@ -2083,7 +2083,7 @@ Release Notes - Hive - Version 2.3.0
     * [HIVE-15249] - HIve 2.1.0 is throwing InvalidObjectException(message:Invalid column type name is too long
     * [HIVE-15829] - LLAP text cache: disable memory tracking on the writer
     * [HIVE-15923] - Hive default partition causes errors in get partitions
-    * [HIVE-16007] - When the query does not complie the LogRunnable never stops
+    * [HIVE-16007] - When the query does not compile the LogRunnable never stops
     * [HIVE-16188] - beeline should block the connection if given invalid database name.
     * [HIVE-16193] - Hive show compactions not reflecting the status of the application
     * [HIVE-16219] - metastore notification_log contains serialized message with  non functional fields
