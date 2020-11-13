@@ -111,7 +111,7 @@ public class TestGetPartitions extends MetaStoreClientTest {
 
 
   protected Table createTestTable(IMetaStoreClient client, String dbName, String tableName,
-      List<String> partCols, boolean setPartitionLevelPrivilages)
+      List<String> partCols, boolean setPartitionLevelPrivileges)
       throws TException {
     TableBuilder builder = new TableBuilder()
         .setDbName(dbName)
@@ -122,7 +122,7 @@ public class TestGetPartitions extends MetaStoreClientTest {
     partCols.forEach(col -> builder.addPartCol(col, "string"));
     Table table = builder.build(metaStore.getConf());
 
-    if (setPartitionLevelPrivilages) {
+    if (setPartitionLevelPrivileges) {
       table.putToParameters("PARTITION_LEVEL_PRIVILEGE", "true");
     }
 
@@ -445,7 +445,7 @@ public class TestGetPartitions extends MetaStoreClientTest {
    *         get_partition_with_auth(String,String,List(String),String,List(String)).
    */
   @Test
-  public void testGetPartitionWithAuthInfoNoPrivilagesSet() throws Exception {
+  public void testGetPartitionWithAuthInfoNoPrivilegesSet() throws Exception {
     createTable3PartCols1Part(client);
     Partition partition = client.getPartitionWithAuthInfo(DB_NAME, TABLE_NAME, Lists.newArrayList(
         "1997", "05", "16"), "", Lists.newArrayList());
