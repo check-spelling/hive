@@ -172,7 +172,7 @@ public class TestExplainTask {
   }
 
   @Test
-  public void testGetJSONDependenciesJsonShhouldMatch() throws Exception {
+  public void testGetJSONDependenciesJsonShouldMatch() throws Exception {
     ExplainWork work = mockExplainWork();
 
     when(work.getDependency()).thenReturn(true);

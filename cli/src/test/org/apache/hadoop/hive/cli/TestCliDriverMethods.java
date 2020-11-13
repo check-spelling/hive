@@ -299,7 +299,7 @@ public class TestCliDriverMethods {
 
     try {
       driver.processSelectDatabase(sessionState);
-      fail("shuld be exit");
+      fail("should be exit");
     } catch (ExitException e) {
       e.printStackTrace();
       assertEquals(40000, e.getStatus());

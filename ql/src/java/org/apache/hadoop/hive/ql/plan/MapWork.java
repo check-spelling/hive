@@ -140,7 +140,7 @@ public class MapWork extends BaseWork {
 
   private boolean mapperCannotSpanPartns;
 
-  // used to indicate the input is sorted, and so a BinarySearchRecordReader shoudl be used
+  // used to indicate the input is sorted, and so a BinarySearchRecordReader should be used
   private boolean inputFormatSorted = false;
 
   private boolean useBucketizedHiveInputFormat;

@@ -66,7 +66,7 @@ public class TestGenericUDFFactorial {
 
     try {
       udf.initialize(arguments);
-      assertTrue("GenericUDFFactorial.initialize() shold throw UDFArgumentTypeException", false);
+      assertTrue("GenericUDFFactorial.initialize() should throw UDFArgumentTypeException", false);
     } catch (UDFArgumentTypeException e) {
       // UDFArgumentTypeException is expected
     }
