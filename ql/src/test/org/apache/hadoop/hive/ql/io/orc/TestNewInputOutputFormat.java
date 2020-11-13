@@ -134,7 +134,7 @@ public class TestNewInputOutputFormat {
         " 9223372036854775807, 2.0, -5.0" + 
         ", , bye, {[{1, bye}, {2, sigh}]}, [{100000000, cat}," +
         " {-100000, in}, {1234, hat}]," +
-        " {chani={5, chani}, mauddib={1, mauddib}}," +
+        " {chani={5, chani}, muaddib={1, muaddib}}," +
         " 2000-03-12 15:00:01, 12345678.6547457}");
     localFs.delete(outputPath, true);
   }
