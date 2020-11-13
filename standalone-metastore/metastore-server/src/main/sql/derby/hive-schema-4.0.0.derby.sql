@@ -648,7 +648,7 @@ CREATE TABLE AUX_TABLE (
 );
 
 --1st 4 cols make up a PK but since WS_PARTITION is nullable we can't declare such PK
---This is a good candidate for Index orgainzed table
+--This is a good candidate for Index organized table
 CREATE TABLE WRITE_SET (
   WS_DATABASE varchar(128) NOT NULL,
   WS_TABLE varchar(128) NOT NULL,
