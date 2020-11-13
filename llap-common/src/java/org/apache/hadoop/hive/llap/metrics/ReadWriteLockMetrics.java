@@ -381,7 +381,7 @@ public class ReadWriteLockMetrics implements ReadWriteLock {
 
     /**
      * Helper to increment the monitoring counters.
-     * Called from the lock implementations to increment the total/max/coun
+     * Called from the lock implementations to increment the total/max/count
      * values of the monitoring counters.
      *
      * @param waitTime The actual wait time (in nanos) for the lock operation
