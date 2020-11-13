@@ -618,7 +618,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
      * correlated SubQuery, the SubQuery always returns 1 row.
      */
       // Following is special cases for different type of subqueries which have aggregate and implicit group by
-      // and are correlatd
+      // and are correlated
       // * SCALAR - This should return true since later in subquery remove
       //              rule we need to know about this case.
       // * IN - always allowed, BUT returns true for cases with aggregate other than COUNT since later in subquery remove
