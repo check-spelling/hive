@@ -187,13 +187,13 @@ public class SQLAuthorizationUtils {
           throws HiveAuthzPluginException {
 
     // get privileges for this user and its role on this object
-    PrincipalPrivilegeSet thrifPrivs = null;
+    PrincipalPrivilegeSet thriftPrivs = null;
     try {
       HiveObjectRef objectRef = AuthorizationUtils.getThriftHiveObjectRef(hivePrivObject);
       if (objectRef.getObjectType() == null) {
         objectRef.setObjectType(HiveObjectType.GLOBAL);
       }
-      thrifPrivs = metastoreClient.get_privilege_set(
+      thriftPrivs = metastoreClient.get_privilege_set(
           objectRef, userName, null);
     } catch (MetaException e) {
       throwGetPrivErr(e, hivePrivObject, userName);
@@ -203,10 +203,10 @@ public class SQLAuthorizationUtils {
       throwGetPrivErr(e, hivePrivObject, userName);
     }
 
-    filterPrivsByCurrentRoles(thrifPrivs, curRoles);
+    filterPrivsByCurrentRoles(thriftPrivs, curRoles);
 
     // convert to RequiredPrivileges
-    RequiredPrivileges privs = getRequiredPrivsFromThrift(thrifPrivs);
+    RequiredPrivileges privs = getRequiredPrivsFromThrift(thriftPrivs);
 
     // add owner privilege if user is owner of the object
     if (isOwner(metastoreClient, userName, curRoles, hivePrivObject)) {
@@ -317,12 +317,12 @@ public class SQLAuthorizationUtils {
     throw new HiveAuthzPluginException(msg, e);
   }
 
-  private static RequiredPrivileges getRequiredPrivsFromThrift(PrincipalPrivilegeSet thrifPrivs)
+  private static RequiredPrivileges getRequiredPrivsFromThrift(PrincipalPrivilegeSet thriftPrivs)
       throws HiveAuthzPluginException {
 
     RequiredPrivileges reqPrivs = new RequiredPrivileges();
     // add user privileges
-    Map<String, List<PrivilegeGrantInfo>> userPrivs = thrifPrivs.getUserPrivileges();
+    Map<String, List<PrivilegeGrantInfo>> userPrivs = thriftPrivs.getUserPrivileges();
     if (userPrivs != null && userPrivs.size() != 1) {
       throw new HiveAuthzPluginException("Invalid number of user privilege objects: "
           + userPrivs.size());
@@ -330,7 +330,7 @@ public class SQLAuthorizationUtils {
     addRequiredPrivs(reqPrivs, userPrivs);
 
     // add role privileges
-    Map<String, List<PrivilegeGrantInfo>> rolePrivs = thrifPrivs.getRolePrivileges();
+    Map<String, List<PrivilegeGrantInfo>> rolePrivs = thriftPrivs.getRolePrivileges();
     addRequiredPrivs(reqPrivs, rolePrivs);
     return reqPrivs;
   }
