@@ -341,7 +341,7 @@ public abstract class ThriftCLIService extends AbstractService implements TCLISe
       }
       LOG.info("Login attempt is successful for user : " + userName);
     } catch (Exception e) {
-      LOG.error("Login attempt is failed for user : " + userName + ". Error Messsage :" + e.getMessage());
+      LOG.error("Login attempt is failed for user : " + userName + ". Error Message :" + e.getMessage());
       LOG.warn("Error opening session: ", e);
       resp.setStatus(HiveSQLException.toTStatus(e));
     }

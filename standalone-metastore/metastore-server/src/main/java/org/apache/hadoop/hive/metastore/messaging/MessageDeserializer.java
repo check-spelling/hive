@@ -112,7 +112,7 @@ public abstract class MessageDeserializer {
   public abstract CreateTableMessage getCreateTableMessage(String messageBody);
 
   /**
-   * Method to de-serialize AlterTableMessge
+   * Method to de-serialize AlterTableMessage
    * @param messageBody string message
    * @return object message
    */
