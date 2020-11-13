@@ -264,7 +264,7 @@ public class MergeSemanticAnalyzer extends RewriteSemanticAnalyzer {
       assert numInsertClauses < 2: "too many Insert clauses";
     }
     if (numWhenMatchedDeleteClauses + numWhenMatchedUpdateClauses == 2 && extraPredicate == null) {
-      throw new SemanticException(ErrorMsg.MERGE_PREDIACTE_REQUIRED, ctx.getCmd());
+      throw new SemanticException(ErrorMsg.MERGE_PREDICATE_REQUIRED, ctx.getCmd());
     }
 
     boolean validating = handleCardinalityViolation(rewrittenQueryStr, target, onClauseAsText, targetTable,
