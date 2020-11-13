@@ -43,7 +43,7 @@ class THttpServer(TServer.TServer):
 
     thttpserver = self
 
-    class RequestHander(BaseHTTPServer.BaseHTTPRequestHandler):
+    class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
       def do_POST(self):
         # Don't care about the request path.
         self.send_response(200)
@@ -57,7 +57,7 @@ class THttpServer(TServer.TServer):
         thttpserver.processor.process(iprot, oprot)
         otrans.flush()
 
-    self.httpd = BaseHTTPServer.HTTPServer(server_address, RequestHander)
+    self.httpd = BaseHTTPServer.HTTPServer(server_address, RequestHandler)
 
   def serve(self):
     self.httpd.serve_forever()
