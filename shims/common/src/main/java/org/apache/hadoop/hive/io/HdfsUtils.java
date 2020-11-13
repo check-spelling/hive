@@ -169,7 +169,7 @@ public class HdfsUtils {
         .setPermission(permission).build();
   }
   /**
-   * Removes basic permission acls (unamed acls) from the list of acl entries
+   * Removes basic permission acls (unnamed acls) from the list of acl entries
    * @param entries acl entries to remove from.
    */
   private static void removeBaseAclEntries(List<AclEntry> entries) {
