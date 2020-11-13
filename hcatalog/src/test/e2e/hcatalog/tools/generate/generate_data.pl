@@ -45,7 +45,7 @@ sub randomName()
 our @city = ("albuquerque", "bombay", "calcutta", "danville", "eugene",
     "frankfurt", "grenoble", "harrisburg", "indianapolis",
     "jerusalem", "kellogg", "lisbon", "marseilles",
-    "nice", "oklohoma city", "paris", "queensville", "roswell",
+    "nice", "oklahoma city", "paris", "queensville", "roswell",
     "san francisco", "twin falls", "umatilla", "vancouver", "wheaton",
     "xacky", "youngs town", "zippy");
 
