@@ -1842,7 +1842,7 @@ public interface RawStore extends Configurable {
   /**
    * Returns details about a scheduled query by name.
    *
-   * @throws NoSuchObjectException if an object by the given name dosen't exists.
+   * @throws NoSuchObjectException if an object by the given name doesn't exists.
    */
   ScheduledQuery getScheduledQuery(ScheduledQueryKey scheduleKey) throws MetaException, NoSuchObjectException;
 
