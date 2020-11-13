@@ -7812,13 +7812,13 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * and then fit the result afterwards.
    *
    * @param leftSignum The left sign (-1, 0, or +1)
-   * @param leftFast0 The left word 0 of reprentation
+   * @param leftFast0 The left word 0 of representation
    * @param leftFast1 word 1
    * @param leftFast2 word 2
    * @param leftIntegerDigitCount The left number of integer digits
    * @param leftScale the left scale
    * @param rightSignum The right sign (-1, 0, or +1)
-   * @param rightFast0 The right word 0 of reprentation
+   * @param rightFast0 The right word 0 of representation
    * @param rightFast1 word 1
    * @param rightFast2 word 2
    * @param rightIntegerDigitCount The right number of integer digits
