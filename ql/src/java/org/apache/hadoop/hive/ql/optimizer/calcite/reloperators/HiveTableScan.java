@@ -236,8 +236,8 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
         .getRowColNameIndexMap(relOptHtRowtype.getFieldList());
     List<String> colNamesInScanRowType = scanRowType.getFieldNames();
 
-    int partColStartPosInrelOptHtRowtype = relOptHTable.getNonPartColumns().size();
-    int virtualColStartPosInrelOptHtRowtype =
+    int partColStartPosInRelOptHtRowtype = relOptHTable.getNonPartColumns().size();
+    int virtualColStartPosInRelOptHtRowtype =
         relOptHTable.getNonPartColumns().size() + relOptHTable.getPartColumns().size();
     int tmp;
     for (int i = 0; i < colNamesInScanRowType.size(); i++) {
