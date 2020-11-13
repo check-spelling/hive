@@ -180,7 +180,7 @@ parse_pyint(PyObject* o, int32_t* ret, int32_t min, int32_t max) {
 }
 
 
-/* --- FUNCTIONS TO PARSE STRUCT SPECIFICATOINS --- */
+/* --- FUNCTIONS TO PARSE STRUCT SPECIFICATIONS --- */
 
 static bool
 parse_set_list_args(SetListTypeArgs* dest, PyObject* typeargs) {
