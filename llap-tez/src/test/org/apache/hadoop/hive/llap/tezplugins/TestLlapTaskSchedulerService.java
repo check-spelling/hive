@@ -1918,7 +1918,7 @@ public class TestLlapTaskSchedulerService {
       // Mark a task as failed due to a comm failure.
       tsWrapper.deallocateTask(task1, false, TaskAttemptEndReason.COMMUNICATION_ERROR);
 
-      // Node1 has free capacity but is disabled. Node 2 has capacity. Delay > re-enable tiemout
+      // Node1 has free capacity but is disabled. Node 2 has capacity. Delay > re-enable timeout
       tsWrapper.ensureNoChangeInTotalAllocations(2, 2000l);
     } finally {
       tsWrapper.shutdown();
