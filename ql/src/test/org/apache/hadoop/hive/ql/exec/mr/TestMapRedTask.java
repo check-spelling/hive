@@ -60,7 +60,7 @@ public class TestMapRedTask {
   }
 
   @Test
-  public void mrTaskSumbitViaChildWithImpersonation() throws IOException, LoginException {
+  public void mrTaskSubmitViaChildWithImpersonation() throws IOException, LoginException {
     Utils.getUGI().setAuthenticationMethod(PROXY);
 
     Context ctx = Mockito.mock(Context.class);
