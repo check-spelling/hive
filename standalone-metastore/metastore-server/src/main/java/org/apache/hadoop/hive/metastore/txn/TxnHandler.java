@@ -2877,7 +2877,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
   private Optional<Long> getWriteIdFromDb(long txnid, Connection dbConn, String dbName, String tblName) throws SQLException {
     if (tblName != null) {
       // It is assumed the caller have already allocated write id for adding/updating data to
-      // the acid tables. However, DDL operatons won't allocate write id and hence this query
+      // the acid tables. However, DDL operations won't allocate write id and hence this query
       // may return empty result sets.
       // Get the write id allocated by this txn for the given table writes
       try (PreparedStatement pstmt = dbConn.prepareStatement(SELECT_WRITE_ID_QUERY)) {
