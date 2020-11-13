@@ -361,7 +361,7 @@ public class TestReadWriteLockMetrics {
     assertEquals("Invalid record label", "test1", rec.getLabel());
     assertEquals("Invalid record context", "Locking", rec.getContext());
 
-    // we expect around exectome / thread loop time executions
+    // we expect around exectime / thread loop time executions
     assertWithTolerance("Unexpected count of lock executions (reader)",
         execTime / LockHolder.LOCK_HOLD_TIME,  lhR.getLockCount());
     assertEquals("Counting the locks failed",
