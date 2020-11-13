@@ -640,7 +640,7 @@ public class FileSinkDesc extends AbstractOperatorDesc implements IStatsGatherDe
     return getBucketingVersion();
   }
   /**
-   * Whether this is CREATE TABLE SELECT or CREATE MATERIALIZED VIEW statemet
+   * Whether this is CREATE TABLE SELECT or CREATE MATERIALIZED VIEW statement
    * Set by semantic analyzer this is required because CTAS/CM requires some special logic
    * in mvFileToFinalPath
    */
