@@ -102,7 +102,7 @@ desirable to have new partitions created automatically (say on a
 hourly basis). In such cases requiring the Hive admin to pre-create
 the necessary partitions may not be reasonable.  Consequently the
 streaming API allows streaming clients to create partitions as
-needed. <b>HiveEndPoind.newConnection()</b> accepts a argument to
+needed. <b>HiveEndPoint.newConnection()</b> accepts a argument to
 indicate if the partition should be auto created. Partition creation
 being an atomic action, multiple clients can race to create the
 partition, but only one would succeed, so streaming clients need not
