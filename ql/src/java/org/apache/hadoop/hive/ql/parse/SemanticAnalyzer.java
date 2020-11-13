@@ -15272,7 +15272,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
   }
 
   @Override
-  public void executeUnparseTranlations() {
+  public void executeUnparseTranslation() {
     unparseTranslator.applyTranslations(ctx.getTokenRewriteStream());
   }
 
