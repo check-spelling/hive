@@ -874,7 +874,7 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
         skip = false;
       }
     }
-    Assert.fail("Could't find {" + expectedType + ", " + expectedState + ", " + expectedDb
+    Assert.fail("Couldn't find {" + expectedType + ", " + expectedState + ", " + expectedDb
        + ", " + expectedTable  + ", " + expectedPartition + "} in " + actuals);
     throw new IllegalStateException("How did it get here?!");
   }
