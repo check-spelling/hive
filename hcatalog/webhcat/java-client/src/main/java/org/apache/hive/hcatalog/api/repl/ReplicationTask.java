@@ -116,7 +116,7 @@ public abstract class ReplicationTask {
   }
 
   // Primary entry point is a factory method instead of ctor
-  // to allow for future ctor mutabulity in design
+  // to allow for future ctor mutability in design
   protected ReplicationTask(HCatNotificationEvent event) {
     this.event = event;
   }
