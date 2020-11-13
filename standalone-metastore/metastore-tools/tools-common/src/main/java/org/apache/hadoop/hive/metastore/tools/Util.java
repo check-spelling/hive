@@ -190,7 +190,7 @@ public final class Util {
     }
 
     /**
-     * Add owner tyoe
+     * Add owner type
      *
      * @param ownerType database owner type (USER or GROUP)
      * @return this

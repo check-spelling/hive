@@ -1839,20 +1839,20 @@ public class TestHiveMetastoreTransformer {
         LOG.info("Drop type failed for " + typeName);
       }
 
-      Type typ1 = new Type();
-      typ1.setName(typeName);
-      typ1.setFields(new ArrayList<>(2));
-      typ1.getFields().add(
+      Type type1 = new Type();
+      type1.setName(typeName);
+      type1.setFields(new ArrayList<>(2));
+      type1.getFields().add(
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-      client.createType(typ1);
+      client.createType(type1);
 
       TableBuilder builder = new TableBuilder()
           .setCatName(catalog)
           .setDbName(dbName)
           .setTableName(tblName)
-          .setCols(typ1.getFields())
+          .setCols(type1.getFields())
           .setType(type.name())
           .setLocation(location)
           .setNumBuckets(buckets)

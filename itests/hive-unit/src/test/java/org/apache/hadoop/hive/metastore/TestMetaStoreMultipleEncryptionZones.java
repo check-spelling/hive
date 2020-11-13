@@ -147,14 +147,14 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     Path dirDb1 = new Path(warehouse.getWhRoot(), dbName1 +".db");
     warehouseFs.delete(dirDb1, true);
@@ -177,7 +177,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName1)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -189,7 +189,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName2)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -243,19 +243,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -267,7 +267,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -342,14 +342,14 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     Path dirDb1 = new Path(warehouse.getWhRoot(), dbName1 +".db");
     warehouseFs.mkdirs(dirDb1);
@@ -370,7 +370,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName1)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -382,7 +382,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName2)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -435,19 +435,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -459,7 +459,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -523,19 +523,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -580,19 +580,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -606,7 +606,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -672,19 +672,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -698,7 +698,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -764,19 +764,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -790,7 +790,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -854,19 +854,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addTableParam("EXTERNAL", "true")
@@ -921,14 +921,14 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     Path dirDb1 = new Path(warehouse.getWhRoot(), dbName1 +".db");
     warehouseFs.delete(dirDb1, true);
@@ -951,7 +951,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName1)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -963,7 +963,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName2)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -1012,14 +1012,14 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     Path dirDb1 = new Path(warehouse.getWhRoot(), dbName1 +".db");
     warehouseFs.mkdirs(dirDb1);
@@ -1040,7 +1040,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName1)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -1052,7 +1052,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName2)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -1095,19 +1095,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName1)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -1119,7 +1119,7 @@ public class TestMetaStoreMultipleEncryptionZones {
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName2)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -1185,19 +1185,19 @@ public class TestMetaStoreMultipleEncryptionZones {
             .create(client, hiveConf);
 
     client.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(2));
-    typ1.getFields().add(
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(2));
+    type1.getFields().add(
             new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-    typ1.getFields().add(
+    type1.getFields().add(
             new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-    client.createType(typ1);
+    client.createType(type1);
 
     new TableBuilder()
             .setDbName(dbName)
             .setTableName(tblName)
-            .setCols(typ1.getFields())
+            .setCols(type1.getFields())
             .setNumBuckets(1)
             .addBucketCol("name")
             .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
