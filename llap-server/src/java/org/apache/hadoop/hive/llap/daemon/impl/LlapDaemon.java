@@ -510,7 +510,7 @@ public class LlapDaemon extends CompositeService implements ContainerRunner, Lla
     this.registry.init(getConfig());
     this.registry.start();
     LOG.info(
-        "LlapDaemon serviceStart complete. RPC Port={}, ManagementPort={}, ShuflePort={}, WebPort={}",
+        "LlapDaemon serviceStart complete. RPC Port={}, ManagementPort={}, ShufflePort={}, WebPort={}",
         server.getBindAddress().getPort(), server.getManagementBindAddress().getPort(),
         ShuffleHandler.get().getPort(), (webServices == null ? "" : webServices.getPort()));
   }
