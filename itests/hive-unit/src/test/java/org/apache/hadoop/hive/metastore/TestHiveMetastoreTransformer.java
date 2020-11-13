@@ -215,7 +215,7 @@ public class TestHiveMetastoreTransformer {
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match expected value:" + tblName,
           0, tbl2.getAccessType());
-      assertEquals(buckets, tbl2.getSd().getNumBuckets()); // no tranformation
+      assertEquals(buckets, tbl2.getSd().getNumBuckets()); // no transformation
 
       setHMSClient("testTranformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       tbl2 = client.getTable(dbName, tblName);
@@ -669,7 +669,7 @@ public class TestHiveMetastoreTransformer {
 
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match expected value:" + tblName,
-          0, tbl2.getAccessType()); // View has capabilities, processor does not, no tranformation
+          0, tbl2.getAccessType()); // View has capabilities, processor does not, no transformation
 
       setHMSClient("testTransformerMQTFullSet", (new String[] { "HIVEFULLACIDREAD", "HIVEONLYMQTWRITE",
           "HIVEMANAGESTATS", "HIVEMQT", "CONNECTORREAD" }));
