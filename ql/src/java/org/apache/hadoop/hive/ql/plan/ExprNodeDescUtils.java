@@ -1113,7 +1113,7 @@ public class ExprNodeDescUtils {
   }
 
   /**
-   * Checks wether the two expression sets have a common deterministic intersection.
+   * Checks whether the two expression sets have a common deterministic intersection.
    */
   private static boolean deterministicIntersection(List<ExprNodeDesc> li1, List<ExprNodeDesc> li2) {
     for (ExprNodeDesc e1 : li1) {
