@@ -394,7 +394,7 @@ public abstract class ZkRegistryBase<InstanceType extends ServiceInstance> {
       if ((acl.getPerms() & ~ZooDefs.Perms.READ) == 0 || currentUser.equals(acl.getId())) {
         continue; // Read permission/no permissions, or the expected user.
       }
-      LOG.warn("The ACL " + acl + " is unnacceptable for " + pathToCheck
+      LOG.warn("The ACL " + acl + " is unacceptable for " + pathToCheck
         + "; setting up ACLs. " + disableMessage);
       setUpAcls(pathToCheck);
       return;
