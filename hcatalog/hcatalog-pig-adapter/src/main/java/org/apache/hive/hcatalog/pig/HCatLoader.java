@@ -313,7 +313,7 @@ public class HCatLoader extends HCatBaseLoader {
       // results with OpType string
 
       // we can just use OpType.toString() on all Expression types except
-      // Equal, NotEqualt since Equal has '==' in toString() and
+      // Equal, NotEqual since Equal has '==' in toString() and
       // we need '='
       String opStr = null;
       switch (expr.getOpType()) {
