@@ -4135,7 +4135,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
           columnTypes.toString());
       // This is for backward compatibility. If the user did not specify the
       // output column list, we assume that there are 2 columns: key and value.
-      // However, if the script outputs: col1, col2, col3 seperated by TAB, the
+      // However, if the script outputs: col1, col2, col3 separated by TAB, the
       // requirement is: key is col and value is (col2 TAB col3)
     } else {
       outInfo = PlanUtils.getTableDesc(serde, Integer
