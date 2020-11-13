@@ -814,7 +814,7 @@ public final class QueryResultsCache {
       }
     }
 
-    LOG.info("Could not free enough space for cache entry for query: [{}] withe size {}",
+    LOG.info("Could not free enough space for cache entry for query: [{}] with size {}",
         entry.getQueryText(), size);
     return false;
   }

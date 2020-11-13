@@ -551,7 +551,7 @@ public abstract class TestHiveMetaStore {
   }
 
   @Test
-  public void testListPartitionsWihtLimitEnabled() throws Throwable {
+  public void testListPartitionsWithLimitEnabled() throws Throwable {
     // create a table with multiple partitions
     String dbName = "compdb";
     String tblName = "comptbl";
