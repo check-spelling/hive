@@ -1025,7 +1025,7 @@ sub wrongExecutionMode($$)
 
     if ($wrong) {
         print $log "Skipping test $testCmd->{'group'}" . "_" .
-            $testCmd->{'num'} . " since it is not suppsed to be run in hadoop 23\n";
+            $testCmd->{'num'} . " since it is not supposed to be run in hadoop 23\n";
     }
 
     return  $wrong;
