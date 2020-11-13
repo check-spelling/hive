@@ -1529,17 +1529,17 @@ public class TezCompiler extends TaskCompiler {
       if (probeDecodeMJoins.size() > 0) {
         // When multiple MJ, select one based on a policy
         for (Map.Entry<TableScanOperator, List<MapJoinOperator>> probeTsMap : probeDecodeMJoins.entrySet()){
-          TableScanOperator.ProbeDecodeContext tsCntx = null;
+          TableScanOperator.ProbeDecodeContext tsCntxt = null;
           // Currently supporting: LowestRatio policy
           // TODO: Add more policies and make the selection a conf property
-          tsCntx = selectLowestRatioProbeDecodeMapJoin(probeTsMap.getKey(), probeTsMap.getValue(),
+          tsCntxt = selectLowestRatioProbeDecodeMapJoin(probeTsMap.getKey(), probeTsMap.getValue(),
                   procCtx.conf.getBoolVar(ConfVars.HIVE_IN_TEST));
-          if (tsCntx != null) {
+          if (tsCntxt != null) {
             LOG.debug("ProbeDecode MJ for TS {}  with CacheKey {} MJ Pos {} ColName {} with Ratio {}",
-                    probeTsMap.getKey().getName(), tsCntx.getMjSmallTableCacheKey(), tsCntx.getMjSmallTablePos(),
-                    tsCntx.getMjBigTableKeyColName(), tsCntx.getKeyRatio());
-            probeTsMap.getKey().setProbeDecodeContext(tsCntx);
-            probeTsMap.getKey().getConf().setProbeDecodeContext(tsCntx);
+                    probeTsMap.getKey().getName(), tsCntxt.getMjSmallTableCacheKey(), tsCntxt.getMjSmallTablePos(),
+                    tsCntxt.getMjBigTableKeyColName(), tsCntxt.getKeyRatio());
+            probeTsMap.getKey().setProbeDecodeContext(tsCntxt);
+            probeTsMap.getKey().getConf().setProbeDecodeContext(tsCntxt);
           }
         }
       }
