@@ -693,7 +693,7 @@ public class MatchPath extends TableFunctionEvaluator
    * - the select keyword is optional. The parser checks if the expression doesn't start with
    * select; if not it prefixes it.
    * - Window Fn clauses are not permitted.
-   * - expressions can operate on the input columns plus the psuedo column 'path'
+   * - expressions can operate on the input columns plus the pseudo column 'path'
    * which is array of
    * structs. The shape of the struct is
    * the same as the input.
