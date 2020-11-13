@@ -294,28 +294,28 @@ put() {
 }
 
 # function to retrieve an entry from the map.
-# arg1 is name of the map to retrive from.
+# arg1 is name of the map to retrieve from.
 # arg2 is the key for entry
 get() {
   grep "^$2=" /tmp/hashmap.$1 | cut -d'=' -f2
 }
 
 # function that returns the size of the map (aka number if entries)
-# arg1 is name of the map to retrive from.
+# arg1 is name of the map to retrieve from.
 size() {
   echo `cat /tmp/hashmap.$1 | wc -l`
 }
 
 # function that returns the key for the first entry in the map.
 # maps to the key of the first line in the file on disk.
-# arg1 is name of the map to retrive from.
+# arg1 is name of the map to retrieve from.
 firstKey() {
   head -n 1 /tmp/hashmap.$1 | cut -d'=' -f1
 }
 
 # function that returns the value of the first entry in the map.
 # maps to the value of the first line in the file on disk.
-# arg1 is name of the map to retrive from.
+# arg1 is name of the map to retrieve from.
 firstValue() {
   head -n 1 /tmp/hashmap.$1 | cut -d'=' -f2
 }
