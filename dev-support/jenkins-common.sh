@@ -59,7 +59,7 @@ _test_get_branch_name() {
     [[ "$ACTUAL" == "$EXPECTED" ]] || echoerr "$PATCH_NAME failed ($ACTUAL != $EXPECTED)"
   }
 
-  # Branch not spcified in patch name
+  # Branch not specified in patch name
   do_test "HIVE-123.patch" "master"
   do_test "HIVE-123.1.patch" "master"
 

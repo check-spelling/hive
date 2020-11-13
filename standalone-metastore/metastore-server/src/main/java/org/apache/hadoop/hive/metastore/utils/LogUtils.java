@@ -73,7 +73,7 @@ public class LogUtils {
         return initHiveLog4jDefault(
           conf, "Not able to find conf file: " + log4jConfigFile, confVarName);
       } else {
-        // property speficied file found in local file system
+        // property specified file found in local file system
         // use the specified file
         final boolean async = checkAndSetAsyncLogging(conf);
         // required for MDC based routing appender so that child threads can inherit the MDC context
