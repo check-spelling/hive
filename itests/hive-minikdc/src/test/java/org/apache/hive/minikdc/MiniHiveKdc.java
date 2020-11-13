@@ -41,7 +41,7 @@ import org.apache.hive.service.server.HiveServer2;
 /**
  * Wrapper around Hadoop's MiniKdc for use in hive tests.
  * Has functions to manager users and their keytabs. This includes a hive service principal,
- * a superuser principal for testing proxy user privilegs.
+ * a superuser principal for testing proxy user privileges.
  * Has a set of default users that it initializes.
  * See hive-minikdc/src/test/resources/core-site.xml for users granted proxy user privileges.
  */

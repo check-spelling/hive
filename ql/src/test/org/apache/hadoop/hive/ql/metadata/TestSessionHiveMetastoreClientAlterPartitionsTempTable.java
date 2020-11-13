@@ -77,7 +77,7 @@ public class TestSessionHiveMetastoreClientAlterPartitionsTempTable extends Test
 
   @Override
   protected Table createTestTable(IMetaStoreClient client, String dbName, String tableName,
-      List<String> partCols, boolean setPartitionLevelPrivilages)
+      List<String> partCols, boolean setPartitionLevelPrivileges)
       throws Exception {
     TableBuilder builder = new TableBuilder()
         .setDbName(dbName)
@@ -89,7 +89,7 @@ public class TestSessionHiveMetastoreClientAlterPartitionsTempTable extends Test
     partCols.forEach(col -> builder.addPartCol(col, "string"));
     Table table = builder.build(getMetaStore().getConf());
 
-    if (setPartitionLevelPrivilages) {
+    if (setPartitionLevelPrivileges) {
       table.putToParameters(PART_PRIV, "true");
     }
 
