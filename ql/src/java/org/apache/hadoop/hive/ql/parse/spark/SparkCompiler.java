@@ -125,7 +125,7 @@ public class SparkCompiler extends TaskCompiler {
     // Set reducer parallelism
     runSetReducerParallelism(procCtx);
 
-    // Run Join releated optimizations
+    // Run Join related optimizations
     runJoinOptimizations(procCtx);
 
     if(conf.isSparkDPPAny()){
