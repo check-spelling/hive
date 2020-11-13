@@ -2611,7 +2611,7 @@ public class TestStreaming {
     Assert.assertEquals(false, errDump.contains("file(s) are corrupted"));
     Assert.assertEquals(false, errDump.contains("is still open for writes."));
 
-    // after recovery there shouldn'table be any *_flush_length files
+    // after recovery there shouldn't be any *_flush_length files
     files = FileDump.getAllFilesInPath(path, conf);
     for (String file : files) {
       Assert.assertEquals(false, file.contains("_flush_length"));
@@ -2770,7 +2770,7 @@ public class TestStreaming {
     Assert.assertEquals(false, errDump.contains("file(s) are corrupted"));
     Assert.assertEquals(false, errDump.contains("is still open for writes."));
 
-    // after recovery there shouldn'table be any *_flush_length files
+    // after recovery there shouldn't be any *_flush_length files
     files = FileDump.getAllFilesInPath(path, conf);
     for (String file : files) {
       Assert.assertEquals(false, file.contains("_flush_length"));
