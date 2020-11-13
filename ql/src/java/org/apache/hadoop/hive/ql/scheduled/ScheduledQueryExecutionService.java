@@ -151,9 +151,9 @@ public class ScheduledQueryExecutionService implements Closeable {
     }
 
     private void sleep(long idleSleepTime, int origResets) throws InterruptedException {
-      long checkIntrvalMs = 1000;
-      for (long i = 0; i < idleSleepTime; i += checkIntrvalMs) {
-        Thread.sleep(checkIntrvalMs);
+      long checkIntervalMs = 1000;
+      for (long i = 0; i < idleSleepTime; i += checkIntervalMs) {
+        Thread.sleep(checkIntervalMs);
         if (forcedScheduleCheckCounter.get() != origResets) {
           return;
         }
