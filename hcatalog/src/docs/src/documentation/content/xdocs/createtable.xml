@@ -107,7 +107,7 @@
     </tr>
 
     <tr><td><strong>format</strong></td>
-        <td>Storage format description including paraeters for rowFormat, storedAs
+        <td>Storage format description including parameters for rowFormat, storedAs
          and storedBy.  For further information please refer to the examples below or to the
          <a href="https://cwiki.apache.org/Hive/languagemanual-ddl.html#LanguageManualDDL-CreateTable">
          Hive documentation.</a></td>
