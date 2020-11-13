@@ -42,7 +42,7 @@ public abstract class Redactor implements Hook, Configurable {
 
   /**
    * Implementations may modify the query so that when placed in the job.xml
-   * and thus potenially exposed to admin users, the query does not expose
+   * and thus potentially exposed to admin users, the query does not expose
    * sensitive information.
    */
   public String redactQuery(String query) {
