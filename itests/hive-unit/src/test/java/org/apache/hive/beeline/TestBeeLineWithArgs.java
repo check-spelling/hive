@@ -550,7 +550,7 @@ import org.junit.Test;
    */
   @Test
   public void testTSV2OutputWithDoubleQuotes() throws Throwable {
-    String SCRIPT_TEXT = getFormatTestQueryForEableQuotes();
+    String SCRIPT_TEXT = getFormatTestQueryForEscapableQuotes();
     List<String> argList = getBaseArgs(miniHS2.getBaseJdbcURL());
     argList.add("--outputformat=tsv2");
     System.setProperty(SeparatedValuesOutputFormat.DISABLE_QUOTING_FOR_SV,"false");
@@ -565,7 +565,7 @@ import org.junit.Test;
    */
   @Test
   public void testTSVOutputWithDoubleQuotes() throws Throwable {
-    String SCRIPT_TEXT = getFormatTestQueryForEableQuotes();
+    String SCRIPT_TEXT = getFormatTestQueryForEscapableQuotes();
     List<String> argList = getBaseArgs(miniHS2.getBaseJdbcURL());
     argList.add("--outputformat=tsv");
     System.setProperty(SeparatedValuesOutputFormat.DISABLE_QUOTING_FOR_SV, "false");
@@ -580,7 +580,7 @@ import org.junit.Test;
    */
   @Test
   public void testCSV2OutputWithDoubleQuotes() throws Throwable {
-    String SCRIPT_TEXT = getFormatTestQueryForEableQuotes();
+    String SCRIPT_TEXT = getFormatTestQueryForEscapableQuotes();
     List<String> argList = getBaseArgs(miniHS2.getBaseJdbcURL());
     argList.add("--outputformat=csv2");
     System.setProperty(SeparatedValuesOutputFormat.DISABLE_QUOTING_FOR_SV, "false");
@@ -595,7 +595,7 @@ import org.junit.Test;
    */
   @Test
   public void testCSVOutputWithDoubleQuotes() throws Throwable {
-    String SCRIPT_TEXT = getFormatTestQueryForEableQuotes();
+    String SCRIPT_TEXT = getFormatTestQueryForEscapableQuotes();
     List<String> argList = getBaseArgs(miniHS2.getBaseJdbcURL());
     argList.add("--outputformat=csv");
     System.setProperty(SeparatedValuesOutputFormat.DISABLE_QUOTING_FOR_SV, "false");
@@ -610,7 +610,7 @@ import org.junit.Test;
    */
   @Test
   public void testDSVOutputWithDoubleQuotes() throws Throwable {
-    String SCRIPT_TEXT = getFormatTestQueryForEableQuotes();
+    String SCRIPT_TEXT = getFormatTestQueryForEscapableQuotes();
     List<String> argList = getBaseArgs(miniHS2.getBaseJdbcURL());
     argList.add("--outputformat=dsv");
     argList.add("--delimiterForDSV=;");
@@ -667,7 +667,7 @@ import org.junit.Test;
         "select 1, null, 'defg', 'ab\"c', 1.0D from " + tableName + " limit 1 ;\n";
   }
 
-  private String getFormatTestQueryForEableQuotes() {
+  private String getFormatTestQueryForEscapableQuotes() {
     return "set hive.support.concurrency = false;\n" +
         "select 1, null, 'defg', 'ab\"c', '\"aa\"', 1.0D from " + tableName + " limit 1 ;\n";
   }
