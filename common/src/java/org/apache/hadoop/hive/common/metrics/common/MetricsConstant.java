@@ -62,7 +62,7 @@ public class MetricsConstant {
   public static final String HS2_AVG_OPEN_SESSION_TIME = "hs2_avg_open_session_time";
   public static final String HS2_AVG_ACTIVE_SESSION_TIME = "hs2_avg_active_session_time";
 
-  public static final String HS2_SUBMITTED_QURIES = "hs2_submitted_queries";
+  public static final String HS2_SUBMITTED_QUERIES = "hs2_submitted_queries";
   public static final String HS2_COMPILING_QUERIES = "hs2_compiling_queries";
   public static final String HS2_EXECUTING_QUERIES = "hs2_executing_queries";
   public static final String HS2_FAILED_QUERIES = "hs2_failed_queries";
