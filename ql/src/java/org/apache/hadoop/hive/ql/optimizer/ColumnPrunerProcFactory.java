@@ -709,7 +709,7 @@ public final class ColumnPrunerProcFactory {
       // get the SEL(*) branch
       Operator<?> select = op.getChildOperators().get(LateralViewJoinOperator.SELECT_TAG);
 
-      // Update the info of SEL operator based on the pruned reordered columns
+      // Update the info of SEL operator based on the pruned reorderd columns
       // these are from ColumnPrunerSelectProc
       List<FieldNode> cols = cppCtx.getPrunedColList(select);
       RowSchema rs = op.getSchema();
