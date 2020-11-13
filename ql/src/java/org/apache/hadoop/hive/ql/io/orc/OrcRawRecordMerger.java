@@ -713,7 +713,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
    * Find the key range for original bucket files.
    * For unbucketed tables the insert event data is still written to bucket_N file except that
    * N is just a writer ID - it still matches {@link RecordIdentifier#getBucketProperty()}.  For
-   * 'original' files (ubucketed) the same applies.  A file 000000_0 encodes a taskId/wirterId and
+   * 'original' files (ubucketed) the same applies.  A file 000000_0 encodes a taskId/writerId and
    * at read time we synthesize {@link RecordIdentifier#getBucketProperty()} to match the file name
    * and so the same bucketProperty is used here to create minKey/maxKey, i.e. these keys are valid
    * to filter data from delete_delta files even for unbucketed tables.
