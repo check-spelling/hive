@@ -2535,5 +2535,5 @@ index 5a6bc44..5b7e7f6 100644
 -  public void startPauseMonitor(Configuration conf);
 -
    /**
-    * Check wether MR is configured to run in local-mode
+    * Check whether MR is configured to run in local-mode
     * @param conf

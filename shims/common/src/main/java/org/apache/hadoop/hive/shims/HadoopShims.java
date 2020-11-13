@@ -166,7 +166,7 @@ public interface HadoopShims {
   public JobContext newJobContext(Job job);
 
   /**
-   * Check wether MR is configured to run in local-mode
+   * Check whether MR is configured to run in local-mode
    * @param conf
    * @return
    */
