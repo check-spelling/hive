@@ -116,9 +116,9 @@ public class AppConfig extends Configuration {
    * operations in templeton service. If more number of concurrent requests comes then
    * they will be rejected with BusyException.
    */
-  public static final String JOB_SUBMIT_MAX_THREADS = "templeton.parallellism.job.submit";
-  public static final String JOB_STATUS_MAX_THREADS = "templeton.parallellism.job.status";
-  public static final String JOB_LIST_MAX_THREADS = "templeton.parallellism.job.list";
+  public static final String JOB_SUBMIT_MAX_THREADS = "templeton.parallelism.job.submit";
+  public static final String JOB_STATUS_MAX_THREADS = "templeton.parallelism.job.status";
+  public static final String JOB_LIST_MAX_THREADS = "templeton.parallelism.job.list";
 
   /*
    * These parameters controls the maximum time job submit/status/list operation is

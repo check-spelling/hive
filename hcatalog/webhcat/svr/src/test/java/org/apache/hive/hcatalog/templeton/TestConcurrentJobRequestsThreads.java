@@ -61,7 +61,7 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
       String expectedMessage = "Unable to service the status job request as templeton service is busy "
                                  + "with too many status job requests. Please wait for some time before "
                                  + "retrying the operation. Please refer to the config "
-                                 + "templeton.parallellism.job.status to configure concurrent requests.";
+                                 + "templeton.parallelism.job.status to configure concurrent requests.";
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
 
       /*
@@ -87,7 +87,7 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
       String expectedMessage = "Unable to service the list job request as templeton service is busy "
                                + "with too many list job requests. Please wait for some time before "
                                + "retrying the operation. Please refer to the config "
-                               + "templeton.parallellism.job.list to configure concurrent requests.";
+                               + "templeton.parallelism.job.list to configure concurrent requests.";
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
 
       /*
@@ -114,7 +114,7 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
       String expectedMessage = "Unable to service the submit job request as templeton service is busy "
                                 + "with too many submit job requests. Please wait for some time before "
                                 + "retrying the operation. Please refer to the config "
-                                + "templeton.parallellism.job.submit to configure concurrent requests.";
+                                + "templeton.parallelism.job.submit to configure concurrent requests.";
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
 
       /*
