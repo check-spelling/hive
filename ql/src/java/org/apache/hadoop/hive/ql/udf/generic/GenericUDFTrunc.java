@@ -99,7 +99,7 @@ public class GenericUDFTrunc extends GenericUDF {
   private transient PrimitiveObjectInspector inputOI;
   private transient PrimitiveObjectInspector inputScaleOI;
   private int scale = 0;
-  private boolean inputSacleConst;
+  private boolean inputScaleConst;
   private boolean dateTypeArg;
 
   @Override
@@ -159,8 +159,8 @@ public class GenericUDFTrunc extends GenericUDF {
       }
 
       inputScaleOI = (PrimitiveObjectInspector) arguments[1];
-      inputSacleConst = arguments[1] instanceof ConstantObjectInspector;
-      if (inputSacleConst) {
+      inputScaleConst = arguments[1] instanceof ConstantObjectInspector;
+      if (inputScaleConst) {
         try {
           Object obj = ((ConstantObjectInspector) arguments[1]).getWritableConstantValue();
           fmtInput = obj != null ? obj.toString() : null;
@@ -347,7 +347,7 @@ public class GenericUDFTrunc extends GenericUDF {
     }
 
     if (arguments.length == 2 && arguments[1] != null && arguments[1].get() != null
-        && !inputSacleConst) {
+        && !inputScaleConst) {
       Object scaleObj = null;
       switch (inputScaleOI.getPrimitiveCategory()) {
       case BYTE:
