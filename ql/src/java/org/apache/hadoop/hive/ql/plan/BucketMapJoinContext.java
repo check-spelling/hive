@@ -33,7 +33,7 @@ import org.apache.hadoop.hive.ql.exec.BucketMatcher;
 import org.apache.hadoop.hive.ql.plan.Explain.Level;
 
 /**
- * was inner class of MapreLocalWork. context for bucket mapjoin (or smb join)
+ * was inner class of MapredLocalWork. context for bucket mapjoin (or smb join)
  */
 public class BucketMapJoinContext implements Serializable {
 
