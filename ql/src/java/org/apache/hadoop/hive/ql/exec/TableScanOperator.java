@@ -361,8 +361,8 @@ public class TableScanOperator extends Operator<TableScanDesc> implements
     return "TS";
   }
 
-  public void setNeededColumnIDs(List<Integer> orign_columns) {
-    conf.setNeededColumnIDs(orign_columns);
+  public void setNeededColumnIDs(List<Integer> origin_columns) {
+    conf.setNeededColumnIDs(origin_columns);
   }
 
   public List<Integer> getNeededColumnIDs() {

@@ -886,7 +886,7 @@ ekoifman:apache-hive-3.0.0-SNAPSHOT-bin ekoifman$ tree  ~/dev/hiverwgit/itests/h
   }
 
   /**
-   * Tests the OrcInputFormat.isOrignal method for files in ACID and Non-ACID tables.
+   * Tests the OrcInputFormat.isOriginal method for files in ACID and Non-ACID tables.
    * @throws IOException If there is a file reading error
    */
   @Test
