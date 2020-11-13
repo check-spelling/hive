@@ -105,14 +105,14 @@ public abstract class PrunerOperatorFactory {
     /**
      * Add pruning predicate.
      *
-     * @param opToPrunner
+     * @param opToPruner
      * @param top
      * @param new_pruner_pred
      * @throws UDFArgumentException
      */
-    protected void addPruningPred(Map<TableScanOperator, ExprNodeDesc> opToPrunner,
+    protected void addPruningPred(Map<TableScanOperator, ExprNodeDesc> opToPruner,
         TableScanOperator top, ExprNodeDesc new_pruner_pred) throws SemanticException {
-      ExprNodeDesc old_pruner_pred = opToPrunner.get(top);
+      ExprNodeDesc old_pruner_pred = opToPruner.get(top);
       ExprNodeDesc pruner_pred = null;
       if (old_pruner_pred != null) {
         // or the old_pruner_pred and the new_ppr_pred
@@ -123,7 +123,7 @@ public abstract class PrunerOperatorFactory {
       }
 
       // Put the mapping from table scan operator to pruner_pred
-      opToPrunner.put(top, pruner_pred);
+      opToPruner.put(top, pruner_pred);
 
       return;
     }
@@ -131,16 +131,16 @@ public abstract class PrunerOperatorFactory {
     /**
      * Add pruning predicate.
      *
-     * @param opToPrunner
+     * @param opToPruner
      * @param top
      * @param new_pruner_pred
      * @param part
      * @throws UDFArgumentException
      */
-    protected void addPruningPred(Map<TableScanOperator, Map<String, ExprNodeDesc>> opToPrunner,
+    protected void addPruningPred(Map<TableScanOperator, Map<String, ExprNodeDesc>> opToPruner,
         TableScanOperator top, ExprNodeDesc new_pruner_pred, Partition part)
         throws SemanticException {
-      Map<String, ExprNodeDesc> oldPartToPruner = opToPrunner.get(top);
+      Map<String, ExprNodeDesc> oldPartToPruner = opToPruner.get(top);
       Map<String, ExprNodeDesc> partToPruner = null;
       ExprNodeDesc pruner_pred = null;
       if (oldPartToPruner == null) {
@@ -163,7 +163,7 @@ public abstract class PrunerOperatorFactory {
       partToPruner.put(part.getName(), pruner_pred);
 
       // Put the mapping from table scan operator to part-pruner map
-      opToPrunner.put(top, partToPruner);
+      opToPruner.put(top, partToPruner);
 
       return;
     }

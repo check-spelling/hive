@@ -1452,7 +1452,7 @@ public final class ConstantPropagateProcFactory {
 
       // Note: the following code (removing folded constants in exprs) is deeply coupled with
       //    ColumnPruner optimizer.
-      // Assuming ColumnPrunner will remove constant columns so we don't deal with output columns.
+      // Assuming ColumnPruner will remove constant columns so we don't deal with output columns.
       //    Except one case that the join operator is followed by a redistribution (RS operator) -- skipping filter ops
       if (op.getChildOperators().size() == 1) {
         Node ndRecursive = op;

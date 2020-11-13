@@ -607,7 +607,7 @@ public final class GenMapRedUtils {
         parseCtx.getGlobalLimitCtx().disableOpt();
       } else if (listBucketingPruner != null) {
         assert (sampleDescr == null) : "Sampling and list bucketing can't coexist.";
-        /* Use list bucketing prunner's path. */
+        /* Use list bucketing pruner's path. */
         paths = ListBucketingPruner.prune(parseCtx, part, listBucketingPruner);
       } else {
         // Now we only try the first partition, if the first partition doesn't
