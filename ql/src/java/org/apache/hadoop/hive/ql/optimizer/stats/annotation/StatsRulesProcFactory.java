@@ -1900,7 +1900,7 @@ public class StatsRulesProcFactory {
 
         // detect if there are multiple attributes in join key
         ReduceSinkOperator rsOp = (ReduceSinkOperator) jop.getParentOperators().get(0);
-        List<String> keyExprs = StatsUtils.getQualifedReducerKeyNames(rsOp.getConf()
+        List<String> keyExprs = StatsUtils.getQualifiedReducerKeyNames(rsOp.getConf()
             .getOutputKeyColumnNames());
         numAttr = keyExprs.size();
 
@@ -1911,7 +1911,7 @@ public class StatsRulesProcFactory {
           ReduceSinkOperator parent = (ReduceSinkOperator) jop.getParentOperators().get(pos);
           Statistics parentStats;
           parentStats = parent.getStatistics().clone();
-          keyExprs = StatsUtils.getQualifedReducerKeyNames(parent.getConf()
+          keyExprs = StatsUtils.getQualifiedReducerKeyNames(parent.getConf()
               .getOutputKeyColumnNames());
 
           rowCountParents.put(pos, parentStats.getNumRows());
@@ -2091,7 +2091,7 @@ public class StatsRulesProcFactory {
         boolean cartesianProduct = false;
         if (jop.getParentOperators().get(0) instanceof ReduceSinkOperator) {
           ReduceSinkOperator rsOp = (ReduceSinkOperator) jop.getParentOperators().get(0);
-          List<String> keyExprs = StatsUtils.getQualifedReducerKeyNames(rsOp.getConf()
+          List<String> keyExprs = StatsUtils.getQualifiedReducerKeyNames(rsOp.getConf()
               .getOutputKeyColumnNames());
           cartesianProduct = keyExprs.size() == 0;
         } else if (jop instanceof AbstractMapJoinOperator) {
@@ -2414,7 +2414,7 @@ public class StatsRulesProcFactory {
         Operator<? extends OperatorDesc> op = ops.get(i);
         if (op != null && op instanceof ReduceSinkOperator) {
           ReduceSinkOperator rsOp = (ReduceSinkOperator) op;
-          List<String> keys = StatsUtils.getQualifedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
+          List<String> keys = StatsUtils.getQualifiedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
           if (keys.size() == 1) {
             String joinCol = keys.get(0);
             if (rsOp.getStatistics() != null) {
@@ -2443,7 +2443,7 @@ public class StatsRulesProcFactory {
           Operator<? extends OperatorDesc> op = ops.get(i);
           if (op instanceof ReduceSinkOperator) {
             ReduceSinkOperator rsOp = (ReduceSinkOperator) op;
-            List<String> keys = StatsUtils.getQualifedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
+            List<String> keys = StatsUtils.getQualifiedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
             if (keys.size() == 1) {
               String joinCol = keys.get(0);
               if (rsOp.getStatistics() != null) {

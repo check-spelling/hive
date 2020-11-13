@@ -1905,7 +1905,7 @@ public class StatsUtils {
    *          - output key names
    * @return list of qualified names
    */
-  public static List<String> getQualifedReducerKeyNames(List<String> keyExprs) {
+  public static List<String> getQualifiedReducerKeyNames(List<String> keyExprs) {
     List<String> result = Lists.newArrayList();
     if (keyExprs != null) {
       for (String key : keyExprs) {
