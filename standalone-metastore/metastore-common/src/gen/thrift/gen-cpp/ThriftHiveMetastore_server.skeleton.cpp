@@ -1090,7 +1090,7 @@ class ThriftHiveMetastoreHandler : virtual public ThriftHiveMetastoreIf {
     printf("drop_wm_trigger\n");
   }
 
-  void get_triggers_for_resourceplan(WMGetTriggersForResourePlanResponse& _return, const WMGetTriggersForResourePlanRequest& request) {
+  void get_triggers_for_resourceplan(WMGetTriggersForResourcePlanResponse& _return, const WMGetTriggersForResourcePlanRequest& request) {
     // Your implementation goes here
     printf("get_triggers_for_resourceplan\n");
   }

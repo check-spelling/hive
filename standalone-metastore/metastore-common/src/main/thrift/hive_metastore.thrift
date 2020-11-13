@@ -1719,12 +1719,12 @@ struct WMDropTriggerRequest {
 struct WMDropTriggerResponse {
 }
 
-struct WMGetTriggersForResourePlanRequest {
+struct WMGetTriggersForResourcePlanRequest {
   1: optional string resourcePlanName;
   2: optional string ns;
 }
 
-struct WMGetTriggersForResourePlanResponse {
+struct WMGetTriggersForResourcePlanResponse {
   1: optional list<WMTrigger> triggers;
 }
 
@@ -2786,7 +2786,7 @@ PartitionsResponse get_partitions_req(1:PartitionsRequest req)
   WMDropTriggerResponse drop_wm_trigger(1:WMDropTriggerRequest request)
       throws(1:NoSuchObjectException o1, 2:InvalidOperationException o2, 3:MetaException o3)
 
-  WMGetTriggersForResourePlanResponse get_triggers_for_resourceplan(1:WMGetTriggersForResourePlanRequest request)
+  WMGetTriggersForResourcePlanResponse get_triggers_for_resourceplan(1:WMGetTriggersForResourcePlanRequest request)
       throws(1:NoSuchObjectException o1, 2:MetaException o2)
 
   WMCreatePoolResponse create_wm_pool(1:WMCreatePoolRequest request)

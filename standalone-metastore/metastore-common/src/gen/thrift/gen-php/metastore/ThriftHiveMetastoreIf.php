@@ -1591,12 +1591,12 @@ interface ThriftHiveMetastoreIf extends \FacebookServiceIf
      */
     public function drop_wm_trigger(\metastore\WMDropTriggerRequest $request);
     /**
-     * @param \metastore\WMGetTriggersForResourePlanRequest $request
-     * @return \metastore\WMGetTriggersForResourePlanResponse
+     * @param \metastore\WMGetTriggersForResourcePlanRequest $request
+     * @return \metastore\WMGetTriggersForResourcePlanResponse
      * @throws \metastore\NoSuchObjectException
      * @throws \metastore\MetaException
      */
-    public function get_triggers_for_resourceplan(\metastore\WMGetTriggersForResourePlanRequest $request);
+    public function get_triggers_for_resourceplan(\metastore\WMGetTriggersForResourcePlanRequest $request);
     /**
      * @param \metastore\WMCreatePoolRequest $request
      * @return \metastore\WMCreatePoolResponse

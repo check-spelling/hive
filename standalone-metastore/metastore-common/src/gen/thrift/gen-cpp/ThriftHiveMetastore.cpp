@@ -73253,13 +73253,13 @@ void ThriftHiveMetastoreClient::recv_drop_wm_trigger(WMDropTriggerResponse& _ret
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "drop_wm_trigger failed: unknown result");
 }
 
-void ThriftHiveMetastoreClient::get_triggers_for_resourceplan(WMGetTriggersForResourePlanResponse& _return, const WMGetTriggersForResourePlanRequest& request)
+void ThriftHiveMetastoreClient::get_triggers_for_resourceplan(WMGetTriggersForResourcePlanResponse& _return, const WMGetTriggersForResourcePlanRequest& request)
 {
   send_get_triggers_for_resourceplan(request);
   recv_get_triggers_for_resourceplan(_return);
 }
 
-void ThriftHiveMetastoreClient::send_get_triggers_for_resourceplan(const WMGetTriggersForResourePlanRequest& request)
+void ThriftHiveMetastoreClient::send_get_triggers_for_resourceplan(const WMGetTriggersForResourcePlanRequest& request)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("get_triggers_for_resourceplan", ::apache::thrift::protocol::T_CALL, cseqid);
@@ -73273,7 +73273,7 @@ void ThriftHiveMetastoreClient::send_get_triggers_for_resourceplan(const WMGetTr
   oprot_->getTransport()->flush();
 }
 
-void ThriftHiveMetastoreClient::recv_get_triggers_for_resourceplan(WMGetTriggersForResourePlanResponse& _return)
+void ThriftHiveMetastoreClient::recv_get_triggers_for_resourceplan(WMGetTriggersForResourcePlanResponse& _return)
 {
 
   int32_t rseqid = 0;
@@ -109837,13 +109837,13 @@ void ThriftHiveMetastoreConcurrentClient::recv_drop_wm_trigger(WMDropTriggerResp
   } // end while(true)
 }
 
-void ThriftHiveMetastoreConcurrentClient::get_triggers_for_resourceplan(WMGetTriggersForResourePlanResponse& _return, const WMGetTriggersForResourePlanRequest& request)
+void ThriftHiveMetastoreConcurrentClient::get_triggers_for_resourceplan(WMGetTriggersForResourcePlanResponse& _return, const WMGetTriggersForResourcePlanRequest& request)
 {
   int32_t seqid = send_get_triggers_for_resourceplan(request);
   recv_get_triggers_for_resourceplan(_return, seqid);
 }
 
-int32_t ThriftHiveMetastoreConcurrentClient::send_get_triggers_for_resourceplan(const WMGetTriggersForResourePlanRequest& request)
+int32_t ThriftHiveMetastoreConcurrentClient::send_get_triggers_for_resourceplan(const WMGetTriggersForResourcePlanRequest& request)
 {
   int32_t cseqid = this->sync_->generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(this->sync_.get());
@@ -109861,7 +109861,7 @@ int32_t ThriftHiveMetastoreConcurrentClient::send_get_triggers_for_resourceplan(
   return cseqid;
 }
 
-void ThriftHiveMetastoreConcurrentClient::recv_get_triggers_for_resourceplan(WMGetTriggersForResourePlanResponse& _return, const int32_t seqid)
+void ThriftHiveMetastoreConcurrentClient::recv_get_triggers_for_resourceplan(WMGetTriggersForResourcePlanResponse& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;

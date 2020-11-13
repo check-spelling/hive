@@ -13821,13 +13821,13 @@ class ThriftHiveMetastoreClient extends \FacebookServiceClient implements \metas
         throw new \Exception("drop_wm_trigger failed: unknown result");
     }
 
-    public function get_triggers_for_resourceplan(\metastore\WMGetTriggersForResourePlanRequest $request)
+    public function get_triggers_for_resourceplan(\metastore\WMGetTriggersForResourcePlanRequest $request)
     {
         $this->send_get_triggers_for_resourceplan($request);
         return $this->recv_get_triggers_for_resourceplan();
     }
 
-    public function send_get_triggers_for_resourceplan(\metastore\WMGetTriggersForResourePlanRequest $request)
+    public function send_get_triggers_for_resourceplan(\metastore\WMGetTriggersForResourcePlanRequest $request)
     {
         $args = new \metastore\ThriftHiveMetastore_get_triggers_for_resourceplan_args();
         $args->request = $request;

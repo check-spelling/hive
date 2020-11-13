@@ -20781,7 +20781,7 @@ class WMDropTriggerResponse(object):
         return not (self == other)
 
 
-class WMGetTriggersForResourePlanRequest(object):
+class WMGetTriggersForResourcePlanRequest(object):
     """
     Attributes:
      - resourcePlanName
@@ -20822,7 +20822,7 @@ class WMGetTriggersForResourePlanRequest(object):
         if oprot._fast_encode is not None and self.thrift_spec is not None:
             oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
             return
-        oprot.writeStructBegin('WMGetTriggersForResourePlanRequest')
+        oprot.writeStructBegin('WMGetTriggersForResourcePlanRequest')
         if self.resourcePlanName is not None:
             oprot.writeFieldBegin('resourcePlanName', TType.STRING, 1)
             oprot.writeString(self.resourcePlanName.encode('utf-8') if sys.version_info[0] == 2 else self.resourcePlanName)
@@ -20849,7 +20849,7 @@ class WMGetTriggersForResourePlanRequest(object):
         return not (self == other)
 
 
-class WMGetTriggersForResourePlanResponse(object):
+class WMGetTriggersForResourcePlanResponse(object):
     """
     Attributes:
      - triggers
@@ -20889,7 +20889,7 @@ class WMGetTriggersForResourePlanResponse(object):
         if oprot._fast_encode is not None and self.thrift_spec is not None:
             oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
             return
-        oprot.writeStructBegin('WMGetTriggersForResourePlanResponse')
+        oprot.writeStructBegin('WMGetTriggersForResourcePlanResponse')
         if self.triggers is not None:
             oprot.writeFieldBegin('triggers', TType.LIST, 1)
             oprot.writeListBegin(TType.STRUCT, len(self.triggers))
@@ -28506,14 +28506,14 @@ WMDropTriggerRequest.thrift_spec = (
 all_structs.append(WMDropTriggerResponse)
 WMDropTriggerResponse.thrift_spec = (
 )
-all_structs.append(WMGetTriggersForResourePlanRequest)
-WMGetTriggersForResourePlanRequest.thrift_spec = (
+all_structs.append(WMGetTriggersForResourcePlanRequest)
+WMGetTriggersForResourcePlanRequest.thrift_spec = (
     None,  # 0
     (1, TType.STRING, 'resourcePlanName', 'UTF8', None, ),  # 1
     (2, TType.STRING, 'ns', 'UTF8', None, ),  # 2
 )
-all_structs.append(WMGetTriggersForResourePlanResponse)
-WMGetTriggersForResourePlanResponse.thrift_spec = (
+all_structs.append(WMGetTriggersForResourcePlanResponse)
+WMGetTriggersForResourcePlanResponse.thrift_spec = (
     None,  # 0
     (1, TType.LIST, 'triggers', (TType.STRUCT, [WMTrigger, None], False), None, ),  # 1
 )

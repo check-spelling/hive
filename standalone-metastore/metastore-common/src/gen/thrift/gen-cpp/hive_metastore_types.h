@@ -832,9 +832,9 @@ class WMDropTriggerRequest;
 
 class WMDropTriggerResponse;
 
-class WMGetTriggersForResourePlanRequest;
+class WMGetTriggersForResourcePlanRequest;
 
-class WMGetTriggersForResourePlanResponse;
+class WMGetTriggersForResourcePlanResponse;
 
 class WMCreatePoolRequest;
 
@@ -13514,31 +13514,31 @@ void swap(WMDropTriggerResponse &a, WMDropTriggerResponse &b);
 
 std::ostream& operator<<(std::ostream& out, const WMDropTriggerResponse& obj);
 
-typedef struct _WMGetTriggersForResourePlanRequest__isset {
-  _WMGetTriggersForResourePlanRequest__isset() : resourcePlanName(false), ns(false) {}
+typedef struct _WMGetTriggersForResourcePlanRequest__isset {
+  _WMGetTriggersForResourcePlanRequest__isset() : resourcePlanName(false), ns(false) {}
   bool resourcePlanName :1;
   bool ns :1;
-} _WMGetTriggersForResourePlanRequest__isset;
+} _WMGetTriggersForResourcePlanRequest__isset;
 
-class WMGetTriggersForResourePlanRequest : public virtual ::apache::thrift::TBase {
+class WMGetTriggersForResourcePlanRequest : public virtual ::apache::thrift::TBase {
  public:
 
-  WMGetTriggersForResourePlanRequest(const WMGetTriggersForResourePlanRequest&);
-  WMGetTriggersForResourePlanRequest& operator=(const WMGetTriggersForResourePlanRequest&);
-  WMGetTriggersForResourePlanRequest() : resourcePlanName(), ns() {
+  WMGetTriggersForResourcePlanRequest(const WMGetTriggersForResourcePlanRequest&);
+  WMGetTriggersForResourcePlanRequest& operator=(const WMGetTriggersForResourcePlanRequest&);
+  WMGetTriggersForResourcePlanRequest() : resourcePlanName(), ns() {
   }
 
-  virtual ~WMGetTriggersForResourePlanRequest() noexcept;
+  virtual ~WMGetTriggersForResourcePlanRequest() noexcept;
   std::string resourcePlanName;
   std::string ns;
 
-  _WMGetTriggersForResourePlanRequest__isset __isset;
+  _WMGetTriggersForResourcePlanRequest__isset __isset;
 
   void __set_resourcePlanName(const std::string& val);
 
   void __set_ns(const std::string& val);
 
-  bool operator == (const WMGetTriggersForResourePlanRequest & rhs) const
+  bool operator == (const WMGetTriggersForResourcePlanRequest & rhs) const
   {
     if (__isset.resourcePlanName != rhs.__isset.resourcePlanName)
       return false;
@@ -13550,11 +13550,11 @@ class WMGetTriggersForResourePlanRequest : public virtual ::apache::thrift::TBas
       return false;
     return true;
   }
-  bool operator != (const WMGetTriggersForResourePlanRequest &rhs) const {
+  bool operator != (const WMGetTriggersForResourcePlanRequest &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const WMGetTriggersForResourePlanRequest & ) const;
+  bool operator < (const WMGetTriggersForResourcePlanRequest & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -13562,31 +13562,31 @@ class WMGetTriggersForResourePlanRequest : public virtual ::apache::thrift::TBas
   virtual void printTo(std::ostream& out) const;
 };
 
-void swap(WMGetTriggersForResourePlanRequest &a, WMGetTriggersForResourePlanRequest &b);
+void swap(WMGetTriggersForResourcePlanRequest &a, WMGetTriggersForResourcePlanRequest &b);
 
-std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourePlanRequest& obj);
+std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourcePlanRequest& obj);
 
-typedef struct _WMGetTriggersForResourePlanResponse__isset {
-  _WMGetTriggersForResourePlanResponse__isset() : triggers(false) {}
+typedef struct _WMGetTriggersForResourcePlanResponse__isset {
+  _WMGetTriggersForResourcePlanResponse__isset() : triggers(false) {}
   bool triggers :1;
-} _WMGetTriggersForResourePlanResponse__isset;
+} _WMGetTriggersForResourcePlanResponse__isset;
 
-class WMGetTriggersForResourePlanResponse : public virtual ::apache::thrift::TBase {
+class WMGetTriggersForResourcePlanResponse : public virtual ::apache::thrift::TBase {
  public:
 
-  WMGetTriggersForResourePlanResponse(const WMGetTriggersForResourePlanResponse&);
-  WMGetTriggersForResourePlanResponse& operator=(const WMGetTriggersForResourePlanResponse&);
-  WMGetTriggersForResourePlanResponse() {
+  WMGetTriggersForResourcePlanResponse(const WMGetTriggersForResourcePlanResponse&);
+  WMGetTriggersForResourcePlanResponse& operator=(const WMGetTriggersForResourcePlanResponse&);
+  WMGetTriggersForResourcePlanResponse() {
   }
 
-  virtual ~WMGetTriggersForResourePlanResponse() noexcept;
+  virtual ~WMGetTriggersForResourcePlanResponse() noexcept;
   std::vector<WMTrigger>  triggers;
 
-  _WMGetTriggersForResourePlanResponse__isset __isset;
+  _WMGetTriggersForResourcePlanResponse__isset __isset;
 
   void __set_triggers(const std::vector<WMTrigger> & val);
 
-  bool operator == (const WMGetTriggersForResourePlanResponse & rhs) const
+  bool operator == (const WMGetTriggersForResourcePlanResponse & rhs) const
   {
     if (__isset.triggers != rhs.__isset.triggers)
       return false;
@@ -13594,11 +13594,11 @@ class WMGetTriggersForResourePlanResponse : public virtual ::apache::thrift::TBa
       return false;
     return true;
   }
-  bool operator != (const WMGetTriggersForResourePlanResponse &rhs) const {
+  bool operator != (const WMGetTriggersForResourcePlanResponse &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const WMGetTriggersForResourePlanResponse & ) const;
+  bool operator < (const WMGetTriggersForResourcePlanResponse & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -13606,9 +13606,9 @@ class WMGetTriggersForResourePlanResponse : public virtual ::apache::thrift::TBa
   virtual void printTo(std::ostream& out) const;
 };
 
-void swap(WMGetTriggersForResourePlanResponse &a, WMGetTriggersForResourePlanResponse &b);
+void swap(WMGetTriggersForResourcePlanResponse &a, WMGetTriggersForResourcePlanResponse &b);
 
-std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourePlanResponse& obj);
+std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourcePlanResponse& obj);
 
 typedef struct _WMCreatePoolRequest__isset {
   _WMCreatePoolRequest__isset() : pool(false) {}

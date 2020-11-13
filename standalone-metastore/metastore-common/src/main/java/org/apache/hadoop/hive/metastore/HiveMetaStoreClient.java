@@ -4377,7 +4377,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
   @Override
   public List<WMTrigger> getTriggersForResourcePlan(String resourcePlan, String ns)
       throws NoSuchObjectException, MetaException, TException {
-    WMGetTriggersForResourePlanRequest request = new WMGetTriggersForResourePlanRequest();
+    WMGetTriggersForResourcePlanRequest request = new WMGetTriggersForResourcePlanRequest();
     request.setResourcePlanName(resourcePlan);
     request.setNs(ns);
     return client.get_triggers_for_resourceplan(request).getTriggers();

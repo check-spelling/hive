@@ -15194,7 +15194,7 @@ module ThriftHiveMetastore
     REQUEST = 1
 
     FIELDS = {
-      REQUEST => {:type => ::Thrift::Types::STRUCT, :name => 'request', :class => ::WMGetTriggersForResourePlanRequest}
+      REQUEST => {:type => ::Thrift::Types::STRUCT, :name => 'request', :class => ::WMGetTriggersForResourcePlanRequest}
     }
 
     def struct_fields; FIELDS; end
@@ -15212,7 +15212,7 @@ module ThriftHiveMetastore
     O2 = 2
 
     FIELDS = {
-      SUCCESS => {:type => ::Thrift::Types::STRUCT, :name => 'success', :class => ::WMGetTriggersForResourePlanResponse},
+      SUCCESS => {:type => ::Thrift::Types::STRUCT, :name => 'success', :class => ::WMGetTriggersForResourcePlanResponse},
       O1 => {:type => ::Thrift::Types::STRUCT, :name => 'o1', :class => ::NoSuchObjectException},
       O2 => {:type => ::Thrift::Types::STRUCT, :name => 'o2', :class => ::MetaException}
     }

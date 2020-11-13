@@ -52215,7 +52215,7 @@ class get_triggers_for_resourceplan_args(object):
                 break
             if fid == 1:
                 if ftype == TType.STRUCT:
-                    self.request = WMGetTriggersForResourePlanRequest()
+                    self.request = WMGetTriggersForResourcePlanRequest()
                     self.request.read(iprot)
                 else:
                     iprot.skip(ftype)
@@ -52252,7 +52252,7 @@ class get_triggers_for_resourceplan_args(object):
 all_structs.append(get_triggers_for_resourceplan_args)
 get_triggers_for_resourceplan_args.thrift_spec = (
     None,  # 0
-    (1, TType.STRUCT, 'request', [WMGetTriggersForResourePlanRequest, None], None, ),  # 1
+    (1, TType.STRUCT, 'request', [WMGetTriggersForResourcePlanRequest, None], None, ),  # 1
 )
 
 
@@ -52282,7 +52282,7 @@ class get_triggers_for_resourceplan_result(object):
                 break
             if fid == 0:
                 if ftype == TType.STRUCT:
-                    self.success = WMGetTriggersForResourePlanResponse()
+                    self.success = WMGetTriggersForResourcePlanResponse()
                     self.success.read(iprot)
                 else:
                     iprot.skip(ftype)
@@ -52338,7 +52338,7 @@ class get_triggers_for_resourceplan_result(object):
         return not (self == other)
 all_structs.append(get_triggers_for_resourceplan_result)
 get_triggers_for_resourceplan_result.thrift_spec = (
-    (0, TType.STRUCT, 'success', [WMGetTriggersForResourePlanResponse, None], None, ),  # 0
+    (0, TType.STRUCT, 'success', [WMGetTriggersForResourcePlanResponse, None], None, ),  # 0
     (1, TType.STRUCT, 'o1', [NoSuchObjectException, None], None, ),  # 1
     (2, TType.STRUCT, 'o2', [MetaException, None], None, ),  # 2
 )
