@@ -52,11 +52,11 @@ public class TestCookieSigner {
   public void testVerifyAndExtractNoSignature() {
     String originalStr = "cu=scott";
     String signedStr = cs.signCookie(originalStr);
-    String modifedSignedStr = signedStr.replace("&s=", "");
+    String modifiedSignedStr = signedStr.replace("&s=", "");
     try {
-      cs.verifyAndExtract(modifedSignedStr);
+      cs.verifyAndExtract(modifiedSignedStr);
     } catch (IllegalArgumentException e) {
-      assertEquals("Invalid input sign: " + modifedSignedStr, e.getMessage());
+      assertEquals("Invalid input sign: " + modifiedSignedStr, e.getMessage());
       return;
     }
     fail("Expected IllegalArgumentException due to no signature");
@@ -66,9 +66,9 @@ public class TestCookieSigner {
   public void testVerifyAndExtractInvalidSignature() {
     String originalStr = "cu=scott";
     String signedStr = cs.signCookie(originalStr);
-    String modifedSignedStr = signedStr.replace("&s=", "&s=abc");
+    String modifiedSignedStr = signedStr.replace("&s=", "&s=abc");
     try {
-      cs.verifyAndExtract(modifedSignedStr);
+      cs.verifyAndExtract(modifiedSignedStr);
     } catch (IllegalArgumentException e) {
       assertTrue(e.getMessage().startsWith("Invalid sign, original = "));
       return;
