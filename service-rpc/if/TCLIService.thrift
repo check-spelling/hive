@@ -551,7 +551,7 @@ struct TOperationHandle {
   //
   // 2) 0 for operations that don't modify or add rows.
   //
-  // 3) < 0 if the operation is capable of modifiying rows,
+  // 3) < 0 if the operation is capable of modifying rows,
   //    but Hive is unable to determine how many rows were
   //    modified. For example, Hive's LOAD DATA command
   //    doesn't generate row count information because
