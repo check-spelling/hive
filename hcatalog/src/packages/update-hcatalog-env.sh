@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This script configures hcat-env.sh and symlinkis directories for 
+# This script configures hcat-env.sh and symlinks directories for 
 # relocating RPM locations.
 
 usage() {
