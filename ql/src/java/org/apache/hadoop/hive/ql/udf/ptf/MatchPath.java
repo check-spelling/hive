@@ -215,8 +215,8 @@ public class MatchPath extends TableFunctionEvaluator
      */
     private void validateAndSetupPatternStr(MatchPath evaluator,
         List<PTFExpressionDef> args) throws SemanticException {
-      PTFExpressionDef symboPatternArg = args.get(0);
-      ObjectInspector symbolPatternArgOI = symboPatternArg.getOI();
+      PTFExpressionDef symbolPatternArg = args.get(0);
+      ObjectInspector symbolPatternArgOI = symbolPatternArg.getOI();
 
       if ( !ObjectInspectorUtils.isConstantObjectInspector(symbolPatternArgOI) ||
           (symbolPatternArgOI.getCategory() != ObjectInspector.Category.PRIMITIVE) ||
