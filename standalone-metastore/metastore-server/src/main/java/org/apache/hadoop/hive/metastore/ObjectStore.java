@@ -12723,7 +12723,7 @@ public class ObjectStore implements RawStore, Configurable {
 
   @Override
   public WMFullResourcePlan getActiveResourcePlan(String ns) throws MetaException {
-    // Note: fullFromMResroucePlan needs to be called inside the txn, otherwise we could have
+    // Note: fullFromMResourcePlan needs to be called inside the txn, otherwise we could have
     //       deduplicated this with getActiveMWMResourcePlan.
     boolean committed = false;
     Query query = null;
