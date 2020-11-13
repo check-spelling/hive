@@ -110,7 +110,7 @@ public interface MapJoinTableContainer extends MemoryEstimate {
     boolean isNext();
 
     /**
-     * @return The current key as a deseralized object array after a successful next() call
+     * @return The current key as a deserialized object array after a successful next() call
      * that returns true.
      * @throws HiveException
      */

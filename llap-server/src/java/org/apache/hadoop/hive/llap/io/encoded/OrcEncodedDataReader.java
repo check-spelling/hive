@@ -661,7 +661,7 @@ public class OrcEncodedDataReader extends CallableWithNdc<Void>
 
 
   /**
-   * Utility function to produce a deseralized OrcTail instance from LLAP buffers retrieved from metadata cache.
+   * Utility function to produce a deserialized OrcTail instance from LLAP buffers retrieved from metadata cache.
    * Expects buffers are already locked before invocation, and caller releases them thereafter.
    * @param tailBuffers
    * @return
