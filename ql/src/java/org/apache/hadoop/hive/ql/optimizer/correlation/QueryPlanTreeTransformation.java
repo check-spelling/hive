@@ -120,7 +120,7 @@ public class QueryPlanTreeTransformation {
     Map<Integer, Integer> childIndexToOriginalNumParents =
         new HashMap<Integer, Integer>();
     List<TableDesc> keysSerializeInfos = new ArrayList<TableDesc>();
-    List<TableDesc> valuessSerializeInfos = new ArrayList<TableDesc>();
+    List<TableDesc> valuesSerializeInfos = new ArrayList<TableDesc>();
     Map<ReduceSinkOperator, Integer> bottomRSToNewTag =
         new HashMap<ReduceSinkOperator, Integer>();
     int newTag = 0;
@@ -133,7 +133,7 @@ public class QueryPlanTreeTransformation {
       bottomRSToNewTag.put(rsop, newTag);
       parentRSsOfDemux.add(rsop);
       keysSerializeInfos.add(rsop.getConf().getKeySerializeInfo());
-      valuessSerializeInfos.add(rsop.getConf().getValueSerializeInfo());
+      valuesSerializeInfos.add(rsop.getConf().getValueSerializeInfo());
       Operator<? extends OperatorDesc> child = CorrelationUtilities.getSingleChild(rsop, true);
       if (!childrenOfDemux.contains(child)) {
         childrenOfDemux.add(child);
@@ -154,7 +154,7 @@ public class QueryPlanTreeTransformation {
             correlation.getNewTagToChildIndex(),
             childIndexToOriginalNumParents,
             keysSerializeInfos,
-            valuessSerializeInfos);
+            valuesSerializeInfos);
     Operator<? extends OperatorDesc> demuxOp = OperatorFactory.get(opCtx, demuxDesc);
     demuxOp.setChildOperators(childrenOfDemux);
     demuxOp.setParentOperators(parentRSsOfDemux);
