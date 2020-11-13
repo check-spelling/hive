@@ -958,7 +958,7 @@ public class Hadoop23Shims extends HadoopShimsSecure {
 
   /**
    * If there is an AccessException buried somewhere in the chain of failures, wrap the original
-   * exception in an AccessException. Othewise just return the original exception.
+   * exception in an AccessException. Otherwise just return the original exception.
    */
   private static Exception wrapAccessException(Exception err) {
     final int maxDepth = 20;
