@@ -354,7 +354,7 @@ import java.util.function.Predicate;
 
   @Override public void preInsertTable(Table table, boolean overwrite) throws MetaException {
     if (overwrite) {
-      throw new MetaException("Kafka Table does not support the overwite SQL Smentic");
+      throw new MetaException("Kafka Table does not support the overwrite SQL Smentic");
     }
   }
 
