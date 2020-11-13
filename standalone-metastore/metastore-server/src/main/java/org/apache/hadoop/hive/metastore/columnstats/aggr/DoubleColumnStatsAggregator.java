@@ -149,7 +149,7 @@ public class DoubleColumnStatsAggregator extends ColumnStatsAggregator implement
       Map<String, Double> adjustedIndexMap = new HashMap<>();
       Map<String, ColumnStatisticsData> adjustedStatsMap = new HashMap<>();
       // while we scan the css, we also get the densityAvg, lowerbound and
-      // higerbound when useDensityFunctionForNDVEstimation is true.
+      // higherbound when useDensityFunctionForNDVEstimation is true.
       double densityAvgSum = 0.0;
       if (ndvEstimator == null) {
         // if not every partition uses bitvector for ndv, we just fall back to
