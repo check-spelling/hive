@@ -233,7 +233,7 @@ public class TestVectorBetweenIn {
     doBetweenIn(random, typeName, /* tryDecimal64 */ false);
   }
 
-  private static final BetweenInVariation[] structInVarations =
+  private static final BetweenInVariation[] structInVariations =
       new BetweenInVariation[] { BetweenInVariation.FILTER_IN, BetweenInVariation.PROJECTION_IN };
 
   private void doStructTests(Random random) throws Exception {
@@ -248,7 +248,7 @@ public class TestVectorBetweenIn {
     allowedTypeNameSet.add("string");
 
     // Only STRUCT type IN currently supported.
-    for (BetweenInVariation betweenInVariation : structInVarations) {
+    for (BetweenInVariation betweenInVariation : structInVariations) {
 
       for (int i = 0; i < 4; i++) {
         typeName =
