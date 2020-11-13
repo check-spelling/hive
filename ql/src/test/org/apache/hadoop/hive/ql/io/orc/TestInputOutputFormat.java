@@ -1209,7 +1209,7 @@ public class TestInputOutputFormat {
   }
 
   /**
-   * WARNING: detele(Path...) don't actually delete
+   * WARNING: delete(Path...) don't actually delete
    */
   public static class MockFileSystem extends FileSystem {
     final List<MockFile> files = new ArrayList<MockFile>();
