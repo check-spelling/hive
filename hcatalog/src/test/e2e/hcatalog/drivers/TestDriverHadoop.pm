@@ -134,7 +134,7 @@ sub runTest
                @results = @{$testCmd->{'result_table'}};
            }
 
-           my $id = 0; # regular ouput count
+           my $id = 0; # regular output count
            for (my $i = 0; $i < @results; $i++) {
                if ($results[$i] ne '?') {
 	           my %modifiedTestCmd = %{$testCmd};

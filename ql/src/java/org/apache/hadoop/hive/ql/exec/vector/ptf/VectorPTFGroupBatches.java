@@ -379,7 +379,7 @@ public class VectorPTFGroupBatches {
         for (int logicalIndex = 0; logicalIndex < size; logicalIndex++) {
           final int batchIndex = (selectedInUse ? selected[logicalIndex] : logicalIndex);
 
-          Output output = rowBytesContainer.getOuputForRowBytes();
+          Output output = rowBytesContainer.getOutputForRowBytes();
           bufferedBatchVectorSerializeRow.setOutputAppend(output);
           bufferedBatchVectorSerializeRow.serializeWrite(oldestBufferedBatch, batchIndex);
           rowBytesContainer.finishRow();
