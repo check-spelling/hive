@@ -147,7 +147,7 @@ public class MergeFileTask extends Task<MergeFileWork> implements Serializable,
 
       // There is no need for Mergefile Task to add extra jars.
 
-      // make this client wait if job trcker is not behaving well.
+      // make this client wait if job tracker is not behaving well.
       Throttle.checkJobTracker(job, LOG);
 
       // Finally SUBMIT the JOB!
