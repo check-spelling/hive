@@ -126,7 +126,7 @@ public class TestTaskExecutorService {
   }
 
   private void testPreemptionHelper(
-      MockRequest r1, MockRequest r2, boolean isPreemted) throws InterruptedException {
+      MockRequest r1, MockRequest r2, boolean isPreempted) throws InterruptedException {
     TaskExecutorServiceForTest taskExecutorService = new TaskExecutorServiceForTest(1, 2,
         ShortestJobFirstComparator.class.getName(), true, mockMetrics);
     taskExecutorService.init(new Configuration());
@@ -140,7 +140,7 @@ public class TestTaskExecutorService {
       // Verify r1 was preempted. Also verify that it finished (single executor), otherwise
       // r2 could have run anyway.
       r1.awaitEnd();
-      assertEquals(isPreemted, r1.wasPreempted());
+      assertEquals(isPreempted, r1.wasPreempted());
       assertTrue(r1.hasFinished());
 
       r2.complete();
