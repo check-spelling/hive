@@ -355,8 +355,8 @@ PREHOOK: Input: default@testa
 PREHOOK: Input: default@testa@part1=US/part2=DEF/part3=200
 PREHOOK: Input: default@testb
 PREHOOK: Input: default@testb@part1=US/part2=DEF/part3=200
-PREHOOK: Input: default@viewdeterministicudfa
-PREHOOK: Input: default@viewdeterministicudfb
+PREHOOK: Input: default@viewedeterministicudfa
+PREHOOK: Input: default@viewedeterministicudfb
 #### A masked pattern was here ####
 POSTHOOK: query: explain
 select vcol1, vcol2, vcol3, vcola, vcolb
@@ -372,8 +372,8 @@ POSTHOOK: Input: default@testa
 POSTHOOK: Input: default@testa@part1=US/part2=DEF/part3=200
 POSTHOOK: Input: default@testb
 POSTHOOK: Input: default@testb@part1=US/part2=DEF/part3=200
-POSTHOOK: Input: default@viewdeterministicudfa
-POSTHOOK: Input: default@viewdeterministicudfb
+POSTHOOK: Input: default@viewedeterministicudfa
+POSTHOOK: Input: default@viewedeterministicudfb
 #### A masked pattern was here ####
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
@@ -465,8 +465,8 @@ PREHOOK: Input: default@testa
 PREHOOK: Input: default@testa@part1=US/part2=DEF/part3=200
 PREHOOK: Input: default@testb
 PREHOOK: Input: default@testb@part1=US/part2=DEF/part3=200
-PREHOOK: Input: default@viewdeterministicudfa
-PREHOOK: Input: default@viewdeterministicudfb
+PREHOOK: Input: default@viewedeterministicudfa
+PREHOOK: Input: default@viewedeterministicudfb
 #### A masked pattern was here ####
 POSTHOOK: query: select vcol1, vcol2, vcol3, vcola, vcolb
 from viewDeterministicUDFA a inner join viewDeterministicUDFB b
@@ -481,8 +481,8 @@ POSTHOOK: Input: default@testa
 POSTHOOK: Input: default@testa@part1=US/part2=DEF/part3=200
 POSTHOOK: Input: default@testb
 POSTHOOK: Input: default@testb@part1=US/part2=DEF/part3=200
-POSTHOOK: Input: default@viewdeterministicudfa
-POSTHOOK: Input: default@viewdeterministicudfb
+POSTHOOK: Input: default@viewedeterministicudfa
+POSTHOOK: Input: default@viewedeterministicudfb
 #### A masked pattern was here ####
 12.340000000000000000	100.000000000000000000	200.000000000000000000	600.000000000000000000	700.000000000000000000
 12.340000000000000000	100.000000000000000000	200.000000000000000000	601.000000000000000000	701.000000000000000000
