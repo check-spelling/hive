@@ -485,12 +485,12 @@ public class TestJdbcDriver2 {
 
     // executed twice: once with the typed ps setters, once with the generic setObject
     try {
-      try (PreparedStatement ps = createPreapredStatementUsingSetXXX(sql);
+      try (PreparedStatement ps = createPreparedStatementUsingSetXXX(sql);
            ResultSet res = ps.executeQuery()) {
         assertPreparedStatementResultAsExpected(res);
       }
 
-      try (PreparedStatement ps = createPreapredStatementUsingSetObject(sql);
+      try (PreparedStatement ps = createPreparedStatementUsingSetObject(sql);
            ResultSet res = ps.executeQuery()) {
         assertPreparedStatementResultAsExpected(res);
       }
@@ -569,7 +569,7 @@ public class TestJdbcDriver2 {
     assertFalse(res.next());
   }
 
-  private PreparedStatement createPreapredStatementUsingSetObject(String sql) throws SQLException {
+  private PreparedStatement createPreparedStatementUsingSetObject(String sql) throws SQLException {
     PreparedStatement ps = con.prepareStatement(sql);
 
     ps.setObject(1, true); //setBoolean
@@ -589,7 +589,7 @@ public class TestJdbcDriver2 {
     return ps;
   }
 
-  private PreparedStatement createPreapredStatementUsingSetXXX(String sql) throws SQLException {
+  private PreparedStatement createPreparedStatementUsingSetXXX(String sql) throws SQLException {
     PreparedStatement ps = con.prepareStatement(sql);
 
     ps.setBoolean(1, true); //setBoolean
