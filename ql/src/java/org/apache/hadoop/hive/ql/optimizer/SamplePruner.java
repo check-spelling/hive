@@ -299,7 +299,7 @@ public class SamplePruner extends Transform {
     NoFile,
     // sum size of all files in the partition is smaller than size required
     NeedAllFiles,
-    // a susbset of files for the partition are sufficient for the optimization
+    // a subset of files for the partition are sufficient for the optimization
     NeedSomeFiles,
     // the partition doesn't qualify the global limit optimization for some reason
     NotQualify
