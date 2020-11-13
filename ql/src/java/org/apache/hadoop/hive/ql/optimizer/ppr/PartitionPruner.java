@@ -408,7 +408,7 @@ public class PartitionPruner extends Transform {
           } else {
             // Functions like NVL, COALESCE, CASE can change a
             // NULL introduced by a nonpart column removal into a non-null
-            // and cause overaggressive prunning, missing data (incorrect result)
+            // and cause overaggressive pruning, missing data (incorrect result)
             return new ExprNodeConstantDesc(expr.getTypeInfo(), null);
           }
         }
