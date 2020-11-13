@@ -107,7 +107,7 @@ public class TaskRunnerCallable extends CallableWithNdc<TaskRunner2Result> {
   private final TaskSpec taskSpec;
   private final QueryFragmentInfo fragmentInfo;
   private final KilledTaskHandler killedTaskHandler;
-  private final FragmentCompletionHandler fragmentCompletionHanler;
+  private final FragmentCompletionHandler fragmentCompletionHandler;
   private volatile TezTaskRunner2 taskRunner;
   private volatile TaskReporterInterface taskReporter;
   private volatile ExecutorService executor;
@@ -174,7 +174,7 @@ public class TaskRunnerCallable extends CallableWithNdc<TaskRunner2Result> {
         .constructUniqueQueryId(vertex.getHiveQueryId(),
             fragmentInfo.getQueryInfo().getDagIdentifier());
     this.killedTaskHandler = killedTaskHandler;
-    this.fragmentCompletionHanler = fragmentCompleteHandler;
+    this.fragmentCompletionHandler = fragmentCompleteHandler;
     this.tezHadoopShim = tezHadoopShim;
     this.initialEvent = initialEvent;
     this.fsTaskUgi = fsTaskUgi;
@@ -382,7 +382,7 @@ public class TaskRunnerCallable extends CallableWithNdc<TaskRunner2Result> {
           if (!isStarted.get()) {
             // If the task hasn't started - inform about fragment completion immediately. It's possible for
             // the callable to never run.
-            fragmentCompletionHanler.fragmentComplete(fragmentInfo);
+            fragmentCompletionHandler.fragmentComplete(fragmentInfo);
 
             try {
               this.amReporter
@@ -560,7 +560,7 @@ public class TaskRunnerCallable extends CallableWithNdc<TaskRunner2Result> {
           }
           break;
       }
-      fragmentCompletionHanler.fragmentComplete(fragmentInfo);
+      fragmentCompletionHandler.fragmentComplete(fragmentInfo);
 
       taskRunnerCallable.shutdown();
       logFragmentEnd(true);
@@ -571,7 +571,7 @@ public class TaskRunnerCallable extends CallableWithNdc<TaskRunner2Result> {
       LOG.error("TezTaskRunner execution failed for : "
           + getTaskIdentifierString(request, vertex, queryId), t);
       isCompleted.set(true);
-      fragmentCompletionHanler.fragmentComplete(fragmentInfo);
+      fragmentCompletionHandler.fragmentComplete(fragmentInfo);
       // TODO HIVE-10236 Report a fatal error over the umbilical
       taskRunnerCallable.shutdown();
       logFragmentEnd(false);

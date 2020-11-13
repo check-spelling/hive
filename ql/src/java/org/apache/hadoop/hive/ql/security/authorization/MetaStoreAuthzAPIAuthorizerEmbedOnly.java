@@ -81,7 +81,7 @@ public class MetaStoreAuthzAPIAuthorizerEmbedOnly extends HiveAuthorizationProvi
 
   @Override
   public void setMetaStoreHandler(IHMSHandler handler) {
-    // no-op - HMSHander not needed by this impl
+    // no-op - HMSHandler not needed by this impl
   }
 
   @Override

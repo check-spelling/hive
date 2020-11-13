@@ -212,7 +212,7 @@ import com.google.common.annotations.VisibleForTesting;
  * Metastore has retry logic in both {@link org.apache.hadoop.hive.metastore.RetryingMetaStoreClient}
  * and {@link org.apache.hadoop.hive.metastore.RetryingHMSHandler}.  The retry logic there is very
  * generic and is not aware whether the operations are idempotent or not.  (This is separate from
- * retry logic here in TxnHander which can/does retry DB errors intelligently).  The worst case is
+ * retry logic here in TxnHandler which can/does retry DB errors intelligently).  The worst case is
  * when an op here issues a successful commit against the RDBMS but the calling stack doesn't
  * receive the ack and retries.  (If an op fails before commit, it's trivially idempotent)
  * Thus the ops here need to be made idempotent as much as possible or
