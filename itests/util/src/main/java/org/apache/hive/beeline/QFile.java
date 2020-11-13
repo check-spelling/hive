@@ -406,8 +406,8 @@ public final class QFile {
       return this;
     }
 
-    public QFileBuilder setComparePortable(boolean compareProtable) {
-      this.comparePortable = compareProtable;
+    public QFileBuilder setComparePortable(boolean comparePortable) {
+      this.comparePortable = comparePortable;
       return this;
     }
 
