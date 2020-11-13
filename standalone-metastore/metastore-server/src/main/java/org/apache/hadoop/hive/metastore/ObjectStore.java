@@ -6086,13 +6086,13 @@ public class ObjectStore implements RawStore, Configurable {
 
     try (Query query = pm.newQuery(MRoleMap.class, "principalName == t1 && principalType == t2")) {
       query.declareParameters("java.lang.String t1, java.lang.String t2");
-      final List<MRoleMap> mRoleMemebership = (List<MRoleMap>) query.execute(roleName, principalType.toString());
+      final List<MRoleMap> mRoleMembership = (List<MRoleMap>) query.execute(roleName, principalType.toString());
 
       LOG.debug("Retrieving all objects for listMSecurityPrincipalMembershipRole");
-      pm.retrieveAll(mRoleMemebership);
-      LOG.debug("Done retrieving all objects for listMSecurityPrincipalMembershipRole: {}", mRoleMemebership);
+      pm.retrieveAll(mRoleMembership);
+      LOG.debug("Done retrieving all objects for listMSecurityPrincipalMembershipRole: {}", mRoleMembership);
 
-      return Collections.unmodifiableList(new ArrayList<>(mRoleMemebership));
+      return Collections.unmodifiableList(new ArrayList<>(mRoleMembership));
     }
   }
 
@@ -7055,7 +7055,7 @@ public class ObjectStore implements RawStore, Configurable {
   public List<MRoleMap> listMRoleMembers(String roleName) {
     boolean success = false;
     Query query = null;
-    List<MRoleMap> mRoleMemeberList = new ArrayList<>();
+    List<MRoleMap> mRoleMemberList = new ArrayList<>();
     try {
       LOG.debug("Executing listRoleMembers");
 
@@ -7067,13 +7067,13 @@ public class ObjectStore implements RawStore, Configurable {
       pm.retrieveAll(mRoles);
       success = commitTransaction();
 
-      mRoleMemeberList.addAll(mRoles);
+      mRoleMemberList.addAll(mRoles);
 
       LOG.debug("Done retrieving all objects for listRoleMembers");
     } finally {
       rollbackAndCleanup(success, query);
     }
-    return mRoleMemeberList;
+    return mRoleMemberList;
   }
 
   @Override
