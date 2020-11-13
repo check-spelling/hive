@@ -210,7 +210,7 @@ public class TestCounterMapping {
         }
         OperatorStats os = oss.get(0);
         if (!(os.getOutputRecords() == 3 || os.getOutputRecords() == 6)) {
-          fail("nonexpected number of records produced");
+          fail("unexpected number of records produced");
         }
         checkedOperators++;
       }
