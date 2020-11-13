@@ -53,7 +53,7 @@ public enum PrivilegeType {
   @Override
   @Explain(displayName = "type", explainLevels = { Level.USER, Level.DEFAULT, Level.EXTENDED })
   public String toString(){
-    return name == null ? "unkown" : name;
+    return name == null ? "unknown" : name;
   }
 
   public Integer getToken() {

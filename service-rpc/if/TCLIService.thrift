@@ -466,7 +466,7 @@ enum TOperationState {
   ERROR_STATE,
 
   // The operation is in an unrecognized state
-  UKNOWN_STATE,
+  UNKNOWN_STATE,
 
   // The operation is in an pending state
   PENDING_STATE,

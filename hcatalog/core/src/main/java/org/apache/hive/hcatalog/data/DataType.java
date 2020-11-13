@@ -207,7 +207,7 @@ public abstract class DataType {
       case TIMESTAMP:
         return ((Timestamp)o1).compareTo((Timestamp)o2);
      default:
-        throw new RuntimeException("Unkown type " + dt1 +
+        throw new RuntimeException("Unknown type " + dt1 +
           " in compare");
       }
     } else {

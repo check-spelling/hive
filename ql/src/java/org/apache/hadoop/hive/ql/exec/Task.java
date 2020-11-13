@@ -120,7 +120,7 @@ public abstract class Task<T extends Serializable> implements Serializable, Node
    * used to make some decisions in Driver.execute
    */
   public enum TaskState {
-    // Task state is unkown
+    // Task state is unknown
     UNKNOWN,
     // Task is just created
     CREATED,

@@ -15,7 +15,7 @@ public enum TOperationState implements org.apache.thrift.TEnum {
   CANCELED_STATE(3),
   CLOSED_STATE(4),
   ERROR_STATE(5),
-  UKNOWN_STATE(6),
+  UNKNOWN_STATE(6),
   PENDING_STATE(7),
   TIMEDOUT_STATE(8);
 
@@ -52,7 +52,7 @@ public enum TOperationState implements org.apache.thrift.TEnum {
       case 5:
         return ERROR_STATE;
       case 6:
-        return UKNOWN_STATE;
+        return UNKNOWN_STATE;
       case 7:
         return PENDING_STATE;
       case 8:

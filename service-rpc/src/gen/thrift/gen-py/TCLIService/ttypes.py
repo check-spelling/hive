@@ -167,7 +167,7 @@ class TOperationState(object):
     CANCELED_STATE = 3
     CLOSED_STATE = 4
     ERROR_STATE = 5
-    UKNOWN_STATE = 6
+    UNKNOWN_STATE = 6
     PENDING_STATE = 7
     TIMEDOUT_STATE = 8
 
@@ -178,7 +178,7 @@ class TOperationState(object):
         3: "CANCELED_STATE",
         4: "CLOSED_STATE",
         5: "ERROR_STATE",
-        6: "UKNOWN_STATE",
+        6: "UNKNOWN_STATE",
         7: "PENDING_STATE",
         8: "TIMEDOUT_STATE",
     }
@@ -190,7 +190,7 @@ class TOperationState(object):
         "CANCELED_STATE": 3,
         "CLOSED_STATE": 4,
         "ERROR_STATE": 5,
-        "UKNOWN_STATE": 6,
+        "UNKNOWN_STATE": 6,
         "PENDING_STATE": 7,
         "TIMEDOUT_STATE": 8,
     }

@@ -31,7 +31,7 @@ public enum OperationState {
   CANCELED(TOperationState.CANCELED_STATE, true),
   CLOSED(TOperationState.CLOSED_STATE, true),
   ERROR(TOperationState.ERROR_STATE, true),
-  UNKNOWN(TOperationState.UKNOWN_STATE, false),
+  UNKNOWN(TOperationState.UNKNOWN_STATE, false),
   PENDING(TOperationState.PENDING_STATE, false),
   TIMEDOUT(TOperationState.TIMEDOUT_STATE, true);
 
