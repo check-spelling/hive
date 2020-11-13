@@ -570,7 +570,7 @@ public class SharedWorkOptimizer extends Transform {
         // A shared TSop across branches can not have probeContext that utilizes single branch info
         // Filtered-out rows from one branch might be needed by another branch sharing a TSop
         if (retainableTsOp.getProbeDecodeContext() != null) {
-          LOG.debug("Removing probeDecodeCntx for merged TS op {}", retainableTsOp);
+          LOG.debug("Removing probeDecodeContext for merged TS op {}", retainableTsOp);
           retainableTsOp.setProbeDecodeContext(null);
           retainableTsOp.getConf().setProbeDecodeContext(null);
         }
