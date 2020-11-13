@@ -272,7 +272,7 @@ public class QBJoinTree implements Serializable, Cloneable {
   }
 
   /**
-   * Remeber the mapping of table alias to set of columns.
+   * Remember the mapping of table alias to set of columns.
    *
    * @param alias
    * @param columns
@@ -287,7 +287,7 @@ public class QBJoinTree implements Serializable, Cloneable {
   }
 
   /**
-   * Remeber the mapping of table alias to set of columns.
+   * Remember the mapping of table alias to set of columns.
    *
    * @param alias
    * @param column
