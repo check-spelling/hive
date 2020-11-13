@@ -312,7 +312,7 @@ public class HiveAccumuloHelper {
   }
 
   /**
-   * Sets all jars requried by Accumulo input/output tasks in the configuration to be dynamically
+   * Sets all jars required by Accumulo input/output tasks in the configuration to be dynamically
    * loaded when the task is executed.
    */
   public void loadDependentJars(Configuration conf) {
