@@ -302,7 +302,7 @@ public class TestLdapAuthenticationProviderImpl {
     conf.setVar(HiveConf.ConfVars.HIVE_SERVER2_PLAIN_LDAP_GROUPDNPATTERN,
         "cn=%s,ou=Groups,ou=branch1,dc=mycorp,dc=com");
     conf.setVar(HiveConf.ConfVars.HIVE_SERVER2_PLAIN_LDAP_USERDNPATTERN,
-        "cn=%s,ou=Userss,ou=branch1,dc=mycorp,dc=com");
+        "cn=%s,ou=Users,ou=branch1,dc=mycorp,dc=com");
     conf.setVar(HiveConf.ConfVars.HIVE_SERVER2_PLAIN_LDAP_USERMEMBERSHIP_KEY, "memberOf");
 
     when(search.findUserDn("user1")).thenReturn("cn=user1,ou=PowerUsers,dc=mycorp,dc=com");
