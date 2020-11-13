@@ -165,7 +165,7 @@ public class VectorizedBatchUtil {
         case VOID:
           return new VoidColumnVector(VectorizedRowBatch.DEFAULT_SIZE);
         default:
-          throw new RuntimeException("Vectorizaton is not supported for datatype:"
+          throw new RuntimeException("Vectorization is not supported for datatype:"
               + primitiveTypeInfo.getPrimitiveCategory());
         }
       }
@@ -526,7 +526,7 @@ public class VectorizedBatchUtil {
       }
       break;
     default:
-      throw new HiveException("Vectorizaton is not supported for datatype:" +
+      throw new HiveException("Vectorization is not supported for datatype:" +
           poi.getPrimitiveCategory());
     }
   }
