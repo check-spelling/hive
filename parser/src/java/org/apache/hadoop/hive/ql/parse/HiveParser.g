@@ -2407,7 +2407,7 @@ queryStatementExpression
     :
     /* Would be nice to do this as a gated semantic perdicate
        But the predicate gets pushed as a lookahead decision.
-       Calling rule doesnot know about topLevel
+       Calling rule does not know about topLevel
     */
     (w=withClause)?
     queryStatementExpressionBody {

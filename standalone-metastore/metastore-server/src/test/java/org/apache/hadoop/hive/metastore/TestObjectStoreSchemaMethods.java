@@ -129,7 +129,7 @@ public class TestObjectStoreSchemaMethods {
   public void schemaWithInvalidDatabase() throws MetaException, AlreadyExistsException,
       NoSuchObjectException {
     ISchema schema = new ISchemaBuilder()
-        .setName("thisSchemaDoesntHaveADb")
+        .setName("thisSchemaDoesNotHaveADb")
         .setDbName("no.such.database")
         .setSchemaType(SchemaType.AVRO)
         .build();

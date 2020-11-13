@@ -251,7 +251,7 @@ public class TestHiveMetaStoreSchemaMethods {
   @Test(expected = NoSuchObjectException.class)
   public void schemaWithInvalidDatabase() throws TException {
     ISchema schema = new ISchemaBuilder()
-        .setName("thisSchemaDoesntHaveADb")
+        .setName("thisSchemaDoesNotHaveADb")
         .setDbName("no.such.database")
         .setSchemaType(SchemaType.AVRO)
         .build();

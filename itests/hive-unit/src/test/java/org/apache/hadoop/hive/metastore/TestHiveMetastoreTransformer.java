@@ -669,7 +669,7 @@ public class TestHiveMetastoreTransformer {
 
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match expected value:" + tblName,
-          0, tbl2.getAccessType()); // View has capabilities, processor doesnt, no tranformation
+          0, tbl2.getAccessType()); // View has capabilities, processor does not, no tranformation
 
       setHMSClient("testTransformerMQTFullSet", (new String[] { "HIVEFULLACIDREAD", "HIVEONLYMQTWRITE",
           "HIVEMANAGESTATS", "HIVEMQT", "CONNECTORREAD" }));
@@ -1358,7 +1358,7 @@ public class TestHiveMetastoreTransformer {
   }
 
   @Test
-  public void testTransformerAlterTableWithoutLocationChangeDoesntValidateLocation() throws Exception {
+  public void testTransformerAlterTableWithoutLocationChangeDoesNotValidateLocation() throws Exception {
     try {
       resetHMSClient();
       String dbName = "dbalter";

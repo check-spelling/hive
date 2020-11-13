@@ -1748,7 +1748,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
    * After filter, fspKey is empty, storedAsDirPostFix has either
    * key=484/value=val_484 or
    * HIVE_LIST_BUCKETING_DEFAULT_DIR_NAME/HIVE_LIST_BUCKETING_DEFAULT_DIR_NAME
-   * so, at the end, "keyPrefix" doesnt have subdir information but "key" has
+   * so, at the end, "keyPrefix" does not have subdir information but "key" has
    * Case #2: Dynamic partition with store-as-sub-dir. Assume dp part is hr
    * spSpec has SP path
    * fspKey has either

@@ -122,7 +122,7 @@ public class TestReaderWriter extends HCatBaseTest {
     while (itr.hasNext()) {
       HCatRecord read = itr.next();
       HCatRecord written = getRecord(i++);
-      // Argh, HCatRecord doesnt implement equals()
+      // Argh, HCatRecord does not implement equals()
       Assert.assertTrue("Read: " + read.get(0) + "Written: " + written.get(0),
         written.get(0).equals(read.get(0)));
       Assert.assertTrue("Read: " + read.get(1) + "Written: " + written.get(1),
