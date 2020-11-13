@@ -497,7 +497,7 @@ public abstract class AbstractHCatStorerTest extends HCatBaseTest {
   }
 
   @Test
-  public void testStoreInPartiitonedTbl() throws Exception {
+  public void testStoreInPartitionedTbl() throws Exception {
 
     AbstractHCatLoaderTest.dropTable("junit_unparted", driver);
     AbstractHCatLoaderTest.createTableDefaultDB("junit_unparted", "a int", "b string",
