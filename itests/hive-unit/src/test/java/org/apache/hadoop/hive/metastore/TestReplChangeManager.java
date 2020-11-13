@@ -438,7 +438,7 @@ public class TestReplChangeManager {
   }
 
   @Test
-  public void tesRecyleImpersonationWithGroupPermissions() throws Exception {
+  public void tesRecycleImpersonationWithGroupPermissions() throws Exception {
     FileSystem fs = warehouse.getWhRoot().getFileSystem(hiveConf);
     Path dirDb = new Path(warehouse.getWhRoot(), "db3");
     long now = System.currentTimeMillis();
