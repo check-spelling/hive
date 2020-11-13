@@ -195,10 +195,10 @@ public class ShuffleHandler implements AttemptRegistrationListener {
 
   public static final String CONNECTION_CLOSE = "close";
 
-  public static final String SUFFLE_SSL_FILE_BUFFER_SIZE_KEY =
+  public static final String SHUFFLE_SSL_FILE_BUFFER_SIZE_KEY =
     "llap.shuffle.ssl.file.buffer.size";
 
-  public static final int DEFAULT_SUFFLE_SSL_FILE_BUFFER_SIZE = 60 * 1024;
+  public static final int DEFAULT_SHUFFLE_SSL_FILE_BUFFER_SIZE = 60 * 1024;
 
   public static final String MAX_SHUFFLE_CONNECTIONS = "llap.shuffle.max.connections";
   public static final int DEFAULT_MAX_SHUFFLE_CONNECTIONS = 0; // 0 implies no limit
@@ -299,8 +299,8 @@ public class ShuffleHandler implements AttemptRegistrationListener {
         Executors.newCachedThreadPool(workerFactory),
         maxShuffleThreads);
 
-    sslFileBufferSize = conf.getInt(SUFFLE_SSL_FILE_BUFFER_SIZE_KEY,
-        DEFAULT_SUFFLE_SSL_FILE_BUFFER_SIZE);
+    sslFileBufferSize = conf.getInt(SHUFFLE_SSL_FILE_BUFFER_SIZE_KEY,
+        DEFAULT_SHUFFLE_SSL_FILE_BUFFER_SIZE);
     connectionKeepAliveEnabled =
         conf.getBoolean(SHUFFLE_CONNECTION_KEEP_ALIVE_ENABLED,
             DEFAULT_SHUFFLE_CONNECTION_KEEP_ALIVE_ENABLED);
