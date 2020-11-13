@@ -34,7 +34,7 @@ public final class ColumnsStatsUtils {
   private ColumnsStatsUtils(){}
 
   /**
-   * Convertes to DateColumnStatsDataInspector if it's a DateColumnStatsData.
+   * Converts to DateColumnStatsDataInspector if it's a DateColumnStatsData.
    * @param cso ColumnStatisticsObj
    * @return DateColumnStatsDataInspector
    */
@@ -50,7 +50,7 @@ public final class ColumnsStatsUtils {
   }
 
   /**
-   * Convertes to TimestampColumnStatsDataInspector if it's a TimestampColumnStatsData.
+   * Converts to TimestampColumnStatsDataInspector if it's a TimestampColumnStatsData.
    * @param cso ColumnStatisticsObj
    * @return TimestampColumnStatsDataInspector
    */
@@ -66,7 +66,7 @@ public final class ColumnsStatsUtils {
   }
 
   /**
-   * Convertes to StringColumnStatsDataInspector
+   * Converts to StringColumnStatsDataInspector
    * if it's a StringColumnStatsData.
    * @param cso ColumnStatisticsObj
    * @return StringColumnStatsDataInspector
@@ -83,7 +83,7 @@ public final class ColumnsStatsUtils {
   }
 
   /**
-   * Convertes to LongColumnStatsDataInspector if it's a LongColumnStatsData.
+   * Converts to LongColumnStatsDataInspector if it's a LongColumnStatsData.
    * @param cso ColumnStatisticsObj
    * @return LongColumnStatsDataInspector
    */
@@ -99,7 +99,7 @@ public final class ColumnsStatsUtils {
   }
 
   /**
-   * Convertes to DoubleColumnStatsDataInspector
+   * Converts to DoubleColumnStatsDataInspector
    * if it's a DoubleColumnStatsData.
    * @param cso ColumnStatisticsObj
    * @return DoubleColumnStatsDataInspector
@@ -116,7 +116,7 @@ public final class ColumnsStatsUtils {
   }
 
   /**
-   * Convertes to DecimalColumnStatsDataInspector
+   * Converts to DecimalColumnStatsDataInspector
    * if it's a DecimalColumnStatsData.
    * @param cso ColumnStatisticsObj
    * @return DecimalColumnStatsDataInspector
