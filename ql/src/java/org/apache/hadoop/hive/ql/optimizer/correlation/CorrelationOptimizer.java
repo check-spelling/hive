@@ -324,7 +324,7 @@ public class CorrelationOptimizer extends Transform {
     /**
      * This method is used to recursively traverse the tree to find
      * ReduceSinkOperators which share the same key columns and partitioning
-     * columns. Those ReduceSinkOperators are called correlated ReduceSinkOperaotrs.
+     * columns. Those ReduceSinkOperators are called correlated ReduceSinkOperators.
      *
      * @param child The child of the current operator
      * @param childKeyCols The key columns from the child operator
@@ -421,8 +421,8 @@ public class CorrelationOptimizer extends Transform {
               break;
             }
           }
-          // If current is JoinOperaotr, we will stop to traverse the tree
-          // when any of parent ReduceSinkOperaotr of this JoinOperator is
+          // If current is JoinOperator, we will stop to traverse the tree
+          // when any of parent ReduceSinkOperator of this JoinOperator is
           // not considered as a correlated ReduceSinkOperator.
           if (isCorrelated && correlatedRsops != null) {
             correlatedReduceSinkOperators.addAll(correlatedRsops);

@@ -361,8 +361,8 @@ public final class CorrelationUtilities {
       if (parent instanceof ReduceSinkOperator) {
         siblingRSs.add((ReduceSinkOperator)parent);
       } else {
-        throw new SemanticException("An sibling of a ReduceSinkOperatpr is not a" +
-            "ReduceSinkOperatpr.");
+        throw new SemanticException("An sibling of a ReduceSinkOperator is not a" +
+            "ReduceSinkOperator.");
       }
     }
     return siblingRSs;

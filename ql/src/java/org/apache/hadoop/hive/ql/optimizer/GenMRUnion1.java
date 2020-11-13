@@ -126,7 +126,7 @@ public class GenMRUnion1 implements SemanticNodeProcessor {
     Context baseCtx = parseCtx.getContext();
     Path taskTmpDir = baseCtx.getMRTmpPath();
 
-    // Create the temporary file, its corresponding FileSinkOperaotr, and
+    // Create the temporary file, its corresponding FileSinkOperator, and
     // its corresponding TableScanOperator.
     TableScanOperator tableScanOp =
         GenMapRedUtils.createTemporaryFile(parent, child, taskTmpDir, tt_desc, parseCtx);

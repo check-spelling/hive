@@ -476,7 +476,7 @@ public final class HiveFileFormatUtils {
   }
 
   /**
-   * Get the list of aliases from the opeerator tree that are needed for the path
+   * Get the list of aliases from the operator tree that are needed for the path
    * @param pathToAliases  mapping from path to aliases
    * @param dir            The path to look for
    **/
