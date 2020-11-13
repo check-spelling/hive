@@ -774,7 +774,7 @@ public class MergeSemanticAnalyzer extends RewriteSemanticAnalyzer {
      * Now generate the predicate for Where clause.
      */
     private String getPredicate() {
-      //normilize table name for mapping
+      //normalize table name for mapping
       List<String> targetCols = table2column.get(targetTableNameInSourceQuery.toLowerCase());
       if (targetCols == null) {
         /*e.g. ON source.t=1
