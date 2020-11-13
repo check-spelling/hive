@@ -72,7 +72,7 @@ usage: $0 <parameters>
      --kerberos-principal=PRINCIPAL
                                  Kerberos Principal for metastore server to use
      --kerberos-realm=REALM      Kerberos Principal autocalculated as hcat/_HOST@REALM
-                                 (used only if --kerneros-principal is not specified)
+                                 (used only if --kerberos-principal is not specified)
 
   "
   exit 1
