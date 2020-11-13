@@ -195,7 +195,7 @@ import com.google.common.annotations.VisibleForTesting;
  *
  * The exception to his is Derby which doesn't support proper S4U.  Derby is always running embedded
  * (this is the only supported configuration for Derby)
- * in the same JVM as HiveMetaStoreHandler thus we use JVM wide lock to properly sequnce the operations.
+ * in the same JVM as HiveMetaStoreHandler thus we use JVM wide lock to properly sequence the operations.
  *
  * {@link #derbyLock}
 
