@@ -2159,7 +2159,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
         // Project-A' (replace corvar to input ref from the Join)
         //   Join (replace corvar to input ref from LeftInputRel)
         //     LeftInputRel
-        //     RightInputRel(oreviously FilterInputRel)
+        //     RightInputRel(previously FilterInputRel)
 
         // Change the filter condition into a join condition
         joinCond =
