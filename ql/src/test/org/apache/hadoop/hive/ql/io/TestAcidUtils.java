@@ -539,7 +539,7 @@ public class TestAcidUtils {
   }
 
   @Test
-  public void testMinorCompactedDeltaMakesInBetweenDelteDeltaObsolete() throws Exception {
+  public void testMinorCompactedDeltaMakesInBetweenDeleteDeltaObsolete() throws Exception {
     // This test checks that if we have a minor compacted delta for the txn range [40,60]
     // then it will make any delete delta in that range as obsolete.
     Configuration conf = new Configuration();
