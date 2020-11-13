@@ -282,7 +282,7 @@ public class TestParseDriver {
   }
 
   @Test
-  public void testJoinResulInBraces() throws Exception {
+  public void testJoinResultInBraces() throws Exception {
     String q =
         "explain select a.key, b.value from"
             + "( (select key from src)a join (select value from src)b on a.key=b.value)";
