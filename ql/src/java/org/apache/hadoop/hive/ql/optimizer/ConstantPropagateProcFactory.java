@@ -981,7 +981,7 @@ public final class ConstantPropagateProcFactory {
             ObjectInspectorUtils.copyToStandardJavaObject(o, coi));
       } else if (!PrimitiveObjectInspectorUtils.isPrimitiveJavaClass(clz)) {
         if (LOG.isErrorEnabled()) {
-          LOG.error("Unable to evaluate {}({}). Return value unrecoginizable.",
+          LOG.error("Unable to evaluate {}({}). Return value unrecognizable.",
               udf.getClass().getName(), exprs);
         }
         return null;
