@@ -58,7 +58,7 @@ pig -p INPDIR=:INPDIR: -p OUTDIR=:OUTDIR: no_such_file.pig
 
 #9
 #i haven't been able to get this test working, it complains of not being able to find PyException class
-# would reccomend taking daniel's help to get it working
+# would recommend taking daniel's help to get it working
 - add udfs.py to files to be copied
 pig  -p INPDIR=:INPDIR: -p OUTDIR=:OUTDIR: pythonudf.pig
 
