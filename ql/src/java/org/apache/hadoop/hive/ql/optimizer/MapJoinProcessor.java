@@ -737,7 +737,7 @@ public class MapJoinProcessor extends Transform {
     }
 
     boolean seenOuterJoin = false;
-    Set<Integer> seenPostitions = new HashSet<Integer>();
+    Set<Integer> seenPositions = new HashSet<Integer>();
     Set<Integer> leftPosListOfLastRightOuterJoin = new HashSet<Integer>();
 
     // is the outer join that we saw most recently is a right outer join?
@@ -748,8 +748,8 @@ public class MapJoinProcessor extends Transform {
         return new HashSet<Integer>();
       }
 
-      seenPostitions.add(cond.getLeft());
-      seenPostitions.add(cond.getRight());
+      seenPositions.add(cond.getLeft());
+      seenPositions.add(cond.getRight());
 
       if (joinType == JoinDesc.LEFT_OUTER_JOIN
           || joinType == JoinDesc.LEFT_SEMI_JOIN
@@ -765,7 +765,7 @@ public class MapJoinProcessor extends Transform {
         lastSeenRightOuterJoin = true;
         // add all except the right side to the bad positions
         leftPosListOfLastRightOuterJoin.clear();
-        leftPosListOfLastRightOuterJoin.addAll(seenPostitions);
+        leftPosListOfLastRightOuterJoin.addAll(seenPositions);
         leftPosListOfLastRightOuterJoin.remove(cond.getRight());
 
         bigTableCandidates.clear();
