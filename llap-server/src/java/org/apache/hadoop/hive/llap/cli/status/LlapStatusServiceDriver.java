@@ -92,7 +92,7 @@ public class LlapStatusServiceDriver {
       CONF_PREFIX + "ipc.client.connect.retry-interval-ms";
   private static final long CONFIG_IPC_CLIENT_CONNECT_RETRY_INTERVAL_MS_DEFAULT = 1500L;
 
-  // As of Hadoop 2.8 - this timeout spec behaves in a strnage manner. "2000,1" means 2000s with 1 retry.
+  // As of Hadoop 2.8 - this timeout spec behaves in a strange manner. "2000,1" means 2000s with 1 retry.
   // However it does this - but does it thrice. Essentially - #retries+2 is the number of times the entire config
   // is retried. "2000,1" means 3 retries - each with 1 retry with a random 2000ms sleep.
   private static final String CONFIG_TIMELINE_SERVICE_ENTITYGROUP_FS_STORE_RETRY_POLICY_SPEC =
