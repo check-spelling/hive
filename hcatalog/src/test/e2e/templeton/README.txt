@@ -71,7 +71,7 @@ https://cwiki.apache.org/confluence/display/PIG/HowToTest
 
 Setup
 -----
-1. Templeton needs to be installed and setup to be able to run hcat, maprduce, hive and pig commands. 
+1. Templeton needs to be installed and setup to be able to run hcat, mapreduce, hive and pig commands. 
 
 2. Install perl and following perl modules  (cpan -i <MODULE_NAME>)
 * IPC::Run
