@@ -210,20 +210,20 @@ public abstract class TestHiveMetaStore {
       FileSystem fs = FileSystem.get(dbPath.toUri(), conf);
 
       client.dropType(typeName);
-      Type typ1 = new Type();
-      typ1.setName(typeName);
-      typ1.setFields(new ArrayList<>(2));
-      typ1.getFields().add(
+      Type type1 = new Type();
+      type1.setName(typeName);
+      type1.setFields(new ArrayList<>(2));
+      type1.getFields().add(
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-      client.createType(typ1);
+      client.createType(type1);
 
       List<String> skewedColValue = Collections.singletonList("1");
       Table tbl = new TableBuilder()
           .setDbName(dbName)
           .setTableName(tblName)
-          .setCols(typ1.getFields())
+          .setCols(type1.getFields())
           .setNumBuckets(1)
           .addBucketCol("name")
           .addTableParam("test_param_1", "Use this for comments etc")
@@ -1281,14 +1281,14 @@ public abstract class TestHiveMetaStore {
     try {
       client.dropType(ColumnType.INT_TYPE_NAME);
 
-      Type typ1 = new Type();
-      typ1.setName(ColumnType.INT_TYPE_NAME);
-      boolean ret = client.createType(typ1);
+      Type type1 = new Type();
+      type1.setName(ColumnType.INT_TYPE_NAME);
+      boolean ret = client.createType(type1);
       assertTrue("Unable to create type", ret);
 
-      Type typ1_2 = client.getType(ColumnType.INT_TYPE_NAME);
-      assertNotNull(typ1_2);
-      assertEquals(typ1.getName(), typ1_2.getName());
+      Type type1_2 = client.getType(ColumnType.INT_TYPE_NAME);
+      assertNotNull(type1_2);
+      assertEquals(type1.getName(), type1_2.getName());
 
       ret = client.dropType(ColumnType.INT_TYPE_NAME);
       assertTrue("unable to drop type integer", ret);
@@ -1313,22 +1313,22 @@ public abstract class TestHiveMetaStore {
     try {
       client.dropType("Person");
 
-      Type typ1 = new Type();
-      typ1.setName("Person");
-      typ1.setFields(new ArrayList<>(2));
-      typ1.getFields().add(
+      Type type1 = new Type();
+      type1.setName("Person");
+      type1.setFields(new ArrayList<>(2));
+      type1.getFields().add(
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-      boolean ret = client.createType(typ1);
+      boolean ret = client.createType(type1);
       assertTrue("Unable to create type", ret);
 
-      Type typ1_2 = client.getType("Person");
-      assertNotNull("type Person not found", typ1_2);
-      assertEquals(typ1.getName(), typ1_2.getName());
-      assertEquals(typ1.getFields().size(), typ1_2.getFields().size());
-      assertEquals(typ1.getFields().get(0), typ1_2.getFields().get(0));
-      assertEquals(typ1.getFields().get(1), typ1_2.getFields().get(1));
+      Type type1_2 = client.getType("Person");
+      assertNotNull("type Person not found", type1_2);
+      assertEquals(type1.getName(), type1_2.getName());
+      assertEquals(type1.getFields().size(), type1_2.getFields().size());
+      assertEquals(type1.getFields().get(0), type1_2.getFields().get(0));
+      assertEquals(type1.getFields().get(1), type1_2.getFields().get(1));
 
       client.dropType("Family");
 
@@ -1339,7 +1339,7 @@ public abstract class TestHiveMetaStore {
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
       fam.getFields().add(
           new FieldSchema("members",
-              ColumnType.getListType(typ1.getName()), ""));
+              ColumnType.getListType(type1.getName()), ""));
 
       ret = client.createType(fam);
       assertTrue("Unable to create type " + fam.getName(), ret);
@@ -1387,19 +1387,19 @@ public abstract class TestHiveMetaStore {
           .create(client, conf);
 
       client.dropType(typeName);
-      Type typ1 = new Type();
-      typ1.setName(typeName);
-      typ1.setFields(new ArrayList<>(2));
-      typ1.getFields().add(
+      Type type1 = new Type();
+      type1.setName(typeName);
+      type1.setFields(new ArrayList<>(2));
+      type1.getFields().add(
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-      client.createType(typ1);
+      client.createType(type1);
 
       Table tbl = new TableBuilder()
           .setDbName(dbName)
           .setTableName(tblName)
-          .setCols(typ1.getFields())
+          .setCols(type1.getFields())
           .setNumBuckets(1)
           .addBucketCol("name")
           .addStorageDescriptorParam("test_param_1", "Use this for comments etc")
@@ -1418,7 +1418,7 @@ public abstract class TestHiveMetaStore {
       Assert.assertTrue(tbl2.isSetId());
       assertEquals(tbl2.getDbName(), dbName);
       assertEquals(tbl2.getTableName(), tblName);
-      assertEquals(tbl2.getSd().getCols().size(), typ1.getFields().size());
+      assertEquals(tbl2.getSd().getCols().size(), type1.getFields().size());
       assertEquals(tbl2.getSd().isCompressed(), false);
       assertEquals(tbl2.getSd().getNumBuckets(), 1);
       assertEquals(tbl2.getSd().getLocation(), tbl.getSd().getLocation());
@@ -1459,7 +1459,7 @@ public abstract class TestHiveMetaStore {
       assertNotNull(tbl3);
       assertEquals(tbl3.getDbName(), dbName);
       assertEquals(tbl3.getTableName(), tblName2);
-      assertEquals(tbl3.getSd().getCols().size(), typ1.getFields().size());
+      assertEquals(tbl3.getSd().getCols().size(), type1.getFields().size());
       assertEquals(tbl3.getSd().isCompressed(), false);
       assertEquals(tbl3.getSd().getNumBuckets(), 1);
       assertEquals(tbl3.getSd().getLocation(), tbl2.getSd().getLocation());
@@ -1505,7 +1505,7 @@ public abstract class TestHiveMetaStore {
           assertEquals(t.getTableName(), tblName);
           assertEquals(t.getSd().getLocation(), tbl.getSd().getLocation());
         }
-        assertEquals(t.getSd().getCols().size(), typ1.getFields().size());
+        assertEquals(t.getSd().getCols().size(), type1.getFields().size());
         assertEquals(t.getSd().isCompressed(), false);
         assertEquals(foundTables.get(0).getSd().getNumBuckets(), 1);
         assertNotNull(t.getSd().getSerdeInfo());
@@ -2025,19 +2025,19 @@ public abstract class TestHiveMetaStore {
           .create(client, conf);
 
       client.dropType(typeName);
-      Type typ1 = new Type();
-      typ1.setName(typeName);
-      typ1.setFields(new ArrayList<>(2));
-      typ1.getFields().add(
+      Type type1 = new Type();
+      type1.setName(typeName);
+      type1.setFields(new ArrayList<>(2));
+      type1.getFields().add(
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-      client.createType(typ1);
+      client.createType(type1);
 
       Table tbl = new TableBuilder()
           .setDbName(dbName)
           .setTableName(tblName)
-          .setCols(typ1.getFields())
+          .setCols(type1.getFields())
           .addPartCol("ds", ColumnType.DATE_TYPE_NAME)
           .addPartCol("hr", ColumnType.INT_TYPE_NAME)
           .setNumBuckets(1)
@@ -2048,7 +2048,7 @@ public abstract class TestHiveMetaStore {
       Table tbl2 = client.getTable(dbName, tblName);
       assertEquals(tbl2.getDbName(), dbName);
       assertEquals(tbl2.getTableName(), tblName);
-      assertEquals(tbl2.getSd().getCols().size(), typ1.getFields().size());
+      assertEquals(tbl2.getSd().getCols().size(), type1.getFields().size());
       assertFalse(tbl2.getSd().isCompressed());
       assertFalse(tbl2.getSd().isStoredAsSubDirectories());
       assertEquals(tbl2.getSd().getNumBuckets(), 1);
@@ -2949,15 +2949,15 @@ public abstract class TestHiveMetaStore {
   }
 
   private Type createType(String typeName, Map<String, String> fields) throws Throwable {
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(fields.size()));
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(fields.size()));
     for(String fieldName : fields.keySet()) {
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema(fieldName, fields.get(fieldName), ""));
     }
-    client.createType(typ1);
-    return typ1;
+    client.createType(type1);
+    return type1;
   }
 
   /**
