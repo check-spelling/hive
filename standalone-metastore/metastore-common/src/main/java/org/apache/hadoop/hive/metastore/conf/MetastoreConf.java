@@ -70,7 +70,7 @@ public class MetastoreConf {
   static final String HIVE_ALTER_HANDLE_CLASS =
       "org.apache.hadoop.hive.metastore.HiveAlterHandler";
   @VisibleForTesting
-  static final String MATERIALZIATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS =
+  static final String MATERIALIZATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS =
       "org.apache.hadoop.hive.metastore.MaterializationsRebuildLockCleanerTask";
   @VisibleForTesting
   static final String METASTORE_TASK_THREAD_CLASS =
@@ -1144,7 +1144,7 @@ public class MetastoreConf {
         ACID_HOUSE_KEEPER_SERVICE_CLASS + "," +
             ACID_TXN_CLEANER_SERVICE_CLASS + "," +
             ACID_OPEN_TXNS_COUNTER_SERVICE_CLASS + "," +
-            MATERIALZIATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS + "," +
+            MATERIALIZATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS + "," +
             PARTITION_MANAGEMENT_TASK_CLASS,
         "Comma-separated list of tasks that will be started in separate threads.  These will be" +
             " started only when the metastore is running as a separate service.  They must " +

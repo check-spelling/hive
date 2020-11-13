@@ -484,7 +484,7 @@ public class TestMetastoreConf {
         DefaultStorageSchemaReader.class.getName());
     Assert.assertEquals(MetastoreConf.HIVE_ALTER_HANDLE_CLASS,
         HiveAlterHandler.class.getName());
-    Assert.assertEquals(MetastoreConf.MATERIALZIATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS,
+    Assert.assertEquals(MetastoreConf.MATERIALIZATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS,
         MaterializationsRebuildLockCleanerTask.class.getName());
     Assert.assertEquals(MetastoreConf.METASTORE_TASK_THREAD_CLASS,
         MetastoreTaskThread.class.getName());
