@@ -147,7 +147,7 @@ public final class LocalMapJoinProcFactory {
       int bigTable = mapJoinDesc.getPosBigTable();
 
       // todo: support tez/vectorization
-      boolean useNontaged = conf.getBoolVar(
+      boolean useNonStaged = conf.getBoolVar(
           HiveConf.ConfVars.HIVECONVERTJOINUSENONSTAGED) &&
           conf.getVar(HiveConf.ConfVars.HIVE_EXECUTION_ENGINE).equals("mr") &&
           !conf.getBoolVar(HiveConf.ConfVars.HIVE_VECTORIZATION_ENABLED);
@@ -168,7 +168,7 @@ public final class LocalMapJoinProcFactory {
           continue;
         }
         Operator<? extends OperatorDesc> parent = parentsOp.get(i);
-        boolean directFetchable = useNontaged &&
+        boolean directFetchable = useNonStaged &&
             (parent instanceof TableScanOperator || parent instanceof MapJoinOperator);
         if (directFetchable) {
           // no filter, no projection. no need to stage
