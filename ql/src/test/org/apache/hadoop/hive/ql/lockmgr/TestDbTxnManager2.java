@@ -880,7 +880,7 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
   }
 
   /**
-   * SessionState is stored in ThreadLoacal; UnitTest runs in a single thread (otherwise Derby wedges)
+   * SessionState is stored in ThreadLocal; UnitTest runs in a single thread (otherwise Derby wedges)
    * {@link HiveTxnManager} instances are per SessionState.
    * So to be able to simulate concurrent locks/transactions s/o forking threads we just swap
    * the TxnManager instance in the session (hacky but nothing is actually threading so it allows us

@@ -1239,7 +1239,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17620] - Use the default MR scratch directory (HDFS) in the only case when hive.blobstore.optimizations.enabled=true AND isFinalJob=true
     * [HIVE-17621] - Hive-site settings are ignored during HCatInputFormat split-calculation
     * [HIVE-17623] - Fix Select query Fix Double column serde and some refactoring
-    * [HIVE-17624] - MapredLocakTask running in separate JVM could throw ClassNotFoundException 
+    * [HIVE-17624] - MapredLocalTask running in separate JVM could throw ClassNotFoundException 
     * [HIVE-17625] - Replication: update hive.repl.partitions.dump.parallelism to 100
     * [HIVE-17627] - Use druid scan query instead of the select query.
     * [HIVE-17628] - always use fully qualified path for tables/partitions/etc.
