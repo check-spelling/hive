@@ -163,7 +163,7 @@ Release Notes - Hive - Version 3.1.0
     * [HIVE-19697] - TestReOptimization#testStatCachingMetaStore is flaky
     * [HIVE-19698] - TestAMReporter#testMultipleAM is flaky
     * [HIVE-19700] - Workaround for JLine issue with UnsupportedTerminal
-    * [HIVE-19713] - itests/hive-jmh should not reference a concreate storage-api version
+    * [HIVE-19713] - itests/hive-jmh should not reference a concrete storage-api version
     * [HIVE-19723] - Arrow serde: "Unsupported data type: Timestamp(NANOSECOND, null)"
     * [HIVE-19726] - ORC date PPD is broken
     * [HIVE-19728] - beeline with USE_BEELINE_FOR_HIVE_CLI fails when trying to set hive.aux.jars.path
