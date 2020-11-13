@@ -98,7 +98,7 @@ public class TestUDFSplitMapPrivs extends TestCase {
 
   }
 
-  @Test public void binaryStringMapingShouldFail() throws HiveException {
+  @Test public void binaryStringMappingShouldFail() throws HiveException {
 
     ObjectInspector valueOI0 = PrimitiveObjectInspectorFactory.writableStringObjectInspector;
     ObjectInspector[] initArgs = {valueOI0};
