@@ -257,7 +257,7 @@ public class TestSchemaToolForMetastore {
    * initOrUpgrade takes init path
    */
   @Test
-  public void testSchemaInitOrUgrade1() throws Exception {
+  public void testSchemaInitOrUpgrade1() throws Exception {
     execute(new SchemaToolTaskInit(), "-initOrUpgradeSchema");
     schemaTool.verifySchemaVersion();
   }
@@ -266,7 +266,7 @@ public class TestSchemaToolForMetastore {
    * initOrUpgrade takes upgrade path
    */
   @Test
-  public void testSchemaInitOrUgrade2() throws Exception {
+  public void testSchemaInitOrUpgrade2() throws Exception {
     execute(new SchemaToolTaskInit(), "-initSchemaTo 1.2.0");
 
     schemaTool.setDryRun(true);
