@@ -470,7 +470,7 @@ public class HiveSubQueryRemoveRule extends RelOptRule {
         if (!variablesSet.isEmpty() && (e.getKind() == SqlKind.EXISTS
             || e.getKind() == SqlKind.IN)) {
           // avoid adding group by for correlated IN/EXISTS queries
-          // since this is rewritting into semijoin
+          // since this is rewriting into semijoin
           break;
         } else {
           builder.aggregate(builder.groupKey(0));
@@ -479,7 +479,7 @@ public class HiveSubQueryRemoveRule extends RelOptRule {
         if (!variablesSet.isEmpty() && (e.getKind() == SqlKind.EXISTS
             || e.getKind() == SqlKind.IN)) {
           // avoid adding group by for correlated IN/EXISTS queries
-          // since this is rewritting into semijoin
+          // since this is rewriting into semijoin
           break;
         } else {
           builder.aggregate(builder.groupKey(fields));
