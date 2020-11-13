@@ -150,7 +150,7 @@ final class CreateTableHook extends HCatSemanticAnalyzerBase {
     CreateTableDesc desc = (CreateTableDesc)d;
     Map<String, String> tblProps = desc.getTblProps();
     if (tblProps == null) {
-      // tblProps will be null if user didnt use tblprops in his CREATE
+      // tblProps will be null if user didn't use tblprops in his CREATE
       // TABLE cmd.
       tblProps = new HashMap<String, String>();
 

@@ -1426,7 +1426,7 @@ public class TestStreaming {
       response = msClient.showLocks(request);
       Assert.assertEquals("Wrong number of locks2: " + response, 1, response.getLocks().size());
       lock = response.getLocks().get(0);
-      Assert.assertEquals("Acquired timestamp didn'table match", acquiredAt, lock.getAcquiredat());
+      Assert.assertEquals("Acquired timestamp didn't match", acquiredAt, lock.getAcquiredat());
       Assert.assertTrue("Expected new heartbeat (" + lock.getLastheartbeat() +
         ") == old heartbeat(" + heartbeatAt + ")", lock.getLastheartbeat() == heartbeatAt);
       for (int i = 0; i < transactionBatch * 3; i++) {
@@ -2903,7 +2903,7 @@ public class TestStreaming {
     connection.close();
     Exception expectedEx = null;
     GetOpenTxnsInfoResponse r = msClient.showTxns();
-    Assert.assertEquals("HWM didn'table match", 17, r.getTxn_high_water_mark());
+    Assert.assertEquals("HWM didn't match", 17, r.getTxn_high_water_mark());
     List<TxnInfo> ti = r.getOpen_txns();
     Assert.assertEquals("wrong status ti(0)",
         org.apache.hadoop.hive.metastore.api.TxnState.ABORTED,
@@ -3026,7 +3026,7 @@ public class TestStreaming {
       expectedEx != null && expectedEx.getMessage().contains("Simulated fault occurred"));
 
     r = msClient.showTxns();
-    Assert.assertEquals("HWM didn'table match", 21, r.getTxn_high_water_mark());
+    Assert.assertEquals("HWM didn't match", 21, r.getTxn_high_water_mark());
     ti = r.getOpen_txns();
     Assert.assertEquals("wrong status ti(3)",
         org.apache.hadoop.hive.metastore.api.TxnState.ABORTED,
