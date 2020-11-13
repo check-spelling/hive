@@ -593,7 +593,7 @@ import com.google.common.annotations.VisibleForTesting;
   }
 
   // Set of GenericUDFs which require need implicit type casting of decimal parameters.
-  // Vectorization for mathmatical functions currently depends on decimal params automatically
+  // Vectorization for mathematical functions currently depends on decimal params automatically
   // being converted to the return type (see getImplicitCastExpression()), which is not correct
   // in the general case. This set restricts automatic type conversion to just these functions.
   private static final Set<Class<?>> udfsNeedingImplicitDecimalCast = new HashSet<>();
