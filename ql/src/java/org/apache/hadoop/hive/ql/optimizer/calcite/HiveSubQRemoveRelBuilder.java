@@ -397,7 +397,7 @@ public class HiveSubQRemoveRelBuilder {
       aliases.add(pair.left);
       offset += pair.right.getFieldCount();
     }
-    throw new IllegalArgumentException("no relation wtih alias '" + alias
+    throw new IllegalArgumentException("no relation with alias '" + alias
         + "'; aliases are: " + aliases);
   }
 

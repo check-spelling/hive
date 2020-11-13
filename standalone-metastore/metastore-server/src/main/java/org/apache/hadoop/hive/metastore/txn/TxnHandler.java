@@ -2670,7 +2670,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
    * This enters locks into the queue in {@link #LOCK_WAITING} mode.
    *
    * Isolation Level Notes:
-   * 1. We use S4U (withe read_committed) to generate the next (ext) lock id.  This serializes
+   * 1. We use S4U (with read_committed) to generate the next (ext) lock id.  This serializes
    * any 2 {@code enqueueLockWithRetry()} calls.
    * 2. We use S4U on the relevant TXNS row to block any concurrent abort/commit/etc operations
    * @see #checkLockWithRetry(Connection, long, long, boolean)
