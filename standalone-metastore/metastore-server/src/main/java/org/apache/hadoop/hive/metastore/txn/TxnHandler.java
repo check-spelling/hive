@@ -5575,7 +5575,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
       this.rs = rs;
       this.derbySemaphore = derbySemaphore;
       if(derbySemaphore != null) {
-        //oterwise it may later release permit acquired by someone else
+        //otherwise it may later release permit acquired by someone else
         assert derbySemaphore.availablePermits() == 0 : "Expected locked Semaphore";
       }
       keys.add(key);
