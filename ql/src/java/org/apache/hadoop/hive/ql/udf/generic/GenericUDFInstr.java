@@ -31,7 +31,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 
 /**
- * Generic UDF for string function <code>INSTR(str,substr)</code>. This mimcs
+ * Generic UDF for string function <code>INSTR(str,substr)</code>. This mimics
  * the function from MySQL
  * http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_instr
  *
