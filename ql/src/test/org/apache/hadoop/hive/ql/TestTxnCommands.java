@@ -1212,7 +1212,7 @@ public class TestTxnCommands extends TxnCommandsBaseForTests {
     long start = System.currentTimeMillis();
     runStatementOnDriver("alter table "+ TestTxnCommands2.Table.ACIDTBL +" compact 'major' AND WAIT");
     //no Worker so it stays in initiated state
-    //w/o AND WAIT the above alter table retunrs almost immediately, so the test here to check that
+    //w/o AND WAIT the above alter table returns almost immediately, so the test here to check that
     //> 2 seconds pass, i.e. that the command in Driver actually blocks before cancel is fired
     Assert.assertTrue(System.currentTimeMillis() > start + 2);
   }
