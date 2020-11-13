@@ -80,7 +80,7 @@ public class JoinUtil {
       // Would get converted to the following for a vectorized input:
       //   { 'key.reducesinkkey0':int, 'value._col0':int, 'value._col1':int, .. }
       // The ExprNodeEvaluator initialization below gets broken with the flattened
-      // object inpsectors, so convert it back to the a form that contains the
+      // object inspectors, so convert it back to the a form that contains the
       // nested key/value structs.
       inputOI = unflattenObjInspector(inputOI);
 
