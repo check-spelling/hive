@@ -705,7 +705,7 @@ import static org.apache.hadoop.hive.druid.DruidStorageHandlerUtils.JSON_MAPPER;
       final Path segmentDescriptorDir = getSegmentDescriptorDir();
       final List<DataSegment> segmentsToLoad = fetchSegmentsMetadata(segmentDescriptorDir);
       final String dataSourceName = table.getParameters().get(Constants.DRUID_DATA_SOURCE);
-      //No segments to load still need to honer overwrite
+      //No segments to load still need to honor overwrite
       if (segmentsToLoad.isEmpty() && overwrite) {
         //disable datasource
         //Case it is an insert overwrite we have to disable the existing Druid DataSource
