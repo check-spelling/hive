@@ -56,7 +56,7 @@ public class CreateWMPoolAnalyzer extends BaseSemanticAnalyzer {
     for (int i = 2; i < root.getChildCount(); ++i) {
       Tree child = root.getChild(i);
       if (child.getChildCount() != 1) {
-        throw new SemanticException("Expected 1 paramter for: " + child.getText());
+        throw new SemanticException("Expected 1 parameter for: " + child.getText());
       }
 
       String param = child.getChild(0).getText();

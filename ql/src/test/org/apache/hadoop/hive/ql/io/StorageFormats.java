@@ -65,7 +65,7 @@ public class StorageFormats {
   };
 
   /**
-   * Create an array of Objects used to populate the test paramters.
+   * Create an array of Objects used to populate the test parameters.
    *
    * @param name Name of the storage format.
    * @param serdeClass Name of the SerDe class.
@@ -85,7 +85,7 @@ public class StorageFormats {
   }
 
   /**
-   * Generates a collection of parameters that can be used as paramters for a JUnit test fixture.
+   * Generates a collection of parameters that can be used as parameters for a JUnit test fixture.
    * Each parameter represents one storage format that the fixture will run against. The list
    * includes both native Hive storage formats as well as those enumerated in the
    * ADDITIONAL_STORAGE_FORMATS table.

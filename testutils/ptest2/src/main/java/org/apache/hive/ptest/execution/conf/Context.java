@@ -43,9 +43,9 @@ public class Context {
   public Context() {
     parameters = Collections.synchronizedMap(new HashMap<String, String>());
   }
-  public Context(Map<String, String> paramters) {
+  public Context(Map<String, String> parameters) {
     this();
-    this.putAll(paramters);
+    this.putAll(parameters);
   }
 
   /**

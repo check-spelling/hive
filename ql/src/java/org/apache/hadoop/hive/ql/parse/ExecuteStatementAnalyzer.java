@@ -112,7 +112,7 @@ public class ExecuteStatementAnalyzer extends SemanticAnalyzer{
   private ExprNodeConstantDesc getConstant(ExprDynamicParamDesc dynamicExpr, TypeInfo typeInfo,
       Map<Integer, ASTNode> parameterMap) throws SemanticException {
     Preconditions.checkArgument(parameterMap.containsKey(dynamicExpr.getIndex()),
-        "Paramter index not found");
+        "Parameter index not found");
 
     ASTNode paramNode = parameterMap.get(dynamicExpr.getIndex());
 

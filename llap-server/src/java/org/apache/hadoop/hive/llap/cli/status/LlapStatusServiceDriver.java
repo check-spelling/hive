@@ -140,7 +140,7 @@ public class LlapStatusServiceDriver {
 
     // Setup timeouts for various services.
 
-    // Once we move to a Hadoop-2.8 dependency, the following paramteer can be used.
+    // Once we move to a Hadoop-2.8 dependency, the following parameter can be used.
     // conf.set(YarnConfiguration.TIMELINE_SERVICE_ENTITYGROUP_FS_STORE_RETRY_POLICY_SPEC);
     conf.set("yarn.timeline-service.entity-group-fs-store.retry-policy-spec",
         conf.get(CONFIG_TIMELINE_SERVICE_ENTITYGROUP_FS_STORE_RETRY_POLICY_SPEC,
