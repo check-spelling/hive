@@ -55,7 +55,7 @@ master_base_path = None
 host_base_path = None
 runtest_dir = os.getcwd()
 
-# End of user configurated things.
+# End of user configured things.
 
 ant_path = None
 arc_path = None
