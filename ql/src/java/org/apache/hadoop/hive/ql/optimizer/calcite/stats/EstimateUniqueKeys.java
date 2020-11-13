@@ -76,7 +76,7 @@ public final class EstimateUniqueKeys {
   }
 
 
-  //Infer Uniquenes if: - rowCount(col) = ndv(col) - TBD for numerics: max(col)
+  //Infer Uniqueness if: - rowCount(col) = ndv(col) - TBD for numerics: max(col)
   // - min(col) = rowCount(col)
   private static Set<ImmutableBitSet> generateKeysUsingStatsEstimation(Project rel,
                                                                        HiveTableScan tScan) {
