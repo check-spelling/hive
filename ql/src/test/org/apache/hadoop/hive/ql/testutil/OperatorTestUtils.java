@@ -76,7 +76,7 @@ public class OperatorTestUtils {
       Assert.assertEquals("Source and destination have differing numbers of fields ", expectedFields.size(), destinationFields.size());
       for (StructField field : expectedFields){
         StructField dest = expectedOi.getStructFieldRef(field.getFieldName());
-        Assert.assertNotNull("Cound not find column named "+field.getFieldName(), dest);
+        Assert.assertNotNull("Could not find column named "+field.getFieldName(), dest);
         Assert.assertEquals(field.getFieldObjectInspector(), dest.getFieldObjectInspector());
         Assert.assertEquals("comparing " +
             expectedOi.getStructFieldData(expected[i].o, field)+" "+
