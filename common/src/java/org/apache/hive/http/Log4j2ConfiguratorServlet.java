@@ -66,28 +66,28 @@ import org.slf4j.LoggerFactory;
  * <li>
  *    Returns all loggers with levels in JSON format:
  *    <pre>
- *      curl http://hostame:port/conflog
+ *      curl http://hostname:port/conflog
  *    </pre>
  * </li>
  * <li>
  *    Set root logger to INFO:
  *    <pre>
  *      curl -v -H "Content-Type: application/json" -X POST -d '{ "loggers" : [ { "logger" : "", "level" : "INFO" } ] }'
- *      http://hostame:port/conflog
+ *      http://hostname:port/conflog
  *    </pre>
  * </li>
  * <li>
  *    Set logger with level:
  *    <pre>
  *      curl -v -H "Content-Type: application/json" -X POST -d '{ "loggers" : [
- *      { "logger" : "LlapIoOrc", "level" : "INFO" } ] }' http://hostame:port/conflog
+ *      { "logger" : "LlapIoOrc", "level" : "INFO" } ] }' http://hostname:port/conflog
  *    </pre>
  * </li>
  * <li>
  *    Set log level for all classes under a package:
  *    <pre>
  *      curl -v -H "Content-Type: application/json" -X POST -d '{ "loggers" : [
- *      { "logger" : "org.apache.orc", "level" : "INFO" } ] }' http://hostame:port/conflog
+ *      { "logger" : "org.apache.orc", "level" : "INFO" } ] }' http://hostname:port/conflog
  *    </pre>
  * </li>
  * <li>
@@ -96,7 +96,7 @@ import org.slf4j.LoggerFactory;
  *      curl -v -H "Content-Type: application/json" -X POST -d '{ "loggers" : [ { "logger" : "", "level" : "INFO" },
  *      { "logger" : "LlapIoOrc", "level" : "WARN" },
  *      { "logger" : "org.apache.hadoop.hive.llap.daemon.impl.LlapDaemon", "level" : "INFO" },
- *      { "logger" : "org.apache.orc", "level" : "INFO" } ] }' http://hostame:port/conflog
+ *      { "logger" : "org.apache.orc", "level" : "INFO" } ] }' http://hostname:port/conflog
  *    </pre>
  * </li>
  * </ul>
