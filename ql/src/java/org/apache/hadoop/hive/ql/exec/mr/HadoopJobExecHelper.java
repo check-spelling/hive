@@ -481,7 +481,7 @@ public class HadoopJobExecHelper {
 
   /**
    * This class contains the state of the running task Going forward, we will return this handle
-   * from execute and Driver can split execute into start, monitorProgess and postProcess.
+   * from execute and Driver can split execute into start, monitorProgress and postProcess.
    */
   private static class ExecDriverTaskHandle extends TaskHandle {
     JobClient jc;
