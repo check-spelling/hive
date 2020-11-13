@@ -172,7 +172,7 @@ public class TestJdbcWithMiniLlapVectorArrowBatch extends BaseJdbcWithMiniLlap {
 
     final String query = "select * from " + tableName;
 
-    // ORC properties (here orc.proleptic.gregorian.default) are not propogated to LLAP as of now
+    // ORC properties (here orc.proleptic.gregorian.default) are not propagated to LLAP as of now
     // and hence the expected output hybridMixedDateExpectedOutput otherwise it should be hybridMixedDateExpectedOutput ideally
     testDateQueries(query, "orc.proleptic.gregorian.default", hybridMixedDateExpectedOutput,
         hybridMixedDateExpectedOutput);
@@ -204,7 +204,7 @@ public class TestJdbcWithMiniLlapVectorArrowBatch extends BaseJdbcWithMiniLlap {
 
     final String query = "select * from " + tableName;
 
-    // ORC properties (here orc.proleptic.gregorian.default) are not propogated to LLAP as of now
+    // ORC properties (here orc.proleptic.gregorian.default) are not propagated to LLAP as of now
     testTimestampQueries(query, "orc.proleptic.gregorian.default", legacyTimestampExpectedOutput,
         legacyTimestampExpectedOutput);
   }
