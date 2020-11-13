@@ -148,14 +148,14 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
    * Int: 8 decimal digits.  An even number and 1/2 of MAX_LONGWORD_DECIMAL.
    */
   private static final int INTWORD_DECIMAL_DIGITS = 8;
-  private static final int MULTIPLER_INTWORD_DECIMAL = (int) powerOfTenTable[INTWORD_DECIMAL_DIGITS];
+  private static final int MULTIPLIER_INTWORD_DECIMAL = (int) powerOfTenTable[INTWORD_DECIMAL_DIGITS];
 
   /**
    * Long: 16 decimal digits.  An even number and twice MAX_INTWORD_DECIMAL.
    */
   private static final int LONGWORD_DECIMAL_DIGITS = 16;
   private static final long MAX_LONGWORD_DECIMAL = powerOfTenTable[LONGWORD_DECIMAL_DIGITS] - 1;
-  private static final long MULTIPLER_LONGWORD_DECIMAL = powerOfTenTable[LONGWORD_DECIMAL_DIGITS];
+  private static final long MULTIPLIER_LONGWORD_DECIMAL = powerOfTenTable[LONGWORD_DECIMAL_DIGITS];
 
   public static final int DECIMAL64_DECIMAL_DIGITS = 18;
   public static final long MAX_ABS_DECIMAL64 = 999999999999999999L;  // 18 9's -- quite reliable!
@@ -964,8 +964,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         longValue = Math.abs(longValue);
       }
       // Split into 16 digit middle and lowest longwords remainder / division.
-      fastResult.fast1 = longValue / MULTIPLER_LONGWORD_DECIMAL;
-      fastResult.fast0 = longValue % MULTIPLER_LONGWORD_DECIMAL;
+      fastResult.fast1 = longValue / MULTIPLIER_LONGWORD_DECIMAL;
+      fastResult.fast0 = longValue % MULTIPLIER_LONGWORD_DECIMAL;
       if (fastResult.fast1 != 0) {
         fastResult.fastIntegerDigitCount =
             LONGWORD_DECIMAL_DIGITS + fastLongWordPrecision(fastResult.fast1);
@@ -1412,9 +1412,9 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
      *
      */
     long result0 =
-        lowerWord % MULTIPLER_LONGWORD_DECIMAL;
+        lowerWord % MULTIPLIER_LONGWORD_DECIMAL;
     long result1 =
-        lowerWord / MULTIPLER_LONGWORD_DECIMAL;
+        lowerWord / MULTIPLIER_LONGWORD_DECIMAL;
     long result2 = 0;
 
     if (middleWord != 0 || highWord != 0) {
@@ -1424,8 +1424,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         // Form result from lower and middle words.
 
         if (!fastMultiply5x5HalfWords(
-            middleWord % MULTIPLER_LONGWORD_DECIMAL,
-            middleWord / MULTIPLER_LONGWORD_DECIMAL,
+            middleWord % MULTIPLIER_LONGWORD_DECIMAL,
+            middleWord / MULTIPLIER_LONGWORD_DECIMAL,
             0,
             middleWordMultiplier.fast0, middleWordMultiplier.fast1, middleWordMultiplier.fast2,
             fastResult)) {
@@ -1436,15 +1436,15 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             result0
           + fastResult.fast0;
         result0 =
-            calc0 % MULTIPLER_LONGWORD_DECIMAL;
+            calc0 % MULTIPLIER_LONGWORD_DECIMAL;
         final long calc1 =
-            calc0 / MULTIPLER_LONGWORD_DECIMAL
+            calc0 / MULTIPLIER_LONGWORD_DECIMAL
           + result1
           + fastResult.fast1;
         result1 =
-            calc1 % MULTIPLER_LONGWORD_DECIMAL;
+            calc1 % MULTIPLIER_LONGWORD_DECIMAL;
         result2 =
-            calc1 / MULTIPLER_LONGWORD_DECIMAL
+            calc1 / MULTIPLIER_LONGWORD_DECIMAL
           + fastResult.fast2;
 
       } else if (middleWord == 0) {
@@ -1452,8 +1452,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         // Form result from lower and high words.
 
         if (!fastMultiply5x5HalfWords(
-            highWord % MULTIPLER_LONGWORD_DECIMAL,
-            highWord / MULTIPLER_LONGWORD_DECIMAL,
+            highWord % MULTIPLIER_LONGWORD_DECIMAL,
+            highWord / MULTIPLIER_LONGWORD_DECIMAL,
             0,
             highWordMultiplier.fast0, highWordMultiplier.fast1, highWordMultiplier.fast2,
             fastResult)) {
@@ -1464,15 +1464,15 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             result0
           + fastResult.fast0;
         result0 =
-            calc0 % MULTIPLER_LONGWORD_DECIMAL;
+            calc0 % MULTIPLIER_LONGWORD_DECIMAL;
         final long calc1 =
-            calc0 / MULTIPLER_LONGWORD_DECIMAL
+            calc0 / MULTIPLIER_LONGWORD_DECIMAL
           + result1
           + fastResult.fast1;
         result1 =
-            calc1 % MULTIPLER_LONGWORD_DECIMAL;
+            calc1 % MULTIPLIER_LONGWORD_DECIMAL;
         result2 =
-            calc1 / MULTIPLER_LONGWORD_DECIMAL
+            calc1 / MULTIPLIER_LONGWORD_DECIMAL
           + fastResult.fast2;
 
       } else {
@@ -1480,8 +1480,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         // Form result from lower, middle, and middle words.
 
         if (!fastMultiply5x5HalfWords(
-            middleWord % MULTIPLER_LONGWORD_DECIMAL,
-            middleWord / MULTIPLER_LONGWORD_DECIMAL,
+            middleWord % MULTIPLIER_LONGWORD_DECIMAL,
+            middleWord / MULTIPLIER_LONGWORD_DECIMAL,
             0,
             middleWordMultiplier.fast0, middleWordMultiplier.fast1, middleWordMultiplier.fast2,
             fastResult)) {
@@ -1493,8 +1493,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         long middleResult2 = fastResult.fast2;
 
         if (!fastMultiply5x5HalfWords(
-            highWord % MULTIPLER_LONGWORD_DECIMAL,
-            highWord / MULTIPLER_LONGWORD_DECIMAL,
+            highWord % MULTIPLIER_LONGWORD_DECIMAL,
+            highWord / MULTIPLIER_LONGWORD_DECIMAL,
             0,
             highWordMultiplier.fast0, highWordMultiplier.fast1, highWordMultiplier.fast2,
             fastResult)) {
@@ -1506,16 +1506,16 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           + middleResult0
           + fastResult.fast0;
         result0 =
-            calc0 % MULTIPLER_LONGWORD_DECIMAL;
+            calc0 % MULTIPLIER_LONGWORD_DECIMAL;
         long calc1 =
-            calc0 / MULTIPLER_LONGWORD_DECIMAL
+            calc0 / MULTIPLIER_LONGWORD_DECIMAL
           + result1
           + middleResult1
           + fastResult.fast1;
         result1 =
-            calc1 % MULTIPLER_LONGWORD_DECIMAL;
+            calc1 % MULTIPLIER_LONGWORD_DECIMAL;
         result2 =
-            calc1 / MULTIPLER_LONGWORD_DECIMAL
+            calc1 / MULTIPLIER_LONGWORD_DECIMAL
           + middleResult2
           + fastResult.fast2;
       }
@@ -1639,7 +1639,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     }
 
     long remainderBinaryWord =
-        scratchLongs[1] * MULTIPLER_LONGWORD_DECIMAL
+        scratchLongs[1] * MULTIPLIER_LONGWORD_DECIMAL
       + scratchLongs[0];
 
     // Pack the output into the scratch longs.
@@ -1695,7 +1695,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       // Optimize: whole decimal fits in one binary word.
 
       lowerBinaryWord =
-          fast1 * MULTIPLER_LONGWORD_DECIMAL
+          fast1 * MULTIPLIER_LONGWORD_DECIMAL
         + fast0;
 
     } else {
@@ -1730,7 +1730,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         // Optimize: whole decimal fits in two binary words.
 
         middleBinaryWord =
-            quotientFast1 * MULTIPLER_LONGWORD_DECIMAL
+            quotientFast1 * MULTIPLIER_LONGWORD_DECIMAL
           + quotientFast0;
 
       } else {
@@ -1746,7 +1746,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
 
         highBinaryWord =
-            scratchLongs[1] * MULTIPLER_LONGWORD_DECIMAL
+            scratchLongs[1] * MULTIPLIER_LONGWORD_DECIMAL
           + scratchLongs[0];
 
         middleBinaryWord = scratchLongs[3];
@@ -2026,14 +2026,14 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long r0 = fast0 - 1;
       long r1;
       if (r0 < 0) {
-        adjust0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+        adjust0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
         r1 = fast1 - 1;
       } else {
         adjust0 = r0;
         r1 = fast1;
       }
       if (r1 < 0) {
-        adjust1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+        adjust1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
         adjust2 = fast2 - 1;
       } else {
         adjust1 = r1;
@@ -2046,30 +2046,30 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       // Now multiply by 2 and add 1 sign bit.
       r0 = adjust0 * 2 + 1;
       adjust0 =
-          r0 % MULTIPLER_LONGWORD_DECIMAL;
+          r0 % MULTIPLIER_LONGWORD_DECIMAL;
       r1 =
           adjust1 * 2
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
       adjust1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       adjust2 =
           adjust2 * 2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
 
     } else {
 
       // Multiply by 2 to make room for 0 sign bit.
       long r0 = fast0 * 2;
       adjust0 =
-          r0 % MULTIPLER_LONGWORD_DECIMAL;
+          r0 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r1 =
           fast1 * 2
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
       adjust1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       adjust2 =
           fast2 * 2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
 
     }
 
@@ -2179,8 +2179,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     }
 
     fastResult.fast2 = 0;
-    fastResult.fast1 = decimal64Long / MULTIPLER_LONGWORD_DECIMAL;
-    fastResult.fast0 = decimal64Long % MULTIPLER_LONGWORD_DECIMAL;
+    fastResult.fast1 = decimal64Long / MULTIPLIER_LONGWORD_DECIMAL;
+    fastResult.fast0 = decimal64Long % MULTIPLIER_LONGWORD_DECIMAL;
 
     fastResult.fastScale = trimScale;
 
@@ -2202,9 +2202,9 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     if (fastSignum == 0) {
       return 0;
     } else if (fastSignum == 1) {
-      return (fast1 * MULTIPLER_LONGWORD_DECIMAL + fast0) * powerOfTenTable[scale - fastScale];
+      return (fast1 * MULTIPLIER_LONGWORD_DECIMAL + fast0) * powerOfTenTable[scale - fastScale];
     } else {
-      return -(fast1 * MULTIPLER_LONGWORD_DECIMAL + fast0) * powerOfTenTable[scale - fastScale];
+      return -(fast1 * MULTIPLIER_LONGWORD_DECIMAL + fast0) * powerOfTenTable[scale - fastScale];
     }
   }
 
@@ -3499,11 +3499,11 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           FASTHIVEDECIMAL_MAX_LONG_VALUE) <= 0) {
         if (fastSignum == 1) {
           return
-              fast1 * MULTIPLER_LONGWORD_DECIMAL
+              fast1 * MULTIPLIER_LONGWORD_DECIMAL
             + fast0;
         } else {
           return
-             -(fast1 * MULTIPLER_LONGWORD_DECIMAL
+             -(fast1 * MULTIPLIER_LONGWORD_DECIMAL
              + fast0);
         }
       } if (fastEquals(
@@ -3574,11 +3574,11 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           FASTHIVEDECIMAL_MAX_LONG_VALUE) <= 0) {
         if (fastSignum == 1) {
           return
-              result1 * MULTIPLER_LONGWORD_DECIMAL
+              result1 * MULTIPLIER_LONGWORD_DECIMAL
             + result0;
         } else {
           return
-             -(result1 * MULTIPLER_LONGWORD_DECIMAL
+             -(result1 * MULTIPLIER_LONGWORD_DECIMAL
              + result0);
         }
       } if (fastEquals(
@@ -4662,7 +4662,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long roundDigit;
       if (adjustedRoundingPoint == 0) {
         // Grab round digit from lowest word.
-        roundDigit = fast0 / (MULTIPLER_LONGWORD_DECIMAL / 10);
+        roundDigit = fast0 / (MULTIPLIER_LONGWORD_DECIMAL / 10);
       } else {
         // Divide down just before scaleDown to get round digit.
         final long withRoundDigit = fast1 / powerOfTenTable[adjustedRoundingPoint - 1];
@@ -4680,7 +4680,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long roundDigit;
       if (adjustedRoundingPoint == 0) {
         // Grab round digit from middle word.
-        roundDigit = fast1 / (MULTIPLER_LONGWORD_DECIMAL / 10);
+        roundDigit = fast1 / (MULTIPLIER_LONGWORD_DECIMAL / 10);
       } else {
         // Divide down just before scaleDown to get round digit.
         final long withRoundDigit = fast2 / powerOfTenTable[adjustedRoundingPoint - 1];
@@ -4739,7 +4739,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long fast1Scaled;
       if (adjustedRoundingPoint == 0) {
         // Grab round digit from lowest word.
-        final long roundDivisor = MULTIPLER_LONGWORD_DECIMAL / 10;
+        final long roundDivisor = MULTIPLIER_LONGWORD_DECIMAL / 10;
         roundDigit = fast0 / roundDivisor;
         fast1Scaled = fast1;
         if (roundDigit > 5) {
@@ -4794,7 +4794,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long fast2Scaled;
       if (adjustedRoundingPoint == 0) {
         // Grab round digit from middle word.
-        final long roundDivisor = MULTIPLER_LONGWORD_DECIMAL / 10;
+        final long roundDivisor = MULTIPLIER_LONGWORD_DECIMAL / 10;
         roundDigit = fast1 / roundDivisor;
         fast2Scaled = fast2;
         if (roundDigit > 5) {
@@ -4862,14 +4862,14 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       final long r0 =
           ((fast0 / roundFactor) * roundFactor)
         + roundFactor;
-      result0 = r0 % MULTIPLER_LONGWORD_DECIMAL;
+      result0 = r0 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r1 =
           fast1
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
-      result1 = r1 % MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
+      result1 = r1 % MULTIPLIER_LONGWORD_DECIMAL;
       result2 =
           fast2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
 
     } else if (absRoundPower < TWO_X_LONGWORD_DECIMAL_DIGITS) {
 
@@ -4886,10 +4886,10 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       final long r1 =
           ((fast1 / roundFactor) * roundFactor)
         + roundFactor;
-      result1 = r1 % MULTIPLER_LONGWORD_DECIMAL;
+      result1 = r1 % MULTIPLIER_LONGWORD_DECIMAL;
       result2 =
           fast2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
 
     } else {
 
@@ -5508,15 +5508,15 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     if (!isRoundPortionAllZeroes) {
       final long r0 = fastResult.fast0 + 1;
       fastResult.fast0 =
-          r0 % MULTIPLER_LONGWORD_DECIMAL;
+          r0 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r1 =
           fastResult.fast1
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
       fastResult.fast1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       fastResult.fast2 =
           fastResult.fast2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
     }
 
     if (fastResult.fast0 == 0 && fastResult.fast1 == 0 && fastResult.fast2 == 0) {
@@ -5622,15 +5622,15 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     if (isRoundPortionHalfUp) {
       final long r0 = fastResult.fast0 + 1;
       fastResult.fast0 =
-          r0 % MULTIPLER_LONGWORD_DECIMAL;
+          r0 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r1 =
           fastResult.fast1
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
       fastResult.fast1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       fastResult.fast2 =
           fastResult.fast2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
     }
 
     if (fastResult.fast0 == 0 && fastResult.fast1 == 0 && fastResult.fast2 == 0) {
@@ -5702,25 +5702,25 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             withRoundDigit / 10
           + ((fast1 % divideFactor) * multiplyFactor)
           + 1;
-        result0 = r0 % MULTIPLER_LONGWORD_DECIMAL;
+        result0 = r0 % MULTIPLIER_LONGWORD_DECIMAL;
         final long r1 =
             fast1 / divideFactor
           + ((fast2 % divideFactor) * multiplyFactor)
-          + r0 / MULTIPLER_LONGWORD_DECIMAL;
-        result1 = r1 % MULTIPLER_LONGWORD_DECIMAL;
+          + r0 / MULTIPLIER_LONGWORD_DECIMAL;
+        result1 = r1 % MULTIPLIER_LONGWORD_DECIMAL;
         final long r2 =
             fast2 / divideFactor +
           + ((fast3 % divideFactor) * multiplyFactor)
-          + r1 / MULTIPLER_LONGWORD_DECIMAL;
-        result2 = r2 % MULTIPLER_LONGWORD_DECIMAL;
+          + r1 / MULTIPLIER_LONGWORD_DECIMAL;
+        result2 = r2 % MULTIPLIER_LONGWORD_DECIMAL;
         final long r3 =
             fast3 / divideFactor
           + ((fast4 % divideFactor) * multiplyFactor)
-          + r2 / MULTIPLER_LONGWORD_DECIMAL;
-        result3 = r3 % MULTIPLER_LONGWORD_DECIMAL;
+          + r2 / MULTIPLIER_LONGWORD_DECIMAL;
+        result3 = r3 % MULTIPLIER_LONGWORD_DECIMAL;
         result4 =
             fast4 / divideFactor +
-            r3 % MULTIPLER_LONGWORD_DECIMAL;
+            r3 % MULTIPLIER_LONGWORD_DECIMAL;
       }
     } else if (scaleDown < TWO_X_LONGWORD_DECIMAL_DIGITS) {
 
@@ -5732,7 +5732,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long fast1Scaled;
       if (adjustedScaleDown == 0) {
         // Grab round digit from lowest word.
-        roundDigit = fast0 / (MULTIPLER_LONGWORD_DECIMAL / 10);
+        roundDigit = fast0 / (MULTIPLIER_LONGWORD_DECIMAL / 10);
         fast1Scaled = fast1;
       } else {
         // Divide down just before scaleDown to get round digit.
@@ -5762,20 +5762,20 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             fast1Scaled
           + ((fast2 % divideFactor) * multiplyFactor)
           + 1;
-        result0 = r0 % MULTIPLER_LONGWORD_DECIMAL;
+        result0 = r0 % MULTIPLIER_LONGWORD_DECIMAL;
         final long r1 =
             fast2 / divideFactor
           + ((fast3 % divideFactor) * multiplyFactor)
-          + r0 / MULTIPLER_LONGWORD_DECIMAL;
-        result1 = r1 % MULTIPLER_LONGWORD_DECIMAL;
+          + r0 / MULTIPLIER_LONGWORD_DECIMAL;
+        result1 = r1 % MULTIPLIER_LONGWORD_DECIMAL;
         final long r2 =
             fast3 / divideFactor
           + ((fast4 % divideFactor) * multiplyFactor)
-          + r1 / MULTIPLER_LONGWORD_DECIMAL;
-        result2 = r2 % MULTIPLER_LONGWORD_DECIMAL;
+          + r1 / MULTIPLIER_LONGWORD_DECIMAL;
+        result2 = r2 % MULTIPLIER_LONGWORD_DECIMAL;
         result3 =
             fast4 / divideFactor
-          + r2 / MULTIPLER_LONGWORD_DECIMAL;
+          + r2 / MULTIPLIER_LONGWORD_DECIMAL;
       }
       result4 = 0;
     } else {
@@ -5788,7 +5788,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       long fast2Scaled;
       if (adjustedScaleDown == 0) {
         // Grab round digit from middle word.
-        roundDigit = fast1 / (MULTIPLER_LONGWORD_DECIMAL / 10);
+        roundDigit = fast1 / (MULTIPLIER_LONGWORD_DECIMAL / 10);
         fast2Scaled = fast2;
       } else {
         // Divide down just before scaleDown to get round digit.
@@ -5815,15 +5815,15 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             fast2Scaled
           + ((fast3 % divideFactor) * multiplyFactor)
           + 1;
-        result0 = r0 % MULTIPLER_LONGWORD_DECIMAL;
+        result0 = r0 % MULTIPLIER_LONGWORD_DECIMAL;
         final long r1 =
             fast3 / divideFactor
           + ((fast4 % divideFactor) * multiplyFactor)
-          + r0 / MULTIPLER_LONGWORD_DECIMAL;
-        result1 = r1 % MULTIPLER_LONGWORD_DECIMAL;
+          + r0 / MULTIPLIER_LONGWORD_DECIMAL;
+        result1 = r1 % MULTIPLIER_LONGWORD_DECIMAL;
         result2 =
             fast4 / divideFactor
-          + r1 / MULTIPLER_LONGWORD_DECIMAL;
+          + r1 / MULTIPLIER_LONGWORD_DECIMAL;
       }
       result3 = 0;
       result4 = 0;
@@ -5910,15 +5910,15 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     if (isRoundPortionHalfEven) {
       final long r0 = fastResult.fast0 + 1;
       fastResult.fast0 =
-          r0 % MULTIPLER_LONGWORD_DECIMAL;
+          r0 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r1 =
           fastResult.fast1
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
       fastResult.fast1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       fastResult.fast2 =
           fastResult.fast2
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
     }
 
     if (fastResult.fast0 == 0 && fastResult.fast1 == 0 && fastResult.fast2 == 0) {
@@ -6613,17 +6613,17 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
 
     final long r0 = left0 + right0;
     result0 =
-        r0 % MULTIPLER_LONGWORD_DECIMAL;
+        r0 % MULTIPLIER_LONGWORD_DECIMAL;
     final long r1 =
         left1
       + right1
-      + r0 / MULTIPLER_LONGWORD_DECIMAL;
+      + r0 / MULTIPLIER_LONGWORD_DECIMAL;
     result1 =
-        r1 % MULTIPLER_LONGWORD_DECIMAL;
+        r1 % MULTIPLIER_LONGWORD_DECIMAL;
     result2 =
         left2
       + right2
-      + r1 / MULTIPLER_LONGWORD_DECIMAL;
+      + r1 / MULTIPLIER_LONGWORD_DECIMAL;
 
     if (result0 == 0 && result1 == 0 && result2 == 0) {
       fastResult.fastReset();
@@ -6663,14 +6663,14 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     final long r0 = left0 - right0;
     long r1;
     if (r0 < 0) {
-      result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+      result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
       r1 = left1 - right1 - 1;
     } else {
       result0 = r0;
       r1 = left1 - right1;
     }
     if (r1 < 0) {
-      result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+      result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
       result2 = left2 - right2 - 1;
     } else {
       result1 = r1;
@@ -6704,14 +6704,14 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     final long r0 = left0 - right0;
     long r1;
     if (r0 < 0) {
-      result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+      result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
       r1 = left1 - right1 - 1;
     } else {
       result0 = r0;
       r1 = left1 - right1;
     }
     if (r1 < 0) {
-      result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+      result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
       result2 = left2 - right2 - 1;
     } else {
       result1 = r1;
@@ -6938,7 +6938,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - (rightFast0 % divideFactor) * multiplyFactor;
         long r1;
         if (r0 < 0) {
-          result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+          result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
           r1 =
               leftFast1
             - rightFast0 / divideFactor
@@ -6953,7 +6953,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast2
             - rightFast1 / divideFactor
@@ -6968,7 +6968,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
              -(rightFast2 / divideFactor)
             - 1;
@@ -6979,7 +6979,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =  - 1;
         } else {
           result3 = r3;
@@ -6997,7 +6997,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - rightFast0;
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast2
             - rightFast1
@@ -7010,7 +7010,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
              -rightFast2
             - 1;
@@ -7035,7 +7035,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
            -(rightFast0 % divideFactor) * multiplyFactor;
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast2
             - rightFast0 / divideFactor
@@ -7050,7 +7050,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
             - rightFast1 / divideFactor
             - (rightFast2 % divideFactor) * multiplyFactor
@@ -7063,7 +7063,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =
             - rightFast2 / divideFactor
             - 1;
@@ -7074,7 +7074,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r5;
         if (r4 < 0) {
-          result4 = r4 + MULTIPLER_LONGWORD_DECIMAL;
+          result4 = r4 + MULTIPLIER_LONGWORD_DECIMAL;
           r5 = - 1;
         } else {
           result4 = r4;
@@ -7093,7 +7093,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - rightFast0;
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
             - rightFast1
             - 1;
@@ -7104,7 +7104,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =
              -rightFast2
             - 1;
@@ -7115,7 +7115,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r5;
         if (r4 < 0) {
-          result4 = r4 + MULTIPLER_LONGWORD_DECIMAL;
+          result4 = r4 + MULTIPLIER_LONGWORD_DECIMAL;
           r5 = - 1;
         } else {
           result4 = r4;
@@ -7137,7 +7137,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - (rightFast0 % divideFactor) * multiplyFactor;
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
             - (rightFast0 / divideFactor)
             - (rightFast1 % divideFactor) * multiplyFactor
@@ -7150,7 +7150,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =
               - (rightFast1 / divideFactor)
               - (rightFast2 % divideFactor) * multiplyFactor
@@ -7163,7 +7163,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r5;
         if (r4 < 0) {
-          result4 = r4 + MULTIPLER_LONGWORD_DECIMAL;
+          result4 = r4 + MULTIPLIER_LONGWORD_DECIMAL;
           r5 =
               - (rightFast2 / divideFactor)
               - 1;
@@ -7194,7 +7194,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - rightFast0;
         long r1;
         if (r0 < 0) {
-          result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+          result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
           r1 =
               leftFast0 / divideFactor
             + (leftFast1 % divideFactor) * multiplyFactor
@@ -7209,7 +7209,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast1 / divideFactor
             + (leftFast2 % divideFactor) * multiplyFactor
@@ -7224,7 +7224,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
               leftFast2 / divideFactor
             - 1;
@@ -7235,7 +7235,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 = - 1;
         } else {
           result3 = r3;
@@ -7251,7 +7251,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - rightFast0;
         long r1;
         if (r0 < 0) {
-          result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+          result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
           r1 =
               leftFast0
             - rightFast1
@@ -7264,7 +7264,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast1
             - rightFast2
@@ -7277,7 +7277,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
               leftFast2
             - 1;
@@ -7288,7 +7288,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 = - 1;
         } else {
           result3 = r3;
@@ -7307,7 +7307,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           - rightFast0;
         long r1;
         if (r0 < 0) {
-          result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+          result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
           r1 =
               (leftFast0 % divideFactor) * multiplyFactor
             - rightFast1
@@ -7320,7 +7320,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast0 / divideFactor
             + (leftFast1 % divideFactor) * multiplyFactor
@@ -7335,7 +7335,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
               leftFast1 / divideFactor
             + (leftFast2 % divideFactor) * multiplyFactor
@@ -7348,7 +7348,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =
               leftFast2 / divideFactor
             - 1;
@@ -7358,7 +7358,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
               leftFast2 / divideFactor;
         }
         if (r4 < 0) {
-          result4 = r4 + MULTIPLER_LONGWORD_DECIMAL;
+          result4 = r4 + MULTIPLIER_LONGWORD_DECIMAL;
         } else {
           result4 = r4;
         }
@@ -7369,7 +7369,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             - rightFast0;
         long r1;
         if (r0 < 0) {
-          result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+          result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
           r1 =
             - rightFast1
             - 1;
@@ -7380,7 +7380,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               leftFast0
             - rightFast2
@@ -7393,7 +7393,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
               leftFast1
             - 1;
@@ -7404,7 +7404,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =
               leftFast2
             - 1;
@@ -7415,7 +7415,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r5;
         if (r4 < 0) {
-          result4 = r4 + MULTIPLER_LONGWORD_DECIMAL;
+          result4 = r4 + MULTIPLIER_LONGWORD_DECIMAL;
           r5 = - 1;
         } else {
           result4 = r4;
@@ -7434,7 +7434,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             - rightFast0;
         long r1;
         if (r0 < 0) {
-          result0 = r0 + MULTIPLER_LONGWORD_DECIMAL;
+          result0 = r0 + MULTIPLIER_LONGWORD_DECIMAL;
           r1 =
             - rightFast1
             - 1;
@@ -7445,7 +7445,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r2;
         if (r1 < 0) {
-          result1 = r1 + MULTIPLER_LONGWORD_DECIMAL;
+          result1 = r1 + MULTIPLIER_LONGWORD_DECIMAL;
           r2 =
               (leftFast0 % divideFactor) * multiplyFactor
             - rightFast2
@@ -7458,7 +7458,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r3;
         if (r2 < 0) {
-          result2 = r2 + MULTIPLER_LONGWORD_DECIMAL;
+          result2 = r2 + MULTIPLIER_LONGWORD_DECIMAL;
           r3 =
               leftFast0 / divideFactor
             + (leftFast1 % divideFactor) * multiplyFactor
@@ -7471,7 +7471,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r4;
         if (r3 < 0) {
-          result3 = r3 + MULTIPLER_LONGWORD_DECIMAL;
+          result3 = r3 + MULTIPLIER_LONGWORD_DECIMAL;
           r4 =
               leftFast1 / divideFactor
             + (leftFast2 % divideFactor) * multiplyFactor
@@ -7484,7 +7484,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
         }
         long r5;
         if (r4 < 0) {
-          result4 = r4 + MULTIPLER_LONGWORD_DECIMAL;
+          result4 = r4 + MULTIPLIER_LONGWORD_DECIMAL;
           r5 =
               leftFast2 / divideFactor
             - 1;
@@ -7568,26 +7568,26 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           result0
         + (shift0 % divideFactor) * multiplyFactor;
       result0 =
-          r0 % MULTIPLER_LONGWORD_DECIMAL;
+          r0 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r1 =
           result1
         + shift0 / divideFactor
         + (shift1 % divideFactor) * multiplyFactor
-        + r0 / MULTIPLER_LONGWORD_DECIMAL;
+        + r0 / MULTIPLIER_LONGWORD_DECIMAL;
       result1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r2 =
           result2
         + shift1 / divideFactor
         + (shift2 % divideFactor) * multiplyFactor
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
       result2 =
-          r2 % MULTIPLER_LONGWORD_DECIMAL;
+          r2 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r3 =
           shift2 / divideFactor
-        + r2 / MULTIPLER_LONGWORD_DECIMAL;
+        + r2 / MULTIPLIER_LONGWORD_DECIMAL;
       result3 =
-          r3 % MULTIPLER_LONGWORD_DECIMAL;
+          r3 % MULTIPLIER_LONGWORD_DECIMAL;
 
     } else if (diffScale == LONGWORD_DECIMAL_DIGITS){
 
@@ -7595,19 +7595,19 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           result1
         + shift0;
       result1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r2 =
           result2
         + shift1
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
       result2 =
-          r2 % MULTIPLER_LONGWORD_DECIMAL;
+          r2 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r3 =
           shift2
-        + r2 / MULTIPLER_LONGWORD_DECIMAL;
+        + r2 / MULTIPLIER_LONGWORD_DECIMAL;
       result3 =
-          r3 % MULTIPLER_LONGWORD_DECIMAL;
-      result4 = r3 / MULTIPLER_LONGWORD_DECIMAL;
+          r3 % MULTIPLIER_LONGWORD_DECIMAL;
+      result4 = r3 / MULTIPLIER_LONGWORD_DECIMAL;
 
     } else if (diffScale < TWO_X_LONGWORD_DECIMAL_DIGITS) {
 
@@ -7618,25 +7618,25 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           result1
         + (shift0 % divideFactor) * multiplyFactor;
       result1 =
-          r1 % MULTIPLER_LONGWORD_DECIMAL;
+          r1 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r2 =
           result2
         + shift0 / divideFactor
         + (shift1 % divideFactor) * multiplyFactor
-        + r1 / MULTIPLER_LONGWORD_DECIMAL;
+        + r1 / MULTIPLIER_LONGWORD_DECIMAL;
       result2 =
-          r2 % MULTIPLER_LONGWORD_DECIMAL;
+          r2 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r3 =
           shift1 / divideFactor
         + (shift2 % divideFactor) * multiplyFactor
-        + r2 / MULTIPLER_LONGWORD_DECIMAL;
+        + r2 / MULTIPLIER_LONGWORD_DECIMAL;
       result3 =
-          r3 % MULTIPLER_LONGWORD_DECIMAL;
+          r3 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r4 =
           shift2 / divideFactor
-        + r3 / MULTIPLER_LONGWORD_DECIMAL;
+        + r3 / MULTIPLIER_LONGWORD_DECIMAL;
       result4 =
-          r4 % MULTIPLER_LONGWORD_DECIMAL;
+          r4 % MULTIPLIER_LONGWORD_DECIMAL;
 
     } else if (diffScale == TWO_X_LONGWORD_DECIMAL_DIGITS) {
 
@@ -7644,17 +7644,17 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           result2
         + shift0;
       result2 =
-          r2 % MULTIPLER_LONGWORD_DECIMAL;
+          r2 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r3 =
           shift1
-        + r2 / MULTIPLER_LONGWORD_DECIMAL;
+        + r2 / MULTIPLIER_LONGWORD_DECIMAL;
       result3 =
-          r3 % MULTIPLER_LONGWORD_DECIMAL;
+          r3 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r4 =
           shift2
-        + r3 / MULTIPLER_LONGWORD_DECIMAL;
+        + r3 / MULTIPLIER_LONGWORD_DECIMAL;
       result4 =
-          r4 % MULTIPLER_LONGWORD_DECIMAL;
+          r4 % MULTIPLIER_LONGWORD_DECIMAL;
 
     } else {
 
@@ -7665,19 +7665,19 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
           result2
         + (shift0 % divideFactor) * multiplyFactor;
       result2 =
-          r2 % MULTIPLER_LONGWORD_DECIMAL;
+          r2 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r3 =
           shift0 / divideFactor
         + (shift1 % divideFactor) * multiplyFactor
-        + r2 / MULTIPLER_LONGWORD_DECIMAL;
+        + r2 / MULTIPLIER_LONGWORD_DECIMAL;
       result3 =
-          r3 % MULTIPLER_LONGWORD_DECIMAL;
+          r3 % MULTIPLIER_LONGWORD_DECIMAL;
       final long r4 =
           shift1 / divideFactor
         + (shift2 % divideFactor) * multiplyFactor
-        + r3 / MULTIPLER_LONGWORD_DECIMAL;
+        + r3 / MULTIPLIER_LONGWORD_DECIMAL;
       result4 =
-          r4 % MULTIPLER_LONGWORD_DECIMAL;
+          r4 % MULTIPLIER_LONGWORD_DECIMAL;
       if (shift2 / divideFactor != 0) {
         throw new RuntimeException("Unexpected overflow");
       }
@@ -8068,31 +8068,31 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
 
     long product;
 
-    final long halfRight0 = right0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight1 = right0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight2 = right1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight3 = right1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight4 = right2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfRight0 = right0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight1 = right0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight2 = right1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight3 = right1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight4 = right2 % MULTIPLIER_INTWORD_DECIMAL;
 
-    final long halfLeft0 = left0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft1 = left0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft2 = left1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft3 = left1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft4 = left2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfLeft0 = left0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft1 = left0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft2 = left1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft3 = left1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft4 = left2 % MULTIPLIER_INTWORD_DECIMAL;
 
     // v[0]
     product =
         halfRight0 * halfLeft0;
-    final int z0 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+    final int z0 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
-    // v[1] where (product % MULTIPLER_INTWORD_DECIMAL) is the carry from v[0]. 
+    // v[1] where (product % MULTIPLIER_INTWORD_DECIMAL) is the carry from v[0]. 
     product =
         halfRight0
       * halfLeft1
       + halfRight1
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z1 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z1 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[2]
     product =
@@ -8102,8 +8102,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight2
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z2 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z2 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[3]
     product =
@@ -8115,8 +8115,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight3
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z3 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z3 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[4]
     product =
@@ -8130,7 +8130,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight4
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
 
     // v[5] is not calculated since high integer is always 0 for our decimals.
 
@@ -8143,8 +8143,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
     }
 
 
-    final long result0 = (long) z1 * MULTIPLER_INTWORD_DECIMAL + (long) z0;
-    final long result1 = (long) z3 * MULTIPLER_INTWORD_DECIMAL + (long) z2;
+    final long result0 = (long) z1 * MULTIPLIER_INTWORD_DECIMAL + (long) z0;
+    final long result1 = (long) z3 * MULTIPLIER_INTWORD_DECIMAL + (long) z2;
     final long result2 = product;
 
     if (result0 == 0 && result1 == 0 && result2 == 0) {
@@ -8185,31 +8185,31 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
 
     long product;
 
-    final long halfRight0 = right0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight1 = right0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight2 = right1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight3 = right1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight4 = right2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfRight0 = right0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight1 = right0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight2 = right1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight3 = right1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight4 = right2 % MULTIPLIER_INTWORD_DECIMAL;
 
-    final long halfLeft0 = left0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft1 = left0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft2 = left1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft3 = left1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft4 = left2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfLeft0 = left0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft1 = left0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft2 = left1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft3 = left1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft4 = left2 % MULTIPLIER_INTWORD_DECIMAL;
 
     // v[0]
     product =
         halfRight0 * halfLeft0;
-    final int z0 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+    final int z0 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
-    // v[1] where (product % MULTIPLER_INTWORD_DECIMAL) is the carry from v[0].
+    // v[1] where (product % MULTIPLIER_INTWORD_DECIMAL) is the carry from v[0].
     product =
         halfRight0
       * halfLeft1
       + halfRight1
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z1 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z1 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[2]
     product =
@@ -8219,8 +8219,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight2
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z2 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z2 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[3]
     product =
@@ -8232,8 +8232,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight3
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z3 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z3 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[4]
     product =
@@ -8247,7 +8247,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight4
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
 
     // v[5] is not calculated since high integer is always 0 for our decimals.
 
@@ -8259,8 +8259,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       return false;
     }
 
-    result[0] = (long) z1 * MULTIPLER_INTWORD_DECIMAL + (long) z0;
-    result[1] = (long) z3 * MULTIPLER_INTWORD_DECIMAL + (long) z2;
+    result[0] = (long) z1 * MULTIPLIER_INTWORD_DECIMAL + (long) z0;
+    result[1] = (long) z3 * MULTIPLIER_INTWORD_DECIMAL + (long) z2;
     result[2] = product;
 
     return true;
@@ -8293,31 +8293,31 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
 
     long product;
 
-    final long halfRight0 = right0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight1 = right0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight2 = right1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight3 = right1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight4 = right2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfRight0 = right0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight1 = right0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight2 = right1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight3 = right1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight4 = right2 % MULTIPLIER_INTWORD_DECIMAL;
 
-    final long halfLeft0 = left0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft1 = left0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft2 = left1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft3 = left1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft4 = left2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfLeft0 = left0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft1 = left0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft2 = left1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft3 = left1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft4 = left2 % MULTIPLIER_INTWORD_DECIMAL;
 
     // v[0]
     product =
         halfRight0 * halfLeft0;
-    final int z0 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+    final int z0 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
-    // v[1] where (product % MULTIPLER_INTWORD_DECIMAL) is the carry from v[0].
+    // v[1] where (product % MULTIPLIER_INTWORD_DECIMAL) is the carry from v[0].
     product =
         halfRight0
       * halfLeft1
       + halfRight1
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z1 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z1 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[2]
     product =
@@ -8327,8 +8327,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight2
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z2 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z2 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[3]
     product =
@@ -8340,8 +8340,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight3
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z3 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z3 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[4]
     product =
@@ -8355,8 +8355,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight4
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z4 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z4 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[5] -- since integer #5 is always 0, some products here are not included.
     product =
@@ -8368,8 +8368,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft2
       + halfRight4
       * halfLeft1
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z5 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z5 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[6] -- since integer #5 is always 0, some products here are not included.
     product =
@@ -8379,8 +8379,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft3
       + halfRight4
       * halfLeft2
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z6 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z6 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[7] -- since integer #5 is always 0, some products here are not included.
     product =
@@ -8388,28 +8388,28 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft4
       + halfRight4
       * halfLeft3
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z7 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z7 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[8] -- since integer #5 is always 0, some products here are not included.
     product =
         halfRight4
       * halfLeft4
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z8 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z8 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[9] -- since integer #5 is always 0, some products here are not included.
     product =
-        (product / MULTIPLER_INTWORD_DECIMAL);
+        (product / MULTIPLIER_INTWORD_DECIMAL);
     if (product > FULL_MAX_HIGHWORD_DECIMAL) {
       return false;
     }
 
-    result[0] = (long) z1 * MULTIPLER_INTWORD_DECIMAL + (long) z0;
-    result[1] = (long) z3 * MULTIPLER_INTWORD_DECIMAL + (long) z2;
-    result[2] = (long) z5 * MULTIPLER_INTWORD_DECIMAL + (long) z4;
-    result[3] = (long) z7 * MULTIPLER_INTWORD_DECIMAL + (long) z6;
-    result[4] = product * MULTIPLER_INTWORD_DECIMAL + (long) z8;
+    result[0] = (long) z1 * MULTIPLIER_INTWORD_DECIMAL + (long) z0;
+    result[1] = (long) z3 * MULTIPLIER_INTWORD_DECIMAL + (long) z2;
+    result[2] = (long) z5 * MULTIPLIER_INTWORD_DECIMAL + (long) z4;
+    result[3] = (long) z7 * MULTIPLIER_INTWORD_DECIMAL + (long) z6;
+    result[4] = product * MULTIPLIER_INTWORD_DECIMAL + (long) z8;
 
     return true;
   }
@@ -8436,32 +8436,32 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
 
     long product;
 
-    final long halfRight0 = right0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight1 = right0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight2 = right1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight3 = right1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight4 = right2 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfRight5 = right2 / MULTIPLER_INTWORD_DECIMAL;
+    final long halfRight0 = right0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight1 = right0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight2 = right1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight3 = right1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight4 = right2 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfRight5 = right2 / MULTIPLIER_INTWORD_DECIMAL;
 
-    final long halfLeft0 = left0 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft1 = left0 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft2 = left1 % MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft3 = left1 / MULTIPLER_INTWORD_DECIMAL;
-    final long halfLeft4 = left2 % MULTIPLER_INTWORD_DECIMAL;
+    final long halfLeft0 = left0 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft1 = left0 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft2 = left1 % MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft3 = left1 / MULTIPLIER_INTWORD_DECIMAL;
+    final long halfLeft4 = left2 % MULTIPLIER_INTWORD_DECIMAL;
 
     // v[0]
     product =
         halfRight0 * halfLeft0;
-    final int z0 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+    final int z0 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
-    // v[1] where (product % MULTIPLER_INTWORD_DECIMAL) is the carry from v[0].
+    // v[1] where (product % MULTIPLIER_INTWORD_DECIMAL) is the carry from v[0].
     product =
         halfRight0
       * halfLeft1
       + halfRight1
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z1 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z1 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[2]
     product =
@@ -8471,8 +8471,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight2
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z2 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z2 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[3]
     product =
@@ -8484,8 +8484,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight3
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z3 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z3 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[4]
     product =
@@ -8499,8 +8499,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight4
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z4 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z4 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[5] -- since left integer #5 is always 0, some products here are not included.
     product =
@@ -8514,8 +8514,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft1
       + halfRight5
       * halfLeft0
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z5 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z5 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[6] -- since left integer #5 is always 0, some products here are not included.
     product =
@@ -8527,8 +8527,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft2
       + halfRight5
       * halfLeft1
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z6 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z6 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[7] -- since left integer #5 is always 0, some products here are not included.
     product =
@@ -8538,8 +8538,8 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft3
       + halfRight5
       * halfLeft2
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z7 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z7 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[8] -- since left integer #5 is always 0, some products here are not included.
     product =
@@ -8547,28 +8547,28 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       * halfLeft4
       + halfRight5
       * halfLeft3
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z8 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z8 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[9] -- since left integer #5 is always 0, some products here are not included.
     product =
         halfRight5
       * halfLeft4
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    final int z9 = (int) (product % MULTIPLER_INTWORD_DECIMAL);
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    final int z9 = (int) (product % MULTIPLIER_INTWORD_DECIMAL);
 
     // v[10] -- since left integer #5 is always 0, some products here are not included.
     product =
-      + (product / MULTIPLER_INTWORD_DECIMAL);
-    if (product > MULTIPLER_INTWORD_DECIMAL) {
+      + (product / MULTIPLIER_INTWORD_DECIMAL);
+    if (product > MULTIPLIER_INTWORD_DECIMAL) {
       return false;
     }
 
-    result[0] = (long) z1 * MULTIPLER_INTWORD_DECIMAL + (long) z0;
-    result[1] = (long) z3 * MULTIPLER_INTWORD_DECIMAL + (long) z2;
-    result[2] = (long) z5 * MULTIPLER_INTWORD_DECIMAL + (long) z4;
-    result[3] = (long) z7 * MULTIPLER_INTWORD_DECIMAL + (long) z6;
-    result[4] = (long) z9 * MULTIPLER_INTWORD_DECIMAL + (long) z8;
+    result[0] = (long) z1 * MULTIPLIER_INTWORD_DECIMAL + (long) z0;
+    result[1] = (long) z3 * MULTIPLIER_INTWORD_DECIMAL + (long) z2;
+    result[2] = (long) z5 * MULTIPLIER_INTWORD_DECIMAL + (long) z4;
+    result[3] = (long) z7 * MULTIPLIER_INTWORD_DECIMAL + (long) z6;
+    result[4] = (long) z9 * MULTIPLIER_INTWORD_DECIMAL + (long) z8;
     result[5] = product;
 
     return true;
@@ -8633,7 +8633,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       final long k0 =
           leftFast0 - quotient0 * rightFast0;
       remainderSubexpr2 =
-          k0 * MULTIPLER_LONGWORD_DECIMAL;
+          k0 * MULTIPLIER_LONGWORD_DECIMAL;
     } else if (leftFast2 == 0) {
       // leftFast1 != 0.
       quotient2 = 0;
@@ -8642,14 +8642,14 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       final long k1 =
           leftFast1 - quotient1 * rightFast0;
       final long quotientSubexpr0 =
-          k1 * MULTIPLER_LONGWORD_DECIMAL
+          k1 * MULTIPLIER_LONGWORD_DECIMAL
         + leftFast0;
       quotient0 =
           quotientSubexpr0 / rightFast0;
       final long k0 =
           quotientSubexpr0 - quotient0 * rightFast0;
       remainderSubexpr2 =
-          k0 * MULTIPLER_LONGWORD_DECIMAL;
+          k0 * MULTIPLIER_LONGWORD_DECIMAL;
     } else if (leftFast1 == 0){
       // leftFast2 != 0 && leftFast1 == 0.
       quotient2 =
@@ -8660,27 +8660,27 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
       final long k0 =
           leftFast0 - quotient0 * rightFast0;
       remainderSubexpr2 =
-          k0 * MULTIPLER_LONGWORD_DECIMAL;
+          k0 * MULTIPLIER_LONGWORD_DECIMAL;
     } else {
       quotient2 =
           leftFast2 / rightFast0;
       final long k2 =
           leftFast2 - quotient2 * rightFast0;
       final long quotientSubexpr1 =
-          k2 * MULTIPLER_LONGWORD_DECIMAL
+          k2 * MULTIPLIER_LONGWORD_DECIMAL
         + leftFast1;
       quotient1 =
           quotientSubexpr1 / rightFast0;
       final long k1 =
           quotientSubexpr1 - quotient1 * rightFast0;
       final long quotientSubexpr0 =
-          k1 * MULTIPLER_LONGWORD_DECIMAL;
+          k1 * MULTIPLIER_LONGWORD_DECIMAL;
       quotient0 =
           quotientSubexpr0 / rightFast0;
       final long k0 =
           quotientSubexpr0 - quotient0 * rightFast0;
       remainderSubexpr2 =
-          k0 * MULTIPLER_LONGWORD_DECIMAL;
+          k0 * MULTIPLIER_LONGWORD_DECIMAL;
     }
 
     fastResult.fast0 = quotient0;
@@ -8719,7 +8719,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             LONGWORD_DECIMAL_DIGITS - fastLongWordTrailingZeroCount(remainder2);
       } else {
         final long remainderSubexpr1 =
-            k2 * MULTIPLER_LONGWORD_DECIMAL;
+            k2 * MULTIPLIER_LONGWORD_DECIMAL;
         long remainderSubexpr0;
         remainder1 =
             remainderSubexpr1 / rightFast0;
@@ -8732,7 +8732,7 @@ public class FastHiveDecimalImpl extends FastHiveDecimal {
             + LONGWORD_DECIMAL_DIGITS - fastLongWordTrailingZeroCount(remainder1);
         } else {
           remainderSubexpr0 =
-              k2 * MULTIPLER_LONGWORD_DECIMAL;
+              k2 * MULTIPLIER_LONGWORD_DECIMAL;
 
           remainder0 =
               remainderSubexpr0 / rightFast0;
