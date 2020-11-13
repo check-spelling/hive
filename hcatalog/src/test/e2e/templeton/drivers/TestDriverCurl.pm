@@ -800,7 +800,7 @@ sub compare
         }while (defined $url_requested && $url_requested  ne $testCmd->{'callback_url'});
         $d->close;
         if (!defined $url_requested || $url_requested  ne $testCmd->{'callback_url'}) {
-            print $log "failed to recieve request on call back url";
+            print $log "failed to receive request on call back url";
             $result = 0;
         }
 
