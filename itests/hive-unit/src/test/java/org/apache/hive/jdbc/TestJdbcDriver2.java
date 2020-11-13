@@ -2186,14 +2186,14 @@ public class TestJdbcDriver2 {
   }
 
   /**
-   * test testProccedures()
+   * test testProcedures()
    * @throws SQLException
    */
   @Test
-  public void testProccedures() throws SQLException {
+  public void testProcedures() throws SQLException {
     DatabaseMetaData dbmd = con.getMetaData();
     assertNotNull(dbmd);
-    // currently testProccedures always returns an empty resultset for Hive
+    // currently testProcedures always returns an empty resultset for Hive
     ResultSet res = dbmd.getProcedures(null, null, null);
     ResultSetMetaData md = res.getMetaData();
     assertEquals(md.getColumnCount(), 9);
