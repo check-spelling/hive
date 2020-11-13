@@ -69,7 +69,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
-import static org.apache.hadoop.hive.conf.Constants.COMPACTOR_INTIATOR_THREAD_NAME_FORMAT;
+import static org.apache.hadoop.hive.conf.Constants.COMPACTOR_INITIATOR_THREAD_NAME_FORMAT;
 
 /**
  * A class to initiate compactions.  This will run in a separate thread.
@@ -239,7 +239,7 @@ public class Initiator extends MetaStoreCompactorThread {
     checkInterval = conf.getTimeVar(HiveConf.ConfVars.HIVE_COMPACTOR_CHECK_INTERVAL, TimeUnit.MILLISECONDS);
     compactionExecutor = CompactorUtil.createExecutorWithThreadFactory(
             conf.getIntVar(HiveConf.ConfVars.HIVE_COMPACTOR_REQUEST_QUEUE),
-            COMPACTOR_INTIATOR_THREAD_NAME_FORMAT);
+            COMPACTOR_INITIATOR_THREAD_NAME_FORMAT);
   }
 
   private void recoverFailedCompactions(boolean remoteOnly) throws MetaException {
