@@ -240,7 +240,7 @@ import java.util.function.Predicate;
     String optimiticCommitVal = table.getParameters().get(KafkaTableProperties.HIVE_KAFKA_OPTIMISTIC_COMMIT.getName());
     boolean isTwoPhaseCommit = !Boolean.parseBoolean(optimiticCommitVal);
     if (!isExactlyOnce || !isTwoPhaseCommit) {
-      //Case it is not 2 phase commit no open transaction to handel.
+      //Case it is not 2 phase commit no open transaction to handle.
       return;
     }
 

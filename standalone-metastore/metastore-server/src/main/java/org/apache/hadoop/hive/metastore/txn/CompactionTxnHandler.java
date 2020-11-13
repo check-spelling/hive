@@ -867,7 +867,7 @@ class CompactionTxnHandler extends TxnHandler {
         }
         break;
       default:
-        //do nothing to hanlde future RU/D where we may want to add new state types
+        //do nothing to handle future RU/D where we may want to add new state types
     }
   }
 
