@@ -186,7 +186,7 @@ POSTHOOK: Input: default@over1korc_n1
 -3	438	65618	4294967398	62.39	4.62	false	victor xylophone	2013-03-01 09:11:58.703135	88.38	values clarification
 -3	458	65696	4294967418	45.24	8.49	false	irene ellison	2013-03-01 09:11:58.703092	54.02	american history
 -3	467	65575	4294967437	81.64	23.53	true	tom hernandez	2013-03-01 09:11:58.703188	32.85	study skills
--2	261	65603	4294967332	39.18	28.98	false	fred polk	2013-03-01 09:11:58.70331	69.26	opthamology
+-2	261	65603	4294967332	39.18	28.98	false	fred polk	2013-03-01 09:11:58.70331	69.26	ophthalmology
 -2	269	65681	4294967544	99.24	28.19	false	rachel falkner	2013-03-01 09:11:58.703089	41.57	quiet hour
 -2	288	65658	4294967383	53.78	19.92	false	holly nixon	2013-03-01 09:11:58.703224	42.93	industrial engineering
 -2	304	65629	4294967386	84.38	33.49	false	zach garcia	2013-03-01 09:11:58.703264	56.99	chemistry
@@ -198,7 +198,7 @@ POSTHOOK: Input: default@over1korc_n1
 -1	281	65643	4294967323	15.1	45.0	false	irene nixon	2013-03-01 09:11:58.703223	80.96	undecided
 -1	300	65663	4294967343	71.26	34.62	true	calvin ovid	2013-03-01 09:11:58.703262	78.56	study skills
 -1	348	65556	4294967413	35.17	9.51	false	bob young	2013-03-01 09:11:58.70328	45.81	quiet hour
--1	372	65680	4294967490	15.45	18.09	false	ethan laertes	2013-03-01 09:11:58.70311	65.88	opthamology
+-1	372	65680	4294967490	15.45	18.09	false	ethan laertes	2013-03-01 09:11:58.70311	65.88	ophthalmology
 -1	417	65685	4294967492	28.89	5.19	true	mike white	2013-03-01 09:11:58.703275	90.69	forestry
 PREHOOK: query: SELECT SUM(HASH(*))
 FROM (SELECT t, si, i, b, f, d, bo, s, ts, `dec`, bin FROM over1korc_n1 ORDER BY t, si, i) as q
@@ -324,7 +324,7 @@ POSTHOOK: Input: default@over1korc_n1
 -3	438	65618	4294967398	62.39	4.62	false	victor xylophone	2013-03-01 09:11:58.703135	88.38	values clarification
 -3	458	65696	4294967418	45.24	8.49	false	irene ellison	2013-03-01 09:11:58.703092	54.02	american history
 -3	467	65575	4294967437	81.64	23.53	true	tom hernandez	2013-03-01 09:11:58.703188	32.85	study skills
--2	261	65603	4294967332	39.18	28.98	false	fred polk	2013-03-01 09:11:58.70331	69.26	opthamology
+-2	261	65603	4294967332	39.18	28.98	false	fred polk	2013-03-01 09:11:58.70331	69.26	ophthalmology
 -2	269	65681	4294967544	99.24	28.19	false	rachel falkner	2013-03-01 09:11:58.703089	41.57	quiet hour
 -2	288	65658	4294967383	53.78	19.92	false	holly nixon	2013-03-01 09:11:58.703224	42.93	industrial engineering
 -2	304	65629	4294967386	84.38	33.49	false	zach garcia	2013-03-01 09:11:58.703264	56.99	chemistry
@@ -336,7 +336,7 @@ POSTHOOK: Input: default@over1korc_n1
 -1	281	65643	4294967323	15.1	45.0	false	irene nixon	2013-03-01 09:11:58.703223	80.96	undecided
 -1	300	65663	4294967343	71.26	34.62	true	calvin ovid	2013-03-01 09:11:58.703262	78.56	study skills
 -1	348	65556	4294967413	35.17	9.51	false	bob young	2013-03-01 09:11:58.70328	45.81	quiet hour
--1	372	65680	4294967490	15.45	18.09	false	ethan laertes	2013-03-01 09:11:58.70311	65.88	opthamology
+-1	372	65680	4294967490	15.45	18.09	false	ethan laertes	2013-03-01 09:11:58.70311	65.88	ophthalmology
 -1	417	65685	4294967492	28.89	5.19	true	mike white	2013-03-01 09:11:58.703275	90.69	forestry
 PREHOOK: query: EXPLAIN VECTORIZATION EXPRESSION 
 SELECT SUM(HASH(*))

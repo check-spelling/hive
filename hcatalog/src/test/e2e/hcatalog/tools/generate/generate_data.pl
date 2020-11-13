@@ -68,7 +68,7 @@ sub randomState()
 our @classname = ("american history", "biology", "chemistry", "debate",
     "education", "forestry", "geology", "history", "industrial engineering",
     "joggying", "kindergarten", "linguistics", "mathematics", "nap time",
-    "opthamology", "philosophy", "quiet hour", "religion", "study skills",
+    "ophthalmology", "philosophy", "quiet hour", "religion", "study skills",
     "topology", "undecided", "values clarification", "wind surfing", 
     "xylophone band", "yard duty", "zync studies");
 
