@@ -90,7 +90,7 @@ if [ ! -f ${HCAT_PREFIX}/bin/hcat ]; then
     die "HCAT_PREFIX=${HCAT_PREFIX} is invalid";
 fi
 
-#hcat script can sometimes determine HIVE_HOME itslef
+#hcat script can sometimes determine HIVE_HOME itself
 #so HIVE_HOME does not need to be always set at this point
 DEFAULT_HIVE_HOME="${WEBHCAT_PREFIX}/.."
 if [ -n "$HIVE_HOME" ]; then
