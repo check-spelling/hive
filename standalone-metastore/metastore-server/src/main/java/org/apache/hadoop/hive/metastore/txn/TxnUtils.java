@@ -235,7 +235,7 @@ public class TxnUtils {
    * the semantics of the intended query.
    * E.g., Let's assume that input "inList" parameter has [5, 6] and that
    * _DIRECT_SQL_MAX_QUERY_LENGTH_ configuration parameter only allows one value in a 'NOT IN' clause,
-   * Then having two delete statements changes the semantics of the inteneded SQL statement.
+   * Then having two delete statements changes the semantics of the intended SQL statement.
    * I.e. 'delete from T where a not in (5)' and 'delete from T where a not in (6)' sequence
    * is not equal to 'delete from T where a not in (5, 6)'.)
    * with one or multiple 'IN' or 'NOT IN' clauses with the given input parameters.
