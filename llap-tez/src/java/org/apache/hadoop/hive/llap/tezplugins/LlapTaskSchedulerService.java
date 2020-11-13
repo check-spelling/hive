@@ -2090,7 +2090,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
         LOG.info("Preempting task {}", taskInfo);
         getContext().preemptContainer(taskInfo.containerId);
         // Preemption will finally be registered as a deallocateTask as a result of preemptContainer
-        // That resets preemption info and allows additional tasks to be pre-empted if required.
+        // That resets preemption info and allows additional tasks to be preempted if required.
       }
     }
     // The schedule loop will be triggered again when the deallocateTask request comes in for the

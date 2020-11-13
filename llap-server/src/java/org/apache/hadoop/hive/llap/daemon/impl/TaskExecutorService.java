@@ -75,7 +75,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * of the task. The internal wait queue scheduler moves tasks from wait queue when executor slots
  * are available or when a higher priority task arrives and will schedule it for execution.
  * When pre-emption is enabled, the tasks from wait queue can replace(pre-empt) a running task.
- * The pre-empted task is reported back to the Application Master(AM) for it to be rescheduled.
+ * The preempted task is reported back to the Application Master(AM) for it to be rescheduled.
  * <br>
  * Because of the concurrent nature of task submission, the position of the task in wait queue is
  * held as long the scheduling of the task from wait queue (with or without pre-emption) is complete.
