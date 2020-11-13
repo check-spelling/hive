@@ -3216,17 +3216,17 @@ public abstract class TestHiveMetaStore {
   }
 
   @Test
-  public void testJDOPersistanceManagerCleanup() throws Exception {
+  public void testJDOPersistenceManagerCleanup() throws Exception {
     if (isThriftClient == false) {
       return;
     }
 
-    int numObjectsBeforeClose =  getJDOPersistanceManagerCacheSize();
+    int numObjectsBeforeClose =  getJDOPersistenceManagerCacheSize();
     HiveMetaStoreClient closingClient = new HiveMetaStoreClient(conf);
     closingClient.getAllDatabases();
     closingClient.close();
     Thread.sleep(5 * 1000); // give HMS time to handle close request
-    int numObjectsAfterClose =  getJDOPersistanceManagerCacheSize();
+    int numObjectsAfterClose =  getJDOPersistenceManagerCacheSize();
     assertTrue(numObjectsBeforeClose == numObjectsAfterClose);
 
     HiveMetaStoreClient nonClosingClient = new HiveMetaStoreClient(conf);
@@ -3235,11 +3235,11 @@ public abstract class TestHiveMetaStore {
     // will trigger cleanup
     nonClosingClient.getTTransport().close();
     Thread.sleep(5 * 1000);
-    int numObjectsAfterDroppedConnection =  getJDOPersistanceManagerCacheSize();
+    int numObjectsAfterDroppedConnection =  getJDOPersistenceManagerCacheSize();
     assertTrue(numObjectsAfterClose == numObjectsAfterDroppedConnection);
   }
 
-  private static int getJDOPersistanceManagerCacheSize() {
+  private static int getJDOPersistenceManagerCacheSize() {
     JDOPersistenceManagerFactory jdoPmf;
     Set<JDOPersistenceManager> pmCacheObj;
     Field pmCache;
