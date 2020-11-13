@@ -52,7 +52,7 @@ public class GenTezWorkWalker extends DefaultGraphWalker {
 
   private void setRoot(Node nd) {
     ctx.currentRootOperator = (Operator<? extends OperatorDesc>) nd;
-    ctx.preceedingWork = null;
+    ctx.precedingWork = null;
     ctx.parentOfRoot = null;
     ctx.currentUnionOperators = new ArrayList<>();
   }
@@ -93,7 +93,7 @@ public class GenTezWorkWalker extends DefaultGraphWalker {
     Operator<? extends OperatorDesc> currentRoot = ctx.currentRootOperator;
     Operator<? extends OperatorDesc> parentOfRoot = ctx.parentOfRoot;
     List<UnionOperator> currentUnionOperators = ctx.currentUnionOperators;
-    BaseWork preceedingWork = ctx.preceedingWork;
+    BaseWork precedingWork = ctx.precedingWork;
 
     if (skip == null || !skip) {
       // move all the children to the front of queue
@@ -102,7 +102,7 @@ public class GenTezWorkWalker extends DefaultGraphWalker {
         // and restore the state before walking each child
         ctx.currentRootOperator = currentRoot;
         ctx.parentOfRoot = parentOfRoot;
-        ctx.preceedingWork = preceedingWork;
+        ctx.precedingWork = precedingWork;
         ctx.currentUnionOperators = new ArrayList<>();
         ctx.currentUnionOperators.addAll(currentUnionOperators);
 

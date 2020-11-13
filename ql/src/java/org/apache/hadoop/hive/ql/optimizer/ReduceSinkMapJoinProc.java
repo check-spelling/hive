@@ -121,7 +121,7 @@ public class ReduceSinkMapJoinProc implements SemanticNodeProcessor {
       return null;
     }
 
-    context.preceedingWork = null;
+    context.precedingWork = null;
     context.currentRootOperator = null;
 
     return processReduceSinkToHashJoin(parentRS, mapJoinOp, context);

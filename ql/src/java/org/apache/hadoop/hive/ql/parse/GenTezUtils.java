@@ -136,7 +136,7 @@ public class GenTezUtils {
     tezWork.add(reduceWork);
 
     TezEdgeProperty edgeProp;
-    EdgeType edgeType = determineEdgeType(context.preceedingWork, reduceWork, reduceSink);
+    EdgeType edgeType = determineEdgeType(context.precedingWork, reduceWork, reduceSink);
     if (reduceWork.isAutoReduceParallelism()) {
       edgeProp =
           new TezEdgeProperty(context.conf, edgeType, true, reduceWork.isSlowStart(),
@@ -149,7 +149,7 @@ public class GenTezUtils {
     reduceWork.setEdgePropRef(edgeProp);
 
     tezWork.connect(
-        context.preceedingWork,
+        context.precedingWork,
         reduceWork, edgeProp);
     context.connectedReduceSinks.add(reduceSink);
 
@@ -168,7 +168,7 @@ public class GenTezUtils {
     // remember which parent belongs to which tag
     int tag = reduceSink.getConf().getTag();
     reduceWork.getTagToInput().put(tag == -1 ? 0 : tag,
-         context.preceedingWork.getName());
+         context.precedingWork.getName());
 
     // remember the output name of the reduce sink
     reduceSink.getConf().setOutputName(reduceWork.getName());
@@ -533,7 +533,7 @@ public class GenTezUtils {
     return child;
   }
 
-  public static EdgeType determineEdgeType(BaseWork preceedingWork, BaseWork followingWork,
+  public static EdgeType determineEdgeType(BaseWork precedingWork, BaseWork followingWork,
       ReduceSinkOperator reduceSinkOperator) {
     // The 1-1 edge should also work for sorted cases, however depending on the details of the shuffle
     // this might end up writing multiple compressed files or end up using an in-memory partitioned kv writer

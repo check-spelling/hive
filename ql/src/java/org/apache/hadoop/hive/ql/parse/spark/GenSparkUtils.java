@@ -125,7 +125,7 @@ public class GenSparkUtils {
     sparkWork.add(reduceWork);
     SparkEdgeProperty edgeProp = getEdgeProperty(context.conf, reduceSink, reduceWork);
 
-    sparkWork.connect(context.preceedingWork, reduceWork, edgeProp);
+    sparkWork.connect(context.precedingWork, reduceWork, edgeProp);
 
     return reduceWork;
   }
@@ -141,7 +141,7 @@ public class GenSparkUtils {
 
     // remember which parent belongs to which tag
     reduceWork.getTagToInput().put(reduceSink.getConf().getTag(),
-        context.preceedingWork.getName());
+        context.precedingWork.getName());
 
     // remember the output name of the reduce sink
     reduceSink.getConf().setOutputName(reduceWork.getName());

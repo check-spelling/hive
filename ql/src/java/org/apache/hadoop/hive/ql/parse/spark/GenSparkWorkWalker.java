@@ -53,7 +53,7 @@ public class GenSparkWorkWalker extends DefaultGraphWalker {
   @SuppressWarnings("unchecked")
   private void setRoot(Node nd) {
     ctx.currentRootOperator = (Operator<? extends OperatorDesc>) nd;
-    ctx.preceedingWork = null;
+    ctx.precedingWork = null;
     ctx.parentOfRoot = null;
   }
 
@@ -92,7 +92,7 @@ public class GenSparkWorkWalker extends DefaultGraphWalker {
     // save some positional state
     Operator<? extends OperatorDesc> currentRoot = ctx.currentRootOperator;
     Operator<? extends OperatorDesc> parentOfRoot = ctx.parentOfRoot;
-    BaseWork preceedingWork = ctx.preceedingWork;
+    BaseWork precedingWork = ctx.precedingWork;
 
     if (skip == null || !skip) {
       // move all the children to the front of queue
@@ -101,7 +101,7 @@ public class GenSparkWorkWalker extends DefaultGraphWalker {
         // and restore the state before walking each child
         ctx.currentRootOperator = currentRoot;
         ctx.parentOfRoot = parentOfRoot;
-        ctx.preceedingWork = preceedingWork;
+        ctx.precedingWork = precedingWork;
 
         walk(ch);
       }

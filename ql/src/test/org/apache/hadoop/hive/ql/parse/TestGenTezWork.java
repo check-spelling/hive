@@ -112,7 +112,7 @@ public class TestGenTezWork {
     rs.getParentOperators().add(ts);
     rs.getChildOperators().add(fs);
     fs.getParentOperators().add(rs);
-    ctx.preceedingWork = null;
+    ctx.precedingWork = null;
     ctx.currentRootOperator = ts;
   }
 
@@ -149,8 +149,8 @@ public class TestGenTezWork {
     // map work should start with our ts op
     assertSame(mw.getAliasToWork().entrySet().iterator().next().getValue(),ts);
 
-    // preceeding work must be set to the newly generated map
-    assertSame(ctx.preceedingWork, mw);
+    // preceding work must be set to the newly generated map
+    assertSame(ctx.precedingWork, mw);
 
     // should have a new root now
     assertSame(ctx.currentRootOperator, fs);
