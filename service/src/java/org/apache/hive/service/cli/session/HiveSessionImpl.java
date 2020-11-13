@@ -560,7 +560,7 @@ public class HiveSessionImpl implements HiveSession {
       operation.run();
       return opHandle;
     } catch (HiveSQLException e) {
-      // Refering to SQLOperation.java, there is no chance that a HiveSQLException throws and the
+      // Referring to SQLOperation.java, there is no chance that a HiveSQLException throws and the
       // async background operation submits to thread pool successfully at the same time. So, Cleanup
       // opHandle directly when got HiveSQLException
       if (opHandle != null) {

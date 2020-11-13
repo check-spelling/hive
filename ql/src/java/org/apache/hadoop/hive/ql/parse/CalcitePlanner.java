@@ -2897,7 +2897,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
         calciteJoinCond = cluster.getRexBuilder().makeLiteral(true);
       }
 
-      // 2. Validate that join condition is legal (i.e no function refering to
+      // 2. Validate that join condition is legal (i.e no function referring to
       // both sides of join, only equi join)
       // TODO: Join filter handling (only supported for OJ by runtime or is it
       // supported for IJ as well)
