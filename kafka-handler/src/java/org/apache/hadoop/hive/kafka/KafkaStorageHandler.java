@@ -297,9 +297,9 @@ import java.util.function.Predicate;
       }
     };
     final Predicate<Throwable>
-        isRetrayable = (error) -> !KafkaUtils.exceptionIsFatal(error) && !(error instanceof ProducerFencedException);
+        isRetryable = (error) -> !KafkaUtils.exceptionIsFatal(error) && !(error instanceof ProducerFencedException);
     try {
-      RetryUtils.retry(buildProducersTask, isRetrayable, cleanUpTheMap, maxTries, "Error while Building Producers");
+      RetryUtils.retry(buildProducersTask, isRetryable, cleanUpTheMap, maxTries, "Error while Building Producers");
     } catch (Exception e) {
       // Can not go further
       LOG.error("Can not fetch build produces due [{}]", e);
@@ -325,7 +325,7 @@ import java.util.function.Predicate;
     };
 
     try {
-      RetryUtils.retry(commitTask, isRetrayable, maxTries);
+      RetryUtils.retry(commitTask, isRetryable, maxTries);
     } catch (Exception e) {
       // at this point we are in a funky state if one commit happened!! close and log it
       producersMap.forEach((key, producer) -> producer.close(0, TimeUnit.MILLISECONDS));
