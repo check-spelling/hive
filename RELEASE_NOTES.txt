@@ -1049,7 +1049,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16948] - Invalid explain when running dynamic partition pruning query in Hive On Spark
     * [HIVE-16949] - Leak of threads from Get-Input-Paths and Get-Input-Summary thread pool
     * [HIVE-16954] - LLAP IO: better debugging
-    * [HIVE-16958] - Setting hive.merge.sparkfiles=true will retrun an error when generating parquet databases 
+    * [HIVE-16958] - Setting hive.merge.sparkfiles=true will return an error when generating parquet databases 
     * [HIVE-16960] - Hive throws an ugly error exception when HDFS sticky bit is set
     * [HIVE-16961] - Hive on Spark leaks spark application in case user cancels query and closes session
     * [HIVE-16964] - _orc_acid_version file is missing

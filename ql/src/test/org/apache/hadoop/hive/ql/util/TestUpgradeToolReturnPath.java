@@ -22,9 +22,9 @@ import org.apache.hadoop.hive.conf.HiveConf;
 import org.junit.Before;
 
 /**
- * TestUpgradeToolWithRerturnPath.
+ * TestUpgradeToolWithReturnPath.
  */
-public class TestUpgradeToolRerturnPath extends TestUpgradeTool {
+public class TestUpgradeToolReturnPath extends TestUpgradeTool {
   @Before
   @Override
   public void setUp() throws Exception {

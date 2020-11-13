@@ -1218,7 +1218,7 @@ public final class Utilities {
                       "(\\..*)?$"); // any suffix/file extension
 
   /**
-   * This retruns prefix part + taskID for bucket join for partitioned table
+   * This returns prefix part + taskID for bucket join for partitioned table
    */
   private static final Pattern FILE_NAME_PREFIXED_TASK_ID_REGEX =
       Pattern.compile("^.*?((\\(.*\\))?[0-9]+)(_[0-9]{1,6})?(\\..*)?$");
