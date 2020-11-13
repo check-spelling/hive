@@ -101,7 +101,7 @@ struct TOperationState {
     CANCELED_STATE = 3,
     CLOSED_STATE = 4,
     ERROR_STATE = 5,
-    UKNOWN_STATE = 6,
+    UNKNOWN_STATE = 6,
     PENDING_STATE = 7,
     TIMEDOUT_STATE = 8
   };

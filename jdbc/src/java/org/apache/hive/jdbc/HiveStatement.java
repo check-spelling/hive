@@ -399,7 +399,7 @@ public class HiveStatement implements java.sql.Statement {
             // Get the error details from the underlying exception
             throw new SQLException(statusResp.getErrorMessage(), statusResp.getSqlState(),
                 statusResp.getErrorCode());
-          case UKNOWN_STATE:
+          case UNKNOWN_STATE:
             throw new SQLException("Unknown query", "HY000");
           case INITIALIZED_STATE:
           case PENDING_STATE:

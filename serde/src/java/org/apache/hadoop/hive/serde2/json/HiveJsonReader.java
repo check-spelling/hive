@@ -118,7 +118,7 @@ public class HiveJsonReader {
    * <ul>
    * <li>{@link #COL_INDEX_PARSING}</li>
    * <li>{@link #PRIMITIVE_TO_WRITABLE}</li>
-   * <li>{@link #IGNORE_UKNOWN_FIELDS}</li>
+   * <li>{@link #IGNORE_UNKNOWN_FIELDS}</li>
    * </ul>
    */
   public enum Feature {
@@ -141,7 +141,7 @@ public class HiveJsonReader {
      * produce a log warnings. If this feature is disabled, an Exception will be
      * thrown and parsing will stop.
      */
-    IGNORE_UKNOWN_FIELDS
+    IGNORE_UNKNOWN_FIELDS
   }
 
   /**
@@ -490,7 +490,7 @@ public class HiveJsonReader {
       this.discoveredFields.put(pair, structField);
     } else {
       // Tried everything and did not discover this field
-      if (isEnabled(Feature.IGNORE_UKNOWN_FIELDS)
+      if (isEnabled(Feature.IGNORE_UNKNOWN_FIELDS)
           && this.discoveredUnknownFields.add(pair)) {
         LOG.warn("Discovered unknown field: {}. Ignoring.", fieldName);
       } else {
