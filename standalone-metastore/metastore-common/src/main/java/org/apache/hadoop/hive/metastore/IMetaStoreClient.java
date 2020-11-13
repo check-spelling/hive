@@ -3592,7 +3592,7 @@ public interface IMetaStoreClient {
       List<Long> fileIds, ByteBuffer sarg, boolean doGetFooters) throws TException;
 
   /**
-   * Cleares the file metadata cache for respective file IDs.
+   * Clears the file metadata cache for respective file IDs.
    */
   void clearFileMetadata(List<Long> fileIds) throws TException;
 
