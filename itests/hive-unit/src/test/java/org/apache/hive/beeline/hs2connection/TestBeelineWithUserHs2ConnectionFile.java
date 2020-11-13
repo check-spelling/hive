@@ -35,7 +35,7 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class TestBeelineWithUserHs2ConnectionFile extends BeelineWithHS2ConnectionFileTestBase {
 
-  @Parameterized.Parameters(name = "{index}: tranportMode={0}")
+  @Parameterized.Parameters(name = "{index}: transportMode={0}")
   public static Collection<Object[]> transportModes() {
     return Arrays.asList(new Object[][]{{MiniHS2.HS2_ALL_MODE}, {MiniHS2.HS2_BINARY_MODE}, {MiniHS2.HS2_HTTP_MODE}});
   }

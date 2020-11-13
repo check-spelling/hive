@@ -40,7 +40,7 @@ public class TestBeelineConnectionUsingHiveSite extends BeelineWithHS2Connection
 
   boolean isHttpModeTest = false;
 
-  @Parameterized.Parameters(name = "{index}: tranportMode={0}")
+  @Parameterized.Parameters(name = "{index}: transportMode={0}")
   public static Collection<Object[]> transportModes() {
     return Arrays.asList(new Object[][]{{MiniHS2.HS2_BINARY_MODE}, {MiniHS2.HS2_HTTP_MODE}, {MiniHS2.HS2_ALL_MODE}});
   }
