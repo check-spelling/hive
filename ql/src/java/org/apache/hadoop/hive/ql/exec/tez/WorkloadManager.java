@@ -606,7 +606,7 @@ public class WorkloadManager extends TezSessionPoolSession.AbstractTriggerValida
     // 4. Reopen is essentially just destroy + get a new session for a session in use.
     for (Map.Entry<WmTezSession, SettableFuture<WmTezSession>> entry : e.toReopen.entrySet()) {
       LOG.info("Reopening {}", entry.getKey());
-      handeReopenRequestOnMasterThread(
+      handleReopenRequestOnMasterThread(
         e, entry.getKey(), entry.getValue(), poolsToRedistribute, syncWork);
     }
     e.toReopen.clear();
@@ -908,7 +908,7 @@ public class WorkloadManager extends TezSessionPoolSession.AbstractTriggerValida
     return checkAndRemoveSessionFromItsPool(session, poolsToRedistribute, isReturn, true);
   }
 
-  private void handeReopenRequestOnMasterThread(EventState e, WmTezSession session,
+  private void handleReopenRequestOnMasterThread(EventState e, WmTezSession session,
       SettableFuture<WmTezSession> future, HashSet<String> poolsToRedistribute,
       WmThreadSyncWork syncWork) throws Exception {
     if (e.updateErrors.remove(session) != null) {
