@@ -8764,7 +8764,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
               request.getValidWriteIdList(), request.getWriteId()) && result;
         } else if (isInvalidTxnStats) {
           // For now because the stats state is such as it is, we will invalidate everything.
-          // Overall the sematics here are not clear - we could invalidate only some columns, but does
+          // Overall the semantics here are not clear - we could invalidate only some columns, but does
           // that make any physical sense? Could query affect some columns but not others?
           part.setWriteId(request.getWriteId());
           StatsSetupConst.clearColumnStatsState(part.getParameters());
@@ -8820,7 +8820,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
             request.getValidWriteIdList(), request.getWriteId());
       } else if (isInvalidTxnStats) {
         // For now because the stats state is such as it is, we will invalidate everything.
-        // Overall the sematics here are not clear - we could invalidate only some columns, but does
+        // Overall the semantics here are not clear - we could invalidate only some columns, but does
         // that make any physical sense? Could query affect some columns but not others?
         Table t = getTable(catName, dbName, tableName);
         t.setWriteId(request.getWriteId());
