@@ -146,7 +146,7 @@ public class TestExecutor extends Thread {
           }
         }
       } catch (Exception e) {
-        LOG.error("Unxpected Error", e);
+        LOG.error("Unexpected Error", e);
         if(test != null) {
           test.setStatus(Status.failed("Tests failed with exception " +
               e.getClass().getName() + ": " + e.getMessage()));

@@ -504,7 +504,7 @@ public class TestTxnLoadData extends TxnCommandsBaseForTests {
     runStatementOnDriver("insert into T values(1,2)");
     List<String> rs = runStatementOnDriver("select INPUT__FILE__NAME from T");
     Assert.assertEquals(1, rs.size());
-    Assert.assertTrue("Unexpcted file name", rs.get(0)
+    Assert.assertTrue("Unexpected file name", rs.get(0)
         .endsWith("t/delta_0000001_0000001_0000/bucket_00000_0"));
     //T2 is an acid table so this should fail
     CommandProcessorException e =
