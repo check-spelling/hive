@@ -327,7 +327,7 @@ import java.util.function.Predicate;
     try {
       RetryUtils.retry(commitTask, isRetrayable, maxTries);
     } catch (Exception e) {
-      // at this point we are in a funky state if one commit happend!! close and log it
+      // at this point we are in a funky state if one commit happened!! close and log it
       producersMap.forEach((key, producer) -> producer.close(0, TimeUnit.MILLISECONDS));
       LOG.error("Commit transaction failed", e);
       if (committedTx.size() > 0) {

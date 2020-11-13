@@ -1471,7 +1471,7 @@ public class TestReplicationScenariosAcidTables extends BaseReplicationScenarios
 
     fs.delete(ackFile, false);
 
-    //Do another dump and test the rewrite happended for meta and no write for data folder
+    //Do another dump and test the rewrite happened for meta and no write for data folder
     ReplDumpWork.testDeletePreviousDumpMetaPath(false);
     WarehouseInstance.Tuple incrementalDump2 = primary.run("use " + primaryDbName)
             .dump(primaryDbName, dumpClause);
