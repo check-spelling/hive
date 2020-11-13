@@ -1888,7 +1888,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
               boolean shouldPreempt = true;
               for (String host : potentialHosts) {
                 // Preempt only if there are no pending preemptions on the same host
-                // When the premption registers, the request at the highest priority will be given the slot,
+                // When the preemption registers, the request at the highest priority will be given the slot,
                 // even if the initial preemption was caused by some other task.
                 // TODO Maybe register which task the preemption was for, to avoid a bad non-local allocation.
                 MutableInt pendingHostPreemptions = pendingPreemptionsPerHost.get(host);
