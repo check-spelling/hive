@@ -858,7 +858,7 @@ sub wrongExecutionMode($$)
 #  Sub: printGroupResultsXml
 #  Print the results for the group using junit xml schema using values from the testStatuses hash.
 #
-# Paramaters:
+# Parameters:
 # $report       - the report object to use to generate the report
 # $groupName    - the name of the group to report totals for
 # $testStatuses - the hash containing the results for the tests run so far
