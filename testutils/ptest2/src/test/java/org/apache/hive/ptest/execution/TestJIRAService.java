@@ -81,7 +81,7 @@ public class TestJIRAService extends AbstractTestPhase {
     JIRAService.formatBuildTag("abc123");
   }
   @Test
-  public void testTrimMesssagesBoundary() {
+  public void testTrimMessagesBoundary() {
     List<String> messages = Lists.newArrayList();
     Assert.assertEquals(messages, JIRAService.trimMessages(messages));
     messages.clear();
@@ -91,12 +91,12 @@ public class TestJIRAService extends AbstractTestPhase {
     Assert.assertEquals(messages, JIRAService.trimMessages(messages));
   }
   @Test
-  public void testTrimMesssagesNotTrimmed() {
+  public void testTrimMessagesNotTrimmed() {
     List<String> messages = Lists.newArrayList("a", "b", "c");
     Assert.assertEquals(messages, JIRAService.trimMessages(messages));
   }
   @Test
-  public void testTrimMesssagesTrimmed() {
+  public void testTrimMessagesTrimmed() {
     List<String> messages = Lists.newArrayList();
     for (int i = 0; i < JIRAService.MAX_MESSAGES + 1; i++) {
       messages.add(String.valueOf(i));

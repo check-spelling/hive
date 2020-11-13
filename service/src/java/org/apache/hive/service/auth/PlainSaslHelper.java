@@ -161,7 +161,7 @@ public final class PlainSaslHelper {
       try {
         provider.Authenticate(username, password);
       } catch (Exception e) {
-        LOG.error("Login attempt is failed for user : " + username + ". Error Messsage : " + e.getMessage());
+        LOG.error("Login attempt is failed for user : " + username + ". Error Message : " + e.getMessage());
         throw e;
       }
       if (ac != null) {
