@@ -126,8 +126,8 @@ public class TestAtlasDumpTask {
   public void testAtlasRestClientBuilder() throws SemanticException, IOException {
     mockStatic(UserGroupInformation.class);
     when(UserGroupInformation.getLoginUser()).thenReturn(mock(UserGroupInformation.class));
-    AtlasRestClientBuilder atlasRestCleintBuilder = new AtlasRestClientBuilder("http://localhost:31000");
-    AtlasRestClient atlasClient = atlasRestCleintBuilder.getClient(conf);
+    AtlasRestClientBuilder atlasRestClientBuilder = new AtlasRestClientBuilder("http://localhost:31000");
+    AtlasRestClient atlasClient = atlasRestClientBuilder.getClient(conf);
     Assert.assertTrue(atlasClient != null);
   }
 
