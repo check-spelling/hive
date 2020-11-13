@@ -72,7 +72,7 @@ public class TestMultiAuthorizationPreEventListener {
   }
 
   @Test
-  public void testMultipleAuthorizationListners() throws Exception {
+  public void testMultipleAuthorizationListeners() throws Exception {
     String dbName = "hive" + this.getClass().getSimpleName().toLowerCase();
     List<AuthCallContext> authCalls = DummyHiveMetastoreAuthorizationProvider.authCalls;
     int listSize = 0;
