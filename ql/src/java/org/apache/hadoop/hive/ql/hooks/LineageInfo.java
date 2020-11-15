@@ -290,7 +290,7 @@ public class LineageInfo implements Serializable {
   public static class TableAliasInfo implements Serializable {
 
     /**
-     * Serail version id.
+     * Serial version id.
      */
     private static final long serialVersionUID = 1L;
 
