@@ -111,11 +111,11 @@ public class TxnCommonUtils {
   public static ValidReaderWriteIdList createValidReaderWriteIdList(TableValidWriteIds tableWriteIds) {
     String fullTableName = tableWriteIds.getFullTableName();
     long highWater = tableWriteIds.getWriteIdHighWaterMark();
-    List<Long> invalids = tableWriteIds.getInvalidWriteIds();
+    List<Long> invalid = tableWriteIds.getInvalidWriteIds();
     BitSet abortedBits = BitSet.valueOf(tableWriteIds.getAbortedBits());
-    long[] exceptions = new long[invalids.size()];
+    long[] exceptions = new long[invalid.size()];
     int i = 0;
-    for (long writeId : invalids) {
+    for (long writeId : invalid) {
       exceptions[i++] = writeId;
     }
     if (tableWriteIds.isSetMinOpenWriteId()) {
