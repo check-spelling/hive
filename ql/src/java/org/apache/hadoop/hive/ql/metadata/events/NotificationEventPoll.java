@@ -74,7 +74,7 @@ public class NotificationEventPoll {
     this.conf = conf;
 
     long pollInterval = HiveConf.getTimeVar(conf,
-        HiveConf.ConfVars.HIVE_NOTFICATION_EVENT_POLL_INTERVAL, TimeUnit.MILLISECONDS);
+        HiveConf.ConfVars.HIVE_NOTIFICATION_EVENT_POLL_INTERVAL, TimeUnit.MILLISECONDS);
     if (pollInterval <= 0) {
       LOG.debug("Non-positive poll interval configured, notification event polling disabled");
       return;
@@ -82,7 +82,7 @@ public class NotificationEventPoll {
 
     // Initialize the list of event handlers
     String[] consumerClassNames =
-        conf.getStrings(HiveConf.ConfVars.HIVE_NOTFICATION_EVENT_CONSUMERS.varname);
+        conf.getStrings(HiveConf.ConfVars.HIVE_NOTIFICATION_EVENT_CONSUMERS.varname);
     if (consumerClassNames != null && consumerClassNames.length > 0) {
       for (String consumerClassName : consumerClassNames) {
         Class<?> consumerClass = JavaUtils.loadClass(consumerClassName);

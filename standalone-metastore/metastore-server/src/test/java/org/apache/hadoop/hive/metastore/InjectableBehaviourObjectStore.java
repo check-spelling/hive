@@ -89,7 +89,7 @@ public class InjectableBehaviourObjectStore extends ObjectStore {
   private static com.google.common.base.Function<CallerArguments, Boolean> alterTableModifier = null;
 
   private static com.google.common.base.Function<CurrentNotificationEventId, CurrentNotificationEventId>
-          getCurrNotiEventIdModifier = null;
+          getCurrNotificationEventdModifier = null;
 
   private static com.google.common.base.Function<List<Partition>, Boolean> alterPartitionsModifier = null;
 
@@ -295,7 +295,7 @@ public class InjectableBehaviourObjectStore extends ObjectStore {
   // Methods to set/reset getCurrentNotificationEventId modifier
   public static void setGetCurrentNotificationEventIdBehaviour(
           com.google.common.base.Function<CurrentNotificationEventId, CurrentNotificationEventId> modifier){
-    getCurrNotiEventIdModifier = modifier;
+    getCurrNotificationEventdModifier = modifier;
   }
   public static void resetGetCurrentNotificationEventIdBehaviour(){
     setGetCurrentNotificationEventIdBehaviour(null);
@@ -304,8 +304,8 @@ public class InjectableBehaviourObjectStore extends ObjectStore {
   @Override
   public CurrentNotificationEventId getCurrentNotificationEventId() {
     CurrentNotificationEventId id = super.getCurrentNotificationEventId();
-    if (getCurrNotiEventIdModifier != null) {
-      id = getCurrNotiEventIdModifier.apply(id);
+    if (getCurrNotificationEventdModifier != null) {
+      id = getCurrNotificationEventdModifier.apply(id);
       if (id == null) {
         throw new RuntimeException("InjectableBehaviourObjectStore: Invalid getCurrentNotificationEventId");
       }
