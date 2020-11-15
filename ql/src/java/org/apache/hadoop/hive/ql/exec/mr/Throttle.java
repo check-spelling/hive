@@ -80,14 +80,14 @@ public final class Throttle {
         String[] results = dowait.split(fetchString);
         if (results.length != 2) {
           throw new IOException("Throttle: Unable to parse response of URL "
-                                + url + ". Get retuned " + fetchString);
+                                + url + ". Get returned " + fetchString);
         }
         dowait = Pattern.compile("</dogc>", Pattern.CASE_INSENSITIVE
                                  | Pattern.DOTALL | Pattern.MULTILINE);
         results = dowait.split(results[1]);
         if (results.length < 1) {
           throw new IOException("Throttle: Unable to parse response of URL "
-                                + url + ". Get retuned " + fetchString);
+                                + url + ". Get returned " + fetchString);
         }
 
         // if the jobtracker signalled that the threshold is not exceeded,
