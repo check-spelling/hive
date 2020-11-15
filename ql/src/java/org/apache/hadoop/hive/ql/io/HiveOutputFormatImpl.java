@@ -42,7 +42,7 @@ import org.apache.hadoop.util.Progressable;
 public class HiveOutputFormatImpl<K extends WritableComparable<K>, V extends Writable>
   implements OutputFormat<K, V> {
 
-  //no records will be emited from Hive
+  //no records will be emitted from Hive
   @Override
   public RecordWriter<K, V> getRecordWriter(FileSystem ignored, JobConf job, String name,
       Progressable progress) {
