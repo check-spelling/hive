@@ -33,7 +33,7 @@ import java.util.List;
 final class ColorBuffer implements Comparable<Object> {
   private static final ColorBuffer.ColorAttr BOLD = new ColorAttr("\033[1m");
   private static final ColorBuffer.ColorAttr NORMAL = new ColorAttr("\033[m");
-  private static final ColorBuffer.ColorAttr REVERS = new ColorAttr("\033[7m");
+  private static final ColorBuffer.ColorAttr REVERSE = new ColorAttr("\033[7m");
   private static final ColorBuffer.ColorAttr LINED = new ColorAttr("\033[4m");
   private static final ColorBuffer.ColorAttr GREY = new ColorAttr("\033[1;30m");
   private static final ColorBuffer.ColorAttr RED = new ColorAttr("\033[1;31m");
