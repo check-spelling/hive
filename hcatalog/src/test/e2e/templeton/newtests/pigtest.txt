@@ -16,7 +16,7 @@
 # under the License.
 
 checks for all of them -
-- lanucher  launched ok
+- launcher  launched ok
 - job succeeded (and pig exit status 0)/failed (tests below succeed unless specified)
 
 
