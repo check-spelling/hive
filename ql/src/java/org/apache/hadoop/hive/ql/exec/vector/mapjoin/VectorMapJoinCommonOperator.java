@@ -515,7 +515,7 @@ private static final Logger LOG = LoggerFactory.getLogger(CLASS_NAME);
    */
   private void initializeFullOuterObjects() throws HiveException {
 
-    // The Small Table key type jnfo is the same as Big Table's.
+    // The Small Table key type info is the same as Big Table's.
     TypeInfo[] smallTableKeyTypeInfos = bigTableKeyTypeInfos;
     final int allKeysSize = smallTableKeyTypeInfos.length;
 
