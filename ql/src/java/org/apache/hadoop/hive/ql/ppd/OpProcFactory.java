@@ -1248,13 +1248,13 @@ public final class OpProcFactory {
     }
 
     // add new filter op
-    List<Operator<? extends OperatorDesc>> originalChilren = op
+    List<Operator<? extends OperatorDesc>> originalChildren = op
         .getChildOperators();
     op.setChildOperators(null);
     Operator<FilterDesc> output = OperatorFactory.getAndMakeChild(
         new FilterDesc(condn, false), new RowSchema(inputRS.getSignature()), op);
-    output.setChildOperators(originalChilren);
-    for (Operator<? extends OperatorDesc> ch : originalChilren) {
+    output.setChildOperators(originalChildren);
+    for (Operator<? extends OperatorDesc> ch : originalChildren) {
       List<Operator<? extends OperatorDesc>> parentOperators = ch
           .getParentOperators();
       int pos = parentOperators.indexOf(op);

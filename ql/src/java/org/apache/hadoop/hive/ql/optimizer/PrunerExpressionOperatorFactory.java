@@ -63,7 +63,7 @@ public abstract class PrunerExpressionOperatorFactory {
         // values) should derive from a common base class UDFNullAsUnknown, so
         // instead of listing the classes
         // here we would test whether a class is derived from that base class.
-        // If All childs are null, set unknown to true
+        // If All children are null, set unknown to true
         boolean isAllNull = true;
         for (Object child : nodeOutputs) {
           ExprNodeDesc child_nd = (ExprNodeDesc) child;
