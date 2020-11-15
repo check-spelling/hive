@@ -219,7 +219,7 @@ public class MuxOperator extends Operator<MuxDesc> implements Serializable{
   }
 
   /**
-   * Calls initialize on each of the children with outputObjetInspector as the
+   * Calls initialize on each of the children with outputObjectInspector as the
    * output row format.
    */
   @Override

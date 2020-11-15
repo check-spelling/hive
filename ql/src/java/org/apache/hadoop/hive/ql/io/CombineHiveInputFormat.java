@@ -249,7 +249,7 @@ public class CombineHiveInputFormat<K extends WritableComparable, V extends Writ
     }
 
     /**
-     * Prints this obejct as a string.
+     * Prints this object as a string.
      */
     @Override
     public String toString() {
