@@ -50,7 +50,7 @@ import static org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveO
         extended = "Returns an integer between 0 and num_buckets+1 by "
                 + "mapping expr into the ith equally sized bucket. Buckets are made by dividing [min_value, max_value] into "
                 + "equally sized regions. If expr < min_value, return 1, if expr > max_value return num_buckets+1\n"
-                + "Example: expr is an integer column withs values 1, 10, 20, 30.\n"
+                + "Example: expr is an integer column widths values 1, 10, 20, 30.\n"
                 + "  > SELECT _FUNC_(expr, 5, 25, 4) FROM src;\n1\n1\n3\n5")
 public class GenericUDFWidthBucket extends GenericUDF {
 
