@@ -189,16 +189,16 @@ public class AuthorizationUtils {
   /**
    * Get thrift privilege grant info
    * @param privilege
-   * @param grantorPrincipal
+   * @param grantorPrincipalipal
    * @param grantOption
    * @param grantTime
    * @return
    * @throws HiveException
    */
   public static PrivilegeGrantInfo getThriftPrivilegeGrantInfo(HivePrivilege privilege,
-      HivePrincipal grantorPrincipal, boolean grantOption, int grantTime) throws HiveException {
+      HivePrincipal grantorPrincipalipal, boolean grantOption, int grantTime) throws HiveException {
     return new PrivilegeGrantInfo(privilege.getName(), grantTime,
-        grantorPrincipal.getName(), getThriftPrincipalType(grantorPrincipal.getType()), grantOption);
+        grantorPrincipalipal.getName(), getThriftPrincipalType(grantorPrincipalipal.getType()), grantOption);
   }
 
 

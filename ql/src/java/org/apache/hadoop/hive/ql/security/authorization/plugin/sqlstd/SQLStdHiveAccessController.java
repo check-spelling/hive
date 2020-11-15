@@ -169,7 +169,7 @@ public class SQLStdHiveAccessController implements HiveAccessController {
   @Override
   public void grantPrivileges(List<HivePrincipal> hivePrincipals,
       List<HivePrivilege> hivePrivileges, HivePrivilegeObject hivePrivObject,
-      HivePrincipal grantorPrincipal, boolean grantOption)
+      HivePrincipal grantorPrincipalipal, boolean grantOption)
           throws HiveAuthzPluginException, HiveAccessControlException {
 
     hivePrivileges = expandAndValidatePrivileges(hivePrivileges);
@@ -181,7 +181,7 @@ public class SQLStdHiveAccessController implements HiveAccessController {
 
     // grant
     PrivilegeBag privBag = SQLAuthorizationUtils.getThriftPrivilegesBag(hivePrincipals, hivePrivileges, hivePrivObject,
-        grantorPrincipal, grantOption);
+        grantorPrincipalipal, grantOption);
     try {
       metastoreClient.grant_privileges(privBag);
     } catch (Exception e) {
@@ -225,7 +225,7 @@ public class SQLStdHiveAccessController implements HiveAccessController {
   @Override
   public void revokePrivileges(List<HivePrincipal> hivePrincipals,
       List<HivePrivilege> hivePrivileges, HivePrivilegeObject hivePrivObject,
-      HivePrincipal grantorPrincipal, boolean grantOption)
+      HivePrincipal grantorPrincipalipal, boolean grantOption)
           throws HiveAuthzPluginException, HiveAccessControlException {
 
     hivePrivileges = expandAndValidatePrivileges(hivePrivileges);
@@ -286,7 +286,7 @@ public class SQLStdHiveAccessController implements HiveAccessController {
 
   @Override
   public void grantRole(List<HivePrincipal> hivePrincipals, List<String> roleNames,
-    boolean grantOption, HivePrincipal grantorPrinc) throws HiveAuthzPluginException,
+    boolean grantOption, HivePrincipal grantorPrincipal) throws HiveAuthzPluginException,
     HiveAccessControlException {
     if (!(isUserAdmin() || doesUserHasAdminOption(roleNames))) {
       throw new HiveAccessControlException("Current user : " + currentUserName+ " is not"
@@ -298,8 +298,8 @@ public class SQLStdHiveAccessController implements HiveAccessController {
           IMetaStoreClient mClient = metastoreClientFactory.getHiveMetastoreClient();
           mClient.grant_role(roleName, hivePrincipal.getName(),
               AuthorizationUtils.getThriftPrincipalType(hivePrincipal.getType()),
-              grantorPrinc.getName(),
-              AuthorizationUtils.getThriftPrincipalType(grantorPrinc.getType()), grantOption);
+              grantorPrincipal.getName(),
+              AuthorizationUtils.getThriftPrincipalType(grantorPrincipal.getType()), grantOption);
         } catch (MetaException e) {
           throw SQLAuthorizationUtils.getPluginException("Error granting role", e);
         } catch (Exception e) {
@@ -313,7 +313,7 @@ public class SQLStdHiveAccessController implements HiveAccessController {
 
   @Override
   public void revokeRole(List<HivePrincipal> hivePrincipals, List<String> roleNames,
-    boolean grantOption, HivePrincipal grantorPrinc) throws HiveAuthzPluginException,
+    boolean grantOption, HivePrincipal grantorPrincipal) throws HiveAuthzPluginException,
     HiveAccessControlException {
     if (!(isUserAdmin() || doesUserHasAdminOption(roleNames))) {
       throw new HiveAccessControlException("Current user : " + currentUserName+ " is not"
@@ -433,11 +433,11 @@ public class SQLStdHiveAccessController implements HiveAccessController {
             msObjRef.getObjectName(), msObjRef.getPartValues(), msObjRef.getColumnName());
 
         // result grantor principal
-        HivePrincipal grantorPrincipal = new HivePrincipal(msGrantInfo.getGrantor(),
+        HivePrincipal grantorPrincipalipal = new HivePrincipal(msGrantInfo.getGrantor(),
             AuthorizationUtils.getHivePrincipalType(msGrantInfo.getGrantorType()));
 
         HivePrivilegeInfo resPrivInfo = new HivePrivilegeInfo(resPrincipal, resPrivilege,
-            resPrivObj, grantorPrincipal, msGrantInfo.isGrantOption(), msGrantInfo.getCreateTime());
+            resPrivObj, grantorPrincipalipal, msGrantInfo.isGrantOption(), msGrantInfo.getCreateTime());
         resPrivInfos.add(resPrivInfo);
       }
       return resPrivInfos;

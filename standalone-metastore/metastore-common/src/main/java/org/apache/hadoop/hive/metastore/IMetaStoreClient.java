@@ -3502,25 +3502,25 @@ public interface IMetaStoreClient {
    * get all role-grants for users/roles that have been granted the given role
    * Note that in the returned list of RolePrincipalGrants, the roleName is
    * redundant as it would match the role_name argument of this function
-   * @param getPrincRoleReq
+   * @param getPrincipalRoleReq
    * @return
    * @throws MetaException
    * @throws TException
    */
-  GetPrincipalsInRoleResponse get_principals_in_role(GetPrincipalsInRoleRequest getPrincRoleReq)
+  GetPrincipalsInRoleResponse get_principals_in_role(GetPrincipalsInRoleRequest getPrincipalRoleReq)
       throws MetaException, TException;
 
   /**
    * get all role-grants for roles that have been granted to given principal
    * Note that in the returned list of RolePrincipalGrants, the principal information
    * redundant as it would match the principal information in request
-   * @param getRolePrincReq
+   * @param getRolePrincipalReq
    * @return
    * @throws MetaException
    * @throws TException
    */
   GetRoleGrantsForPrincipalResponse get_role_grants_for_principal(
-      GetRoleGrantsForPrincipalRequest getRolePrincReq) throws MetaException, TException;
+      GetRoleGrantsForPrincipalRequest getRolePrincipalReq) throws MetaException, TException;
 
   /**
    * Get aggregated column stats for a set of partitions.

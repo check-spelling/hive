@@ -2368,14 +2368,14 @@ void swap(Role &a, Role &b);
 std::ostream& operator<<(std::ostream& out, const Role& obj);
 
 typedef struct _RolePrincipalGrant__isset {
-  _RolePrincipalGrant__isset() : roleName(false), principalName(false), principalType(false), grantOption(false), grantTime(false), grantorName(false), grantorPrincipalType(false) {}
+  _RolePrincipalGrant__isset() : roleName(false), principalName(false), principalType(false), grantOption(false), grantTime(false), grantorName(false), grantorPrincipalipalType(false) {}
   bool roleName :1;
   bool principalName :1;
   bool principalType :1;
   bool grantOption :1;
   bool grantTime :1;
   bool grantorName :1;
-  bool grantorPrincipalType :1;
+  bool grantorPrincipalipalType :1;
 } _RolePrincipalGrant__isset;
 
 class RolePrincipalGrant : public virtual ::apache::thrift::TBase {
@@ -2383,7 +2383,7 @@ class RolePrincipalGrant : public virtual ::apache::thrift::TBase {
 
   RolePrincipalGrant(const RolePrincipalGrant&);
   RolePrincipalGrant& operator=(const RolePrincipalGrant&);
-  RolePrincipalGrant() : roleName(), principalName(), principalType((PrincipalType::type)0), grantOption(0), grantTime(0), grantorName(), grantorPrincipalType((PrincipalType::type)0) {
+  RolePrincipalGrant() : roleName(), principalName(), principalType((PrincipalType::type)0), grantOption(0), grantTime(0), grantorName(), grantorPrincipalipalType((PrincipalType::type)0) {
   }
 
   virtual ~RolePrincipalGrant() noexcept;
@@ -2393,7 +2393,7 @@ class RolePrincipalGrant : public virtual ::apache::thrift::TBase {
   bool grantOption;
   int32_t grantTime;
   std::string grantorName;
-  PrincipalType::type grantorPrincipalType;
+  PrincipalType::type grantorPrincipalipalType;
 
   _RolePrincipalGrant__isset __isset;
 
@@ -2409,7 +2409,7 @@ class RolePrincipalGrant : public virtual ::apache::thrift::TBase {
 
   void __set_grantorName(const std::string& val);
 
-  void __set_grantorPrincipalType(const PrincipalType::type val);
+  void __set_grantorPrincipalipalType(const PrincipalType::type val);
 
   bool operator == (const RolePrincipalGrant & rhs) const
   {
@@ -2425,7 +2425,7 @@ class RolePrincipalGrant : public virtual ::apache::thrift::TBase {
       return false;
     if (!(grantorName == rhs.grantorName))
       return false;
-    if (!(grantorPrincipalType == rhs.grantorPrincipalType))
+    if (!(grantorPrincipalipalType == rhs.grantorPrincipalipalType))
       return false;
     return true;
   }

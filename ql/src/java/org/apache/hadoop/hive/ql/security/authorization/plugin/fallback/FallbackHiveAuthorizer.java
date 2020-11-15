@@ -87,14 +87,14 @@ public class FallbackHiveAuthorizer extends AbstractHiveAuthorizer {
 
   @Override
   public void grantPrivileges(List<HivePrincipal> hivePrincipals, List<HivePrivilege> hivePrivileges,
-                              HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipal, boolean
+                              HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipalipal, boolean
                                         grantOption) throws HiveAuthzPluginException {
     throw new HiveAuthzPluginException("grantPrivileges not implemented in FallbackHiveAuthorizer");
   }
 
   @Override
   public void revokePrivileges(List<HivePrincipal> hivePrincipals, List<HivePrivilege> hivePrivileges,
-                               HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipal, boolean
+                               HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipalipal, boolean
                                          grantOption) throws HiveAuthzPluginException {
     throw new HiveAuthzPluginException("revokePrivileges not implemented in FallbackHiveAuthorizer");
   }
@@ -123,13 +123,13 @@ public class FallbackHiveAuthorizer extends AbstractHiveAuthorizer {
 
   @Override
   public void grantRole(List<HivePrincipal> hivePrincipals, List<String> roles, boolean grantOption, HivePrincipal
-          grantorPrinc) throws HiveAuthzPluginException, HiveAccessControlException {
+          grantorPrincipal) throws HiveAuthzPluginException, HiveAccessControlException {
     throw new HiveAuthzPluginException("grantRole not implemented in FallbackHiveAuthorizer");
   }
 
   @Override
   public void revokeRole(List<HivePrincipal> hivePrincipals, List<String> roles, boolean grantOption, HivePrincipal
-          grantorPrinc) throws HiveAuthzPluginException, HiveAccessControlException {
+          grantorPrincipal) throws HiveAuthzPluginException, HiveAccessControlException {
     throw new HiveAuthzPluginException("revokeRole not implemented in FallbackHiveAuthorizer");
   }
 

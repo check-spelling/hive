@@ -50,10 +50,10 @@ public class GrantOperation extends DDLOperation<GrantDesc> {
         PrivilegeUtils.getAuthorizationTranslator(authorizer));
     HivePrivilegeObject hivePrivilegeObject =
         PrivilegeUtils.getAuthorizationTranslator(authorizer).getHivePrivilegeObject(desc.getPrivilegeSubject());
-    HivePrincipal grantorPrincipal = new HivePrincipal(desc.getGrantor(),
+    HivePrincipal grantorPrincipalipal = new HivePrincipal(desc.getGrantor(),
         AuthorizationUtils.getHivePrincipalType(desc.getGrantorType()));
 
-    authorizer.grantPrivileges(hivePrincipals, hivePrivileges, hivePrivilegeObject, grantorPrincipal,
+    authorizer.grantPrivileges(hivePrincipals, hivePrivileges, hivePrivilegeObject, grantorPrincipalipal,
         desc.isGrantOption());
 
     return 0;

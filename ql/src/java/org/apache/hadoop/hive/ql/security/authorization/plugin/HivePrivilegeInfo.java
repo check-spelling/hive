@@ -29,17 +29,17 @@ public class HivePrivilegeInfo{
   private final HivePrincipal principal;
   private final HivePrivilege privilege;
   private final HivePrivilegeObject object;
-  private final HivePrincipal grantorPrincipal;
+  private final HivePrincipal grantorPrincipalipal;
   private final boolean grantOption;
   private final int grantTime;
 
   public HivePrivilegeInfo(HivePrincipal principal, HivePrivilege privilege,
-      HivePrivilegeObject object, HivePrincipal grantorPrincipal, boolean grantOption,
+      HivePrivilegeObject object, HivePrincipal grantorPrincipalipal, boolean grantOption,
       int grantTime){
     this.principal = principal;
     this.privilege = privilege;
     this.object = object;
-    this.grantorPrincipal = grantorPrincipal;
+    this.grantorPrincipalipal = grantorPrincipalipal;
     this.grantOption = grantOption;
     this.grantTime = grantTime;
   }
@@ -57,7 +57,7 @@ public class HivePrivilegeInfo{
   }
 
   public HivePrincipal getGrantorPrincipal() {
-    return grantorPrincipal;
+    return grantorPrincipalipal;
   }
 
   public boolean isGrantOption() {

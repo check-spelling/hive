@@ -31,11 +31,11 @@ import org.apache.hadoop.hive.conf.HiveConf;
 public interface HiveAccessController {
 
   void grantPrivileges(List<HivePrincipal> hivePrincipals, List<HivePrivilege> hivePrivileges,
-      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipal, boolean grantOption)
+      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipalipal, boolean grantOption)
           throws HiveAuthzPluginException, HiveAccessControlException;
 
   void revokePrivileges(List<HivePrincipal> hivePrincipals, List<HivePrivilege> hivePrivileges,
-      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipal, boolean grantOption)
+      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipalipal, boolean grantOption)
           throws HiveAuthzPluginException, HiveAccessControlException;
 
   void createRole(String roleName, HivePrincipal adminGrantor)
@@ -45,11 +45,11 @@ public interface HiveAccessController {
       throws HiveAuthzPluginException, HiveAccessControlException;
 
   void grantRole(List<HivePrincipal> hivePrincipals, List<String> roles, boolean grantOption,
-      HivePrincipal grantorPrinc)
+      HivePrincipal grantorPrincipal)
           throws HiveAuthzPluginException, HiveAccessControlException;
 
   void revokeRole(List<HivePrincipal> hivePrincipals, List<String> roles, boolean grantOption,
-      HivePrincipal grantorPrinc)
+      HivePrincipal grantorPrincipal)
           throws HiveAuthzPluginException, HiveAccessControlException;
 
   List<String> getAllRoles()

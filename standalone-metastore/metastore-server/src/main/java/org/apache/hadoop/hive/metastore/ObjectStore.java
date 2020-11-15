@@ -6021,7 +6021,7 @@ public class ObjectStore implements RawStore, Configurable {
     List<MRoleMap> roleMaps = listMRoles(principalName, principalType);
     if (roleMaps != null) {
       for (MRoleMap roleMap : roleMaps) {
-        RolePrincipalGrant rolePrinGrant = new RolePrincipalGrant(
+        RolePrincipalGrant rolePrincipalGrant = new RolePrincipalGrant(
             roleMap.getRole().getRoleName(),
             roleMap.getPrincipalName(),
             PrincipalType.valueOf(roleMap.getPrincipalType()),
@@ -6032,7 +6032,7 @@ public class ObjectStore implements RawStore, Configurable {
             roleMap.getGrantorType() == null ? null
                 : PrincipalType.valueOf(roleMap.getGrantorType())
         );
-        result.add(rolePrinGrant);
+        result.add(rolePrincipalGrant);
       }
     }
     return result;
@@ -7039,11 +7039,11 @@ public class ObjectStore implements RawStore, Configurable {
   @Override
   public List<RolePrincipalGrant> listRoleMembers(String roleName) {
     List<MRoleMap> roleMaps = listMRoleMembers(roleName);
-    List<RolePrincipalGrant> rolePrinGrantList = new ArrayList<>();
+    List<RolePrincipalGrant> rolePrincipalGrantList = new ArrayList<>();
 
     if (roleMaps != null) {
       for (MRoleMap roleMap : roleMaps) {
-        RolePrincipalGrant rolePrinGrant = new RolePrincipalGrant(
+        RolePrincipalGrant rolePrincipalGrant = new RolePrincipalGrant(
             roleMap.getRole().getRoleName(),
             roleMap.getPrincipalName(),
             PrincipalType.valueOf(roleMap.getPrincipalType()),
@@ -7054,11 +7054,11 @@ public class ObjectStore implements RawStore, Configurable {
             roleMap.getGrantorType() == null ? null
                 : PrincipalType.valueOf(roleMap.getGrantorType())
         );
-        rolePrinGrantList.add(rolePrinGrant);
+        rolePrincipalGrantList.add(rolePrincipalGrant);
 
       }
     }
-    return rolePrinGrantList;
+    return rolePrincipalGrantList;
   }
 
   private List<MGlobalPrivilege> listPrincipalMGlobalGrants(String principalName,

@@ -4823,8 +4823,8 @@ void RolePrincipalGrant::__set_grantorName(const std::string& val) {
   this->grantorName = val;
 }
 
-void RolePrincipalGrant::__set_grantorPrincipalType(const PrincipalType::type val) {
-  this->grantorPrincipalType = val;
+void RolePrincipalGrant::__set_grantorPrincipalipalType(const PrincipalType::type val) {
+  this->grantorPrincipalipalType = val;
 }
 std::ostream& operator<<(std::ostream& out, const RolePrincipalGrant& obj)
 {
@@ -4908,8 +4908,8 @@ uint32_t RolePrincipalGrant::read(::apache::thrift::protocol::TProtocol* iprot) 
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast147;
           xfer += iprot->readI32(ecast147);
-          this->grantorPrincipalType = (PrincipalType::type)ecast147;
-          this->__isset.grantorPrincipalType = true;
+          this->grantorPrincipalipalType = (PrincipalType::type)ecast147;
+          this->__isset.grantorPrincipalipalType = true;
         } else {
           xfer += iprot->skip(ftype);
         }
@@ -4955,8 +4955,8 @@ uint32_t RolePrincipalGrant::write(::apache::thrift::protocol::TProtocol* oprot)
   xfer += oprot->writeString(this->grantorName);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("grantorPrincipalType", ::apache::thrift::protocol::T_I32, 7);
-  xfer += oprot->writeI32((int32_t)this->grantorPrincipalType);
+  xfer += oprot->writeFieldBegin("grantorPrincipalipalType", ::apache::thrift::protocol::T_I32, 7);
+  xfer += oprot->writeI32((int32_t)this->grantorPrincipalipalType);
   xfer += oprot->writeFieldEnd();
 
   xfer += oprot->writeFieldStop();
@@ -4972,7 +4972,7 @@ void swap(RolePrincipalGrant &a, RolePrincipalGrant &b) {
   swap(a.grantOption, b.grantOption);
   swap(a.grantTime, b.grantTime);
   swap(a.grantorName, b.grantorName);
-  swap(a.grantorPrincipalType, b.grantorPrincipalType);
+  swap(a.grantorPrincipalipalType, b.grantorPrincipalipalType);
   swap(a.__isset, b.__isset);
 }
 
@@ -4983,7 +4983,7 @@ RolePrincipalGrant::RolePrincipalGrant(const RolePrincipalGrant& other148) {
   grantOption = other148.grantOption;
   grantTime = other148.grantTime;
   grantorName = other148.grantorName;
-  grantorPrincipalType = other148.grantorPrincipalType;
+  grantorPrincipalipalType = other148.grantorPrincipalipalType;
   __isset = other148.__isset;
 }
 RolePrincipalGrant& RolePrincipalGrant::operator=(const RolePrincipalGrant& other149) {
@@ -4993,7 +4993,7 @@ RolePrincipalGrant& RolePrincipalGrant::operator=(const RolePrincipalGrant& othe
   grantOption = other149.grantOption;
   grantTime = other149.grantTime;
   grantorName = other149.grantorName;
-  grantorPrincipalType = other149.grantorPrincipalType;
+  grantorPrincipalipalType = other149.grantorPrincipalipalType;
   __isset = other149.__isset;
   return *this;
 }
@@ -5006,7 +5006,7 @@ void RolePrincipalGrant::printTo(std::ostream& out) const {
   out << ", " << "grantOption=" << to_string(grantOption);
   out << ", " << "grantTime=" << to_string(grantTime);
   out << ", " << "grantorName=" << to_string(grantorName);
-  out << ", " << "grantorPrincipalType=" << to_string(grantorPrincipalType);
+  out << ", " << "grantorPrincipalipalType=" << to_string(grantorPrincipalipalType);
   out << ")";
 }
 
