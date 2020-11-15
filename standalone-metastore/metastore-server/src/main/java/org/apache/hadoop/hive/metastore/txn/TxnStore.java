@@ -199,7 +199,7 @@ public interface TxnStore extends Configurable {
    * @param rqst table for which the maximum writeId is requested
    * @return the maximum allocated writeId
    */
-  MaxAllocatedTableWriteIdResponse getMaxAllocatedTableWrited(MaxAllocatedTableWriteIdRequest rqst)
+  MaxAllocatedTableWriteIdResponse getMaxAllocatedTableWriteId(MaxAllocatedTableWriteIdRequest rqst)
       throws MetaException;
 
   /**
