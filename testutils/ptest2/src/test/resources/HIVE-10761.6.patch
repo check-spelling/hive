@@ -129,7 +129,7 @@ index 0000000..c3949f2
 +    return monitorThread != null;
 +  }
 +
-+  public long getNumGcWarnThreadholdExceeded() {
++  public long getNumGcWarnThresholdExceeded() {
 +    return numGcWarnThresholdExceeded;
 +  }
 +

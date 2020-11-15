@@ -66,7 +66,7 @@ public class HashMapWrapper extends AbstractMapJoinTableContainer implements Ser
 
   public HashMapWrapper(Map<String, String> metaData) {
     super(metaData);
-    int threshold = Integer.parseInt(metaData.get(THESHOLD_NAME));
+    int threshold = Integer.parseInt(metaData.get(THRESHOLD_NAME));
     float loadFactor = Float.parseFloat(metaData.get(LOAD_NAME));
     mHash = new HashMap<MapJoinKey, MapJoinRowContainer>(threshold, loadFactor);
   }
