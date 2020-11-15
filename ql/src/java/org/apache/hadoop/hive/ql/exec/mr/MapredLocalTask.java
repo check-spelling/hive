@@ -105,7 +105,7 @@ public class MapredLocalTask extends Task<MapredLocalWork> implements Serializab
   private static final Logger LOG = LoggerFactory.getLogger(MapredLocalTask.class);
 
   // not sure we need this exec context; but all the operators in the work
-  // will pass this context throught
+  // will pass this context through
   private ExecMapperContext execContext = null;
 
   private Process executor;
