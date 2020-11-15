@@ -87,7 +87,7 @@ public class DropTableOperation extends DDLOperation<DropTableDesc> {
        * acts like a recursive DROP TABLE IF OLDER.
        */
       if (!replicationSpec.allowEventReplacementInto(table.getParameters())) {
-        // Drop occured as part of replicating a drop, but the destination
+        // Drop occurred as part of replicating a drop, but the destination
         // table was newer than the event being replicated. Ignore, but drop
         // any partitions inside that are older.
         if (table.isPartitioned()) {

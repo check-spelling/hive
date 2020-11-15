@@ -667,7 +667,7 @@ public class HadoopJobExecHelper {
         clientStatsPublishers.add((ClientStatsPublisher) Class.forName(
             clientStatsPublisherClass.trim(), true, Utilities.getSessionSpecifiedClassLoader()).newInstance());
       } catch (Exception e) {
-        LOG.warn(e.getClass().getName() + " occured when trying to create class: "
+        LOG.warn(e.getClass().getName() + " occurred when trying to create class: "
             + clientStatsPublisherClass.trim() + " implementing ClientStatsPublisher interface");
         LOG.warn("The exception message is: " + e.getMessage());
         LOG.warn("Program will continue, but without this ClientStatsPublisher working");
