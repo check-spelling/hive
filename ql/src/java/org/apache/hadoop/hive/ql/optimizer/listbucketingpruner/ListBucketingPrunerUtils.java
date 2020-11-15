@@ -282,7 +282,7 @@ public final class ListBucketingPrunerUtils {
     //   but not unknown is unknown.
     //   For example, skewed column C, skewed value 1, 2. clause: where not ( c =3)
     //   cell is other, evaluate (not(c=3)).
-    //   other to (c=3), if ture. not(c=3) will be false. but it is wrong skip default dir
+    //   other to (c=3), if true. not(c=3) will be false. but it is wrong skip default dir
     //   but, if unknown. not(c=3) will be unknown. we will choose default dir.
     // 3 all others, return false
     if (cellValueInPosition.equals(constantValueInFilter)
