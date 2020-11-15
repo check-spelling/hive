@@ -69,7 +69,7 @@ public class TestHiveSchemaConverter {
   }
 
   @Test
-  public void testSpecialIntTypeWithLogicatlTypeAnnotations() throws Exception {
+  public void testSpecialIntTypeWithLogicalTypeAnnotations() throws Exception {
     testConversion(
             "a,b",
             "tinyint,smallint",
