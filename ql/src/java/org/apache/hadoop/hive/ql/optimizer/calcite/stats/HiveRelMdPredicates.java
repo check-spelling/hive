@@ -503,7 +503,7 @@ public class HiveRelMdPredicates implements MetadataHandler<BuiltInMetadata.Pred
     }
 
     private void infer(List<RexNode> predicates, Set<String> allExprsDigests,
-        List<RexNode> inferedPredicates, List<RexNode> nonFieldsPredicates,
+        List<RexNode> inferredPredicates, List<RexNode> nonFieldsPredicates,
         boolean includeEqualityInference, ImmutableBitSet inferringFields) {
       for (RexNode r : predicates) {
         if (!includeEqualityInference
@@ -519,7 +519,7 @@ public class HiveRelMdPredicates implements MetadataHandler<BuiltInMetadata.Pred
             if (inferringFields.contains(RelOptUtil.InputFinder.bits(tr))
                 && !allExprsDigests.contains(tr.toString())
                 && !isAlwaysTrue(tr)) {
-              inferedPredicates.add(tr);
+              inferredPredicates.add(tr);
               allExprsDigests.add(tr.toString());
             }
           }

@@ -70,7 +70,7 @@ public class OutputJobInfo implements Serializable {
 
   private int maxDynamicPartitions;
 
-  /** List of keys for which values were not specified at write setup time, to be infered at write time */
+  /** List of keys for which values were not specified at write setup time, to be inferred at write time */
   private List<String> dynamicPartitioningKeys;
 
   private boolean harRequested;
