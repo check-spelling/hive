@@ -140,7 +140,7 @@ def get_ant():
         print('\n  Ant 1.8.4 already installed\n')
 
 def get_arc():
-    # Gets latest Arcanist and libphtuil from their Git repositories.
+    # Gets latest Arcanist and libphutil from their Git repositories.
     print('\n-- Updating Arcanist installation\n')
 
     if local.run('test -d "{0}"'.format(arc_path), warn_only = True,
