@@ -399,7 +399,7 @@ public class HiveAlterHandler implements AlterHandler {
                 }
               }
             } else {
-              // clear all column stats to prevent incorract behaviour in case same column is reintroduced
+              // clear all column stats to prevent incorrect behaviour in case same column is reintroduced
               TableName tableName = new TableName(catName, dbname, name);
               msdb.deleteAllPartitionColumnStatistics(tableName, writeIdList);
             }
