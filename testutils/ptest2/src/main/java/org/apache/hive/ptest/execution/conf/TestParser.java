@@ -112,9 +112,9 @@ public class TestParser {
         expandTestProperties(excludedTests, properties);
       }
       Set<String> isolatedTests = Sets.newHashSet();
-      for(String ioslatedTestGroup : TEST_SPLITTER.split(testContext.getString("isolate", ""))) {
+      for(String isolatedTestGroup : TEST_SPLITTER.split(testContext.getString("isolate", ""))) {
         isolatedTests.addAll(Arrays.asList(testContext.
-            getString(Joiner.on(".").join("groups", ioslatedTestGroup), "").trim().split(" ")));
+            getString(Joiner.on(".").join("groups", isolatedTestGroup), "").trim().split(" ")));
         expandTestProperties(isolatedTests, properties);
       }
 
