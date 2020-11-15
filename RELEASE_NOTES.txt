@@ -1216,7 +1216,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17530] - ClassCastException when converting uniontype
     * [HIVE-17535] - Select 1 EXCEPT Select 1 fails with NPE
     * [HIVE-17553] - CBO wrongly type cast decimal literal to int
-    * [HIVE-17554] - Occurr java.lang.ArithmeticException: / by zero at hplsql component
+    * [HIVE-17554] - Occur java.lang.ArithmeticException: / by zero at hplsql component
     * [HIVE-17556] - The test udf_mask_hash.q is failing
     * [HIVE-17558] - Skip non-native/temporary tables for constraint related scenarios
     * [HIVE-17560] - HiveMetastore doesn't start in secure cluster if repl change manager is enabled
