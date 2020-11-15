@@ -250,7 +250,7 @@ public class HadoopJobExecHelper {
       }
 
       if (initializing && rj.getJobState() == JobStatus.PREP) {
-        // No reason to poll untill the job is initialized
+        // No reason to poll until the job is initialized
         continue;
       } else {
         // By now the job is initialized so no reason to do

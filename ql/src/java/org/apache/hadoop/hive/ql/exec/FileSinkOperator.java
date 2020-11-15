@@ -931,7 +931,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
             && !FileUtils.mkdir(fs, outPath.getParent(), hconf)) {
           LOG.warn("Unable to create directory: " + outPath);
         }
-        // Only set up the updater for insert.  For update and delete we don't know unitl we see
+        // Only set up the updater for insert.  For update and delete we don't know until we see
         // the row.
         ObjectInspector inspector = bDynParts ? subSetOI : outputObjInspector;
         int acidBucketNum = Integer.parseInt(Utilities.getTaskIdFromFilename(taskId));
