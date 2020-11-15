@@ -612,7 +612,7 @@ public class TezSessionState {
   public void ensureLocalResources(Configuration conf, String[] newFilesNotFromConf)
           throws IOException, LoginException, URISyntaxException, TezException {
     if (resources == null) {
-      throw new AssertionError("Ensure called on an unitialized (or closed) session " + sessionId);
+      throw new AssertionError("Ensure called on an uninitialized (or closed) session " + sessionId);
     }
     String dir = resources.dagResourcesDir.toString();
     resources.localizedResources.clear();

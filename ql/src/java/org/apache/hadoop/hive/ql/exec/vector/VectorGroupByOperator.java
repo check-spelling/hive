@@ -628,7 +628,7 @@ public class VectorGroupByOperator extends Operator<GroupByDesc>
       MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
       maxMemory = isLlap ? getConf().getMaxMemoryAvailable() : memoryMXBean.getHeapMemoryUsage().getMax();
       memoryThreshold = conf.getMemoryThreshold();
-      // Tests may leave this unitialized, so better set it to 1
+      // Tests may leave this uninitialized, so better set it to 1
       if (memoryThreshold == 0.0f) {
         memoryThreshold = 1.0f;
       }
