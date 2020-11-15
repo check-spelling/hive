@@ -83,7 +83,7 @@ get_attachment_id() {
   basename $(dirname $jira_attachment_url)
 }
 
-# Fetchs JIRA information, and save it in a file specified as a parameter
+# Fetches JIRA information, and save it in a file specified as a parameter
 initialize_jira_info() {
   local jira_issue="$1" 
   local output_file="$2"
