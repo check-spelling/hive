@@ -359,7 +359,7 @@ public class Msck {
    * If the writeId is higher in the metastore we can still accept the data, the use case would be after some dataloss
    * some older data backup was used. The system would able to read the old data.
    * If however the writeId in the new partition is greater than the maximum allocated in the HMS
-   * we must raise an error. The writedId in the HMS should be increased to match the writeIds in the data files,
+   * we must raise an error. The writeId in the HMS should be increased to match the writeIds in the data files,
    * but it would most likely cause a lot of problem since the transactional data would become inconsistent
    * between the HMS and the filesystem.
    * Further more we need to check for the visibilityTransactionIds written by the compaction.
