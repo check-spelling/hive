@@ -805,7 +805,7 @@ public final class GenMapRedUtils {
 
   /**
    * Set key and value descriptor
-   * @param work RedueWork
+   * @param work ReduceWork
    * @param rs ReduceSinkOperator
    */
   public static void setKeyAndValueDesc(ReduceWork work, ReduceSinkOperator rs) {

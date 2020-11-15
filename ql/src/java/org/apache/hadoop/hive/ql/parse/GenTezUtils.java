@@ -587,7 +587,7 @@ public class GenTezUtils {
     }
 
     TableScanOperator ts = sjInfo.getTsOp();
-    LOG.debug("ResduceSink " + rs + " to TableScan " + ts);
+    LOG.debug("ReduceSink " + rs + " to TableScan " + ts);
 
     BaseWork parentWork = rsWorkList.get(0);
     BaseWork childWork = procCtx.rootToWorkMap.get(ts);
