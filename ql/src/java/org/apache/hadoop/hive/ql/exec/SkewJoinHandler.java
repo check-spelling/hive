@@ -132,7 +132,7 @@ public class SkewJoinHandler {
       TableDesc joinKeyDesc = desc.getKeyTableDesc();
       List<String> keyColNames = Utilities.getColumnNames(joinKeyDesc
           .getProperties());
-      StructObjectInspector structTblKeyInpector = ObjectInspectorFactory
+      StructObjectInspector structTblKeyInspector = ObjectInspectorFactory
           .getStandardStructObjectInspector(keyColNames, skewTableKeyInspectors);
 
       try {
@@ -153,13 +153,13 @@ public class SkewJoinHandler {
       if (valTblDesc != null) {
         valColNames = Utilities.getColumnNames(valTblDesc.getProperties());
       }
-      StructObjectInspector structTblValInpector = ObjectInspectorFactory
+      StructObjectInspector structTblValInspector = ObjectInspectorFactory
           .getStandardStructObjectInspector(valColNames,
           joinOp.joinValuesStandardObjectInspectors[i]);
 
-      StructObjectInspector structTblInpector = ObjectInspectorFactory
-          .getUnionStructObjectInspector(Arrays.asList(structTblValInpector, structTblKeyInpector));
-      skewKeysTableObjectInspector.put((byte) i, structTblInpector);
+      StructObjectInspector structTblInspector = ObjectInspectorFactory
+          .getUnionStructObjectInspector(Arrays.asList(structTblValInspector, structTblKeyInspector));
+      skewKeysTableObjectInspector.put((byte) i, structTblInspector);
     }
 
     // reset rowcontainer's serde, objectinspector, and tableDesc.
