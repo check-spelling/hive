@@ -66,7 +66,7 @@ public interface StreamingTransaction {
   void abort() throws StreamingException;
 
   /**
-   * Write data withing a transaction. This expects beginNextTransaction
+   * Write data within a transaction. This expects beginNextTransaction
    * to have been called before this and commit to be called after.
    * @param record bytes to write.
    * @throws StreamingException

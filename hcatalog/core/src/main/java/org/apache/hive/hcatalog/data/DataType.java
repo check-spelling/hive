@@ -32,7 +32,7 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 /*
- * The data written and read withing the same M/R job, thus should never be written by one 
+ * The data written and read within the same M/R job, thus should never be written by one 
  * version of Hive and read by another.
  * @see org.apache.hive.hcatalog.data.ReaderWriter
  */
