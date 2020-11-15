@@ -16,7 +16,7 @@ select * from a_n5 join a_n5 b on (a_n5.key=b.key) right outer join a_n5 c on (b
 explain
 select * from a_n5 join a_n5 b on (a_n5.key=b.key) right outer join a_n5 c on (b.key=c.key) right outer join a_n5 d on (a_n5.key=d.key);
 
--- ((a_n5-b-d)-c) (reorderd)
+-- ((a_n5-b-d)-c) (reordered)
 explain
 select * from a_n5 join a_n5 b on (a_n5.key=b.key) left outer join a_n5 c on (b.value=c.key) left outer join a_n5 d on (a_n5.key=d.key);
 

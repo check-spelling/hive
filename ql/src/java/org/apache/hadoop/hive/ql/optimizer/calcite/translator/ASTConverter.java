@@ -175,7 +175,7 @@ public class ASTConverter {
           }
         }
       } else {
-        // Aggregation columns have not been reorderd
+        // Aggregation columns have not been reordered
         for (int i : groupBy.getGroupSet()) {
           addRefToBuilder(b, i);
         }
