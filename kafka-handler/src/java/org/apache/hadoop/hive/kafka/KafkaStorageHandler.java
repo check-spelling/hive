@@ -331,7 +331,7 @@ import java.util.function.Predicate;
       producersMap.forEach((key, producer) -> producer.close(0, TimeUnit.MILLISECONDS));
       LOG.error("Commit transaction failed", e);
       if (committedTx.size() > 0) {
-        LOG.error("Partial Data Got Commited Some actions need to be Done");
+        LOG.error("Partial Data Got Committed Some actions need to be Done");
         committedTx.stream().forEach(key -> LOG.error("Transaction [{}] is an orphen commit", key));
       }
       throw new MetaException(e.getMessage());
