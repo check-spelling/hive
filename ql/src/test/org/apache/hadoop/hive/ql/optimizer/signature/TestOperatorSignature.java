@@ -88,7 +88,7 @@ public class TestOperatorSignature {
   }
 
   @Test
-  public void testTableScand() {
+  public void testTableScanDesc() {
     Operator<TableScanDesc> t1 = getTsOp(3);
     Operator<TableScanDesc> t1a = getTsOp(3);
     Operator<TableScanDesc> t2 = getTsOp(4);
