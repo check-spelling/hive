@@ -5474,7 +5474,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
   @Override
   public LockHandle acquireLock(String key) throws MetaException {
     /**
-     * The implementation here is a bit kludgey but done so that code exercised by unit tests
+     * The implementation here is a bit kludgy but done so that code exercised by unit tests
      * (which run against Derby which has no support for select for update) is as similar to
      * production code as possible.
      * In particular, with Derby we always run in a single process with a single metastore and
