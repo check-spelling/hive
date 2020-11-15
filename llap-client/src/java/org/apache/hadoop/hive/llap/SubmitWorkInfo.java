@@ -36,7 +36,7 @@ public class SubmitWorkInfo implements Writable {
   private byte[] vertexSpec, vertexSpecSignature;
 
   // This is used to communicate over the LlapUmbilicalProtocol. Not related to tokens used to
-  // talk to LLAP daemons itself via the securit work.
+  // talk to LLAP daemons itself via the security work.
   private Token<JobTokenIdentifier> token;
   private int vertexParallelism;
 
