@@ -451,7 +451,7 @@ class MetaStoreDirectSql {
   /**
    * Get table names by using direct SQL queries.
    * @param catName catalog name
-   * @param dbName Metastore database namme
+   * @param dbName Metastore database name
    * @param tableType Table type, or null if we want to get all tables
    * @return list of table names
    */
@@ -482,7 +482,7 @@ class MetaStoreDirectSql {
   /**
    * Get table names by using direct SQL queries.
    *
-   * @param dbName Metastore database namme
+   * @param dbName Metastore database name
    * @return list of table names
    */
   public List<String> getMaterializedViewsForRewriting(String dbName) throws MetaException {
