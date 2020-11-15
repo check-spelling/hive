@@ -201,7 +201,7 @@ import com.google.common.annotations.VisibleForTesting;
 
  * If we ever decide to run remote Derby server, according to
  * https://db.apache.org/derby/docs/10.0/manuals/develop/develop78.html all transactions will be
- * seriazlied, so that would also work though has not been tested.
+ * serialized, so that would also work though has not been tested.
  *
  * General design note:
  * It's imperative that any operation on a txn (e.g. commit), ensure (atomically) that this txn is

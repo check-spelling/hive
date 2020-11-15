@@ -243,7 +243,7 @@ public class BloomFilter {
   /**
    * Serialize a bloom filter
    * @param out output stream to write to
-   * @param bloomFilter BloomFilter that needs to be seralized
+   * @param bloomFilter BloomFilter that needs to be serialized
    */
   public static void serialize(OutputStream out, BloomFilter bloomFilter) throws IOException {
     /**
