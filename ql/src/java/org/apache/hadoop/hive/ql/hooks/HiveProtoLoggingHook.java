@@ -391,7 +391,7 @@ public class HiveProtoLoggingHook implements ExecuteWithHookContext {
         try {
           hiveInstanceAddress = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
-          LOG.error("Error tyring to get localhost address: ", e);
+          LOG.error("Error trying to get localhost address: ", e);
         }
       }
       addMapEntry(builder, OtherInfoType.HIVE_ADDRESS, hiveInstanceAddress);
