@@ -133,11 +133,11 @@ public class HiveJoinPushTransitivePredicatesRule extends RelOptRule {
   private ImmutableList<RexNode> getValidPreds(RelOptCluster cluster, RelNode child,
       Set<String> predicatesToExclude, List<RexNode> rexs, RelDataType rType) {
     InputRefValidator validator = new InputRefValidator(rType.getFieldList());
-    List<RexNode> valids = new ArrayList<RexNode>(rexs.size());
+    List<RexNode> valid = new ArrayList<RexNode>(rexs.size());
     for (RexNode rex : rexs) {
       try {
         rex.accept(validator);
-        valids.add(rex);
+        valid.add(rex);
       } catch (Util.FoundOne e) {
         Util.swallow(e, null);
       }
@@ -146,7 +146,7 @@ public class HiveJoinPushTransitivePredicatesRule extends RelOptRule {
     // We need to filter i) those that have been pushed already as stored in the join,
     // and ii) those that were already in the subtree rooted at child
     ImmutableList<RexNode> toPush = HiveCalciteUtil.getPredsNotPushedAlready(predicatesToExclude,
-            child, valids);
+            child, valid);
     return toPush;
   }
 

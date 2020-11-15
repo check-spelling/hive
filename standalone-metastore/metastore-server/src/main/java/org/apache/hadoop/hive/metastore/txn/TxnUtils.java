@@ -87,11 +87,11 @@ public class TxnUtils {
     String fullTableName = tableValidWriteIds.getFullTableName();
     long highWater = tableValidWriteIds.getWriteIdHighWaterMark();
     long minOpenWriteId = Long.MAX_VALUE;
-    List<Long> invalids = tableValidWriteIds.getInvalidWriteIds();
+    List<Long> invalid = tableValidWriteIds.getInvalidWriteIds();
     BitSet abortedBits = BitSet.valueOf(tableValidWriteIds.getAbortedBits());
-    long[] exceptions = new long[invalids.size()];
+    long[] exceptions = new long[invalid.size()];
     int i = 0;
-    for (long writeId : invalids) {
+    for (long writeId : invalid) {
       if (abortedBits.get(i)) {
         // Only need aborted since we don't consider anything above minOpenWriteId
         exceptions[i++] = writeId;
