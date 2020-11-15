@@ -216,7 +216,7 @@ import com.google.common.annotations.VisibleForTesting;
  * when an op here issues a successful commit against the RDBMS but the calling stack doesn't
  * receive the ack and retries.  (If an op fails before commit, it's trivially idempotent)
  * Thus the ops here need to be made idempotent as much as possible or
- * the metstore call stack should have logic not to retry.  There are {@link RetrySemantics}
+ * the metastore call stack should have logic not to retry.  There are {@link RetrySemantics}
  * annotations to document the behavior.
  */
 @InterfaceAudience.Private

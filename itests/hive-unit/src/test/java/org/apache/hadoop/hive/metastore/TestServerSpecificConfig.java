@@ -104,7 +104,7 @@ public class TestServerSpecificConfig {
       HiveConf.setHiveSiteLocation(oldDefaultHiveSite);
       System.setProperty(OVERRIDE_KEY, "from.sysprop");
       HiveConf conf = new HiveConf();
-      // ensure metatore site.xml does not get to override this
+      // ensure metastore site.xml does not get to override this
       assertEquals("from.sysprop", conf.get(OVERRIDE_KEY));
 
       // get HS2 site.xml loaded
@@ -176,7 +176,7 @@ public class TestServerSpecificConfig {
         + this.getClass().getSimpleName() + "hive-site.xml";
 
     // create a new conf file, using contents from current one
-    // modifying the meastore.uri property
+    // modifying the metastore.uri property
     File hiveSite = new File(newConfFile);
     FileOutputStream out = new FileOutputStream(hiveSite);
     HiveConf.setHiveSiteLocation(oldDefaultHiveSite);
