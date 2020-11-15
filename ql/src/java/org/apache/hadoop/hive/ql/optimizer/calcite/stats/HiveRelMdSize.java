@@ -55,7 +55,7 @@ public class HiveRelMdSize extends RelMdSize {
   //~ Methods ----------------------------------------------------------------
 
   public List<Double> averageColumnSizes(HiveTableScan scan, RelMetadataQuery mq) {
-    List<Integer> neededcolsLst = scan.getNeededColIndexsFrmReloptHT();
+    List<Integer> neededcolsLst = scan.getNeededColIndexesFrmReloptHT();
     List<ColStatistics> columnStatistics = ((RelOptHiveTable) scan.getTable())
         .getColStat(neededcolsLst, true);
 
