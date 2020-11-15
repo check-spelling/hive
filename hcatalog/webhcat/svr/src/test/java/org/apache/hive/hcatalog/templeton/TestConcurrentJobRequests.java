@@ -47,7 +47,7 @@ public class TestConcurrentJobRequests extends ConcurrentJobRequestsTestBase {
   public void ConcurrentJobsStatusSuccess() {
     try {
       JobRunnable jobRunnable = ConcurrentJobsStatus(6, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(4, new QueueStatusBean("job_1000", "Job not found")));
+                statusJobHelper.getDelayedResponseAnswer(4, new QueueStatusBean("job_1000", "Job not found")));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -58,7 +58,7 @@ public class TestConcurrentJobRequests extends ConcurrentJobRequestsTestBase {
   public void ConcurrentListJobsSuccess() {
     try {
       JobRunnable jobRunnable = ConcurrentListJobs(6, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(4, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(4, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -69,8 +69,8 @@ public class TestConcurrentJobRequests extends ConcurrentJobRequestsTestBase {
   public void ConcurrentSubmitJobsSuccess() {
     try {
       JobRunnable jobRunnable = SubmitConcurrentJobs(6, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(4, 0),
-                killJobHelper.getDelayedResonseAnswer(4, null), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(4, 0),
+                killJobHelper.getDelayedResponseAnswer(4, null), "job_1000");
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);

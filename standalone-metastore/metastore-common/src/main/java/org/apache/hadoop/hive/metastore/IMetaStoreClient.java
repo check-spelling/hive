@@ -1290,7 +1290,7 @@ public interface IMetaStoreClient {
   /**
    * Get a list of partition values
    * @param request request
-   * @return reponse
+   * @return response
    * @throws MetaException error accessing RDBMS
    * @throws TException thrift transport error
    * @throws NoSuchObjectException no such table

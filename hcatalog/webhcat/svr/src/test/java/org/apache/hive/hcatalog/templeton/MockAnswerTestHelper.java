@@ -44,7 +44,7 @@ public class MockAnswerTestHelper<T> {
     };
   }
 
-  public Answer<T> getDelayedResonseAnswer(final int delayInSeconds, final T response) {
+  public Answer<T> getDelayedResponseAnswer(final int delayInSeconds, final T response) {
     return new Answer<T>() {
       @Override
       public T answer(InvocationOnMock invocation) throws InterruptedException {
