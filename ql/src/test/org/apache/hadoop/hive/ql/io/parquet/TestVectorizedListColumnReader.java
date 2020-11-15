@@ -80,7 +80,7 @@ public class TestVectorizedListColumnReader extends VectorizedColumnReaderTestBa
     writer.close();
   }
 
-  protected static void writeRepeateListData(ParquetWriter<Group> writer,
+  protected static void writeRepeatedListData(ParquetWriter<Group> writer,
     int elementNum, boolean isNull) throws IOException {
     SimpleGroupFactory f = new SimpleGroupFactory(schema);
     int listMaxSize = 4;
@@ -136,25 +136,25 @@ public class TestVectorizedListColumnReader extends VectorizedColumnReaderTestBa
   }
 
   @Test
-  public void testRepeateListRead() throws Exception {
+  public void testRepeatedListRead() throws Exception {
     removeFile();
-    writeRepeateListData(initWriterFromFile(), 1023, false);
-    testRepeateListRead(1023, false);
+    writeRepeatedListData(initWriterFromFile(), 1023, false);
+    testRepeatedListRead(1023, false);
     removeFile();
-    writeRepeateListData(initWriterFromFile(), 1023, true);
-    testRepeateListRead(1023, true);
+    writeRepeatedListData(initWriterFromFile(), 1023, true);
+    testRepeatedListRead(1023, true);
     removeFile();
-    writeRepeateListData(initWriterFromFile(), 1024, false);
-    testRepeateListRead(1024, false);
+    writeRepeatedListData(initWriterFromFile(), 1024, false);
+    testRepeatedListRead(1024, false);
     removeFile();
-    writeRepeateListData(initWriterFromFile(), 1024, true);
-    testRepeateListRead(1024, true);
+    writeRepeatedListData(initWriterFromFile(), 1024, true);
+    testRepeatedListRead(1024, true);
     removeFile();
-    writeRepeateListData(initWriterFromFile(), 1025, false);
-    testRepeateListRead(1025, false);
+    writeRepeatedListData(initWriterFromFile(), 1025, false);
+    testRepeatedListRead(1025, false);
     removeFile();
-    writeRepeateListData(initWriterFromFile(), 1025, true);
-    testRepeateListRead(1025, true);
+    writeRepeatedListData(initWriterFromFile(), 1025, true);
+    testRepeatedListRead(1025, true);
     removeFile();
   }
 
@@ -296,7 +296,7 @@ public class TestVectorizedListColumnReader extends VectorizedColumnReaderTestBa
     }
   }
 
-  private void testRepeateListRead(int elementNum, boolean isNull) throws Exception {
+  private void testRepeatedListRead(int elementNum, boolean isNull) throws Exception {
     Configuration conf = new Configuration();
     conf.set(IOConstants.COLUMNS, "list_int32_field_for_repeat_test");
     conf.set(IOConstants.COLUMNS_TYPES, "array<int>");
