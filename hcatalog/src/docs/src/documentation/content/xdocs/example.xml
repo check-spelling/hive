@@ -60,7 +60,7 @@ where date = ‘20100819’
 group by advertiser_id;
 </source>
 
-<p><strong>With Templeton</strong> all these steps can be easily performed programatically
+<p><strong>With Templeton</strong> all these steps can be easily performed programmatically
  upon receipt of the initial data.  Sally and Robert can still maintain their own scripts
  and simply push them into HDFS to be accessed when required by Templeton. </p>
 
