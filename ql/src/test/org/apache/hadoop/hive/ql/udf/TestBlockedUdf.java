@@ -98,10 +98,10 @@ public class TestBlockedUdf {
   }
 
   /**
-   * Test malformatted udf  list setting
+   * Test malformed udf  list setting
    */
   @Test (expected=SemanticException.class)
-  public void testMalformattedListProperty() throws Exception {
+  public void testMalformedListProperty() throws Exception {
     FunctionRegistry.setupPermissionsForBuiltinUDFs(",,", " ,reflect,");
     assertEquals("reflect", FunctionRegistry.getFunctionInfo("reflect").getDisplayName());
   }
