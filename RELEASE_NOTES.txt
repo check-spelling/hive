@@ -1971,7 +1971,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19001] - ALTER TABLE ADD CONSTRAINT support for CHECK constraint
     * [HIVE-19033] - Provide an option to purge LLAP IO cache
     * [HIVE-19070] - Add More Test To Druid Mini Cluster  queries.
-    * [HIVE-19092] - Somne improvement in bin shell scripts
+    * [HIVE-19092] - Some improvement in bin shell scripts
     * [HIVE-19161] - Add authorizations to information schema
     * [HIVE-19288] - Implement protobuf logging hive hook.
     * [HIVE-19344] - Change default value of msck.repair.batch.size 
