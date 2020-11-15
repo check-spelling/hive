@@ -58,12 +58,12 @@ import com.google.common.collect.ImmutableSet;
 public class HiveTableScan extends TableScan implements HiveRelNode {
 
   private final RelDataType hiveTableScanRowType;
-  private final ImmutableList<Integer> neededColIndxsFrmReloptHT;
+  private final ImmutableList<Integer> neededColIndexsFrmReloptHT;
   private final String tblAlias;
   private final String concatQbIDAlias;
   private final boolean useQBIdInDigest;
-  private final ImmutableSet<Integer> virtualOrPartColIndxsInTS;
-  private final ImmutableSet<Integer> virtualColIndxsInTS;
+  private final ImmutableSet<Integer> virtualOrPartColIndexsInTS;
+  private final ImmutableSet<Integer> virtualColIndexsInTS;
   // insiderView will tell this TableScan is inside a view or not.
   private final boolean insideView;
 
@@ -99,11 +99,11 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
     this.tblAlias = alias;
     this.concatQbIDAlias = concatQbIDAlias;
     this.hiveTableScanRowType = newRowtype;
-    Triple<ImmutableList<Integer>, ImmutableSet<Integer>, ImmutableSet<Integer>> colIndxPair =
-        buildColIndxsFrmReloptHT(table, newRowtype);
-    this.neededColIndxsFrmReloptHT = colIndxPair.getLeft();
-    this.virtualOrPartColIndxsInTS = colIndxPair.getMiddle();
-    this.virtualColIndxsInTS = colIndxPair.getRight();
+    Triple<ImmutableList<Integer>, ImmutableSet<Integer>, ImmutableSet<Integer>> colIndexPair =
+        buildColIndexsFrmReloptHT(table, newRowtype);
+    this.neededColIndexsFrmReloptHT = colIndexPair.getLeft();
+    this.virtualOrPartColIndexsInTS = colIndexPair.getMiddle();
+    this.virtualColIndexsInTS = colIndexPair.getRight();
     this.useQBIdInDigest = useQBIdInDigest;
     this.insideView = insideView;
   }
@@ -161,8 +161,8 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
     return ((RelOptHiveTable) table).getRowCount();
   }
 
-  public List<ColStatistics> getColStat(List<Integer> projIndxLst) {
-    return ((RelOptHiveTable) table).getColStat(projIndxLst);
+  public List<ColStatistics> getColStat(List<Integer> projIndexLst) {
+    return ((RelOptHiveTable) table).getColStat(projIndexLst);
   }
 
   @Override
@@ -207,8 +207,8 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
     return hp;
   }
 
-  public List<Integer> getNeededColIndxsFrmReloptHT() {
-    return neededColIndxsFrmReloptHT;
+  public List<Integer> getNeededColIndexsFrmReloptHT() {
+    return neededColIndexsFrmReloptHT;
   }
 
   public RelDataType getPrunedRowType() {
@@ -216,24 +216,24 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
   }
 
   public Set<Integer> getPartOrVirtualCols() {
-    return virtualOrPartColIndxsInTS;
+    return virtualOrPartColIndexsInTS;
   }
 
   public Set<Integer> getVirtualCols() {
-    return virtualColIndxsInTS;
+    return virtualColIndexsInTS;
   }
 
-  private static Triple<ImmutableList<Integer>, ImmutableSet<Integer>, ImmutableSet<Integer>> buildColIndxsFrmReloptHT(
+  private static Triple<ImmutableList<Integer>, ImmutableSet<Integer>, ImmutableSet<Integer>> buildColIndexsFrmReloptHT(
       RelOptHiveTable relOptHTable, RelDataType scanRowType) {
     RelDataType relOptHtRowtype = relOptHTable.getRowType();
-    Builder<Integer> neededColIndxsFrmReloptHTBldr = new ImmutableList.Builder<Integer>();
-    ImmutableSet.Builder<Integer> virtualOrPartColIndxsInTSBldr =
+    Builder<Integer> neededColIndexsFrmReloptHTBldr = new ImmutableList.Builder<Integer>();
+    ImmutableSet.Builder<Integer> virtualOrPartColIndexsInTSBldr =
         new ImmutableSet.Builder<Integer>();
-    ImmutableSet.Builder<Integer> virtualColIndxsInTSBldr =
+    ImmutableSet.Builder<Integer> virtualColIndexsInTSBldr =
             new ImmutableSet.Builder<Integer>();
 
     Map<String, Integer> colNameToPosInReloptHT = HiveCalciteUtil
-        .getRowColNameIndxMap(relOptHtRowtype.getFieldList());
+        .getRowColNameIndexMap(relOptHtRowtype.getFieldList());
     List<String> colNamesInScanRowType = scanRowType.getFieldNames();
 
     int partColStartPosInrelOptHtRowtype = relOptHTable.getNonPartColumns().size();
@@ -242,21 +242,21 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
     int tmp;
     for (int i = 0; i < colNamesInScanRowType.size(); i++) {
       tmp = colNameToPosInReloptHT.get(colNamesInScanRowType.get(i));
-      neededColIndxsFrmReloptHTBldr.add(tmp);
-      if (tmp >= partColStartPosInrelOptHtRowtype) {
+      neededColIndexsFrmReloptHTBldr.add(tmp);
+      if (tmp >= partColStartPosInRelOptHtRowtype) {
         // Part or virtual
-        virtualOrPartColIndxsInTSBldr.add(i);
-        if (tmp >= virtualColStartPosInrelOptHtRowtype) {
+        virtualOrPartColIndexsInTSBldr.add(i);
+        if (tmp >= virtualColStartPosInRelOptHtRowtype) {
           // Virtual
-          virtualColIndxsInTSBldr.add(i);
+          virtualColIndexsInTSBldr.add(i);
         }
       }
     }
 
     return Triple.of(
-        neededColIndxsFrmReloptHTBldr.build(),
-        virtualOrPartColIndxsInTSBldr.build(),
-        virtualColIndxsInTSBldr.build());
+        neededColIndexsFrmReloptHTBldr.build(),
+        virtualOrPartColIndexsInTSBldr.build(),
+        virtualColIndexsInTSBldr.build());
   }
 
   public boolean isInsideView() {
@@ -269,7 +269,7 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
   // expression was already generated.
   public String computeDigest() {
     String digest = super.computeDigest() +
-        "[" + this.neededColIndxsFrmReloptHT + "]" +
+        "[" + this.neededColIndexsFrmReloptHT + "]" +
         "[" + this.isInsideView() + "]";
     String partitionListKey = ((RelOptHiveTable) table).getPartitionListKey();
     if (partitionListKey != null) {

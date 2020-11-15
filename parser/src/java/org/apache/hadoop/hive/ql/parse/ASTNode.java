@@ -41,8 +41,8 @@ public class ASTNode extends CommonTree implements Node,Serializable {
   private static final long serialVersionUID = 1L;
   private transient StringBuilder astStr;
   private transient ASTNodeOrigin origin;
-  private transient int startIndx = -1;
-  private transient int endIndx = -1;
+  private transient int startIndex = -1;
+  private transient int endIndex = -1;
   private transient ASTNode rootNode;
   private transient boolean isValidASTStr;
   private transient boolean visited = false;
@@ -296,9 +296,9 @@ public class ASTNode extends CommonTree implements Node,Serializable {
     // Compute the new root for this tree and set the astStr.
     getRootNodeWithValidASTStr();
 
-    // If rootNotModified is false, then startIndx and endIndx will be stale.
-    if (startIndx >= 0 && endIndx <= rootNode.getMemoizedStringLen()) {
-      return rootNode.getMemoizedSubString(startIndx, endIndx);
+    // If rootNotModified is false, then startIndex and endIndex will be stale.
+    if (startIndex >= 0 && endIndex <= rootNode.getMemoizedStringLen()) {
+      return rootNode.getMemoizedSubString(startIndex, endIndex);
     }
     return toStringTree(rootNode);
   }
@@ -316,13 +316,13 @@ public class ASTNode extends CommonTree implements Node,Serializable {
         }
 
         next.rootNode = rootNode;
-        next.startIndx = rootNode.getMemoizedStringLen();
+        next.startIndex = rootNode.getMemoizedStringLen();
 
         // Leaf
         if (next.children == null || next.children.size() == 0) {
           String str = next.toString();
           rootNode.addtoMemoizedString(next.getType() != HiveParser.StringLiteral ? str.toLowerCase() : str);
-          next.endIndx =  rootNode.getMemoizedStringLen();
+          next.endIndex =  rootNode.getMemoizedStringLen();
           stack.pop();
           continue;
         }
@@ -345,14 +345,14 @@ public class ASTNode extends CommonTree implements Node,Serializable {
         if ( !next.isNil() ) {
           rootNode.addtoMemoizedString(")");
         }
-        next.endIndx = rootNode.getMemoizedStringLen();
+        next.endIndex = rootNode.getMemoizedStringLen();
         next.visited = false;
         stack.pop();
       }
 
     }
 
-    return rootNode.getMemoizedSubString(startIndx, endIndx);
+    return rootNode.getMemoizedSubString(startIndex, endIndex);
   }
 
   private static Token internToken(Token t) {

@@ -55,19 +55,19 @@ public class HiveRelMdSize extends RelMdSize {
   //~ Methods ----------------------------------------------------------------
 
   public List<Double> averageColumnSizes(HiveTableScan scan, RelMetadataQuery mq) {
-    List<Integer> neededcolsLst = scan.getNeededColIndxsFrmReloptHT();
+    List<Integer> neededcolsLst = scan.getNeededColIndexsFrmReloptHT();
     List<ColStatistics> columnStatistics = ((RelOptHiveTable) scan.getTable())
         .getColStat(neededcolsLst, true);
 
     // Obtain list of col stats, or use default if they are not available
     final ImmutableList.Builder<Double> list = ImmutableList.builder();
-    int indxRqdCol = 0;
+    int indexRqdCol = 0;
     int nNoVirtualColumns = ((RelOptHiveTable) scan.getTable()).getNoOfNonVirtualCols();
     int nFields = scan.getRowType().getFieldCount();
     for (int i = 0; i < nNoVirtualColumns; i++) {
       if (neededcolsLst.contains(i)) {
-        ColStatistics columnStatistic = columnStatistics.get(indxRqdCol);
-        indxRqdCol++;
+        ColStatistics columnStatistic = columnStatistics.get(indexRqdCol);
+        indexRqdCol++;
         if (columnStatistic == null) {
           RelDataTypeField field = scan.getRowType().getFieldList().get(i);
           list.add(averageTypeValueSize(field.getType()));

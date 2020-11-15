@@ -342,10 +342,10 @@ public class SqlFunctionConverter {
 
       if (udfName == null || udfName.isEmpty()) {
         udfName = hiveUDF.getClass().getName();
-        int indx = udfName.lastIndexOf(".");
-        if (indx >= 0) {
-          indx += 1;
-          udfName = udfName.substring(indx);
+        int index = udfName.lastIndexOf(".");
+        if (index >= 0) {
+          index += 1;
+          udfName = udfName.substring(index);
         }
       }
     }

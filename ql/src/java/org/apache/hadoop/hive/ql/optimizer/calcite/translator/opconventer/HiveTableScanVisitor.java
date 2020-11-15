@@ -66,7 +66,7 @@ class HiveTableScanVisitor extends HiveRelNodeVisitor<HiveTableScan> {
         ht.getNoOfNonVirtualCols());
     Map<Integer, ColumnInfo> posToPartColInfo = ht.getPartColInfoMap();
     Map<Integer, ColumnInfo> posToNonPartColInfo = ht.getNonPartColInfoMap();
-    List<Integer> neededColIndxsFrmReloptHT = scanRel.getNeededColIndxsFrmReloptHT();
+    List<Integer> neededColIndexsFrmReloptHT = scanRel.getNeededColIndexsFrmReloptHT();
     List<String> scanColNames = scanRel.getRowType().getFieldNames();
     String tableAlias = scanRel.getConcatQbIDAlias();
 
@@ -89,7 +89,7 @@ class HiveTableScanVisitor extends HiveRelNodeVisitor<HiveTableScan> {
         colInfo = posToNonPartColInfo.get(index);
       }
       colInfos.add(colInfo);
-      if (neededColIndxsFrmReloptHT.contains(index)) {
+      if (neededColIndexsFrmReloptHT.contains(index)) {
         neededColumnIDs.add(index);
         neededColumnNames.add(colName);
       }

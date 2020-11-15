@@ -139,16 +139,16 @@ public class HiveCalciteUtil {
     return projectList;
   }
 
-  public static List<Integer> translateBitSetToProjIndx(ImmutableBitSet projBitSet) {
-    List<Integer> projIndxLst = new ArrayList<Integer>();
+  public static List<Integer> translateBitSetToProjIndex(ImmutableBitSet projBitSet) {
+    List<Integer> projIndexLst = new ArrayList<Integer>();
 
     for (int i = 0; i < projBitSet.length(); i++) {
       if (projBitSet.get(i)) {
-        projIndxLst.add(i);
+        projIndexLst.add(i);
       }
     }
 
-    return projIndxLst;
+    return projIndexLst;
   }
 
   /**
@@ -299,21 +299,21 @@ public class HiveCalciteUtil {
     private final ImmutableList<JoinLeafPredicateInfo>                        equiJoinPredicateElements;
     private final ImmutableList<Set<Integer>>                                 projsJoinKeysInChildSchema;
     private final ImmutableList<Set<Integer>>                                 projsJoinKeysInJoinSchema;
-    private final ImmutableMap<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndxInJoinSchemaToLeafPInfo;
+    private final ImmutableMap<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndexInJoinSchemaToLeafPInfo;
 
     public JoinPredicateInfo(List<JoinLeafPredicateInfo> nonEquiJoinPredicateElements,
         List<JoinLeafPredicateInfo> equiJoinPredicateElements,
         List<Set<Integer>> projsJoinKeysInChildSchema,
         List<Set<Integer>> projsJoinKeysInJoinSchema,
-        Map<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndxInJoinSchemaToLeafPInfo) {
+        Map<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndexInJoinSchemaToLeafPInfo) {
       this.nonEquiJoinPredicateElements = ImmutableList.copyOf(nonEquiJoinPredicateElements);
       this.equiJoinPredicateElements = ImmutableList.copyOf(equiJoinPredicateElements);
       this.projsJoinKeysInChildSchema = ImmutableList
           .copyOf(projsJoinKeysInChildSchema);
       this.projsJoinKeysInJoinSchema = ImmutableList
           .copyOf(projsJoinKeysInJoinSchema);
-      this.mapOfProjIndxInJoinSchemaToLeafPInfo = ImmutableMap
-          .copyOf(mapOfProjIndxInJoinSchemaToLeafPInfo);
+      this.mapOfProjIndexInJoinSchemaToLeafPInfo = ImmutableMap
+          .copyOf(mapOfProjIndexInJoinSchemaToLeafPInfo);
     }
 
     public List<JoinLeafPredicateInfo> getNonEquiJoinPredicateElements() {
@@ -357,8 +357,8 @@ public class HiveCalciteUtil {
       return this.projsJoinKeysInJoinSchema.get(i);
     }
 
-    public Map<Integer, ImmutableList<JoinLeafPredicateInfo>> getMapOfProjIndxToLeafPInfo() {
-      return this.mapOfProjIndxInJoinSchemaToLeafPInfo;
+    public Map<Integer, ImmutableList<JoinLeafPredicateInfo>> getMapOfProjIndexToLeafPInfo() {
+      return this.mapOfProjIndexInJoinSchemaToLeafPInfo;
     }
 
     public static JoinPredicateInfo constructJoinPredicateInfo(Join j) throws CalciteSemanticException {
@@ -394,8 +394,8 @@ public class HiveCalciteUtil {
         Set<Integer> projsJoinKeysInJoinSchemaInput = Sets.newHashSet();
         projsJoinKeysInJoinSchema.add(projsJoinKeysInJoinSchemaInput);
       }
-      Map<Integer, List<JoinLeafPredicateInfo>> tmpMapOfProjIndxInJoinSchemaToLeafPInfo = new HashMap<Integer, List<JoinLeafPredicateInfo>>();
-      Map<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndxInJoinSchemaToLeafPInfo = new HashMap<Integer, ImmutableList<JoinLeafPredicateInfo>>();
+      Map<Integer, List<JoinLeafPredicateInfo>> tmpMapOfProjIndexInJoinSchemaToLeafPInfo = new HashMap<Integer, List<JoinLeafPredicateInfo>>();
+      Map<Integer, ImmutableList<JoinLeafPredicateInfo>> mapOfProjIndexInJoinSchemaToLeafPInfo = new HashMap<Integer, ImmutableList<JoinLeafPredicateInfo>>();
       List<JoinLeafPredicateInfo> tmpJLPILst = null;
       List<RexNode> conjunctiveElements;
 
@@ -418,13 +418,13 @@ public class HiveCalciteUtil {
             projsJoinKeys.get(i).addAll(jlpi.getProjsJoinKeysInChildSchema(i));
             projsJoinKeysInJoinSchema.get(i).addAll(jlpi.getProjsJoinKeysInJoinSchema(i));
 
-            for (Integer projIndx : jlpi.getProjsJoinKeysInJoinSchema(i)) {
-              tmpJLPILst = tmpMapOfProjIndxInJoinSchemaToLeafPInfo.get(projIndx);
+            for (Integer projIndex : jlpi.getProjsJoinKeysInJoinSchema(i)) {
+              tmpJLPILst = tmpMapOfProjIndexInJoinSchemaToLeafPInfo.get(projIndex);
               if (tmpJLPILst == null) {
                 tmpJLPILst = new ArrayList<JoinLeafPredicateInfo>();
               }
               tmpJLPILst.add(jlpi);
-              tmpMapOfProjIndxInJoinSchemaToLeafPInfo.put(projIndx, tmpJLPILst);
+              tmpMapOfProjIndexInJoinSchemaToLeafPInfo.put(projIndex, tmpJLPILst);
             }
           }
         } else {
@@ -434,14 +434,14 @@ public class HiveCalciteUtil {
 
       // 3. Update Update Join Key to List<JoinLeafPredicateInfo> to use
       // ImmutableList
-      for (Entry<Integer, List<JoinLeafPredicateInfo>> e : tmpMapOfProjIndxInJoinSchemaToLeafPInfo
+      for (Entry<Integer, List<JoinLeafPredicateInfo>> e : tmpMapOfProjIndexInJoinSchemaToLeafPInfo
           .entrySet()) {
-        mapOfProjIndxInJoinSchemaToLeafPInfo.put(e.getKey(), ImmutableList.copyOf(e.getValue()));
+        mapOfProjIndexInJoinSchemaToLeafPInfo.put(e.getKey(), ImmutableList.copyOf(e.getValue()));
       }
 
       // 4. Construct JoinPredicateInfo
       jpi = new JoinPredicateInfo(nonEquiLPIList, equiLPIList, projsJoinKeys,
-          projsJoinKeysInJoinSchema, mapOfProjIndxInJoinSchemaToLeafPInfo);
+          projsJoinKeysInJoinSchema, mapOfProjIndexInJoinSchemaToLeafPInfo);
       return jpi;
     }
   }
@@ -562,8 +562,8 @@ public class HiveCalciteUtil {
         for (int i=1; i<inputs.size(); i++) {
           int offSet = inputs.get(i-1).getRowType().getFieldCount();
           ImmutableSet.Builder<Integer> projsFromInputJoinKeysInJoinSchema = ImmutableSet.builder();
-          for (Integer indx : projsJoinKeysInChildSchema.get(i)) {
-            projsFromInputJoinKeysInJoinSchema.add(indx + offSet);
+          for (Integer index : projsJoinKeysInChildSchema.get(i)) {
+            projsFromInputJoinKeysInJoinSchema.add(index + offSet);
           }
           projsJoinKeysInJoinSchema.add(projsFromInputJoinKeysInJoinSchema.build());
         }
@@ -847,13 +847,13 @@ public class HiveCalciteUtil {
   }
 
   public static <T> ImmutableMap<Integer, T> getColInfoMap(List<T> hiveCols,
-      int startIndx) {
+      int startIndex) {
     Builder<Integer, T> bldr = ImmutableMap.<Integer, T> builder();
 
-    int indx = startIndx;
+    int index = startIndex;
     for (T ci : hiveCols) {
-      bldr.put(indx, ci);
-      indx++;
+      bldr.put(index, ci);
+      index++;
     }
 
     return bldr.build();
@@ -870,37 +870,37 @@ public class HiveCalciteUtil {
   }
 
   public static ImmutableMap<Integer, VirtualColumn> getVColsMap(List<VirtualColumn> hiveVCols,
-      int startIndx) {
+      int startIndex) {
     Builder<Integer, VirtualColumn> bldr = ImmutableMap.<Integer, VirtualColumn> builder();
 
-    int indx = startIndx;
+    int index = startIndex;
     for (VirtualColumn vc : hiveVCols) {
-      bldr.put(indx, vc);
-      indx++;
+      bldr.put(index, vc);
+      index++;
     }
 
     return bldr.build();
   }
 
-  public static ImmutableMap<String, Integer> getColNameIndxMap(List<FieldSchema> tableFields) {
+  public static ImmutableMap<String, Integer> getColNameIndexMap(List<FieldSchema> tableFields) {
     Builder<String, Integer> bldr = ImmutableMap.<String, Integer> builder();
 
-    int indx = 0;
+    int index = 0;
     for (FieldSchema fs : tableFields) {
-      bldr.put(fs.getName(), indx);
-      indx++;
+      bldr.put(fs.getName(), index);
+      index++;
     }
 
     return bldr.build();
   }
 
-  public static ImmutableMap<String, Integer> getRowColNameIndxMap(List<RelDataTypeField> rowFields) {
+  public static ImmutableMap<String, Integer> getRowColNameIndexMap(List<RelDataTypeField> rowFields) {
     Builder<String, Integer> bldr = ImmutableMap.<String, Integer> builder();
 
-    int indx = 0;
+    int index = 0;
     for (RelDataTypeField rdt : rowFields) {
-      bldr.put(rdt.getName(), indx);
-      indx++;
+      bldr.put(rdt.getName(), index);
+      index++;
     }
 
     return bldr.build();
@@ -914,11 +914,11 @@ public class HiveCalciteUtil {
     return bldr.build();
   }
 
-  public static ExprNodeDesc getExprNode(Integer inputRefIndx, RelNode inputRel,
+  public static ExprNodeDesc getExprNode(Integer inputRefIndex, RelNode inputRel,
       ExprNodeConverter exprConv) {
     ExprNodeDesc exprNode = null;
-    RexNode rexInputRef = new RexInputRef(inputRefIndx, inputRel.getRowType()
-        .getFieldList().get(inputRefIndx).getType());
+    RexNode rexInputRef = new RexInputRef(inputRefIndex, inputRel.getRowType()
+        .getFieldList().get(inputRefIndex).getType());
     exprNode = rexInputRef.accept(exprConv);
 
     return exprNode;

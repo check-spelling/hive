@@ -761,8 +761,8 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
       throws LockException {
     try {
       Hive db = Hive.get(conf);
-      int indx = path.lastIndexOf("LOCK-" + mode.toString());
-      String objName = path.substring(("/" + parent + "/").length(), indx-1);
+      int index = path.lastIndexOf("LOCK-" + mode.toString());
+      String objName = path.substring(("/" + parent + "/").length(), index-1);
       String[] names = objName.split("/");
 
       if (names.length < 2) {
@@ -784,8 +784,8 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
       }
 
       Map<String, String> partSpec = new HashMap<String, String>();
-      for (indx = 2; indx < names.length; indx++) {
-        String[] partVals = names[indx].split("=");
+      for (index = 2; index < names.length; index++) {
+        String[] partVals = names[index].split("=");
         partSpec.put(partVals[0], partVals[1]);
       }
 

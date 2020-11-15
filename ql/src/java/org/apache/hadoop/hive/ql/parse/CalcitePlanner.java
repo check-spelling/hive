@@ -3751,7 +3751,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
     }
 
     private AggregateCall convertGBAgg(AggregateInfo agg, List<RexNode> gbChildProjLst,
-        HashMap<String, Integer> rexNodeToPosMap, Integer childProjLstIndx) throws SemanticException {
+        HashMap<String, Integer> rexNodeToPosMap, Integer childProjLstIndex) throws SemanticException {
       // 1. Get agg fn ret type in Calcite
       RelDataType aggFnRetType = TypeConverter.convert(agg.getReturnType(),
           this.cluster.getTypeFactory());
@@ -3760,14 +3760,14 @@ public class CalcitePlanner extends SemanticAnalyzer {
       List<Integer> argList = new ArrayList<>();
       ImmutableList.Builder<RelDataType> aggArgRelDTBldr = ImmutableList.builder();
       for (RexNode rexNd : agg.getParameters()) {
-        Integer inputIndx = rexNodeToPosMap.get(rexNd.toString());
-        if (inputIndx == null) {
+        Integer inputIndex = rexNodeToPosMap.get(rexNd.toString());
+        if (inputIndex == null) {
           gbChildProjLst.add(rexNd);
-          rexNodeToPosMap.put(rexNd.toString(), childProjLstIndx);
-          inputIndx = childProjLstIndx;
-          childProjLstIndx++;
+          rexNodeToPosMap.put(rexNd.toString(), childProjLstIndex);
+          inputIndex = childProjLstIndex;
+          childProjLstIndex++;
         }
-        argList.add(inputIndx);
+        argList.add(inputIndex);
 
         aggArgRelDTBldr.add(rexNd.getType());
       }
@@ -3786,12 +3786,12 @@ public class CalcitePlanner extends SemanticAnalyzer {
       final List<RexNode> gbChildProjLst = Lists.newArrayList();
       final HashMap<String, Integer> rexNodeToPosMap = new HashMap<>();
       final List<Integer> groupSetPositions = Lists.newArrayList();
-      Integer gbIndx = 0;
+      Integer gbIndex = 0;
       for (RexNode gbExpr : gbExprs) {
         gbChildProjLst.add(gbExpr);
-        groupSetPositions.add(gbIndx);
-        rexNodeToPosMap.put(gbExpr.toString(), gbIndx);
-        gbIndx++;
+        groupSetPositions.add(gbIndex);
+        rexNodeToPosMap.put(gbExpr.toString(), gbIndex);
+        gbIndex++;
       }
       final ImmutableBitSet groupSet = ImmutableBitSet.of(groupSetPositions);
 
@@ -3899,10 +3899,10 @@ public class CalcitePlanner extends SemanticAnalyzer {
           groupByOutputRowResolver);
     }
 
-    private AggregateInfo getHiveAggInfo(ASTNode aggAst, int aggFnLstArgIndx, RowResolver inputRR)
+    private AggregateInfo getHiveAggInfo(ASTNode aggAst, int aggFnLstArgIndex, RowResolver inputRR)
         throws SemanticException {
       List<RexNode> aggParameters = new ArrayList<>();
-      for (int i = 1; i <= aggFnLstArgIndx; i++) {
+      for (int i = 1; i <= aggFnLstArgIndex; i++) {
         RexNode parameterExpr = genRexNode(
             (ASTNode) aggAst.getChild(i), inputRR, cluster.getRexBuilder());
         aggParameters.add(parameterExpr);
@@ -4478,7 +4478,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
       return rwb;
     }
 
-    private int getWindowSpecIndx(ASTNode wndAST) {
+    private int getWindowSpecIndex(ASTNode wndAST) {
       int wi = wndAST.getChildCount() - 1;
       if (wi <= 0 || (wndAST.getChild(wi).getType() != HiveParser.TOK_WINDOWSPEC)) {
         wi = -1;
@@ -4496,9 +4496,9 @@ public class CalcitePlanner extends SemanticAnalyzer {
         WindowFunctionSpec wFnSpec = (WindowFunctionSpec) wExpSpec;
         ASTNode windowProjAst = wFnSpec.getExpression();
         // TODO: do we need to get to child?
-        int wndSpecASTIndx = getWindowSpecIndx(windowProjAst);
+        int wndSpecASTIndex = getWindowSpecIndex(windowProjAst);
         // 2. Get Hive Aggregate Info
-        AggregateInfo hiveAggInfo = getHiveAggInfo(windowProjAst, wndSpecASTIndx - 1,
+        AggregateInfo hiveAggInfo = getHiveAggInfo(windowProjAst, wndSpecASTIndex - 1,
             this.relToHiveRR.get(srcRel));
 
         // 3. Get Calcite Return type for Agg Fn
