@@ -3400,8 +3400,8 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
 
   @Override
   public GetRoleGrantsForPrincipalResponse get_role_grants_for_principal(
-          GetRoleGrantsForPrincipalRequest getRolePrincReq) throws MetaException, TException {
-    return client.get_role_grants_for_principal(getRolePrincReq);
+          GetRoleGrantsForPrincipalRequest getRolePrincipalReq) throws MetaException, TException {
+    return client.get_role_grants_for_principal(getRolePrincipalReq);
   }
 
   @Override

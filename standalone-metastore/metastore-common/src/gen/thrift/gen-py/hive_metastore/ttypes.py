@@ -2756,19 +2756,19 @@ class RolePrincipalGrant(object):
      - grantOption
      - grantTime
      - grantorName
-     - grantorPrincipalType
+     - grantorPrincipalipalType
 
     """
 
 
-    def __init__(self, roleName=None, principalName=None, principalType=None, grantOption=None, grantTime=None, grantorName=None, grantorPrincipalType=None,):
+    def __init__(self, roleName=None, principalName=None, principalType=None, grantOption=None, grantTime=None, grantorName=None, grantorPrincipalipalType=None,):
         self.roleName = roleName
         self.principalName = principalName
         self.principalType = principalType
         self.grantOption = grantOption
         self.grantTime = grantTime
         self.grantorName = grantorName
-        self.grantorPrincipalType = grantorPrincipalType
+        self.grantorPrincipalipalType = grantorPrincipalipalType
 
     def read(self, iprot):
         if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
@@ -2811,7 +2811,7 @@ class RolePrincipalGrant(object):
                     iprot.skip(ftype)
             elif fid == 7:
                 if ftype == TType.I32:
-                    self.grantorPrincipalType = iprot.readI32()
+                    self.grantorPrincipalipalType = iprot.readI32()
                 else:
                     iprot.skip(ftype)
             else:
@@ -2848,9 +2848,9 @@ class RolePrincipalGrant(object):
             oprot.writeFieldBegin('grantorName', TType.STRING, 6)
             oprot.writeString(self.grantorName.encode('utf-8') if sys.version_info[0] == 2 else self.grantorName)
             oprot.writeFieldEnd()
-        if self.grantorPrincipalType is not None:
-            oprot.writeFieldBegin('grantorPrincipalType', TType.I32, 7)
-            oprot.writeI32(self.grantorPrincipalType)
+        if self.grantorPrincipalipalType is not None:
+            oprot.writeFieldBegin('grantorPrincipalipalType', TType.I32, 7)
+            oprot.writeI32(self.grantorPrincipalipalType)
             oprot.writeFieldEnd()
         oprot.writeFieldStop()
         oprot.writeStructEnd()
@@ -27592,7 +27592,7 @@ RolePrincipalGrant.thrift_spec = (
     (4, TType.BOOL, 'grantOption', None, None, ),  # 4
     (5, TType.I32, 'grantTime', None, None, ),  # 5
     (6, TType.STRING, 'grantorName', 'UTF8', None, ),  # 6
-    (7, TType.I32, 'grantorPrincipalType', None, None, ),  # 7
+    (7, TType.I32, 'grantorPrincipalipalType', None, None, ),  # 7
 )
 all_structs.append(GetRoleGrantsForPrincipalRequest)
 GetRoleGrantsForPrincipalRequest.thrift_spec = (

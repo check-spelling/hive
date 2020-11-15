@@ -44,17 +44,17 @@ public class HiveAuthorizerImpl extends AbstractHiveAuthorizer {
   @Override
   public void grantPrivileges(List<HivePrincipal> hivePrincipals,
       List<HivePrivilege> hivePrivileges, HivePrivilegeObject hivePrivObject,
-      HivePrincipal grantorPrincipal, boolean grantOption) throws HiveAuthzPluginException, HiveAccessControlException {
+      HivePrincipal grantorPrincipalipal, boolean grantOption) throws HiveAuthzPluginException, HiveAccessControlException {
     accessController.grantPrivileges(hivePrincipals, hivePrivileges, hivePrivObject,
-        grantorPrincipal, grantOption);
+        grantorPrincipalipal, grantOption);
   }
 
   @Override
   public void revokePrivileges(List<HivePrincipal> hivePrincipals,
       List<HivePrivilege> hivePrivileges, HivePrivilegeObject hivePrivObject,
-      HivePrincipal grantorPrincipal, boolean grantOption) throws HiveAuthzPluginException, HiveAccessControlException {
+      HivePrincipal grantorPrincipalipal, boolean grantOption) throws HiveAuthzPluginException, HiveAccessControlException {
     accessController.revokePrivileges(hivePrincipals, hivePrivileges, hivePrivObject,
-        grantorPrincipal, grantOption);
+        grantorPrincipalipal, grantOption);
   }
 
   @Override
@@ -69,14 +69,14 @@ public class HiveAuthorizerImpl extends AbstractHiveAuthorizer {
 
   @Override
   public void grantRole(List<HivePrincipal> hivePrincipals, List<String> roles,
-      boolean grantOption, HivePrincipal grantorPrinc) throws HiveAuthzPluginException, HiveAccessControlException {
-    accessController.grantRole(hivePrincipals, roles, grantOption, grantorPrinc);
+      boolean grantOption, HivePrincipal grantorPrincipal) throws HiveAuthzPluginException, HiveAccessControlException {
+    accessController.grantRole(hivePrincipals, roles, grantOption, grantorPrincipal);
   }
 
   @Override
   public void revokeRole(List<HivePrincipal> hivePrincipals, List<String> roles,
-      boolean grantOption, HivePrincipal grantorPrinc) throws HiveAuthzPluginException, HiveAccessControlException {
-    accessController.revokeRole(hivePrincipals, roles, grantOption, grantorPrinc);
+      boolean grantOption, HivePrincipal grantorPrincipal) throws HiveAuthzPluginException, HiveAccessControlException {
+    accessController.revokeRole(hivePrincipals, roles, grantOption, grantorPrincipal);
   }
 
   @Override

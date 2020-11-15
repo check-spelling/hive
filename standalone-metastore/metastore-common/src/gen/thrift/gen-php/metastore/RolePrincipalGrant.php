@@ -52,7 +52,7 @@ class RolePrincipalGrant
             'type' => TType::STRING,
         ),
         7 => array(
-            'var' => 'grantorPrincipalType',
+            'var' => 'grantorPrincipalipalType',
             'isRequired' => false,
             'type' => TType::I32,
         ),
@@ -85,7 +85,7 @@ class RolePrincipalGrant
     /**
      * @var int
      */
-    public $grantorPrincipalType = null;
+    public $grantorPrincipalipalType = null;
 
     public function __construct($vals = null)
     {
@@ -108,8 +108,8 @@ class RolePrincipalGrant
             if (isset($vals['grantorName'])) {
                 $this->grantorName = $vals['grantorName'];
             }
-            if (isset($vals['grantorPrincipalType'])) {
-                $this->grantorPrincipalType = $vals['grantorPrincipalType'];
+            if (isset($vals['grantorPrincipalipalType'])) {
+                $this->grantorPrincipalipalType = $vals['grantorPrincipalipalType'];
             }
         }
     }
@@ -177,7 +177,7 @@ class RolePrincipalGrant
                     break;
                 case 7:
                     if ($ftype == TType::I32) {
-                        $xfer += $input->readI32($this->grantorPrincipalType);
+                        $xfer += $input->readI32($this->grantorPrincipalipalType);
                     } else {
                         $xfer += $input->skip($ftype);
                     }
@@ -226,9 +226,9 @@ class RolePrincipalGrant
             $xfer += $output->writeString($this->grantorName);
             $xfer += $output->writeFieldEnd();
         }
-        if ($this->grantorPrincipalType !== null) {
-            $xfer += $output->writeFieldBegin('grantorPrincipalType', TType::I32, 7);
-            $xfer += $output->writeI32($this->grantorPrincipalType);
+        if ($this->grantorPrincipalipalType !== null) {
+            $xfer += $output->writeFieldBegin('grantorPrincipalipalType', TType::I32, 7);
+            $xfer += $output->writeI32($this->grantorPrincipalipalType);
             $xfer += $output->writeFieldEnd();
         }
         $xfer += $output->writeFieldStop();

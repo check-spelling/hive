@@ -317,7 +317,7 @@ struct RolePrincipalGrant {
   4: bool grantOption,
   5: i32 grantTime,
   6: string grantorName,
-  7: PrincipalType grantorPrincipalType
+  7: PrincipalType grantorPrincipalipalType
 }
 
 struct GetRoleGrantsForPrincipalRequest {

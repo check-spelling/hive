@@ -50,9 +50,9 @@ public class RevokeOperation extends DDLOperation<RevokeDesc> {
         PrivilegeUtils.getAuthorizationTranslator(authorizer));
     HivePrivilegeObject hivePrivilegeObject =
         PrivilegeUtils.getAuthorizationTranslator(authorizer).getHivePrivilegeObject(desc.getPrivilegeSubject());
-    HivePrincipal grantorPrincipal = new HivePrincipal(null, null);
+    HivePrincipal grantorPrincipalipal = new HivePrincipal(null, null);
 
-    authorizer.revokePrivileges(hivePrincipals, hivePrivileges, hivePrivilegeObject, grantorPrincipal,
+    authorizer.revokePrivileges(hivePrincipals, hivePrivileges, hivePrivilegeObject, grantorPrincipalipal,
         desc.isGrantOption());
 
     return 0;
