@@ -215,11 +215,11 @@ public class HiveSessionImpl implements HiveSession {
     @Override
     protected int processCmd(String cmd) {
       int rc = 0;
-      String cmd_trimed = cmd.trim();
+      String cmd_trimmed = cmd.trim();
       OperationHandle opHandle = null;
       try {
         //execute in sync mode
-        opHandle = executeStatementInternal(cmd_trimed, null, false, 0);
+        opHandle = executeStatementInternal(cmd_trimmed, null, false, 0);
       } catch (HiveSQLException e) {
         LOG.warn("Failed to execute command in global .hiverc file.", e);
         return -1;
