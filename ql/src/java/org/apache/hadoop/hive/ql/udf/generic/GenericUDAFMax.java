@@ -171,7 +171,7 @@ public class GenericUDAFMax extends AbstractGenericUDAFResolver {
    * (i-p, i+f), where p is numPreceding,f = numFollowing - we start outputting
    * rows only after receiving f rows. - the formula for 'influence range' of an
    * idx accounts for the following rows. 2. optimize for the case when
-   * numPreceding is Unbounded. In this case only 1 max needs to be tarcked at
+   * numPreceding is Unbounded. In this case only 1 max needs to be tracked at
    * any given time.
    */
   static class MaxStreamingFixedWindow extends
