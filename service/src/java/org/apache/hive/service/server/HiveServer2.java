@@ -713,7 +713,7 @@ public class HiveServer2 extends CompositeService {
     try {
       startPrivilegeSynchronizer(hiveConf);
     } catch (Exception e) {
-      LOG.error("Error starting priviledge synchronizer: ", e);
+      LOG.error("Error starting privilege synchronizer: ", e);
       throw new ServiceException(e);
     }
 

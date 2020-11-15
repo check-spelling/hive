@@ -1441,11 +1441,11 @@ privObjectCols
 privilegeList
 @init {pushMsg("grant privilege list", state);}
 @after {popMsg(state);}
-    : privlegeDef (COMMA privlegeDef)*
-    -> ^(TOK_PRIVILEGE_LIST privlegeDef+)
+    : privilegeDef (COMMA privilegeDef)*
+    -> ^(TOK_PRIVILEGE_LIST privilegeDef+)
     ;
 
-privlegeDef
+privilegeDef
 @init {pushMsg("grant privilege", state);}
 @after {popMsg(state);}
     : privilegeType (LPAREN cols=columnNameList RPAREN)?
