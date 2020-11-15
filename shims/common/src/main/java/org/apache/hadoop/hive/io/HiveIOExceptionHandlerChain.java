@@ -110,7 +110,7 @@ public class HiveIOExceptionHandlerChain {
     HiveIOExceptionNextHandleResult result = new HiveIOExceptionNextHandleResult();
     if (handlerChain != null && handlerChain.size() > 0) {
       for (HiveIOExceptionHandler handler : handlerChain) {
-        handler.handleRecorReaderNextException(e, result);
+        handler.handleRecordReaderNextException(e, result);
         if (result.getHandled()) {
           return result.getHandleResult();
         }

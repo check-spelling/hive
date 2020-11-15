@@ -1070,7 +1070,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17052] - Remove logging of predicate filters
     * [HIVE-17066] - Query78 filter wrong estimation is generating bad plan
     * [HIVE-17067] - LLAP: Add http endpoint to provide system level configurations
-    * [HIVE-17069] - Refactor OrcRawRecrodMerger.ReaderPair
+    * [HIVE-17069] - Refactor OrcRawRecordMerger.ReaderPair
     * [HIVE-17070] - remove .orig files from src
     * [HIVE-17073] - Incorrect result with vectorization and SharedWorkOptimizer
     * [HIVE-17076] - typo in itests/src/test/resources/testconfiguration.properties

@@ -46,7 +46,7 @@ public interface HiveIOExceptionHandler {
    * @param result
    * @throws IOException
    */
-  public void handleRecorReaderNextException(Exception e,
+  public void handleRecordReaderNextException(Exception e,
       HiveIOExceptionNextHandleResult result) throws IOException;
 
 }
