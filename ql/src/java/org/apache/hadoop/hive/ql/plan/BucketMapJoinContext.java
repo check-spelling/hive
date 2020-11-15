@@ -74,10 +74,10 @@ public class BucketMapJoinContext implements Serializable {
     if (aliasBucketFileNameMapping != null) {
       aliasBucketBaseFileNameMapping = new LinkedHashMap<String, Map<String, List<String>>>();
 
-      for (Map.Entry<String, Map<String, List<String>>> aliasToMappins
+      for (Map.Entry<String, Map<String, List<String>>> aliasToMappings
           : aliasBucketFileNameMapping.entrySet()) {
-        String tableAlias = aliasToMappins.getKey();
-        Map<String, List<String>> fullPathMappings = aliasToMappins.getValue();
+        String tableAlias = aliasToMappings.getKey();
+        Map<String, List<String>> fullPathMappings = aliasToMappings.getValue();
 
         Map<String, List<String>> baseFileNameMapping = new LinkedHashMap<String, List<String>>();
         for (Map.Entry<String, List<String>> inputToBuckets : fullPathMappings.entrySet()) {
