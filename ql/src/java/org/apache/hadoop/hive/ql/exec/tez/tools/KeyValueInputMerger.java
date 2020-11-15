@@ -174,30 +174,30 @@ public class KeyValueInputMerger extends KeyValueReader {
 
     @SuppressWarnings({ "unchecked" })
     @Override
-    public int compare(KeyValueReader kvReadr1, KeyValueReader kvReadr2) {
+    public int compare(KeyValueReader kvReader1, KeyValueReader kvReader2) {
       try {
         ObjectInspector oi = inputObjInspectors[0];
         List<Object> row1, row2;
         try {
-          if (kvReaderStandardObjMap.containsKey(kvReadr1)) {
-            row1 = kvReaderStandardObjMap.get(kvReadr1);
+          if (kvReaderStandardObjMap.containsKey(kvReader1)) {
+            row1 = kvReaderStandardObjMap.get(kvReader1);
           } else {
             // we need to copy to standard object otherwise deserializer overwrites the values
             row1 =
                 (List<Object>) ObjectInspectorUtils.copyToStandardObject(
-                    deserializer.deserialize((Writable) kvReadr1.getCurrentValue()), oi,
+                    deserializer.deserialize((Writable) kvReader1.getCurrentValue()), oi,
                     ObjectInspectorCopyOption.WRITABLE);
-            kvReaderStandardObjMap.put(kvReadr1, row1);
+            kvReaderStandardObjMap.put(kvReader1, row1);
           }
 
-          if (kvReaderStandardObjMap.containsKey(kvReadr2)) {
-            row2 = kvReaderStandardObjMap.get(kvReadr2);
+          if (kvReaderStandardObjMap.containsKey(kvReader2)) {
+            row2 = kvReaderStandardObjMap.get(kvReader2);
           } else {
             row2 =
                 (List<Object>) ObjectInspectorUtils.copyToStandardObject(
-                    deserializer.deserialize((Writable) kvReadr2.getCurrentValue()), oi,
+                    deserializer.deserialize((Writable) kvReader2.getCurrentValue()), oi,
                     ObjectInspectorCopyOption.WRITABLE);
-            kvReaderStandardObjMap.put(kvReadr2, row2);
+            kvReaderStandardObjMap.put(kvReader2, row2);
           }
         } catch (SerDeException e) {
           throw new IOException(e);

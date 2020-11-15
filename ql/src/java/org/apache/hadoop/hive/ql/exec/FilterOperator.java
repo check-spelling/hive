@@ -115,7 +115,7 @@ public class FilterOperator extends Operator<FilterDesc> implements
     // If we are currently performing a binary search on the input, don't forward the results
     // Currently this value is set when a query is optimized using a compact index.  The map reduce
     // job responsible for scanning and filtering the index sets this value.  It remains set
-    // throughout the binary search executed by the HiveBinarySearchRecordResder until a starting
+    // throughout the binary search executed by the HiveBinarySearchRecordReader until a starting
     // point for a linear scan has been identified, at which point this value is unset.
     if (ioContext.isBinarySearching()) {
       return;
