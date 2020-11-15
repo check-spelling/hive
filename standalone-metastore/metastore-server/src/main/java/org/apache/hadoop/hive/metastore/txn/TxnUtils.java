@@ -388,7 +388,7 @@ public class TxnUtils {
    *
    * @param sizeSoFar     size of the current contents of the buf
    * @param sizeNextItem      size of the next 'IN' clause element value.
-   * @param suffixSize    size of the suffix for a quey statement
+   * @param suffixSize    size of the suffix for a query statement
    * @param addParens     Do we add an additional parenthesis?
    */
   private static int querySizeExpected(int sizeSoFar,
