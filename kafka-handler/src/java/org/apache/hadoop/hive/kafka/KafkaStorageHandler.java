@@ -332,7 +332,7 @@ import java.util.function.Predicate;
       LOG.error("Commit transaction failed", e);
       if (committedTx.size() > 0) {
         LOG.error("Partial Data Got Committed Some actions need to be Done");
-        committedTx.stream().forEach(key -> LOG.error("Transaction [{}] is an orphen commit", key));
+        committedTx.stream().forEach(key -> LOG.error("Transaction [{}] is an orphan commit", key));
       }
       throw new MetaException(e.getMessage());
     }
