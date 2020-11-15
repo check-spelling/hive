@@ -269,7 +269,7 @@
 
     <p>Now you need to edit your <em>hive_home</em><code>/conf/hive-site.xml</code> file.
     You can use the same file as on the server <strong>except the value of 
-    </strong><code>javax.jdo.option.ConnectionPasswordh</code><strong> should be
+    </strong><code>javax.jdo.option.ConnectionPassword</code><strong> should be
     removed</strong>.  This avoids having the password available in plain text on
     all of your clients.</p>
 
