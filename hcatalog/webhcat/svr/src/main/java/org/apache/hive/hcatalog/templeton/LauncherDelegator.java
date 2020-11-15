@@ -51,7 +51,7 @@ public class LauncherDelegator extends TempletonDelegator {
   private static final Logger LOG = LoggerFactory.getLogger(LauncherDelegator.class);
   protected String runAs = null;
   static public enum JobType {JAR, STREAMING, PIG, HIVE, SQOOP}
-  private boolean secureMeatastoreAccess = false;
+  private boolean secureMetastoreAccess = false;
   private final String HIVE_SHIMS_FILENAME_PATTERN = ".*hive-shims.*";
   private final String JOB_SUBMIT_EXECUTE_THREAD_PREFIX = "JobSubmitExecute";
   private final int jobTimeoutTaskRetryCount;
@@ -262,7 +262,7 @@ public class LauncherDelegator extends TempletonDelegator {
    * Gets new templeton controller objects.
    */
   protected TempletonControllerJob getTempletonController() {
-    return new TempletonControllerJob(secureMeatastoreAccess, appConf);
+    return new TempletonControllerJob(secureMetastoreAccess, appConf);
   }
 
   /*
@@ -454,6 +454,6 @@ public class LauncherDelegator extends TempletonDelegator {
     if(!hiveConf.getBoolVar(HiveConf.ConfVars.METASTORE_USE_THRIFT_SASL)) {
       return;
     }
-    secureMeatastoreAccess = true;
+    secureMetastoreAccess = true;
   }
 }
