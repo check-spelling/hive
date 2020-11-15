@@ -134,7 +134,7 @@ public class ExprNodeGenericFuncEvaluator extends ExprNodeEvaluator<ExprNodeGene
       return getConf();
     }
 
-    // Second attempt, try to get the sesssion's configuration
+    // Second attempt, try to get the session's configuration
     SessionState ss = SessionState.get();
     if (ss != null && ss.getConf() != null) {
       return ss.getConf();

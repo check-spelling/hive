@@ -106,7 +106,7 @@ public class LlapWebServices extends AbstractService {
     builder.setContextAttribute(REGISTRY_ATTRIBUTE, registry);
     builder.setContextAttribute(PARENT_ATTRIBUTE, parent);
 
-    // make conf available to the locking stats servle
+    // make conf available to the locking stats servlet
     LlapLockingServlet.setConf(conf);
 
     try {

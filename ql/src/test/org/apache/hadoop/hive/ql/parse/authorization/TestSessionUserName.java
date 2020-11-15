@@ -53,7 +53,7 @@ public class TestSessionUserName {
 
   /**
    * Test if the authorization factory gets the username provided by
-   * the authenticator, if SesstionState is created without username
+   * the authenticator, if SessionState is created without username
    * @throws Exception
    */
   @Test

@@ -1031,7 +1031,7 @@ public class TestHiveMetastoreTransformer {
         table = createTableWithCapabilities(tProps);
         fail("CreateTable expected to fail, but passed for " + tblName);
       } catch (MetaException me) {
-        LOG.info("Create table expected to fail as ACID table cannot be created without possessing capabilities");
+        LOG.info("Create table expected to fail as ACID table cannot be created without possessiong capabilities");
       }
 
       capabilities = new ArrayList<>();
@@ -1082,7 +1082,7 @@ public class TestHiveMetastoreTransformer {
         table = createTableWithCapabilities(tProps);
         fail("CreateTable expected to fail, but passed for " + tblName);
       } catch (MetaException me) {
-        LOG.info("Create table expected to fail as ACID table cannot be created without possessing capabilities");
+        LOG.info("Create table expected to fail as ACID table cannot be created without possessiong capabilities");
       }
 
       tblName = "test_create_table_acid_mgd_wcw";
@@ -1147,7 +1147,7 @@ public class TestHiveMetastoreTransformer {
         table = createTableWithCapabilities(tProps);
         fail("CreateTable expected to fail, but passed for " + tblName);
       } catch (MetaException me) {
-        LOG.info("Create table expected to fail as ACID table cannot be created without possessing capabilities");
+        LOG.info("Create table expected to fail as ACID table cannot be created without possessiong capabilities");
       }
 
       capabilities = new ArrayList<>();
