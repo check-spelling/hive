@@ -2036,7 +2036,7 @@ public class AcidUtils {
    *
    * Returns the logical end of file for an acid data file.
    *
-   * This relies on the fact that if delta_x_y has no committed transactions it wil be filtered out
+   * This relies on the fact that if delta_x_y has no committed transactions it will be filtered out
    * by {@link #getAcidState(FileSystem, Path, Configuration, ValidWriteIdList, Ref, boolean)}
    * and so won't be read at all.
    * @param file - data file to read/compute splits on
