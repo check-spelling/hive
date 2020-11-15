@@ -91,12 +91,12 @@ public class CorrelationOptimizer extends Transform {
   private ParseContext pCtx;
 
   //Join operators which may be converted by CommonJoinResolver;
-  private final Set<Operator<? extends OperatorDesc>> skipedJoinOperators;
+  private final Set<Operator<? extends OperatorDesc>> skippedJoinOperators;
 
   public CorrelationOptimizer() {
     super();
     pCtx = null;
-    skipedJoinOperators = new HashSet<Operator<? extends OperatorDesc>>();
+    skippedJoinOperators = new HashSet<Operator<? extends OperatorDesc>>();
     abort = false;
   }
 
@@ -195,7 +195,7 @@ public class CorrelationOptimizer extends Transform {
       if (mayConvert) {
         LOG.info(joinOp.getName() + " " + joinOp.getIdentifier() +
             " may be converted to MapJoin by CommonJoinResolver");
-        skipedJoinOperators.add(joinOp);
+        skippedJoinOperators.add(joinOp);
       }
     }
   }
@@ -345,7 +345,7 @@ public class CorrelationOptimizer extends Transform {
       LOG.info("now detecting operator " + current.getIdentifier() + " " + current.getName());
       LinkedHashSet<ReduceSinkOperator> correlatedReduceSinkOperators =
           new LinkedHashSet<ReduceSinkOperator>();
-      if (skipedJoinOperators.contains(current)) {
+      if (skippedJoinOperators.contains(current)) {
         LOG.info(current.getName() + " " + current.getIdentifier() +
             " may be converted to MapJoin by " +
             "CommonJoinResolver. Correlation optimizer will not detect correlations" +
