@@ -4180,7 +4180,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
 
         final String msg = "Unable to move source " + srcP + " to destination " + destf;
 
-        // If we do a rename for a non-local file, we will be transfering the original
+        // If we do a rename for a non-local file, we will be transferring the original
         // file permissions from source to the destination. Else, in case of mvFile() where we
         // copy from source to destination, we will inherit the destination's parent group ownership.
         if (null == pool) {
