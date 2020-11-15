@@ -3433,7 +3433,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
      * - The one addum is the handling of aggregation expressions from the Outer Query
      *   appearing in correlation clauses.
      *   - So such correlating predicates are allowed:
-     *        min(OuterQuert.x) = SubQuery.y
+     *        min(OuterQuery.x) = SubQuery.y
      *   - this requires special handling when converting to joins. See QBSubQuery.rewrite
      *     method method for detailed comments.
      */
