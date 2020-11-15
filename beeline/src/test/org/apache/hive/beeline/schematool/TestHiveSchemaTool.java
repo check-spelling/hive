@@ -49,7 +49,7 @@ public class TestHiveSchemaTool {
   @Mock
   private HiveConf hiveConf;
   private HiveSchemaTool.HiveSchemaToolCommandBuilder builder;
-  private String pasword = "reallySimplePassword";
+  private String password = "reallySimplePassword";
 
   @Before
   public void setup() throws IOException {
@@ -65,7 +65,7 @@ public class TestHiveSchemaTool {
     if (!file.exists()) {
       file.createNewFile();
     }
-    builder = new HiveSchemaTool.HiveSchemaToolCommandBuilder(hiveConf, null, null, "testUser", pasword, scriptFile);
+    builder = new HiveSchemaTool.HiveSchemaToolCommandBuilder(hiveConf, null, null, "testUser", password, scriptFile);
   }
 
   @After
@@ -79,12 +79,12 @@ public class TestHiveSchemaTool {
 
   @Test
   public void shouldReturnStrippedPassword() throws IOException {
-    assertFalse(builder.buildToLog().contains(pasword));
+    assertFalse(builder.buildToLog().contains(password));
   }
 
   @Test
   public void shouldReturnActualPassword() throws IOException {
     String[] strings = builder.buildToRun();
-    assertTrue(Arrays.asList(strings).contains(pasword));
+    assertTrue(Arrays.asList(strings).contains(password));
   }
 }
