@@ -773,7 +773,7 @@ public class TestWorkloadManager {
     assertEquals(0f, sessionA3.getClusterFraction(), EPSILON);
     assertEquals("A", sessionA3.getPoolName());
 
-    // Make sure the allocation is transfered correctly on return.
+    // Make sure the allocation is transferred correctly on return.
     sessionA1.returnToSessionManager();
     assertEquals(1f, sessionA2.getClusterFraction(), EPSILON);
     assertEquals(0f, sessionA3.getClusterFraction(), EPSILON);
