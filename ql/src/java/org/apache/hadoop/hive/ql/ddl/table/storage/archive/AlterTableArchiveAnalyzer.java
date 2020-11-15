@@ -39,7 +39,7 @@ public class AlterTableArchiveAnalyzer extends AbstractAlterTableArchiveAnalyzer
 
   @Override
   public ErrorMsg getMultiPartsErrorMessage() {
-    return ErrorMsg.ARCHIVE_ON_MULI_PARTS;
+    return ErrorMsg.ARCHIVE_ON_MULTI_PARTS;
   }
 
   @Override

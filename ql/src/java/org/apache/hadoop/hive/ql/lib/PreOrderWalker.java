@@ -29,7 +29,7 @@ import org.apache.hadoop.hive.ql.parse.SemanticException;
 public class PreOrderWalker extends DefaultGraphWalker {
 
   /*
-   * Since the operator tree is a DAG, nodes with mutliple parents will be
+   * Since the operator tree is a DAG, nodes with multiple parents will be
    * visited more than once. This can be made configurable.
    */
 

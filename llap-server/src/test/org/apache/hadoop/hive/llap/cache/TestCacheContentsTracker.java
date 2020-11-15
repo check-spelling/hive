@@ -134,14 +134,14 @@ public class TestCacheContentsTracker {
     assertEquals("a2+b2=c2", stag.getPartitionDescMap().get("pytha=goras"));
 
     partDescs.clear();
-    partDescs.put("mutli=one", "one=/1");
-    partDescs.put("mutli=two/", "two=2");
+    partDescs.put("multi=one", "one=/1");
+    partDescs.put("multi=two/", "two=2");
     tag = CacheTag.build("math.rules", partDescs);
     CacheTag.MultiPartitionCacheTag mtag = ((CacheTag.MultiPartitionCacheTag)tag);
-    assertEquals("mutli=one=one=/1/mutli=two/=two=2", mtag.partitionDescToString());
+    assertEquals("multi=one=one=/1/multi=two/=two=2", mtag.partitionDescToString());
     assertEquals(2, mtag.getPartitionDescMap().size());
-    assertEquals("one=/1", mtag.getPartitionDescMap().get("mutli=one"));
-    assertEquals("two=2", mtag.getPartitionDescMap().get("mutli=two/"));
+    assertEquals("one=/1", mtag.getPartitionDescMap().get("multi=one"));
+    assertEquals("two=2", mtag.getPartitionDescMap().get("multi=two/"));
   }
 
   private static void compareViceVersa(int expected, CacheTag a, CacheTag b) {

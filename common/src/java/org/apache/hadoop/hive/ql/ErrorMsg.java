@@ -184,8 +184,8 @@ public enum ErrorMsg {
       "Unarchive before running this command"),
   ARCHIVE_METHODS_DISABLED(10107, "Archiving methods are currently disabled. " +
       "Please see the Hive wiki for more information about enabling archiving"),
-  ARCHIVE_ON_MULI_PARTS(10108, "ARCHIVE can only be run on a single partition"),
-  UNARCHIVE_ON_MULI_PARTS(10109, "ARCHIVE can only be run on a single partition"),
+  ARCHIVE_ON_MULTI_PARTS(10108, "ARCHIVE can only be run on a single partition"),
+  UNARCHIVE_ON_MULTI_PARTS(10109, "ARCHIVE can only be run on a single partition"),
   ARCHIVE_ON_TABLE(10110, "ARCHIVE can only be run on partitions"),
   RESERVED_PART_VAL(10111, "Partition value contains a reserved substring"),
   OFFLINE_TABLE_OR_PARTITION(10113, "Query against an offline table or partition"),
