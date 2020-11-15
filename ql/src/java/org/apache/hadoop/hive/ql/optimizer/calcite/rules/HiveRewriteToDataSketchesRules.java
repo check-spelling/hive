@@ -146,7 +146,7 @@ public final class HiveRewriteToDataSketchesRules {
       /**
        * The new projections expressions inserted above the aggregate
        *
-       *  These projections should do the neccessary conversions to behave like the original aggregate.
+       *  These projections should do the necessary conversions to behave like the original aggregate.
        *  Most important here is to CAST the final result to the same type as the original aggregate was producing.
        */
       protected final List<RexNode> newProjectsAbove;

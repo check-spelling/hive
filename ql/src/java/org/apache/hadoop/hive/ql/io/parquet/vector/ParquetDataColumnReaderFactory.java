@@ -1803,31 +1803,31 @@ public final class ParquetDataColumnReaderFactory {
     public byte[] readVarchar() {
       // check the character numbers with the length
       final byte[] value = valuesReader.readBytes().getBytesUnsafe();
-      return truncateIfNecesssary(value);
+      return truncateIfNecessary(value);
     }
 
     @Override
     public byte[] readVarchar(int id) {
       // check the character numbers with the length
       final byte[] value = dict.decodeToBinary(id).getBytesUnsafe();
-      return truncateIfNecesssary(value);
+      return truncateIfNecessary(value);
     }
 
     @Override
     public byte[] readChar() {
       // check the character numbers with the length
       final byte[] value = valuesReader.readBytes().getBytesUnsafe();
-      return truncateIfNecesssary(value);
+      return truncateIfNecessary(value);
     }
 
     @Override
     public byte[] readChar(int id) {
       // check the character numbers with the length
       final byte[] value = dict.decodeToBinary(id).getBytesUnsafe();
-      return truncateIfNecesssary(value);
+      return truncateIfNecessary(value);
     }
 
-    private byte[] truncateIfNecesssary(byte[] bytes) {
+    private byte[] truncateIfNecessary(byte[] bytes) {
       if (length <= 0 || bytes == null) {
         return bytes;
       }
