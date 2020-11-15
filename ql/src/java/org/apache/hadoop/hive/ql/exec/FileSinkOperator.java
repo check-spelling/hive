@@ -532,7 +532,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
   private transient int bucketId;
 
   private transient ObjectInspector[] partitionObjectInspectors;
-  protected transient HivePartitioner<HiveKey, Object> prtner;
+  protected transient HivePartitioner<HiveKey, Object> partitioner;
   protected transient final HiveKey key = new HiveKey();
   private transient Configuration hconf;
   protected transient FSPaths fsp;
@@ -664,7 +664,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
         }
 
         partitionObjectInspectors = initEvaluators(partitionEval, outputObjInspector);
-        prtner = (HivePartitioner<HiveKey, Object>) ReflectionUtils.newInstance(
+        partitioner = (HivePartitioner<HiveKey, Object>) ReflectionUtils.newInstance(
             jc.getPartitionerClass(), null);
       }
 
@@ -856,13 +856,13 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
             int currReducer = Integer.parseInt(Utilities.getTaskIdFromFilename(Utilities
                 .getTaskId(hconf)));
 
-            int reducerIdx = prtner.getPartition(key, null, numReducers);
+            int reducerIdx = partitioner.getPartition(key, null, numReducers);
             if (currReducer != reducerIdx) {
               continue;
             }
           }
 
-          bucketNum = prtner.getBucket(key, null, totalFiles);
+          bucketNum = partitioner.getBucket(key, null, totalFiles);
           if (seenBuckets.contains(bucketNum)) {
             continue;
           }
@@ -1249,7 +1249,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
       }
       int keyHashCode = hashFunc.apply(bucketFieldValues, partitionObjectInspectors);
       key.setHashCode(keyHashCode);
-      int bucketNum = prtner.getBucket(key, null, totalFiles);
+      int bucketNum = partitioner.getBucket(key, null, totalFiles);
       return bucketMap.get(bucketNum);
     }
   }
