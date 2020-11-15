@@ -1564,7 +1564,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18892] - Fix NPEs in HiveMetastore.exchange_partitions method
     * [HIVE-18898] - Fix NPEs in HiveMetastore.dropPartition method
     * [HIVE-18907] - Create utility to fix acid key index issue from HIVE-18817
-    * [HIVE-18918] - Bad error message in CompactorMR.lanuchCompactionJob()
+    * [HIVE-18918] - Bad error message in CompactorMR.launchCompactionJob()
     * [HIVE-18919] - remove separate keytab setting for ZK in LLAP
     * [HIVE-18925] - Hive doesn't work when JVM is America/Bahia_Banderas time zone
     * [HIVE-18933] - disable ORC codec pool for now; remove clone
