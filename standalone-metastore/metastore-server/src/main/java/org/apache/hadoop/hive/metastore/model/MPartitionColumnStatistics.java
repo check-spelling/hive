@@ -25,7 +25,7 @@ package org.apache.hadoop.hive.metastore.model;
 
 /**
  *
- * MPartitionColumnStatistics - Represents Hive's partiton level Column Statistics Description.
+ * MPartitionColumnStatistics - Represents Hive's partition level Column Statistics Description.
  * The fields in this class with the exception of partition are persisted in the metastore.
  * In case of partition, part_id is persisted in its place.
  *

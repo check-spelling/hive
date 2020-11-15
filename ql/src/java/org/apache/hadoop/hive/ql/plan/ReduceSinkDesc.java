@@ -270,13 +270,13 @@ public class ReduceSinkDesc extends AbstractOperatorDesc {
   }
 
   @Explain(displayName = "Map-reduce partition columns")
-  public String getParitionColsString() {
+  public String getPartitionColsString() {
     return PlanUtils.getExprListString(partitionCols);
   }
 
   @Explain(displayName = "PartitionCols", explainLevels = { Level.USER })
   @Signature
-  public String getUserLevelExplainParitionColsString() {
+  public String getUserLevelExplainPartitionColsString() {
     return PlanUtils.getExprListString(partitionCols, true);
   }
 

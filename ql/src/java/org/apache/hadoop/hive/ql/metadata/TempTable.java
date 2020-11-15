@@ -95,9 +95,9 @@ public final class TempTable {
     return pTree.getPartitionsByPartitionVals(partialPartVals);
   }
 
-  Partition getPartitionWithAuthInfo(List<String> partionVals, String userName, List<String> groupNames)
+  Partition getPartitionWithAuthInfo(List<String> partitionVals, String userName, List<String> groupNames)
       throws MetaException {
-    Partition partition = getPartition(partionVals);
+    Partition partition = getPartition(partitionVals);
     if (partition == null) {
       return null;
     }

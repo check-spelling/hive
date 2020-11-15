@@ -1676,7 +1676,7 @@ public class SharedWorkOptimizer extends Transform {
 
       if (StringUtils.equals(op1Conf.getKeyColString(), op2Conf.getKeyColString()) &&
         StringUtils.equals(op1Conf.getValueColsString(), op2Conf.getValueColsString()) &&
-        StringUtils.equals(op1Conf.getParitionColsString(), op2Conf.getParitionColsString()) &&
+        StringUtils.equals(op1Conf.getPartitionColsString(), op2Conf.getPartitionColsString()) &&
         op1Conf.getTag() == op2Conf.getTag() &&
         StringUtils.equals(op1Conf.getOrder(), op2Conf.getOrder()) &&
         StringUtils.equals(op1Conf.getNullOrder(), op2Conf.getNullOrder()) &&

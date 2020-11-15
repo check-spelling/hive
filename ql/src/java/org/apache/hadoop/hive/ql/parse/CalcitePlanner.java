@@ -3106,7 +3106,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
         // NOTE: Table logical schema = Non Partition Cols + Partition Cols +
         // Virtual Cols
 
-        // 3.1 Add Column info for non partion cols (Object Inspector fields)
+        // 3.1 Add Column info for non partition cols (Object Inspector fields)
         StructObjectInspector rowObjectInspector = (StructObjectInspector) tabMetaData.getDeserializer()
             .getObjectInspector();
         List<? extends StructField> fields = rowObjectInspector.getAllStructFieldRefs();

@@ -12,7 +12,7 @@ ALTER TABLE PW18 PARTITION(YEAR='1') SET SERDE 'org.apache.hadoop.hive.serde2.Cu
 -- Without the fix HIVE-5202, will throw unsupported data type exception.
 SELECT * FROM PW18;
 
--- Test for non-parititioned table. 
+-- Test for non-partitioned table. 
 DROP TABLE PW18_2;
 CREATE TABLE PW18_2(`USER` STRING, COMPLEXDT UNIONTYPE<INT, DOUBLE>) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.CustomSerDe5';
 LOAD DATA LOCAL INPATH '../../data/files/pw17.txt' INTO TABLE PW18_2;

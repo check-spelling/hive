@@ -130,7 +130,7 @@ MSCK TABLE default.repairtable_n1 DROP PARTITIONS;
 MSCK REPAIR TABLE default.repairtable_n1 DROP PARTITIONS;
 show partitions default.repairtable_n1;
 
--- test add parition keyword: begin
+-- test add partition keyword: begin
 dfs ${system:test.dfs.mkdir} ${system:test.local.warehouse.dir}/repairtable_n1/p1=3/p2=31/p3=311;
 dfs -touchz ${system:test.local.warehouse.dir}/repairtable_n1/p1=3/p2=31/p3=311/datafile;
 dfs ${system:test.dfs.mkdir} ${system:test.local.warehouse.dir}/repairtable_n1/p1=3/p2=32/p3=321;

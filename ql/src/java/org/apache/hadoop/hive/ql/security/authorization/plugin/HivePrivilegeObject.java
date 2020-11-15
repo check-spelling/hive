@@ -235,7 +235,7 @@ public class HivePrivilegeObject implements Comparable<HivePrivilegeObject> {
   }
 
   /**
-   * @return  partiton key information. Used only for old default authorization mode.
+   * @return  partition key information. Used only for old default authorization mode.
    */
   public List<String> getPartKeys() {
     return partKeys;

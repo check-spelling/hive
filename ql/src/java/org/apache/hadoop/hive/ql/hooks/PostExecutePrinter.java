@@ -88,7 +88,7 @@ public class PostExecutePrinter implements ExecuteWithHookContext {
           }
         }
 
-        // The partitons are also the same so check the fieldschema
+        // The partitions are also the same so check the fieldschema
         return (o1.getKey().getFieldSchema().getName().compareTo(
             o2.getKey().getFieldSchema().getName()));
       }

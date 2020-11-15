@@ -324,7 +324,7 @@ public class ReplLoadTask extends Task<ReplLoadWork> implements Serializable {
       }
 
       if (dbEventFound && conf.getBoolVar(HiveConf.ConfVars.REPL_RETAIN_CUSTOM_LOCATIONS_FOR_DB_ON_TARGET)) {
-        // Force the database creation before the other event like table/parttion etc, so that data copy path creation
+        // Force the database creation before the other event like table/partition etc, so that data copy path creation
         // can be achieved.
         LOG.info("Database event found, will be processed exclusively");
         break;

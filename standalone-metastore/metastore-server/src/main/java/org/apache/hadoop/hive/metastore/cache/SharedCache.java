@@ -1094,7 +1094,7 @@ public class SharedCache {
       try {
         tableLock.readLock().lock();
         ColumnStatisticsObj statisticsObj =
-            partitionColStatsCache.get(CacheUtils.buildPartitonColStatsCacheKey(partVal, colName));
+            partitionColStatsCache.get(CacheUtils.buildPartitionColStatsCacheKey(partVal, colName));
         if (statisticsObj == null || writeIdList == null) {
           return new ColumnStatsWithWriteId(-1, statisticsObj);
         }
@@ -1133,7 +1133,7 @@ public class SharedCache {
           List<String> partVal = Warehouse.getPartValuesFromPartName(partName);
           for (String colName : colNames) {
             ColumnStatisticsObj statisticsObj =
-                partitionColStatsCache.get(CacheUtils.buildPartitonColStatsCacheKey(partVal, colName));
+                partitionColStatsCache.get(CacheUtils.buildPartitionColStatsCacheKey(partVal, colName));
             if (statisticsObj != null) {
               statObject.add(statisticsObj);
             } else {
@@ -1178,7 +1178,7 @@ public class SharedCache {
         int statsSize = 0;
         for (ColumnStatisticsObj colStatObj : colStatsObjs) {
           // Get old stats object if present
-          String key = CacheUtils.buildPartitonColStatsCacheKey(partVal, colStatObj.getColName());
+          String key = CacheUtils.buildPartitionColStatsCacheKey(partVal, colStatObj.getColName());
           ColumnStatisticsObj oldStatsObj = partitionColStatsCache.get(key);
           if (oldStatsObj != null) {
             // Update existing stat object's field
@@ -1208,7 +1208,7 @@ public class SharedCache {
       try {
         tableLock.writeLock().lock();
         ColumnStatisticsObj statsObj =
-            partitionColStatsCache.remove(CacheUtils.buildPartitonColStatsCacheKey(partVals, colName));
+            partitionColStatsCache.remove(CacheUtils.buildPartitionColStatsCacheKey(partVals, colName));
         if (statsObj != null) {
           int statsSize = getObjectSize(ColumnStatisticsObj.class, statsObj);
           updateMemberSize(MemberName.PARTITION_COL_STATS_CACHE, -1 * statsSize, SizeMode.Delta);
@@ -1262,7 +1262,7 @@ public class SharedCache {
                     + "; the partition column list we have is dirty");
                 return;
               }
-              String key = CacheUtils.buildPartitonColStatsCacheKey(partVal, colStatObj.getColName());
+              String key = CacheUtils.buildPartitionColStatsCacheKey(partVal, colStatObj.getColName());
               newPartitionColStatsCache.put(key, colStatObj.deepCopy());
               statsSize += getObjectSize(ColumnStatisticsObj.class, colStatObj);
             }

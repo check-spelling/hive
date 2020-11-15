@@ -10,7 +10,7 @@ insert overwrite table alter_coltype_temp partition(dt='100', ts='6.30') select 
 
 desc alter_coltype_temp;
 
--- select with paritition predicate.
+-- select with partition predicate.
 select count(*) from alter_coltype_temp where dt = '100';
 
 -- alter partition key column data type for dt column.

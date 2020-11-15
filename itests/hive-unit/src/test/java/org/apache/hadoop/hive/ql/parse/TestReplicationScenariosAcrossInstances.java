@@ -1591,7 +1591,7 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
     };
 
     // Fail repl load before the ckpt proeprty is set for t1 and after it is set for t2. So in the next run, for
-    // t2 it goes directly to partion load with no task for table tracker and for t1 it loads the table
+    // t2 it goes directly to partition load with no task for table tracker and for t1 it loads the table
     // again from start.
     InjectableBehaviourObjectStore.setAlterTableModifier(callerVerifier);
     try {

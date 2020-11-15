@@ -1015,7 +1015,7 @@ public class MetaStoreUtils {
     return orderSpecs;
   }
 
-  public static void addPartitonSpecsToList(PartitionsSpecByExprResult r, List<PartitionSpec> result) {
+  public static void addPartitionSpecsToList(PartitionsSpecByExprResult r, List<PartitionSpec> result) {
     result.addAll(r.getPartitionsSpec());
   }
 

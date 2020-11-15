@@ -3899,7 +3899,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
     return results;
   }
 
-  // This method converts PartitionSpec to Partiton.
+  // This method converts PartitionSpec to Partition.
   // This is required because listPartitionsSpecByExpr return set of PartitionSpec but hive
   // require Partition
   private static List<Partition> convertFromPartSpec(Iterator<PartitionSpec> iterator, Table tbl)

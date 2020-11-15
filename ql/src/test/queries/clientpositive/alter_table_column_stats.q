@@ -47,7 +47,7 @@ describe formatted statsdb1.testtable1 col1;
 describe formatted statsdb1.testtable1 col2;
 describe formatted statsdb1.testtable1 col4;
 
--- rename the db of a non-partitoned table, the table and columns stats should not change
+-- rename the db of a non-partitioned table, the table and columns stats should not change
 alter table statsdb1.testtable1 rename to statsdb2.testtable2;
 describe formatted statsdb2.testtable2;
 describe formatted statsdb2.testtable2 col1;
@@ -179,7 +179,7 @@ describe formatted statsdb1.testtable1 col1;
 describe formatted statsdb1.testtable1 col2;
 describe formatted statsdb1.testtable1 col4;
 
--- rename the db of a non-partitoned table, the table and columns stats should not change
+-- rename the db of a non-partitioned table, the table and columns stats should not change
 alter table statsdb1.testtable1 rename to statsdb2.testtable2;
 describe formatted statsdb2.testtable2;
 describe formatted statsdb2.testtable2 col1;

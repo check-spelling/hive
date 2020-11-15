@@ -433,13 +433,13 @@ public class TestGetPartitionsUsingProjectionAndFilterSpecs {
         response.getPartitionSpec().get(0).getPartitionList();
     Assert.assertNull("Partition list composing spec should be null since all the "
         + "partitions are expected to be in sharedSD spec", partitionListComposingSpec);
-    for (PartitionWithoutSD retPartion : partitionSpecWithSharedSD.getPartitions()) {
+    for (PartitionWithoutSD retPartition : partitionSpecWithSharedSD.getPartitions()) {
       Assert.assertTrue("included parameter key is not found in the response",
-          retPartion.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key1"));
+          retPartition.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key1"));
       Assert.assertTrue("included parameter key is not found in the response",
-          retPartion.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key2"));
+          retPartition.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key2"));
       Assert.assertEquals("Additional parameters returned other than inclusion keys",
-          2, retPartion.getParameters().size());
+          2, retPartition.getParameters().size());
     }
   }
 
@@ -463,13 +463,13 @@ public class TestGetPartitionsUsingProjectionAndFilterSpecs {
         response.getPartitionSpec().get(0).getPartitionList();
     Assert.assertNull("Partition list composing spec should be null since all the "
         + "partitions are expected to be in sharedSD spec", partitionListComposingSpec);
-    for (PartitionWithoutSD retPartion : partitionSpecWithSharedSD.getPartitions()) {
+    for (PartitionWithoutSD retPartition : partitionSpecWithSharedSD.getPartitions()) {
       Assert.assertFalse("excluded parameter key is found in the response",
-          retPartion.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key1"));
+          retPartition.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key1"));
       Assert.assertTrue("included parameter key is not found in the response",
-          retPartion.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key2"));
+          retPartition.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key2"));
       Assert.assertEquals("Additional parameters returned other than inclusion keys",
-          1, retPartion.getParameters().size());
+          1, retPartition.getParameters().size());
     }
   }
 
@@ -490,11 +490,11 @@ public class TestGetPartitionsUsingProjectionAndFilterSpecs {
     PartitionListComposingSpec partitionListComposingSpec =
         response.getPartitionSpec().get(0).getPartitionList();
     Assert.assertNull("Partition list composing spec should be null", partitionListComposingSpec);
-    for (PartitionWithoutSD retPartion : partitionSpecWithSharedSD.getPartitions()) {
+    for (PartitionWithoutSD retPartition : partitionSpecWithSharedSD.getPartitions()) {
       Assert.assertFalse("excluded parameter key is found in the response",
-          retPartion.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key1"));
+          retPartition.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key1"));
       Assert.assertFalse("excluded parameter key is found in the response",
-          retPartion.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key2"));
+          retPartition.getParameters().containsKey(EXCLUDE_KEY_PREFIX + "key2"));
     }
   }
 

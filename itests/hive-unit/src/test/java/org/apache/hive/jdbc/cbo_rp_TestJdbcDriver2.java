@@ -160,7 +160,7 @@ public class cbo_rp_TestJdbcDriver2 {
     stmt.execute("load data local inpath '"
         + dataFilePath.toString() + "' into table " + tableName);
 
-    // also initialize a paritioned table to test against.
+    // also initialize a partitioned table to test against.
 
     // drop table. ignore error.
     try {
@@ -629,7 +629,7 @@ public class cbo_rp_TestJdbcDriver2 {
   }
 
   @Test
-  public final void testSelectAllPartioned() throws Exception {
+  public final void testSelectAllPartitioned() throws Exception {
     doTestSelectAll(partitionedTableName, -1, -1); // tests not setting maxRows
     // (return all)
     doTestSelectAll(partitionedTableName, 0, -1); // tests setting maxRows to 0

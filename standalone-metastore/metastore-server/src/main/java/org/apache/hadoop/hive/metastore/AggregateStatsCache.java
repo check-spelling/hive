@@ -61,7 +61,7 @@ public class AggregateStatsCache {
   private final long maxWriterWaitTime;
   // Max time when waiting for read locks on node list
   private final long maxReaderWaitTime;
-  // Maximum number of paritions aggregated per cache node
+  // Maximum number of partitions aggregated per cache node
   private final int maxPartsPerCacheNode;
   // Bloom filter false positive probability
   private final double falsePositiveProbability;
