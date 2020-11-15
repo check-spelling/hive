@@ -277,7 +277,7 @@ import java.util.function.Predicate;
       @Override public Void perform() throws Exception {
         assert producersMap.size() == 0;
         transactionsMap.forEach((key, value) -> {
-          // Base Producer propeties, missing the transaction Id.
+          // Base Producer properties, missing the transaction Id.
           baseProducerPros.setProperty(ProducerConfig.TRANSACTIONAL_ID_CONFIG, key);
           HiveKafkaProducer<byte[], byte[]> producer = new HiveKafkaProducer<>(baseProducerPros);
           producer.resumeTransaction(value.getLeft(), value.getRight());

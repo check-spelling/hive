@@ -234,7 +234,7 @@ public class TestParser {
         String result = (String) props.get(propValue);
         if (result == null || result.isEmpty()) {
           logger.warn("No properties found in file: " + propName + " for property: " + propValue);
-          throw new IllegalArgumentException("No propertifies found in file: " + propName + " for property: " + propValue);
+          throw new IllegalArgumentException("No properties found in file: " + propName + " for property: " + propValue);
         }
         Iterable<String> splits = TEST_SPLITTER.split(result);
         for (String split : splits) {
