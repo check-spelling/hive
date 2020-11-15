@@ -486,7 +486,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
   }
 
   /**
-   * Calls initialize on each of the children with outputObjetInspector as the
+   * Calls initialize on each of the children with outputObjectInspector as the
    * output row format.
    */
   protected void initializeChildren(Configuration hconf) throws HiveException {
