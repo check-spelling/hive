@@ -933,7 +933,7 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
   }
 
   @Test
-  public void testShouldDumpMetaDataForNonNativeTableIfSetMeataDataOnly() throws Throwable {
+  public void testShouldDumpMetaDataForNonNativeTableIfSetMetaDataOnly() throws Throwable {
     String tableName = testName.getMethodName() + "_table";
     String createTableQuery =
             "CREATE TABLE " + tableName + " ( serde_id bigint COMMENT 'from deserializer', name string "
