@@ -81,7 +81,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
   public void ConcurrentJobsStatusTooManyRequestsException() {
     try {
       JobRunnable jobRunnable = ConcurrentJobsStatus(6, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(4, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(4, statusBean));
       verifyTooManyRequestsException(jobRunnable.exception, this.statusTooManyRequestsExceptionMessage);
     } catch (Exception e) {
       assertTrue(false);
@@ -92,7 +92,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
   public void ConcurrentListJobsTooManyRequestsException() {
     try {
       JobRunnable jobRunnable = ConcurrentListJobs(6, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(4, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(4, new ArrayList<JobItemBean>()));
       verifyTooManyRequestsException(jobRunnable.exception, this.listTooManyRequestsExceptionMessage);
     } catch (Exception e) {
       assertTrue(false);
@@ -103,8 +103,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
   public void ConcurrentSubmitJobsTooManyRequestsException() {
     try {
       JobRunnable jobRunnable = SubmitConcurrentJobs(6, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(4, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(4, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1000");
       verifyTooManyRequestsException(jobRunnable.exception, this.submitTooManyRequestsExceptionMessage);
     } catch (Exception e) {
       assertTrue(false);
@@ -115,7 +115,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
   public void ConcurrentJobsStatusTimeOutException() {
     try {
       JobRunnable jobRunnable = ConcurrentJobsStatus(5, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(6, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(6, statusBean));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof TimeoutException);
       String expectedMessage = "Status job request got timed out. Please wait for some time before "
@@ -127,7 +127,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Verify that new job requests should succeed with no issues.
        */
       jobRunnable = ConcurrentJobsStatus(5, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(0, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(0, statusBean));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -138,7 +138,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
   public void ConcurrentListJobsTimeOutException() {
     try {
       JobRunnable jobRunnable = ConcurrentListJobs(5, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(6, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(6, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof TimeoutException);
       String expectedMessage = "List job request got timed out. Please wait for some time before "
@@ -151,7 +151,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Verify that new job requests should succeed with no issues.
        */
       jobRunnable = ConcurrentListJobs(5, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(1, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(1, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -162,8 +162,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
   public void ConcurrentSubmitJobsTimeOutException() {
     try {
       JobRunnable jobRunnable = SubmitConcurrentJobs(5, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(6, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(6, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1000");
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof QueueException);
       String expectedMessage = "Submit job request got timed out. Please wait for some time before "
@@ -176,8 +176,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * should fail with TooManyRequestsException.
        */
       jobRunnable = SubmitConcurrentJobs(1, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(0, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(0, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1000");
       verifyTooManyRequestsException(jobRunnable.exception, this.submitTooManyRequestsExceptionMessage);
 
      /*
@@ -189,8 +189,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Now, tasks would have passed. Verify that new job requests should succeed with no issues.
        */
       jobRunnable = SubmitConcurrentJobs(5, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(0, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(0, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1000");
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -205,7 +205,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        */
       int timeoutTaskDelay = 4;
       JobRunnable jobRunnable = ConcurrentJobsStatus(5, config, true, false,
-                statusJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, statusBean));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof InterruptedException);
       String expectedMessage = "Status job request got interrupted. Please wait for some time before "
@@ -216,7 +216,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Interrupt all thread and verify we get InterruptedException and expected Message.
        */
       jobRunnable = ConcurrentJobsStatus(5, config, false, true,
-                statusJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, statusBean));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof InterruptedException);
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
@@ -233,7 +233,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Now new job requests should succeed as status operation has no cancel threads.
        */
       jobRunnable = ConcurrentJobsStatus(5, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(0, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(0, statusBean));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -248,7 +248,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        */
       int timeoutTaskDelay = 4;
       JobRunnable jobRunnable = ConcurrentListJobs(5, config, true, false,
-                listJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof InterruptedException);
       String expectedMessage = "List job request got interrupted. Please wait for some time before "
@@ -259,7 +259,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Interrupt all thread and verify we get InterruptedException and expected Message.
        */
       jobRunnable = ConcurrentListJobs(5, config, false, true,
-                listJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof InterruptedException);
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
@@ -276,7 +276,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Now new job requests should succeed as list operation has no cancel threads.
        */
       jobRunnable = ConcurrentListJobs(5, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(0, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(0, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -294,7 +294,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        */
       JobRunnable jobRunnable = SubmitConcurrentJobs(1, config, false, false,
                 submitJobHelper.getIOExceptionAnswer(),
-                killJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, statusBean), "job_1002");
+                killJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, statusBean), "job_1002");
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof QueueException);
       assertTrue(jobRunnable.exception.getMessage().contains("IOException raised manually."));
@@ -305,7 +305,7 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        */
       jobRunnable = SubmitConcurrentJobs(1, config, false, false,
                 submitJobHelper.getOutOfMemoryErrorAnswer(),
-                killJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, statusBean), "job_1003");
+                killJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, statusBean), "job_1003");
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof QueueException);
       assertTrue(jobRunnable.exception.getMessage().contains("OutOfMemoryError raised manually."));
@@ -316,8 +316,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * occupied for 4 sec.
        */
       jobRunnable = SubmitConcurrentJobs(3, config, true, false,
-                submitJobHelper.getDelayedResonseAnswer(2, 0),
-                killJobHelper.getDelayedResonseAnswer(timeoutTaskDelay, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(2, 0),
+                killJobHelper.getDelayedResponseAnswer(timeoutTaskDelay, statusBean), "job_1000");
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof QueueException);
       String expectedMessage = "Submit job request got interrupted. Please wait for some time "
@@ -330,8 +330,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * occupied for 4 sec.
        */
       jobRunnable = SubmitConcurrentJobs(2, config, false, true,
-                submitJobHelper.getDelayedResonseAnswer(2, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1001");
+                submitJobHelper.getDelayedResponseAnswer(2, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1001");
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof QueueException);
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
@@ -341,8 +341,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * should fail with TooManyRequestsException.
        */
       jobRunnable = SubmitConcurrentJobs(1, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(0, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1002");
+                submitJobHelper.getDelayedResponseAnswer(0, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1002");
       verifyTooManyRequestsException(jobRunnable.exception, this.submitTooManyRequestsExceptionMessage);
 
       /*
@@ -355,8 +355,8 @@ public class TestConcurrentJobRequestsThreadsAndTimeout extends ConcurrentJobReq
        * Now new job requests should succeed as all cancel threads would have completed.
        */
       jobRunnable = SubmitConcurrentJobs(5, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(0, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1004");
+                submitJobHelper.getDelayedResponseAnswer(0, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1004");
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
