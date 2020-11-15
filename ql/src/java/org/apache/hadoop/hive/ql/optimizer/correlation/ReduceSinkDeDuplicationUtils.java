@@ -315,7 +315,7 @@ public class ReduceSinkDeDuplicationUtils {
   }
 
   /**
-   * Returns merge directions between two RSs for criterias (ordering, number of reducers,
+   * Returns merge directions between two RSs for criteria (ordering, number of reducers,
    * reducer keys, partition keys). Returns null if any of categories is not mergeable.
    *
    * Values for each index can be -1, 0, 1
