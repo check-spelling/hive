@@ -168,7 +168,7 @@ public class Msck {
         int decayingFactor = 2;
 
         if (msckInfo.isAddPartitions() && !partsNotInMs.isEmpty()) {
-          // MSCK called to add missing paritions into metastore and there are
+          // MSCK called to add missing partitions into metastore and there are
           // missing partitions.
 
           int batchSize = MetastoreConf.getIntVar(getConf(), MetastoreConf.ConfVars.MSCK_REPAIR_BATCH_SIZE);
@@ -230,7 +230,7 @@ public class Msck {
         }
 
         if (msckInfo.isDropPartitions() && (!partsNotInFs.isEmpty() || !expiredPartitions.isEmpty())) {
-          // MSCK called to drop stale paritions from metastore and there are
+          // MSCK called to drop stale partitions from metastore and there are
           // stale partitions.
 
           int batchSize = MetastoreConf.getIntVar(getConf(), MetastoreConf.ConfVars.MSCK_REPAIR_BATCH_SIZE);
@@ -550,7 +550,7 @@ public class Msck {
 
               dropParts.add(part.getPartitionName());
 
-              // Add the part to lastBatch to track the parition being dropped
+              // Add the part to lastBatch to track the partition being dropped
               lastBatch.add(part);
 
               // Update messages

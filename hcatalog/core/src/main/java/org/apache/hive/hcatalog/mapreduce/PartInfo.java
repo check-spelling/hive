@@ -54,7 +54,7 @@ public class PartInfo implements Serializable {
   /** The map of partition key names and their values. */
   private Map<String, String> partitionValues;
 
-  /** Job properties associated with this parition */
+  /** Job properties associated with this partition */
   Map<String, String> jobProperties;
 
   /**

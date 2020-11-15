@@ -236,7 +236,7 @@ public class FetchWork implements Serializable {
       }
 
       // Construct a sorted Map of Partition Dir - Partition Descriptor; ordering is based on
-      // patition dir (map key)
+      // partition dir (map key)
       // Assumption: there is a 1-1 mapping between partition dir and partition descriptor lists
       TreeMap<Path, PartitionDesc> partDirToPartSpecMap = new TreeMap<Path, PartitionDesc>();
       for (int i = 0; i < partDir.size(); i++) {

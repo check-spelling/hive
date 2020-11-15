@@ -397,25 +397,25 @@ public class HiveMetaStoreChecker {
 
     if (filterExp != null) {
       PartitionExpressionProxy expressionProxy = createExpressionProxy(conf);
-      List<String> paritions = new ArrayList<>();
+      List<String> partitions = new ArrayList<>();
       Set<Path> partDirs = new HashSet<Path>();
       String tablePathStr = tablePath.toString();
       for (Path path : allPartDirs) {
         // remove the table's path from the partition path
         // eg: <tablePath>/p1=1/p2=2/p3=3 ---> p1=1/p2=2/p3=3
         if (tablePathStr.endsWith("/")) {
-          paritions.add(path.toString().substring(tablePathStr.length()));
+          partitions.add(path.toString().substring(tablePathStr.length()));
         } else {
-          paritions.add(path.toString().substring(tablePathStr.length() + 1));
+          partitions.add(path.toString().substring(tablePathStr.length() + 1));
         }
       }
       // Remove all partition paths which does not matches the filter expression.
       expressionProxy.filterPartitionsByExpr(partColumns, filterExp,
-          conf.get(MetastoreConf.ConfVars.DEFAULTPARTITIONNAME.getVarname()), paritions);
+          conf.get(MetastoreConf.ConfVars.DEFAULTPARTITIONNAME.getVarname()), partitions);
 
       // now the partition list will contain all the paths that matches the filter expression.
       // add them back to partDirs.
-      for (String path : paritions) {
+      for (String path : partitions) {
         partDirs.add(new Path(tablePath, path));
       }
       allPartDirs = partDirs;

@@ -87,7 +87,7 @@ public class CacheUtils {
    * value separated by a delimiter and the column name
    *
    */
-  public static String buildPartitonColStatsCacheKey(List<String> partVals, String colName) {
+  public static String buildPartitionColStatsCacheKey(List<String> partVals, String colName) {
     return buildPartitionCacheKey(partVals) + delimit + colName;
   }
 

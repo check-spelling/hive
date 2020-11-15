@@ -29,7 +29,7 @@ insert overwrite table loc_orc_n4 partition(year) select * from loc_staging_n4;
 -- basicStatState: PARTIAL colStatState: NONE
 explain select * from loc_orc_n4;
 
--- partition level analyze statistics for specific parition
+-- partition level analyze statistics for specific partition
 analyze table loc_orc_n4 partition(year='2001') compute statistics;
 
 -- basicStatState: PARTIAL colStatState: NONE

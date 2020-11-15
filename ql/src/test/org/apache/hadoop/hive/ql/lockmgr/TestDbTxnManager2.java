@@ -2953,7 +2953,7 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
     checkLock(LockType.EXCLUSIVE, LockState.WAITING, "default", "T7", "p=1", locks);
 
     txnMgr.commitTxn(); //release locks from "select a from T7" - to unblock the drop partition
-    //re-test the "drop partiton" X lock
+    //re-test the "drop partition" X lock
     ((DbLockManager)txnMgr2.getLockManager()).checkLock(locks.get(zeroWaitRead ? 2 : 4).getLockid());
     locks = getLocks();
     Assert.assertEquals("Unexpected lock count", (zeroWaitRead ? 1 : 3), locks.size());

@@ -422,7 +422,7 @@ public class BasePartitionEvaluator {
     }
 
     /**
-     * Calculate the partial result sum + count giving a parition range
+     * Calculate the partial result sum + count giving a partition range
      * @return a 2-element Object array of [count long, sum ResultType]
      */
     private Object[] calcPartialResult(PTFPartitionIterator<Object> pItr, LeadLagInfo leadLagInfo)

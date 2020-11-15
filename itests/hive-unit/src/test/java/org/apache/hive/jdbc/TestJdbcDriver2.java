@@ -157,7 +157,7 @@ public class TestJdbcDriver2 {
     stmt.execute("create external table " + externalTableName + " (a int) comment '"
         + externalTableComment + "' location '" + dataFileDir + "'");
 
-    // create a paritioned table
+    // create a partitioned table
     stmt.execute("create table " + partitionedTableName
         + " (under_col int, value string) comment '" + partitionedTableComment
         + "' partitioned by (" + partitionedColumnName + " STRING)");
@@ -700,7 +700,7 @@ public class TestJdbcDriver2 {
   }
 
   @Test
-  public final void testSelectAllPartioned() throws Exception {
+  public final void testSelectAllPartitioned() throws Exception {
     doTestSelectAll(partitionedTableName, -1, -1); // tests not setting maxRows
     // (return all)
     doTestSelectAll(partitionedTableName, 0, -1); // tests setting maxRows to 0

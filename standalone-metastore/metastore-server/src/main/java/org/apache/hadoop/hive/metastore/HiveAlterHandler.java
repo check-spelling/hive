@@ -403,7 +403,7 @@ public class HiveAlterHandler implements AlterHandler {
               TableName tableName = new TableName(catName, dbname, name);
               msdb.deleteAllPartitionColumnStatistics(tableName, writeIdList);
             }
-            // Don't validate table-level stats for a partitoned table.
+            // Don't validate table-level stats for a partitioned table.
             msdb.alterTable(catName, dbname, name, newt, null);
           } else {
             LOG.warn("Alter table not cascaded to partitions.");

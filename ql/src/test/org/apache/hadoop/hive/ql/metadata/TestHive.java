@@ -771,7 +771,7 @@ public class TestHive {
         hm.createPartition(tbl, part_spec);
       } catch (HiveException e) {
         System.err.println(StringUtils.stringifyException(e));
-        assertTrue("Unable to create parition for table: " + tableName, false);
+        assertTrue("Unable to create partition for table: " + tableName, false);
       }
       checkPartitionsConsistency(tbl);
 

@@ -2251,7 +2251,7 @@ public class OrcInputFormat implements InputFormat<NullWritable, OrcStruct>,
         }
       } else {
 
-        // parition column case.
+        // partition column case.
         // partition filter will be evaluated by partition pruner so
         // we will not evaluate partition filter here.
         truthValues[pred] = TruthValue.YES_NO_NULL;

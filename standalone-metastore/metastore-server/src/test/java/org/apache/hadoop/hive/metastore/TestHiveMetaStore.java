@@ -840,7 +840,7 @@ public abstract class TestHiveMetaStore {
   }
 
   @Test
-  public void testAlterViewParititon() throws Throwable {
+  public void testAlterViewPartition() throws Throwable {
     String dbName = "compdb";
     String tblName = "comptbl";
     String viewName = "compView";

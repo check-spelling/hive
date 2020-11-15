@@ -552,7 +552,7 @@ public class TestObjectStore {
    * Checks if the directSQL partition drop removes every connected data from the RDBMS tables.
    */
   @Test
-  public void testDirectSQLDropParitionsCleanup() throws Exception {
+  public void testDirectSQLDropPartitionsCleanup() throws Exception {
 
     createPartitionedTable(true, true);
 
