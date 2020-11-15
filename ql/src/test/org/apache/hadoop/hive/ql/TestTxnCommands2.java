@@ -1669,7 +1669,7 @@ public class TestTxnCommands2 {
     // Read [default@acidtblpart, default@acidtblpart@p=p1, default@acidtblpart@p=p2]
     // Write [default@acidtblpart@p=p1, default@acidtblpart@p=p2] - PARTITION/UPDATE, PARTITION/UPDATE
     //todo: Why acquire per partition locks - if you have many partitions that's hugely inefficient.
-    //could acquire 1 table level Shared_write intead
+    //could acquire 1 table level Shared_write instead
     runStatementOnDriver("update " + Table.ACIDTBLPART + " set b = 1");
 
     //In UpdateDeleteSemanticAnalyzer, after super analyze
