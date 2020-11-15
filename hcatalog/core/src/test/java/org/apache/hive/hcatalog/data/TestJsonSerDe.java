@@ -203,7 +203,7 @@ public class TestJsonSerDe {
       }
 
       LOG.info("orig tbl props:{}", tblProps);
-      LOG.info("modif tbl props:{}", internalTblProps);
+      LOG.info("modify tbl props:{}", internalTblProps);
 
       JsonSerDe wjsd = new JsonSerDe();
       wjsd.initialize(conf, internalTblProps, null);
