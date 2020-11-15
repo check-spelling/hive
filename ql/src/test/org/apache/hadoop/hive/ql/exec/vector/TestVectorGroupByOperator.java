@@ -281,12 +281,12 @@ public class TestVectorGroupByOperator {
     GroupByDesc desc = pair.left;
     VectorGroupByDesc vectorDesc = pair.right;
 
-    // Set the memory treshold so that we get 100Kb before we need to flush.
+    // Set the memory threshold so that we get 100Kb before we need to flush.
     MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
     long maxMemory = memoryMXBean.getHeapMemoryUsage().getMax();
 
-    float treshold = 100.0f*1024.0f/maxMemory;
-    desc.setMemoryThreshold(treshold);
+    float threshold = 100.0f*1024.0f/maxMemory;
+    desc.setMemoryThreshold(threshold);
 
     CompilationOpContext cCtx = new CompilationOpContext();
 
@@ -348,7 +348,7 @@ public class TestVectorGroupByOperator {
         break;
       }
       // Set an upper bound how much we're willing to push before it should flush
-      // we've set the memory treshold at 100kb, each key is distinct
+      // we've set the memory threshold at 100kb, each key is distinct
       // It should not go beyond 100k/16 (key+data)
       assertTrue(countRowsProduced < 100*1024/16);
     }
@@ -438,7 +438,7 @@ public class TestVectorGroupByOperator {
           break;
         }
         // Set an upper bound how much we're willing to push before it should flush
-        // we've set the memory treshold at 100kb, each key is distinct
+        // we've set the memory threshold at 100kb, each key is distinct
         // It should not go beyond 100k/16 (key+data)
         assertTrue(countRowsProduced < 100 * 1024 / 16);
       }
@@ -812,13 +812,13 @@ public class TestVectorGroupByOperator {
     GroupByDesc desc = pair.left;
     VectorGroupByDesc vectorDesc = pair.right;
 
-    // Set the memory treshold so that we get 100Kb before we need to flush.
+    // Set the memory threshold so that we get 100Kb before we need to flush.
     MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
     long maxMemory = memoryMXBean.getHeapMemoryUsage().getMax();
 
     // 1 MB should be able to store 1M/16bytes(key+data) = 62500 entries
-    float treshold = 10 * 100.0f*1024.0f/maxMemory;
-    desc.setMemoryThreshold(treshold);
+    float threshold = 10 * 100.0f*1024.0f/maxMemory;
+    desc.setMemoryThreshold(threshold);
 
     // Set really low MAXENTRIES setting
     hconf.set("hive.vectorized.groupby.maxentries", "100");
