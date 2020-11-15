@@ -67,7 +67,7 @@ public class TestFileList {
         try {
           fileList.add("someEntry");
         } catch (IOException e) {
-          throw new RuntimeException("Unbale to add to file list.");
+          throw new RuntimeException("Unable to add to file list.");
         }
       });
     }
