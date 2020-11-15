@@ -3211,7 +3211,7 @@ public interface IMetaStoreClient {
 
   /**
    * Seed or increment the global txnId to the given value.
-   * If the actual txnId is greater or equal than the seed value, it wil fail
+   * If the actual txnId is greater or equal than the seed value, it will fail
    * @param seedTxnId The seed value for the next transactions
    * @throws TException
    */
