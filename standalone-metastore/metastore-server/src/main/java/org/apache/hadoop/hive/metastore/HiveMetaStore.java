@@ -8497,7 +8497,7 @@ public class HiveMetaStore extends ThriftHiveMetastore {
     @Override
     public MaxAllocatedTableWriteIdResponse get_max_allocated_table_write_id(MaxAllocatedTableWriteIdRequest rqst)
         throws MetaException {
-      return getTxnHandler().getMaxAllocatedTableWrited(rqst);
+      return getTxnHandler().getMaxAllocatedTableWriteId(rqst);
     }
 
     @Override

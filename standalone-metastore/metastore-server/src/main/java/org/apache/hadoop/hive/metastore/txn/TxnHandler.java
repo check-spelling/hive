@@ -2159,7 +2159,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
   }
 
   @Override
-  public MaxAllocatedTableWriteIdResponse getMaxAllocatedTableWrited(MaxAllocatedTableWriteIdRequest rqst) throws MetaException {
+  public MaxAllocatedTableWriteIdResponse getMaxAllocatedTableWriteId(MaxAllocatedTableWriteIdRequest rqst) throws MetaException {
     String dbName = rqst.getDbName();
     String tableName = rqst.getTableName();
     try {
@@ -2184,13 +2184,13 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
         LOG.error(
             "Exception during reading the max allocated writeId for dbName={}, tableName={}. Will retry if possible.",
             dbName, tableName, e);
-        checkRetryable(dbConn, e, "getMaxAllocatedTableWrited(" + rqst + ")");
+        checkRetryable(dbConn, e, "getMaxAllocatedTableWriteId(" + rqst + ")");
         throw new MetaException("Unable to update transaction database " + StringUtils.stringifyException(e));
       } finally {
         close(rs, pStmt, dbConn);
       }
     } catch (RetryException e) {
-      return getMaxAllocatedTableWrited(rqst);
+      return getMaxAllocatedTableWriteId(rqst);
     }
   }
 
