@@ -225,7 +225,7 @@ public class VectorMapJoinInnerMultiKeyOperator extends VectorMapJoinInnerGenera
           LOG.debug(CLASS_NAME + " batch #" + batchCounter + " non-repeated");
         }
 
-        // We remember any matching rows in matchs / matchSize.  At the end of the loop,
+        // We remember any matching rows in matches / matchSize.  At the end of the loop,
         // selected / batch.size will represent both matching and non-matching rows for outer join.
         // Only deferred rows will have been removed from selected.
         int selected[] = batch.selected;
@@ -317,7 +317,7 @@ public class VectorMapJoinInnerMultiKeyOperator extends VectorMapJoinInnerGenera
               equalKeySeriesAllMatchIndices[equalKeySeriesCount] = allMatchCount;
               equalKeySeriesIsSingleValue[equalKeySeriesCount] = hashMapResults[hashMapResultCount].isSingleRow();
               equalKeySeriesDuplicateCounts[equalKeySeriesCount] = 1;
-              allMatchs[allMatchCount++] = batchIndex;
+              allMatches[allMatchCount++] = batchIndex;
               // VectorizedBatchUtil.debugDisplayOneRow(batch, batchIndex, CLASS_NAME + " MATCH isSingleValue " + equalKeySeriesIsSingleValue[equalKeySeriesCount] + " currentKey " + currentKey);
               break;
 
@@ -337,7 +337,7 @@ public class VectorMapJoinInnerMultiKeyOperator extends VectorMapJoinInnerGenera
             switch (saveJoinResult) {
             case MATCH:
               equalKeySeriesDuplicateCounts[equalKeySeriesCount]++;
-              allMatchs[allMatchCount++] = batchIndex;
+              allMatches[allMatchCount++] = batchIndex;
               // VectorizedBatchUtil.debugDisplayOneRow(batch, batchIndex, CLASS_NAME + " MATCH duplicate");
               break;
 
@@ -371,7 +371,7 @@ public class VectorMapJoinInnerMultiKeyOperator extends VectorMapJoinInnerGenera
 
         if (LOG.isDebugEnabled()) {
           LOG.debug(CLASS_NAME +
-              " allMatchs " + intArrayToRangesString(allMatchs,allMatchCount) +
+              " allMatches " + intArrayToRangesString(allMatches,allMatchCount) +
               " equalKeySeriesHashMapResultIndices " + intArrayToRangesString(equalKeySeriesHashMapResultIndices, equalKeySeriesCount) +
               " equalKeySeriesAllMatchIndices " + intArrayToRangesString(equalKeySeriesAllMatchIndices, equalKeySeriesCount) +
               " equalKeySeriesIsSingleValue " + Arrays.toString(Arrays.copyOfRange(equalKeySeriesIsSingleValue, 0, equalKeySeriesCount)) +
