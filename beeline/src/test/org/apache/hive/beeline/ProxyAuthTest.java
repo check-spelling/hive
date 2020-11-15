@@ -101,7 +101,7 @@ public class ProxyAuthTest {
     url = "jdbc:hive2://" + host + ":" + port + "/default;principal=" + serverPrincipal;
     currentResultFile = generateSQL(null);
     beeLineArgs = new String[] { "-u", url, "-n", "foo", "-p", "bar"};
-    System.out.println("Connection with kerberos, user/password via args, using input rediction");
+    System.out.println("Connection with kerberos, user/password via args, using input prediction");
     BeeLine.mainWithInputRedirection(beeLineArgs, inpStream);
     compareResults( currentResultFile);
 
