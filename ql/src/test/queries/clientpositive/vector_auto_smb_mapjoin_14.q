@@ -201,7 +201,7 @@ select count(*) from
   (select a.key +1 as key, concat(a.value, a.value) as value from tbl2_n11 a) subq2
   on subq1.key = subq2.key;
 
--- One of the tables is a sub-query and the other is not.
+-- One of the tables is a sub-query and the othere is not.
 -- It should be converted to a sort-merge join.
 explain vectorization expression
 select count(*) from 
