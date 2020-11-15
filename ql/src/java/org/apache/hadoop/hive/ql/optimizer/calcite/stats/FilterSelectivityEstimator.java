@@ -294,9 +294,9 @@ public class FilterSelectivityEstimator extends RexVisitorImpl<Double> {
       } else {
         irv = new InputReferencedVisitor();
         irv.apply(op);
-        for (Integer childProjIndx : irv.inputPosReferenced) {
+        for (Integer childProjIndex : irv.inputPosReferenced) {
           tmpNDV = HiveRelMdDistinctRowCount.getDistinctRowCount(this.childRel,
-              mq, childProjIndx);
+              mq, childProjIndex);
           if (tmpNDV == null) {
             return null;
           }

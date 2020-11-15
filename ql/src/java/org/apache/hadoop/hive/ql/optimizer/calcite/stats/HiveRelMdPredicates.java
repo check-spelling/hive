@@ -123,7 +123,7 @@ public class HiveRelMdPredicates implements MetadataHandler<BuiltInMetadata.Pred
     RelOptPredicateList childInfo = mq.getPulledUpPredicates(child);
 
     List<RexNode> projectPullUpPredicates = new ArrayList<RexNode>();
-    HashMultimap<Integer, Integer> inpIndxToOutIndxMap = HashMultimap.create();
+    HashMultimap<Integer, Integer> inpIndexToOutIndexMap = HashMultimap.create();
 
     ImmutableBitSet.Builder columnsMappedBuilder = ImmutableBitSet.builder();
     Mapping m = Mappings.create(MappingType.PARTIAL_FUNCTION, child.getRowType().getFieldCount(),
@@ -133,7 +133,7 @@ public class HiveRelMdPredicates implements MetadataHandler<BuiltInMetadata.Pred
       if (o.e instanceof RexInputRef) {
         int sIdx = ((RexInputRef) o.e).getIndex();
         m.set(sIdx, o.i);
-        inpIndxToOutIndxMap.put(sIdx, o.i);
+        inpIndexToOutIndexMap.put(sIdx, o.i);
         columnsMappedBuilder.set(sIdx);
       }
     }

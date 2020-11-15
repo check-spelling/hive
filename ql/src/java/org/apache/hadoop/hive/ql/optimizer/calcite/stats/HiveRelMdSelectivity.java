@@ -286,8 +286,8 @@ public class HiveRelMdSelectivity extends RelMdSelectivity {
     Double colNDV = null;
     Double maxNDVSoFar = defaultMaxNDV;
 
-    for (Integer projIndx : projectionSet) {
-      colNDV = colStatMap.get(projIndx);
+    for (Integer projIndex : projectionSet) {
+      colNDV = colStatMap.get(projIndex);
       if (colNDV > maxNDVSoFar)
         maxNDVSoFar = colNDV;
     }

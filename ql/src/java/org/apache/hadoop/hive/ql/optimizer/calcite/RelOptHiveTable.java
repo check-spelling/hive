@@ -194,9 +194,9 @@ public class RelOptHiveTable implements RelOptTable {
   public RelOptHiveTable copy(RelDataType newRowType) {
     // 1. Build map of column name to col index of original schema
     // Assumption: Hive Table can not contain duplicate column names
-    Map<String, Integer> nameToColIndxMap = new HashMap<String, Integer>();
+    Map<String, Integer> nameToColIndexMap = new HashMap<String, Integer>();
     for (RelDataTypeField f : this.rowType.getFieldList()) {
-      nameToColIndxMap.put(f.getName(), f.getIndex());
+      nameToColIndexMap.put(f.getName(), f.getIndex());
     }
 
     // 2. Build nonPart/Part/Virtual column info for new RowSchema
@@ -205,16 +205,16 @@ public class RelOptHiveTable implements RelOptTable {
     List<VirtualColumn> newHiveVirtualCols = new ArrayList<VirtualColumn>();
     Map<Integer, VirtualColumn> virtualColInfoMap = HiveCalciteUtil.getVColsMap(this.hiveVirtualCols,
         this.noOfNonVirtualCols);
-    Integer originalColIndx;
+    Integer originalColIndex;
     ColumnInfo cInfo;
     VirtualColumn vc;
     for (RelDataTypeField f : newRowType.getFieldList()) {
-      originalColIndx = nameToColIndxMap.get(f.getName());
-      if ((cInfo = hiveNonPartitionColsMap.get(originalColIndx)) != null) {
+      originalColIndex = nameToColIndexMap.get(f.getName());
+      if ((cInfo = hiveNonPartitionColsMap.get(originalColIndex)) != null) {
         newHiveNonPartitionCols.add(new ColumnInfo(cInfo));
-      } else if ((cInfo = hivePartitionColsMap.get(originalColIndx)) != null) {
+      } else if ((cInfo = hivePartitionColsMap.get(originalColIndex)) != null) {
         newHivePartitionCols.add(new ColumnInfo(cInfo));
-      } else if ((vc = virtualColInfoMap.get(originalColIndx)) != null) {
+      } else if ((vc = virtualColInfoMap.get(originalColIndex)) != null) {
         newHiveVirtualCols.add(vc);
       } else {
         throw new RuntimeException("Copy encountered a column not seen in original TS");
@@ -482,23 +482,23 @@ public class RelOptHiveTable implements RelOptTable {
     }
   }
 
-  private void updateColStats(Set<Integer> projIndxLst, boolean allowMissingStats) {
+  private void updateColStats(Set<Integer> projIndexLst, boolean allowMissingStats) {
     List<String> nonPartColNamesThatRqrStats = new ArrayList<String>();
-    List<Integer> nonPartColIndxsThatRqrStats = new ArrayList<Integer>();
+    List<Integer> nonPartColIndexsThatRqrStats = new ArrayList<Integer>();
     List<String> partColNamesThatRqrStats = new ArrayList<String>();
-    List<Integer> partColIndxsThatRqrStats = new ArrayList<Integer>();
+    List<Integer> partColIndexsThatRqrStats = new ArrayList<Integer>();
     Set<String> colNamesFailedStats = new HashSet<String>();
 
     // 1. Separate required columns to Non Partition and Partition Cols
     ColumnInfo tmp;
-    for (Integer pi : projIndxLst) {
+    for (Integer pi : projIndexLst) {
       if (hiveColStatsMap.get(pi) == null) {
         if ((tmp = hiveNonPartitionColsMap.get(pi)) != null) {
           nonPartColNamesThatRqrStats.add(tmp.getInternalName());
-          nonPartColIndxsThatRqrStats.add(pi);
+          nonPartColIndexsThatRqrStats.add(pi);
         } else if ((tmp = hivePartitionColsMap.get(pi)) != null) {
           partColNamesThatRqrStats.add(tmp.getInternalName());
-          partColIndxsThatRqrStats.add(pi);
+          partColIndexsThatRqrStats.add(pi);
         } else {
           noColsMissingStats.getAndIncrement();
           String logMsg = "Unable to find Column Index: " + pi + ", in "
@@ -557,7 +557,7 @@ public class RelOptHiveTable implements RelOptTable {
           } else {
             // Column stats in hiveColStats might not be in the same order as the columns in
             // nonPartColNamesThatRqrStats. reorder hiveColStats so we can build hiveColStatsMap
-            // using nonPartColIndxsThatRqrStats as below
+            // using nonPartColIndexsThatRqrStats as below
             Map<String, ColStatistics> columnStatsMap =
                 new HashMap<String, ColStatistics>(hiveColStats.size());
             for (ColStatistics cs : hiveColStats) {
@@ -590,7 +590,7 @@ public class RelOptHiveTable implements RelOptTable {
               hiveColStats.add(
                   new ColStatistics(
                       nonPartColNamesThatRqrStats.get(i),
-                      hiveNonPartitionColsMap.get(nonPartColIndxsThatRqrStats.get(i)).getTypeName()));
+                      hiveNonPartitionColsMap.get(nonPartColIndexsThatRqrStats.get(i)).getTypeName()));
             }
             colNamesFailedStats.clear();
             colStatsCached.updateState(State.COMPLETE);
@@ -622,9 +622,9 @@ public class RelOptHiveTable implements RelOptTable {
 
       if (hiveColStats != null && hiveColStats.size() == nonPartColNamesThatRqrStats.size()) {
         for (int i = 0; i < hiveColStats.size(); i++) {
-          // the columns in nonPartColIndxsThatRqrStats/nonPartColNamesThatRqrStats/hiveColStats
+          // the columns in nonPartColIndexsThatRqrStats/nonPartColNamesThatRqrStats/hiveColStats
           // are in same order
-          hiveColStatsMap.put(nonPartColIndxsThatRqrStats.get(i), hiveColStats.get(i));
+          hiveColStatsMap.put(nonPartColIndexsThatRqrStats.get(i), hiveColStats.get(i));
           colStatsCached.put(hiveColStats.get(i).getColumnName(), hiveColStats.get(i));
           if (LOG.isDebugEnabled()) {
             LOG.debug("Stats for column " + hiveColStats.get(i).getColumnName() +
@@ -639,9 +639,9 @@ public class RelOptHiveTable implements RelOptTable {
     if (colNamesFailedStats.isEmpty() && !partColNamesThatRqrStats.isEmpty()) {
       ColStatistics cStats = null;
       for (int i = 0; i < partColNamesThatRqrStats.size(); i++) {
-        cStats = StatsUtils.getColStatsForPartCol(hivePartitionColsMap.get(partColIndxsThatRqrStats.get(i)),
+        cStats = StatsUtils.getColStatsForPartCol(hivePartitionColsMap.get(partColIndexsThatRqrStats.get(i)),
             new PartitionIterable(partitionList.getNotDeniedPartns()), hiveConf);
-        hiveColStatsMap.put(partColIndxsThatRqrStats.get(i), cStats);
+        hiveColStatsMap.put(partColIndexsThatRqrStats.get(i), cStats);
         colStatsCached.put(cStats.getColumnName(), cStats);
         if (LOG.isDebugEnabled()) {
           LOG.debug("Stats for column " + cStats.getColumnName() +
@@ -670,30 +670,30 @@ public class RelOptHiveTable implements RelOptTable {
     }
   }
 
-  public List<ColStatistics> getColStat(List<Integer> projIndxLst) {
+  public List<ColStatistics> getColStat(List<Integer> projIndexLst) {
     // If we allow estimated stats for the columns, then we shall set the boolean to true,
     // since otherwise we will throw an exception because columns with estimated stats are
     // actually added to the list of columns that do not contain stats.
-    return getColStat(projIndxLst, HiveConf.getBoolVar(hiveConf, HiveConf.ConfVars.HIVE_STATS_ESTIMATE_STATS));
+    return getColStat(projIndexLst, HiveConf.getBoolVar(hiveConf, HiveConf.ConfVars.HIVE_STATS_ESTIMATE_STATS));
   }
 
   /** Note: DOES NOT CHECK txn stats. */
-  public List<ColStatistics> getColStat(List<Integer> projIndxLst, boolean allowMissingStats) {
+  public List<ColStatistics> getColStat(List<Integer> projIndexLst, boolean allowMissingStats) {
     List<ColStatistics> colStatsBldr = Lists.newArrayList();
-    Set<Integer> projIndxSet = new HashSet<>(projIndxLst);
-    for (Integer i : projIndxLst) {
+    Set<Integer> projIndexSet = new HashSet<>(projIndexLst);
+    for (Integer i : projIndexLst) {
       if (i >= noOfNonVirtualCols) {
-        projIndxSet.remove(i);
+        projIndexSet.remove(i);
       } else if (hiveColStatsMap.get(i) != null) {
         colStatsBldr.add(hiveColStatsMap.get(i));
-        projIndxSet.remove(i);
+        projIndexSet.remove(i);
       }
     }
-    if (!projIndxSet.isEmpty()) {
-      LOG.info("Calculating column statistics for {}, projIndxSet: {}, allowMissingStats: {}", name,
-          projIndxLst, allowMissingStats);
-      updateColStats(projIndxSet, allowMissingStats);
-      for (Integer i : projIndxSet) {
+    if (!projIndexSet.isEmpty()) {
+      LOG.info("Calculating column statistics for {}, projIndexSet: {}, allowMissingStats: {}", name,
+          projIndexLst, allowMissingStats);
+      updateColStats(projIndexSet, allowMissingStats);
+      for (Integer i : projIndexSet) {
         colStatsBldr.add(hiveColStatsMap.get(i));
       }
     }

@@ -58,9 +58,9 @@ public class HiveRelMdDistinctRowCount extends RelMdDistinctRowCount {
 
   public Double getDistinctRowCount(HiveTableScan htRel, RelMetadataQuery mq, ImmutableBitSet groupKey,
       RexNode predicate) {
-    List<Integer> projIndxLst = HiveCalciteUtil
-        .translateBitSetToProjIndx(groupKey);
-    List<ColStatistics> colStats = htRel.getColStat(projIndxLst);
+    List<Integer> projIndexLst = HiveCalciteUtil
+        .translateBitSetToProjIndex(groupKey);
+    List<ColStatistics> colStats = htRel.getColStat(projIndexLst);
     Double noDistinctRows = 1.0;
     for (ColStatistics cStat : colStats) {
       noDistinctRows *= cStat.getCountDistinct();
@@ -69,8 +69,8 @@ public class HiveRelMdDistinctRowCount extends RelMdDistinctRowCount {
     return Math.min(noDistinctRows, mq.getRowCount(htRel));
   }
 
-  public static Double getDistinctRowCount(RelNode r, RelMetadataQuery mq, int indx) {
-    ImmutableBitSet bitSetOfRqdProj = ImmutableBitSet.of(indx);
+  public static Double getDistinctRowCount(RelNode r, RelMetadataQuery mq, int index) {
+    ImmutableBitSet bitSetOfRqdProj = ImmutableBitSet.of(index);
     return mq.getDistinctRowCount(r, bitSetOfRqdProj, r
         .getCluster().getRexBuilder().makeLiteral(true));
   }
