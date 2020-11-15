@@ -1490,8 +1490,8 @@ public final class BuddyAllocator
         try {
           init(arenaIx);
           // if init did not throw interrupt exception then allocation succeeded and so increment and commit the arena
-          boolean isCommited = allocatedArenas.compareAndSet(-arenaCount - 1, arenaCount + 1);
-          assert isCommited;
+          boolean isCommitted = allocatedArenas.compareAndSet(-arenaCount - 1, arenaCount + 1);
+          assert isCommitted;
           metrics.incrAllocatedArena();
         } catch (ClosedByInterruptException e) {
           LlapIoImpl.LOG.info("Received interrupt during arena {} allocation.. Ignoring..", arenaIx);

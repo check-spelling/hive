@@ -4752,7 +4752,7 @@ public final class Utilities {
           cleanDirectInsertDirectory(childPath, fs, unionSuffix, lbLevels - 1, committed);
         } else {
           if (committed.contains(childPath)) {
-            throw new HiveException("LB FSOP has commited "
+            throw new HiveException("LB FSOP has committed "
                 + childPath + " outside of LB directory levels " + lbLevels);
           }
           deleteUncommitedFile(childPath, fs);
@@ -4769,7 +4769,7 @@ public final class Utilities {
         }
       } else if (!child.isDirectory()) {
         if (committed.contains(childPath)) {
-          throw new HiveException("Union FSOP has commited "
+          throw new HiveException("Union FSOP has committed "
               + childPath + " outside of union directory " + unionSuffix);
         }
         deleteUncommitedFile(childPath, fs);
