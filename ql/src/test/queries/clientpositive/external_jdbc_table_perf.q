@@ -463,8 +463,8 @@ CREATE EXTERNAL TABLE item
     i_class                   char(50)                      ,
     i_category_id             int                           ,
     i_category                char(50)                      ,
-    i_manufact_id             int                           ,
-    i_manufact                char(50)                      ,
+    i_manufacturer_id         int                           ,
+    i_manufacturer            char(50)                      ,
     i_size                    char(20)                      ,
     i_formulation             char(20)                      ,
     i_color                   char(20)                      ,
@@ -1253,7 +1253,7 @@ with ss as (
 				 customer_address,
 				 item
 			 where
-				 i_manufact_id               in (select
+				 i_manufacturer_id           in (select
 			  i_manufact_id
 			from
 			 item
@@ -1274,7 +1274,7 @@ with ss as (
 				 customer_address,
 				 item
 			 where
-				 i_manufact_id               in (select
+				 i_manufacturer_id           in (select
 			  i_manufact_id
 			from
 			 item
@@ -1325,7 +1325,7 @@ with ss as (
 				 customer_address,
 				 item
 			 where
-				 i_manufact_id               in (select
+				 i_manufacturer_id           in (select
 			  i_manufact_id
 			from
 			 item
@@ -1346,7 +1346,7 @@ with ss as (
 				 customer_address,
 				 item
 			 where
-				 i_manufact_id               in (select
+				 i_manufacturer_id           in (select
 			  i_manufact_id
 			from
 			 item
