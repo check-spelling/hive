@@ -128,7 +128,7 @@ public class HivePreparedStatement extends HiveStatement implements PreparedStat
   }
 
   /**
-   * Splits the parametered sql statement at parameter boundaries.
+   * Splits the parameterized sql statement at parameter boundaries.
    *
    * taking into account ' and \ escaping.
    *
