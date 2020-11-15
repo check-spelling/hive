@@ -90,7 +90,7 @@ public class DataWritableReadSupport extends ReadSupport<ArrayWritable> {
   }
 
   /**
-   * Searchs for a fieldName into a parquet GroupType by ignoring string case.
+   * Searches for a fieldName into a parquet GroupType by ignoring string case.
    * GroupType#getType(String fieldName) is case sensitive, so we use this method.
    *
    * @param groupType Group of field types where to search for fieldName
@@ -108,7 +108,7 @@ public class DataWritableReadSupport extends ReadSupport<ArrayWritable> {
   }
 
   /**
-   * Searchs column names by name on a given Parquet schema, and returns its corresponded
+   * Searches column names by name on a given Parquet schema, and returns its corresponded
    * Parquet schema types.
    *
    * @param schema Group schema where to search for column names.
