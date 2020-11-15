@@ -448,7 +448,7 @@ public class HiveCalciteUtil {
 
   /**
    * JoinLeafPredicateInfo represents leaf predicate in Join condition
-   * (conjunctive lement).<br>
+   * (conjunctive element).<br>
    * <p>
    * JoinLeafPredicateInfo:<br>
    * 1. Stores list of expressions from left and right child which is part of
