@@ -343,7 +343,7 @@ public class HiveMetaStoreClientPreCatalog implements IMetaStoreClient, AutoClos
       String newVar = MetastoreConf.getAsString(conf, oneVar);
       if (oldVar == null ||
           (oneVar.isCaseSensitive() ? !oldVar.equals(newVar) : !oldVar.equalsIgnoreCase(newVar))) {
-        LOG.info("Mestastore configuration " + oneVar.toString() +
+        LOG.info("Metastore configuration " + oneVar.toString() +
             " changed from " + oldVar + " to " + newVar);
         compatible = false;
       }

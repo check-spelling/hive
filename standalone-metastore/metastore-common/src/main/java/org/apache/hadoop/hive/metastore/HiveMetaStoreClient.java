@@ -451,7 +451,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
       String newVar = MetastoreConf.getAsString(conf, oneVar);
       if (oldVar == null ||
           (oneVar.isCaseSensitive() ? !oldVar.equals(newVar) : !oldVar.equalsIgnoreCase(newVar))) {
-        LOG.info("Mestastore configuration {} changed from {} to {}",
+        LOG.info("Metastore configuration {} changed from {} to {}",
             oneVar, oldVar, newVar);
         compatible = false;
       }
