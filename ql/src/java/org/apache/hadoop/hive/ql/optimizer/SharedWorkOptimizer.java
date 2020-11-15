@@ -725,14 +725,14 @@ public class SharedWorkOptimizer extends Transform {
 
   private static void downStreamMerge(Operator<?> op, SharedWorkOptimizerCache optimizerCache, ParseContext pctx)
       throws SemanticException {
-    List<Operator<?>> childs = op.getChildOperators();
-    for (int i = 0; i < childs.size(); i++) {
-      Operator<?> cI = childs.get(i);
+    List<Operator<?>> children = op.getChildOperators();
+    for (int i = 0; i < children.size(); i++) {
+      Operator<?> cI = children.get(i);
       if (cI instanceof ReduceSinkOperator || cI instanceof JoinOperator || cI.getParentOperators().size() != 1) {
         continue;
       }
-      for (int j = i + 1; j < childs.size(); j++) {
-        Operator<?> cJ = childs.get(j);
+      for (int j = i + 1; j < children.size(); j++) {
+        Operator<?> cJ = children.get(j);
         if (cI.logicalEquals(cJ)) {
           LOG.debug("downstream merge: from {} into {}", cJ, cI);
           adoptChildren(cI, cJ);
@@ -1803,7 +1803,7 @@ public class SharedWorkOptimizer extends Transform {
     Set<OperatorGraph.Cluster> cc2 = og.clusterOf(op2).childClusters(edgePredicate);
 
     if (!Collections.disjoint(cc1, cc2)) {
-      LOG.debug("merge would create an unsupported parallel edge(CHILDS)", op1, op2);
+      LOG.debug("merge would create an unsupported parallel edge(CHILDren)", op1, op2);
       return false;
     }
 

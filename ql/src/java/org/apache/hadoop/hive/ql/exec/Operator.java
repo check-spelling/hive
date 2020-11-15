@@ -846,7 +846,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
   }
 
   /**
-   * Replace one parent with another at the same position. Chilren of the new
+   * Replace one parent with another at the same position. Children of the new
    * parent are not updated
    *
    * @param parent
