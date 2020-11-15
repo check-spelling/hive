@@ -629,7 +629,7 @@ public class MapWork extends BaseWork {
   }
 
   public void mergingInto(MapWork mapWork) {
-    // currently, this is sole field affecting mergee task
+    // currently, this is sole field affecting merge task
     mapWork.useBucketizedHiveInputFormat |= useBucketizedHiveInputFormat;
   }
 
