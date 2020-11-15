@@ -794,7 +794,7 @@ public class ReplDumpTask extends Task<ReplDumpWork> implements Serializable {
   }
 
   private boolean needBootstrapAcidTablesDuringIncrementalDump() {
-    // If acid table dump is not enabled, then no neeed to check further.
+    // If acid table dump is not enabled, then no need to check further.
     if (!ReplUtils.includeAcidTableInDump(conf)) {
       return false;
     }
