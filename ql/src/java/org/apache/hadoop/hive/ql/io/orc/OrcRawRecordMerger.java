@@ -732,7 +732,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
     * necessarily match stripe boundary.  So we want to come up with minKey to be one before the 1st
     * row of the first stripe that starts after getOffset() and maxKey to be the last row of the
     * stripe that contains getMaxOffset().  This breaks if getOffset() and getMaxOffset() are inside
-    * the sames tripe - in this case we have minKey & isTail=false but rowLength is never set.
+    * the same tripe - in this case we have minKey & isTail=false but rowLength is never set.
     * (HIVE-16953)
     */
     for(StripeInformation stripe: reader.getStripes()) {
