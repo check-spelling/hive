@@ -105,8 +105,8 @@ public class CreateTableAutomaticGrant {
     String[] ownerGrantArray = ownerGrantsInConfig.split(",");
     // verify the config
     for (String ownerGrant : ownerGrantArray) {
-      Privilege prive = PrivilegeRegistry.getPrivilege(ownerGrant);
-      if (prive == null) {
+      Privilege privilege = PrivilegeRegistry.getPrivilege(ownerGrant);
+      if (privilege == null) {
         throw new HiveException("Privilege " + ownerGrant + " is not found.");
       }
     }
