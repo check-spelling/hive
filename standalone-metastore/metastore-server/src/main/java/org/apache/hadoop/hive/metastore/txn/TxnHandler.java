@@ -5115,7 +5115,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
         }
         dbConn.commit();
         if (timedOutLockIds.isEmpty()) {
-          LOG.debug("Did not find any timed-out locks, therefore retuning.");
+          LOG.debug("Did not find any timed-out locks, therefore returning.");
           return;
         }
       }
