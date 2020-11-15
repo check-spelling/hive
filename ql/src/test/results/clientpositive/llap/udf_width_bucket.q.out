@@ -9,7 +9,7 @@ POSTHOOK: query: desc function extended width_bucket
 POSTHOOK: type: DESCFUNCTION
 width_bucket(expr, min_value, max_value, num_buckets) - Returns an integer between 0 and num_buckets+1 by mapping the expr into buckets defined by the range [min_value, max_value]
 Returns an integer between 0 and num_buckets+1 by mapping expr into the ith equally sized bucket. Buckets are made by dividing [min_value, max_value] into equally sized regions. If expr < min_value, return 1, if expr > max_value return num_buckets+1
-Example: expr is an integer column withs values 1, 10, 20, 30.
+Example: expr is an integer column widths values 1, 10, 20, 30.
   > SELECT width_bucket(expr, 5, 25, 4) FROM src;
 1
 1
