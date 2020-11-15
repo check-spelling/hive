@@ -10603,7 +10603,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
       }
     }
 
-    // Now that we reorderd QBJoinTrees, update leftaliases of all
+    // Now that we reordered QBJoinTrees, update leftaliases of all
     // QBJoinTree from innermost to outer
     if ((trees.size() > 1) && mergedQBJTree) {
       QBJoinTree curQBJTree = null;
