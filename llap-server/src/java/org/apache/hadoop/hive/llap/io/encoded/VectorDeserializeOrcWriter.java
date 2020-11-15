@@ -107,24 +107,24 @@ class VectorDeserializeOrcWriter extends EncodingWriter implements Runnable {
     Path path = splitPath.getFileSystem(daemonConf).makeQualified(splitPath);
     PartitionDesc partDesc = HiveFileFormatUtils.getFromPathRecursively(parts, path, null);
     if (partDesc == null) {
-      LlapIoImpl.LOG.info("Not using VertorDeserializeOrcWriter: no partition desc for " + path);
+      LlapIoImpl.LOG.info("Not using VectorDeserializeOrcWriter: no partition desc for " + path);
       return new DeserializerOrcWriter(serDe, sourceOi, allocSize);
     }
     Properties tblProps = partDesc.getTableDesc().getProperties();
     if ("true".equalsIgnoreCase(tblProps.getProperty(
         serdeConstants.SERIALIZATION_LAST_COLUMN_TAKES_REST))) {
-      LlapIoImpl.LOG.info("Not using VertorDeserializeOrcWriter due to "
+      LlapIoImpl.LOG.info("Not using VectorDeserializeOrcWriter due to "
         + serdeConstants.SERIALIZATION_LAST_COLUMN_TAKES_REST);
       return new DeserializerOrcWriter(serDe, sourceOi, allocSize);
     }
     for (StructField sf : sourceOi.getAllStructFieldRefs()) {
       Category c = sf.getFieldObjectInspector().getCategory();
       if (c != Category.PRIMITIVE) {
-        LlapIoImpl.LOG.info("Not using VertorDeserializeOrcWriter: " + c + " is not supported");
+        LlapIoImpl.LOG.info("Not using VectorDeserializeOrcWriter: " + c + " is not supported");
         return new DeserializerOrcWriter(serDe, sourceOi, allocSize);
       }
     }
-    LlapIoImpl.LOG.info("Creating VertorDeserializeOrcWriter for " + path);
+    LlapIoImpl.LOG.info("Creating VectorDeserializeOrcWriter for " + path);
     return new VectorDeserializeOrcWriter(
         jobConf, tblProps, sourceOi, sourceIncludes, cacheIncludes, allocSize);
   }
