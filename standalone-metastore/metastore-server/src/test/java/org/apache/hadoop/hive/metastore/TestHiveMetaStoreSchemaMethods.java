@@ -971,7 +971,7 @@ public class TestHiveMetaStoreSchemaMethods {
 
   @Test(expected = NoSuchObjectException.class)
   public void dropNonExistentSchemaVersion() throws TException {
-    client.dropSchemaVersion(DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME, "ther is no schema named this", 23);
+    client.dropSchemaVersion(DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME, "there is no schema named this", 23);
   }
 
   @Test
