@@ -55,7 +55,7 @@ import java.util.Set;
  * EstimateUniqueKeys provides an ability to estimate unique keys based on statistics.
  */
 //TODO: Ideally RelMdUniqueKeys should be modified (on Calcite side) to accept a parameter based on which
-// this logic whoud be implemented
+// this logic would be implemented
 public final class EstimateUniqueKeys {
   //~ Constructors -----------------------------------------------------------
   private EstimateUniqueKeys() {
