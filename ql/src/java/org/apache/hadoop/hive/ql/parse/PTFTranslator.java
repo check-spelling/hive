@@ -171,8 +171,8 @@ public class PTFTranslator {
     wdwTFnDef.setCarryForwardNames(tFn.carryForwardNames());
     wdwTFnDef.setRawInputShape(inpShape);
 
-    PartitioningSpec partiSpec = wdwSpec.getQueryPartitioningSpec();
-    if (partiSpec == null) {
+    PartitioningSpec partitioningSpec = wdwSpec.getQueryPartitioningSpec();
+    if (partitioningSpec == null) {
       throw new SemanticException(
           "Invalid use of Windowing: there is no Partitioning associated with Windowing");
     }
