@@ -27,7 +27,7 @@ import org.apache.hadoop.hive.ql.plan.OperatorDesc;
 import org.apache.hadoop.hive.ql.plan.VectorDesc;
 
 /**
- * Specialized class for doing a Native Vector FULL OUTER MapJoin on a Multi-Keyg
+ * Specialized class for doing a Native Vector FULL OUTER MapJoin on a Multi-Key
  * using a hash map.
  */
 public class VectorMapJoinFullOuterMultiKeyOperator extends VectorMapJoinOuterMultiKeyOperator {
