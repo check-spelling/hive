@@ -211,7 +211,7 @@ public class HiveAccumuloTableInputFormat implements
 
       log.info("Split: " + rangeSplit);
 
-      // The RangeInputSplit *should* have all of the necesary information contained in it
+      // The RangeInputSplit *should* have all of the necessary information contained in it
       // which alleviates us from re-parsing our configuration from the AccumuloStorageHandler
       // and re-setting it into the Configuration (like we did in getSplits(...)). Thus, it should
       // be unnecessary to re-invoke configure(...)
