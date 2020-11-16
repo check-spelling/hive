@@ -37,7 +37,7 @@ final class QueryCompactorFactory {
   }
 
   /**
-   * Get an instance of {@link QueryCompactor}. At the moment the following implementors can be fetched:
+   * Get an instance of {@link QueryCompactor}. At the moment the following implementers can be fetched:
    * <p>
    * {@link MajorQueryCompactor} - handles query based major compaction
    * <br>

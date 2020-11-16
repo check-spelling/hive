@@ -65,7 +65,7 @@ public abstract class BaseScalarUdfTest {
   public abstract InspectableObject [] getExpectedResult();
 
   /**
-   * Implementors of this method create an expression list. This list
+   * Implementers of this method create an expression list. This list
    * transforms the source data into the final output. The DataBuilder
    * class can be used to construct the result.
    * @return A list of expressions
