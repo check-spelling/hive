@@ -61,7 +61,7 @@ public class TestObjectStoreStatementVerify {
     String jdbcUrl = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.CONNECT_URL_KEY);
     jdbcUrl = jdbcUrl.replace("derby","sderby");
     MetastoreConf.setVar(conf, MetastoreConf.ConfVars.CONNECT_URL_KEY,jdbcUrl);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     final ObjectStore objectStore = new ObjectStore();
     objectStore.setConf(conf);

@@ -349,7 +349,7 @@ public class MetaStoreTestUtils {
    * they have not already been set, to avoid clobbering intentional changes.
    * @param conf Configuration object
    */
-  public static void setConfForStandloneMode(Configuration conf) {
+  public static void setConfForStandaloneMode(Configuration conf) {
     if (MetastoreConf.getVar(conf, ConfVars.TASK_THREADS_ALWAYS).equals(
         ConfVars.TASK_THREADS_ALWAYS.getDefaultVal())) {
       MetastoreConf.setVar(conf, ConfVars.TASK_THREADS_ALWAYS,

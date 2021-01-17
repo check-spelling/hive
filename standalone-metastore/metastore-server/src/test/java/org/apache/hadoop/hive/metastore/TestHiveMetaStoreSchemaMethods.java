@@ -83,7 +83,7 @@ public class TestHiveMetaStoreSchemaMethods {
   @BeforeClass
   public static void startMetastore() throws Exception {
     conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetastoreConf.setClass(conf, ConfVars.EVENT_LISTENERS, SchemaEventListener.class,
         MetaStoreEventListener.class);
     MetastoreConf.setClass(conf, ConfVars.TRANSACTIONAL_EVENT_LISTENERS,

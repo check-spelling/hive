@@ -86,7 +86,7 @@ public class TestGetPartitionsUsingProjectionAndFilterSpecs {
   @BeforeClass
   public static void startMetaStoreServer() throws Exception {
     conf.set("hive.in.test", "true");
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetastoreConf.setLongVar(conf, ConfVars.BATCH_RETRIEVE_MAX, 2);
     MetastoreConf.setLongVar(conf, ConfVars.LIMIT_PARTITION_REQUEST, 100);
     port = MetaStoreTestUtils.startMetaStoreWithRetry(HadoopThriftAuthBridge.getBridge(), conf);

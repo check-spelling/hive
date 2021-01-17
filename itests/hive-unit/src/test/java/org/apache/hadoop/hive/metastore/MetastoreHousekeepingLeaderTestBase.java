@@ -55,7 +55,7 @@ class MetastoreHousekeepingLeaderTestBase {
   static Map<Class<? extends Thread>, Boolean> threadClasses = new HashMap<>();
 
   void internalSetup(final String leaderHostName) throws Exception {
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetastoreConf.setVar(conf, ConfVars.THRIFT_BIND_HOST, "localhost");
     MetastoreConf.setVar(conf, ConfVars.METASTORE_HOUSEKEEPING_LEADER_HOSTNAME, leaderHostName);
 

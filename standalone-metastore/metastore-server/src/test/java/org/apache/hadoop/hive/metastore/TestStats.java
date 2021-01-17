@@ -78,7 +78,7 @@ public class TestStats {
   @Before
   public void setUp() throws MetaException {
     conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetastoreConf.setBoolVar(conf, MetastoreConf.ConfVars.AGGREGATE_STATS_CACHE_ENABLED, false);
     // Get new client
     client = new HiveMetaStoreClient(conf);
