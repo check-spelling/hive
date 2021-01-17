@@ -244,7 +244,7 @@ class HiveMetaToolCommandLine {
     return diffExtTblLocsParams != null;
   }
 
-  String[] getUpddateLocationParams() {
+  String[] getUpdateLocationParams() {
     return updateLocationParams;
   }
 

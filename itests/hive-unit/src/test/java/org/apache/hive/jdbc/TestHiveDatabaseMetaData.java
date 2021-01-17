@@ -89,7 +89,7 @@ public class TestHiveDatabaseMetaData {
   }
 
   @Test
-  public void testHiveConnectionUdateServerHiveConf() {
+  public void testHiveConnectionUpdateServerHiveConf() {
     Map<String, String> serverHiveConf = new HashMap<>();
     serverHiveConf.put("hive.server2.thrift.resultset.default.fetch.size", Integer.toString(87));
     serverHiveConf.put("hive.default.nulls.last", "false");

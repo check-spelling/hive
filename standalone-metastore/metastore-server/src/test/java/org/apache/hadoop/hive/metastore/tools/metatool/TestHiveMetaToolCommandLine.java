@@ -43,7 +43,7 @@ public class TestHiveMetaToolCommandLine {
     assertFalse(cl.isExecuteJDOQL());
     assertNull(cl.getJDOQLQuery());
     assertFalse(cl.isUpdateLocation());
-    assertNull(cl.getUpddateLocationParams());
+    assertNull(cl.getUpdateLocationParams());
     assertFalse(cl.isListExtTblLocs());
     assertNull(cl.getListExtTblLocsParams());
     assertFalse(cl.isDryRun());
@@ -58,7 +58,7 @@ public class TestHiveMetaToolCommandLine {
     assertTrue(cl.isExecuteJDOQL());
     assertEquals("select a from b", cl.getJDOQLQuery());
     assertFalse(cl.isUpdateLocation());
-    assertNull(cl.getUpddateLocationParams());
+    assertNull(cl.getUpdateLocationParams());
     assertFalse(cl.isListExtTblLocs());
     assertNull(cl.getListExtTblLocsParams());
     assertFalse(cl.isDryRun());
@@ -75,8 +75,8 @@ public class TestHiveMetaToolCommandLine {
     assertFalse(cl.isExecuteJDOQL());
     assertNull(cl.getJDOQLQuery());
     assertTrue(cl.isUpdateLocation());
-    assertEquals("hdfs://new.loc", cl.getUpddateLocationParams()[0]);
-    assertEquals("hdfs://old.loc", cl.getUpddateLocationParams()[1]);
+    assertEquals("hdfs://new.loc", cl.getUpdateLocationParams()[0]);
+    assertEquals("hdfs://old.loc", cl.getUpdateLocationParams()[1]);
     assertFalse(cl.isListExtTblLocs());
     assertNull(cl.getListExtTblLocsParams());
     assertTrue(cl.isDryRun());
