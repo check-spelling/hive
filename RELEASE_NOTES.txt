@@ -784,7 +784,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-14455] - upgrade httpclient, httpcore to match updated hadoop dependency
     * [HIVE-14560] - Support exchange partition between s3 and hdfs tables
     * [HIVE-14564] - Column Pruning generates out of order columns in SelectOperator which cause ArrayIndexOutOfBoundsException.
-    * [HIVE-14678] - Hive-on-MR deprecation warning  is not diplayed when engine is set to capital letter 'MR'
+    * [HIVE-14678] - Hive-on-MR deprecation warning  is not displayed when engine is set to capital letter 'MR'
     * [HIVE-14731] - Use Tez cartesian product edge in Hive (unpartitioned case only)
     * [HIVE-14792] - AvroSerde reads the remote schema-file at least once per mapper, per table reference.
     * [HIVE-14813] - Make TransactionBatchImpl.toString() include state of each txn: commit/abort
