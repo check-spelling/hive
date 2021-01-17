@@ -32,7 +32,7 @@ class MetaToolTaskUpdateLocation extends MetaToolTask {
 
   @Override
   void execute() {
-    String[] loc = getCl().getUpddateLocationParams();
+    String[] loc = getCl().getUpdateLocationParams();
 
     Path newPath = new Path(loc[0]);
     Path oldPath = new Path(loc[1]);
@@ -58,7 +58,7 @@ class MetaToolTaskUpdateLocation extends MetaToolTask {
     updateMDatabaseURI(oldURI, newURI, isDryRun);
     updateMStorageDescriptorTblURI(oldURI, newURI, isDryRun);
     updateTablePropURI(oldURI, newURI, tablePropKey, isDryRun);
-    upateSerdeURI(oldURI, newURI, serdePropKey, isDryRun);
+    updateSerdeURI(oldURI, newURI, serdePropKey, isDryRun);
   }
 
   private void updateMDatabaseURI(URI oldURI, URI newURI, boolean isDryRun) {
@@ -118,7 +118,7 @@ class MetaToolTaskUpdateLocation extends MetaToolTask {
     }
   }
 
-  private void upateSerdeURI(URI oldURI, URI newURI, String serdePropKey, boolean isDryRun) {
+  private void updateSerdeURI(URI oldURI, URI newURI, String serdePropKey, boolean isDryRun) {
     if (serdePropKey != null) {
       System.out.println("Looking for value of " + serdePropKey + " key in SERDE_PARAMS table to update..");
       ObjectStore.UpdateSerdeURIRetVal retVal =
