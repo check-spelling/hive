@@ -80,7 +80,7 @@ public class TestHiveMetaStoreAuthorizer {
     conf.set("hadoop.proxyuser.hive.hosts", "*");
     conf.set("hadoop.proxyuser.hive.users", "*");
 
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     hmsHandler = new HiveMetaStore.HMSHandler("test", conf, true);
     rawStore   = new ObjectStore();

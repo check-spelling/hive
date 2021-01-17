@@ -141,7 +141,7 @@ public abstract class TestHiveMetaStore {
     conf.set("datanucleus.autoCreateTables", "false");
     conf.set("hive.in.test", "true");
 
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetastoreConf.setLongVar(conf, ConfVars.BATCH_RETRIEVE_MAX, 2);
     MetastoreConf.setLongVar(conf, ConfVars.LIMIT_PARTITION_REQUEST, DEFAULT_LIMIT_PARTITION_REQUEST);
     MetastoreConf.setVar(conf, ConfVars.STORAGE_SCHEMA_READER_IMPL, "no.such.class");
@@ -3200,7 +3200,7 @@ public abstract class TestHiveMetaStore {
 
     Configuration newConf = MetastoreConf.newMetastoreConf(new Configuration(this.conf));
     MetastoreConf.setTimeVar(newConf, ConfVars.CLIENT_SOCKET_LIFETIME, 4, TimeUnit.SECONDS);
-    MetaStoreTestUtils.setConfForStandloneMode(newConf);
+    MetaStoreTestUtils.setConfForStandaloneMode(newConf);
     long timeout = 5 * 1000; // Lets use a timeout more than the socket lifetime to simulate a reconnect
 
     // Test a normal retriable client

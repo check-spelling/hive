@@ -82,7 +82,7 @@ public class TestGetTableMeta extends MetaStoreClientTest {
     conf = MetastoreConf.newMetastoreConf();
     org.apache.hadoop.hive.metastore.conf.MetastoreConf
         .setBoolVar(this.conf, ConfVars.HIVE_IN_TEST, true);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     // Get new client
     client = metaStore.getClient();

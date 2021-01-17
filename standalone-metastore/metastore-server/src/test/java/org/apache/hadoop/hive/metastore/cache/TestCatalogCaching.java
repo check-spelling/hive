@@ -54,7 +54,7 @@ public class TestCatalogCaching {
   public void createObjectStore() throws MetaException, InvalidOperationException {
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setBoolVar(conf, MetastoreConf.ConfVars.HIVE_IN_TEST, true);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     objectStore = new ObjectStore();
     objectStore.setConf(conf);
 

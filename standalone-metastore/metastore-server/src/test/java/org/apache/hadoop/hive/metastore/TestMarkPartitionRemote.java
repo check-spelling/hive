@@ -28,7 +28,7 @@ public class TestMarkPartitionRemote extends TestMarkPartition {
 
   @Before
   public void startServer() throws Exception {
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetaStoreTestUtils.startMetaStoreWithRetry(HadoopThriftAuthBridge.getBridge(), conf, true);
   }
 }

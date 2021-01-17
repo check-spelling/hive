@@ -40,7 +40,7 @@ public class TestMetaStoreListenersError {
 
     System.setProperty("hive.metastore.init.hooks", ErrorInitListener.class.getName());
     Configuration conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     int port = MetaStoreTestUtils.findFreePort();
     try {
       HiveMetaStore.startMetaStore(port, HadoopThriftAuthBridge.getBridge(), conf);
@@ -61,7 +61,7 @@ public class TestMetaStoreListenersError {
     System.setProperty("hive.metastore.init.hooks", "");
     System.setProperty("hive.metastore.event.listeners", ErrorEventListener.class.getName());
     Configuration conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     int port = MetaStoreTestUtils.findFreePort();
     try {
       HiveMetaStore.startMetaStore(port, HadoopThriftAuthBridge.getBridge(), conf);

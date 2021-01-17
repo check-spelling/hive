@@ -54,7 +54,7 @@ public class TestMetaStoreAcidCleanup {
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setClass(conf, TXN_STORE_IMPL, ThrowingTxnHandler.class, TxnStore.class);
     conf.set("hive.metastore.client.capabilities", "HIVEMANAGEDINSERTWRITE,HIVEMANAGESTATS,HIVECACHEINVALIDATE,CONNECTORWRITE");
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     warehouse = new Warehouse(conf);
     client = new HiveMetaStoreClient(conf);
     Database db = new DatabaseBuilder()

@@ -45,7 +45,7 @@ public class TestPartitionNameWhitelistValidation {
   public static void setupBeforeClass() throws Exception {
     System.setProperty(ConfVars.PARTITION_NAME_WHITELIST_PATTERN.toString(), partitionValidationPattern);
     conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     msc = new HiveMetaStoreClient(conf);
   }
 

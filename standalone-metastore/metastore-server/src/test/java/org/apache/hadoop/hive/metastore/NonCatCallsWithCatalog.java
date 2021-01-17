@@ -99,7 +99,7 @@ public abstract class NonCatCallsWithCatalog {
   public void setUp() throws Exception {
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setBoolVar(this.conf, ConfVars.HIVE_IN_TEST, true);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     // Get new client
     client = getClient();

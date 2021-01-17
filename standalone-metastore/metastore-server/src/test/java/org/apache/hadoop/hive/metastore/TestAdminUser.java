@@ -37,7 +37,7 @@ public class TestAdminUser {
   public void testCreateAdminNAddUser() throws MetaException, NoSuchObjectException {
     Configuration conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setVar(conf, ConfVars.USERS_IN_ADMIN_ROLE, "adminuser");
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     RawStore rawStore = new HMSHandler("testcreateroot", conf).getMS();
     Role adminRole = rawStore.getRole(HiveMetaStore.ADMIN);
     Assert.assertTrue(adminRole.getOwnerName().equals(HiveMetaStore.ADMIN));

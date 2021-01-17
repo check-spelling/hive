@@ -51,7 +51,7 @@ public class TestMarkPartition {
     System.setProperty("hive.metastore.event.expiry.duration", "2s");
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setBoolVar(conf, MetastoreConf.ConfVars.HIVE_SUPPORT_CONCURRENCY, false);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
   }
 
