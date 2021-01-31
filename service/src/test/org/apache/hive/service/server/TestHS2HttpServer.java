@@ -258,7 +258,7 @@ public class TestHS2HttpServer {
 
   @Test
   public void testWrongRoute() throws Exception {
-    String wrongRouteUrl = "http://localhost:" + webUIPort + "/api/v1/nonexistingRoute";
+    String wrongRouteUrl = "http://localhost:" + webUIPort + "/api/v1/nonexistentRoute";
     URL url = new URL(wrongRouteUrl);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     Assert.assertEquals(HttpURLConnection.HTTP_NOT_FOUND, conn.getResponseCode());

@@ -121,7 +121,7 @@ public class TestJdbcWithMiniKdcCookie {
 
   public void testCookieNegative() throws Exception {
     try {
-      // Trying to connect with a non-existent user should still fail with
+      // Trying to connect with a nonexistent user should still fail with
       // login failure.
       getConnection(HIVE_NON_EXISTENT_USER);
     } catch (IOException e) {

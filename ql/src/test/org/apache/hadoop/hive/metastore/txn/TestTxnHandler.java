@@ -955,7 +955,7 @@ public class TestTxnHandler {
   public void testCheckLockNoSuchLock() throws Exception {
     try {
       txnHandler.checkLock(new CheckLockRequest(23L));
-      fail("Allowed to check lock on non-existent lock");
+      fail("Allowed to check lock on nonexistent lock");
     } catch (NoSuchLockException e) {
     }
   }

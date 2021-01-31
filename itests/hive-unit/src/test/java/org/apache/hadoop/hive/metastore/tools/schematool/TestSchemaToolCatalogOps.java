@@ -303,7 +303,7 @@ public class TestSchemaToolCatalogOps {
       String argsMoveDB = String.format("-moveDatabase %s -fromCatalog %s -toCatalog nosuch",
           dbName, DEFAULT_CATALOG_NAME);
       execute(new SchemaToolTaskMoveDatabase(), argsMoveDB);
-      Assert.fail("Attempt to move database to non-existent catalog should have failed.");
+      Assert.fail("Attempt to move database to nonexistent catalog should have failed.");
     } catch (HiveMetaException e) {
       // good
     }
@@ -461,7 +461,7 @@ public class TestSchemaToolCatalogOps {
           String.format("-moveTable %s -fromCatalog %s -toCatalog %s -fromDatabase %s -toDatabase nosuch",
           tableName, DEFAULT_CATALOG_NAME, DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME);
       execute(new SchemaToolTaskMoveTable(), argsMoveTable);
-      Assert.fail("Attempt to move table to non-existent table should have failed.");
+      Assert.fail("Attempt to move table to nonexistent table should have failed.");
     } catch (HiveMetaException e) {
       // good
     }

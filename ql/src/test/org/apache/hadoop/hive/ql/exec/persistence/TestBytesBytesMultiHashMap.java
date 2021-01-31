@@ -109,7 +109,7 @@ public class TestBytesBytesMultiHashMap {
       verifyHashMapResult(map, kv.keys.get(i), kv.values.get(i));
     }
     assertEquals(CAPACITY, map.getCapacity());
-    // Get of non-existent key should terminate..
+    // Get of nonexistent key should terminate..
     BytesBytesMultiHashMap.Result hashMapResult = new BytesBytesMultiHashMap.Result();
     map.getValueResult(new byte[0], 0, 0, hashMapResult, null);
   }

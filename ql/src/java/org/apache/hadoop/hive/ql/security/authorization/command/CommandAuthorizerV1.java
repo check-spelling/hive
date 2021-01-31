@@ -206,7 +206,7 @@ final class CommandAuthorizerV1 {
             cols.add(tbl.getCols().get(id).getName());
           }
           // map may not contain all sources, since input list may have been optimized out
-          // or non-existent tho such sources may still be referenced by the TableScanOperator
+          // or nonexistent tho such sources may still be referenced by the TableScanOperator
           // if it's null then the partition probably doesn't exist so let's use table permission
           if (tbl.isPartitioned() && Boolean.TRUE.equals(tableUsePartLevelAuth.get(tbl.getTableName()))) {
             String aliasId = topOpMap.getKey();

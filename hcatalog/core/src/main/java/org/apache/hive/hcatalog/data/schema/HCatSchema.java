@@ -130,7 +130,7 @@ public class HCatSchema implements Serializable {
 
   public void remove(final HCatFieldSchema hcatFieldSchema) throws HCatException {
     if (!fieldSchemas.contains(hcatFieldSchema)) {
-      throw new HCatException("Attempt to delete a non-existent column from HCat Schema: " + hcatFieldSchema);
+      throw new HCatException("Attempt to delete a nonexistent column from HCat Schema: " + hcatFieldSchema);
     }     
     fieldSchemas.remove(hcatFieldSchema);
     // Re-align the positionMap by -1 for the columns appearing after hcatFieldSchema.

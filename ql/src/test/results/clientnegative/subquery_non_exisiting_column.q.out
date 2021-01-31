@@ -1,1 +1,0 @@
-FAILED: CalciteSubquerySemanticException [Error 10002]: Line 4:104 Invalid column reference 'non_exisiting_column'

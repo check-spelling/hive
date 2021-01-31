@@ -3248,7 +3248,7 @@ public class TestJdbcDriver2 {
     }
   }
 
-  // Test that opening a JDBC connection to a non-existent database throws a HiveSQLException
+  // Test that opening a JDBC connection to a nonexistent database throws a HiveSQLException
   @Test(expected = HiveSQLException.class)
   public void testConnectInvalidDatabase() throws SQLException {
     DriverManager.getConnection("jdbc:hive2:///databasedoesnotexist", "", "");

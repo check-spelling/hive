@@ -310,7 +310,7 @@ public class TestTablesGetExists extends MetaStoreClientTest {
     Assert.assertTrue("Table exists", client.tableExists(table.getCatName(), table.getDbName(),
         table.getTableName()));
     Assert.assertFalse("Table not exists", client.tableExists(table.getCatName(), table.getDbName(),
-        "non_existing_table"));
+        "nonexistent_table"));
 
     // No such database
     Assert.assertFalse("Table not exists", client.tableExists("no_such_database",
@@ -736,7 +736,7 @@ public class TestTablesGetExists extends MetaStoreClientTest {
     Assert.assertEquals(tableNames[3], fetchedNames.get(0));
 
     Assert.assertTrue("Table exists", client.tableExists(catName, dbName, tableNames[0]));
-    Assert.assertFalse("Table not exists", client.tableExists(catName, dbName, "non_existing_table"));
+    Assert.assertFalse("Table not exists", client.tableExists(catName, dbName, "nonexistent_table"));
   }
 
   @Test

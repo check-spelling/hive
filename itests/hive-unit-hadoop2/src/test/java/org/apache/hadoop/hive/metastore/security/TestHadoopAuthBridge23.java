@@ -252,7 +252,7 @@ public class TestHadoopAuthBridge23 {
     String tokenStrForm = proxyUserUgi.doAs(new PrivilegedExceptionAction<String>() {
       public String run() throws Exception {
         try {
-          //Since the user running the test won't belong to a non-existent group
+          //Since the user running the test won't belong to a nonexistent group
           //foo_bar_group, the call to getDelegationTokenStr will fail
           return getDelegationTokenStr(delegationTokenUser, proxyUserUgi);
         } catch (AuthorizationException ae) {

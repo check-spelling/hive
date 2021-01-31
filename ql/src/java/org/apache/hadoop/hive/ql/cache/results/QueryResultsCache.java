@@ -371,7 +371,7 @@ public final class QueryResultsCache {
     FsPermission fsPermission = new FsPermission("700");
     fs.mkdirs(cacheDirPath, fsPermission);
 
-    // Create non-existent path for 0-row results
+    // Create nonexistent path for 0-row results
     zeroRowsPath = new Path(cacheDirPath, "dummy_zero_rows");
 
     // Results cache directory should be cleaned up at process termination.

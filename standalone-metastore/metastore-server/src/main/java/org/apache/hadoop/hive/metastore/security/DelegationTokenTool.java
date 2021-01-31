@@ -86,7 +86,7 @@ public class DelegationTokenTool extends Configured implements Tool {
 
     CommandLine commandLine = new GnuParser().parse(options,
         args,
-        false // Stop on non-existent option.
+        false // Stop on nonexistent option.
     );
 
     if (commandLine.hasOption("confLocation")) {
