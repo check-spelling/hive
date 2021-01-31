@@ -1519,7 +1519,7 @@ public class SharedCache {
         cacheLock.writeLock().lock();
         // Since we allow write operations on cache while prewarm is happening:
         // 1. Don't add databases that were deleted while we were preparing list for prewarm
-        // 2. Skip overwriting exisiting db object
+        // 2. Skip overwriting existing db object
         // (which is present because it was added after prewarm started)
         if (catalogsDeletedDuringPrewarm.contains(catCopy.getName())) {
           continue;
@@ -1622,7 +1622,7 @@ public class SharedCache {
         cacheLock.writeLock().lock();
         // Since we allow write operations on cache while prewarm is happening:
         // 1. Don't add databases that were deleted while we were preparing list for prewarm
-        // 2. Skip overwriting exisiting db object
+        // 2. Skip overwriting existing db object
         // (which is present because it was added after prewarm started)
         String key = CacheUtils.buildDbKey(dbCopy.getCatalogName().toLowerCase(), dbCopy.getName().toLowerCase());
         if (databasesDeletedDuringPrewarm.contains(key)) {
