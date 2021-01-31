@@ -516,7 +516,7 @@ public class TestCommands {
 
   @Test
   public void testNoopReplEximCommands() throws Exception {
-    // repl noop export on non-existant table, has repl.noop, does not error
+    // repl noop export on nonexistent table, has repl.noop, does not error
     // import repl noop dump, no error
 
     int evid = 333;

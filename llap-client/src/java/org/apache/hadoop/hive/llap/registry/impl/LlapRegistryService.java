@@ -132,7 +132,7 @@ public class LlapRegistryService extends AbstractService {
     if (this.registry != null) {
       this.registry.stop();
     } else {
-      LOG.warn("Stopping non-existent registry service");
+      LOG.warn("Stopping nonexistent registry service");
     }
   }
 

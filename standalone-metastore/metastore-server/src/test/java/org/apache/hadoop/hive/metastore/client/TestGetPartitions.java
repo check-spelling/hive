@@ -212,7 +212,7 @@ public class TestGetPartitions extends MetaStoreClientTest {
   }
 
   @Test(expected = NoSuchObjectException.class)
-  public void testGetPartitionNonexistingPart() throws Exception {
+  public void testGetPartitionNonexistentPart() throws Exception {
     createTable3PartCols1Part(client);
     client.getPartition(DB_NAME, TABLE_NAME, "yyyy=1997/mm=05/dd=99");
   }

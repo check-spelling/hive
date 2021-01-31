@@ -112,7 +112,7 @@ public class JsonReporter extends ScheduledReporter {
     if (!metricsDir.toFile().exists()) {
       LOG.warn("Metrics directory {} does not exist, creating one", metricsDir);
       try {
-        // createDirectories creates all non-existent parent directories
+        // createDirectories creates all nonexistent parent directories
         Files.createDirectories(metricsDir, DIR_ATTRS);
       } catch (IOException e) {
         LOG.warn("Failed to initialize JSON reporter: failed to create directory {}: {}", metricsDir, e.getMessage());

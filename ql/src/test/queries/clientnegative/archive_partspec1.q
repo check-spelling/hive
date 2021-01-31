@@ -7,4 +7,4 @@ CREATE TABLE srcpart_archived LIKE srcpart;
 INSERT OVERWRITE TABLE srcpart_archived PARTITION (ds='2008-04-08', hr='12')
 SELECT key, value FROM srcpart WHERE ds='2008-04-08' AND hr='12';
 
-ALTER TABLE srcpart_archived ARCHIVE PARTITION (ds='2008-04-08', nonexistingpart='12');
+ALTER TABLE srcpart_archived ARCHIVE PARTITION (ds='2008-04-08', nonexistentpart='12');

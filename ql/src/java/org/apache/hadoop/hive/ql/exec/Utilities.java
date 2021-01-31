@@ -3573,7 +3573,7 @@ public final class Utilities {
         }
       }
 
-      // If the query references non-existent partitions
+      // If the query references nonexistent partitions
       // We need to add a empty file, it is not acceptable to change the
       // operator tree
       // Consider the query:

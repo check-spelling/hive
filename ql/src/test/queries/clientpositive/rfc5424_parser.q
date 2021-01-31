@@ -68,7 +68,7 @@ select count(*) from logs2 where severity="INFO" and dt='2019-11-23';
 select count(*) from logs2 where severity="INFO" and ns='bar';
 select count(*) from logs2 where severity="INFO";
 select count(*) from logs2 where severity="INFO" and app='hs2';
-select count(*) from logs2 where severity="INFO" and app='non-existent';
+select count(*) from logs2 where severity="INFO" and app='nonexistent';
 select count(*) from logs2 where ns='foo';
 select count(*) from logs2 where ns='bar';
 select count(*) from logs2 where unmatched is null and dt between '2019-01-03' and '2019-11-23';

@@ -133,7 +133,7 @@ public class HdfsUtils {
       HdfsAdmin hdfsAdmin = new HdfsAdmin(fsUri, conf);
       return (hdfsAdmin.getEncryptionZoneForPath(fullPath) != null);
     } catch (FileNotFoundException fnfe) {
-      LOG.debug("Failed to get EZ for non-existent path: "+ fullPath, fnfe);
+      LOG.debug("Failed to get EZ for nonexistent path: "+ fullPath, fnfe);
       return false;
     }
   }

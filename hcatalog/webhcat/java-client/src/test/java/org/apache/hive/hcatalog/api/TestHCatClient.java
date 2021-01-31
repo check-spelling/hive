@@ -493,7 +493,7 @@ public class TestHCatClient {
       HCatCreateTableDesc tableDesc = HCatCreateTableDesc
         .create(null, tableName, cols).fileFormat("rcfile").build();
       client.createTable(tableDesc);
-      // The DB foo is non-existent.
+      // The DB foo is nonexistent.
       client.getTable("foo", tableName);
     } catch (Exception exp) {
       isExceptionCaught = true;
@@ -569,7 +569,7 @@ public class TestHCatClient {
       String tableName = "testObjectNotFoundException_TableName";
       client.dropDatabase(dbName, true, HCatClient.DropDBMode.CASCADE);
 
-      try {    // Test that fetching a non-existent db-name yields ObjectNotFound.
+      try {    // Test that fetching a nonexistent db-name yields ObjectNotFound.
         client.getDatabase(dbName);
         assertTrue("Expected ObjectNotFoundException.", false);
       } catch(Exception exception) {
@@ -580,7 +580,7 @@ public class TestHCatClient {
 
       client.createDatabase(HCatCreateDBDesc.create(dbName).build());
 
-      try {   // Test that fetching a non-existent table-name yields ObjectNotFound.
+      try {   // Test that fetching a nonexistent table-name yields ObjectNotFound.
         client.getTable(dbName, tableName);
         assertTrue("Expected ObjectNotFoundException.", false);
       } catch(Exception exception) {
@@ -601,7 +601,7 @@ public class TestHCatClient {
 
       Map<String, String> partitionSpec = new HashMap<String, String>();
       partitionSpec.put(partitionColumn, "foobar");
-      try {  // Test that fetching a non-existent partition yields ObjectNotFound.
+      try {  // Test that fetching a nonexistent partition yields ObjectNotFound.
         client.getPartition(dbName, tableName, partitionSpec);
         assertTrue("Expected ObjectNotFoundException.", false);
       } catch(Exception exception) {

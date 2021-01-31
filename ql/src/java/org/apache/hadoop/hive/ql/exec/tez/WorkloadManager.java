@@ -2133,7 +2133,7 @@ public class WorkloadManager extends TezSessionPoolSession.AbstractTriggerValida
     UserPoolMapping mapping = userPoolMapping;
     if (mapping != null) {
       // Don't pass in the pool set - not thread safe; if the user is trying to force us to
-      // use a non-existent pool, we want to fail anyway. We will fail later during get.
+      // use a nonexistent pool, we want to fail anyway. We will fail later during get.
       String mappedPool = mapping.mapSessionToPoolName(input, allowAnyPool, null);
       LOG.info("Mapping input: {} mapped to pool: {}", input, mappedPool);
       return true;

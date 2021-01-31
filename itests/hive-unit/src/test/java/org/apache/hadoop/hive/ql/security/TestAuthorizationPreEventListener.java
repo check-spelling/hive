@@ -277,7 +277,7 @@ public class TestAuthorizationPreEventListener {
 
     validateDropTable(tbl, tableFromDropTableEvent);
 
-    // verify that we can create a table with IF/OF to some custom non-existent format
+    // verify that we can create a table with IF/OF to some custom nonexistent format
     Table tCustom = tbl.deepCopy();
     tCustom.getSd().setInputFormat("org.apache.hive.dummy.DoesNotExistInputFormat");
     tCustom.getSd().setOutputFormat("org.apache.hive.dummy.DoesNotExistOutputFormat");

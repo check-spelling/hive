@@ -287,14 +287,14 @@ public class TestAddPartitions extends MetaStoreClientTest {
   @Test(expected = InvalidObjectException.class)
   public void testAddPartitionNonExistingDb() throws Exception {
 
-    Partition partition = buildPartition("nonexistingdb", TABLE_NAME, DEFAULT_YEAR_VALUE);
+    Partition partition = buildPartition("nonexistentdb", TABLE_NAME, DEFAULT_YEAR_VALUE);
     client.add_partition(partition);
   }
 
   @Test(expected = InvalidObjectException.class)
   public void testAddPartitionNonExistingTable() throws Exception {
 
-    Partition partition = buildPartition(DB_NAME, "nonexistingtable", DEFAULT_YEAR_VALUE);
+    Partition partition = buildPartition(DB_NAME, "nonexistenttable", DEFAULT_YEAR_VALUE);
     client.add_partition(partition);
   }
 
@@ -927,7 +927,7 @@ public class TestAddPartitions extends MetaStoreClientTest {
 
     createTable();
     Partition partition1 = buildPartition(DB_NAME, TABLE_NAME, "2016");
-    Partition partition2 = buildPartition(DB_NAME, "nonexistingtable", "2017");
+    Partition partition2 = buildPartition(DB_NAME, "nonexistenttable", "2017");
 
     List<Partition> partitions = new ArrayList<>();
     partitions.add(partition1);
@@ -939,7 +939,7 @@ public class TestAddPartitions extends MetaStoreClientTest {
   public void testAddPartitionsNonExistingDb() throws Exception {
 
     createTable();
-    Partition partition1 = buildPartition("nonexistingdb", TABLE_NAME, "2017");
+    Partition partition1 = buildPartition("nonexistentdb", TABLE_NAME, "2017");
     Partition partition2 = buildPartition(DB_NAME, TABLE_NAME, "2016");
 
     List<Partition> partitions = new ArrayList<>();

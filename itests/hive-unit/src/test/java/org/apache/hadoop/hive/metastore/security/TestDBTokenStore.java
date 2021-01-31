@@ -53,8 +53,8 @@ public class TestDBTokenStore {
     assertEquals(0, ts.getMasterKeys().length);
     assertEquals(false,ts.removeMasterKey(-1));
     try{
-      ts.updateMasterKey(-1, "non-existent-key");
-      fail("Updated non-existent key.");
+      ts.updateMasterKey(-1, "nonexistent-key");
+      fail("Updated nonexistent key.");
     } catch (TokenStoreException e) {
       assertTrue(e.getCause() instanceof NoSuchObjectException);
     }

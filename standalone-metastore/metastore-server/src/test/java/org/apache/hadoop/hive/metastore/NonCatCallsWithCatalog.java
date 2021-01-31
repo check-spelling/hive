@@ -431,7 +431,7 @@ public abstract class NonCatCallsWithCatalog {
     Assert.assertEquals(tableNames[3], fetchedNames.get(0));
 
     Assert.assertTrue("Table exists", client.tableExists(dbName, tableNames[0]));
-    Assert.assertFalse("Table not exists", client.tableExists(dbName, "non_existing_table"));
+    Assert.assertFalse("Table not exists", client.tableExists(dbName, "nonexistent_table"));
   }
 
   @Test
