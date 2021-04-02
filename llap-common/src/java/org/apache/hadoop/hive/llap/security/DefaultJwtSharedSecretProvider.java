@@ -79,9 +79,9 @@ public class DefaultJwtSharedSecretProvider implements JwtSecretProvider {
       sharedSecretBytes = new byte[bb.remaining()];
       bb.get(sharedSecretBytes);
     } else {
-      String sharedSecredFromEnv = System.getenv(LLAP_EXTERNAL_CLIENT_CLOUD_JWT_SHARED_SECRET_ENV_VAR);
-      if (StringUtils.isNotBlank(sharedSecredFromEnv)) {
-        sharedSecretBytes = sharedSecredFromEnv.getBytes();
+      String sharedSecretFromEnv = System.getenv(LLAP_EXTERNAL_CLIENT_CLOUD_JWT_SHARED_SECRET_ENV_VAR);
+      if (StringUtils.isNotBlank(sharedSecretFromEnv)) {
+        sharedSecretBytes = sharedSecretFromEnv.getBytes();
       }
     }
 
