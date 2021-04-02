@@ -523,7 +523,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17748] - ReplCopyTask doesn't support multi-file CopyWork
     * [HIVE-17750] - add a flag to automatically create most tables as MM 
     * [HIVE-17756] - Enable subquery related Qtests for Hive on Spark
-    * [HIVE-17757] - REPL LOAD need to use customised configurations to execute distcp/remote copy.
+    * [HIVE-17757] - REPL LOAD need to use customized configurations to execute distcp/remote copy.
     * [HIVE-17771] - Implement commands to manage resource plan
     * [HIVE-17778] - Add support for custom counters in trigger expression
     * [HIVE-17809] - Implement per pool trigger validation and move sessions across pools
