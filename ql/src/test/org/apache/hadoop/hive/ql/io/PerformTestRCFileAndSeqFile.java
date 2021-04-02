@@ -76,7 +76,7 @@ public class PerformTestRCFileAndSeqFile {
     System.out.println("SequenceFile:" + testSeqFile.toString());
   }
 
-  private void writeSeqenceFileTest(FileSystem fs, int rowCount, Path file,
+  private void writeSequenceFileTest(FileSystem fs, int rowCount, Path file,
       int columnNum, CompressionCodec codec) throws IOException {
 
     byte[][] columnRandom;
@@ -212,7 +212,7 @@ public class PerformTestRCFileAndSeqFile {
 
     // sequence file write
     start = System.currentTimeMillis();
-    writeSeqenceFileTest(fs, rowCount, testSeqFile, columnNum, codec);
+    writeSequenceFileTest(fs, rowCount, testSeqFile, columnNum, codec);
     cost = System.currentTimeMillis() - start;
     fileLen = fs.getFileStatus(testSeqFile).getLen();
     System.out.println("Write SequenceFile with " + columnNum
