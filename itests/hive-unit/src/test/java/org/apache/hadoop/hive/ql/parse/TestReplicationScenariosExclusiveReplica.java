@@ -719,7 +719,7 @@ public class TestReplicationScenariosExclusiveReplica extends BaseReplicationAcr
     verifyTableLocations(srcDb, replDatabase, listOfTables, replaceCustPath);
   }
 
-  private void verifyTableLocations(String srcDb, Database replDb, List<String> tables, boolean customLocOntgt)
+  private void verifyTableLocations(String srcDb, Database replDb, List<String> tables, boolean customLocOnTgt)
           throws Exception {
     String tgtExtBase = replica.getConf().get(HiveConf.ConfVars.REPL_EXTERNAL_TABLE_BASE_DIR.varname);
     for (String tname: tables) {
@@ -729,7 +729,7 @@ public class TestReplicationScenariosExclusiveReplica extends BaseReplicationAcr
         Assert.assertEquals(new Path(table.getSd().getLocation()), new Path(tgtExtBase, pathOnSrc.substring(1)));
       } else {
         //Managed Table case
-        Path tblPathOnTgt  = customLocOntgt
+        Path tblPathOnTgt  = customLocOnTgt
                 ? new Path(replDb.getManagedLocationUri(), tname)
                 : new Path(replica.warehouseRoot, replicatedDbName.toLowerCase()  + ".db" + "/" + tname );
         Assert.assertEquals(new Path(table.getSd().getLocation()), tblPathOnTgt);
