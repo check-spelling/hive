@@ -191,7 +191,7 @@ public class HiveIcebergTestUtils {
   }
 
   /**
-   * Check if 2 Iceberg records are the same or not. Compares OffsetDateTimes only by the Intant they represent.
+   * Check if 2 Iceberg records are the same or not. Compares OffsetDateTimes only by the Instant they represent.
    * @param expected The expected record
    * @param actual The actual record
    */
