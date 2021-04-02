@@ -268,7 +268,7 @@ public class TestHiveMetaTool {
     //          ../ext/dir1/dir2/dir3 - 2 partitions of table1, 1 partition of table2, table loc of table3 with 0 partitions.
     //          ../ext    - partitions of table3
     // expected output : [../ext/t1, ../ext/t2, ../ext/dir1/dir2/dir3/t1_parts (2 partitions), ../ext/dir1/dir2/dir3/t2_parts(2 partitions),
-    //                     .../ext/dir1/dir2/dir3/t3 (0 parittions), ../ext/t3_parts (1 partition) ]
+    //                     .../ext/dir1/dir2/dir3/t3 (0 partitions), ../ext/t3_parts (1 partition) ]
     //                   Doesn't contain default database location as there are no entities in default location in this case,
     //                   all data is under some custom location (../ext)
     runStatementOnDriver("drop table ext");

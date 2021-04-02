@@ -1103,7 +1103,7 @@ public interface IMetaStoreClient {
       throws MetaException, UnknownTableException, NoSuchObjectException, TException;
 
   /**
-   * Get a list of partittions for a table.
+   * Get a list of partitions for a table.
    * @param db_name database name
    * @param tbl_name table name
    * @param max_parts maximum number of parts to return, -1 for all
@@ -1116,7 +1116,7 @@ public interface IMetaStoreClient {
       throws NoSuchObjectException, MetaException, TException;
 
   /**
-   * Get a list of partittions for a table.
+   * Get a list of partitions for a table.
    * @param catName catalog name
    * @param db_name database name
    * @param tbl_name table name

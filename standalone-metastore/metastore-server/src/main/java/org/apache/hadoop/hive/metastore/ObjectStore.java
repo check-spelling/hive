@@ -3028,19 +3028,19 @@ public class ObjectStore implements RawStore, Configurable {
   @Override
   public List<String> listPartitionNames(String catName, String dbName, String tableName,
       short max) throws MetaException {
-    List<String> pns = null;
+    List<String> partitions = null;
     boolean success = false;
     try {
       openTransaction();
       LOG.debug("Executing getPartitionNames");
-      pns = getPartitionNamesNoTxn(catName, dbName, tableName, max);
+      partitions = getPartitionNamesNoTxn(catName, dbName, tableName, max);
       success = commitTransaction();
     } finally {
       if (!success) {
         rollbackTransaction();
       }
     }
-    return pns;
+    return partitions;
   }
 
   @Override
@@ -3399,9 +3399,9 @@ public class ObjectStore implements RawStore, Configurable {
   }
 
   private List<String> getPartitionNamesNoTxn(String catName, String dbName, String tableName, short max) {
-    List<String> pns = new ArrayList<>();
+    List<String> partitions = new ArrayList<>();
     if (max == 0) {
-      return pns;
+      return partitions;
     }
     catName = normalizeIdentifier(catName);
     dbName = normalizeIdentifier(dbName);
@@ -3417,11 +3417,11 @@ public class ObjectStore implements RawStore, Configurable {
       query.setRange(0, max);
     }
     Collection<String> names = (Collection<String>) query.execute(dbName, tableName, catName);
-    pns.addAll(names);
+    partitions.addAll(names);
 
     query.closeAll();
 
-    return pns;
+    return partitions;
   }
 
   /**
