@@ -51,7 +51,7 @@ public class DoNothingTCPServerExtension implements ParameterResolver, AfterEach
       servers.add(server);
       return server;
     } catch (IOException e) {
-      throw new ParameterResolutionException("Problem when initialising the server; see cause for details.", e);
+      throw new ParameterResolutionException("Problem when initializing the server; see cause for details.", e);
     }
   }
 
