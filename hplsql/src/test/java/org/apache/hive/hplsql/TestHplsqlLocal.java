@@ -450,7 +450,7 @@ public class TestHplsqlLocal {
 
   @Test
   public void testPrecedence() throws Exception {
-    run("preced");
+    run("precede");
   }
 
   @Test
