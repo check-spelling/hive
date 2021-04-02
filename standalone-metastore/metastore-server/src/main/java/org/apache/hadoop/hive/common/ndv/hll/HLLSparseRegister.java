@@ -124,7 +124,7 @@ public class HLLSparseRegister implements HLLRegister {
    * q' - q' bits after p' are left as such from the hashcode if b = 0 else
    *      q' bits encodes the longest trailing zero runs from in (w-p) input bits
    * b  - 0 if longest trailing zero run is contained within (p'-p) bits
-   *      1 if longest trailing zero run is computeed from (w-p) input bits and
+   *      1 if longest trailing zero run is computed from (w-p) input bits and
    *      its value is stored in q' bits
    * </pre>
    * @param hashcode
