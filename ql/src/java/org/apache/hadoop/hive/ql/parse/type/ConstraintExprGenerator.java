@@ -165,7 +165,7 @@ class ConstraintExprGenerator<T> {
       colIdx = 1;
     }
     for (FieldSchema fs : tbl.getCols()) {
-      // since SQL is case insenstive just to make sure that the comparison b/w column names
+      // since SQL is case insensitive just to make sure that the comparison b/w column names
       // and check expression's column reference work convert the key to lower case
       col2Cols.put(fs.getName().toLowerCase(), inputColInfos.get(colIdx).getInternalName());
       colIdx++;

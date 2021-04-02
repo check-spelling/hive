@@ -133,7 +133,7 @@ public class TestAlterPartitions extends MetaStoreClientTest {
   }
 
   protected Table createTestTable(IMetaStoreClient client, String dbName, String tableName,
-                                       List<String> partCols, boolean setPartitionLevelPrivilages)
+                                       List<String> partCols, boolean setPartitionLevelPrivileges)
           throws Exception {
     TableBuilder builder = new TableBuilder()
             .setDbName(dbName)
@@ -144,7 +144,7 @@ public class TestAlterPartitions extends MetaStoreClientTest {
     partCols.forEach(col -> builder.addPartCol(col, "string"));
     Table table = builder.build(metaStore.getConf());
 
-    if (setPartitionLevelPrivilages) {
+    if (setPartitionLevelPrivileges) {
       table.putToParameters("PARTITION_LEVEL_PRIVILEGE", "true");
     }
 

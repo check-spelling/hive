@@ -344,7 +344,7 @@ public class HiveMetaStoreClientPreCatalog implements IMetaStoreClient, AutoClos
       String newVar = MetastoreConf.getAsString(conf, oneVar);
       if (oldVar == null ||
           (oneVar.isCaseSensitive() ? !oldVar.equals(newVar) : !oldVar.equalsIgnoreCase(newVar))) {
-        LOG.info("Mestastore configuration " + oneVar.toString() +
+        LOG.info("Metastore configuration " + oneVar.toString() +
             " changed from " + oldVar + " to " + newVar);
         compatible = false;
       }
@@ -607,7 +607,7 @@ public class HiveMetaStoreClientPreCatalog implements IMetaStoreClient, AutoClos
     } catch (TException e) {
       LOG.debug("Unable to shutdown metastore client. Will try closing transport directly.", e);
     }
-    // Transport would have got closed via client.shutdown(), so we dont need this, but
+    // Transport would have got closed via client.shutdown(), so we don't need this, but
     // just in case, we make this call.
     if ((transport != null) && transport.isOpen()) {
       transport.close();
@@ -2147,8 +2147,8 @@ public class HiveMetaStoreClientPreCatalog implements IMetaStoreClient, AutoClos
 
   @Override
   public GetRoleGrantsForPrincipalResponse get_role_grants_for_principal(
-      GetRoleGrantsForPrincipalRequest getRolePrincReq) throws MetaException, TException {
-    return client.get_role_grants_for_principal(getRolePrincReq);
+      GetRoleGrantsForPrincipalRequest getRolePrincipalReq) throws MetaException, TException {
+    return client.get_role_grants_for_principal(getRolePrincipalReq);
   }
 
   @Override
@@ -3076,7 +3076,7 @@ public class HiveMetaStoreClientPreCatalog implements IMetaStoreClient, AutoClos
   @Override
   public List<WMTrigger> getTriggersForResourcePlan(String resourcePlan, String ns)
       throws NoSuchObjectException, MetaException, TException {
-    WMGetTriggersForResourePlanRequest request = new WMGetTriggersForResourePlanRequest();
+    WMGetTriggersForResourcePlanRequest request = new WMGetTriggersForResourcePlanRequest();
     request.setResourcePlanName(resourcePlan);
     request.setNs(ns);
     return client.get_triggers_for_resourceplan(request).getTriggers();

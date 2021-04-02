@@ -13,7 +13,7 @@ select 1 + 1 || 1 + 1;
 select 9 + 9 || 9 + 9;
 select 1 + 1 || 1 + 1 || 1 + 1;
 
--- || has higher precedence than bitwise ops...so () is neccessary
+-- || has higher precedence than bitwise ops...so () is necessary
 select '1' || 4 / 2 || 1 + 2 * 1 || (6 & 4) || (1 | 4);
 
 -- however ^ is different from the other bitwise ops:

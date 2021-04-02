@@ -383,14 +383,14 @@ public class EximUtil {
 
   private static void updateIfCustomDbLocations(Database database, Configuration conf) throws SemanticException {
     try {
-      String whLocatoion = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.WAREHOUSE_EXTERNAL,
+      String whLocation = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.WAREHOUSE_EXTERNAL,
               MetastoreConf.getVar(conf, MetastoreConf.ConfVars.WAREHOUSE));
-      Path dbDerivedLoc = new Path(whLocatoion, database.getName().toLowerCase() + DATABASE_PATH_SUFFIX);
+      Path dbDerivedLoc = new Path(whLocation, database.getName().toLowerCase() + DATABASE_PATH_SUFFIX);
       String defaultDbLoc = Utilities.getQualifiedPath((HiveConf) conf, dbDerivedLoc);
       database.getParameters().put(ReplUtils.REPL_IS_CUSTOM_DB_LOC,
               Boolean.toString(!defaultDbLoc.equals(database.getLocationUri())));
-      String whManagedLocatoion = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.WAREHOUSE);
-      Path dbDerivedManagedLoc = new Path(whManagedLocatoion, database.getName().toLowerCase()
+      String whManagedLocation = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.WAREHOUSE);
+      Path dbDerivedManagedLoc = new Path(whManagedLocation, database.getName().toLowerCase()
               + DATABASE_PATH_SUFFIX);
       String defaultDbManagedLoc = Utilities.getQualifiedPath((HiveConf) conf, dbDerivedManagedLoc);
       database.getParameters().put(ReplUtils.REPL_IS_CUSTOM_DB_MANAGEDLOC, Boolean.toString(

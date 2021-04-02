@@ -55,7 +55,7 @@ public class SampleHBaseKeyFactory2 extends AbstractHBaseKeyFactory {
 
   @Override
   public LazyObjectBase createKey(ObjectInspector inspector) throws SerDeException {
-    return new FixedLengthed(FIXED_LENGTH);
+    return new FixedLength(FIXED_LENGTH);
   }
 
   private final ByteStream.Output output = new ByteStream.Output();
@@ -195,14 +195,14 @@ public class SampleHBaseKeyFactory2 extends AbstractHBaseKeyFactory {
     return range;
   }
 
-  private static class FixedLengthed implements LazyObjectBase {
+  private static class FixedLength implements LazyObjectBase {
 
     private final int fixedLength;
     private final List<Object> fields = new ArrayList<Object>();
 
     private transient boolean isNull;
 
-    public FixedLengthed(int fixedLength) {
+    public FixedLength(int fixedLength) {
       this.fixedLength = fixedLength;
     }
 
@@ -244,12 +244,12 @@ public class SampleHBaseKeyFactory2 extends AbstractHBaseKeyFactory {
 
     @Override
     public Object getStructFieldData(Object data, StructField fieldRef) {
-      return ((FixedLengthed)data).fields.get(((MyField)fieldRef).getFieldID());
+      return ((FixedLength)data).fields.get(((MyField)fieldRef).getFieldID());
     }
 
     @Override
     public List<Object> getStructFieldsDataAsList(Object data) {
-      return ((FixedLengthed)data).fields;
+      return ((FixedLength)data).fields;
     }
   }
 }

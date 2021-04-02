@@ -61,7 +61,7 @@ public class ParquetRecordReaderBase {
   protected JobConf jobConf;
 
   protected int schemaSize;
-  protected List<BlockMetaData> filtedBlocks;
+  protected List<BlockMetaData> filteredBlocks;
   protected ParquetFileReader reader;
 
   /**
@@ -119,18 +119,18 @@ public class ParquetRecordReaderBase {
 
       FilterCompat.Filter filter = setFilter(jobConf, fileMetaData.getSchema());
       if (filter != null) {
-        filtedBlocks = RowGroupFilter.filterRowGroups(filter, splitGroup, fileMetaData.getSchema());
-        if (filtedBlocks.isEmpty()) {
+        filteredBlocks = RowGroupFilter.filterRowGroups(filter, splitGroup, fileMetaData.getSchema());
+        if (filteredBlocks.isEmpty()) {
           LOG.debug("All row groups are dropped due to filter predicates");
           return null;
         }
 
-        long droppedBlocks = splitGroup.size() - filtedBlocks.size();
+        long droppedBlocks = splitGroup.size() - filteredBlocks.size();
         if (droppedBlocks > 0) {
           LOG.debug("Dropping " + droppedBlocks + " row groups that do not pass filter predicate");
         }
       } else {
-        filtedBlocks = splitGroup;
+        filteredBlocks = splitGroup;
       }
 
       if (HiveConf.getBoolVar(conf, HiveConf.ConfVars.HIVE_PARQUET_TIMESTAMP_SKIP_CONVERSION)) {
@@ -149,7 +149,7 @@ public class ParquetRecordReaderBase {
         splitStart,
         splitLength,
         oldSplit.getLocations(),
-        filtedBlocks,
+        filteredBlocks,
         readContext.getRequestedSchema().toString(),
         fileMetaData.getSchema().toString(),
         fileMetaData.getKeyValueMetaData(),
@@ -190,8 +190,8 @@ public class ParquetRecordReaderBase {
     }
   }
 
-  public List<BlockMetaData> getFiltedBlocks() {
-    return filtedBlocks;
+  public List<BlockMetaData> getFilteredBlocks() {
+    return filteredBlocks;
   }
 
   public SerDeStats getStats() {

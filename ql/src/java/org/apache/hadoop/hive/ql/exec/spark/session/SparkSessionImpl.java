@@ -83,7 +83,7 @@ public class SparkSessionImpl implements SparkSession {
   private static final String UNKNOWN_QUEUE_ERR = "(submitted by user.*to unknown queue:.*)\n";
   private static final String STOPPED_QUEUE_ERR = "(Queue.*is STOPPED)";
   private static final String FULL_QUEUE_ERR = "(Queue.*already has.*applications)";
-  private static final String INVALILD_MEM_ERR =
+  private static final String INVALID_MEM_ERR =
       "(Required executor memory.*is above the max threshold.*) of this";
   private static final String INVALID_CORE_ERR =
       "(initial executor number.*must between min executor.*and max executor number.*)\n";
@@ -251,7 +251,7 @@ public class SparkSessionImpl implements SparkSession {
             .put(UNKNOWN_QUEUE_ERR, Pattern.compile(UNKNOWN_QUEUE_ERR))
             .put(STOPPED_QUEUE_ERR, Pattern.compile(STOPPED_QUEUE_ERR))
             .put(FULL_QUEUE_ERR, Pattern.compile(FULL_QUEUE_ERR))
-            .put(INVALILD_MEM_ERR, Pattern.compile(INVALILD_MEM_ERR))
+            .put(INVALID_MEM_ERR, Pattern.compile(INVALID_MEM_ERR))
             .put(INVALID_CORE_ERR, Pattern.compile(INVALID_CORE_ERR))
             .build()
     );
@@ -276,7 +276,7 @@ public class SparkSessionImpl implements SparkSession {
         } else if (matches(sts, FULL_QUEUE_ERR, matchedString)) {
           return new HiveException(e, ErrorMsg.SPARK_CREATE_CLIENT_QUEUE_FULL, sessionId,
                   matchedString.toString());
-        } else if (matches(sts, INVALILD_MEM_ERR, matchedString) || matches(sts, INVALID_CORE_ERR, matchedString)) {
+        } else if (matches(sts, INVALID_MEM_ERR, matchedString) || matches(sts, INVALID_CORE_ERR, matchedString)) {
           return new HiveException(e, ErrorMsg.SPARK_CREATE_CLIENT_INVALID_RESOURCE_REQUEST,
               sessionId, matchedString.toString());
         } else {

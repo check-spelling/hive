@@ -48,7 +48,7 @@ import com.google.common.collect.ImmutableList;
 public class HiveProject extends Project implements HiveRelNode {
 
   private final List<Integer>        virtualCols;
-  private boolean isSysnthetic;
+  private boolean isSynthetic;
 
   /**
    * Creates a HiveProject.
@@ -186,11 +186,11 @@ public class HiveProject extends Project implements HiveRelNode {
   // TODO: this should come through RelBuilder to the constructor as opposed to
   // set method. This requires calcite change
   public void setSynthetic() {
-    this.isSysnthetic = true;
+    this.isSynthetic = true;
   }
 
   public boolean isSynthetic() {
-    return isSysnthetic;
+    return isSynthetic;
   }
 
   //required for HiveRelDecorrelator

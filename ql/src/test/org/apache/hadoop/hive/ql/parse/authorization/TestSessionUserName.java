@@ -53,7 +53,7 @@ public class TestSessionUserName {
 
   /**
    * Test if the authorization factory gets the username provided by
-   * the authenticator, if SesstionState is created without username
+   * the authenticator, if SessionState is created without username
    * @throws Exception
    */
   @Test
@@ -113,7 +113,7 @@ public class TestSessionUserName {
 
   /**
    * Get a mocked Hive object that does not create a real meta store client object
-   * This gets rid of the datanucleus initializtion which makes it easier
+   * This gets rid of the datanucleus initialization which makes it easier
    * to run test from IDEs
    * @param hiveConf
    * @throws MetaException

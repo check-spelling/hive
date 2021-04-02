@@ -311,7 +311,7 @@ public class TestAcidUtils {
   }
 
   @Test
-  public void testOverlapingDelta() throws Exception {
+  public void testOverlappingDelta() throws Exception {
     Configuration conf = new Configuration();
     MockFileSystem fs = new MockFileSystem(conf,
         new MockFile("mock:/tbl/part1/delta_0000063_63/bucket_0", 500, new byte[0]),
@@ -331,12 +331,12 @@ public class TestAcidUtils {
     assertEquals(2, obsolete.size());
     assertEquals("mock:/tbl/part1/delta_052_55", obsolete.get(0).toString());
     assertEquals("mock:/tbl/part1/delta_0060_60", obsolete.get(1).toString());
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(4, delts.size());
-    assertEquals("mock:/tbl/part1/delta_40_60", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_00061_61", delts.get(1).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_000062_62", delts.get(2).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_0000063_63", delts.get(3).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(4, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_40_60", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_00061_61", deltas.get(1).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_000062_62", deltas.get(2).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_0000063_63", deltas.get(3).getPath().toString());
   }
 
   /**
@@ -344,7 +344,7 @@ public class TestAcidUtils {
    * @throws Exception
    */
   @Test
-  public void testOverlapingDelta2() throws Exception {
+  public void testOverlappingDelta2() throws Exception {
     Configuration conf = new Configuration();
     MockFileSystem fs = new MockFileSystem(conf,
       new MockFile("mock:/tbl/part1/delta_0000063_63_0/bucket_0", 500, new byte[0]),
@@ -371,13 +371,13 @@ public class TestAcidUtils {
     assertEquals("mock:/tbl/part1/delta_0060_60_1", obsolete.get(2).toString());
     assertEquals("mock:/tbl/part1/delta_0060_60_4", obsolete.get(3).toString());
     assertEquals("mock:/tbl/part1/delta_0060_60_7", obsolete.get(4).toString());
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(5, delts.size());
-    assertEquals("mock:/tbl/part1/delta_40_60", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_00061_61_0", delts.get(1).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_000062_62_0", delts.get(2).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_000062_62_3", delts.get(3).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_0000063_63_0", delts.get(4).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(5, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_40_60", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_00061_61_0", deltas.get(1).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_000062_62_0", deltas.get(2).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_000062_62_3", deltas.get(3).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_0000063_63_0", deltas.get(4).getPath().toString());
   }
 
   @Test
@@ -392,10 +392,10 @@ public class TestAcidUtils {
         new ValidReadTxnList(new long[] {50}, new BitSet(), 1000, 55).writeToString());
     AcidDirectory dir = AcidUtils.getAcidState(fs, part, conf, new ValidReaderWriteIdList("tbl:100:4:4"), null,
         false);
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(2, delts.size());
-    assertEquals("mock:/tbl/part1/delta_1_1", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_2_5", delts.get(1).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(2, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_1_1", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_2_5", deltas.get(1).getPath().toString());
   }
 
   /**
@@ -417,10 +417,10 @@ public class TestAcidUtils {
         new ValidReadTxnList(new long[] {50}, new BitSet(), 1000, 55).writeToString());
     AcidDirectory dir = AcidUtils.getAcidState(fs, part, conf, new ValidReaderWriteIdList("tbl:100:4:4"), null,
         false);
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(2, delts.size());
-    assertEquals("mock:/tbl/part1/delta_1_1", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_2_5", delts.get(1).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(2, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_1_1", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_2_5", deltas.get(1).getPath().toString());
   }
 
   @Test
@@ -434,9 +434,9 @@ public class TestAcidUtils {
         new ValidReadTxnList(new long[0], new BitSet(), 1000, Long.MAX_VALUE).writeToString());
     AcidDirectory dir = AcidUtils.getAcidState(fs, part, conf, new ValidCompactorWriteIdList("tbl:4:"
         + Long.MAX_VALUE), null, false);
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(1, delts.size());
-    assertEquals("mock:/tbl/part1/delta_1_1", delts.get(0).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(1, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_1_1", deltas.get(0).getPath().toString());
   }
 
   @Test
@@ -453,9 +453,9 @@ public class TestAcidUtils {
         new ValidReadTxnList(new long[0], new BitSet(), 1000, Long.MAX_VALUE).writeToString());
     AcidDirectory dir = AcidUtils.getAcidState(fs, part, conf, new ValidCompactorWriteIdList("tbl:3:"
         + Long.MAX_VALUE), null, false);
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(1, delts.size());
-    assertEquals("mock:/tbl/part1/delta_1_1", delts.get(0).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(1, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_1_1", deltas.get(0).getPath().toString());
   }
 
   @Test
@@ -502,7 +502,7 @@ public class TestAcidUtils {
   }
 
   @Test
-  public void testOverlapingDeltaAndDeleteDelta() throws Exception {
+  public void testOverlappingDeltaAndDeleteDelta() throws Exception {
     Configuration conf = new Configuration();
     conf.setInt(HiveConf.ConfVars.HIVE_TXN_OPERATIONAL_PROPERTIES.varname,
         AcidOperationalProperties.getDefault().toInt());
@@ -528,18 +528,18 @@ public class TestAcidUtils {
     assertEquals("mock:/tbl/part1/delete_delta_052_55", obsolete.get(0).toString());
     assertEquals("mock:/tbl/part1/delta_052_55", obsolete.get(1).toString());
     assertEquals("mock:/tbl/part1/delta_0060_60", obsolete.get(2).toString());
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(6, delts.size());
-    assertEquals("mock:/tbl/part1/delete_delta_40_60", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_40_60", delts.get(1).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_00061_61", delts.get(2).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_000062_62", delts.get(3).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_0000063_63", delts.get(4).getPath().toString());
-    assertEquals("mock:/tbl/part1/delete_delta_00064_64", delts.get(5).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(6, deltas.size());
+    assertEquals("mock:/tbl/part1/delete_delta_40_60", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_40_60", deltas.get(1).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_00061_61", deltas.get(2).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_000062_62", deltas.get(3).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_0000063_63", deltas.get(4).getPath().toString());
+    assertEquals("mock:/tbl/part1/delete_delta_00064_64", deltas.get(5).getPath().toString());
   }
 
   @Test
-  public void testMinorCompactedDeltaMakesInBetweenDelteDeltaObsolete() throws Exception {
+  public void testMinorCompactedDeltaMakesInBetweenDeleteDeltaObsolete() throws Exception {
     // This test checks that if we have a minor compacted delta for the txn range [40,60]
     // then it will make any delete delta in that range as obsolete.
     Configuration conf = new Configuration();
@@ -556,9 +556,9 @@ public class TestAcidUtils {
     List<Path> obsolete = dir.getObsolete();
     assertEquals(1, obsolete.size());
     assertEquals("mock:/tbl/part1/delete_delta_50_50", obsolete.get(0).toString());
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(1, delts.size());
-    assertEquals("mock:/tbl/part1/delta_40_60", delts.get(0).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(1, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_40_60", deltas.get(0).getPath().toString());
   }
 
   @Test
@@ -582,10 +582,10 @@ public class TestAcidUtils {
         new ValidReadTxnList(new long[0], new BitSet(), 1000, Long.MAX_VALUE).writeToString());
     AcidDirectory dir = AcidUtils.getAcidState(fs, part, conf, new ValidCompactorWriteIdList("tbl:4:"
         + Long.MAX_VALUE + ":"), null, false);
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(2, delts.size());
-    assertEquals("mock:/tbl/part1/delta_1_1", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delete_delta_2_2", delts.get(1).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(2, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_1_1", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delete_delta_2_2", deltas.get(1).getPath().toString());
   }
 
   @Test
@@ -607,11 +607,11 @@ public class TestAcidUtils {
         new ValidReadTxnList(new long[] {50}, new BitSet(), 1000, 55).writeToString());
     AcidDirectory dir = AcidUtils.getAcidState(fs, part, conf, new ValidReaderWriteIdList("tbl:100:4:4"), null,
         false);
-    List<AcidUtils.ParsedDelta> delts = dir.getCurrentDirectories();
-    assertEquals(3, delts.size());
-    assertEquals("mock:/tbl/part1/delta_1_1", delts.get(0).getPath().toString());
-    assertEquals("mock:/tbl/part1/delete_delta_2_5", delts.get(1).getPath().toString());
-    assertEquals("mock:/tbl/part1/delta_2_5", delts.get(2).getPath().toString());
+    List<AcidUtils.ParsedDelta> deltas = dir.getCurrentDirectories();
+    assertEquals(3, deltas.size());
+    assertEquals("mock:/tbl/part1/delta_1_1", deltas.get(0).getPath().toString());
+    assertEquals("mock:/tbl/part1/delete_delta_2_5", deltas.get(1).getPath().toString());
+    assertEquals("mock:/tbl/part1/delta_2_5", deltas.get(2).getPath().toString());
     // Note that delete_delta_3_3 should not be read, when a minor compacted
     // [delete_]delta_2_5 is present.
   }

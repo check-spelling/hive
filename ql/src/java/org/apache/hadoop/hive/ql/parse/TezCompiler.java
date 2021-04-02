@@ -1462,7 +1462,7 @@ public class TezCompiler extends TaskCompiler {
 
   /*
    *  The algorithm looks at all the mapjoins in the operator pipeline until
-   *  it hits RS Op and for each mapjoin examines if it has paralllel semijoin
+   *  it hits RS Op and for each mapjoin examines if it has parallel semijoin
    *  edge or dynamic partition pruning.
    *
    *  As an extension, the algorithm also looks for suitable table scan operators that
@@ -1523,16 +1523,16 @@ public class TezCompiler extends TaskCompiler {
       if (probeDecodeMJoins.size() > 0) {
         // When multiple MJ, select one based on a policy
         for (Map.Entry<TableScanOperator, List<MapJoinOperator>> probeTsMap : probeDecodeMJoins.entrySet()){
-          TableScanOperator.ProbeDecodeContext tsCntx = null;
+          TableScanOperator.ProbeDecodeContext tsCntxt = null;
           // Currently supporting: LowestRatio policy
           // TODO: Add more policies and make the selection a conf property
-          tsCntx = selectLowestRatioProbeDecodeMapJoin(probeTsMap.getKey(), probeTsMap.getValue());
-          if (tsCntx != null) {
+          tsCntxt = selectLowestRatioProbeDecodeMapJoin(probeTsMap.getKey(), probeTsMap.getValue());
+          if (tsCntxt != null) {
             LOG.debug("ProbeDecode MJ for TS {}  with CacheKey {} MJ Pos {} ColName {} with Ratio {}",
-                    probeTsMap.getKey().getName(), tsCntx.getMjSmallTableCacheKey(), tsCntx.getMjSmallTablePos(),
-                    tsCntx.getMjBigTableKeyColName(), tsCntx.getKeyRatio());
-            probeTsMap.getKey().setProbeDecodeContext(tsCntx);
-            probeTsMap.getKey().getConf().setProbeDecodeContext(tsCntx);
+                    probeTsMap.getKey().getName(), tsCntxt.getMjSmallTableCacheKey(), tsCntxt.getMjSmallTablePos(),
+                    tsCntxt.getMjBigTableKeyColName(), tsCntxt.getKeyRatio());
+            probeTsMap.getKey().setProbeDecodeContext(tsCntxt);
+            probeTsMap.getKey().getConf().setProbeDecodeContext(tsCntxt);
           }
         }
       }
@@ -1589,7 +1589,7 @@ public class TezCompiler extends TaskCompiler {
       } else if (!TypeInfoUtils.doPrimitiveCategoriesMatch(keyCol.getTypeInfo(), originTSColExpr.getTypeInfo())) {
         // src Col -> HT key Col needs explicit or implicit (Casting) conversion
         // as a result we cannot perform direct lookups on the HT
-        LOG.warn("ProbeDecode origTSCol {} type missmatch mjCol {}", originTSColExpr, keyCol);
+        LOG.warn("ProbeDecode origTSCol {} type mismatch mjCol {}", originTSColExpr, keyCol);
       } else {
         tsProbeDecodeCtx = new TableScanOperator.ProbeDecodeContext(mjCacheKey, mjSmallTablePos,
             originTSColExpr.getColumn(), selectedMJOpRatio);
@@ -1620,10 +1620,10 @@ public class TezCompiler extends TaskCompiler {
       ColStatistics tsStats = tsOp.getStatistics().getColumnStatisticsFromColName(tsKeyCol.getColumn());
 
       if (canUseNDV(mjStats)) {
-        mjKeyCardinality = mjStats.getCountDistint();
+        mjKeyCardinality = mjStats.getCountDistinct();
       }
       if (canUseNDV(tsStats)) {
-        tsKeyCardinality = tsStats.getCountDistint();
+        tsKeyCardinality = tsStats.getCountDistinct();
       }
     }
     return mjKeyCardinality / (double) tsKeyCardinality;
@@ -1642,7 +1642,7 @@ public class TezCompiler extends TaskCompiler {
   }
 
   private static boolean canUseNDV(ColStatistics colStats) {
-    return (colStats != null) && (colStats.getCountDistint() >= 0);
+    return (colStats != null) && (colStats.getCountDistinct() >= 0);
   }
 
   private static double getBloomFilterCost(
@@ -1668,7 +1668,7 @@ public class TezCompiler extends TaskCompiler {
       return -1;
     }
 
-    long selColSourceNdv = canUseNDV(selColSourceStat) ? selColSourceStat.getCountDistint() : -1;
+    long selColSourceNdv = canUseNDV(selColSourceStat) ? selColSourceStat.getCountDistinct() : -1;
     boolean semiJoinKeyIsPK = StatsUtils.inferForeignKey(selColStat, tsColStat);
     if (semiJoinKeyIsPK) {
       // PK/FQ relationship: NDV of selColSourceStat is a superset of what is in tsColStat
@@ -1680,7 +1680,7 @@ public class TezCompiler extends TaskCompiler {
       if (selColSourceNdv >= 0) {
         // If semijoin keys and ts keys completely unrelated, the cardinality of both sets
         // could be obtained by adding both cardinalities. Would there be an average case?
-        keyDomainCardinality = selColSourceNdv + tsColStat.getCountDistint();
+        keyDomainCardinality = selColSourceNdv + tsColStat.getCountDistinct();
 
         // Don't exceed the range if we have one.
         if (StatsUtils.hasDiscreteRange(selColStat)
@@ -1728,7 +1728,7 @@ public class TezCompiler extends TaskCompiler {
       ColStatistics selColStat = selStats.getColumnStatisticsFromColName(selCol.getColumn());
       ColStatistics filColStat = filStats.getColumnStatisticsFromColName(tsCol.getColumn());
       if (canUseNDV(selColStat)) {
-        selKeyCardinality = selColStat.getCountDistint();
+        selKeyCardinality = selColStat.getCountDistinct();
       }
       // Get colstats for the original table column for selCol if possible, this would have
       // more accurate information about the original NDV of the column before any filtering.
@@ -2067,7 +2067,7 @@ public class TezCompiler extends TaskCompiler {
               // No column stats found for semijoin edge
               break;
             }
-            long nDVs = colStatisticsSJ.getCountDistint();
+            long nDVs = colStatisticsSJ.getCountDistinct();
             if (nDVs > 0) {
               // Lookup nDVs on TS side.
               RuntimeValuesInfo rti = procCtx.parseContext
@@ -2087,7 +2087,7 @@ public class TezCompiler extends TaskCompiler {
                 // No column stats found on target
                 break;
               }
-              long nDVsOfTS = colStatisticsTarget.getCountDistint();
+              long nDVsOfTS = colStatisticsTarget.getCountDistinct();
               double nDVsOfTSFactored = nDVsOfTS * procCtx.conf.getFloatVar(
                       ConfVars.TEZ_DYNAMIC_SEMIJOIN_REDUCTION_FOR_DPP_FACTOR);
               if ((long)nDVsOfTSFactored > nDVs) {

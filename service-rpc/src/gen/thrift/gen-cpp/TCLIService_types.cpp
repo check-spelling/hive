@@ -173,7 +173,7 @@ int _kTOperationStateValues[] = {
   TOperationState::CANCELED_STATE,
   TOperationState::CLOSED_STATE,
   TOperationState::ERROR_STATE,
-  TOperationState::UKNOWN_STATE,
+  TOperationState::UNKNOWN_STATE,
   TOperationState::PENDING_STATE,
   TOperationState::TIMEDOUT_STATE
 };
@@ -184,7 +184,7 @@ const char* _kTOperationStateNames[] = {
   "CANCELED_STATE",
   "CLOSED_STATE",
   "ERROR_STATE",
-  "UKNOWN_STATE",
+  "UNKNOWN_STATE",
   "PENDING_STATE",
   "TIMEDOUT_STATE"
 };

@@ -713,7 +713,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
    * Find the key range for original bucket files.
    * For unbucketed tables the insert event data is still written to bucket_N file except that
    * N is just a writer ID - it still matches {@link RecordIdentifier#getBucketProperty()}.  For
-   * 'original' files (ubucketed) the same applies.  A file 000000_0 encodes a taskId/wirterId and
+   * 'original' files (ubucketed) the same applies.  A file 000000_0 encodes a taskId/writerId and
    * at read time we synthesize {@link RecordIdentifier#getBucketProperty()} to match the file name
    * and so the same bucketProperty is used here to create minKey/maxKey, i.e. these keys are valid
    * to filter data from delete_delta files even for unbucketed tables.
@@ -732,7 +732,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
     boolean isTail = true;
     RecordIdentifier minKey = null;
     RecordIdentifier maxKey = null;
-    TransactionMetaData tfp = TransactionMetaData.findWriteIDForSynthetcRowIDs(
+    TransactionMetaData tfp = TransactionMetaData.findWriteIDForSyntheticRowIDs(
       mergerOptions.getBucketPath(), mergerOptions.getRootPath(), conf);
     int bucketProperty = encodeBucketId(conf, bucket, tfp.statementId);
    /**
@@ -740,7 +740,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
     * necessarily match stripe boundary.  So we want to come up with minKey to be one before the 1st
     * row of the first stripe that starts after getOffset() and maxKey to be the last row of the
     * stripe that contains getMaxOffset().  This breaks if getOffset() and getMaxOffset() are inside
-    * the sames tripe - in this case we have minKey & isTail=false but rowLength is never set.
+    * the same tripe - in this case we have minKey & isTail=false but rowLength is never set.
     * (HIVE-16953)
     */
     for(StripeInformation stripe: reader.getStripes()) {
@@ -965,7 +965,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
    *
    * @param conf the configuration
    * @param collapseEvents should the events on the same row be collapsed
-   * @param isOriginal if reading filws w/o acid schema - {@link AcidUtils.AcidBaseFileType#ORIGINAL_BASE}
+   * @param isOriginal if reading files w/o acid schema - {@link AcidUtils.AcidBaseFileType#ORIGINAL_BASE}
    * @param bucket the bucket/writer id of the file we are reading
    * @param options the options to read with
    * @param deltaDirectory the list of delta directories to include
@@ -1076,7 +1076,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
           //if here it's a non-acid schema file - check if from before table was marked transactional
           //or in base_x/delta_x_x from Load Data
           Options readerPairOptions = mergerOptions;
-          TransactionMetaData tfp = TransactionMetaData.findWriteIDForSynthetcRowIDs(
+          TransactionMetaData tfp = TransactionMetaData.findWriteIDForSyntheticRowIDs(
             mergerOptions.getBucketPath(), mergerOptions.getRootPath(), conf);
           if(tfp.syntheticWriteId > 0) {
             readerPairOptions = modifyForNonAcidSchemaRead(mergerOptions,
@@ -1252,7 +1252,7 @@ public class OrcRawRecordMerger implements AcidInputFormat.RawReader<OrcStruct>{
       this.folder = folder;
       this.statementId = statementId;
     }
-    static TransactionMetaData findWriteIDForSynthetcRowIDs(Path splitPath, Path rootPath,
+    static TransactionMetaData findWriteIDForSyntheticRowIDs(Path splitPath, Path rootPath,
       Configuration conf) throws IOException {
       Path parent = splitPath.getParent();
       if(rootPath.equals(parent)) {

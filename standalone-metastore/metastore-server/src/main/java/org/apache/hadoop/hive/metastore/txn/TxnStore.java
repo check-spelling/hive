@@ -199,7 +199,7 @@ public interface TxnStore extends Configurable {
    * @param rqst table for which the maximum writeId is requested
    * @return the maximum allocated writeId
    */
-  MaxAllocatedTableWriteIdResponse getMaxAllocatedTableWrited(MaxAllocatedTableWriteIdRequest rqst)
+  MaxAllocatedTableWriteIdResponse getMaxAllocatedTableWriteId(MaxAllocatedTableWriteIdRequest rqst)
       throws MetaException;
 
   /**
@@ -278,7 +278,7 @@ public interface TxnStore extends Configurable {
 
   /**
    * Heartbeat a group of transactions together
-   * @param rqst set of transactions to heartbat
+   * @param rqst set of transactions to heartbeat
    * @return info on txns that were heartbeated
    * @throws MetaException
    */
@@ -414,7 +414,7 @@ public interface TxnStore extends Configurable {
   void markFailed(CompactionInfo info) throws MetaException;
 
   /**
-   * Clean up entries from TXN_TO_WRITE_ID table less than min_uncommited_txnid as found by
+   * Clean up entries from TXN_TO_WRITE_ID table less than min_uncommitted_txnid as found by
    * min(max(TXNS.txn_id), min(WRITE_SET.WS_COMMIT_ID), min(Aborted TXNS.txn_id)).
    */
   @RetrySemantics.SafeToRetry
@@ -507,7 +507,7 @@ public interface TxnStore extends Configurable {
   MutexAPI getMutexAPI();
 
   /**
-   * This is primarily designed to provide coarse grained mutex support to operations running
+   * This is primarily designed to provide coarse-grained mutex support to operations running
    * inside the Metastore (of which there could be several instances).  The initial goal is to 
    * ensure that various sub-processes of the Compactor don't step on each other.
    * 

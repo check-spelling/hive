@@ -101,7 +101,7 @@ public class TestObjectStoreInitRetry {
     String jdbcUrl = MetastoreConf.getVar(conf, ConfVars.CONNECT_URL_KEY);
     jdbcUrl = jdbcUrl.replace("derby","fderby");
     MetastoreConf.setVar(conf, ConfVars.CONNECT_URL_KEY,jdbcUrl);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     FakeDerby fd = new FakeDerby();
 

@@ -258,7 +258,7 @@ public class BasePartitionEvaluator {
 
     AggregationBuffer aggBuffer = wrappedEvaluator.getNewAggregationBuffer();
     if (isCountEvaluator && parameters == null) {
-      // count(*) specific optimisation, where record count would be equal to itr count
+      // count(*) specific optimization, where record count would be equal to itr count
       // No need to iterate through entire iterator and read rowContainer again
       return ObjectInspectorUtils.copyToStandardObject(new LongWritable(pItr.count()), outputOI);
     }
@@ -438,7 +438,7 @@ public class BasePartitionEvaluator {
   }
 
   /**
-   * The partition evalulator for average function
+   * The partition evaluator for average function
    * @param <ResultType>
    */
   public static abstract class AvgPartitionEvaluator<ResultType extends Writable>
@@ -465,7 +465,7 @@ public class BasePartitionEvaluator {
     }
 
     /**
-     * Calculate the partial result sum + count giving a parition range
+     * Calculate the partial result sum + count giving a partition range
      * @return a 2-element Object array of [count long, sum ResultType]
      */
     private Object[] calcPartialResult(PTFPartitionIterator<Object> pItr, LeadLagInfo leadLagInfo)

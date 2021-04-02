@@ -894,7 +894,7 @@ WHERE    (((cboolean1 IS NOT NULL))
 GROUP BY cboolean1
 ORDER BY cboolean1;
 
--- These tests verify COUNT on empty or null colulmns work correctly.
+-- These tests verify COUNT on empty or null columns work correctly.
 create table test_count(i int) stored as orc;
 
 explain vectorization expression

@@ -161,7 +161,7 @@ public class TransactionBatch extends AbstractStreamingTransaction {
       transactionLock.lock();
       try {
         if (minTxnId.get() > 0) {
-          HeartbeatTxnRangeResponse resp = conn.getHeatbeatMSC().heartbeatTxnRange(minTxnId.get(), maxTxnId);
+          HeartbeatTxnRangeResponse resp = conn.getHeartbeatMSC().heartbeatTxnRange(minTxnId.get(), maxTxnId);
           if (!resp.getAborted().isEmpty() || !resp.getNosuch().isEmpty()) {
             LOG.error("Heartbeat failure: {}", resp.toString());
             isTxnClosed.set(true);

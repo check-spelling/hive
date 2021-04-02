@@ -1011,7 +1011,7 @@ public class DbNotificationListener extends TransactionalMetaStoreEventListener 
       stmt.setLong(1, updatedNLId);
       stmt.setString(2, sequence);
       final int rowCount = stmt.executeUpdate();
-      LOG.debug("Updated {} rows for sequnce {}", rowCount, sequence);
+      LOG.debug("Updated {} rows for sequence {}", rowCount, sequence);
     }
 
     return nextSequenceValue.get();

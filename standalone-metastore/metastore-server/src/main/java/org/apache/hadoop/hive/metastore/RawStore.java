@@ -465,7 +465,7 @@ public interface RawStore extends Configurable {
    * @param dbName database to search in
    * @param pattern pattern to match
    * @param tableType type of table to look for
-   * @param limit Maximum number of tables to return (undeterministic set)
+   * @param limit Maximum number of tables to return (nondeterministic set)
    * @return list of table names, if any
    * @throws MetaException failure in querying the RDBMS
    */
@@ -1455,7 +1455,7 @@ public interface RawStore extends Configurable {
   /**
    * @param fileIds List of file IDs from the filesystem.
    * @param metadata Metadata buffers corresponding to fileIds in the list.
-   * @param type The type; determines the class that can do additiona processing for metadata.
+   * @param type The type; determines the class that can do additional processing for metadata.
    */
   void putFileMetadata(List<Long> fileIds, List<ByteBuffer> metadata,
       FileMetadataExprType type) throws MetaException;
@@ -1916,7 +1916,7 @@ public interface RawStore extends Configurable {
   /**
    * Returns details about a scheduled query by name.
    *
-   * @throws NoSuchObjectException if an object by the given name dosen't exists.
+   * @throws NoSuchObjectException if an object by the given name doesn't exists.
    */
   ScheduledQuery getScheduledQuery(ScheduledQueryKey scheduleKey) throws MetaException, NoSuchObjectException;
 

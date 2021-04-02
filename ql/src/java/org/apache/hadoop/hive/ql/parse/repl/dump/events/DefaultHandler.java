@@ -37,7 +37,7 @@ class DefaultHandler extends AbstractEventHandler {
 
   @Override
   public void handle(Context withinContext) throws Exception {
-    // we specifically use the the message string from the original event since we dont know what type of message
+    // we specifically use the the message string from the original event since we don't know what type of message
     // to convert this message to, this handler should not be called since with different message formats we need
     // the ability to convert messages to a given message type.
     LOG.info("Dummy processing#{} message : {}", fromEventId(), event.getMessage());

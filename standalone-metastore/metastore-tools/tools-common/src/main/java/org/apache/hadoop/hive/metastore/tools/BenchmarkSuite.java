@@ -138,24 +138,24 @@ public final class BenchmarkSuite {
    * Return list of benchmark names that match positive patterns and do not
    * match negative patterns.
    * @param positive regexp patterns that should match benchmark name
-   * @param negatve regexp patterns that should be excluded when matches
+   * @param negative regexp patterns that should be excluded when matches
    * @return list of benchmark names
    */
   public List<String> listMatching(@Nullable Pattern[] positive,
-                                   @Nullable Pattern[] negatve) {
-    return filterMatches(benchmarks, positive, negatve);
+                                   @Nullable Pattern[] negative) {
+    return filterMatches(benchmarks, positive, negative);
   }
 
   /**
    * Run all benchmarks (filtered by positive and negative matches.
    * See {@link #listMatching(Pattern[], Pattern[])} for details.
    * @param positive regexp patterns that should match benchmark name
-   * @param negatve regexp patterns that should be excluded when matches
+   * @param negative regexp patterns that should be excluded when matches
    * @return this
    */
   public BenchmarkSuite runMatching(@Nullable Pattern[] positive,
-                                    @Nullable Pattern[] negatve) {
-    return runAll(filterMatches(benchmarks, positive, negatve));
+                                    @Nullable Pattern[] negative) {
+    return runAll(filterMatches(benchmarks, positive, negative));
   }
 
   /**

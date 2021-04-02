@@ -190,7 +190,7 @@ public final class Util {
     }
 
     /**
-     * Add owner tyoe
+     * Add owner type
      *
      * @param ownerType database owner type (USER or GROUP)
      * @return this
@@ -248,8 +248,8 @@ public final class Util {
       return new TableBuilder(dbName, tableName).build();
     }
 
-    TableBuilder withType(TableType tabeType) {
-      this.tableType = tabeType;
+    TableBuilder withType(TableType tableType) {
+      this.tableType = tableType;
       return this;
     }
 

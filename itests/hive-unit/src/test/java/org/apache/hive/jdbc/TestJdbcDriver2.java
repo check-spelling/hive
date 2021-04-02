@@ -159,7 +159,7 @@ public class TestJdbcDriver2 {
     stmt.execute("create external table " + externalTableName + " (a int) comment '"
         + externalTableComment + "' location '" + dataFileDir + "'");
 
-    // create a paritioned table
+    // create a partitioned table
     stmt.execute("create table " + partitionedTableName
         + " (under_col int, value string) comment '" + partitionedTableComment
         + "' partitioned by (" + partitionedColumnName + " STRING)");
@@ -223,7 +223,7 @@ public class TestJdbcDriver2 {
 
 
   @Test
-  public void testExceucteUpdateCounts() throws Exception {
+  public void testExecuteUpdateCounts() throws Exception {
     Statement stmt =  con.createStatement();
     stmt.execute("set " + ConfVars.HIVE_SUPPORT_CONCURRENCY.varname + "=true");
     stmt.execute("set " + ConfVars.HIVE_TXN_MANAGER.varname +
@@ -440,7 +440,7 @@ public class TestJdbcDriver2 {
       assertEquals("42000", e.getSQLState());
     }
 
-    // verify table not fuond error
+    // verify table not found error
     try {
       stmt.executeQuery("select * from nonTable");
       fail("SQLException is expected");
@@ -490,12 +490,12 @@ public class TestJdbcDriver2 {
 
     // executed twice: once with the typed ps setters, once with the generic setObject
     try {
-      try (PreparedStatement ps = createPreapredStatementUsingSetXXX(sql);
+      try (PreparedStatement ps = createPreparedStatementUsingSetXXX(sql);
            ResultSet res = ps.executeQuery()) {
         assertPreparedStatementResultAsExpected(res);
       }
 
-      try (PreparedStatement ps = createPreapredStatementUsingSetObject(sql);
+      try (PreparedStatement ps = createPreparedStatementUsingSetObject(sql);
            ResultSet res = ps.executeQuery()) {
         assertPreparedStatementResultAsExpected(res);
       }
@@ -511,7 +511,7 @@ public class TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the un-setted sql statement should throw exception",
+        "Execute the un-set sql statement should throw exception",
         expectedException);
 
     // set some of parameters for prepared sql, not all of them.
@@ -524,7 +524,7 @@ public class TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the invalid setted sql statement should throw exception",
+        "Execute the invalid set sql statement should throw exception",
         expectedException);
 
     // set the wrong type parameters for prepared sql.
@@ -539,7 +539,7 @@ public class TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the invalid setted sql statement should throw exception",
+        "Execute the invalid set sql statement should throw exception",
         expectedException);
 
     // setObject to the yet unknown type java.util.Date
@@ -574,7 +574,7 @@ public class TestJdbcDriver2 {
     assertFalse(res.next());
   }
 
-  private PreparedStatement createPreapredStatementUsingSetObject(String sql) throws SQLException {
+  private PreparedStatement createPreparedStatementUsingSetObject(String sql) throws SQLException {
     PreparedStatement ps = con.prepareStatement(sql);
 
     ps.setObject(1, true); //setBoolean
@@ -594,7 +594,7 @@ public class TestJdbcDriver2 {
     return ps;
   }
 
-  private PreparedStatement createPreapredStatementUsingSetXXX(String sql) throws SQLException {
+  private PreparedStatement createPreparedStatementUsingSetXXX(String sql) throws SQLException {
     PreparedStatement ps = con.prepareStatement(sql);
 
     ps.setBoolean(1, true); //setBoolean
@@ -705,7 +705,7 @@ public class TestJdbcDriver2 {
   }
 
   @Test
-  public final void testSelectAllPartioned() throws Exception {
+  public final void testSelectAllPartitioned() throws Exception {
     doTestSelectAll(partitionedTableName, -1, -1); // tests not setting maxRows
     // (return all)
     doTestSelectAll(partitionedTableName, 0, -1); // tests setting maxRows to 0
@@ -2191,14 +2191,14 @@ public class TestJdbcDriver2 {
   }
 
   /**
-   * test testProccedures()
+   * test testProcedures()
    * @throws SQLException
    */
   @Test
-  public void testProccedures() throws SQLException {
+  public void testProcedures() throws SQLException {
     DatabaseMetaData dbmd = con.getMetaData();
     assertNotNull(dbmd);
-    // currently testProccedures always returns an empty resultset for Hive
+    // currently testProcedures always returns an empty resultset for Hive
     ResultSet res = dbmd.getProcedures(null, null, null);
     ResultSetMetaData md = res.getMetaData();
     assertEquals(md.getColumnCount(), 9);
@@ -2378,7 +2378,7 @@ public class TestJdbcDriver2 {
         break;
       }
     }
-    // reposition at the begining
+    // reposition at the beginning
     res.beforeFirst();
     assertTrue(res.isBeforeFirst());
     rowNum = 0;
@@ -3071,10 +3071,10 @@ public class TestJdbcDriver2 {
     // Expected row count of the join query we'll run
     int expectedCount = 1028;
     int rowCount = 0;
-    boolean isResulSet =
+    boolean isResultSet =
         stmt.executeAsync("select t1.value as v11, " + "t2.value as v12 from " + tableName
             + " t1 join " + tableName + " t2 on t1.under_col = t2.under_col");
-    assertTrue(isResulSet);
+    assertTrue(isResultSet);
     ResultSet rs = stmt.getResultSet();
     assertNotNull(rs);
     // ResultSet#next blocks until the async query is complete
@@ -3094,8 +3094,8 @@ public class TestJdbcDriver2 {
   public void testCreateTableExecAsync() throws Exception {
     HiveStatement stmt = (HiveStatement) con.createStatement();
     String tblName = "testCreateTableExecAsync";
-    boolean isResulSet = stmt.executeAsync("create table " + tblName + " (col1 int , col2 string)");
-    assertFalse(isResulSet);
+    boolean isResultSet = stmt.executeAsync("create table " + tblName + " (col1 int , col2 string)");
+    assertFalse(isResultSet);
     // HiveStatement#getUpdateCount blocks until the async query is complete
     stmt.getUpdateCount();
     DatabaseMetaData metadata = con.getMetaData();
@@ -3152,9 +3152,9 @@ public class TestJdbcDriver2 {
     try {
       int rowCount = 0;
       stmt.execute("create table " + tblName + " (col1 int , col2 string)");
-      boolean isResulSet =
+      boolean isResultSet =
           stmt.executeAsync("insert overwrite table " + tblName + " select * from " + tableName);
-      assertFalse(isResulSet);
+      assertFalse(isResultSet);
       // HiveStatement#getUpdateCount blocks until the async query is complete
       rowCount = stmt.getUpdateCount();
       // Read from the new table
@@ -3248,7 +3248,7 @@ public class TestJdbcDriver2 {
     }
   }
 
-  // Test that opening a JDBC connection to a non-existent database throws a HiveSQLException
+  // Test that opening a JDBC connection to a nonexistent database throws a HiveSQLException
   @Test(expected = HiveSQLException.class)
   public void testConnectInvalidDatabase() throws SQLException {
     DriverManager.getConnection("jdbc:hive2:///databasedoesnotexist", "", "");

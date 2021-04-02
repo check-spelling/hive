@@ -111,7 +111,7 @@ public class TableScanDesc extends AbstractOperatorDesc implements IStatsGatherD
 
   private boolean isMetadataOnly = false;
 
-  private boolean isTranscationalTable;
+  private boolean isTransactionalTable;
 
   private boolean vectorized;
 
@@ -157,8 +157,8 @@ public class TableScanDesc extends AbstractOperatorDesc implements IStatsGatherD
       tableName = tblMetadata.getTableName();
       numBuckets = tblMetadata.getNumBuckets();
     }
-    isTranscationalTable = AcidUtils.isTransactionalTable(this.tableMetadata);
-    if (isTranscationalTable) {
+    isTransactionalTable = AcidUtils.isTransactionalTable(this.tableMetadata);
+    if (isTransactionalTable) {
       acidOperationalProperties = AcidUtils.getAcidOperationalProperties(this.tableMetadata);
     }
     this.probeDecodeContext = probeDecodeContext;
@@ -210,7 +210,7 @@ public class TableScanDesc extends AbstractOperatorDesc implements IStatsGatherD
     sb.append("," + alias);
     if (AcidUtils.isFullAcidTable(tableMetadata)) {
       sb.append(", ACID table");
-    } else if (isTranscationalTable()) {
+    } else if (isTransactionalTable()) {
       sb.append(", transactional table");
     }
     sb.append(",Tbl:");
@@ -220,8 +220,8 @@ public class TableScanDesc extends AbstractOperatorDesc implements IStatsGatherD
     return sb.toString();
   }
 
-  public boolean isTranscationalTable() {
-    return isTranscationalTable;
+  public boolean isTransactionalTable() {
+    return isTransactionalTable;
   }
 
   public AcidUtils.AcidOperationalProperties getAcidOperationalProperties() {
@@ -589,6 +589,6 @@ public class TableScanDesc extends AbstractOperatorDesc implements IStatsGatherD
   }
 
   public boolean isFullAcidTable() {
-    return isTranscationalTable() && !getAcidOperationalProperties().isInsertOnly();
+    return isTransactionalTable() && !getAcidOperationalProperties().isInsertOnly();
   }
 }

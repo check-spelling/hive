@@ -61,7 +61,7 @@ public class TestObjectStoreStatementVerify {
     String jdbcUrl = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.CONNECT_URL_KEY);
     jdbcUrl = jdbcUrl.replace("derby","sderby");
     MetastoreConf.setVar(conf, MetastoreConf.ConfVars.CONNECT_URL_KEY,jdbcUrl);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     final ObjectStore objectStore = new ObjectStore();
     objectStore.setConf(conf);
@@ -112,8 +112,8 @@ public class TestObjectStoreStatementVerify {
     // Step 2. Now there should a string with the db identifier which picks the NAME field from
     // databases. If we don't find this, then we did not join in the database info.
     boolean confirmedDbNameRetrieval = false;
-    for (String dbIdenfier : dbIdentifiers) {
-      if (sql.contains(dbIdenfier + ".\"NAME\"")) {
+    for (String dbIdentifier : dbIdentifiers) {
+      if (sql.contains(dbIdentifier + ".\"NAME\"")) {
         confirmedDbNameRetrieval = true;
         break;
       }

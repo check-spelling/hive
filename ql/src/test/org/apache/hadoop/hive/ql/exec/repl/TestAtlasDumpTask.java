@@ -131,8 +131,8 @@ public class TestAtlasDumpTask {
   public void testAtlasRestClientBuilder() throws SemanticException, IOException {
     mockStatic(UserGroupInformation.class);
     when(UserGroupInformation.getLoginUser()).thenReturn(mock(UserGroupInformation.class));
-    AtlasRestClientBuilder atlasRestCleintBuilder = new AtlasRestClientBuilder("http://localhost:31000");
-    AtlasRestClient atlasClient = atlasRestCleintBuilder.getClient(conf);
+    AtlasRestClientBuilder atlasRestClientBuilder = new AtlasRestClientBuilder("http://localhost:31000");
+    AtlasRestClient atlasClient = atlasRestClientBuilder.getClient(conf);
     Assert.assertTrue(atlasClient != null);
   }
 
@@ -145,7 +145,7 @@ public class TestAtlasDumpTask {
     when(atlasClientV2.exportData(Mockito.any(AtlasExportRequest.class))).thenReturn(exportedMetadataIS);
     when(exportRequest.toString()).thenReturn("dummyExportRequest");
     when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION, TimeUnit.SECONDS)).thenReturn(60L);
-    when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY, TimeUnit.SECONDS)).thenReturn(1L);
+    when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY, TimeUnit.SECONDS)).thenReturn(1L);
     AtlasRestClient atlasClient = new AtlasRestClientImpl(atlasClientV2, conf);
     AtlasRestClientImpl atlasRestClientImpl = (AtlasRestClientImpl)atlasClient;
     InputStream inputStream = atlasRestClientImpl.exportData(exportRequest);
@@ -235,8 +235,8 @@ public class TestAtlasDumpTask {
     when(UserGroupInformation.getLoginUser()).thenReturn(mock(UserGroupInformation.class));
     mockStatic(ConfigurationConverter.class);
     when(ConfigurationConverter.getConfiguration(Mockito.any(Properties.class))).thenCallRealMethod();
-    AtlasRestClientBuilder atlasRestCleintBuilder = new AtlasRestClientBuilder("http://localhost:31000");
-    AtlasRestClient atlasClient = atlasRestCleintBuilder.getClient(conf);
+    AtlasRestClientBuilder atlasRestClientBuilder = new AtlasRestClientBuilder("http://localhost:31000");
+    AtlasRestClient atlasClient = atlasRestClientBuilder.getClient(conf);
     Assert.assertTrue(atlasClient != null);
     ArgumentCaptor<Properties> propsCaptor = ArgumentCaptor.forClass(Properties.class);
     PowerMockito.verifyStatic(ConfigurationConverter.class, Mockito.times(1));
@@ -292,7 +292,7 @@ public class TestAtlasDumpTask {
 
   private void setupConfForRetry() {
     when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION, TimeUnit.SECONDS)).thenReturn(60L);
-    when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY, TimeUnit.SECONDS)).thenReturn(10L);
+    when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY, TimeUnit.SECONDS)).thenReturn(10L);
     when(conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_MAX_DELAY_BETWEEN_RETRIES, TimeUnit.SECONDS)).thenReturn(20L);
     when(conf.getFloatVar(HiveConf.ConfVars.REPL_RETRY_BACKOFF_COEFFICIENT)).thenReturn(2.0f);
   }

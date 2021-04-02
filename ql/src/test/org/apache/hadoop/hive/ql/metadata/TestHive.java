@@ -129,7 +129,7 @@ public class TestHive {
     } catch (Exception e) {
       System.err.println(StringUtils.stringifyException(e));
       System.err
-          .println("Unable to close Hive Metastore using configruation: \n "
+          .println("Unable to close Hive Metastore using configuration: \n "
           + hiveConf);
       throw e;
     }
@@ -771,7 +771,7 @@ public class TestHive {
         hm.createPartition(tbl, part_spec);
       } catch (HiveException e) {
         System.err.println(StringUtils.stringifyException(e));
-        assertTrue("Unable to create parition for table: " + tableName, false);
+        assertTrue("Unable to create partition for table: " + tableName, false);
       }
 
       part_spec.clear();
@@ -781,7 +781,7 @@ public class TestHive {
         hm.createPartition(tbl, part_spec);
       } catch (HiveException e) {
         System.err.println(StringUtils.stringifyException(e));
-        assertTrue("Unable to create parition for table: " + tableName, false);
+        assertTrue("Unable to create partition for table: " + tableName, false);
       }
       part_spec.clear();
       part_spec.put("ds", "2008-04-08");
@@ -790,7 +790,7 @@ public class TestHive {
         hm.createPartition(tbl, part_spec);
       } catch (HiveException e) {
         System.err.println(StringUtils.stringifyException(e));
-        assertTrue("Unable to create parition for table: " + tableName, false);
+        assertTrue("Unable to create partition for table: " + tableName, false);
       }
       part_spec.clear();
       part_spec.put("ds", "2008-04-07");
@@ -799,7 +799,7 @@ public class TestHive {
         hm.createPartition(tbl, part_spec);
       } catch (HiveException e) {
         System.err.println(StringUtils.stringifyException(e));
-        assertTrue("Unable to create parition for table: " + tableName, false);
+        assertTrue("Unable to create partition for table: " + tableName, false);
       }
       part_spec.clear();
       part_spec.put("ds", "2008-04-07");
@@ -808,7 +808,7 @@ public class TestHive {
         hm.createPartition(tbl, part_spec);
       } catch (HiveException e) {
         System.err.println(StringUtils.stringifyException(e));
-        assertTrue("Unable to create parition for table: " + tableName, false);
+        assertTrue("Unable to create partition for table: " + tableName, false);
       }
       checkPartitionsConsistency(tbl);
 

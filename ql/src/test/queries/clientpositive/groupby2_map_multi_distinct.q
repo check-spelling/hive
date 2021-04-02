@@ -17,7 +17,7 @@ INSERT OVERWRITE TABLE dest1_n38 SELECT substr(src.key,1,1), count(DISTINCT subs
 
 SELECT dest1_n38.* FROM dest1_n38;
 
--- HIVE-5560 when group by key is used in distinct funtion, invalid result are returned
+-- HIVE-5560 when group by key is used in distinct function, invalid result are returned
 
 EXPLAIN
 FROM src

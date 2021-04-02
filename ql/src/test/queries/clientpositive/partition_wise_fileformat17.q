@@ -12,7 +12,7 @@ ALTER TABLE PW17 SET SERDE 'org.apache.hadoop.hive.serde2.CustomSerDe1';
 -- Without the fix HIVE-5199, will throw cast exception via FetchOperator
 SELECT * FROM PW17;
 
--- Test for non-parititioned table. 
+-- Test for non-partitioned table. 
 DROP TABLE PW17_2;
 CREATE TABLE PW17_2(`USER` STRING, COMPLEXDT ARRAY<INT>) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.CustomSerDe1';
 LOAD DATA LOCAL INPATH '../../data/files/pw17.txt' INTO TABLE PW17_2;

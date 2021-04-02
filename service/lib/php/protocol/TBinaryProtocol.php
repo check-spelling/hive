@@ -333,7 +333,7 @@ class TBinaryProtocol extends TProtocol {
         }
       }
 
-      // Force 32bit words in excess of 2G to pe positive - we deal wigh sign
+      // Force 32bit words in excess of 2G to pe positive - we deal with sign
       // explicitly below
 
       if ($hi & (int)0x80000000) {

@@ -329,10 +329,10 @@ public class AuthorizationPreEventListener extends MetaStorePreEventListener {
       throws InvalidOperationException, MetaException {
     try {
       for (org.apache.hadoop.hive.metastore.api.Partition mapiPart : context.getPartitions()) {
-        org.apache.hadoop.hive.ql.metadata.Partition wrappedPartiton = new PartitionWrapper(
+        org.apache.hadoop.hive.ql.metadata.Partition wrappedPartition = new PartitionWrapper(
             mapiPart, context);
     for(HiveMetastoreAuthorizationProvider authorizer : tAuthorizers.get()){
-          authorizer.authorize(wrappedPartiton,
+          authorizer.authorize(wrappedPartition,
               HiveOperation.ALTERTABLE_ADDPARTS.getInputRequiredPrivileges(),
               HiveOperation.ALTERTABLE_ADDPARTS.getOutputRequiredPrivileges());
         }

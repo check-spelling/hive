@@ -2,12 +2,12 @@ PREHOOK: query: DESCRIBE FUNCTION split
 PREHOOK: type: DESCFUNCTION
 POSTHOOK: query: DESCRIBE FUNCTION split
 POSTHOOK: type: DESCFUNCTION
-split(str, regex) - Splits str around occurances that match regex
+split(str, regex) - Splits str around occurrences that match regex
 PREHOOK: query: DESCRIBE FUNCTION EXTENDED split
 PREHOOK: type: DESCFUNCTION
 POSTHOOK: query: DESCRIBE FUNCTION EXTENDED split
 POSTHOOK: type: DESCFUNCTION
-split(str, regex) - Splits str around occurances that match regex
+split(str, regex) - Splits str around occurrences that match regex
 Example:
   > SELECT split('oneAtwoBthreeC', '[ABC]') FROM src LIMIT 1;
   ["one", "two", "three"]

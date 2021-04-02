@@ -785,7 +785,7 @@ public class TypeCheckProcFactory<T> {
 
     protected void validateUDF(ASTNode expr, boolean isFunction, TypeCheckCtx ctx, FunctionInfo fi,
         List<T> children) throws SemanticException {
-      // Check if a bigint is implicitely cast to a double as part of a comparison
+      // Check if a bigint is implicitly cast to a double as part of a comparison
       // Perform the check here instead of in GenericUDFBaseCompare to guarantee it is only run once per operator
       if (exprFactory.isCompareFunction(fi) && children.size() == 2) {
         TypeInfo oiTypeInfo0 = exprFactory.getTypeInfo(children.get(0));
@@ -812,7 +812,7 @@ public class TypeCheckProcFactory<T> {
       if (fi.getGenericUDTF() != null) {
         throw new SemanticException(ErrorMsg.UDTF_INVALID_LOCATION.getMsg());
       }
-      // UDAF in filter condition, group-by caluse, param of funtion, etc.
+      // UDAF in filter condition, group-by clause, param of function, etc.
       if (fi.getGenericUDAFResolver() != null) {
         if (isFunction) {
           throw new SemanticException(ASTErrorUtils.getMsg(

@@ -81,7 +81,7 @@ public class StatusDelegator extends TempletonDelegator {
   /*
    * Job callable task for job status operation. Overrides behavior of execute() to get
    * status of a job. No need to override behavior of cleanup() as there is nothing to be
-   * done if job sttaus operation is timed out or interrupted.
+   * done if job status operation is timed out or interrupted.
    */
   private JobCallable<QueueStatusBean> getJobStatusCallableTask(final String user,
                                  final String id) {

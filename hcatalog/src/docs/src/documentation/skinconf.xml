@@ -38,7 +38,7 @@ which will be used to configure the chosen Forrest skin.
   <disable-pdf-link>false</disable-pdf-link>
 <!-- Disable the POD link? -->
   <disable-pod-link>true</disable-pod-link>
-<!-- Disable the Text link? FIXME: NOT YET IMPLEMENETED. -->
+<!-- Disable the Text link? FIXME: NOT YET IMPLEMENTED. -->
   <disable-txt-link>true</disable-txt-link>
 <!-- Disable the xml source link? -->
 <!-- The xml source link makes it possible to access the xml rendition
@@ -63,7 +63,7 @@ which will be used to configure the chosen Forrest skin.
 <!-- mandatory project logo
        default skin: renders it at the top -->
   <project-name>HCatalog</project-name>
-  <project-description>A table abstraction on top of data for use with java MapReduce programs, Pig scripts and Hive queryies.</project-description>
+  <project-description>A table abstraction on top of data for use with java MapReduce programs, Pig scripts and Hive queries.</project-description>
   <project-url></project-url>
   <project-logo>images/hcat-box.jpg</project-logo>
 
@@ -147,7 +147,7 @@ which will be used to configure the chosen Forrest skin.
       This can be a specific page, or a general pattern to match a set of pages,
       e.g. everything in the "samples" directory.
       The @starts-with=true anchors the string to the start, otherwise contains 
-    motd-title : This text will betadded in brackets after the <html><title>
+    motd-title : This text will be added in brackets after the <html><title>
       and this can be empty.
     motd-page : This text will be added in a panel on the face of the page,
       with the "motd-page-url" being the hyperlink "More".

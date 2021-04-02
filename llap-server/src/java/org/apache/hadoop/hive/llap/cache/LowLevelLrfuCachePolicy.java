@@ -136,7 +136,7 @@ public final class LowLevelLrfuCachePolicy extends ProactiveEvictingCachePolicy.
   }
 
   /**
-   * Wraps around the structures used in thread locals and buffers instances of LlapCachableBuffers in order to prevent
+   * Wraps around the structures used in thread locals and buffers instances of LlapCacheableBuffers in order to prevent
    * lock contention in LRFU during buffer ingress initiated heap access.
    */
   private class BPWrapper {
@@ -912,12 +912,12 @@ public final class LowLevelLrfuCachePolicy extends ProactiveEvictingCachePolicy.
     TotalData("Total amount of bytes, used for data"),
     TotalMeta("Total amount of bytes, used for meta data");
 
-    private final String description; // metric explaination
+    private final String description; // metric explanation
 
     /**
      * Creates a new enum value.
      *
-     * @param description The explaination of the metric
+     * @param description The explanation of the metric
      */
     PolicyInformation(String description) {
       this.description = description;
@@ -931,7 +931,7 @@ public final class LowLevelLrfuCachePolicy extends ProactiveEvictingCachePolicy.
 
   /**
    * Metrics provider for the LRFU cache policy.
-   * An instance of this class is providing JMX (through haddoop metrics)
+   * An instance of this class is providing JMX (through hadoop metrics)
    * statistics for the LRFU cache policy for monitoring.
    */
   @Metrics(about = "LRFU Cache Policy Metrics", context = "cache")
@@ -1027,7 +1027,7 @@ public final class LowLevelLrfuCachePolicy extends ProactiveEvictingCachePolicy.
         heapLock.unlock();
       }
 
-      // aggregate values on the evicition short list
+      // aggregate values on the eviction short list
       try {
         listLock.lock();
         LlapCacheableBuffer scan = listHead;

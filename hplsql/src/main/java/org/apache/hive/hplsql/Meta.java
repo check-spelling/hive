@@ -278,7 +278,7 @@ public class Meta {
   }
   
   /**
-   * Split identifier to parts (schema, table, colum name etc.)
+   * Split identifier to parts (schema, table, column name etc.)
    * @return null if identifier contains single part
    */
   public ArrayList<String> splitIdentifier(String name) {

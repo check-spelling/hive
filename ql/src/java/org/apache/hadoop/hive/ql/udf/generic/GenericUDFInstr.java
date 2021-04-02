@@ -31,7 +31,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 
 /**
- * Generic UDF for string function <code>INSTR(str,substr)</code>. This mimcs
+ * Generic UDF for string function <code>INSTR(str,substr)</code>. This mimics
  * the function from MySQL
  * http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_instr
  *
@@ -42,7 +42,7 @@ import org.apache.hadoop.io.Text;
  * <p>
  */
 @Description(name = "instr",
-    value = "_FUNC_(str, substr) - Returns the index of the first occurance of substr in str",
+    value = "_FUNC_(str, substr) - Returns the index of the first occurrence of substr in str",
     extended = "Example:\n"
     + "  > SELECT _FUNC_('Facebook', 'boo') FROM src LIMIT 1;\n" + "  5")
 public class GenericUDFInstr extends GenericUDF {

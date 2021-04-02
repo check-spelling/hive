@@ -177,7 +177,7 @@ public class ColumnTruncateTask extends Task<ColumnTruncateWork> implements Seri
         job.set("tmpjars", addedJars);
       }
 
-      // make this client wait if job trcker is not behaving well.
+      // make this client wait if job tracker is not behaving well.
       Throttle.checkJobTracker(job, LOG);
 
       // Finally SUBMIT the JOB!

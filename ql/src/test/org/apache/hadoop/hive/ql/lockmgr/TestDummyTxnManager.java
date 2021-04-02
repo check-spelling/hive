@@ -78,7 +78,7 @@ public class TestDummyTxnManager {
     Assert.assertTrue(txnMgr instanceof DummyTxnManager);
 
     // Use reflection to set LockManager since creating the object using the
-    // relection in DummyTxnManager won't take Mocked object
+    // reflection in DummyTxnManager won't take Mocked object
     Field field = DummyTxnManager.class.getDeclaredField("lockMgr");
     field.setAccessible(true);
     field.set(txnMgr, mockLockManager);

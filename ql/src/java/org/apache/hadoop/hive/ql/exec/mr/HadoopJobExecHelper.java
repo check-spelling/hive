@@ -250,7 +250,7 @@ public class HadoopJobExecHelper {
       }
 
       if (initializing && rj.getJobState() == JobStatus.PREP) {
-        // No reason to poll untill the job is initialized
+        // No reason to poll until the job is initialized
         continue;
       } else {
         // By now the job is initialized so no reason to do
@@ -330,10 +330,10 @@ public class HadoopJobExecHelper {
 
       // Prepare data for Client Stat Publishers (if any present) and execute them
       if (clientStatPublishers.size() > 0 && ctrs != null) {
-        Map<String, Double> exctractedCounters = extractAllCounterValues(ctrs);
+        Map<String, Double> extractedCounters = extractAllCounterValues(ctrs);
         for (ClientStatsPublisher clientStatPublisher : clientStatPublishers) {
           try {
-            clientStatPublisher.run(exctractedCounters, rj.getID().toString());
+            clientStatPublisher.run(extractedCounters, rj.getID().toString());
           } catch (RuntimeException runtimeException) {
             LOG.error("Exception " + runtimeException.getClass().getCanonicalName()
                 + " thrown when running clientStatsPublishers. The stack trace is: ",
@@ -481,7 +481,7 @@ public class HadoopJobExecHelper {
 
   /**
    * This class contains the state of the running task Going forward, we will return this handle
-   * from execute and Driver can split execute into start, monitorProgess and postProcess.
+   * from execute and Driver can split execute into start, monitorProgress and postProcess.
    */
   private static class ExecDriverTaskHandle extends TaskHandle {
     JobClient jc;
@@ -643,13 +643,13 @@ public class HadoopJobExecHelper {
 
 
   private Map<String, Double> extractAllCounterValues(Counters counters) {
-    Map<String, Double> exctractedCounters = new HashMap<String, Double>();
+    Map<String, Double> extractedCounters = new HashMap<String, Double>();
     for (Counters.Group cg : counters) {
       for (Counter c : cg) {
-        exctractedCounters.put(cg.getName() + "::" + c.getName(), Double.valueOf(c.getCounter()));
+        extractedCounters.put(cg.getName() + "::" + c.getName(), Double.valueOf(c.getCounter()));
       }
     }
-    return exctractedCounters;
+    return extractedCounters;
   }
 
   private List<ClientStatsPublisher> getClientStatPublishers() {
@@ -667,7 +667,7 @@ public class HadoopJobExecHelper {
         clientStatsPublishers.add((ClientStatsPublisher) Class.forName(
             clientStatsPublisherClass.trim(), true, Utilities.getSessionSpecifiedClassLoader()).newInstance());
       } catch (Exception e) {
-        LOG.warn(e.getClass().getName() + " occured when trying to create class: "
+        LOG.warn(e.getClass().getName() + " occurred when trying to create class: "
             + clientStatsPublisherClass.trim() + " implementing ClientStatsPublisher interface");
         LOG.warn("The exception message is: " + e.getMessage());
         LOG.warn("Program will continue, but without this ClientStatsPublisher working");

@@ -39,7 +39,7 @@ public class TestMetaStoreConnectionUrlHook {
     MetastoreConf.setVar(conf, ConfVars.CONNECT_URL_HOOK, DummyJdoConnectionUrlHook.class.getName());
     MetastoreConf.setVar(conf, ConfVars.CONNECT_URL_KEY, DummyJdoConnectionUrlHook.initialUrl);
     MetastoreConf.setVar(conf, ConfVars.RAW_STORE_IMPL, DummyRawStoreForJdoConnection.class.getName());
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     // Instantiating the HMSHandler with hive.metastore.checkForDefaultDb will cause it to
     // initialize an instance of the DummyRawStoreForJdoConnection

@@ -780,7 +780,7 @@ public class BeeLine implements Closeable {
 
     if (!commands.isEmpty()) {
       embeddedConnect();
-      connectDBInEmbededMode();
+      connectDBInEmbeddedMode();
       for (Iterator<String> i = commands.iterator(); i.hasNext(); ) {
         String command = i.next().toString();
         debug(loc("executing-command", command));
@@ -1304,7 +1304,7 @@ public class BeeLine implements Closeable {
     }
   }
 
-  private int connectDBInEmbededMode() {
+  private int connectDBInEmbeddedMode() {
     if (dbName != null && !dbName.isEmpty()) {
       if (!dispatch("use " + dbName + ";")) {
         return ERRNO_OTHER;
@@ -1317,7 +1317,7 @@ public class BeeLine implements Closeable {
     if (embeddedConnect() != ERRNO_OK && exitOnError) {
       return ERRNO_OTHER;
     }
-    if (connectDBInEmbededMode() != ERRNO_OK && exitOnError) {
+    if (connectDBInEmbeddedMode() != ERRNO_OK && exitOnError) {
       return ERRNO_OTHER;
     }
     return ERRNO_OK;

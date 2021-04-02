@@ -172,7 +172,7 @@ public class TestJdbcWithMiniLlapVectorArrowBatch extends BaseJdbcWithMiniLlap {
 
     final String query = "select * from " + tableName;
 
-    // ORC properties (here orc.proleptic.gregorian.default) are not propogated to LLAP as of now
+    // ORC properties (here orc.proleptic.gregorian.default) are not propagated to LLAP as of now
     // and hence the expected output hybridMixedDateExpectedOutput otherwise it should be hybridMixedDateExpectedOutput ideally
     testDateQueries(query, "orc.proleptic.gregorian.default", hybridMixedDateExpectedOutput,
         hybridMixedDateExpectedOutput);
@@ -204,7 +204,7 @@ public class TestJdbcWithMiniLlapVectorArrowBatch extends BaseJdbcWithMiniLlap {
 
     final String query = "select * from " + tableName;
 
-    // ORC properties (here orc.proleptic.gregorian.default) are not propogated to LLAP as of now
+    // ORC properties (here orc.proleptic.gregorian.default) are not propagated to LLAP as of now
     testTimestampQueries(query, "orc.proleptic.gregorian.default", legacyTimestampExpectedOutput,
         legacyTimestampExpectedOutput);
   }
@@ -213,7 +213,7 @@ public class TestJdbcWithMiniLlapVectorArrowBatch extends BaseJdbcWithMiniLlap {
   // similar to ql/src/test/queries/clientpositive/parquet_hybrid_mixed_date.q
   @Test public void testParquetHybridMixedDates() throws Exception {
 
-    final String tableName = "testParquetHybrcidMixedDates";
+    final String tableName = "testParquetHybridMixedDates";
     executeSQL("create table " + tableName + " (d date) stored as parquet");
     executeSQL("INSERT INTO " + tableName + " VALUES " + "('2012-02-21'), " + "('2014-02-11'), " + "('1947-02-11'), "
         + "('8200-02-11'), " + "('1012-02-21'), " + "('1014-02-11'), " + "('0947-02-11'), " + "('0200-02-11')");

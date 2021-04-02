@@ -240,10 +240,10 @@ public class TestHiveStrictManagedMigration extends TxnCommandsBaseForTests {
     runStatementOnDriver("alter table custdb.custextwhwh add partition (p='p2')");
   }
 
-  private static void assertExternalTableLocations(File exteralWarehouseDir, File externalNonWhDir)
+  private static void assertExternalTableLocations(File externalWarehouseDir, File externalNonWhDir)
     throws IOException {
-    Set<String> actualDirs = Files.find(Paths.get(exteralWarehouseDir.toURI()), Integer.MAX_VALUE, (p, a)->true)
-      .map(p->p.toString().replaceAll(exteralWarehouseDir.getAbsolutePath(), ""))
+    Set<String> actualDirs = Files.find(Paths.get(externalWarehouseDir.toURI()), Integer.MAX_VALUE, (p, a)->true)
+      .map(p->p.toString().replaceAll(externalWarehouseDir.getAbsolutePath(), ""))
       .filter(s->!s.isEmpty()).collect(toSet());
     Set<String> expectedDirs = new HashSet<>();
     expectedDirs.add("/extwhwh");
@@ -267,7 +267,7 @@ public class TestHiveStrictManagedMigration extends TxnCommandsBaseForTests {
     expectedDirs.add("/manwhmixed/p=p2");
     expectedDirs.add("/extwhnone");
     expectedDirs.add("/extwhout");
-    assertEquals("Unexpected external warehouse directory structure in " + exteralWarehouseDir, expectedDirs,
+    assertEquals("Unexpected external warehouse directory structure in " + externalWarehouseDir, expectedDirs,
       actualDirs);
 
     actualDirs = Files.find(Paths.get(externalNonWhDir.toURI()), Integer.MAX_VALUE, (p, a)->true)

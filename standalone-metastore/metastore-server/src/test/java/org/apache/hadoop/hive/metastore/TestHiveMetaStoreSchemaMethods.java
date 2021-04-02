@@ -83,7 +83,7 @@ public class TestHiveMetaStoreSchemaMethods {
   @BeforeClass
   public static void startMetastore() throws Exception {
     conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetastoreConf.setClass(conf, ConfVars.EVENT_LISTENERS, SchemaEventListener.class,
         MetaStoreEventListener.class);
     MetastoreConf.setClass(conf, ConfVars.TRANSACTIONAL_EVENT_LISTENERS,
@@ -251,7 +251,7 @@ public class TestHiveMetaStoreSchemaMethods {
   @Test(expected = NoSuchObjectException.class)
   public void schemaWithInvalidDatabase() throws TException {
     ISchema schema = new ISchemaBuilder()
-        .setName("thisSchemaDoesntHaveADb")
+        .setName("thisSchemaDoesNotHaveADb")
         .setDbName("no.such.database")
         .setSchemaType(SchemaType.AVRO)
         .build();
@@ -971,7 +971,7 @@ public class TestHiveMetaStoreSchemaMethods {
 
   @Test(expected = NoSuchObjectException.class)
   public void dropNonExistentSchemaVersion() throws TException {
-    client.dropSchemaVersion(DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME, "ther is no schema named this", 23);
+    client.dropSchemaVersion(DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME, "there is no schema named this", 23);
   }
 
   @Test

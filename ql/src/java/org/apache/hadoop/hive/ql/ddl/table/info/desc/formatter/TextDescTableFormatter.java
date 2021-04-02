@@ -234,11 +234,11 @@ class TextDescTableFormatter extends DescTableFormatter {
 
     if (storageDesc.getSkewedInfo() != null) {
       if (CollectionUtils.isNotEmpty(storageDesc.getSkewedInfo().getSkewedColNames())) {
-        List<String> skewedCoumnNames =
+        List<String> skewedColumnNames =
             storageDesc.getSkewedInfo().getSkewedColNames().stream()
               .sorted()
               .collect(Collectors.toList());
-        formatOutput("Skewed Columns:", skewedCoumnNames.toString(), tableInfo);
+        formatOutput("Skewed Columns:", skewedColumnNames.toString(), tableInfo);
       }
 
       if (CollectionUtils.isNotEmpty(storageDesc.getSkewedInfo().getSkewedColValues())) {

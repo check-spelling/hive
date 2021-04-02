@@ -257,7 +257,7 @@ public class TestSchemaToolForMetastore {
    * initOrUpgrade takes init path
    */
   @Test
-  public void testSchemaInitOrUgrade1() throws Exception {
+  public void testSchemaInitOrUpgrade1() throws Exception {
     execute(new SchemaToolTaskInit(), "-initOrUpgradeSchema");
     schemaTool.verifySchemaVersion();
   }
@@ -266,7 +266,7 @@ public class TestSchemaToolForMetastore {
    * initOrUpgrade takes upgrade path
    */
   @Test
-  public void testSchemaInitOrUgrade2() throws Exception {
+  public void testSchemaInitOrUpgrade2() throws Exception {
     execute(new SchemaToolTaskInit(), "-initSchemaTo 1.2.0");
 
     schemaTool.setDryRun(true);
@@ -552,7 +552,7 @@ public class TestSchemaToolForMetastore {
       SchemaToolCommandLine cl = new SchemaToolCommandLine(tokenizer.getTokenArray(), null);
       task.setCommandLineArguments(cl);
     } catch (Exception e) {
-      throw new IllegalStateException("Could not parse comman line \n" + argsBase + taskArgs, e);
+      throw new IllegalStateException("Could not parse command line \n" + argsBase + taskArgs, e);
     }
 
     task.setHiveSchemaTool(schemaTool);

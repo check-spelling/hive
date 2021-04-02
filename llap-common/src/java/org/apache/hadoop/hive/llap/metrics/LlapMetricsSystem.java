@@ -23,7 +23,7 @@ import org.apache.hadoop.metrics2.MetricsSystem;
 import org.apache.hadoop.metrics2.impl.MetricsSystemImpl;
 
 /**
- * Metrics system for llap daemon. We do not use DefaultMetricsSystem here to safegaurd against
+ * Metrics system for llap daemon. We do not use DefaultMetricsSystem here to safeguard against
  * Tez accidentally shutting it down.
  */
 public enum LlapMetricsSystem  {

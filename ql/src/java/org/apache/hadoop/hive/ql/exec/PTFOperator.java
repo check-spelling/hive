@@ -384,7 +384,7 @@ public class PTFOperator extends Operator<PTFDesc> implements Serializable {
      * Typically these 2 OIs are the same; but not always. For the
      * first PTF in a chain the OI of the incoming rows is dictated by the Parent Op
      * to this PTFOp. The output OI from the Partition is typically LazyBinaryStruct, but
-     * not always. In the case of Noop/NoopMap we keep the Strcuture the same as
+     * not always. In the case of Noop/NoopMap we keep the Structure the same as
      * what is given to us.
      * <p>
      * The Partition we want to create here is for feeding the First table function in the chain.

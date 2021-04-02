@@ -20,7 +20,7 @@ package org.apache.hadoop.hive.ql.qoption;
 import org.apache.hadoop.hive.ql.QTestUtil;
 
 /**
- * Qtest options might be usefull to prepare the test environment or do some extra checks/cleanup.
+ * Qtest options might be useful to prepare the test environment or do some extra checks/cleanup.
  */
 public interface QTestOptionHandler {
 

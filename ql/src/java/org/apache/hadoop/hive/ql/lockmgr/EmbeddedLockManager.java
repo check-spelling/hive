@@ -247,8 +247,8 @@ public class EmbeddedLockManager implements HiveLockManager {
         return new HiveLockObject(tab, data);
       }
       Map<String, String> partSpec = new HashMap<String, String>();
-      for (int indx = 2; indx < names.length; indx++) {
-        String[] partVals = names[indx].split("=");
+      for (int index = 2; index < names.length; index++) {
+        String[] partVals = names[index].split("=");
         partSpec.put(partVals[0], partVals[1]);
       }
 

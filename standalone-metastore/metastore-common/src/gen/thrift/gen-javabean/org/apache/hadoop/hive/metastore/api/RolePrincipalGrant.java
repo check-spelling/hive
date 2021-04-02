@@ -17,7 +17,7 @@ package org.apache.hadoop.hive.metastore.api;
   private static final org.apache.thrift.protocol.TField GRANT_OPTION_FIELD_DESC = new org.apache.thrift.protocol.TField("grantOption", org.apache.thrift.protocol.TType.BOOL, (short)4);
   private static final org.apache.thrift.protocol.TField GRANT_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField("grantTime", org.apache.thrift.protocol.TType.I32, (short)5);
   private static final org.apache.thrift.protocol.TField GRANTOR_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("grantorName", org.apache.thrift.protocol.TType.STRING, (short)6);
-  private static final org.apache.thrift.protocol.TField GRANTOR_PRINCIPAL_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("grantorPrincipalType", org.apache.thrift.protocol.TType.I32, (short)7);
+  private static final org.apache.thrift.protocol.TField GRANTOR_PRINCIPAL_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("grantorPrincipalipalType", org.apache.thrift.protocol.TType.I32, (short)7);
 
   private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new RolePrincipalGrantStandardSchemeFactory();
   private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new RolePrincipalGrantTupleSchemeFactory();
@@ -28,7 +28,7 @@ package org.apache.hadoop.hive.metastore.api;
   private boolean grantOption; // required
   private int grantTime; // required
   private @org.apache.thrift.annotation.Nullable java.lang.String grantorName; // required
-  private @org.apache.thrift.annotation.Nullable PrincipalType grantorPrincipalType; // required
+  private @org.apache.thrift.annotation.Nullable PrincipalType grantorPrincipalipalType; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -46,7 +46,7 @@ package org.apache.hadoop.hive.metastore.api;
      * 
      * @see PrincipalType
      */
-    GRANTOR_PRINCIPAL_TYPE((short)7, "grantorPrincipalType");
+    GRANTOR_PRINCIPAL_TYPE((short)7, "grantorPrincipalipalType");
 
     private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -135,7 +135,7 @@ package org.apache.hadoop.hive.metastore.api;
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
     tmpMap.put(_Fields.GRANTOR_NAME, new org.apache.thrift.meta_data.FieldMetaData("grantorName", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-    tmpMap.put(_Fields.GRANTOR_PRINCIPAL_TYPE, new org.apache.thrift.meta_data.FieldMetaData("grantorPrincipalType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+    tmpMap.put(_Fields.GRANTOR_PRINCIPAL_TYPE, new org.apache.thrift.meta_data.FieldMetaData("grantorPrincipalipalType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, PrincipalType.class)));
     metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
     org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(RolePrincipalGrant.class, metaDataMap);
@@ -151,7 +151,7 @@ package org.apache.hadoop.hive.metastore.api;
     boolean grantOption,
     int grantTime,
     java.lang.String grantorName,
-    PrincipalType grantorPrincipalType)
+    PrincipalType grantorPrincipalipalType)
   {
     this();
     this.roleName = roleName;
@@ -162,7 +162,7 @@ package org.apache.hadoop.hive.metastore.api;
     this.grantTime = grantTime;
     setGrantTimeIsSet(true);
     this.grantorName = grantorName;
-    this.grantorPrincipalType = grantorPrincipalType;
+    this.grantorPrincipalipalType = grantorPrincipalipalType;
   }
 
   /**
@@ -185,7 +185,7 @@ package org.apache.hadoop.hive.metastore.api;
       this.grantorName = other.grantorName;
     }
     if (other.isSetGrantorPrincipalType()) {
-      this.grantorPrincipalType = other.grantorPrincipalType;
+      this.grantorPrincipalipalType = other.grantorPrincipalipalType;
     }
   }
 
@@ -203,7 +203,7 @@ package org.apache.hadoop.hive.metastore.api;
     setGrantTimeIsSet(false);
     this.grantTime = 0;
     this.grantorName = null;
-    this.grantorPrincipalType = null;
+    this.grantorPrincipalipalType = null;
   }
 
   @org.apache.thrift.annotation.Nullable
@@ -360,29 +360,29 @@ package org.apache.hadoop.hive.metastore.api;
    */
   @org.apache.thrift.annotation.Nullable
   public PrincipalType getGrantorPrincipalType() {
-    return this.grantorPrincipalType;
+    return this.grantorPrincipalipalType;
   }
 
   /**
    * 
    * @see PrincipalType
    */
-  public void setGrantorPrincipalType(@org.apache.thrift.annotation.Nullable PrincipalType grantorPrincipalType) {
-    this.grantorPrincipalType = grantorPrincipalType;
+  public void setGrantorPrincipalType(@org.apache.thrift.annotation.Nullable PrincipalType grantorPrincipalipalType) {
+    this.grantorPrincipalipalType = grantorPrincipalipalType;
   }
 
   public void unsetGrantorPrincipalType() {
-    this.grantorPrincipalType = null;
+    this.grantorPrincipalipalType = null;
   }
 
-  /** Returns true if field grantorPrincipalType is set (has been assigned a value) and false otherwise */
+  /** Returns true if field grantorPrincipalipalType is set (has been assigned a value) and false otherwise */
   public boolean isSetGrantorPrincipalType() {
-    return this.grantorPrincipalType != null;
+    return this.grantorPrincipalipalType != null;
   }
 
   public void setGrantorPrincipalTypeIsSet(boolean value) {
     if (!value) {
-      this.grantorPrincipalType = null;
+      this.grantorPrincipalipalType = null;
     }
   }
 
@@ -569,12 +569,12 @@ package org.apache.hadoop.hive.metastore.api;
         return false;
     }
 
-    boolean this_present_grantorPrincipalType = true && this.isSetGrantorPrincipalType();
-    boolean that_present_grantorPrincipalType = true && that.isSetGrantorPrincipalType();
-    if (this_present_grantorPrincipalType || that_present_grantorPrincipalType) {
-      if (!(this_present_grantorPrincipalType && that_present_grantorPrincipalType))
+    boolean this_present_grantorPrincipalipalType = true && this.isSetGrantorPrincipalType();
+    boolean that_present_grantorPrincipalipalType = true && that.isSetGrantorPrincipalType();
+    if (this_present_grantorPrincipalipalType || that_present_grantorPrincipalipalType) {
+      if (!(this_present_grantorPrincipalipalType && that_present_grantorPrincipalipalType))
         return false;
-      if (!this.grantorPrincipalType.equals(that.grantorPrincipalType))
+      if (!this.grantorPrincipalipalType.equals(that.grantorPrincipalipalType))
         return false;
     }
 
@@ -607,7 +607,7 @@ package org.apache.hadoop.hive.metastore.api;
 
     hashCode = hashCode * 8191 + ((isSetGrantorPrincipalType()) ? 131071 : 524287);
     if (isSetGrantorPrincipalType())
-      hashCode = hashCode * 8191 + grantorPrincipalType.getValue();
+      hashCode = hashCode * 8191 + grantorPrincipalipalType.getValue();
 
     return hashCode;
   }
@@ -685,7 +685,7 @@ package org.apache.hadoop.hive.metastore.api;
       return lastComparison;
     }
     if (isSetGrantorPrincipalType()) {
-      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.grantorPrincipalType, other.grantorPrincipalType);
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.grantorPrincipalipalType, other.grantorPrincipalipalType);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -751,11 +751,11 @@ package org.apache.hadoop.hive.metastore.api;
     }
     first = false;
     if (!first) sb.append(", ");
-    sb.append("grantorPrincipalType:");
-    if (this.grantorPrincipalType == null) {
+    sb.append("grantorPrincipalipalType:");
+    if (this.grantorPrincipalipalType == null) {
       sb.append("null");
     } else {
-      sb.append(this.grantorPrincipalType);
+      sb.append(this.grantorPrincipalipalType);
     }
     first = false;
     sb.append(")");
@@ -853,7 +853,7 @@ package org.apache.hadoop.hive.metastore.api;
             break;
           case 7: // GRANTOR_PRINCIPAL_TYPE
             if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-              struct.grantorPrincipalType = org.apache.hadoop.hive.metastore.api.PrincipalType.findByValue(iprot.readI32());
+              struct.grantorPrincipalipalType = org.apache.hadoop.hive.metastore.api.PrincipalType.findByValue(iprot.readI32());
               struct.setGrantorPrincipalTypeIsSet(true);
             } else { 
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -898,9 +898,9 @@ package org.apache.hadoop.hive.metastore.api;
         oprot.writeString(struct.grantorName);
         oprot.writeFieldEnd();
       }
-      if (struct.grantorPrincipalType != null) {
+      if (struct.grantorPrincipalipalType != null) {
         oprot.writeFieldBegin(GRANTOR_PRINCIPAL_TYPE_FIELD_DESC);
-        oprot.writeI32(struct.grantorPrincipalType.getValue());
+        oprot.writeI32(struct.grantorPrincipalipalType.getValue());
         oprot.writeFieldEnd();
       }
       oprot.writeFieldStop();
@@ -962,7 +962,7 @@ package org.apache.hadoop.hive.metastore.api;
         oprot.writeString(struct.grantorName);
       }
       if (struct.isSetGrantorPrincipalType()) {
-        oprot.writeI32(struct.grantorPrincipalType.getValue());
+        oprot.writeI32(struct.grantorPrincipalipalType.getValue());
       }
     }
 
@@ -995,7 +995,7 @@ package org.apache.hadoop.hive.metastore.api;
         struct.setGrantorNameIsSet(true);
       }
       if (incoming.get(6)) {
-        struct.grantorPrincipalType = org.apache.hadoop.hive.metastore.api.PrincipalType.findByValue(iprot.readI32());
+        struct.grantorPrincipalipalType = org.apache.hadoop.hive.metastore.api.PrincipalType.findByValue(iprot.readI32());
         struct.setGrantorPrincipalTypeIsSet(true);
       }
     }

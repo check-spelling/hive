@@ -21,7 +21,7 @@ package org.apache.hive.hcatalog.templeton;
 import org.eclipse.jetty.http.HttpStatus;
 
 /**
- * Missing required or badly configured paramater.
+ * Missing required or badly configured parameter.
  */
 public class BadParam extends SimpleWebException {
   public BadParam(String msg) {

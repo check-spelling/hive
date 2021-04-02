@@ -377,7 +377,7 @@ public class LlapTaskCommunicator extends TezTaskCommunicatorImpl {
   /**
    * @param node
    * @param callback
-   * @return if it was possible to attemp the registration. Sometimes it's
+   * @return if it was possible to attempt the registration. Sometimes it's
    * not possible because is a dag is not running
    */
   public boolean registerDag(NodeInfo node, final OperationCallback<QueryIdentifierProto, Void> callback) {
@@ -861,7 +861,7 @@ public class LlapTaskCommunicator extends TezTaskCommunicatorImpl {
       if (currentTs > nodeNotFoundLogTime.get() + 5000l) {
         LOG.warn("Received ping from node without any registered tasks or containers: " + hostname +
             ":" + port +
-            ". Could be caused by pre-emption by the AM," +
+            ". Could be caused by preemption by the AM," +
             " or a mismatched hostname. Enable debug logging for mismatched host names");
         nodeNotFoundLogTime.set(currentTs);
       }

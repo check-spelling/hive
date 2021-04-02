@@ -117,7 +117,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
 
   protected transient Byte[] order; // order in which the results should
   // be output
-  protected transient JoinCondDesc[] condn;
+  protected transient JoinCondDesc[] cond;
   protected transient boolean[] nullsafes;
 
   public transient boolean noOuterJoin;
@@ -180,7 +180,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
     this.parentOperators = clone.parentOperators;
     this.done = clone.done;
     this.storage = clone.storage;
-    this.condn = clone.condn;
+    this.cond = clone.cond;
     this.conf = clone.getConf();
     this.setSchema(clone.getSchema());
     this.alias = clone.alias;
@@ -255,7 +255,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
     joinFilters = new List[tagLen];
 
     order = conf.getTagOrder();
-    condn = conf.getConds();
+    cond = conf.getConds();
     nullsafes = conf.getNullSafes();
     noOuterJoin = conf.isNoOuterJoin();
 
@@ -364,10 +364,10 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
     outputObjInspector = getJoinOutputObjectInspector(order,
         joinValuesStandardObjectInspectors, conf);
 
-    for( int i = 0; i < condn.length; i++ ) {
-      if(condn[i].getType() == JoinDesc.LEFT_SEMI_JOIN) {
+    for( int i = 0; i < cond.length; i++ ) {
+      if(cond[i].getType() == JoinDesc.LEFT_SEMI_JOIN) {
         hasLeftSemiJoin = true;
-      } else if(condn[i].getType() == JoinDesc.ANTI_JOIN) {
+      } else if(cond[i].getType() == JoinDesc.ANTI_JOIN) {
         hasLeftAntiSemiJoin = true;
       }
     }
@@ -559,7 +559,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
   // entry point (aliasNum = 0)
   private void genJoinObject() throws HiveException {
     if (needsPostEvaluation && 0 == numAliases - 2) {
-      int nextType = condn[0].getType();
+      int nextType = cond[0].getType();
       if (nextType == JoinDesc.RIGHT_OUTER_JOIN || nextType == JoinDesc.FULL_OUTER_JOIN) {
         // Initialize container to use for storing tuples before emitting them
         rowContainerPostFilteredOuterJoin = new HashMap<>();
@@ -583,7 +583,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
 
     // Consolidation for outer joins
     if (needsPostEvaluation && 0 == numAliases - 2) {
-      int nextType = condn[0].getType();
+      int nextType = cond[0].getType();
       if (nextType == JoinDesc.RIGHT_OUTER_JOIN || nextType == JoinDesc.FULL_OUTER_JOIN) {
         // If it is a RIGHT / FULL OUTER JOIN, we need to iterate through the row container
         // that contains all the right records that did not produce results. Then, for each
@@ -610,13 +610,13 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
   // creates objects in recursive manner
   private void genObject(int aliasNum, boolean allLeftFirst, boolean allLeftNull)
       throws HiveException {
-    JoinCondDesc joinCond = condn[aliasNum - 1];
+    JoinCondDesc joinCond = cond[aliasNum - 1];
     int type = joinCond.getType();
     int left = joinCond.getLeft();
     int right = joinCond.getRight();
 
     if (needsPostEvaluation && aliasNum == numAliases - 2) {
-      int nextType = condn[aliasNum].getType();
+      int nextType = cond[aliasNum].getType();
       if (nextType == JoinDesc.RIGHT_OUTER_JOIN || nextType == JoinDesc.FULL_OUTER_JOIN) {
         // Initialize container to use for storing tuples before emitting them
         rowContainerPostFilteredOuterJoin = new HashMap<>();
@@ -748,7 +748,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
         countAfterReport = 0;
       }
     } else if (needsPostEvaluation && aliasNum == numAliases - 2) {
-      int nextType = condn[aliasNum].getType();
+      int nextType = cond[aliasNum].getType();
       if (nextType == JoinDesc.RIGHT_OUTER_JOIN || nextType == JoinDesc.FULL_OUTER_JOIN) {
         // If it is a RIGHT / FULL OUTER JOIN, we need to iterate through the row container
         // that contains all the right records that did not produce results. Then, for each
@@ -931,7 +931,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
       return;
     }
 
-    if (condn[0].getType() == JoinDesc.UNIQUE_JOIN) {
+    if (cond[0].getType() == JoinDesc.UNIQUE_JOIN) {
 
       // Check if results need to be emitted.
       // Results only need to be emitted if there is a non-null entry in a table
@@ -951,7 +951,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
         if (!alw.hasRows()) {
           alw.addRow(dummyObj[i]);
           hasNulls = true;
-        } else if (condn[i].getPreserved()) {
+        } else if (cond[i].getPreserved()) {
           preserve = true;
         }
       }
@@ -972,7 +972,7 @@ public abstract class CommonJoinOperator<T extends JoinDesc> extends
       for (int i = 0; i < numAliases; i++) {
         Byte alias = order[i];
         AbstractRowContainer<List<Object>> alw = storage[alias];
-        boolean isRightOfAntiJoin = (i != 0 && condn[i-1].getType() == JoinDesc.ANTI_JOIN);
+        boolean isRightOfAntiJoin = (i != 0 && cond[i-1].getType() == JoinDesc.ANTI_JOIN);
 
         if (noOuterJoin) {
           if (!alw.hasRows()) {

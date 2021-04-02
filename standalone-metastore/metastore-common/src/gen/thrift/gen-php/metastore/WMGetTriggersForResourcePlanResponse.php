@@ -16,7 +16,7 @@ use Thrift\Protocol\TProtocol;
 use Thrift\Protocol\TBinaryProtocolAccelerated;
 use Thrift\Exception\TApplicationException;
 
-class WMGetTriggersForResourePlanResponse
+class WMGetTriggersForResourcePlanResponse
 {
     static public $isValidate = false;
 
@@ -49,7 +49,7 @@ class WMGetTriggersForResourePlanResponse
 
     public function getName()
     {
-        return 'WMGetTriggersForResourePlanResponse';
+        return 'WMGetTriggersForResourcePlanResponse';
     }
 
 
@@ -96,7 +96,7 @@ class WMGetTriggersForResourePlanResponse
     public function write($output)
     {
         $xfer = 0;
-        $xfer += $output->writeStructBegin('WMGetTriggersForResourePlanResponse');
+        $xfer += $output->writeStructBegin('WMGetTriggersForResourcePlanResponse');
         if ($this->triggers !== null) {
             if (!is_array($this->triggers)) {
                 throw new TProtocolException('Bad type in structure.', TProtocolException::INVALID_DATA);

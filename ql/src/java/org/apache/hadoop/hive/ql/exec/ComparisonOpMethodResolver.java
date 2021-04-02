@@ -42,7 +42,7 @@ public class ComparisonOpMethodResolver implements UDFMethodResolver {
   private final Class<? extends UDF> udfClass;
 
   /**
-   * Constuctor.
+   * Constructor.
    */
   public ComparisonOpMethodResolver(Class<? extends UDF> udfClass) {
     this.udfClass = udfClass;

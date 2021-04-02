@@ -163,7 +163,7 @@ public class AggregationBase {
   }
 
   private static void extractResultObjects(VectorizedRowBatch outputBatch, short[] keys,
-      VectorExtractRow resultVectorExtractRow, TypeInfo outputTypeInfo, Object[] scrqtchRow,
+      VectorExtractRow resultVectorExtractRow, TypeInfo outputTypeInfo, Object[] scratchRow,
       Object[] results) {
 
     final boolean isPrimitive = (outputTypeInfo instanceof PrimitiveTypeInfo);
@@ -176,14 +176,14 @@ public class AggregationBase {
     }
 
     for (int batchIndex = 0; batchIndex < outputBatch.size; batchIndex++) {
-      resultVectorExtractRow.extractRow(outputBatch, batchIndex, scrqtchRow);
+      resultVectorExtractRow.extractRow(outputBatch, batchIndex, scratchRow);
       if (isPrimitive) {
         Object copyResult =
             ObjectInspectorUtils.copyToStandardObject(
-                scrqtchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
+                scratchRow[0], objectInspector, ObjectInspectorCopyOption.WRITABLE);
         results[keys[batchIndex]] = copyResult;
       } else {
-        results[keys[batchIndex]] = scrqtchRow[0];
+        results[keys[batchIndex]] = scratchRow[0];
       }
     }
   }
@@ -346,14 +346,14 @@ public class AggregationBase {
     VectorExtractRow resultVectorExtractRow = new VectorExtractRow();
     resultVectorExtractRow.init(
         new TypeInfo[] { outputTypeInfo }, new int[] { 0 });
-    Object[] scrqtchRow = new Object[1];
+    Object[] scratchRow = new Object[1];
 
     for (short key = 0; key < maxKeyCount + 1; key++) {
       VectorAggregationBufferRow vectorAggregationBufferRow = vectorAggregationBufferRows[key];
       if (vectorAggregationBufferRow != null) {
         if (outputBatch.size == VectorizedRowBatch.DEFAULT_SIZE) {
           extractResultObjects(outputBatch, keys, resultVectorExtractRow, outputTypeInfo,
-              scrqtchRow, results);
+              scratchRow, results);
           outputBatch.reset();
         }
         keys[outputBatch.size] = key;
@@ -364,7 +364,7 @@ public class AggregationBase {
     }
     if (outputBatch.size > 0) {
       extractResultObjects(outputBatch, keys, resultVectorExtractRow, outputTypeInfo,
-          scrqtchRow, results);
+          scratchRow, results);
     }
 
     return true;

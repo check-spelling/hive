@@ -263,7 +263,7 @@
     <target name="test" depends="property-check, udfs, tar, init-test">
 
         <!-- fork (parallelization) factors for e2e tests execution.
-             Defaults are 1, which means *no* parellelization: -->
+             Defaults are 1, which means *no* parallelization: -->
         <property name="fork.factor.group" value="1"/>
         <property name="fork.factor.conf.file" value="1"/>
         <property name="e2e.debug" value="false"/>

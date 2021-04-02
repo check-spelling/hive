@@ -44,7 +44,7 @@ public class TestBeelineSiteParser {
     }
 
     @Test
-    public void testConnectionURLWithVarSubsitition() throws Exception {
+    public void testConnectionURLWithVarSubstitution() throws Exception {
         List<String> locations = new ArrayList<String>();
         String beelineSite = HiveTestUtils.getFileFromClasspath(BeelineSiteParser.DEFAULT_BEELINE_SITE_FILE_NAME);
         locations.add(beelineSite);

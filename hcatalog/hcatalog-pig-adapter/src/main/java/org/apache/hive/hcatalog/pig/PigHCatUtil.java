@@ -95,7 +95,7 @@ class PigHCatUtil {
     //
     // antlr 3.0.1 and 3.4 are incompatible, so Pig 0.10.0 and Hive cannot be depended on in the
     // same project. Pig 0.8.0 did not use antlr for its parser and can coexist with Hive,
-    // so that Pig version is depended on by HCatalog at this time.
+    // so that Pig version is dependent on by HCatalog at this time.
     try {
       Schema schema = Utils.getSchemaFromString("myBooleanField: boolean");
       pigHasBooleanSupport = (schema.getField("myBooleanField").type == DataType.BOOLEAN);
@@ -396,7 +396,7 @@ class PigHCatUtil {
   public static Object extractPigObject(Object o, HCatFieldSchema hfs) throws Exception {
     /*Note that HCatRecordSerDe.serializePrimitiveField() will be called before this, thus some
     * type promotion/conversion may occur: e.g. Short to Integer.  We should refactor this so
-    * that it's hapenning in one place per module/product that we are integrating with.
+    * that it's happening in one place per module/product that we are integrating with.
     * All Pig conversion should be done here, etc.*/
     if(o == null) {
       return null;

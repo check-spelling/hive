@@ -61,7 +61,7 @@ public class AggregateStatsCache {
   private final long maxWriterWaitTime;
   // Max time when waiting for read locks on node list
   private final long maxReaderWaitTime;
-  // Maximum number of paritions aggregated per cache node
+  // Maximum number of partitions aggregated per cache node
   private final int maxPartsPerCacheNode;
   // Bloom filter false positive probability
   private final double falsePositiveProbability;
@@ -266,7 +266,7 @@ public class AggregateStatsCache {
 
   /**
    * Add a new node to the cache; may trigger the cleaner thread if the cache is near full capacity.
-   * We'll however add the node even if we temporaily exceed maxCacheNodes, because the cleaner
+   * We'll however add the node even if we temporarily exceed maxCacheNodes, because the cleaner
    * will eventually create space from expired nodes or by removing LRU nodes.
    * @param catName catalog name
    * @param dbName database name

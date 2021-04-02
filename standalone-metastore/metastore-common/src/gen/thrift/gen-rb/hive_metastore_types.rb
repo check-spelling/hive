@@ -656,9 +656,9 @@ class WMDropTriggerRequest; end
 
 class WMDropTriggerResponse; end
 
-class WMGetTriggersForResourePlanRequest; end
+class WMGetTriggersForResourcePlanRequest; end
 
-class WMGetTriggersForResourePlanResponse; end
+class WMGetTriggersForResourcePlanResponse; end
 
 class WMCreatePoolRequest; end
 
@@ -1342,7 +1342,7 @@ class RolePrincipalGrant
     GRANTOPTION => {:type => ::Thrift::Types::BOOL, :name => 'grantOption'},
     GRANTTIME => {:type => ::Thrift::Types::I32, :name => 'grantTime'},
     GRANTORNAME => {:type => ::Thrift::Types::STRING, :name => 'grantorName'},
-    GRANTORPRINCIPALTYPE => {:type => ::Thrift::Types::I32, :name => 'grantorPrincipalType', :enum_class => ::PrincipalType}
+    GRANTORPRINCIPALTYPE => {:type => ::Thrift::Types::I32, :name => 'grantorPrincipalipalType', :enum_class => ::PrincipalType}
   }
 
   def struct_fields; FIELDS; end
@@ -1351,8 +1351,8 @@ class RolePrincipalGrant
     unless @principalType.nil? || ::PrincipalType::VALID_VALUES.include?(@principalType)
       raise ::Thrift::ProtocolException.new(::Thrift::ProtocolException::UNKNOWN, 'Invalid value of field principalType!')
     end
-    unless @grantorPrincipalType.nil? || ::PrincipalType::VALID_VALUES.include?(@grantorPrincipalType)
-      raise ::Thrift::ProtocolException.new(::Thrift::ProtocolException::UNKNOWN, 'Invalid value of field grantorPrincipalType!')
+    unless @grantorPrincipalipalType.nil? || ::PrincipalType::VALID_VALUES.include?(@grantorPrincipalipalType)
+      raise ::Thrift::ProtocolException.new(::Thrift::ProtocolException::UNKNOWN, 'Invalid value of field grantorPrincipalipalType!')
     end
   end
 
@@ -5842,7 +5842,7 @@ class WMDropTriggerResponse
   ::Thrift::Struct.generate_accessors self
 end
 
-class WMGetTriggersForResourePlanRequest
+class WMGetTriggersForResourcePlanRequest
   include ::Thrift::Struct, ::Thrift::Struct_Union
   RESOURCEPLANNAME = 1
   NS = 2
@@ -5860,7 +5860,7 @@ class WMGetTriggersForResourePlanRequest
   ::Thrift::Struct.generate_accessors self
 end
 
-class WMGetTriggersForResourePlanResponse
+class WMGetTriggersForResourcePlanResponse
   include ::Thrift::Struct, ::Thrift::Struct_Union
   TRIGGERS = 1
 

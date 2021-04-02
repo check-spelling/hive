@@ -405,7 +405,7 @@ public class RowContainer<ROW extends List<Object>>
     }
   }
 
-  public void copyToDFSDirecory(FileSystem destFs, Path destPath) throws IOException, HiveException {
+  public void copyToDFSDirectory(FileSystem destFs, Path destPath) throws IOException, HiveException {
     if (addCursor > 0) {
       this.spillBlock(this.currentWriteBlock, addCursor);
     }

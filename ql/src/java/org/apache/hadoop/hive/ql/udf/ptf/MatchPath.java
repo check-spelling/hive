@@ -215,8 +215,8 @@ public class MatchPath extends TableFunctionEvaluator
      */
     private void validateAndSetupPatternStr(MatchPath evaluator,
         List<PTFExpressionDef> args) throws SemanticException {
-      PTFExpressionDef symboPatternArg = args.get(0);
-      ObjectInspector symbolPatternArgOI = symboPatternArg.getOI();
+      PTFExpressionDef symbolPatternArg = args.get(0);
+      ObjectInspector symbolPatternArgOI = symbolPatternArg.getOI();
 
       if ( !ObjectInspectorUtils.isConstantObjectInspector(symbolPatternArgOI) ||
           (symbolPatternArgOI.getCategory() != ObjectInspector.Category.PRIMITIVE) ||
@@ -693,7 +693,7 @@ public class MatchPath extends TableFunctionEvaluator
    * - the select keyword is optional. The parser checks if the expression doesn't start with
    * select; if not it prefixes it.
    * - Window Fn clauses are not permitted.
-   * - expressions can operate on the input columns plus the psuedo column 'path'
+   * - expressions can operate on the input columns plus the pseudo column 'path'
    * which is array of
    * structs. The shape of the struct is
    * the same as the input.

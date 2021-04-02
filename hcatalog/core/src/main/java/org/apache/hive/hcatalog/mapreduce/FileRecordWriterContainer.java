@@ -84,7 +84,7 @@ abstract class FileRecordWriterContainer extends RecordWriterContainer {
     try {
       InternalUtil.initializeOutputSerDe(serDe, context.getConfiguration(), jobInfo);
     } catch (SerDeException e) {
-      throw new IOException("Failed to inialize SerDe", e);
+      throw new IOException("Failed to initialize SerDe", e);
     }
 
     // If partition columns occur in data, we want to remove them.

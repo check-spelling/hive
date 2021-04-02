@@ -630,7 +630,7 @@ public final class FunctionRegistry {
   }
 
   /**
-   * Returns a set of registered function names which matchs the given pattern.
+   * Returns a set of registered function names which matches the given pattern.
    * This is used for the CLI command "SHOW FUNCTIONS LIKE 'regular expression';"
    *
    * @param funcPatternStr

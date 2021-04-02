@@ -486,7 +486,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
   }
 
   /**
-   * Calls initialize on each of the children with outputObjetInspector as the
+   * Calls initialize on each of the children with outputObjectInspector as the
    * output row format.
    */
   protected void initializeChildren(Configuration hconf) throws HiveException {
@@ -685,7 +685,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
     // call the operator specific close routine
     closeOp(abort);
 
-    // closeOp can be overriden
+    // closeOp can be overridden
     if (conf != null && conf.getRuntimeStatsTmpDir() != null) {
       publishRunTimeStats();
     }
@@ -716,8 +716,8 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
   }
 
   /**
-   * Operator specific close routine. Operators which inherents this class
-   * should overwrite this funtion for their specific cleanup routine.
+   * Operator specific close routine. Operators which inherits this class
+   * should overwrite this function for their specific cleanup routine.
    */
   protected void closeOp(boolean abort) throws HiveException {
   }
@@ -846,7 +846,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
   }
 
   /**
-   * Replace one parent with another at the same position. Chilren of the new
+   * Replace one parent with another at the same position. Children of the new
    * parent are not updated
    *
    * @param parent

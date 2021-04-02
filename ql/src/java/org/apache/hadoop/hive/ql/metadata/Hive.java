@@ -1388,7 +1388,7 @@ public class Hive {
    *          controls whether an exception is thrown or a returns a null
    * @param checkTransactional
    *          checks whether the metadata table stats are valid (or
-   *          compilant with the snapshot isolation of) for the current transaction.
+   *          compliant with the snapshot isolation of) for the current transaction.
    * @return the table or if throwException is false a null value.
    * @throws HiveException
    */
@@ -1408,7 +1408,7 @@ public class Hive {
    *          controls whether an exception is thrown or a returns a null
    * @param checkTransactional
    *          checks whether the metadata table stats are valid (or
-   *          compilant with the snapshot isolation of) for the current transaction.
+   *          compliant with the snapshot isolation of) for the current transaction.
    * @param getColumnStats
    *          get column statistics if available
    * @return the table or if throwException is false a null value.
@@ -3899,7 +3899,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
     return results;
   }
 
-  // This method converts PartitionSpec to Partiton.
+  // This method converts PartitionSpec to Partition.
   // This is required because listPartitionsSpecByExpr return set of PartitionSpec but hive
   // require Partition
   private static List<Partition> convertFromPartSpec(Iterator<PartitionSpec> iterator, Table tbl)
@@ -4231,7 +4231,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
 
         final String msg = "Unable to move source " + srcP + " to destination " + destf;
 
-        // If we do a rename for a non-local file, we will be transfering the original
+        // If we do a rename for a non-local file, we will be transferring the original
         // file permissions from source to the destination. Else, in case of mvFile() where we
         // copy from source to destination, we will inherit the destination's parent group ownership.
         if (null == pool) {
@@ -4645,7 +4645,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
   }
 
   /**
-   * If moving across different FileSystems or differnent encryption zone, need to do a File copy instead of rename.
+   * If moving across different FileSystems or different encryption zone, need to do a File copy instead of rename.
    * TODO- consider if need to do this for different file authority.
    * @throws HiveException
    */

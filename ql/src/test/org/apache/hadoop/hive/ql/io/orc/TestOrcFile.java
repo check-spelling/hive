@@ -485,7 +485,7 @@ public class TestOrcFile {
         assertEquals(str, st.getPrimitiveJavaObject(inner.getStructFieldData(
             map.get(key), inFields.get(1))));
         found[0] = true;
-      } else if (str.equals("mauddib")) {
+      } else if (str.equals("muaddib")) {
         assertEquals(false, found[1]);
         assertEquals(1,
             in.get(inner.getStructFieldData(map.get(key), inFields.get(0))));
@@ -877,7 +877,7 @@ public class TestOrcFile {
         Long.MAX_VALUE, (float) 2.0, -5.0, bytes(), "bye",
         new MiddleStruct(inner(1, "bye"), inner(2, "sigh")),
         list(inner(100000000, "cat"), inner(-100000, "in"), inner(1234, "hat")),
-        map(inner(5, "chani"), inner(1, "mauddib"))));
+        map(inner(5, "chani"), inner(1, "muaddib"))));
     writer.close();
     Reader reader = OrcFile.createReader(testFilePath,
         OrcFile.readerOptions(conf).filesystem(fs));
@@ -1102,7 +1102,7 @@ public class TestOrcFile {
         assertEquals(str, st.getPrimitiveJavaObject(
             inner.getStructFieldData(map.get(key), inFields.get(1))));
         found[0] = true;
-      } else if (str.equals("mauddib")) {
+      } else if (str.equals("muaddib")) {
         assertEquals(false, found[1]);
         assertEquals(1, in.get(inner.getStructFieldData(map.get(key),
             inFields.get(0))));
@@ -1759,7 +1759,7 @@ public class TestOrcFile {
       }
     }
     boolean[] columns = new boolean[reader.getStatistics().length];
-    columns[5] = true; // long colulmn
+    columns[5] = true; // long column
     columns[9] = true; // text column
     rows = reader.rowsOptions(new Reader.Options()
         .range(offsetOfStripe2, offsetOfStripe4 - offsetOfStripe2)
@@ -1878,7 +1878,7 @@ public class TestOrcFile {
       }
     }
     boolean[] columns = new boolean[reader.getStatistics().length];
-    columns[5] = true; // long colulmn
+    columns[5] = true; // long column
     columns[9] = true; // text column
     /* use zero copy record reader */
     rows = reader.rowsOptions(new Reader.Options()

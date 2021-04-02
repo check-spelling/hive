@@ -29,7 +29,7 @@ import org.apache.hadoop.hive.ql.exec.vector.VectorExpressionDescriptor;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 
 /**
- * Generated from template TimestampColumnCompareColumn.txt, which covers comparision
+ * Generated from template TimestampColumnCompareColumn.txt, which covers comparison
  * expressions between timestamp columns.
  */
 public class <ClassName> extends VectorExpression {

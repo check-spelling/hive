@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * metastore access and this access should be secure, TCJ will add a delegation token to the
  * submitted job.  When the job completes we need to cancel the token since by default the token
  * lives for 7 days and over time can cause OOM (if not cancelled).  Cancelling from 
- * TempletonControllerJob.LauchMapper mapper (via custom OutputCommitter for example) requires
+ * TempletonControllerJob.LaunchMapper mapper (via custom OutputCommitter for example) requires
  * the jar containing HiveMetastoreClient (and any dependent jars) to be available on the node
  * running LaunchMapper.  Specifying transitive closure of the necessary jars is 
  * configuration/maintenance headache for each release.  Caching the token means cancellation is 

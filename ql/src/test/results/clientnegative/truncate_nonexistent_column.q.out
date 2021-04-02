@@ -16,4 +16,4 @@ POSTHOOK: Input: default@src
 POSTHOOK: Output: default@test_tab
 POSTHOOK: Lineage: test_tab.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: test_tab.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-FAILED: SemanticException org.apache.hadoop.hive.ql.parse.SemanticException: Invalid column reference doesnt_exist
+FAILED: SemanticException org.apache.hadoop.hive.ql.parse.SemanticException: Invalid column reference does_not_exist

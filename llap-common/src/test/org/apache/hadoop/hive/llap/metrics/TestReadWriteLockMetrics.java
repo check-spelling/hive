@@ -64,7 +64,7 @@ public class TestReadWriteLockMetrics {
     public static final long LOCK_HOLD_TIME = 5;   ///< lock hold time in ms
 
     private final Lock targetLock;                 ///< the lock to hold
-    private long lockCount;                        ///< loop coun
+    private long lockCount;                        ///< loop count
     private long lockWaitSum;                      ///< total lock wait time
     private long lockWaitMax;                      ///< highest lock wait time
     private long endTime;                          ///< runtime for the thread
@@ -91,7 +91,7 @@ public class TestReadWriteLockMetrics {
 
     /**
      * Returns the number of counted locks.
-     * @return The total lock loop execution coun
+     * @return The total lock loop execution count
      */
     public long getLockCount() {
       return lockCount;
@@ -308,7 +308,7 @@ public class TestReadWriteLockMetrics {
   /**
    * Helper to convert milliseconds to nanoseconds.
    *
-   * @param ms Millisecond inpu
+   * @param ms Millisecond input
    * @return Value in nanoseconds
    */
   private static long toNano(long ms) {
@@ -361,7 +361,7 @@ public class TestReadWriteLockMetrics {
     assertEquals("Invalid record label", "test1", rec.getLabel());
     assertEquals("Invalid record context", "Locking", rec.getContext());
 
-    // we expect around exectome / thread loop time executions
+    // we expect around exectime / thread loop time executions
     assertWithTolerance("Unexpected count of lock executions (reader)",
         execTime / LockHolder.LOCK_HOLD_TIME,  lhR.getLockCount());
     assertEquals("Counting the locks failed",
@@ -384,7 +384,7 @@ public class TestReadWriteLockMetrics {
                rec.getMetrics().get(ReadLockWaitTimeMax).longValue()
                                     < lhR.getLockMax());
 
-    assertTrue("Max greater or equal to avergae lock time",
+    assertTrue("Max greater or equal to average lock time",
                (rec.getMetrics().get(ReadLockWaitTimeTotal).longValue()
                 / rec.getMetrics().get(ReadLockCount).longValue())
                   <= rec.getMetrics().get(ReadLockWaitTimeMax).longValue());

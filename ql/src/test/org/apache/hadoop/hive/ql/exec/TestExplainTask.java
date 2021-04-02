@@ -172,7 +172,7 @@ public class TestExplainTask {
   }
 
   @Test
-  public void testGetJSONDependenciesJsonShhouldMatch() throws Exception {
+  public void testGetJSONDependenciesJsonShouldMatch() throws Exception {
     ExplainWork work = mockExplainWork();
 
     when(work.getDependency()).thenReturn(true);
@@ -258,8 +258,8 @@ public class TestExplainTask {
     map.put("spark-work", new SparkWork("spark-work"));
 
     // Empty list
-    List<Object> emptList = Collections.emptyList();
-    map.put("empty-list", emptList);
+    List<Object> emptyList = Collections.emptyList();
+    map.put("empty-list", emptyList);
 
     // List of TezWork.Dependency
     List<Object> tezList1 = new ArrayList<>(Arrays.asList(new Object[] {mockTezWorkDependency()}));

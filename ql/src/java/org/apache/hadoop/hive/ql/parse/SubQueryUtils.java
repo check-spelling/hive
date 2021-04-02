@@ -133,7 +133,7 @@ public class SubQueryUtils {
     // TOK_SUBQUERY_EXPR
     //  0. TOK_SUBQUERY_OP
     //     0. TYPE: IN/SOME/EXISTS
-    //     1. Comparion op: >, < etc
+    //     1. Comparison op: >, < etc
     //  1. TOK_QUERY:   Subquery
     //  2. LHS expr
     //final ASTNode clonedSubExprAST = (ASTNode) SubQueryUtils.adaptor.dupTree(subqueryExprNode);

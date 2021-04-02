@@ -25,7 +25,7 @@ import java.util.Map;
 public abstract class AbstractMapJoinTableContainer implements MapJoinPersistableTableContainer {
   private final Map<String, String> metaData;
 
-  protected static final String THESHOLD_NAME = "threshold";
+  protected static final String THRESHOLD_NAME = "threshold";
   protected static final String LOAD_NAME = "load";
 
   private String key;
@@ -33,7 +33,7 @@ public abstract class AbstractMapJoinTableContainer implements MapJoinPersistabl
   /** Creates metadata for implementation classes' ctors from threshold and load factor. */
   protected static Map<String, String> createConstructorMetaData(int threshold, float loadFactor) {
     Map<String, String> metaData = new HashMap<String, String>();
-    metaData.put(THESHOLD_NAME, String.valueOf(threshold));
+    metaData.put(THRESHOLD_NAME, String.valueOf(threshold));
     metaData.put(LOAD_NAME, String.valueOf(loadFactor));
     return metaData;
   }

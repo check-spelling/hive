@@ -112,7 +112,7 @@ public class JsonReporter extends ScheduledReporter {
     if (!metricsDir.toFile().exists()) {
       LOG.warn("Metrics directory {} does not exist, creating one", metricsDir);
       try {
-        // createDirectories creates all non-existent parent directories
+        // createDirectories creates all nonexistent parent directories
         Files.createDirectories(metricsDir, DIR_ATTRS);
       } catch (IOException e) {
         LOG.warn("Failed to initialize JSON reporter: failed to create directory {}: {}", metricsDir, e.getMessage());
@@ -150,7 +150,7 @@ public class JsonReporter extends ScheduledReporter {
       return;
     } catch (UnsupportedOperationException e) {
       // This shouldn't ever happen
-      LOG.error("failed to create temp file for JSON metrics: operartion not supported", e);
+      LOG.error("failed to create temp file for JSON metrics: operation not supported", e);
       return;
     }
 

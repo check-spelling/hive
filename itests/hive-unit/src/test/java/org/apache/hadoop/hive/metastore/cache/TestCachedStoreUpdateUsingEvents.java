@@ -64,7 +64,7 @@ public class TestCachedStoreUpdateUsingEvents {
     MetastoreConf.setBoolVar(conf, ConfVars.AGGREGATE_STATS_CACHE_ENABLED, false);
     MetastoreConf.setBoolVar(conf, ConfVars.REPLCMENABLED, true);
     MetastoreConf.setVar(conf, ConfVars.REPLCMDIR, "cmroot");
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     TestTxnDbUtil.prepDb(conf);
 
@@ -651,7 +651,7 @@ public class TestCachedStoreUpdateUsingEvents {
       Assert.assertEquals(statSharedCache.get(0).isIsStatsCompliant(), false);
     }
 
-    SharedCache.ColumStatsWithWriteId statPartCache = sharedCache.getPartitionColStatsFromCache(DEFAULT_CATALOG_NAME,
+    SharedCache.ColumnStatsWithWriteId statPartCache = sharedCache.getPartitionColStatsFromCache(DEFAULT_CATALOG_NAME,
             dbName, tblName, CachedStore.partNameToVals(partName), colName[0], validWriteIds);
     verifyStatDouble(statPartCache.getColumnStatisticsObj(), colName[0], highValue);
 
@@ -865,7 +865,7 @@ public class TestCachedStoreUpdateUsingEvents {
     boolean status = hmsHandler.delete_partition_column_statistics(dbName, tblName, partName, colName[1], Constants.HIVE_ENGINE);
     Assert.assertEquals(status, true);
 
-    SharedCache.ColumStatsWithWriteId colStats = sharedCache.getPartitionColStatsFromCache(DEFAULT_CATALOG_NAME, dbName,
+    SharedCache.ColumnStatsWithWriteId colStats = sharedCache.getPartitionColStatsFromCache(DEFAULT_CATALOG_NAME, dbName,
             tblName, CachedStore.partNameToVals(partName), colName[1], null);
     Assert.assertEquals(colStats.getColumnStatisticsObj(), null);
     validateTablePara(dbName, tblName);
@@ -980,7 +980,7 @@ public class TestCachedStoreUpdateUsingEvents {
     verifyStat(statsListFromCache.get(0).getStatsObj(), colName, highValue, avgColLen);
     Assert.assertEquals(statsListFromCache.get(0).isIsStatsCompliant(), false);
 
-    SharedCache.ColumStatsWithWriteId columStatsWithWriteId =
+    SharedCache.ColumnStatsWithWriteId columStatsWithWriteId =
             sharedCache.getPartitionColStatsFromCache(DEFAULT_CATALOG_NAME, dbName, tblName,
               CachedStore.partNameToVals(partName), colName[1], validWriteIds);
     Assert.assertEquals(columStatsWithWriteId, null);
@@ -1045,7 +1045,7 @@ public class TestCachedStoreUpdateUsingEvents {
     verifyStat(statsListFromCache.get(0).getStatsObj(), colName, highValue, avgColLen);
     Assert.assertEquals(statsListFromCache.get(0).isIsStatsCompliant(), false);
 
-    SharedCache.ColumStatsWithWriteId columStatsWithWriteId =
+    SharedCache.ColumnStatsWithWriteId columStatsWithWriteId =
             sharedCache.getPartitionColStatsFromCache(DEFAULT_CATALOG_NAME, dbName,
               tblName, CachedStore.partNameToVals(partName), colName[1], validWriteIds);
     Assert.assertEquals(columStatsWithWriteId, null);

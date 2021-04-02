@@ -355,16 +355,16 @@ public class MessageBuilder {
     return serializer.toString(uniqueConstraintObj, "UTF-8");
   }
 
-  public static String createNotNullConstraintObjJson(SQLNotNullConstraint notNullConstaintObj)
+  public static String createNotNullConstraintObjJson(SQLNotNullConstraint notNullConstraintObj)
       throws TException {
     TSerializer serializer = new TSerializer(new TJSONProtocol.Factory());
-    return serializer.toString(notNullConstaintObj, "UTF-8");
+    return serializer.toString(notNullConstraintObj, "UTF-8");
   }
 
-  public static String createDefaultConstraintObjJson(SQLDefaultConstraint defaultConstaintObj)
+  public static String createDefaultConstraintObjJson(SQLDefaultConstraint defaultConstraintObj)
     throws TException {
     TSerializer serializer = new TSerializer(new TJSONProtocol.Factory());
-    return serializer.toString(defaultConstaintObj, "UTF-8");
+    return serializer.toString(defaultConstraintObj, "UTF-8");
   }
 
   public static String createCheckConstraintObjJson(SQLCheckConstraint checkConstraintObj)

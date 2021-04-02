@@ -370,7 +370,7 @@ public class ExprNodeDescExprFactory extends ExprFactory<ExprNodeDesc> {
       }
     }
 
-    // Comparision of decimal and float/double happens in float/double.
+    // Comparison of decimal and float/double happens in float/double.
     if (constantValue instanceof HiveDecimal) {
       HiveDecimal hiveDecimal = (HiveDecimal) constantValue;
 

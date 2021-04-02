@@ -290,16 +290,16 @@ public class TestCliDriverMethods {
 
   @Test
   public void testProcessSelectDatabase() throws Exception {
-    CliSessionState sessinState = new CliSessionState(new HiveConf());
-    CliSessionState.start(sessinState);
+    CliSessionState sessionState = new CliSessionState(new HiveConf());
+    CliSessionState.start(sessionState);
     ByteArrayOutputStream data = new ByteArrayOutputStream();
-    sessinState.err = new SessionStream(data);
-    sessinState.database = "database";
+    sessionState.err = new SessionStream(data);
+    sessionState.database = "database";
     CliDriver driver = new CliDriver();
 
     try {
-      driver.processSelectDatabase(sessinState);
-      fail("shuld be exit");
+      driver.processSelectDatabase(sessionState);
+      fail("should be exit");
     } catch (ExitException e) {
       e.printStackTrace();
       assertEquals(40000, e.getStatus());

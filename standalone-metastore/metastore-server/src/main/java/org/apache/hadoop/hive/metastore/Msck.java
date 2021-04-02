@@ -176,7 +176,7 @@ public class Msck {
         int decayingFactor = 2;
 
         if (msckInfo.isAddPartitions() && !partsNotInMs.isEmpty()) {
-          // MSCK called to add missing paritions into metastore and there are
+          // MSCK called to add missing partitions into metastore and there are
           // missing partitions.
 
           int batchSize = MetastoreConf.getIntVar(getConf(), MetastoreConf.ConfVars.MSCK_REPAIR_BATCH_SIZE);
@@ -238,7 +238,7 @@ public class Msck {
         }
 
         if (msckInfo.isDropPartitions() && (!partsNotInFs.isEmpty() || !expiredPartitions.isEmpty())) {
-          // MSCK called to drop stale paritions from metastore and there are
+          // MSCK called to drop stale partitions from metastore and there are
           // stale partitions.
 
           int batchSize = MetastoreConf.getIntVar(getConf(), MetastoreConf.ConfVars.MSCK_REPAIR_BATCH_SIZE);
@@ -367,7 +367,7 @@ public class Msck {
    * If the writeId is higher in the metastore we can still accept the data, the use case would be after some dataloss
    * some older data backup was used. The system would able to read the old data.
    * If however the writeId in the new partition is greater than the maximum allocated in the HMS
-   * we must raise an error. The writedId in the HMS should be increased to match the writeIds in the data files,
+   * we must raise an error. The writeId in the HMS should be increased to match the writeIds in the data files,
    * but it would most likely cause a lot of problem since the transactional data would become inconsistent
    * between the HMS and the filesystem.
    * Further more we need to check for the visibilityTransactionIds written by the compaction.
@@ -558,7 +558,7 @@ public class Msck {
 
               dropParts.add(part.getPartitionName());
 
-              // Add the part to lastBatch to track the parition being dropped
+              // Add the part to lastBatch to track the partition being dropped
               lastBatch.add(part);
 
               // Update messages

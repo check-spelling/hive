@@ -580,7 +580,7 @@ public class WarehouseInstance implements Closeable {
             new NotNullConstraintsRequest(Warehouse.DEFAULT_CATALOG_NAME, dbName, tblName));
   }
 
-  ReplicationV1CompatRule getReplivationV1CompatRule(List<String> testsToSkip) {
+  ReplicationV1CompatRule getReplicationV1CompatRule(List<String> testsToSkip) {
     return new ReplicationV1CompatRule(client, hiveConf, testsToSkip);
   }
 

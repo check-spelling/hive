@@ -147,7 +147,7 @@ public class HiveSubQueryRemoveRule extends RelOptRule {
     }
   }
 
-  // given a subquery it checks to see what is the aggegate function
+  // given a subquery it checks to see what is the aggregate function
   /// if COUNT returns true since COUNT produces 0 on empty result set
   private boolean isAggZeroOnEmpty(RexSubQuery e) {
     //as this is corr scalar subquery with agg we expect one aggregate
@@ -472,7 +472,7 @@ public class HiveSubQueryRemoveRule extends RelOptRule {
         if (!variablesSet.isEmpty() && (e.getKind() == SqlKind.EXISTS
             || e.getKind() == SqlKind.IN)) {
           // avoid adding group by for correlated IN/EXISTS queries
-          // since this is rewritting into semijoin
+          // since this is rewriting into semijoin
           break;
         } else {
           builder.aggregate(builder.groupKey(0));
@@ -481,7 +481,7 @@ public class HiveSubQueryRemoveRule extends RelOptRule {
         if (!variablesSet.isEmpty() && (e.getKind() == SqlKind.EXISTS
             || e.getKind() == SqlKind.IN)) {
           // avoid adding group by for correlated IN/EXISTS queries
-          // since this is rewritting into semijoin
+          // since this is rewriting into semijoin
           break;
         } else {
           builder.aggregate(builder.groupKey(fields));

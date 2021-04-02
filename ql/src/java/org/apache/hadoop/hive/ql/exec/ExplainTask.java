@@ -699,9 +699,9 @@ public class ExplainTask extends Task<ExplainWork> implements Serializable {
   }
 
   /**
-   * Retruns a map which have either primitive or string keys.
+   * Returns a map which have either primitive or string keys.
    *
-   * This is neccessary to discard object level comparators which may sort the objects based on some non-trivial logic.
+   * This is necessary to discard object level comparators which may sort the objects based on some non-trivial logic.
    *
    * @param mp
    * @return

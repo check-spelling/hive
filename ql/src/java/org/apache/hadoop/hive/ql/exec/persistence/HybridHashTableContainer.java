@@ -468,7 +468,7 @@ public class HybridHashTableContainer
       if (hp.hashMap != null) {
         memUsed += hp.hashMap.memorySize();
       } else {
-        // also include the still-in-memory sidefile, before it has been truely spilled
+        // also include the still-in-memory sidefile, before it has been truly spilled
         if (hp.sidefileKVContainer != null) {
           memUsed += hp.sidefileKVContainer.numRowsInReadBuffer() * tableRowSize;
         }

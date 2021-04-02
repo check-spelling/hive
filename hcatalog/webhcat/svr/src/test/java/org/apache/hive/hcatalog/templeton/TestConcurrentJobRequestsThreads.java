@@ -53,7 +53,7 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
   public void ConcurrentJobsStatusTooManyRequestsException() {
     try {
       JobRunnable jobRunnable = ConcurrentJobsStatus(6, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(4, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(4, statusBean));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof TooManyRequestsException);
       TooManyRequestsException ex = (TooManyRequestsException)jobRunnable.exception;
@@ -61,14 +61,14 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
       String expectedMessage = "Unable to service the status job request as templeton service is busy "
                                  + "with too many status job requests. Please wait for some time before "
                                  + "retrying the operation. Please refer to the config "
-                                 + "templeton.parallellism.job.status to configure concurrent requests.";
+                                 + "templeton.parallelism.job.status to configure concurrent requests.";
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
 
       /*
        * Verify that new job requests have no issues.
        */
       jobRunnable = ConcurrentJobsStatus(5, config, false, false,
-                statusJobHelper.getDelayedResonseAnswer(4, statusBean));
+                statusJobHelper.getDelayedResponseAnswer(4, statusBean));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -79,7 +79,7 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
   public void ConcurrentListJobsTooManyRequestsException() {
     try {
       JobRunnable jobRunnable = ConcurrentListJobs(6, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(4, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(4, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof TooManyRequestsException);
       TooManyRequestsException ex = (TooManyRequestsException)jobRunnable.exception;
@@ -87,14 +87,14 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
       String expectedMessage = "Unable to service the list job request as templeton service is busy "
                                + "with too many list job requests. Please wait for some time before "
                                + "retrying the operation. Please refer to the config "
-                               + "templeton.parallellism.job.list to configure concurrent requests.";
+                               + "templeton.parallelism.job.list to configure concurrent requests.";
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
 
       /*
        * Verify that new job requests have no issues.
        */
       jobRunnable = ConcurrentListJobs(5, config, false, false,
-                listJobHelper.getDelayedResonseAnswer(4, new ArrayList<JobItemBean>()));
+                listJobHelper.getDelayedResponseAnswer(4, new ArrayList<JobItemBean>()));
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);
@@ -105,8 +105,8 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
   public void ConcurrentSubmitJobsTooManyRequestsException() {
     try {
       JobRunnable jobRunnable = SubmitConcurrentJobs(6, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(4, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(4, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1000");
       assertTrue(jobRunnable.exception != null);
       assertTrue(jobRunnable.exception instanceof TooManyRequestsException);
       TooManyRequestsException ex = (TooManyRequestsException)jobRunnable.exception;
@@ -114,15 +114,15 @@ public class TestConcurrentJobRequestsThreads extends ConcurrentJobRequestsTestB
       String expectedMessage = "Unable to service the submit job request as templeton service is busy "
                                 + "with too many submit job requests. Please wait for some time before "
                                 + "retrying the operation. Please refer to the config "
-                                + "templeton.parallellism.job.submit to configure concurrent requests.";
+                                + "templeton.parallelism.job.submit to configure concurrent requests.";
       assertTrue(jobRunnable.exception.getMessage().contains(expectedMessage));
 
       /*
        * Verify that new job requests have no issues.
        */
       jobRunnable = SubmitConcurrentJobs(5, config, false, false,
-                submitJobHelper.getDelayedResonseAnswer(4, 0),
-                killJobHelper.getDelayedResonseAnswer(0, statusBean), "job_1000");
+                submitJobHelper.getDelayedResponseAnswer(4, 0),
+                killJobHelper.getDelayedResponseAnswer(0, statusBean), "job_1000");
       assertTrue(jobRunnable.exception == null);
     } catch (Exception e) {
       assertTrue(false);

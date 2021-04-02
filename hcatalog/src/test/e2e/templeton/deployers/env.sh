@@ -64,5 +64,5 @@ export PIG_PIGGYBANK_PATH=/Users/${USER}/dev/pig-${PIG_VERSION}-src/build/tar/pi
 export WEBHCAT_LOG_DIR=/tmp/webhcat_e2e/logs
 export WEBHCAT_PID_DIR=${WEBHCAT_LOG_DIR}
 #config/hive/hive-site.xml should match this path - it doesn't understand env vars
-export METASTORE_DB=${WEBHCAT_LOG_DIR}/wehcat_e2e_metastore_db
+export METASTORE_DB=${WEBHCAT_LOG_DIR}/webhcat_e2e_metastore_db
 export CONF_BACKUP=/Users/${USER}/tmp

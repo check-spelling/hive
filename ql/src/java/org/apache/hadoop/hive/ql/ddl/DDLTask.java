@@ -75,9 +75,9 @@ public final class DDLTask extends Task<DDLWork> implements Serializable {
       if (DESC_TO_OPARATION.containsKey(ddlDesc.getClass())) {
         DDLOperationContext ddlOperationContext = new DDLOperationContext(conf, context, this, (DDLWork)work,
             queryState, queryPlan, console);
-        Class<? extends DDLOperation> ddlOpertaionClass = DESC_TO_OPARATION.get(ddlDesc.getClass());
+        Class<? extends DDLOperation> ddlOperationClass = DESC_TO_OPARATION.get(ddlDesc.getClass());
         Constructor<? extends DDLOperation> constructor =
-            ddlOpertaionClass.getConstructor(DDLOperationContext.class, ddlDesc.getClass());
+            ddlOperationClass.getConstructor(DDLOperationContext.class, ddlDesc.getClass());
         ddlOperation = constructor.newInstance(ddlOperationContext, ddlDesc);
         return ddlOperation.execute();
       } else {

@@ -130,12 +130,12 @@ public class KeyValuesInputMerger extends KeyValuesReader {
 
   /**
    * Add KeyValuesReader to queue if it has more key-values
-   * @param kvsReadr
+   * @param kvsReader
    * @throws IOException
    */
-  private void addToQueue(KeyValuesReader kvsReadr) throws IOException{
-    if(kvsReadr.next()){
-      pQueue.add(kvsReadr);
+  private void addToQueue(KeyValuesReader kvsReader) throws IOException{
+    if(kvsReader.next()){
+      pQueue.add(kvsReader);
     }
   }
 
@@ -190,10 +190,10 @@ public class KeyValuesInputMerger extends KeyValuesReader {
   class KVReaderComparator implements Comparator<KeyValuesReader> {
 
     @Override
-    public int compare(KeyValuesReader kvReadr1, KeyValuesReader kvReadr2) {
+    public int compare(KeyValuesReader kvReader1, KeyValuesReader kvReader2) {
       try {
-        BinaryComparable key1 = (BinaryComparable) kvReadr1.getCurrentKey();
-        BinaryComparable key2 = (BinaryComparable) kvReadr2.getCurrentKey();
+        BinaryComparable key1 = (BinaryComparable) kvReader1.getCurrentKey();
+        BinaryComparable key2 = (BinaryComparable) kvReader2.getCurrentKey();
         return key1.compareTo(key2);
       } catch (IOException e) {
         l4j.error("Caught exception while reading shuffle input", e);

@@ -105,7 +105,7 @@ public class TestServiceDiscovery {
         connParams.getCurrentHostZnodePath()));
     }
 
-    //Make sure it itereated through all possible ConnParams
+    //Make sure it iterated through all possible ConnParams
     Collection<ConnParamInfo> cp1 = Collections2.filter(allConnectParams,
       new ConnParamInfoPred("host-1", 8000, "serverUri=uri1"));
     Collection<ConnParamInfo> cp2 = Collections2.filter(allConnectParams,

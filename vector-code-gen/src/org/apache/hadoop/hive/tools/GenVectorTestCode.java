@@ -79,7 +79,7 @@ public class GenVectorTestCode {
     }
     for (String outputTypeInfo : outputTypeInfos) {
       for (Boolean[] testMatrix : new Boolean[][] {
-          // Pairwise: InitOuputColHasNulls, InitOuputColIsRepeating, ColumnHasNulls, ColumnIsRepeating
+          // Pairwise: InitOutputColHasNulls, InitOutputColIsRepeating, ColumnHasNulls, ColumnIsRepeating
           { false, true, true, true }, { false, false, false, false }, { true, false, true, false },
           { true, true, false, false }, { true, false, false, true } }) {
         String testCase = templateString;
@@ -94,8 +94,8 @@ public class GenVectorTestCode {
         testCase = testCase.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
         testCase = testCase.replaceAll("<ScalarType>", scalarType);
         testCase = testCase.replaceAll("<CamelCaseScalarType>", GenVectorCode.getCamelCaseType(scalarType));
-        testCase = testCase.replaceAll("<InitOuputColHasNulls>", testMatrix[0].toString());
-        testCase = testCase.replaceAll("<InitOuputColIsRepeating>", testMatrix[1].toString());
+        testCase = testCase.replaceAll("<InitOutputColHasNulls>", testMatrix[0].toString());
+        testCase = testCase.replaceAll("<InitOutputColIsRepeating>", testMatrix[1].toString());
         testCase = testCase.replaceAll("<ColumnHasNulls>", testMatrix[2].toString());
         testCase = testCase.replaceAll("<ColumnIsRepeating>", testMatrix[3].toString());
 
@@ -122,7 +122,7 @@ public class GenVectorTestCode {
     String templateString = removeTemplateComments(GenVectorCode.readFile(templateFile));
 
     for(Boolean[] testMatrix :new Boolean[][]{
-        // Pairwise: InitOuputColHasNulls, InitOuputColIsRepeating, ColumnHasNulls, ColumnIsRepeating
+        // Pairwise: InitOutputColHasNulls, InitOutputColIsRepeating, ColumnHasNulls, ColumnIsRepeating
         {false,   true,    true,    true},
         {false,   false,   false,   false},
         {true,    false,   true,    false},
@@ -139,8 +139,8 @@ public class GenVectorTestCode {
       testCase = testCase.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
       testCase = testCase.replaceAll("<ScalarType>", scalarType);
       testCase = testCase.replaceAll("<CamelCaseScalarType>", GenVectorCode.getCamelCaseType(scalarType));
-      testCase = testCase.replaceAll("<InitOuputColHasNulls>", testMatrix[0].toString());
-      testCase = testCase.replaceAll("<InitOuputColIsRepeating>", testMatrix[1].toString());
+      testCase = testCase.replaceAll("<InitOutputColHasNulls>", testMatrix[0].toString());
+      testCase = testCase.replaceAll("<InitOutputColIsRepeating>", testMatrix[1].toString());
       testCase = testCase.replaceAll("<ColumnHasNulls>", testMatrix[2].toString());
       testCase = testCase.replaceAll("<ColumnIsRepeating>", testMatrix[3].toString());
 
@@ -217,7 +217,7 @@ public class GenVectorTestCode {
     }
     for (String outputTypeInfo : outputTypeInfos) {
       for (Boolean[] testMatrix : new Boolean[][] {
-          // Pairwise: InitOuputColHasNulls, InitOuputColIsRepeating, Column1HasNulls,
+          // Pairwise: InitOutputColHasNulls, InitOutputColIsRepeating, Column1HasNulls,
           // Column1IsRepeating, Column2HasNulls, Column2IsRepeating
           { true, true, false, true, true, true },
           { false, false, true, false, false, false },
@@ -238,8 +238,8 @@ public class GenVectorTestCode {
         testCase = testCase.replaceAll("<InputColumnVectorType1>", inputColumnVectorType1);
         testCase = testCase.replaceAll("<InputColumnVectorType2>", inputColumnVectorType2);
         testCase = testCase.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
-        testCase = testCase.replaceAll("<InitOuputColHasNulls>", testMatrix[0].toString());
-        testCase = testCase.replaceAll("<InitOuputColIsRepeating>", testMatrix[1].toString());
+        testCase = testCase.replaceAll("<InitOutputColHasNulls>", testMatrix[0].toString());
+        testCase = testCase.replaceAll("<InitOutputColIsRepeating>", testMatrix[1].toString());
         testCase = testCase.replaceAll("<Column1HasNulls>", testMatrix[2].toString());
         testCase = testCase.replaceAll("<Column1IsRepeating>", testMatrix[3].toString());
         testCase = testCase.replaceAll("<Column2HasNulls>", testMatrix[4].toString());
@@ -263,7 +263,7 @@ public class GenVectorTestCode {
     String templateString = removeTemplateComments(GenVectorCode.readFile(templateFile));
 
     for(Boolean[] testMatrix : new Boolean[][]{
-        // Pairwise: InitOuputColHasNulls, InitOuputColIsRepeating, Column1HasNulls,
+        // Pairwise: InitOutputColHasNulls, InitOutputColIsRepeating, Column1HasNulls,
         // Column1IsRepeating, Column2HasNulls, Column2IsRepeating
         {true,    true,    false,   true,    true,    true},
         {false,   false,   true,    false,   false,   false},
@@ -282,8 +282,8 @@ public class GenVectorTestCode {
       testCase = testCase.replaceAll("<InputColumnVectorType1>", inputColumnVectorType1);
       testCase = testCase.replaceAll("<InputColumnVectorType2>", inputColumnVectorType2);
       testCase = testCase.replaceAll("<OutputColumnVectorType>", outputColumnVectorType);
-      testCase = testCase.replaceAll("<InitOuputColHasNulls>", testMatrix[0].toString());
-      testCase = testCase.replaceAll("<InitOuputColIsRepeating>", testMatrix[1].toString());
+      testCase = testCase.replaceAll("<InitOutputColHasNulls>", testMatrix[0].toString());
+      testCase = testCase.replaceAll("<InitOutputColIsRepeating>", testMatrix[1].toString());
       testCase = testCase.replaceAll("<Column1HasNulls>", testMatrix[2].toString());
       testCase = testCase.replaceAll("<Column1IsRepeating>", testMatrix[3].toString());
       testCase = testCase.replaceAll("<Column2HasNulls>", testMatrix[4].toString());

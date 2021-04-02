@@ -60,7 +60,7 @@ public class TestLlapWebServices {
       found.add(rr.nextElement());
     }
     if (found.size() != 1) {
-      throw new RuntimeException(name + " unexpected number of occurences on the classpath:" + found.toString());
+      throw new RuntimeException(name + " unexpected number of occurrences on the classpath:" + found.toString());
     }
   }
 

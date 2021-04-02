@@ -174,7 +174,7 @@ public final class DbTxnManager extends HiveTxnManagerImpl {
   /**
    * We do this on every call to make sure TM uses same MS connection as is used by the caller (Driver,
    * SemanticAnalyzer, etc).  {@code Hive} instances are cached using ThreadLocal and
-   * {@link IMetaStoreClient} is cached within {@code Hive} with additional logic.  Futhermore, this
+   * {@link IMetaStoreClient} is cached within {@code Hive} with additional logic.  Furthermore, this
    * ensures that multiple threads are not sharing the same Thrift client (which could happen
    * if we had cached {@link IMetaStoreClient} here.
    *

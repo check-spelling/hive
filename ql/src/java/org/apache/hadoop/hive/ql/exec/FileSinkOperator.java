@@ -532,7 +532,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
   private transient int bucketId;
 
   private transient ObjectInspector[] partitionObjectInspectors;
-  protected transient HivePartitioner<HiveKey, Object> prtner;
+  protected transient HivePartitioner<HiveKey, Object> partitioner;
   protected transient final HiveKey key = new HiveKey();
   private transient Configuration hconf;
   protected transient FSPaths fsp;
@@ -664,7 +664,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
         }
 
         partitionObjectInspectors = initEvaluators(partitionEval, outputObjInspector);
-        prtner = (HivePartitioner<HiveKey, Object>) ReflectionUtils.newInstance(
+        partitioner = (HivePartitioner<HiveKey, Object>) ReflectionUtils.newInstance(
             jc.getPartitionerClass(), null);
       }
 
@@ -856,13 +856,13 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
             int currReducer = Integer.parseInt(Utilities.getTaskIdFromFilename(Utilities
                 .getTaskId(hconf)));
 
-            int reducerIdx = prtner.getPartition(key, null, numReducers);
+            int reducerIdx = partitioner.getPartition(key, null, numReducers);
             if (currReducer != reducerIdx) {
               continue;
             }
           }
 
-          bucketNum = prtner.getBucket(key, null, totalFiles);
+          bucketNum = partitioner.getBucket(key, null, totalFiles);
           if (seenBuckets.contains(bucketNum)) {
             continue;
           }
@@ -931,7 +931,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
             && !FileUtils.mkdir(fs, outPath.getParent(), hconf)) {
           LOG.warn("Unable to create directory: " + outPath);
         }
-        // Only set up the updater for insert.  For update and delete we don't know unitl we see
+        // Only set up the updater for insert.  For update and delete we don't know until we see
         // the row.
         ObjectInspector inspector = bDynParts ? subSetOI : outputObjInspector;
         int acidBucketNum = Integer.parseInt(Utilities.getTaskIdFromFilename(taskId));
@@ -1249,7 +1249,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
       }
       int keyHashCode = hashFunc.apply(bucketFieldValues, partitionObjectInspectors);
       key.setHashCode(keyHashCode);
-      int bucketNum = prtner.getBucket(key, null, totalFiles);
+      int bucketNum = partitioner.getBucket(key, null, totalFiles);
       return bucketMap.get(bucketNum);
     }
   }
@@ -1614,7 +1614,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
       }
     }
     if (conf.getTableInfo().isNonNative()) {
-      //check the ouput specs only if it is a storage handler (native tables's outputformats does
+      //check the output specs only if it is a storage handler (native tables's outputformats does
       //not set the job's output properties correctly)
       try {
         hiveOutputFormat.checkOutputSpecs(ignored, job);
@@ -1748,7 +1748,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
    * After filter, fspKey is empty, storedAsDirPostFix has either
    * key=484/value=val_484 or
    * HIVE_LIST_BUCKETING_DEFAULT_DIR_NAME/HIVE_LIST_BUCKETING_DEFAULT_DIR_NAME
-   * so, at the end, "keyPrefix" doesnt have subdir information but "key" has
+   * so, at the end, "keyPrefix" does not have subdir information but "key" has
    * Case #2: Dynamic partition with store-as-sub-dir. Assume dp part is hr
    * spSpec has SP path
    * fspKey has either

@@ -534,12 +534,12 @@ public class Warehouse {
   /**
    * Makes a partition name from a specification
    * @param spec
-   * @param addTrailingSeperator if true, adds a trailing separator e.g. 'ds=1/'
+   * @param addTrailingSeparator if true, adds a trailing separator e.g. 'ds=1/'
    * @return partition name
    * @throws MetaException
    */
   public static String makePartName(Map<String, String> spec,
-      boolean addTrailingSeperator)
+      boolean addTrailingSeparator)
       throws MetaException {
     StringBuilder suffixBuf = new StringBuilder();
     int i = 0;
@@ -555,7 +555,7 @@ public class Warehouse {
       suffixBuf.append(escapePathName(e.getValue()));
       i++;
     }
-    if (addTrailingSeperator) {
+    if (addTrailingSeparator) {
       suffixBuf.append(Path.SEPARATOR);
     }
     return suffixBuf.toString();

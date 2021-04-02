@@ -58,16 +58,16 @@
      <tr><td><a href="createtablelike.html">ddl/database/:db/table/:existingtable/like/:newtable (PUT)</a></td>
          <td>Create a new HCatalog table like an existing one.</td></tr>
 
-     <tr><td><a href="listpartitions.html">ddl/database/:db/table/:table/partion</a></td>
+     <tr><td><a href="listpartitions.html">ddl/database/:db/table/:table/partition</a></td>
          <td>List all partitions in an HCatalog table.</td></tr>
 
-     <tr><td><a href="descpartition.html">ddl/database/:db/table/:table/partion/:partition (GET)</a></td>
+     <tr><td><a href="descpartition.html">ddl/database/:db/table/:table/partition/:partition (GET)</a></td>
          <td>Describe a single partition in an HCatalog table.</td></tr>
 
-     <tr><td><a href="createpartition.html">ddl/database/:db/table/:table/partion/:partition (PUT)</a></td>
+     <tr><td><a href="createpartition.html">ddl/database/:db/table/:table/partition/:partition (PUT)</a></td>
          <td>Create a partition in an HCatalog table.</td></tr>
 
-     <tr><td><a href="deletepartition.html">ddl/database/:db/table/:table/partion/:partition (DELETE)</a></td>
+     <tr><td><a href="deletepartition.html">ddl/database/:db/table/:table/partition/:partition (DELETE)</a></td>
          <td>Delete (drop) a partition in an HCatalog table.</td></tr>
 
      <tr><td><a href="listcolumns.html">ddl/database/:db/table/:table/column</a></td>

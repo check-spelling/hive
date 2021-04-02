@@ -201,7 +201,7 @@ public class TestHCatMultiOutputFormat {
     hiveConf.set(HiveConf.ConfVars.METASTOREWAREHOUSE.varname, warehousedir.toString());
     try {
       hmsc = new HiveMetaStoreClient(hiveConf);
-      initalizeTables();
+      initializeTables();
     } catch (Throwable e) {
       LOG.error("Exception encountered while setting up testcase", e);
       throw new Exception(e);
@@ -210,7 +210,7 @@ public class TestHCatMultiOutputFormat {
     }
   }
 
-  private static void initalizeTables() throws Exception {
+  private static void initializeTables() throws Exception {
     for (String table : tableNames) {
       try {
         if (hmsc.getTable(DATABASE, table) != null) {
@@ -313,7 +313,7 @@ public class TestHCatMultiOutputFormat {
     Assert.assertEquals("Comparing output of table " +
       tableNames[2] + " is not correct", outputs.get(2), "a,a,extra,1,ag");
 
-    // Check permisssion on partition dirs and files created
+    // Check permission on partition dirs and files created
     for (int i = 0; i < tableNames.length; i++) {
       Path partitionFile = new Path(warehousedir + "/" + tableNames[i]
         + "/ds=1/cluster=ag/part-m-00000");
@@ -357,7 +357,7 @@ public class TestHCatMultiOutputFormat {
    *
    * @param table table name
    * @param database database
-   * @return list of columns in comma seperated way
+   * @return list of columns in comma separated way
    * @throws Exception if any error occurs
    */
   private List<String> getTableData(String table, String database) throws Exception {

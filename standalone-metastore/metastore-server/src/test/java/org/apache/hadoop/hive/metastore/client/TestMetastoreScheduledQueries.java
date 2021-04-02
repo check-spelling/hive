@@ -183,7 +183,7 @@ public class TestMetastoreScheduledQueries extends MetaStoreClientTest {
     r.setScheduledQuery(schq);
     client.scheduledQueryMaintenance(r);
 
-    // wait 2 sec to have the query exection
+    // wait 2 sec to have the query execution
     Thread.sleep(2000);
 
     // invoke poll to create a dependent execution

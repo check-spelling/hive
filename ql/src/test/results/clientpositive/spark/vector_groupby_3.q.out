@@ -1184,70 +1184,70 @@ nap time	92	8540237852367446016
 nap time	93	-8203075743525806080
 nap time	98	7691062622443044864
 nap time	NULL	-8430283518005846016
-opthamology	-111	8244041599171862528
-opthamology	-118	2072
-opthamology	-121	3879
-opthamology	-122	9096395849845194752
-opthamology	-14	3235
-opthamology	-17	-7629401308029976576
-opthamology	-18	2393
-opthamology	-22	7718825401976684544
-opthamology	-24	383
-opthamology	-27	3599
-opthamology	-28	8849475396952514560
-opthamology	-30	8048726769133592576
-opthamology	-33	1613
-opthamology	-35	2274
-opthamology	-44	2675
-opthamology	-48	-7877598807023386624
-opthamology	-49	8854495099223375872
-opthamology	-5	7411793502161182720
-opthamology	-55	2177
-opthamology	-59	3021
-opthamology	-63	470
-opthamology	-73	908
-opthamology	-75	8779073705407963136
-opthamology	-77	8631515095562887168
-opthamology	-78	-7303847963918393344
-opthamology	-79	-9117959922369060864
-opthamology	-8	7333512171174223872
-opthamology	-82	1606
-opthamology	-86	-9066993118333706240
-opthamology	-91	2255
-opthamology	-97	8752150411997356032
-opthamology	-99	-7875953567586451456
-opthamology	100	-7532751268425261056
-opthamology	104	1866
-opthamology	117	2835
-opthamology	120	-8340523561480437760
-opthamology	122	3462
-opthamology	125	965
-opthamology	127	412
-opthamology	21	7069729473166090240
-opthamology	39	2745
-opthamology	4	9131533983989358592
-opthamology	41	NULL
-opthamology	48	3159
-opthamology	49	-7904188195431661568
-opthamology	5	130
-opthamology	52	-7081500255163727872
-opthamology	53	-7055760785575665664
-opthamology	55	2335
-opthamology	68	-8866442231663067136
-opthamology	69	2144
-opthamology	74	-7708932208121225216
-opthamology	76	-7647020450676146176
-opthamology	77	-6934304742087655424
-opthamology	79	1508
-opthamology	81	8920344895701393408
-opthamology	84	927
-opthamology	87	6924820982050758656
-opthamology	88	-8593419958317056000
-opthamology	89	-7978782649203228672
-opthamology	92	NULL
-opthamology	96	-8418913260807217152
-opthamology	97	8935252708196999168
-opthamology	NULL	8856674723376668672
+ophthalmology	-111	8244041599171862528
+ophthalmology	-118	2072
+ophthalmology	-121	3879
+ophthalmology	-122	9096395849845194752
+ophthalmology	-14	3235
+ophthalmology	-17	-7629401308029976576
+ophthalmology	-18	2393
+ophthalmology	-22	7718825401976684544
+ophthalmology	-24	383
+ophthalmology	-27	3599
+ophthalmology	-28	8849475396952514560
+ophthalmology	-30	8048726769133592576
+ophthalmology	-33	1613
+ophthalmology	-35	2274
+ophthalmology	-44	2675
+ophthalmology	-48	-7877598807023386624
+ophthalmology	-49	8854495099223375872
+ophthalmology	-5	7411793502161182720
+ophthalmology	-55	2177
+ophthalmology	-59	3021
+ophthalmology	-63	470
+ophthalmology	-73	908
+ophthalmology	-75	8779073705407963136
+ophthalmology	-77	8631515095562887168
+ophthalmology	-78	-7303847963918393344
+ophthalmology	-79	-9117959922369060864
+ophthalmology	-8	7333512171174223872
+ophthalmology	-82	1606
+ophthalmology	-86	-9066993118333706240
+ophthalmology	-91	2255
+ophthalmology	-97	8752150411997356032
+ophthalmology	-99	-7875953567586451456
+ophthalmology	100	-7532751268425261056
+ophthalmology	104	1866
+ophthalmology	117	2835
+ophthalmology	120	-8340523561480437760
+ophthalmology	122	3462
+ophthalmology	125	965
+ophthalmology	127	412
+ophthalmology	21	7069729473166090240
+ophthalmology	39	2745
+ophthalmology	4	9131533983989358592
+ophthalmology	41	NULL
+ophthalmology	48	3159
+ophthalmology	49	-7904188195431661568
+ophthalmology	5	130
+ophthalmology	52	-7081500255163727872
+ophthalmology	53	-7055760785575665664
+ophthalmology	55	2335
+ophthalmology	68	-8866442231663067136
+ophthalmology	69	2144
+ophthalmology	74	-7708932208121225216
+ophthalmology	76	-7647020450676146176
+ophthalmology	77	-6934304742087655424
+ophthalmology	79	1508
+ophthalmology	81	8920344895701393408
+ophthalmology	84	927
+ophthalmology	87	6924820982050758656
+ophthalmology	88	-8593419958317056000
+ophthalmology	89	-7978782649203228672
+ophthalmology	92	NULL
+ophthalmology	96	-8418913260807217152
+ophthalmology	97	8935252708196999168
+ophthalmology	NULL	8856674723376668672
 philosophy	-100	-7603569103205916672
 philosophy	-103	8144552446127972352
 philosophy	-105	-7172594404186693632
@@ -1609,75 +1609,75 @@ undecided	95	2821
 undecided	97	-7451660755269853184
 undecided	98	443
 undecided	NULL	8811693967537774592
-values clariffication	-100	1053
-values clariffication	-105	7555301305375858688
-values clariffication	-107	8295110846998233088
-values clariffication	-108	-7246123871306244096
-values clariffication	-109	7909645665163804672
-values clariffication	-114	7235109456886816768
-values clariffication	-119	NULL
-values clariffication	-123	7412924364686458880
-values clariffication	-28	3352
-values clariffication	-31	763
-values clariffication	-37	7581052107944361984
-values clariffication	-38	2991
-values clariffication	-40	2942
-values clariffication	-42	-7611584069753552896
-values clariffication	-46	NULL
-values clariffication	-48	7370078518278397952
-values clariffication	-5	3031
-values clariffication	-50	8199513544090730496
-values clariffication	-51	3637
-values clariffication	-55	3904
-values clariffication	-6	2056
-values clariffication	-60	2971
-values clariffication	-62	2712
-values clariffication	-63	-6947955278050181120
-values clariffication	-67	169
-values clariffication	-69	-7329807949048193024
-values clariffication	-70	3083
-values clariffication	-75	2569
-values clariffication	-8	8148211378319933440
-values clariffication	-81	6996686091335884800
-values clariffication	-90	1423
-values clariffication	-92	2011
-values clariffication	-95	-8996954350906294272
-values clariffication	-97	8579974641030365184
-values clariffication	-98	-8013397854633648128
-values clariffication	10	7186401810812059648
-values clariffication	108	1115
-values clariffication	118	-9022154842129547264
-values clariffication	12	8190539859890601984
-values clariffication	120	6927260280037097472
-values clariffication	122	-9084940280061485056
-values clariffication	124	-9210275791460499456
-values clariffication	126	3673
-values clariffication	127	-8347088645602050048
-values clariffication	14	-8147405381260345344
-values clariffication	15	7575087487730196480
-values clariffication	21	NULL
-values clariffication	23	3255
-values clariffication	30	9107991000536498176
-values clariffication	32	NULL
-values clariffication	4	489
-values clariffication	42	2020
-values clariffication	50	1983
-values clariffication	53	3887
-values clariffication	56	3608
-values clariffication	57	-7669169138124275712
-values clariffication	62	3910
-values clariffication	70	1287
-values clariffication	74	2533
-values clariffication	8	-8426531414463545344
-values clariffication	80	7220131672176058368
-values clariffication	85	2986
-values clariffication	9	-8603817012434198528
-values clariffication	92	-8490382417169408000
-values clariffication	93	7741854854673367040
-values clariffication	96	2625
-values clariffication	97	3858
-values clariffication	98	8515682078777081856
-values clariffication	NULL	-7456869587112255488
+values clarification	-100	1053
+values clarification	-105	7555301305375858688
+values clarification	-107	8295110846998233088
+values clarification	-108	-7246123871306244096
+values clarification	-109	7909645665163804672
+values clarification	-114	7235109456886816768
+values clarification	-119	NULL
+values clarification	-123	7412924364686458880
+values clarification	-28	3352
+values clarification	-31	763
+values clarification	-37	7581052107944361984
+values clarification	-38	2991
+values clarification	-40	2942
+values clarification	-42	-7611584069753552896
+values clarification	-46	NULL
+values clarification	-48	7370078518278397952
+values clarification	-5	3031
+values clarification	-50	8199513544090730496
+values clarification	-51	3637
+values clarification	-55	3904
+values clarification	-6	2056
+values clarification	-60	2971
+values clarification	-62	2712
+values clarification	-63	-6947955278050181120
+values clarification	-67	169
+values clarification	-69	-7329807949048193024
+values clarification	-70	3083
+values clarification	-75	2569
+values clarification	-8	8148211378319933440
+values clarification	-81	6996686091335884800
+values clarification	-90	1423
+values clarification	-92	2011
+values clarification	-95	-8996954350906294272
+values clarification	-97	8579974641030365184
+values clarification	-98	-8013397854633648128
+values clarification	10	7186401810812059648
+values clarification	108	1115
+values clarification	118	-9022154842129547264
+values clarification	12	8190539859890601984
+values clarification	120	6927260280037097472
+values clarification	122	-9084940280061485056
+values clarification	124	-9210275791460499456
+values clarification	126	3673
+values clarification	127	-8347088645602050048
+values clarification	14	-8147405381260345344
+values clarification	15	7575087487730196480
+values clarification	21	NULL
+values clarification	23	3255
+values clarification	30	9107991000536498176
+values clarification	32	NULL
+values clarification	4	489
+values clarification	42	2020
+values clarification	50	1983
+values clarification	53	3887
+values clarification	56	3608
+values clarification	57	-7669169138124275712
+values clarification	62	3910
+values clarification	70	1287
+values clarification	74	2533
+values clarification	8	-8426531414463545344
+values clarification	80	7220131672176058368
+values clarification	85	2986
+values clarification	9	-8603817012434198528
+values clarification	92	-8490382417169408000
+values clarification	93	7741854854673367040
+values clarification	96	2625
+values clarification	97	3858
+values clarification	98	8515682078777081856
+values clarification	NULL	-7456869587112255488
 wind surfing	-102	1518
 wind surfing	-104	8666178591503564800
 wind surfing	-111	8415171956168417280

@@ -86,7 +86,7 @@ public class TestVectorizedMapColumnReader extends VectorizedColumnReaderTestBas
     writer.close();
   }
 
-  protected static void writeRepeateMapData(
+  protected static void writeRepeatedMapData(
     ParquetWriter<Group> writer, int elementNum, boolean isNull) throws IOException {
     SimpleGroupFactory f = new SimpleGroupFactory(schema);
     int mapMaxSize = 4;
@@ -142,25 +142,25 @@ public class TestVectorizedMapColumnReader extends VectorizedColumnReaderTestBas
   }
 
   @Test
-  public void testRepeateMapRead() throws Exception {
+  public void testRepeatedMapRead() throws Exception {
     removeFile();
-    writeRepeateMapData(initWriterFromFile(), 1023, false);
-    testRepeateMapRead(1023, false);
+    writeRepeatedMapData(initWriterFromFile(), 1023, false);
+    testRepeatedMapRead(1023, false);
     removeFile();
-    writeRepeateMapData(initWriterFromFile(), 1023, true);
-    testRepeateMapRead(1023, true);
+    writeRepeatedMapData(initWriterFromFile(), 1023, true);
+    testRepeatedMapRead(1023, true);
     removeFile();
-    writeRepeateMapData(initWriterFromFile(), 1024, false);
-    testRepeateMapRead(1024, false);
+    writeRepeatedMapData(initWriterFromFile(), 1024, false);
+    testRepeatedMapRead(1024, false);
     removeFile();
-    writeRepeateMapData(initWriterFromFile(), 1024, true);
-    testRepeateMapRead(1024, true);
+    writeRepeatedMapData(initWriterFromFile(), 1024, true);
+    testRepeatedMapRead(1024, true);
     removeFile();
-    writeRepeateMapData(initWriterFromFile(), 1025, false);
-    testRepeateMapRead(1025, false);
+    writeRepeatedMapData(initWriterFromFile(), 1025, false);
+    testRepeatedMapRead(1025, false);
     removeFile();
-    writeRepeateMapData(initWriterFromFile(), 1025, true);
-    testRepeateMapRead(1025, true);
+    writeRepeatedMapData(initWriterFromFile(), 1025, true);
+    testRepeatedMapRead(1025, true);
     removeFile();
   }
 
@@ -224,7 +224,7 @@ public class TestVectorizedMapColumnReader extends VectorizedColumnReaderTestBas
     }
   }
 
-  private void testRepeateMapRead(int elementNum, boolean isNull) throws Exception {
+  private void testRepeatedMapRead(int elementNum, boolean isNull) throws Exception {
     Configuration conf = new Configuration();
     conf.set(IOConstants.COLUMNS, "map_int32_for_repeat_test");
     conf.set(IOConstants.COLUMNS_TYPES, "map<int,int>");

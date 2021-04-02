@@ -1,4 +1,4 @@
---! qt:disabled:disabled for a long time now...dont know why
+--! qt:disabled:disabled for a long time now...do not know why
 --! qt:authorizer
 set hive.mapred.mode=nonstrict;
 

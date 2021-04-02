@@ -61,7 +61,7 @@ public class TestHiveMetaStoreGetMetaConf {
     MetastoreConf.setClass(metastoreConf, ConfVars.EXPRESSION_PROXY_CLASS,
       MockPartitionExpressionForMetastore.class, PartitionExpressionProxy.class);
     MetastoreConf.setBoolVar(metastoreConf, ConfVars.TRY_DIRECT_SQL_DDL, false);
-    MetaStoreTestUtils.setConfForStandloneMode(metastoreConf);
+    MetaStoreTestUtils.setConfForStandaloneMode(metastoreConf);
     int msPort = MetaStoreServerUtils.startMetaStore(metastoreConf);
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setVar(conf, ConfVars.THRIFT_URIS, "thrift://localhost:" + msPort);
@@ -106,7 +106,7 @@ public class TestHiveMetaStoreGetMetaConf {
   }
 
   @Test
-  public void testGetMetaConfUnknownPreperty() throws TException {
+  public void testGetMetaConfUnknownProperty() throws TException {
     String unknownPropertyName = "hive.meta.foo.bar";
     thrown.expect(MetaException.class);
     thrown.expectMessage("Invalid configuration key " + unknownPropertyName);

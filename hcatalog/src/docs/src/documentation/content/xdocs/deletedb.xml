@@ -107,7 +107,7 @@
 {
   "errorDetail": "
     NoSuchObjectException(message:There is no database named my_db)
-        at org.apache.hadoop.hive.metastor...
+        at org.apache.hadoop.hive.metastore...
     ",
   "error": "There is no database named newdb",
   "errorCode": 404,

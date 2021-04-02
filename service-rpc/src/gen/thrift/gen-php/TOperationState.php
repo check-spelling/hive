@@ -28,7 +28,7 @@ final class TOperationState
 
     const ERROR_STATE = 5;
 
-    const UKNOWN_STATE = 6;
+    const UNKNOWN_STATE = 6;
 
     const PENDING_STATE = 7;
 
@@ -41,7 +41,7 @@ final class TOperationState
         3 => 'CANCELED_STATE',
         4 => 'CLOSED_STATE',
         5 => 'ERROR_STATE',
-        6 => 'UKNOWN_STATE',
+        6 => 'UNKNOWN_STATE',
         7 => 'PENDING_STATE',
         8 => 'TIMEDOUT_STATE',
     );

@@ -136,7 +136,7 @@ public class ReduceSinkDeDuplicationUtils {
 
     List<ExprNodeDesc> childPCs = cRS.getConf().getPartitionCols();
     List<ExprNodeDesc> parentPCs = pRS.getConf().getPartitionCols();
-    if (canReplaceParentWithChildPartioning(result[1], childPCs, parentPCs)) {
+    if (canReplaceParentWithChildPartitioning(result[1], childPCs, parentPCs)) {
       pRS.getConf().setPartitionCols(ExprNodeDescUtils.backtrack(childPCs, cRS, pRS));
     }
 
@@ -315,7 +315,7 @@ public class ReduceSinkDeDuplicationUtils {
   }
 
   /**
-   * Returns merge directions between two RSs for criterias (ordering, number of reducers,
+   * Returns merge directions between two RSs for criteria (ordering, number of reducers,
    * reducer keys, partition keys). Returns null if any of categories is not mergeable.
    *
    * Values for each index can be -1, 0, 1
@@ -358,7 +358,7 @@ public class ReduceSinkDeDuplicationUtils {
     if (movePartitionColTo == null) {
       return null;
     }
-    if (canReplaceParentWithChildPartioning(movePartitionColTo, cpars, ppars)) {
+    if (canReplaceParentWithChildPartitioning(movePartitionColTo, cpars, ppars)) {
       long oldParallelism = estimateReducers(hiveConf, pRS);
       long newParallelism = estimateReducers(hiveConf, cRS);
       if (newParallelism < oldParallelism && newParallelism < minReducer) {
@@ -399,7 +399,7 @@ public class ReduceSinkDeDuplicationUtils {
    * @return
    *  true if the partitioning columns of the child RS can replace the columns of the parent RS and false otherwise
    */
-  private static boolean canReplaceParentWithChildPartioning(Integer moveColTo, List<ExprNodeDesc> cpars,
+  private static boolean canReplaceParentWithChildPartitioning(Integer moveColTo, List<ExprNodeDesc> cpars,
       List<ExprNodeDesc> ppars) {
     return moveColTo < 0 && (cpars != null && !cpars.isEmpty()) || moveColTo > 0 && (ppars == null || ppars.isEmpty());
   }

@@ -128,7 +128,7 @@ import java.util.Stack;
 
 /**
  * NOTE: this whole logic is replicated from Calcite's RelDecorrelator
- *  and is exteneded to make it suitable for HIVE
+ *  and is extended to make it suitable for HIVE
  *    We should get rid of this and replace it with Calcite's RelDecorrelator
  *    once that works with Join, Project etc instead of Join, Project.
  *    At this point this has differed from Calcite's version significantly so cannot
@@ -239,7 +239,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
             .addRuleInstance(new AdjustProjectForCountAggregateRule(true))
             .addRuleInstance(HiveFilterJoinRule.FILTER_ON_JOIN)
             .addRuleInstance(HiveFilterProjectTransposeRule.INSTANCE)
-            // FilterCorrelateRule rule mistakenly pushes a FILTER, consiting of correlated vars,
+            // FilterCorrelateRule rule mistakenly pushes a FILTER, consisting of correlated vars,
             // on top of LogicalCorrelate to within  left input for scalar corr queries
             // which causes exception during decorrelation. This has been disabled for now.
             //.addRuleInstance(FilterCorrelateRule.INSTANCE)
@@ -1149,7 +1149,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
 
     boolean valueGenerator = true;
     if(frame.r == oldInputFrame.r) {
-      // this means correated value generator wasn't generated
+      // this means correlated value generator wasn't generated
       valueGenerator = false;
     }
 
@@ -2165,7 +2165,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
         // Project-A' (replace corvar to input ref from the Join)
         //   Join (replace corvar to input ref from LeftInputRel)
         //     LeftInputRel
-        //     RightInputRel(oreviously FilterInputRel)
+        //     RightInputRel(previously FilterInputRel)
 
         // Change the filter condition into a join condition
         joinCond =
@@ -2393,7 +2393,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
         //   Aggregate (groupby(all left input refs)
         //                 agg0(rewritten expression),
         //                 agg1()...)
-        //     Project-B' (rewriten original projected exprs)
+        //     Project-B' (rewritten original projected exprs)
         //       Join(replace corvar w/ input ref from LeftInputRel)
         //         LeftInputRel
         //         RightInputRel
@@ -2460,7 +2460,7 @@ public final class HiveRelDecorrelator implements ReflectiveVisitor {
         //   Aggregate (groupby(all left input refs)
         //                 agg0(rewritten expression),
         //                 agg1()...)
-        //     Project-B' (rewriten original projected exprs)
+        //     Project-B' (rewritten original projected exprs)
         //       Join (LOJ cond = true)
         //         LeftInputRel
         //         RightInputRel

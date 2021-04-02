@@ -43,16 +43,16 @@ public class MetaStoreSchemaInfoFactory {
 
   public static IMetaStoreSchemaInfo get(Configuration conf, String hiveHome, String dbType) {
     String className = MetastoreConf.getVar(conf, MetastoreConf.ConfVars.SCHEMA_INFO_CLASS);
-    Class<?> clasz;
+    Class<?> clazz;
     try {
-      clasz = conf.getClassByName(className);
+      clazz = conf.getClassByName(className);
     } catch (ClassNotFoundException e) {
       LOG.error("Unable to load class " + className, e);
       throw new IllegalArgumentException(e);
     }
     Constructor<?> constructor;
     try {
-      constructor = clasz.getConstructor(String.class, String.class);
+      constructor = clazz.getConstructor(String.class, String.class);
       constructor.setAccessible(true);
       return (IMetaStoreSchemaInfo) constructor.newInstance(hiveHome, dbType);
     } catch (NoSuchMethodException | InstantiationException | IllegalAccessException

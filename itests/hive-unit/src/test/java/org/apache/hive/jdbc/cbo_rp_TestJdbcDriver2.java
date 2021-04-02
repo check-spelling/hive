@@ -160,7 +160,7 @@ public class cbo_rp_TestJdbcDriver2 {
     stmt.execute("load data local inpath '"
         + dataFilePath.toString() + "' into table " + tableName);
 
-    // also initialize a paritioned table to test against.
+    // also initialize a partitioned table to test against.
 
     // drop table. ignore error.
     try {
@@ -376,7 +376,7 @@ public class cbo_rp_TestJdbcDriver2 {
       assertEquals("42000", e.getSQLState());
     }
 
-    // verify table not fuond error
+    // verify table not found error
     try {
       stmt.executeQuery("select * from nonTable");
       fail("SQLException is expected");
@@ -429,12 +429,12 @@ public class cbo_rp_TestJdbcDriver2 {
     //////////////////// executed twice: once with the typed ps setters, once with the generic setObject
     //////////////////////////////////////////////
     try {
-      try (PreparedStatement ps = createPreapredStatementUsingSetXXX(sql);
+      try (PreparedStatement ps = createPreparedStatementUsingSetXXX(sql);
            ResultSet res = ps.executeQuery()) {
         assertPreparedStatementResultAsExpected(res);
       }
 
-      try (PreparedStatement ps = createPreapredStatementUsingSetObject(sql);
+      try (PreparedStatement ps = createPreparedStatementUsingSetObject(sql);
            ResultSet res = ps.executeQuery()) {
         assertPreparedStatementResultAsExpected(res);
       }
@@ -454,7 +454,7 @@ public class cbo_rp_TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the un-setted sql statement should throw exception",
+        "Execute the un-set sql statement should throw exception",
         expectedException);
 
     // set some of parameters for prepared sql, not all of them.
@@ -467,7 +467,7 @@ public class cbo_rp_TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the invalid setted sql statement should throw exception",
+        "Execute the invalid set sql statement should throw exception",
         expectedException);
 
     // set the wrong type parameters for prepared sql.
@@ -482,7 +482,7 @@ public class cbo_rp_TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the invalid setted sql statement should throw exception",
+        "Execute the invalid set sql statement should throw exception",
         expectedException);
 
     // setObject to the yet unknown type java.util.Date
@@ -498,7 +498,7 @@ public class cbo_rp_TestJdbcDriver2 {
         expectedException);
   }
 
-  private PreparedStatement createPreapredStatementUsingSetObject(String sql) throws SQLException {
+  private PreparedStatement createPreparedStatementUsingSetObject(String sql) throws SQLException {
     PreparedStatement ps = con.prepareStatement(sql);
 
     ps.setObject(1, true); //setBoolean
@@ -518,7 +518,7 @@ public class cbo_rp_TestJdbcDriver2 {
     return ps;
   }
 
-  private PreparedStatement createPreapredStatementUsingSetXXX(String sql) throws SQLException {
+  private PreparedStatement createPreparedStatementUsingSetXXX(String sql) throws SQLException {
     PreparedStatement ps = con.prepareStatement(sql);
 
     ps.setBoolean(1, true); //setBoolean
@@ -629,7 +629,7 @@ public class cbo_rp_TestJdbcDriver2 {
   }
 
   @Test
-  public final void testSelectAllPartioned() throws Exception {
+  public final void testSelectAllPartitioned() throws Exception {
     doTestSelectAll(partitionedTableName, -1, -1); // tests not setting maxRows
     // (return all)
     doTestSelectAll(partitionedTableName, 0, -1); // tests setting maxRows to 0
@@ -1149,7 +1149,7 @@ public class cbo_rp_TestJdbcDriver2 {
       while (rs.next()) {
         String resultTableName = rs.getString("TABLE_NAME");
         assertEquals("Get by index different from get by name.", rs.getString(3), resultTableName);
-        assertEquals("Excpected a different table.", tests.get(checkPattern)[cnt], resultTableName);
+        assertEquals("Expected a different table.", tests.get(checkPattern)[cnt], resultTableName);
         String resultTableComment = rs.getString("REMARKS");
         assertTrue("Missing comment on the table.", resultTableComment.length()>0);
         String tableType = rs.getString("TABLE_TYPE");
@@ -1970,14 +1970,14 @@ public void testParseUrlHttpMode() throws SQLException, JdbcUriParseException,
   }
 
   /**
-   * test testProccedures()
+   * test testProcedures()
    * @throws SQLException
    */
   @Test
-  public void testProccedures() throws SQLException {
+  public void testProcedures() throws SQLException {
     DatabaseMetaData dbmd = con.getMetaData();
     assertNotNull(dbmd);
-    // currently testProccedures always returns an empty resultset for Hive
+    // currently testProcedures always returns an empty resultset for Hive
     ResultSet res = dbmd.getProcedures(null, null, null);
     ResultSetMetaData md = res.getMetaData();
     assertEquals(md.getColumnCount(), 9);
@@ -2130,7 +2130,7 @@ public void testParseUrlHttpMode() throws SQLException, JdbcUriParseException,
         break;
       }
     }
-    // reposition at the begining
+    // reposition at the beginning
     res.beforeFirst();
     assertTrue(res.isBeforeFirst());
     rowNum = 0;

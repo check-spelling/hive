@@ -65,7 +65,7 @@ public class TestHiveHistory {
   private static Hive db;
   private static FileSystem fs;
   /*
-   * intialize the tables
+   * initialize the tables
    */
 
   @Before

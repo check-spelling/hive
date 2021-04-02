@@ -400,11 +400,11 @@ public class HiveAlterHandler implements AlterHandler {
                 }
               }
             } else {
-              // clear all column stats to prevent incorract behaviour in case same column is reintroduced
+              // clear all column stats to prevent incorrect behaviour in case same column is reintroduced
               TableName tableName = new TableName(catName, dbname, name);
               msdb.deleteAllPartitionColumnStatistics(tableName, writeIdList);
             }
-            // Don't validate table-level stats for a partitoned table.
+            // Don't validate table-level stats for a partitioned table.
             msdb.alterTable(catName, dbname, name, newt, null);
           } else {
             LOG.warn("Alter table not cascaded to partitions.");
@@ -992,7 +992,7 @@ public class HiveAlterHandler implements AlterHandler {
     String tableName = normalizeIdentifier(oldTable.getTableName());
     String newDbName = newTable.getDbName().toLowerCase();
     String newTableName = normalizeIdentifier(newTable.getTableName());
-    //if its not called from cahced store then update the table
+    //if its not called from cached store then update the table
     boolean doAlterTable = deletedCols == null;
     List<ColumnStatistics> newMultiColStats = new ArrayList<>();
 

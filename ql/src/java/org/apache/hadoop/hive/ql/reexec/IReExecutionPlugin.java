@@ -50,7 +50,7 @@ public interface IReExecutionPlugin {
   boolean shouldReExecute(int executionNum);
 
   /**
-   * The plugin should prepare for the re-compilaton of the query.
+   * The plugin should prepare for the re-compilation of the query.
    */
   void prepareToReExecute();
 
@@ -59,7 +59,7 @@ public interface IReExecutionPlugin {
    */
   boolean shouldReExecute(int executionNum, PlanMapper oldPlanMapper, PlanMapper newPlanMapper);
 
-  void afterExecute(PlanMapper planMapper, boolean successfull);
+  void afterExecute(PlanMapper planMapper, boolean successful);
 
 
 }

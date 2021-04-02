@@ -199,7 +199,7 @@ public class Table implements Serializable {
       // We have to use MetadataTypedColumnsetSerDe because LazySimpleSerDe does
       // not support a table with no columns.
       sd.getSerdeInfo().setSerializationLib(MetadataTypedColumnsetSerDe.class.getName());
-      //TODO setting serializaton format here is hacky. Only lazy simple serde needs it
+      //TODO setting serialization format here is hacky. Only lazy simple serde needs it
       // so should be set by serde only. Setting it here sets it unconditionally.
       sd.getSerdeInfo().getParameters().put(serdeConstants.SERIALIZATION_FORMAT, "1");
       sd.setInputFormat(SequenceFileInputFormat.class.getName());
@@ -223,7 +223,7 @@ public class Table implements Serializable {
       // set create time
       t.setCreateTime((int) (System.currentTimeMillis() / 1000));
     }
-    // Explictly set the bucketing version
+    // Explicitly set the bucketing version
     t.getParameters().put(hive_metastoreConstants.TABLE_BUCKETING_VERSION,
         "2");
     return t;

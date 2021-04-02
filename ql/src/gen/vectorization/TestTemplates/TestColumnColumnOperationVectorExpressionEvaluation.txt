@@ -20,8 +20,8 @@
     Random rand = new Random(SEED);
 
     <OutputColumnVectorType> outputColumnVector =
-      VectorizedRowGroupGenUtil.generate<OutputColumnVectorType>(<InitOuputColHasNulls>,
-      <InitOuputColIsRepeating>, BATCH_SIZE, rand);
+      VectorizedRowGroupGenUtil.generate<OutputColumnVectorType>(<InitOutputColHasNulls>,
+      <InitOutputColIsRepeating>, BATCH_SIZE, rand);
 
     <InputColumnVectorType1> inputColumnVector1 =
       VectorizedRowGroupGenUtil.generate<InputColumnVectorType1>(<Column1HasNulls>,

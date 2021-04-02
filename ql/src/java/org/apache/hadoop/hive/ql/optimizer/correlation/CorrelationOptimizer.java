@@ -91,12 +91,12 @@ public class CorrelationOptimizer extends Transform {
   private ParseContext pCtx;
 
   //Join operators which may be converted by CommonJoinResolver;
-  private final Set<Operator<? extends OperatorDesc>> skipedJoinOperators;
+  private final Set<Operator<? extends OperatorDesc>> skippedJoinOperators;
 
   public CorrelationOptimizer() {
     super();
     pCtx = null;
-    skipedJoinOperators = new HashSet<Operator<? extends OperatorDesc>>();
+    skippedJoinOperators = new HashSet<Operator<? extends OperatorDesc>>();
     abort = false;
   }
 
@@ -195,7 +195,7 @@ public class CorrelationOptimizer extends Transform {
       if (mayConvert) {
         LOG.info(joinOp.getName() + " " + joinOp.getIdentifier() +
             " may be converted to MapJoin by CommonJoinResolver");
-        skipedJoinOperators.add(joinOp);
+        skippedJoinOperators.add(joinOp);
       }
     }
   }
@@ -240,7 +240,7 @@ public class CorrelationOptimizer extends Transform {
       }
     } else {
       // transform the operator tree
-      LOG.info("Begain query plan transformation based on intra-query correlations. " +
+      LOG.info("Begin query plan transformation based on intra-query correlations. " +
           corrCtx.getCorrelations().size() + " correlation(s) to be applied");
       for (IntraQueryCorrelation correlation : corrCtx.getCorrelations()) {
         QueryPlanTreeTransformation.applyCorrelation(pCtx, corrCtx, correlation);
@@ -252,14 +252,14 @@ public class CorrelationOptimizer extends Transform {
   private class CorrelationNodeProc implements SemanticNodeProcessor {
 
     private void analyzeReduceSinkOperatorsOfJoinOperator(JoinCondDesc[] joinConds,
-        List<Operator<? extends OperatorDesc>> rsOps, Operator<? extends OperatorDesc> curentRsOp,
+        List<Operator<? extends OperatorDesc>> rsOps, Operator<? extends OperatorDesc> currentRsOp,
         Set<ReduceSinkOperator> correlatedRsOps) {
-      if (correlatedRsOps.contains(curentRsOp)) {
+      if (correlatedRsOps.contains(currentRsOp)) {
         return;
       }
-      correlatedRsOps.add((ReduceSinkOperator) curentRsOp);
+      correlatedRsOps.add((ReduceSinkOperator) currentRsOp);
 
-      int pos = rsOps.indexOf(curentRsOp);
+      int pos = rsOps.indexOf(currentRsOp);
       for (int i = 0; i < joinConds.length; i++) {
         JoinCondDesc joinCond = joinConds[i];
         int type = joinCond.getType();
@@ -324,7 +324,7 @@ public class CorrelationOptimizer extends Transform {
     /**
      * This method is used to recursively traverse the tree to find
      * ReduceSinkOperators which share the same key columns and partitioning
-     * columns. Those ReduceSinkOperators are called correlated ReduceSinkOperaotrs.
+     * columns. Those ReduceSinkOperators are called correlated ReduceSinkOperators.
      *
      * @param child The child of the current operator
      * @param childKeyCols The key columns from the child operator
@@ -345,7 +345,7 @@ public class CorrelationOptimizer extends Transform {
       LOG.info("now detecting operator " + current.getIdentifier() + " " + current.getName());
       LinkedHashSet<ReduceSinkOperator> correlatedReduceSinkOperators =
           new LinkedHashSet<ReduceSinkOperator>();
-      if (skipedJoinOperators.contains(current)) {
+      if (skippedJoinOperators.contains(current)) {
         LOG.info(current.getName() + " " + current.getIdentifier() +
             " may be converted to MapJoin by " +
             "CommonJoinResolver. Correlation optimizer will not detect correlations" +
@@ -421,8 +421,8 @@ public class CorrelationOptimizer extends Transform {
               break;
             }
           }
-          // If current is JoinOperaotr, we will stop to traverse the tree
-          // when any of parent ReduceSinkOperaotr of this JoinOperator is
+          // If current is JoinOperator, we will stop to traverse the tree
+          // when any of parent ReduceSinkOperator of this JoinOperator is
           // not considered as a correlated ReduceSinkOperator.
           if (isCorrelated && correlatedRsops != null) {
             correlatedReduceSinkOperators.addAll(correlatedRsops);

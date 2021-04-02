@@ -768,6 +768,6 @@ public class TestGenericUDFTrunc {
       DeferredObject[] evalArgs) throws HiveException {
     udf.initialize(initArgs);
     Text output = (Text) udf.evaluate(evalArgs);
-    assertEquals("frist_day() test ", expResult, output.toString());
+    assertEquals("first_day() test ", expResult, output.toString());
   }
 }

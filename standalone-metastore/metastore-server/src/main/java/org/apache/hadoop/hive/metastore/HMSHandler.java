@@ -107,7 +107,7 @@ import org.apache.hadoop.hive.metastore.events.PreReadCatalogEvent;
 import org.apache.hadoop.hive.metastore.events.PreReadDatabaseEvent;
 import org.apache.hadoop.hive.metastore.events.PreReadISchemaEvent;
 import org.apache.hadoop.hive.metastore.events.PreReadTableEvent;
-import org.apache.hadoop.hive.metastore.events.PreReadhSchemaVersionEvent;
+import org.apache.hadoop.hive.metastore.events.PreReadSchemaVersionEvent;
 import org.apache.hadoop.hive.metastore.events.UpdatePartitionColumnStatEvent;
 import org.apache.hadoop.hive.metastore.events.UpdateTableColumnStatEvent;
 import org.apache.hadoop.hive.metastore.messaging.EventMessage.EventType;
@@ -402,7 +402,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
   }
 
   // This will return null if the metastore is not being accessed from a metastore Thrift server,
-  // or if the TTransport being used to connect is not an instance of TSocket, or if kereberos
+  // or if the TTransport being used to connect is not an instance of TSocket, or if kerberos
   // is used
   static String getThreadLocalIpAddress() {
     return threadLocalIpAddress.get();
@@ -555,7 +555,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
     }
     if (conf.getBoolean(ConfVars.METASTORE_CACHE_CAN_USE_EVENT.getVarname(), false) &&
         !canCachedStoreCanUseEvent) {
-      throw new MetaException("CahcedStore can not use events for invalidation as there is no " +
+      throw new MetaException("CachedStore can not use events for invalidation as there is no " +
           " TransactionalMetaStoreEventListener to add events to notification table");
     }
 
@@ -4013,7 +4013,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
                   new long[0], new BitSet(), writeId);
           validWriteIds = validWriteIdList.toString();
         }
-        updatePartitonColStatsInternal(tbl, partColStats, validWriteIds, writeId);
+        updatePartitionColStatsInternal(tbl, partColStats, validWriteIds, writeId);
       }
 
       success = ms.commitTransaction();
@@ -6720,7 +6720,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
     colStats.setStatsObj(colStats.getStatsObj());
   }
 
-  private boolean updatePartitonColStatsInternal(Table tbl, ColumnStatistics colStats,
+  private boolean updatePartitionColStatsInternal(Table tbl, ColumnStatistics colStats,
                                                  String validWriteIds, long writeId)
       throws MetaException, InvalidObjectException, NoSuchObjectException, InvalidInputException {
     normalizeColStatsInput(colStats);
@@ -6770,7 +6770,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
   @Override
   public boolean update_partition_column_statistics(ColumnStatistics colStats) throws TException {
     // Deprecated API.
-    return updatePartitonColStatsInternal(null, colStats, null, -1);
+    return updatePartitionColStatsInternal(null, colStats, null, -1);
   }
 
 
@@ -6786,7 +6786,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       throw new InvalidInputException("Merge is not supported for non-aggregate stats");
     }
     ColumnStatistics colStats = req.getColStatsIterator().next();
-    boolean ret = updatePartitonColStatsInternal(null, colStats,
+    boolean ret = updatePartitionColStatsInternal(null, colStats,
         req.getValidWriteIdList(), req.getWriteId());
     return new SetPartitionsStatsResponse(ret);
   }
@@ -8472,7 +8472,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
   @Override
   public MaxAllocatedTableWriteIdResponse get_max_allocated_table_write_id(MaxAllocatedTableWriteIdRequest rqst)
       throws MetaException {
-    return getTxnHandler().getMaxAllocatedTableWrited(rqst);
+    return getTxnHandler().getMaxAllocatedTableWriteId(rqst);
   }
 
   @Override
@@ -8703,7 +8703,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
         Table t = getTable(catName, dbName, tableName);
         for (Map.Entry<String, ColumnStatistics> entry : newStatsMap.entrySet()) {
           // We don't short-circuit on errors here anymore. That can leave acid stats invalid.
-          ret = updatePartitonColStatsInternal(t, entry.getValue(),
+          ret = updatePartitionColStatsInternal(t, entry.getValue(),
               request.getValidWriteIdList(), request.getWriteId()) && ret;
         }
       }
@@ -8747,11 +8747,11 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
             && csOld.isSetIsStatsCompliant() && !csOld.isIsStatsCompliant();
         Partition part = mapToPart.get(entry.getKey());
         if (isInvalidTxnStats) {
-          // No columns can be merged; a shortcut for getMergableCols.
+          // No columns can be merged; a shortcut for getMergeableCols.
           csNew.setStatsObj(Lists.newArrayList());
         } else {
           // we first use getParameters() to prune the stats
-          MetaStoreServerUtils.getMergableCols(csNew, part.getParameters());
+          MetaStoreServerUtils.getMergeableCols(csNew, part.getParameters());
           // we merge those that can be merged
           if (csOld != null && csOld.getStatsObjSize() != 0 && !csNew.getStatsObj().isEmpty()) {
             MetaStoreServerUtils.mergeColStats(csNew, csOld);
@@ -8760,11 +8760,11 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
 
         if (!csNew.getStatsObj().isEmpty()) {
           // We don't short-circuit on errors here anymore. That can leave acid stats invalid.
-          result = updatePartitonColStatsInternal(t, csNew,
+          result = updatePartitionColStatsInternal(t, csNew,
               request.getValidWriteIdList(), request.getWriteId()) && result;
         } else if (isInvalidTxnStats) {
           // For now because the stats state is such as it is, we will invalidate everything.
-          // Overall the sematics here are not clear - we could invalide only some columns, but does
+          // Overall the semantics here are not clear - we could invalidate only some columns, but does
           // that make any physical sense? Could query affect some columns but not others?
           part.setWriteId(request.getWriteId());
           StatsSetupConst.clearColumnStatsState(part.getParameters());
@@ -8803,11 +8803,11 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       boolean isInvalidTxnStats = csOld != null
           && csOld.isSetIsStatsCompliant() && !csOld.isIsStatsCompliant();
       if (isInvalidTxnStats) {
-        // No columns can be merged; a shortcut for getMergableCols.
+        // No columns can be merged; a shortcut for getMergeableCols.
         firstColStats.setStatsObj(Lists.newArrayList());
       } else {
         Table t = getTable(catName, dbName, tableName);
-        MetaStoreServerUtils.getMergableCols(firstColStats, t.getParameters());
+        MetaStoreServerUtils.getMergeableCols(firstColStats, t.getParameters());
 
         // we merge those that can be merged
         if (csOld != null && csOld.getStatsObjSize() != 0 && !firstColStats.getStatsObj().isEmpty()) {
@@ -8820,7 +8820,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
             request.getValidWriteIdList(), request.getWriteId());
       } else if (isInvalidTxnStats) {
         // For now because the stats state is such as it is, we will invalidate everything.
-        // Overall the sematics here are not clear - we could invalide only some columns, but does
+        // Overall the semantics here are not clear - we could invalidate only some columns, but does
         // that make any physical sense? Could query affect some columns but not others?
         Table t = getTable(catName, dbName, tableName);
         t.setWriteId(request.getWriteId());
@@ -9514,13 +9514,13 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
   }
 
   @Override
-  public WMGetTriggersForResourePlanResponse get_triggers_for_resourceplan(
-      WMGetTriggersForResourePlanRequest request)
+  public WMGetTriggersForResourcePlanResponse get_triggers_for_resourceplan(
+      WMGetTriggersForResourcePlanRequest request)
       throws NoSuchObjectException, MetaException, TException {
     try {
       List<WMTrigger> triggers =
           getMS().getTriggersForResourcePlan(request.getResourcePlanName(), request.getNs());
-      WMGetTriggersForResourePlanResponse response = new WMGetTriggersForResourePlanResponse();
+      WMGetTriggersForResourcePlanResponse response = new WMGetTriggersForResourcePlanResponse();
       response.setTriggers(triggers);
       return response;
     } catch (MetaException e) {
@@ -9809,7 +9809,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       if (schemaVersion == null) {
         throw new NoSuchObjectException("No schema version " + version + "exists");
       }
-      firePreEvent(new PreReadhSchemaVersionEvent(this, Collections.singletonList(schemaVersion)));
+      firePreEvent(new (this, Collections.singletonList(schemaVersion)));
       return schemaVersion;
     } catch (MetaException e) {
       LOG.error("Caught exception getting schema version", e);
@@ -9830,7 +9830,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       if (schemaVersion == null) {
         throw new NoSuchObjectException("No versions of schema " + schemaName + "exist");
       }
-      firePreEvent(new PreReadhSchemaVersionEvent(this, Collections.singletonList(schemaVersion)));
+      firePreEvent(new (this, Collections.singletonList(schemaVersion)));
       return schemaVersion;
     } catch (MetaException e) {
       LOG.error("Caught exception getting latest schema version", e);
@@ -9851,7 +9851,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
       if (schemaVersions == null) {
         throw new NoSuchObjectException("No versions of schema " + schemaName + "exist");
       }
-      firePreEvent(new PreReadhSchemaVersionEvent(this, schemaVersions));
+      firePreEvent(new (this, schemaVersions));
       return schemaVersions;
     } catch (MetaException e) {
       LOG.error("Caught exception getting all schema versions", e);
@@ -9911,7 +9911,7 @@ public class HMSHandler extends FacebookBase implements IHMSHandler {
     try {
       schemaVersions = getMS().getSchemaVersionsByColumns(rqst.getColName(),
           rqst.getColNamespace(), rqst.getType());
-      firePreEvent(new PreReadhSchemaVersionEvent(this, schemaVersions));
+      firePreEvent(new (this, schemaVersions));
       final List<SchemaVersionDescriptor> entries = new ArrayList<>(schemaVersions.size());
       schemaVersions.forEach(schemaVersion -> entries.add(
           new SchemaVersionDescriptor(schemaVersion.getSchema(), schemaVersion.getVersion())));

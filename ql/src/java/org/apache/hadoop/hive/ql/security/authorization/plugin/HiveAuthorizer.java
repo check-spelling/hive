@@ -60,13 +60,13 @@ public interface HiveAuthorizer {
    * @param hivePrincipals
    * @param hivePrivileges
    * @param hivePrivObject
-   * @param grantorPrincipal
+   * @param grantorPrincipalipal
    * @param grantOption
    * @throws HiveAuthzPluginException
    * @throws HiveAccessControlException
    */
   void grantPrivileges(List<HivePrincipal> hivePrincipals, List<HivePrivilege> hivePrivileges,
-      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipal, boolean grantOption)
+      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipalipal, boolean grantOption)
       throws HiveAuthzPluginException, HiveAccessControlException;
 
   /**
@@ -74,13 +74,13 @@ public interface HiveAuthorizer {
    * @param hivePrincipals
    * @param hivePrivileges
    * @param hivePrivObject
-   * @param grantorPrincipal
+   * @param grantorPrincipalipal
    * @param grantOption
    * @throws HiveAuthzPluginException
    * @throws HiveAccessControlException
    */
   void revokePrivileges(List<HivePrincipal> hivePrincipals, List<HivePrivilege> hivePrivileges,
-      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipal, boolean grantOption)
+      HivePrivilegeObject hivePrivObject, HivePrincipal grantorPrincipalipal, boolean grantOption)
       throws HiveAuthzPluginException, HiveAccessControlException;
 
 
@@ -129,12 +129,12 @@ public interface HiveAuthorizer {
    * @param hivePrincipals
    * @param roles
    * @param grantOption
-   * @param grantorPrinc
+   * @param grantorPrincipal
    * @throws HiveAuthzPluginException
    * @throws HiveAccessControlException
    */
   void grantRole(List<HivePrincipal> hivePrincipals, List<String> roles, boolean grantOption,
-      HivePrincipal grantorPrinc)
+      HivePrincipal grantorPrincipal)
       throws HiveAuthzPluginException, HiveAccessControlException;
 
 
@@ -143,12 +143,12 @@ public interface HiveAuthorizer {
    * @param hivePrincipals
    * @param roles
    * @param grantOption
-   * @param grantorPrinc
+   * @param grantorPrincipal
    * @throws HiveAuthzPluginException
    * @throws HiveAccessControlException
    */
   void revokeRole(List<HivePrincipal> hivePrincipals, List<String> roles, boolean grantOption,
-      HivePrincipal grantorPrinc)
+      HivePrincipal grantorPrincipal)
       throws HiveAuthzPluginException, HiveAccessControlException;
 
   /**

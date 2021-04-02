@@ -151,7 +151,7 @@ public class TimestampColumnStatsAggregator extends ColumnStatsAggregator implem
       Map<String, Double> adjustedIndexMap = new HashMap<>();
       Map<String, ColumnStatisticsData> adjustedStatsMap = new HashMap<>();
       // while we scan the css, we also get the densityAvg, lowerbound and
-      // higerbound when useDensityFunctionForNDVEstimation is true.
+      // higherbound when useDensityFunctionForNDVEstimation is true.
       double densityAvgSum = 0.0;
       if (ndvEstimator == null) {
         // if not every partition uses bitvector for ndv, we just fall back to
@@ -232,7 +232,7 @@ public class TimestampColumnStatsAggregator extends ColumnStatsAggregator implem
           adjustedIndexMap, adjustedStatsMap, densityAvgSum / adjustedStatsMap.size());
     }
     LOG.debug(
-        "Ndv estimatation for {} is {} # of partitions requested: {} # of partitions found: {}",
+        "Ndv estimation for {} is {} # of partitions requested: {} # of partitions found: {}",
         colName, columnStatisticsData.getTimestampStats().getNumDVs(), partNames.size(),
         colStatsWithSourceInfo.size());
     statsObj.setStatsData(columnStatisticsData);

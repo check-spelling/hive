@@ -71,8 +71,8 @@ public class TestPasswordWithCredentialProvider {
 
     // Set up conf
     Configuration conf = new Configuration();
-    conf.set(credName, hiveConfPassword);  // Will be superceded by credential provider
-    conf.set(credName2, confOnlyPassword);  // Will not be superceded
+    conf.set(credName, hiveConfPassword);  // Will be superseded by credential provider
+    conf.set(credName2, confOnlyPassword);  // Will not be superseded
     assertEquals(hiveConfPassword, conf.get(credName));
     assertEquals(confOnlyPassword, conf.get(credName2));
     assertNull("credName3 should not exist in HiveConf", conf.get(credName3));

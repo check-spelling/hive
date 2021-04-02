@@ -398,7 +398,7 @@ public final class OrcFile extends org.apache.orc.OrcFile {
 
   /**
    * Create an ORC file writer. This method is provided for API backward
-   * compatability with Hive 0.11.
+   * compatibility with Hive 0.11.
    * @param fs file system
    * @param path filename to write to
    * @param inspector the ObjectInspector that inspects the rows

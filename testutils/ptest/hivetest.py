@@ -55,7 +55,7 @@ master_base_path = None
 host_base_path = None
 runtest_dir = os.getcwd()
 
-# End of user configurated things.
+# End of user configured things.
 
 ant_path = None
 arc_path = None
@@ -140,7 +140,7 @@ def get_ant():
         print('\n  Ant 1.8.4 already installed\n')
 
 def get_arc():
-    # Gets latest Arcanist and libphtuil from their Git repositories.
+    # Gets latest Arcanist and libphutil from their Git repositories.
     print('\n-- Updating Arcanist installation\n')
 
     if local.run('test -d "{0}"'.format(arc_path), warn_only = True,
@@ -252,7 +252,7 @@ def propagate_hive():
 
 def segment_tests(path):
     # Removes `.q` files that should not be run on this host.  The huge shell
-    # command is slow (not really suprising considering amount of forking it has
+    # command is slow (not really surprising considering amount of forking it has
     # to do), you are welcome to make it better=).
     local.cd(code_path + path)
     tests = local.run('ls -1', quiet = True, abandon_output = False).strip().split('\n')

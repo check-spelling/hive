@@ -258,7 +258,7 @@ public class AccumuloIndexedOutputFormat extends AccumuloOutputFormat {
           String cq = new String(cu.getColumnQualifier());
 
           // if this columnFamily/columnQualifier pair is defined in the index build a new mutation
-          // so key=value, cf=columnFamily_columnQualifer, cq=rowKey, cv=columnVisibility value=[]
+          // so key=value, cf=columnFamily_columnQualifier, cq=rowKey, cv=columnVisibility value=[]
           String colType = indexDef.getColType(cf, cq);
           if (colType != null) {
             LOG.trace("Building index for column {}:{}", cf, cq);

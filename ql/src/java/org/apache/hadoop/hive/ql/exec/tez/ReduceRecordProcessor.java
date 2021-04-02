@@ -320,7 +320,7 @@ public class ReduceRecordProcessor extends RecordProcessor {
     ArrayList<LogicalInput> shuffleInputs = new ArrayList<LogicalInput>();
     for (String inpStr : tagToinput.values()) {
       if (inputs.get(inpStr) == null) {
-        throw new AssertionError("Cound not find input: " + inpStr);
+        throw new AssertionError("Could not find input: " + inpStr);
       }
       inputs.get(inpStr).start();
       shuffleInputs.add(inputs.get(inpStr));

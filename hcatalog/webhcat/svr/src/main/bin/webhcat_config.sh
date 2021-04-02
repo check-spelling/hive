@@ -51,7 +51,7 @@ SLEEP_TIME_AFTER_START=10
 #See if the default configs have been overwritten
 #================================================
 
-#These parameters can be overriden by webhcat-env.sh
+#These parameters can be overridden by webhcat-env.sh
 # the root of the WEBHCAT installation  ('this' is defined in webhcat_server.sh)
 export WEBHCAT_PREFIX=`dirname "$this"`/..
 
@@ -90,11 +90,11 @@ if [ ! -f ${HCAT_PREFIX}/bin/hcat ]; then
     die "HCAT_PREFIX=${HCAT_PREFIX} is invalid";
 fi
 
-#hcat script can sometimes determine HIVE_HOME itslef
+#hcat script can sometimes determine HIVE_HOME itself
 #so HIVE_HOME does not need to be always set at this point
 DEFAULT_HIVE_HOME="${WEBHCAT_PREFIX}/.."
 if [ -n "$HIVE_HOME" ]; then
-    echo "Lenght of string is non zero"
+    echo "Length of string is non zero"
     if  [ ! -f ${HIVE_HOME}/bin/hive ]; then
         die "HIVE_HOME=${HIVE_HOME} is invalid";
     fi

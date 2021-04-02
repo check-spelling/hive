@@ -144,7 +144,7 @@ public class TestUtils {
         TestHostAffinitySplitLocationProvider.createMockFileSplit(
             true, "path2", 0, 1000, new String[]  {"HOST-1", "HOST-2"});
 
-    // Check that the provider does not return disabled/inactive instances and returns onl 1 location
+    // Check that the provider does not return disabled/inactive instances and returns only 1 location
     List<String> result = new ArrayList<>(Arrays.asList(provider.getLocations(inputSplit1)));
     assertEquals(1, result.size());
     assertFalse(result.contains(INACTIVE));

@@ -591,7 +591,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
             // 2. Regen OP plan from optimized AST
             if (forViewCreation) {
               // the reset would remove the translations
-              executeUnparseTranlations();
+              executeUnparseTranslation();
               // save the resultSchema before rewriting it
               originalResultSchema = resultSchema;
             }
@@ -679,7 +679,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
           }
           this.ctx.setCboInfo(cboMsg);
 
-          // Determine if we should re-throw the exception OR if we try to mark plan as reAnayzeAST to retry
+          // Determine if we should re-throw the exception OR if we try to mark plan as reAnalyzeAST to retry
           // planning as non-CBO.
           if (fallbackStrategy.isFatal(e)) {
             if (e instanceof RuntimeException || e instanceof SemanticException) {
@@ -1949,7 +1949,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
     private RelNode applyPreJoinOrderingTransforms(RelNode basePlan, RelMetadataProvider mdProvider, RexExecutor executorProvider) {
       // TODO: Decorelation of subquery should be done before attempting
       // Partition Pruning; otherwise Expression evaluation may try to execute
-      // corelated sub query.
+      // correlated sub query.
 
       PerfLogger perfLogger = SessionState.getPerfLogger();
 
@@ -2864,7 +2864,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
         calciteJoinCond = cluster.getRexBuilder().makeLiteral(true);
       }
 
-      // 2. Validate that join condition is legal (i.e no function refering to
+      // 2. Validate that join condition is legal (i.e no function referring to
       // both sides of join, only equi join)
       // TODO: Join filter handling (only supported for OJ by runtime or is it
       // supported for IJ as well)
@@ -3074,7 +3074,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
         assert (false);
       }
 
-      // 4. Get Join Condn
+      // 4. Get Join Cond
       ASTNode joinCond = (ASTNode) joinParseTree.getChild(2);
 
       // 5. Create Join rel
@@ -3106,7 +3106,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
         // NOTE: Table logical schema = Non Partition Cols + Partition Cols +
         // Virtual Cols
 
-        // 3.1 Add Column info for non partion cols (Object Inspector fields)
+        // 3.1 Add Column info for non partition cols (Object Inspector fields)
         StructObjectInspector rowObjectInspector = (StructObjectInspector) tabMetaData.getDeserializer()
             .getObjectInspector();
         List<? extends StructField> fields = rowObjectInspector.getAllStructFieldRefs();
@@ -3751,7 +3751,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
     }
 
     private AggregateCall convertGBAgg(AggregateInfo agg, List<RexNode> gbChildProjLst,
-        HashMap<String, Integer> rexNodeToPosMap, Integer childProjLstIndx) throws SemanticException {
+        HashMap<String, Integer> rexNodeToPosMap, Integer childProjLstIndex) throws SemanticException {
       // 1. Get agg fn ret type in Calcite
       RelDataType aggFnRetType = TypeConverter.convert(agg.getReturnType(),
           this.cluster.getTypeFactory());
@@ -3760,14 +3760,14 @@ public class CalcitePlanner extends SemanticAnalyzer {
       List<Integer> argList = new ArrayList<>();
       ImmutableList.Builder<RelDataType> aggArgRelDTBldr = ImmutableList.builder();
       for (RexNode rexNd : agg.getParameters()) {
-        Integer inputIndx = rexNodeToPosMap.get(rexNd.toString());
-        if (inputIndx == null) {
+        Integer inputIndex = rexNodeToPosMap.get(rexNd.toString());
+        if (inputIndex == null) {
           gbChildProjLst.add(rexNd);
-          rexNodeToPosMap.put(rexNd.toString(), childProjLstIndx);
-          inputIndx = childProjLstIndx;
-          childProjLstIndx++;
+          rexNodeToPosMap.put(rexNd.toString(), childProjLstIndex);
+          inputIndex = childProjLstIndex;
+          childProjLstIndex++;
         }
-        argList.add(inputIndx);
+        argList.add(inputIndex);
 
         aggArgRelDTBldr.add(rexNd.getType());
       }
@@ -3786,12 +3786,12 @@ public class CalcitePlanner extends SemanticAnalyzer {
       final List<RexNode> gbChildProjLst = Lists.newArrayList();
       final HashMap<String, Integer> rexNodeToPosMap = new HashMap<>();
       final List<Integer> groupSetPositions = Lists.newArrayList();
-      Integer gbIndx = 0;
+      Integer gbIndex = 0;
       for (RexNode gbExpr : gbExprs) {
         gbChildProjLst.add(gbExpr);
-        groupSetPositions.add(gbIndx);
-        rexNodeToPosMap.put(gbExpr.toString(), gbIndx);
-        gbIndx++;
+        groupSetPositions.add(gbIndex);
+        rexNodeToPosMap.put(gbExpr.toString(), gbIndex);
+        gbIndex++;
       }
       final ImmutableBitSet groupSet = ImmutableBitSet.of(groupSetPositions);
 
@@ -3824,7 +3824,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
       }
 
       if (gbChildProjLst.isEmpty()) {
-        // This will happen for count(*), in such cases we arbitarily pick
+        // This will happen for count(*), in such cases we arbitrarily pick
         // first element from srcRel
         gbChildProjLst.add(this.cluster.getRexBuilder().makeInputRef(srcRel, 0));
       }
@@ -3899,10 +3899,10 @@ public class CalcitePlanner extends SemanticAnalyzer {
           groupByOutputRowResolver);
     }
 
-    private AggregateInfo getHiveAggInfo(ASTNode aggAst, int aggFnLstArgIndx, RowResolver inputRR)
+    private AggregateInfo getHiveAggInfo(ASTNode aggAst, int aggFnLstArgIndex, RowResolver inputRR)
         throws SemanticException {
       List<RexNode> aggParameters = new ArrayList<>();
-      for (int i = 1; i <= aggFnLstArgIndx; i++) {
+      for (int i = 1; i <= aggFnLstArgIndex; i++) {
         RexNode parameterExpr = genRexNode(
             (ASTNode) aggAst.getChild(i), inputRR, cluster.getRexBuilder());
         aggParameters.add(parameterExpr);
@@ -4478,7 +4478,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
       return rwb;
     }
 
-    private int getWindowSpecIndx(ASTNode wndAST) {
+    private int getWindowSpecIndex(ASTNode wndAST) {
       int wi = wndAST.getChildCount() - 1;
       if (wi <= 0 || (wndAST.getChild(wi).getType() != HiveParser.TOK_WINDOWSPEC)) {
         wi = -1;
@@ -4496,9 +4496,9 @@ public class CalcitePlanner extends SemanticAnalyzer {
         WindowFunctionSpec wFnSpec = (WindowFunctionSpec) wExpSpec;
         ASTNode windowProjAst = wFnSpec.getExpression();
         // TODO: do we need to get to child?
-        int wndSpecASTIndx = getWindowSpecIndx(windowProjAst);
+        int wndSpecASTIndex = getWindowSpecIndex(windowProjAst);
         // 2. Get Hive Aggregate Info
-        AggregateInfo hiveAggInfo = getHiveAggInfo(windowProjAst, wndSpecASTIndx - 1,
+        AggregateInfo hiveAggInfo = getHiveAggInfo(windowProjAst, wndSpecASTIndex - 1,
             this.relToHiveRR.get(srcRel));
 
         // 3. Get Calcite Return type for Agg Fn
@@ -4698,7 +4698,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
     }
 
     /**
-     * NOTE: there can only be one select caluse since we don't handle multi destination insert.
+     * NOTE: there can only be one select clause since we don't handle multi destination insert.
      * @param isAllColRefRewrite
      *          when it is true, it means that it is called from group by *, where we use
      *          genSelectLogicalPlan to rewrite *
@@ -4877,7 +4877,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
           pos = Integer.valueOf(pos.intValue() + 1);
         } else {
 
-          // 6.4 Build ExprNode corresponding to colums
+          // 6.4 Build ExprNode corresponding to columns
           if (expr.getType() == HiveParser.TOK_ALLCOLREF) {
             pos = genRexNodeRegex(".*",
                 expr.getChildCount() == 0 ? null : getUnescapedName((ASTNode) expr.getChild(0)).toLowerCase(),
@@ -4913,7 +4913,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
               (srcRel.getInputs().size() == 1 && srcRel.getInput(0) instanceof HiveAggregate))) {
             // Likely a malformed query eg, select hash(distinct c1) from t1;
             throw new CalciteSemanticException("Distinct without an aggregation.",
-                    UnsupportedFeature.Distinct_without_an_aggreggation);
+                    UnsupportedFeature.Distinct_without_an_aggregation);
           } else {
             // Case when this is an expression
             TypeCheckCtx tcCtx = new TypeCheckCtx(inputRR, cluster.getRexBuilder());
@@ -5006,7 +5006,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
             String internalName = SemanticAnalyzer.getColumnInternalName(outputRR.getColumnInfos()
                 .size() + i);
             colInfo.setInternalName(internalName);
-            // if there is any confict, then we do not generate it in the new select
+            // if there is any conflict, then we do not generate it in the new select
             // otherwise, we add it into the calciteColLst and generate the new select
             if (!outputRR.putWithCheck(colInfo.getTabAlias(), colInfo.getAlias(), internalName,
                 colInfo)) {
@@ -5088,7 +5088,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
 
       int numUdtfCols = type.getAllStructFieldNames().size();
       if (colAliases.isEmpty()) {
-        // user did not specfied alias names, infer names from outputOI
+        // user did not specified alias names, infer names from outputOI
         for (String fieldName : type.getAllStructFieldNames()) {
           colAliases.add(fieldName);
         }

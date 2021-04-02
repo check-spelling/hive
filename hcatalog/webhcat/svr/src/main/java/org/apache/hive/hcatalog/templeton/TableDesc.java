@@ -134,7 +134,7 @@ public class TableDesc extends GroupPermissionsDesc {
   }
 
   /**
-   * Ther ASC or DESC sort order.
+   * The ASC or DESC sort order.
    */
   @XmlRootElement
   public static enum SortDirectionDesc {

@@ -67,7 +67,7 @@ public abstract class ShimLoader {
   }
 
 
-  private static final String SCHEDULER_SHIM_CLASSE =
+  private static final String SCHEDULER_SHIM_CLASS =
     "org.apache.hadoop.hive.schshim.FairSchedulerShim";
 
   /**

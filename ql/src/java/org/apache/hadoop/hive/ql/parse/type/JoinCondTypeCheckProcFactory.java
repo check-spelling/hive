@@ -38,7 +38,7 @@ import org.apache.hadoop.hive.ql.parse.SemanticException;
  * Reasons for sub class:
  * 1. Additional restrictions on what is supported in Join Conditions
  * 2. Column handling is different
- * 3. Join Condn expr has two input RR as opposed to one.
+ * 3. Join Cond expr has two input RR as opposed to one.
  */
 
 /**

@@ -69,7 +69,7 @@ public class FetchTask extends Task<FetchWork> implements Serializable {
     try {
       // Create a file system handle
       if (job == null) {
-        // The job config should be initilaized once per fetch task. In case of refetch, we should use the
+        // The job config should be initialized once per fetch task. In case of refetch, we should use the
         // same config.
         job = new JobConf(conf);
       }
@@ -83,7 +83,7 @@ public class FetchTask extends Task<FetchWork> implements Serializable {
         // push down filters
         HiveInputFormat.pushFilters(job, ts, null);
 
-        AcidUtils.setAcidOperationalProperties(job, ts.getConf().isTranscationalTable(),
+        AcidUtils.setAcidOperationalProperties(job, ts.getConf().isTransactionalTable(),
             ts.getConf().getAcidOperationalProperties(), ts.getConf().isFetchDeletedRows());
       }
       sink = work.getSink();

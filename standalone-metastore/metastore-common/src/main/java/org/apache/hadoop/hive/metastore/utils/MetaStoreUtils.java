@@ -94,7 +94,7 @@ public class MetaStoreUtils {
   public static final char CATALOG_DB_THRIFT_NAME_MARKER = '@';
 
   /**
-   * This String is used to seaprate the catalog name from the database name.  This should only
+   * This String is used to separate the catalog name from the database name.  This should only
    * be used in Strings that are prepended with {@link #CATALOG_DB_THRIFT_NAME_MARKER}.  # is
    * chosen because it is not used in regular expressions.  this is only intended for use when
    * making old Thrift calls that do not support catalog names.
@@ -113,7 +113,7 @@ public class MetaStoreUtils {
   // NOTE:
   // If the following array is updated, please also be sure to update the
   // configuration parameter documentation
-  // HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES in MetastoreConf as well.
+  // HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES in MetastoreConf as well.
   private static final char[] SPECIAL_CHARACTERS_IN_TABLE_NAMES = new char[] {
       // standard
       ' ', '"', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '[', ']',
@@ -188,7 +188,7 @@ public class MetaStoreUtils {
   /**
    * validateName
    *
-   * Checks the name conforms to our standars which are: "[a-zA-z_0-9]+". checks
+   * Checks the name conforms to our standards which are: "[a-zA-z_0-9]+". checks
    * this is just characters and numbers and _
    *
    * @param name
@@ -203,7 +203,7 @@ public class MetaStoreUtils {
     StringBuilder allowedSpecialCharacters = new StringBuilder();
     if (conf != null
         && MetastoreConf.getBoolVar(conf,
-        MetastoreConf.ConfVars.SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES)) {
+        MetastoreConf.ConfVars.SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES)) {
       for (Character c : SPECIAL_CHARACTERS_IN_TABLE_NAMES) {
         allowedSpecialCharacters.append(c);
       }
@@ -1015,7 +1015,7 @@ public class MetaStoreUtils {
     return orderSpecs;
   }
 
-  public static void addPartitonSpecsToList(PartitionsSpecByExprResult r, List<PartitionSpec> result) {
+  public static void addPartitionSpecsToList(PartitionsSpecByExprResult r, List<PartitionSpec> result) {
     result.addAll(r.getPartitionsSpec());
   }
 

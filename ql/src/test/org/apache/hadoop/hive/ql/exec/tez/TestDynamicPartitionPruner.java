@@ -59,7 +59,7 @@ public class TestDynamicPartitionPruner {
       pruneRunnable.start();
       pruneRunnable.awaitEnd();
       // Return immediately. No entries found for pruning. Verified via the timeout.
-      assertEquals(0, pruner.eventsProceessed.intValue());
+      assertEquals(0, pruner.eventsProcessed.intValue());
       assertEquals(0, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -94,7 +94,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(1, pruner.eventsProceessed.intValue());
+      assertEquals(1, pruner.eventsProcessed.intValue());
       assertEquals(1, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -129,7 +129,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(1, pruner.eventsProceessed.intValue());
+      assertEquals(1, pruner.eventsProcessed.intValue());
       assertEquals(1, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -165,7 +165,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(4, pruner.eventsProceessed.intValue());
+      assertEquals(4, pruner.eventsProcessed.intValue());
       assertEquals(2, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -201,7 +201,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(4, pruner.eventsProceessed.intValue());
+      assertEquals(4, pruner.eventsProcessed.intValue());
       assertEquals(2, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -248,7 +248,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(7, pruner.eventsProceessed.intValue());
+      assertEquals(7, pruner.eventsProcessed.intValue());
       assertEquals(3, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -295,7 +295,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(7, pruner.eventsProceessed.intValue());
+      assertEquals(7, pruner.eventsProcessed.intValue());
       assertEquals(3, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -341,7 +341,7 @@ public class TestDynamicPartitionPruner {
 
       pruneRunnable.awaitEnd();
       assertNoError(pruneRunnable);
-      assertEquals(7, pruner.eventsProceessed.intValue());
+      assertEquals(7, pruner.eventsProcessed.intValue());
       assertEquals(3, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -378,7 +378,7 @@ public class TestDynamicPartitionPruner {
       pruneRunnable.awaitEnd();
       assertTrue(pruneRunnable.inError.get());
       assertTrue(pruneRunnable.exception instanceof IllegalStateException);
-      assertEquals(2, pruner.eventsProceessed.intValue());
+      assertEquals(2, pruner.eventsProcessed.intValue());
       assertEquals(0, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -413,7 +413,7 @@ public class TestDynamicPartitionPruner {
       // The pruner should not have completed.
       assertFalse(pruneRunnable.ended.get());
       assertNoError(pruneRunnable);
-      assertEquals(0, pruner.eventsProceessed.intValue());
+      assertEquals(0, pruner.eventsProcessed.intValue());
       assertEquals(0, pruner.filteredSources.intValue());
     } finally {
       t.interrupt();
@@ -555,7 +555,7 @@ public class TestDynamicPartitionPruner {
   private static class DynamicPartitionPrunerForEventTesting extends DynamicPartitionPruner {
 
     LongAdder filteredSources = new LongAdder();
-    LongAdder eventsProceessed = new LongAdder();
+    LongAdder eventsProcessed = new LongAdder();
 
     @Override
     protected SourceInfo createSourceInfo(TableDesc t, ExprNodeDesc partKeyExpr, String columnName, String columnType,
@@ -567,7 +567,7 @@ public class TestDynamicPartitionPruner {
     @Override
     protected String processPayload(ByteBuffer payload, String sourceName) throws SerDeException,
         IOException {
-      eventsProceessed.increment();
+      eventsProcessed.increment();
       return sourceName;
     }
 

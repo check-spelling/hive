@@ -16,7 +16,7 @@
 
 
 
-# Path to the directory which containts hive-exec and hive-llap-server
+# Path to the directory which contains hive-exec and hive-llap-server
 #export LLAP_DAEMON_HOME=
 
 #Path to the directory containing llap configs. Eventually, merge with hive-site.

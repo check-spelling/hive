@@ -125,7 +125,7 @@ public class VectorizedOrcAcidRowBatchReader
    */
   private final boolean rowIdProjected;
   /**
-   * if false, we don't need any acid medadata columns from the file because we
+   * if false, we don't need any acid metadata columns from the file because we
    * know all data in the split is valid (wrt to visible writeIDs/delete events)
    * and ROW_ID is not needed higher up in the operator pipeline
    */
@@ -750,7 +750,7 @@ public class VectorizedOrcAcidRowBatchReader
          * filter out base/delta files but this makes fewer dependencies)
          */
         OrcRawRecordMerger.TransactionMetaData syntheticTxnInfo =
-            OrcRawRecordMerger.TransactionMetaData.findWriteIDForSynthetcRowIDs(file.getPath(),
+            OrcRawRecordMerger.TransactionMetaData.findWriteIDForSyntheticRowIDs(file.getPath(),
                     rootDir, conf);
         return new OrcSplit.OffsetAndBucketProperty(-1, -1, syntheticTxnInfo.syntheticWriteId);
       }
@@ -763,7 +763,7 @@ public class VectorizedOrcAcidRowBatchReader
 
     long rowIdOffset = 0;
     OrcRawRecordMerger.TransactionMetaData syntheticTxnInfo =
-        OrcRawRecordMerger.TransactionMetaData.findWriteIDForSynthetcRowIDs(file.getPath(), rootDir, conf);
+        OrcRawRecordMerger.TransactionMetaData.findWriteIDForSyntheticRowIDs(file.getPath(), rootDir, conf);
     int bucketId = AcidUtils.parseBucketId(file.getPath());
     int bucketProperty = BucketCodec.V1.encode(new AcidOutputFormat.Options(conf)
         //statementId is from directory name (or 0 if there is none)

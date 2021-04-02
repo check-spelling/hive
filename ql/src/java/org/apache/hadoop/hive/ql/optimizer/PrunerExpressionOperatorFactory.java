@@ -35,7 +35,7 @@ import org.apache.hadoop.hive.ql.plan.ExprNodeGenericFuncDesc;
  * Expression processor factory for pruning. Each processor tries to
  * convert the expression subtree into a pruning expression.
  *
- * It can be used for partition prunner and list bucketing pruner.
+ * It can be used for partition pruner and list bucketing pruner.
  */
 public abstract class PrunerExpressionOperatorFactory {
 
@@ -63,7 +63,7 @@ public abstract class PrunerExpressionOperatorFactory {
         // values) should derive from a common base class UDFNullAsUnknown, so
         // instead of listing the classes
         // here we would test whether a class is derived from that base class.
-        // If All childs are null, set unknown to true
+        // If All children are null, set unknown to true
         boolean isAllNull = true;
         for (Object child : nodeOutputs) {
           ExprNodeDesc child_nd = (ExprNodeDesc) child;

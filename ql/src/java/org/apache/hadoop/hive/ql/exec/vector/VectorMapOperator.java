@@ -609,7 +609,7 @@ public class VectorMapOperator extends AbstractMapOperator {
         currentVectorPartContext.partName);
   }
 
-  private void setRowIdentiferToNull(VectorizedRowBatch batch) {
+  private void setRowIdentifierToNull(VectorizedRowBatch batch) {
     ColumnVector rowIdentifierColVector = batch.cols[rowIdentifierColumnNum];
     rowIdentifierColVector.isNull[0] = true;
     rowIdentifierColVector.noNulls = false;
@@ -730,7 +730,7 @@ public class VectorMapOperator extends AbstractMapOperator {
       if (hasRowIdentifier) {
 
         // No ACID in code path -- set ROW__ID to NULL.
-        setRowIdentiferToNull(deserializerBatch);
+        setRowIdentifierToNull(deserializerBatch);
       }
 
       /*
@@ -802,7 +802,7 @@ public class VectorMapOperator extends AbstractMapOperator {
       if (hasRowIdentifier) {
         final int idx = batchContext.findVirtualColumnNum(VirtualColumn.ROWID);
         if (idx < 0) {
-          setRowIdentiferToNull(batch);
+          setRowIdentifierToNull(batch);
         }
       }
     }

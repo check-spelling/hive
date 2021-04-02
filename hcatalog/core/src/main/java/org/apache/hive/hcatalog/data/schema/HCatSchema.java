@@ -119,7 +119,7 @@ public class HCatSchema implements Serializable {
 
   private void reAlignPositionMap(int startPosition, int offset) {
     for (Map.Entry<String, Integer> entry : fieldPositionMap.entrySet()) {
-      // Re-align the columns appearing on or after startPostion(say, column 1) such that
+      // Re-align the columns appearing on or after startPosition(say, column 1) such that
       // column 2 becomes column (2+offset), column 3 becomes column (3+offset) and so on.
       Integer entryVal = entry.getValue();
       if (entryVal >= startPosition) {
@@ -130,7 +130,7 @@ public class HCatSchema implements Serializable {
 
   public void remove(final HCatFieldSchema hcatFieldSchema) throws HCatException {
     if (!fieldSchemas.contains(hcatFieldSchema)) {
-      throw new HCatException("Attempt to delete a non-existent column from HCat Schema: " + hcatFieldSchema);
+      throw new HCatException("Attempt to delete a nonexistent column from HCat Schema: " + hcatFieldSchema);
     }     
     fieldSchemas.remove(hcatFieldSchema);
     // Re-align the positionMap by -1 for the columns appearing after hcatFieldSchema.

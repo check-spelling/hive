@@ -165,7 +165,7 @@ public class VectorizedBatchUtil {
         case VOID:
           return new VoidColumnVector(VectorizedRowBatch.DEFAULT_SIZE);
         default:
-          throw new RuntimeException("Vectorizaton is not supported for datatype:"
+          throw new RuntimeException("Vectorization is not supported for datatype:"
               + primitiveTypeInfo.getPrimitiveCategory());
         }
       }
@@ -215,7 +215,7 @@ public class VectorizedBatchUtil {
    * from a given offset
    *
    * @param row Deserialized row object
-   * @param oi Object insepector for that row
+   * @param oi Object inspector for that row
    * @param rowIndex index to which the row should be added to batch
    * @param colOffset offset from where the column begins
    * @param batch Vectorized batch to which the row is added at rowIndex
@@ -260,7 +260,7 @@ public class VectorizedBatchUtil {
    * from a given offset
    *
    * @param row Deserialized row object
-   * @param oi Object insepector for that row
+   * @param oi Object inspector for that row
    * @param rowIndex index to which the row should be added to batch
    * @param batch Vectorized batch to which the row is added at rowIndex
    * @param context context object for this vectorized batch
@@ -526,7 +526,7 @@ public class VectorizedBatchUtil {
       }
       break;
     default:
-      throw new HiveException("Vectorizaton is not supported for datatype:" +
+      throw new HiveException("Vectorization is not supported for datatype:" +
           poi.getPrimitiveCategory());
     }
   }

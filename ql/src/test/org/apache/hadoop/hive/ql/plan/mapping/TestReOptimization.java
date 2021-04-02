@@ -132,7 +132,7 @@ public class TestReOptimization {
         assertEquals(os.getOutputRecords(), stats.getNumRows());
 
         if (!(os.getOutputRecords() == 3 || os.getOutputRecords() == 6)) {
-          fail("nonexpected number of records produced");
+          fail("unexpected number of records produced");
         }
         checkedOperators++;
       }

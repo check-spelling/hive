@@ -464,7 +464,7 @@ public class HiveConf extends Configuration {
   }
 
   /**
-   * Get a set containing configuration parameter names used by LLAP Server isntances
+   * Get a set containing configuration parameter names used by LLAP Server instances
    * @return an unmodifiable set containing llap ConfVars
    */
   public static final Set<String> getLlapDaemonConfVars() {
@@ -522,7 +522,7 @@ public class HiveConf extends Configuration {
             "Root dir for ChangeManager for non encrypted paths if hive.repl.cmrootdir is encrypted."),
     REPLCMINTERVAL("hive.repl.cm.interval","3600s",
         new TimeValidator(TimeUnit.SECONDS),
-        "Inteval for cmroot cleanup thread."),
+        "Interval for cmroot cleanup thread."),
     REPL_HA_DATAPATH_REPLACE_REMOTE_NAMESERVICE("hive.repl.ha.datapath.replace.remote.nameservice", false,
             "When HDFS is HA enabled and both source and target clusters are configured with same nameservice name," +
                     "enable this flag and provide a new unique logical name for representing the remote cluster " +
@@ -549,7 +549,7 @@ public class HiveConf extends Configuration {
             "If this is set to false, then all previously used dump-directories will be deleted after repl-dump. " +
              "If true, a number of latest dump-directories specified by hive.repl.retain.prev.dump.dir.count will be retained"),
     REPL_RETAIN_PREV_DUMP_DIR_COUNT("hive.repl.retain.prev.dump.dir.count", 3,
-            "Indicates maximium number of latest previously used dump-directories which would be retained when " +
+            "Indicates maximum number of latest previously used dump-directories which would be retained when " +
              "hive.repl.retain.prev.dump.dir is set to true"),
     REPL_RETAIN_CUSTOM_LOCATIONS_FOR_DB_ON_TARGET("hive.repl.retain.custom.db.locations.on.target", true,
             "Indicates if source database has custom warehouse locations, whether that should be retained on target as well"),
@@ -633,7 +633,7 @@ public class HiveConf extends Configuration {
             "Name of the source cluster for the replication."),
     REPL_TARGET_CLUSTER_NAME("hive.repl.target.cluster.name", null,
             "Name of the target cluster for the replication."),
-    REPL_RETRY_INTIAL_DELAY("hive.repl.retry.initial.delay", "60s",
+    REPL_RETRY_INITIAL_DELAY("hive.repl.retry.initial.delay", "60s",
       new TimeValidator(TimeUnit.SECONDS),
       "Initial Delay before retry starts."),
     REPL_RETRY_BACKOFF_COEFFICIENT("hive.repl.retry.backoff.coefficient", 1.2f,
@@ -718,7 +718,7 @@ public class HiveConf extends Configuration {
         "org.apache.hadoop.hive.ql.hooks.ExecuteWithHookContext interface."),
     QUERYREDACTORHOOKS("hive.exec.query.redactor.hooks", "",
         "Comma-separated list of hooks to be invoked for each query which can \n" +
-        "tranform the query before it's placed in the job.xml file. Must be a Java class which \n" +
+        "transform the query before it's placed in the job.xml file. Must be a Java class which \n" +
         "extends from the org.apache.hadoop.hive.ql.hooks.Redactor abstract class."),
     CLIENTSTATSPUBLISHERS("hive.client.stats.publishers", "",
         "Comma-separated list of statistics publishers to be invoked on counters on each job. \n" +
@@ -815,7 +815,7 @@ public class HiveConf extends Configuration {
         "When hive.exec.mode.local.auto is true, the number of tasks should less than this for local mode."),
 
     DROP_IGNORES_NON_EXISTENT("hive.exec.drop.ignorenonexistent", true,
-        "Do not report an error if DROP TABLE/VIEW/Index/Function specifies a non-existent table/view/function"),
+        "Do not report an error if DROP TABLE/VIEW/Index/Function specifies a nonexistent table/view/function"),
 
     HIVEIGNOREMAPJOINHINT("hive.ignore.mapjoin.hint", true, "Ignore the mapjoin hint"),
 
@@ -2323,10 +2323,10 @@ public class HiveConf extends Configuration {
         "we think the key as a skew join key. "),
     HIVESKEWJOINMAPJOINNUMMAPTASK("hive.skewjoin.mapjoin.map.tasks", 10000,
         "Determine the number of map task used in the follow up map join job for a skew join.\n" +
-        "It should be used together with hive.skewjoin.mapjoin.min.split to perform a fine grained control."),
+        "It should be used together with hive.skewjoin.mapjoin.min.split to perform a fine-grained control."),
     HIVESKEWJOINMAPJOINMINSPLIT("hive.skewjoin.mapjoin.min.split", 33554432L,
         "Determine the number of map task at most used in the follow up map join job for a skew join by specifying \n" +
-        "the minimum split size. It should be used together with hive.skewjoin.mapjoin.map.tasks to perform a fine grained control."),
+        "the minimum split size. It should be used together with hive.skewjoin.mapjoin.map.tasks to perform a fine-grained control."),
 
     HIVESENDHEARTBEAT("hive.heartbeat.interval", 1000,
         "Send a heartbeat after this interval - used by mapjoin and filter operators"),
@@ -2504,7 +2504,7 @@ public class HiveConf extends Configuration {
         "Whether to eliminate scans of the tables from which no columns are selected. Note\n" +
         "that, when selecting from empty tables with data files, this can produce incorrect\n" +
         "results, so it's disabled by default. It works correctly for normal tables."),
-    HIVENULLSCANOPTIMIZE("hive.optimize.null.scan", true, "Dont scan relations which are guaranteed to not generate any rows"),
+    HIVENULLSCANOPTIMIZE("hive.optimize.null.scan", true, "Don't scan relations which are guaranteed to not generate any rows"),
     HIVEOPTPPD_STORAGE("hive.optimize.ppd.storage", true,
         "Whether to push predicates down to storage handlers"),
     HIVEOPTGROUPBY("hive.optimize.groupby", true,
@@ -2733,7 +2733,7 @@ public class HiveConf extends Configuration {
     HIVE_STATS_DEFAULT_PUBLISHER("hive.stats.default.publisher", "",
         "The Java class (implementing the StatsPublisher interface) that is used by default if hive.stats.dbclass is custom type."),
     /**
-     * @deprecated Use MetastoreConf.STATS_DEFAULT_AGGRETATOR
+     * @deprecated Use MetastoreConf.STATS_DEFAULT_AGGREGATOR
      */
     @Deprecated
     HIVE_STATS_DEFAULT_AGGREGATOR("hive.stats.default.aggregator", "",
@@ -2885,7 +2885,7 @@ public class HiveConf extends Configuration {
         "queries that read non-orc MM tables with original files will fail. The default in\n" +
         "Hive 3.0 is false."),
     HIVE_LOCK_FILE_MOVE_MODE("hive.lock.file.move.protect", "all", new StringSet("none", "dp", "all"),
-        "During file move operations acqueires a SEMI_SHARED lock at the table level."
+        "During file move operations acquires a SEMI_SHARED lock at the table level."
             + "none:never; dp: only in case of dynamic partitioning operations; all: all table operations"),
 
     // Zookeeper related configs
@@ -3513,7 +3513,7 @@ public class HiveConf extends Configuration {
         "any extra EXPLAIN configuration (e.g. hive.spark.explain.user, etc.). The explain " +
         "plan for each stage is truncated at 100,000 characters."),
 
-    // prefix used to auto generated column aliases (this should be s,tarted with '_')
+    // prefix used to auto generated column aliases (this should be started with '_')
     HIVE_AUTOGEN_COLUMNALIAS_PREFIX_LABEL("hive.autogen.columnalias.prefix.label", "_c",
         "String used as a prefix when auto generating column alias.\n" +
         "By default the prefix label will be appended with a column position number to form the column alias. \n" +
@@ -3537,7 +3537,7 @@ public class HiveConf extends Configuration {
     HIVE_METRICS_REPORTER("hive.service.metrics.reporter", "",
         "Reporter implementations for metric class "
             + "org.apache.hadoop.hive.common.metrics.metrics2.CodahaleMetrics;" +
-        "Deprecated, use HIVE_CODAHALE_METRICS_REPORTER_CLASSES instead. This configuraiton will be"
+        "Deprecated, use HIVE_CODAHALE_METRICS_REPORTER_CLASSES instead. This configuration will be"
             + " overridden by HIVE_CODAHALE_METRICS_REPORTER_CLASSES if present. " +
             "Comma separated list of JMX, CONSOLE, JSON_FILE, HADOOP2"),
     HIVE_METRICS_JSON_FILE_LOCATION("hive.service.metrics.file.location", "/tmp/report.json",
@@ -3565,7 +3565,7 @@ public class HiveConf extends Configuration {
         "To hold a lock file in scratchdir to prevent to be removed by cleardanglingscratchdir"),
     HIVE_INSERT_INTO_MULTILEVEL_DIRS("hive.insert.into.multilevel.dirs", false,
         "Where to insert into multilevel directories like\n" +
-        "\"insert directory '/HIVEFT25686/chinna/' from table\""),
+        "\"insert directory '/HIVEFT25686/china/' from table\""),
     HIVE_CTAS_EXTERNAL_TABLES("hive.ctas.external.tables", true,
             "whether CTAS for external tables is allowed"),
     HIVE_INSERT_INTO_EXTERNAL_TABLES("hive.insert.into.external.tables", true,
@@ -4428,7 +4428,7 @@ public class HiveConf extends Configuration {
      * @deprecated Use MetastoreConf.SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES
      */
     @Deprecated
-    HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES("hive.support.special.characters.tablename", true,
+    HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES("hive.support.special.characters.tablename", true,
         "This flag should be set to true to enable support for special characters in table names.\n"
         + "When it is set to false, only [a-zA-Z_0-9]+ are supported.\n"
         + "The supported special characters are %&'()*+,-./:;<=>?[]_|{}$^!~#@ and space. This flag applies only to"
@@ -4525,7 +4525,7 @@ public class HiveConf extends Configuration {
             + " 1: recommended value: there is only 1 merger thread (additionally to the task's main thread),"
             + "according perf tests, this can lead to serious improvement \n"),
     TEZ_BIGTABLE_MIN_SIZE_SEMIJOIN_REDUCTION("hive.tez.bigtable.minsize.semijoin.reduction", 100000000L,
-            "Big table for runtime filteting should be of atleast this size"),
+            "Big table for runtime filtering should be of atleast this size"),
     TEZ_DYNAMIC_SEMIJOIN_REDUCTION_THRESHOLD("hive.tez.dynamic.semijoin.reduction.threshold", (float) 0.50,
             "Only perform semijoin optimization if the estimated benefit at or above this fraction of the target table"),
     TEZ_DYNAMIC_SEMIJOIN_REDUCTION_MULTICOLUMN(
@@ -4666,7 +4666,7 @@ public class HiveConf extends Configuration {
         "is unneeded. This is only necessary for ORC files written before HIVE-9660."),
     LLAP_CACHE_HYDRATION_STRATEGY_CLASS("hive.llap.cache.hydration.strategy.class", "", "Strategy class for managing the "
         + "llap cache hydration. It's executed when the daemon starts and stops, and gives a chance to save and/or "
-        + "load the contens of the llap cache. If left empty the feature is disabled.\n" +
+        + "load the contents of the llap cache. If left empty the feature is disabled.\n" +
         "The class should implement org.apache.hadoop.hive.llap.LlapCacheHydration interface."),
     LLAP_CACHE_HYDRATION_SAVE_DIR("hive.llap.cache.hydration.save.dir", "/tmp/hive", "Directory to save the llap cache content\n"
         + "info on shutdown, if BasicLlapCacheHydration is used as the hive.llap.cache.hydration.strategy.class."),
@@ -4696,7 +4696,7 @@ public class HiveConf extends Configuration {
         "inputs into LLAP cache, if this feature is enabled."),
     LLAP_IO_ENCODE_SLICE_LRR("hive.llap.io.encode.slice.lrr", true,
         "Whether to separate cache slices when reading encoded data from text inputs via MR\n" +
-        "MR LineRecordRedader into LLAP cache, if this feature is enabled. Safety flag."),
+        "MR LineRecordReader into LLAP cache, if this feature is enabled. Safety flag."),
     LLAP_ORC_ENABLE_TIME_COUNTERS("hive.llap.io.orc.time.counters", true,
         "Whether to enable time counters for LLAP IO layer (time spent in HDFS, etc.)"),
     LLAP_IO_VRB_QUEUE_LIMIT_MAX("hive.llap.io.vrb.queue.limit.max", 50000,
@@ -4952,25 +4952,25 @@ public class HiveConf extends Configuration {
       "Specifies the minimum amount of tasks, executed by a particular LLAP daemon, before the health\n" +
       "status of the node is examined."),
     LLAP_NODEHEALTHCHECKS_MININTERVALDURATION(
-      "hive.llap.nodehealthckecks.minintervalduration", "300s",
+      "hive.llap.nodehealthchecks.minintervalduration", "300s",
       new TimeValidator(TimeUnit.SECONDS),
       "The minimum time that needs to elapse between two actions that are the correcting results of identifying\n" +
       "an unhealthy node. Even if additional nodes are considered to be unhealthy, no action is performed until\n" +
       "this time interval has passed since the last corrective action."),
     LLAP_NODEHEALTHCHECKS_TASKTIMERATIO(
-      "hive.llap.nodehealthckecks.tasktimeratio", 1.5f,
+      "hive.llap.nodehealthchecks.tasktimeratio", 1.5f,
       "LLAP daemons are considered unhealthy, if their average (Map-) task execution time is significantly larger\n" +
       "than the average task execution time of other nodes. This value specifies the ratio of a node to other\n" +
       "nodes, which is considered as threshold for unhealthy. A value of 1.5 for example considers a node to be\n" +
       "unhealthy if its average task execution time is 50% larger than the average of other nodes."),
     LLAP_NODEHEALTHCHECKS_EXECUTORRATIO(
-      "hive.llap.nodehealthckecks.executorratio", 2.0f,
+      "hive.llap.nodehealthchecks.executorratio", 2.0f,
       "If an unhealthy node is identified, it is blacklisted only where there is enough free executors to execute\n" +
       "the tasks. This value specifies the ratio of the free executors compared to the blacklisted ones.\n" +
       "A value of 2.0 for example defines that we blacklist an unhealthy node only if we have 2 times more\n" +
       "free executors on the remaining nodes than the unhealthy node."),
     LLAP_NODEHEALTHCHECKS_MAXNODES(
-      "hive.llap.nodehealthckecks.maxnodes", 1,
+      "hive.llap.nodehealthchecks.maxnodes", 1,
       "The maximum number of blacklisted nodes. If there are at least this number of blacklisted nodes\n" +
       "the listener will not blacklist further nodes even if all the conditions are met."),
     LLAP_TASK_SCHEDULER_AM_REGISTRY_NAME("hive.llap.task.scheduler.am.registry", "llap",
@@ -5015,7 +5015,7 @@ public class HiveConf extends Configuration {
         "hive.llap.daemon.task.preemption.metrics.intervals", "30,60,300",
         "Comma-delimited set of integers denoting the desired rollover intervals (in seconds)\n" +
         " for percentile latency metrics. Used by LLAP daemon task scheduler metrics for\n" +
-        " time taken to kill task (due to pre-emption) and useful time wasted by the task that\n" +
+        " time taken to kill task (due to preemption) and useful time wasted by the task that\n" +
         " is about to be preempted."
     ),
     LLAP_DAEMON_TASK_SCHEDULER_WAIT_QUEUE_SIZE("hive.llap.daemon.task.scheduler.wait.queue.size",
@@ -5397,7 +5397,7 @@ public class HiveConf extends Configuration {
             + "and execution is also bound to the namespace"),
     HIVE_SCHEDULED_QUERIES_EXECUTOR_IDLE_SLEEP_TIME("hive.scheduled.queries.executor.idle.sleep.time", "60s",
         new TimeValidator(TimeUnit.SECONDS),
-        "Time to sleep between quering for the presence of a scheduled query."),
+        "Time to sleep between querying for the presence of a scheduled query."),
     HIVE_SCHEDULED_QUERIES_EXECUTOR_PROGRESS_REPORT_INTERVAL("hive.scheduled.queries.executor.progress.report.interval",
         "60s",
         new TimeValidator(TimeUnit.SECONDS),
@@ -5445,15 +5445,15 @@ public class HiveConf extends Configuration {
         (long) 10 * 1024 * 1024,
         "Maximum size in bytes that a single query result is allowed to use in the results cache directory"),
 
-    HIVE_NOTFICATION_EVENT_POLL_INTERVAL("hive.notification.event.poll.interval", "60s",
+    HIVE_NOTIFICATION_EVENT_POLL_INTERVAL("hive.notification.event.poll.interval", "60s",
         new TimeValidator(TimeUnit.SECONDS),
         "How often the notification log is polled for new NotificationEvents from the metastore." +
         "A nonpositive value means the notification log is never polled."),
 
-    HIVE_NOTFICATION_EVENT_CONSUMERS("hive.notification.event.consumers",
+    HIVE_NOTIFICATION_EVENT_CONSUMERS("hive.notification.event.consumers",
         "org.apache.hadoop.hive.ql.cache.results.QueryResultsCache$InvalidationEventConsumer",
         "Comma-separated list of class names extending EventConsumer," +
-         "to handle the NotificationEvents retreived by the notification event poll."),
+         "to handle the NotificationEvents retrieved by the notification event poll."),
 
     /* BLOBSTORE section */
 
@@ -6433,7 +6433,7 @@ public class HiveConf extends Configuration {
       ConfVars.HIVE_SCHEMA_EVOLUTION.varname,
       ConfVars.HIVE_SERVER2_LOGGING_OPERATION_LEVEL.varname,
       ConfVars.HIVE_SERVER2_THRIFT_RESULTSET_SERIALIZE_IN_TASKS.varname,
-      ConfVars.HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES.varname,
+      ConfVars.HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES.varname,
       ConfVars.JOB_DEBUG_CAPTURE_STACKTRACES.varname,
       ConfVars.JOB_DEBUG_TIMEOUT.varname,
       ConfVars.LLAP_IO_ENABLED.varname,

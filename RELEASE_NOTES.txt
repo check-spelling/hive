@@ -43,7 +43,7 @@ Release Notes - Hive - Version 3.1.0
     * [HIVE-19494] - Accept shade prefix during reflective instantiation of output format
     * [HIVE-19495] - Arrow SerDe itest failure
     * [HIVE-19499] - Bootstrap REPL LOAD shall add tasks to create checkpoints for db/tables/partitions.
-    * [HIVE-19500] - Prevent multiple selectivity estimations for the same variable in conjuctions
+    * [HIVE-19500] - Prevent multiple selectivity estimations for the same variable in conjunctions
     * [HIVE-19562] - Flaky test: TestMiniSparkOnYarn FileNotFoundException in spark-submit
     * [HIVE-19598] - Add Acid V1 to V2 upgrade module
     * [HIVE-19637] - Add slow test report script to testutils
@@ -163,7 +163,7 @@ Release Notes - Hive - Version 3.1.0
     * [HIVE-19697] - TestReOptimization#testStatCachingMetaStore is flaky
     * [HIVE-19698] - TestAMReporter#testMultipleAM is flaky
     * [HIVE-19700] - Workaround for JLine issue with UnsupportedTerminal
-    * [HIVE-19713] - itests/hive-jmh should not reference a concreate storage-api version
+    * [HIVE-19713] - itests/hive-jmh should not reference a concrete storage-api version
     * [HIVE-19723] - Arrow serde: "Unsupported data type: Timestamp(NANOSECOND, null)"
     * [HIVE-19726] - ORC date PPD is broken
     * [HIVE-19728] - beeline with USE_BEELINE_FOR_HIVE_CLI fails when trying to set hive.aux.jars.path
@@ -403,10 +403,10 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16714] - make Task Dependency on Repl Load more intuitive
     * [HIVE-16715] - Clean up javadoc from errors in modules llap-client, metastore, spark-client
     * [HIVE-16722] - Converting bucketed non-acid table to acid should perform validation
-    * [HIVE-16727] - REPL DUMP for insert event should't fail if the table is already dropped.
+    * [HIVE-16727] - REPL DUMP for insert event shouldn't fail if the table is already dropped.
     * [HIVE-16729] - Improve location validator to check for blank paths.
     * [HIVE-16747] - Remove YETUS*.sh files after a YETUS release
-    * [HIVE-16748] - Integreate YETUS to Pre-Commit
+    * [HIVE-16748] - Integrate YETUS to Pre-Commit
     * [HIVE-16750] - Support change management for rename table/partition.
     * [HIVE-16764] - Support numeric as same as decimal
     * [HIVE-16765] - ParquetFileReader should be closed to avoid resource leak
@@ -421,7 +421,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16837] - MetadataOnly optimizer conflicts with count distinct rewrite
     * [HIVE-16838] - Improve plans for subqueries with non-equi co-related predicates
     * [HIVE-16848] - NPE during CachedStore refresh
-    * [HIVE-16892] - Move creation of _files from ReplCopyTask to analysis phase for boostrap replication 
+    * [HIVE-16892] - Move creation of _files from ReplCopyTask to analysis phase for bootstrap replication 
     * [HIVE-16893] - move replication dump related work in semantic analysis phase to execution phase using a task
     * [HIVE-16895] -  Multi-threaded execution of bootstrap dump of partitions
     * [HIVE-16896] - move replication load related work in semantic analysis phase to execution phase using a task
@@ -523,7 +523,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17748] - ReplCopyTask doesn't support multi-file CopyWork
     * [HIVE-17750] - add a flag to automatically create most tables as MM 
     * [HIVE-17756] - Enable subquery related Qtests for Hive on Spark
-    * [HIVE-17757] - REPL LOAD need to use customised configurations to execute distcp/remote copy.
+    * [HIVE-17757] - REPL LOAD need to use customized configurations to execute distcp/remote copy.
     * [HIVE-17771] - Implement commands to manage resource plan
     * [HIVE-17778] - Add support for custom counters in trigger expression
     * [HIVE-17809] - Implement per pool trigger validation and move sessions across pools
@@ -590,7 +590,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18084] - Upgrade checkstyle version to support lambdas
     * [HIVE-18085] - Run checkstyle on storage-api module with proper configuration
     * [HIVE-18088] - Add WM event traces at query level for debugging
-    * [HIVE-18092] - Fix exception on tables handled by HBaseHandler if columnsstats are auto-gathered
+    * [HIVE-18092] - Fix exception on tables handled by HBaseHandler if columnstats are auto-gathered
     * [HIVE-18093] - Improve logging when HoS application is killed
     * [HIVE-18095] - add a unmanaged flag to triggers (applies to container based sessions)
     * [HIVE-18096] - add a user-friendly show plan command
@@ -631,7 +631,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18288] - merge/concat not supported on Acid table
     * [HIVE-18294] - add switch to make acid table the default
     * [HIVE-18315] - update tests use non-acid tables
-    * [HIVE-18317] - Improve error messages in TransactionalValidationListerner
+    * [HIVE-18317] - Improve error messages in TransactionalValidationListener
     * [HIVE-18323] - Vectorization: add the support of timestamp in VectorizedPrimitiveColumnReader for parquet
     * [HIVE-18366] - Update HBaseSerDe to use hbase.mapreduce.hfileoutputformat.table.name instead of hbase.table.name as the table name property
     * [HIVE-18368] - Improve Spark Debug RDD Graph
@@ -676,7 +676,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18673] - ErrorMsg.SPARK_JOB_MONITOR_TIMEOUT isn't formatted correctly
     * [HIVE-18677] - SparkClientImpl usage of SessionState.LogHelper doesn't respect isSilent value
     * [HIVE-18679] - create/replicate open transaction event
-    * [HIVE-18703] - Make Operator comparision to be based on some primitive
+    * [HIVE-18703] - Make Operator comparison to be based on some primitive
     * [HIVE-18715] - Remove index support from metastore
     * [HIVE-18720] - Replicate Commit Txn operation (without writes)
     * [HIVE-18745] - Fix MetaStore creation in tests, so multiple MetaStores can be started on the same machine
@@ -700,7 +700,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18864] - ValidWriteIdList snapshot seems incorrect if obtained after allocating writeId by current transaction.
     * [HIVE-18899] - Separate FetchWork required for each query that uses the results cache
     * [HIVE-18909] - Metrics for results cache
-    * [HIVE-18926] - Imporve operator-tree matching
+    * [HIVE-18926] - Improve operator-tree matching
     * [HIVE-18946] - Fix columnstats merge NPE
     * [HIVE-18961] - Error in results cache when query has identifiers with spaces
     * [HIVE-18982] - Provide a CLI option to manually trigger failover
@@ -718,7 +718,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19135] - Need tool to allow admins to create catalogs and move existing dbs to catalog during upgrade
     * [HIVE-19138] - Results cache: allow queries waiting on pending cache entries to check cache again if pending query fails
     * [HIVE-19141] - TestNegativeCliDriver insert_into_notnull_constraint, insert_into_acid_notnull failing
-    * [HIVE-19144] - TestSparkCliDriver:subquery_scalar - golden file needs to be udpated
+    * [HIVE-19144] - TestSparkCliDriver:subquery_scalar - golden file needs to be updated
     * [HIVE-19145] - Stabilize statsoptimizer.q test
     * [HIVE-19146] - Delete dangling q.out 
     * [HIVE-19147] - Fix PerfCliDrivers: Tpcds30T missed CAT_NAME change
@@ -746,7 +746,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19319] - RuntimeStats fixes
     * [HIVE-19322] - broken test: TestNegativeMinimrCliDriver#testCliDriver[minimr_broken_pipe]
     * [HIVE-19335] - Disable runtime filtering (semijoin reduction opt with bloomfilter) for external tables
-    * [HIVE-19346] - TestMiniLlapLocalCliDriver.testCliDriver[materialized_view_create_rewrite_5] failling
+    * [HIVE-19346] - TestMiniLlapLocalCliDriver.testCliDriver[materialized_view_create_rewrite_5] failing
     * [HIVE-19347] - TestTriggersWorkloadManager tests are failing consistently
     * [HIVE-19348] -  org.apache.hadoop.hive.ql.plan.mapping.TestOperatorCmp are failing
     * [HIVE-19371] - Add table ownerType to HMS thrift API
@@ -784,7 +784,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-14455] - upgrade httpclient, httpcore to match updated hadoop dependency
     * [HIVE-14560] - Support exchange partition between s3 and hdfs tables
     * [HIVE-14564] - Column Pruning generates out of order columns in SelectOperator which cause ArrayIndexOutOfBoundsException.
-    * [HIVE-14678] - Hive-on-MR deprecation warning  is not diplayed when engine is set to capital letter 'MR'
+    * [HIVE-14678] - Hive-on-MR deprecation warning  is not displayed when engine is set to capital letter 'MR'
     * [HIVE-14731] - Use Tez cartesian product edge in Hive (unpartitioned case only)
     * [HIVE-14792] - AvroSerde reads the remote schema-file at least once per mapper, per table reference.
     * [HIVE-14813] - Make TransactionBatchImpl.toString() include state of each txn: commit/abort
@@ -817,10 +817,10 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-15829] - LLAP text cache: disable memory tracking on the writer
     * [HIVE-15883] - HBase mapped table in Hive insert fail for decimal
     * [HIVE-15995] - Syncing metastore table with serde schema
-    * [HIVE-16007] - When the query does not complie the LogRunnable never stops
+    * [HIVE-16007] - When the query does not compile the LogRunnable never stops
     * [HIVE-16025] - Where IN clause throws exception
     * [HIVE-16026] - Generated query will timeout and/or kill the druid cluster.
-    * [HIVE-16027] - <timestamp> BETWEEN <string> AND <string> must cast to TIMESTMAP
+    * [HIVE-16027] - <timestamp> BETWEEN <string> AND <string> must cast to TIMESTAMP
     * [HIVE-16044] - LLAP: Shuffle Handler keep-alive connections are closed from the server side
     * [HIVE-16053] - Remove newRatio from llap JAVA_OPTS_BASE
     * [HIVE-16057] - SchemaTool ignores --passWord argument if hadoop.security.credential.provider.path is configured
@@ -831,7 +831,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16125] - Split work between reducers.
     * [HIVE-16130] - Remove jackson classes from hive-jdbc standalone jar
     * [HIVE-16147] - Rename a partitioned table should not drop its partition columns stats
-    * [HIVE-16174] - Update MetricsConstant.WAITING_COMPILE_OPS metric when we aquire lock failed in Driver
+    * [HIVE-16174] - Update MetricsConstant.WAITING_COMPILE_OPS metric when we acquire lock failed in Driver
     * [HIVE-16177] - non Acid to acid conversion doesn't handle _copy_N files
     * [HIVE-16188] - beeline should block the connection if given invalid database name.
     * [HIVE-16193] - Hive show compactions not reflecting the status of the application
@@ -887,7 +887,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16399] - create an index for tc_txnid in TXN_COMPONENTS
     * [HIVE-16402] - Upgrade to Hadoop 2.8.0
     * [HIVE-16403] - LLAP UI shows the wrong number of executors
-    * [HIVE-16404] - Renaming of public classes in Calcite 12 breeaking druid integration
+    * [HIVE-16404] - Renaming of public classes in Calcite 12 breaking druid integration
     * [HIVE-16406] - Remove unwanted interning when creating PartitionDesc
     * [HIVE-16409] - TestEventHandlerFactory  has lacked the ASF header
     * [HIVE-16413] - Create table as select does not check ownership of the location
@@ -1049,7 +1049,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16948] - Invalid explain when running dynamic partition pruning query in Hive On Spark
     * [HIVE-16949] - Leak of threads from Get-Input-Paths and Get-Input-Summary thread pool
     * [HIVE-16954] - LLAP IO: better debugging
-    * [HIVE-16958] - Setting hive.merge.sparkfiles=true will retrun an error when generating parquet databases 
+    * [HIVE-16958] - Setting hive.merge.sparkfiles=true will return an error when generating parquet databases 
     * [HIVE-16960] - Hive throws an ugly error exception when HDFS sticky bit is set
     * [HIVE-16961] - Hive on Spark leaks spark application in case user cancels query and closes session
     * [HIVE-16964] - _orc_acid_version file is missing
@@ -1068,9 +1068,9 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17013] - Delete request with a subquery based on select over a view
     * [HIVE-17050] - Multiline queries that have comment in middle fail when executed via "beeline -e"
     * [HIVE-17052] - Remove logging of predicate filters
-    * [HIVE-17066] - Query78 filter wrong estimatation is generating bad plan
+    * [HIVE-17066] - Query78 filter wrong estimation is generating bad plan
     * [HIVE-17067] - LLAP: Add http endpoint to provide system level configurations
-    * [HIVE-17069] - Refactor OrcRawRecrodMerger.ReaderPair
+    * [HIVE-17069] - Refactor OrcRawRecordMerger.ReaderPair
     * [HIVE-17070] - remove .orig files from src
     * [HIVE-17073] - Incorrect result with vectorization and SharedWorkOptimizer
     * [HIVE-17076] - typo in itests/src/test/resources/testconfiguration.properties
@@ -1143,16 +1143,16 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17298] - export when running distcp for large number of files should not run as privileged user 
     * [HIVE-17301] - Make JSONMessageFactory.getTObj method thread safe
     * [HIVE-17302] - ReduceRecordSource should not add batch string to Exception message
-    * [HIVE-17303] - Missmatch between roaring bitmap library used by druid and the one coming from tez
+    * [HIVE-17303] - Mismatch between roaring bitmap library used by druid and the one coming from tez
     * [HIVE-17305] - New insert overwrite dynamic partitions qtest need to have the golden file regenerated
     * [HIVE-17309] - alter partition onto a table not in current database throw InvalidOperationException
     * [HIVE-17311] - Numeric overflow in the HiveConf
     * [HIVE-17313] - Potentially possible 'case fall through' in the ObjectInspectorConverters
     * [HIVE-17314] - LazySimpleSerializeWrite.writeString() contains if with an empty body
     * [HIVE-17321] - HoS: analyze ORC table doesn't compute raw data size when noscan/partialscan is not specified
-    * [HIVE-17322] - Serialise BeeLine qtest execution to prevent flakyness
+    * [HIVE-17322] - Serialise BeeLine qtest execution to prevent flakiness
     * [HIVE-17327] - LLAP IO: restrict native file ID usage to default FS to avoid hypothetical collisions when HDFS federation is used
-    * [HIVE-17331] - Path must be used as key type of the pathToAlises
+    * [HIVE-17331] - Path must be used as key type of the pathToAliases
     * [HIVE-17333] - Schema changes in HIVE-12274 for Oracle may not work for upgrade
     * [HIVE-17336] - Missing class 'org.apache.hadoop.hive.hbase.HiveHBaseTableInputFormat' from Hive on Spark when inserting into hbase based table
     * [HIVE-17338] - Utilities.get*Tasks multiple methods duplicate code
@@ -1175,7 +1175,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17389] - Yetus is always failing on rat checks
     * [HIVE-17391] - Compaction fails if there is an empty value in tblproperties
     * [HIVE-17392] - SharedWorkOptimizer might merge TS operators filtered by not equivalent semijoin operators
-    * [HIVE-17393] - AMReporter need hearbeat every external 'AM'
+    * [HIVE-17393] - AMReporter need heartbeat every external 'AM'
     * [HIVE-17394] - AvroSerde is regenerating TypeInfo objects for each nullable Avro field for every row
     * [HIVE-17401] - Hive session idle timeout doesn't function properly
     * [HIVE-17403] - Fail concatenation for unmanaged and transactional tables
@@ -1216,7 +1216,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17530] - ClassCastException when converting uniontype
     * [HIVE-17535] - Select 1 EXCEPT Select 1 fails with NPE
     * [HIVE-17553] - CBO wrongly type cast decimal literal to int
-    * [HIVE-17554] - Occurr java.lang.ArithmeticException: / by zero at hplsql component
+    * [HIVE-17554] - Occur java.lang.ArithmeticException: / by zero at hplsql component
     * [HIVE-17556] - The test udf_mask_hash.q is failing
     * [HIVE-17558] - Skip non-native/temporary tables for constraint related scenarios
     * [HIVE-17560] - HiveMetastore doesn't start in secure cluster if repl change manager is enabled
@@ -1239,7 +1239,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17620] - Use the default MR scratch directory (HDFS) in the only case when hive.blobstore.optimizations.enabled=true AND isFinalJob=true
     * [HIVE-17621] - Hive-site settings are ignored during HCatInputFormat split-calculation
     * [HIVE-17623] - Fix Select query Fix Double column serde and some refactoring
-    * [HIVE-17624] - MapredLocakTask running in separate JVM could throw ClassNotFoundException 
+    * [HIVE-17624] - MapredLocalTask running in separate JVM could throw ClassNotFoundException 
     * [HIVE-17625] - Replication: update hive.repl.partitions.dump.parallelism to 100
     * [HIVE-17627] - Use druid scan query instead of the select query.
     * [HIVE-17628] - always use fully qualified path for tables/partitions/etc.
@@ -1277,7 +1277,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17777] - Add maven coordinates in itests/pom.xml
     * [HIVE-17781] - Map MR settings to Tez settings via DeprecatedKeys
     * [HIVE-17782] - Inconsistent cast behavior from string to numeric types with regards to leading/trailing spaces
-    * [HIVE-17785] - Encription tests are not running
+    * [HIVE-17785] - Encryption tests are not running
     * [HIVE-17792] - Enable Bucket Map Join when there are extra keys other than bucketed columns
     * [HIVE-17795] - Add distribution management tag in pom
     * [HIVE-17798] - When replacing the src table names in BeeLine testing, the table names shouldn't be changed to lower case
@@ -1333,7 +1333,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18017] - HS2 materialized view registry init loading all tables from metastore
     * [HIVE-18026] - Hive webhcat principal configuration optimization
     * [HIVE-18046] - Metastore: default IS_REWRITE_ENABLED=false instead of NULL
-    * [HIVE-18050] - LlapServiceDriver shoud split HIVE_AUX_JARS_PATH by ':' instead of ','
+    * [HIVE-18050] - LlapServiceDriver should split HIVE_AUX_JARS_PATH by ':' instead of ','
     * [HIVE-18054] -  Make Lineage work with concurrent queries on a Session
     * [HIVE-18060] - UpdateInputAccessTimeHook fails for non-current database
     * [HIVE-18067] - Remove extraneous golden files
@@ -1496,7 +1496,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18627] - PPD: Handle FLOAT boxing differently for single/double precision constants
     * [HIVE-18628] - Make tez dag status check interval configurable
     * [HIVE-18631] - Hive metastore schema initialization failing on mysql
-    * [HIVE-18637] - WorkloadManagent Event Summary leaving subscribedCounters and currentCounters fields empty
+    * [HIVE-18637] - WorkloadManagement Event Summary leaving subscribedCounters and currentCounters fields empty
     * [HIVE-18638] - Triggers for multi-pool move, failing to initiate the move event
     * [HIVE-18641] - Remove MCreationMetadata from MTable class
     * [HIVE-18642] - incorrect assertion in TezSessionPool for WM
@@ -1515,7 +1515,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18671] - lock not released after Hive on Spark query was cancelled
     * [HIVE-18674] - update Hive to use ORC 1.4.3
     * [HIVE-18675] - make HIVE_LOCKS.HL_TXNID NOT NULL
-    * [HIVE-18678] - fix exim for MM tables and reinstante the test
+    * [HIVE-18678] - fix exim for MM tables and reinstate the test
     * [HIVE-18680] - FieldTrimmer missing opportunity with SortLimit operators
     * [HIVE-18686] - Installation on Postgres and Oracle broken
     * [HIVE-18688] - Vectorization: Vectorizer Reason shouldn't be part of work-plan
@@ -1564,11 +1564,11 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-18892] - Fix NPEs in HiveMetastore.exchange_partitions method
     * [HIVE-18898] - Fix NPEs in HiveMetastore.dropPartition method
     * [HIVE-18907] - Create utility to fix acid key index issue from HIVE-18817
-    * [HIVE-18918] - Bad error message in CompactorMR.lanuchCompactionJob()
+    * [HIVE-18918] - Bad error message in CompactorMR.launchCompactionJob()
     * [HIVE-18919] - remove separate keytab setting for ZK in LLAP
     * [HIVE-18925] - Hive doesn't work when JVM is America/Bahia_Banderas time zone
     * [HIVE-18933] - disable ORC codec pool for now; remove clone
-    * [HIVE-18944] - Groupping sets position is set incorrectly during DPP
+    * [HIVE-18944] - Grouping sets position is set incorrectly during DPP
     * [HIVE-18950] - DESCRIBE EXTENDED missing details of default constraint
     * [HIVE-18951] - Fix the llapdump usage error in llapdump.sh
     * [HIVE-18955] - HoS: Unable to create Channel from class NioServerSocketChannel
@@ -1612,7 +1612,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19061] - WM needs to output an event for allocation update
     * [HIVE-19062] - Update constraint_partition_columns.q.out
     * [HIVE-19065] - Metastore client compatibility check should include syncMetaStoreClient
-    * [HIVE-19071] - WM: backup resource plans cannot be used without quoted idenitifiers
+    * [HIVE-19071] - WM: backup resource plans cannot be used without quoted identifiers
     * [HIVE-19072] - incorrect token handling for LLAP plugin endpoint
     * [HIVE-19073] - StatsOptimizer may mangle constant columns
     * [HIVE-19074] - Vectorization: Add llap vectorization_div0.q.out Q output file
@@ -1823,7 +1823,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-16855] - org.apache.hadoop.hive.ql.exec.mr.HashTableLoader Improvements
     * [HIVE-16856] - Allow For Customization Of Buffer Size In MapJoinTableContainerSerDe
     * [HIVE-16857] - SparkPartitionPruningSinkOperator Buffer Size
-    * [HIVE-16858] - Acumulo Utils Improvements
+    * [HIVE-16858] - Accumulo Utils Improvements
     * [HIVE-16866] - existing available UDF is used in TestReplicationScenariosAcrossInstances#testDropFunctionIncrementalReplication 
     * [HIVE-16867] - Extend shared scan optimizer to reuse computation from other operators
     * [HIVE-16873] - Remove Thread Cache From Logging
@@ -1971,7 +1971,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-19001] - ALTER TABLE ADD CONSTRAINT support for CHECK constraint
     * [HIVE-19033] - Provide an option to purge LLAP IO cache
     * [HIVE-19070] - Add More Test To Druid Mini Cluster  queries.
-    * [HIVE-19092] - Somne improvement in bin shell scripts
+    * [HIVE-19092] - Some improvement in bin shell scripts
     * [HIVE-19161] - Add authorizations to information schema
     * [HIVE-19288] - Implement protobuf logging hive hook.
     * [HIVE-19344] - Change default value of msck.repair.batch.size 
@@ -2083,7 +2083,7 @@ Release Notes - Hive - Version 2.3.0
     * [HIVE-15249] - HIve 2.1.0 is throwing InvalidObjectException(message:Invalid column type name is too long
     * [HIVE-15829] - LLAP text cache: disable memory tracking on the writer
     * [HIVE-15923] - Hive default partition causes errors in get partitions
-    * [HIVE-16007] - When the query does not complie the LogRunnable never stops
+    * [HIVE-16007] - When the query does not compile the LogRunnable never stops
     * [HIVE-16188] - beeline should block the connection if given invalid database name.
     * [HIVE-16193] - Hive show compactions not reflecting the status of the application
     * [HIVE-16219] - metastore notification_log contains serialized message with  non functional fields

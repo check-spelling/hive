@@ -405,7 +405,7 @@ public class TestWorkloadManager {
     verifyMapping(wm, conf, new MappingInput("zzz", groups("g0"), null, "a0"), "a0");
     verifyMapping(wm, conf, mappingInput("zzz", groups("g1")), "g1");
     verifyMapping(wm, conf, mappingInput("u0", groups("g1")), "u0");
-    // User takes precendence over groups unless ordered explicitly.
+    // User takes precedence over groups unless ordered explicitly.
     verifyMapping(wm, conf, mappingInput("u0", groups("g0")), "u0");
     verifyMapping(wm, conf, mappingInput("u2", groups("g1")), "g1");
     verifyMapping(wm, conf, mappingInput("u2", groups("g0", "g1")), "g0");
@@ -773,7 +773,7 @@ public class TestWorkloadManager {
     assertEquals(0f, sessionA3.getClusterFraction(), EPSILON);
     assertEquals("A", sessionA3.getPoolName());
 
-    // Make sure the allocation is transfered correctly on return.
+    // Make sure the allocation is transferred correctly on return.
     sessionA1.returnToSessionManager();
     assertEquals(1f, sessionA2.getClusterFraction(), EPSILON);
     assertEquals(0f, sessionA3.getClusterFraction(), EPSILON);

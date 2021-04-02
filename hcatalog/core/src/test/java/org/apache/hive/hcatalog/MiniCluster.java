@@ -93,7 +93,7 @@ public class MiniCluster {
 
   /**
    * Returns the single instance of class MiniClusterBuilder that
-   * represents the resouces for a mini dfs cluster and a mini
+   * represents the resources for a mini dfs cluster and a mini
    * mapreduce cluster.
    */
   public static MiniCluster buildCluster() {

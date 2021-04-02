@@ -87,7 +87,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
 
   // Pre-allocated member for storing the (physical) batch index of matching row (single- or
   // multi-small-table-valued) indexes during a process call.
-  protected transient int[] allMatchs;
+  protected transient int[] allMatches;
 
   /*
    *  Pre-allocated members for storing information equal key series for small-table matches.
@@ -95,7 +95,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
    *  ~HashMapResultIndices
    *                Index into the hashMapResults array for the match.
    *  ~AllMatchIndices
-   *                (Logical) indices into allMatchs to the first row of a match of a
+   *                (Logical) indices into allMatches to the first row of a match of a
    *                possible series of duplicate keys.
    *  ~IsSingleValue
    *                Whether there is 1 or multiple small table values.
@@ -117,7 +117,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
   // Pre-allocated member for storing any non-spills, non-matches, or merged row indexes during a
   // process method call.
   protected transient int[] nonSpills;
-  protected transient int[] noMatchs;
+  protected transient int[] noMatches;
   protected transient int[] merged;
 
   /** Kryo ctor. */
@@ -150,7 +150,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
 
     inputSelected = new int[VectorizedRowBatch.DEFAULT_SIZE];
 
-    allMatchs = new int[VectorizedRowBatch.DEFAULT_SIZE];
+    allMatches = new int[VectorizedRowBatch.DEFAULT_SIZE];
 
     equalKeySeriesHashMapResultIndices = new int[VectorizedRowBatch.DEFAULT_SIZE];
     equalKeySeriesAllMatchIndices = new int[VectorizedRowBatch.DEFAULT_SIZE];
@@ -161,7 +161,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
     spillHashMapResultIndices = new int[VectorizedRowBatch.DEFAULT_SIZE];
 
     nonSpills = new int[VectorizedRowBatch.DEFAULT_SIZE];
-    noMatchs = new int[VectorizedRowBatch.DEFAULT_SIZE];
+    noMatches = new int[VectorizedRowBatch.DEFAULT_SIZE];
     merged = new int[VectorizedRowBatch.DEFAULT_SIZE];
 
     matchTracker = null;
@@ -421,7 +421,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
    *          The big table batch with any matching and any non matching rows both as
    *          selected in use.
    * @param allMatchCount
-   *          Number of matches in allMatchs.
+   *          Number of matches in allMatches.
    * @param equalKeySeriesCount
    *          Number of single value matches.
    * @param atLeastOneNonMatch
@@ -466,12 +466,12 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
       }
   
       if (atLeastOneNonMatch) {
-        noMatchCount = subtract(nonSpills, nonSpillCount, allMatchs, allMatchCount,
-                noMatchs);
+        noMatchCount = subtract(nonSpills, nonSpillCount, allMatches, allMatchCount,
+                noMatches);
 
         if (LOG.isDebugEnabled()) {
           LOG.debug("finishOuter spillCount > 0" +
-              " noMatchs " + intArrayToRangesString(noMatchs, noMatchCount));
+              " noMatches " + intArrayToRangesString(noMatches, noMatchCount));
         }
 
       }
@@ -482,11 +482,11 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
 
       if (atLeastOneNonMatch) {
         noMatchCount = subtractFromInputSelected(
-            inputSelectedInUse, inputLogicalSize, allMatchs, allMatchCount, noMatchs);
+            inputSelectedInUse, inputLogicalSize, allMatches, allMatchCount, noMatches);
 
         if (LOG.isDebugEnabled()) {
           LOG.debug("finishOuter spillCount == 0" +
-              " noMatchs " + intArrayToRangesString(noMatchs, noMatchCount));
+              " noMatches " + intArrayToRangesString(noMatches, noMatchCount));
         }
       }
     }
@@ -507,10 +507,10 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
 
         if (isSingleValue) {
           numSel = generateHashMapResultSingleValue(
-                      batch, hashMapResult, allMatchs, allMatchesIndex, duplicateCount, numSel);
+                      batch, hashMapResult, allMatches, allMatchesIndex, duplicateCount, numSel);
         } else {
           generateHashMapResultMultiValue(
-              batch, hashMapResult, allMatchs, allMatchesIndex, duplicateCount);
+              batch, hashMapResult, allMatches, allMatchesIndex, duplicateCount);
         }
       }
 
@@ -530,11 +530,11 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
     if (noMatchCount > 0) {
       if (batch.size > 0) {
 
-        generateOuterNulls(batch, noMatchs, noMatchCount);
+        generateOuterNulls(batch, noMatches, noMatchCount);
   
-        // Merge noMatchs and (match) selected.
+        // Merge noMatches and (match) selected.
         int mergeCount = sortMerge(
-                noMatchs, noMatchCount, batch.selected, batch.size, merged);
+                noMatches, noMatchCount, batch.selected, batch.size, merged);
     
         if (LOG.isDebugEnabled()) {
           LOG.debug("finishOuter noMatchCount > 0 && batch.size > 0" +
@@ -550,7 +550,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
 
         generateOuterNullsRepeatedAll(batch);
 
-        System.arraycopy(noMatchs, 0, batch.selected, 0, noMatchCount);
+        System.arraycopy(noMatches, 0, batch.selected, 0, noMatchCount);
         batch.size = noMatchCount;
         batch.selectedInUse = true;
 
@@ -570,18 +570,18 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
     * @param batch
     *          The big table batch with any matching and any non matching rows both as
     *          selected in use.
-    * @param noMatchs
+    * @param noMatches
     *          A subset of the rows of the batch that are non matches.
     * @param noMatchSize
-    *          Number of non matches in noMatchs.
+    *          Number of non matches in noMatches.
     */
-   protected void generateOuterNulls(VectorizedRowBatch batch, int[] noMatchs,
+   protected void generateOuterNulls(VectorizedRowBatch batch, int[] noMatches,
        int noMatchSize) throws IOException, HiveException {
 
     // Set null information in the small table results area.
 
     for (int i = 0; i < noMatchSize; i++) {
-      int batchIndex = noMatchs[i];
+      int batchIndex = noMatches[i];
 
       // Mark any scratch small table scratch columns that would normally receive a copy of the
       // key as null, too.
@@ -647,18 +647,18 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
         // (current) batch selected.
 
         int noMatchCount = subtractFromInputSelected(
-                inputSelectedInUse, inputLogicalSize, batch.selected, batch.size, noMatchs);
+                inputSelectedInUse, inputLogicalSize, batch.selected, batch.size, noMatches);
 
-        generateOuterNulls(batch, noMatchs, noMatchCount);
+        generateOuterNulls(batch, noMatches, noMatchCount);
 
-        // Now generate the matchs.  Single small table values will be put into the big table
-        // batch and come back in matchs.  Any multiple small table value results will go into
+        // Now generate the matches.  Single small table values will be put into the big table
+        // batch and come back in matches.  Any multiple small table value results will go into
         // the overflow batch.
         generateHashMapResultRepeatedAll(batch, hashMapResult);
 
-        // Merge noMatchs and (match) selected.
+        // Merge noMatches and (match) selected.
         int mergeCount = sortMerge(
-                noMatchs, noMatchCount, batch.selected, batch.size, merged);
+                noMatches, noMatchCount, batch.selected, batch.size, merged);
 
         System.arraycopy(merged, 0, batch.selected, 0, mergeCount);
         batch.size = mergeCount;
@@ -691,9 +691,9 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
         // (current) batch selected.
 
         int noMatchCount = subtractFromInputSelected(
-                inputSelectedInUse, inputLogicalSize, batch.selected, batch.size, noMatchs);
+                inputSelectedInUse, inputLogicalSize, batch.selected, batch.size, noMatches);
 
-        System.arraycopy(noMatchs, 0, batch.selected, 0, noMatchCount);
+        System.arraycopy(noMatches, 0, batch.selected, 0, noMatchCount);
         batch.size = noMatchCount;
         batch.selectedInUse = true;
 
@@ -785,7 +785,7 @@ public abstract class VectorMapJoinOuterGenerateResultOperator
      * to the Reducer using the key hash code.  So, we can generate the non-match Small Table
      * results locally.
      *
-     * Scan the Small Table for keys that didn't match and generate the non-matchs into the
+     * Scan the Small Table for keys that didn't match and generate the non-matches into the
      * overflowBatch.
      */
 

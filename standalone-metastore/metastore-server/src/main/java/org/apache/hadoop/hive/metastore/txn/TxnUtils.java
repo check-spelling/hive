@@ -87,11 +87,11 @@ public class TxnUtils {
     String fullTableName = tableValidWriteIds.getFullTableName();
     long highWater = tableValidWriteIds.getWriteIdHighWaterMark();
     long minOpenWriteId = Long.MAX_VALUE;
-    List<Long> invalids = tableValidWriteIds.getInvalidWriteIds();
+    List<Long> invalid = tableValidWriteIds.getInvalidWriteIds();
     BitSet abortedBits = BitSet.valueOf(tableValidWriteIds.getAbortedBits());
-    long[] exceptions = new long[invalids.size()];
+    long[] exceptions = new long[invalid.size()];
     int i = 0;
-    for (long writeId : invalids) {
+    for (long writeId : invalid) {
       if (abortedBits.get(i)) {
         // Only need aborted since we don't consider anything above minOpenWriteId
         exceptions[i++] = writeId;
@@ -235,7 +235,7 @@ public class TxnUtils {
    * the semantics of the intended query.
    * E.g., Let's assume that input "inList" parameter has [5, 6] and that
    * _DIRECT_SQL_MAX_QUERY_LENGTH_ configuration parameter only allows one value in a 'NOT IN' clause,
-   * Then having two delete statements changes the semantics of the inteneded SQL statement.
+   * Then having two delete statements changes the semantics of the intended SQL statement.
    * I.e. 'delete from T where a not in (5)' and 'delete from T where a not in (6)' sequence
    * is not equal to 'delete from T where a not in (5, 6)'.)
    * with one or multiple 'IN' or 'NOT IN' clauses with the given input parameters.
@@ -332,7 +332,7 @@ public class TxnUtils {
           buf.delete(buf.length()-newInclausePrefix.length(), buf.length());
         }
 
-        buf.setCharAt(buf.length() - 1, ')'); // replace the "commar" to finish a 'IN' clause string.
+        buf.setCharAt(buf.length() - 1, ')'); // replace the "comma" to finish a 'IN' clause string.
 
         if (addParens) {
           buf.append(")");
@@ -351,7 +351,7 @@ public class TxnUtils {
         continue;
       } else if (cursor4InClauseElements >= batchSize-1 && cursor4InClauseElements != 0) {
         // Finish the current 'IN'/'NOT IN' clause and start a new clause.
-        buf.setCharAt(buf.length() - 1, ')'); // replace the "commar".
+        buf.setCharAt(buf.length() - 1, ')'); // replace the "comma".
         buf.append(newInclausePrefix.toString());
 
         newInclausePrefixJustAppended = true;
@@ -373,7 +373,7 @@ public class TxnUtils {
     if (newInclausePrefixJustAppended) {
         buf.delete(buf.length()-newInclausePrefix.length(), buf.length());
       }
-    buf.setCharAt(buf.length() - 1, ')'); // replace the commar.
+    buf.setCharAt(buf.length() - 1, ')'); // replace the comma.
     if (addParens) {
       buf.append(")");
     }
@@ -388,7 +388,7 @@ public class TxnUtils {
    *
    * @param sizeSoFar     size of the current contents of the buf
    * @param sizeNextItem      size of the next 'IN' clause element value.
-   * @param suffixSize    size of the suffix for a quey statement
+   * @param suffixSize    size of the suffix for a query statement
    * @param addParens     Do we add an additional parenthesis?
    */
   private static int querySizeExpected(int sizeSoFar,

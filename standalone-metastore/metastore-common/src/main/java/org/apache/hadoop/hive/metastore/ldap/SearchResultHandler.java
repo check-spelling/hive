@@ -153,7 +153,7 @@ public final class SearchResultHandler {
 
     /**
      * Implementations must implement this method to process each record in {@link SearchResult}.
-     * @param record the {@code SearchResult} to precess
+     * @param record the {@code SearchResult} to process
      * @return {@code true} to continue processing, {@code false} to stop iterating
      * over search results
      * @throws NamingException

@@ -35,7 +35,7 @@ public class UtilTest {
   }
 
   /**
-   * Test that a null pattern returns all candidates for iflterMatches.
+   * Test that a null pattern returns all candidates for filterMatches.
    * Also verify that null candidates result in an empty result list.
    */
   @Test
@@ -68,7 +68,7 @@ public class UtilTest {
   }
 
   /**
-   * Test that multiple patterns are handled correctly. We use one positive and one negative parrent.
+   * Test that multiple patterns are handled correctly. We use one positive and one negative parent.
    */
   @Test
   public void filterMatchesMultiple() {

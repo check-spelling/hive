@@ -95,7 +95,7 @@ final class HiveGBOpConvUtil {
     private String                  udafName;
     private GenericUDAFEvaluator    udafEvaluator;
     private final ArrayList<ExprNodeDesc> udafParams                      = new ArrayList<ExprNodeDesc>();
-    private List<Integer>           udafParamsIndxInGBInfoDistExprs = new ArrayList<Integer>();
+    private List<Integer>           udafParamsIndexInGBInfoDistExprs = new ArrayList<Integer>();
     // We store the position of the argument for the function in the input.
   };
 
@@ -158,7 +158,7 @@ final class HiveGBOpConvUtil {
     return gbPhysicalPipelineMode;
   }
 
-  // For each of the GB op in the logical GB this should be called seperately;
+  // For each of the GB op in the logical GB this should be called separately;
   // otherwise GBevaluator and expr nodes may get shared among multiple GB ops
   private static GBInfo getGBInfo(HiveAggregate aggRel, OpAttr inputOpAf, HiveConf hc) throws SemanticException {
     GBInfo gbInfo = new GBInfo();
@@ -248,7 +248,7 @@ final class HiveGBOpConvUtil {
       udafAttrs.isDistinctUDAF = aggCall.isDistinct();
       List<Integer> argLst = new ArrayList<Integer>(aggCall.getArgList());
       List<Integer> distColIndicesOfUDAF = new ArrayList<Integer>();
-      List<Integer> distUDAFParamsIndxInDistExprs = new ArrayList<Integer>();
+      List<Integer> distUDAFParamsIndexInDistExprs = new ArrayList<Integer>();
       for (int i = 0; i < argLst.size(); i++) {
         // NOTE: distinct expr can be part of of GB key
         if (udafAttrs.isDistinctUDAF) {
@@ -256,7 +256,7 @@ final class HiveGBOpConvUtil {
           int found = ExprNodeDescUtils.indexOf(argExpr, gbInfo.gbKeys);
           distColIndicesOfUDAF.add(found < 0 ? distParamInRefsToOutputPos.get(argLst.get(i)) + gbInfo.gbKeys.size() +
               (gbInfo.grpSets.size() > 0 ? 1 : 0) : found);
-          distUDAFParamsIndxInDistExprs.add(distParamInRefsToOutputPos.get(argLst.get(i)));
+          distUDAFParamsIndexInDistExprs.add(distParamInRefsToOutputPos.get(argLst.get(i)));
         } else {
           // TODO: this seems wrong (following what Hive Regular does)
           if (!distParamInRefsToOutputPos.containsKey(argLst.get(i))
@@ -270,7 +270,7 @@ final class HiveGBOpConvUtil {
       if (udafAttrs.isDistinctUDAF) {
         gbInfo.containsDistinctAggr = true;
 
-        udafAttrs.udafParamsIndxInGBInfoDistExprs = distUDAFParamsIndxInDistExprs;
+        udafAttrs.udafParamsIndexInGBInfoDistExprs = distUDAFParamsIndexInDistExprs;
         gbInfo.distColIndices.add(distColIndicesOfUDAF);
       }
 
@@ -839,7 +839,7 @@ final class HiveGBOpConvUtil {
 
     rsGBOp2.setColumnExprMap(colExprMap);
 
-    // TODO: Shouldn't we propgate vc? is it vc col from tab or all vc
+    // TODO: Shouldn't we propagate vc? is it vc col from tab or all vc
     return new OpAttr("", new HashSet<Integer>(), rsGBOp2);
   }
 
@@ -916,7 +916,7 @@ final class HiveGBOpConvUtil {
         ColumnInfo rsDistUDAFParamColInfo;
         ExprNodeDesc distinctUDAFParam;
         ExprNodeDesc constantPropDistinctUDAFParam;
-        for (int j = 0; j < udafAttr.udafParamsIndxInGBInfoDistExprs.size(); j++) {
+        for (int j = 0; j < udafAttr.udafParamsIndexInGBInfoDistExprs.size(); j++) {
           rsDistUDAFParamColInfo = rsColInfoLst.get(distinctStartPosInReduceKeys + j);
           String rsDistUDAFParamName = rsDistUDAFParamColInfo.getInternalName();
           // TODO: verify if this is needed
@@ -1237,10 +1237,10 @@ final class HiveGBOpConvUtil {
     } else {
       reduceKeys = ExprNodeDescUtils.genExprNodeDesc(inOp, startPos, endPos, addEmptyTabAlias,
           setColToNonVirtual);
-      int outColNameIndx = startPos;
+      int outColNameIndex = startPos;
       for (int i = 0; i < reduceKeys.size(); ++i) {
-        String outputColName = SemanticAnalyzer.getColumnInternalName(outColNameIndx);
-        outColNameIndx++;
+        String outputColName = SemanticAnalyzer.getColumnInternalName(outColNameIndex);
+        outColNameIndex++;
         if (!addOnlyOneKeyColName || i == 0) {
           outputKeyColumnNames.add(outputColName);
         }

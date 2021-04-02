@@ -152,7 +152,7 @@ class ZooKeeperHiveClientHelper {
 
       return serverHosts;
     } catch (Exception e) {
-      throw new ZooKeeperHiveClientException("Unable to retrive HS2 host information from ZooKeeper", e);
+      throw new ZooKeeperHiveClientException("Unable to retrieve HS2 host information from ZooKeeper", e);
     }
   }
 

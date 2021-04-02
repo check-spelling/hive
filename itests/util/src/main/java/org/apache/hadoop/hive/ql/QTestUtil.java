@@ -440,7 +440,7 @@ public class QTestUtil {
     cliDriver = new CliDriver();
 
     File outf = new File(logDir, "initialize.log");
-    setSessionOutputs("that_shouldnt_happen_there", ss, outf);
+    setSessionOutputs("that_should_not_happen_there", ss, outf);
 
   }
 
@@ -558,7 +558,7 @@ public class QTestUtil {
 
     try {
       cliDriver.processLine(initCommands);
-      LOG.info("Result from cliDrriver.processLine in createSources=0");
+      LOG.info("Result from cliDriver.processLine in createSources=0");
     } catch (CommandProcessorException e) {
       Assert.fail("Failed during createSources processLine with code=" + e.getResponseCode());
     }
@@ -692,7 +692,7 @@ public class QTestUtil {
     }
   }
 
-  public int executeAdhocCommand(String q) throws CommandProcessorException {
+  public int executeAdHocCommand(String q) throws CommandProcessorException {
     if (!q.contains(";")) {
       return -1;
     }

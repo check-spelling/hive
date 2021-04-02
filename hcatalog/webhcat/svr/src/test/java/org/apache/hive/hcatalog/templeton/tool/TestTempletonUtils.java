@@ -272,13 +272,13 @@ public class TestTempletonUtils {
   public void testConstructingUserHomeDirectory() throws Exception {
     String[] sources = new String[] { "output+", "/user/hadoop/output",
       "hdfs://container", "hdfs://container/", "hdfs://container/path",
-      "output#link", "hdfs://cointaner/output#link",
+      "output#link", "hdfs://container/output#link",
       "hdfs://container@acc/test", "/user/webhcat/düsseldorf", "düsseldorf", 
       "䶴狝A﨩O", "hdfs://host:8080"};
     String[] expectedResults = new String[] { "/user/webhcat/output+",
       "/user/hadoop/output", "hdfs://container/user/webhcat",
       "hdfs://container/", "hdfs://container/path",
-      "/user/webhcat/output#link", "hdfs://cointaner/output#link",
+      "/user/webhcat/output#link", "hdfs://container/output#link",
       "hdfs://container@acc/test", "/user/webhcat/düsseldorf","/user/webhcat/düsseldorf",
       "/user/webhcat/䶴狝A﨩O", "hdfs://host:8080/user/webhcat" };
     for (int i = 0; i < sources.length; i++) {

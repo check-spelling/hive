@@ -151,7 +151,7 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
    * @param  lockObjects  List of objects and the modes of the locks requested
    * @param  keepAlive    Whether the lock is to be persisted after the statement
    *
-   * Acuire all the locks. Release all the locks and return null if any lock
+   * Acquire all the locks. Release all the locks and return null if any lock
    * could not be acquired.
    **/
   @Override
@@ -635,15 +635,15 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
       return locks;
     }
 
-    Queue<String> childn = new LinkedList<String>();
+    Queue<String> childrenToCheck = new LinkedList<String>();
     if (children != null && !children.isEmpty()) {
       for (String child : children) {
-        childn.add(commonParent + "/" + child);
+        childrenToCheck.add(commonParent + "/" + child);
       }
     }
 
     while (true) {
-      String curChild = childn.poll();
+      String curChild = childrenToCheck.poll();
       if (curChild == null) {
         return locks;
       }
@@ -652,7 +652,7 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
         try {
           children = curatorFramework.getChildren().forPath(curChild);
           for (String child : children) {
-            childn.add(curChild + "/" + child);
+            childrenToCheck.add(curChild + "/" + child);
           }
         } catch (Exception e) {
           // nothing to do
@@ -761,8 +761,8 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
       throws LockException {
     try {
       Hive db = Hive.get(conf);
-      int indx = path.lastIndexOf("LOCK-" + mode.toString());
-      String objName = path.substring(("/" + parent + "/").length(), indx-1);
+      int index = path.lastIndexOf("LOCK-" + mode.toString());
+      String objName = path.substring(("/" + parent + "/").length(), index-1);
       String[] names = objName.split("/");
 
       if (names.length < 2) {
@@ -784,8 +784,8 @@ public class ZooKeeperHiveLockManager implements HiveLockManager {
       }
 
       Map<String, String> partSpec = new HashMap<String, String>();
-      for (indx = 2; indx < names.length; indx++) {
-        String[] partVals = names[indx].split("=");
+      for (index = 2; index < names.length; index++) {
+        String[] partVals = names[index].split("=");
         partSpec.put(partVals[0], partVals[1]);
       }
 

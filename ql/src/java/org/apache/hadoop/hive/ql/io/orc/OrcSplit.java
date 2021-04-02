@@ -378,7 +378,7 @@ public class OrcSplit extends FileSplit implements ColumnarSplit, LlapAwareSplit
 
   public void parse(Configuration conf, Path rootPath) throws IOException {
     OrcRawRecordMerger.TransactionMetaData tmd =
-        OrcRawRecordMerger.TransactionMetaData.findWriteIDForSynthetcRowIDs(getPath(), rootPath, conf);
+        OrcRawRecordMerger.TransactionMetaData.findWriteIDForSyntheticRowIDs(getPath(), rootPath, conf);
     writeId = tmd.syntheticWriteId;
     stmtId = tmd.statementId;
     bucketId = AcidUtils.parseBucketId(getPath());

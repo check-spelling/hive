@@ -56,8 +56,8 @@ public class HiveRelMdSelectivity extends RelMdSelectivity {
 
   public Double getSelectivity(HiveTableScan t, RelMetadataQuery mq, RexNode predicate) {
     if (predicate != null) {
-      FilterSelectivityEstimator filterSelEstmator = new FilterSelectivityEstimator(t, mq);
-      return filterSelEstmator.estimateSelectivity(predicate);
+      FilterSelectivityEstimator filterSelEstimator = new FilterSelectivityEstimator(t, mq);
+      return filterSelEstimator.estimateSelectivity(predicate);
     }
 
     return 1.0;
@@ -218,7 +218,7 @@ public class HiveRelMdSelectivity extends RelMdSelectivity {
   }
 
   /*
-   * a) Order predciates based on ndv in reverse order. b) ndvCrossProduct =
+   * a) Order predicates based on ndv in reverse order. b) ndvCrossProduct =
    * ndv(pe0) * ndv(pe1) ^(1/2) * ndv(pe2) ^(1/4) * ndv(pe3) ^(1/8) ...
    */
   protected double exponentialBackoff(List<JoinLeafPredicateInfo> peLst,
@@ -286,8 +286,8 @@ public class HiveRelMdSelectivity extends RelMdSelectivity {
     Double colNDV = null;
     Double maxNDVSoFar = defaultMaxNDV;
 
-    for (Integer projIndx : projectionSet) {
-      colNDV = colStatMap.get(projIndx);
+    for (Integer projIndex : projectionSet) {
+      colNDV = colStatMap.get(projIndex);
       if (colNDV > maxNDVSoFar)
         maxNDVSoFar = colNDV;
     }

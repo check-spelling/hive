@@ -35,7 +35,7 @@ public class Parallelized extends Parameterized {
 
     public ThreadPoolScheduler() {
       String threads = System.getProperty("junit.parallel.threads");
-      //HIVE-17322: remove parallelism to check if the BeeLine test flakyness gets fixed
+      //HIVE-17322: remove parallelism to check if the BeeLine test flakiness gets fixed
       //int numThreads = Runtime.getRuntime().availableProcessors();
       int numThreads = 1;
       if (threads != null) {

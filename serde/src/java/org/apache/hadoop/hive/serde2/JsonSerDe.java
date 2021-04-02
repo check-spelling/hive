@@ -147,7 +147,7 @@ public class JsonSerDe extends AbstractSerDe {
 
     final String ignoreExtras = tbl.getProperty(IGNORE_EXTRA, "true");
     if (Boolean.parseBoolean(ignoreExtras)) {
-      this.jsonReader.enable(HiveJsonReader.Feature.IGNORE_UKNOWN_FIELDS);
+      this.jsonReader.enable(HiveJsonReader.Feature.IGNORE_UNKNOWN_FIELDS);
     }
 
     log.debug("Initialized SerDe {}", this);

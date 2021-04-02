@@ -349,7 +349,7 @@ abstract public class AbstractSMBJoinProc extends AbstractBucketJoinProc impleme
     }
 
     // A join is eligible for a sort-merge join, only if it is eligible for
-    // a bucketized map join. So, we dont need to check for bucketized map
+    // a bucketized map join. So, we don't need to check for bucketized map
     // join here. We are guaranteed that the join keys contain all the
     // bucketized keys (note that the order need not be the same).
     List<String> sortColNames = new ArrayList<String>();
@@ -456,8 +456,8 @@ abstract public class AbstractSMBJoinProc extends AbstractBucketJoinProc impleme
     BigTableSelectorForAutoSMJ bigTableMatcher =
       ReflectionUtils.newInstance(bigTableMatcherClass, null);
     JoinDesc joinDesc = joinOp.getConf();
-    JoinCondDesc[] joinCondns = joinDesc.getConds();
-    Set<Integer> joinCandidates = MapJoinProcessor.getBigTableCandidates(joinCondns);
+    JoinCondDesc[] joinConds = joinDesc.getConds();
+    Set<Integer> joinCandidates = MapJoinProcessor.getBigTableCandidates(joinConds);
     if (joinCandidates.isEmpty()) {
       // This is a full outer join. This can never be a map-join
       // of any type. So return false.

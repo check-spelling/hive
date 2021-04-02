@@ -214,7 +214,7 @@ public class TestCatalogs extends MetaStoreClientTest {
         .build();
     client.createCatalog(cat);
 
-    String dbName = "dontDropMe";
+    String dbName = "doNotDropMe";
     new DatabaseBuilder()
         .setName(dbName)
         .setCatalogName(catName)

@@ -98,7 +98,7 @@ public class TestSparkUtilities {
   }
 
   @Test
-  public void testCreateMoveTaskDoesntCreateCascadeTempDirs() throws Exception {
+  public void testCreateMoveTaskDoesNotCreateCascadeTempDirs() throws Exception {
     FileSinkOperator fsOp = mock(FileSinkOperator.class);
     ParseContext pctx = mock(ParseContext.class);
     Configuration conf = new Configuration();

@@ -379,7 +379,7 @@ public class TestTrigger {
   }
 
   @Test
-  public void testIllegalExpressionsNoQuoutes() {
+  public void testIllegalExpressionsNoQuotes() {
     thrown.expect(IllegalArgumentException.class);
     ExpressionFactory.fromString("BYTES_READ > 1mb");
   }

@@ -981,7 +981,7 @@ public class CachedStore implements RawStore, Configurable {
         List<String> partNames = rawStore.listPartitionNames(catName, dbName, tblName, (short) -1);
         List<String> colNames = MetaStoreUtils.getColumnNamesForTable(table);
         if ((partNames != null) && (partNames.size() > 0)) {
-          Deadline.startTimer("getAggregareStatsForAllPartitions");
+          Deadline.startTimer("getAggregateStatsForAllPartitions");
           AggrStats aggrStatsAllPartitions = rawStore.get_aggr_stats_for(catName, dbName, tblName, partNames, colNames, CacheUtils.HIVE_ENGINE);
           Deadline.stopTimer();
           // Remove default partition from partition names and get aggregate stats again
@@ -995,7 +995,7 @@ public class CachedStore implements RawStore, Configurable {
           }
           String defaultPartitionName = FileUtils.makePartName(partCols, partVals);
           partNames.remove(defaultPartitionName);
-          Deadline.startTimer("getAggregareStatsForAllPartitionsExceptDefault");
+          Deadline.startTimer("getAggregateStatsForAllPartitionsExceptDefault");
           AggrStats aggrStatsAllButDefaultPartition =
               rawStore.get_aggr_stats_for(catName, dbName, tblName, partNames, colNames, CacheUtils.HIVE_ENGINE);
           Deadline.stopTimer();
@@ -1478,7 +1478,7 @@ public class CachedStore implements RawStore, Configurable {
   }
 
   @Override public List<Table> getAllMaterializedViewObjectsForRewriting(String catName) throws MetaException {
-    // TODO fucntionCache
+    // TODO functionCache
     return rawStore.getAllMaterializedViewObjectsForRewriting(catName);
   }
 
@@ -2281,7 +2281,7 @@ public class CachedStore implements RawStore, Configurable {
         //    the behavior same as object store.
         // 3. Partition is missing or its stat is updated by live(not yet committed) or aborted txn. In this case,
         //    colStatsWriteId is null. Thus null is returned to keep the behavior same as object store.
-        SharedCache.ColumStatsWithWriteId colStatsWriteId =
+        SharedCache.ColumnStatsWithWriteId colStatsWriteId =
             sharedCache.getPartitionColStatsFromCache(catName, dbName, tblName, partValue, colName, writeIdList);
         if (colStatsWriteId == null) {
           return null;
@@ -2460,34 +2460,34 @@ public class CachedStore implements RawStore, Configurable {
   }
 
   @Override public void createFunction(Function func) throws InvalidObjectException, MetaException {
-    // TODO fucntionCache
+    // TODO functionCache
     rawStore.createFunction(func);
   }
 
   @Override public void alterFunction(String catName, String dbName, String funcName, Function newFunction)
       throws InvalidObjectException, MetaException {
-    // TODO fucntionCache
+    // TODO functionCache
     rawStore.alterFunction(catName, dbName, funcName, newFunction);
   }
 
   @Override public void dropFunction(String catName, String dbName, String funcName)
       throws MetaException, NoSuchObjectException, InvalidObjectException, InvalidInputException {
-    // TODO fucntionCache
+    // TODO functionCache
     rawStore.dropFunction(catName, dbName, funcName);
   }
 
   @Override public Function getFunction(String catName, String dbName, String funcName) throws MetaException {
-    // TODO fucntionCache
+    // TODO functionCache
     return rawStore.getFunction(catName, dbName, funcName);
   }
 
   @Override public List<Function> getAllFunctions(String catName) throws MetaException {
-    // TODO fucntionCache
+    // TODO functionCache
     return rawStore.getAllFunctions(catName);
   }
 
   @Override public List<String> getFunctions(String catName, String dbName, String pattern) throws MetaException {
-    // TODO fucntionCache
+    // TODO functionCache
     return rawStore.getFunctions(catName, dbName, pattern);
   }
 

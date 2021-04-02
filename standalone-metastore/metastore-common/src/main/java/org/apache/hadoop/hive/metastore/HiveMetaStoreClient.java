@@ -452,7 +452,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
       String newVar = MetastoreConf.getAsString(conf, oneVar);
       if (oldVar == null ||
           (oneVar.isCaseSensitive() ? !oldVar.equals(newVar) : !oldVar.equalsIgnoreCase(newVar))) {
-        LOG.info("Mestastore configuration {} changed from {} to {}",
+        LOG.info("Metastore configuration {} changed from {} to {}",
             oneVar, oldVar, newVar);
         compatible = false;
       }
@@ -800,7 +800,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
     } catch (TException e) {
       LOG.debug("Unable to shutdown metastore client. Will try closing transport directly.", e);
     }
-    // Transport would have got closed via client.shutdown(), so we dont need this, but
+    // Transport would have got closed via client.shutdown(), so we don't need this, but
     // just in case, we make this call.
     if ((transport != null) && transport.isOpen()) {
       transport.close();
@@ -1831,7 +1831,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
                                         int max_parts) throws TException {
     // TODO should we add capabilities here as well as it returns Partition objects
     List<Partition> parts = client.get_partitions(prependCatalogToDbName(catName, db_name, conf),
-        tbl_name, shrinkMaxtoShort(max_parts));
+        tbl_name, shrinkMaxToShort(max_parts));
     return deepCopyPartitions(
         FilterUtils.filterPartitionsIfEnabled(isClientFilterEnabled, filterHook, parts));
   }
@@ -1862,7 +1862,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
                                         List<String> part_vals, int max_parts) throws TException {
     // TODO should we add capabilities here as well as it returns Partition objects
     List<Partition> parts = client.get_partitions_ps(prependCatalogToDbName(catName, db_name, conf),
-        tbl_name, part_vals, shrinkMaxtoShort(max_parts));
+        tbl_name, part_vals, shrinkMaxToShort(max_parts));
     return deepCopyPartitions(FilterUtils.filterPartitionsIfEnabled(isClientFilterEnabled, filterHook, parts));
   }
 
@@ -1884,7 +1884,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
     if(req.getCatName() == null) {
       req.setCatName(getDefaultCatalog(conf));
     }
-    req.setMaxParts(shrinkMaxtoShort(req.getMaxParts()));
+    req.setMaxParts(shrinkMaxToShort(req.getMaxParts()));
     GetPartitionsPsWithAuthResponse res = listPartitionsWithAuthInfoRequestInternal(req);
     List<Partition> parts = deepCopyPartitions(
         FilterUtils.filterPartitionsIfEnabled(isClientFilterEnabled, filterHook, res.getPartitions()));
@@ -1920,7 +1920,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
   protected List<Partition> listPartitionsWithAuthInfoInternal(String catName, String dbName, String tableName,
         int maxParts, String userName, List<String> groupNames) throws TException {
     return client.get_partitions_with_auth(prependCatalogToDbName(catName, dbName, conf),
-        tableName, shrinkMaxtoShort(maxParts), userName, groupNames);
+        tableName, shrinkMaxToShort(maxParts), userName, groupNames);
   }
 
   @Override
@@ -1959,7 +1959,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
       List<String> partialPvals, int maxParts, String userName, List<String> groupNames)
       throws TException {
     return client.get_partitions_ps_with_auth(prependCatalogToDbName(catName,
-        dbName, conf), tableName, partialPvals, shrinkMaxtoShort(maxParts), userName, groupNames);
+        dbName, conf), tableName, partialPvals, shrinkMaxToShort(maxParts), userName, groupNames);
   }
 
   @Override
@@ -1973,7 +1973,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
                                                 String filter, int max_parts) throws TException {
     // TODO should we add capabilities here as well as it returns Partition objects
     List<Partition> parts = client.get_partitions_by_filter(prependCatalogToDbName(
-        catName, db_name, conf), tbl_name, filter, shrinkMaxtoShort(max_parts));
+        catName, db_name, conf), tbl_name, filter, shrinkMaxToShort(max_parts));
     return deepCopyPartitions(FilterUtils.filterPartitionsIfEnabled(isClientFilterEnabled, filterHook, parts));
   }
 
@@ -2017,7 +2017,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
       req.setDefaultPartitionName(default_partition_name);
     }
     if (max_parts >= 0) {
-      req.setMaxParts(shrinkMaxtoShort(max_parts));
+      req.setMaxParts(shrinkMaxToShort(max_parts));
     }
     req.setValidWriteIdList(getValidWriteIdList(db_name, tbl_name));
     return req;
@@ -2458,7 +2458,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
                                              int maxTables) throws TException {
     List<String> tableNames =
         client.get_table_names_by_filter(prependCatalogToDbName(catName, dbName, conf), filter,
-        shrinkMaxtoShort(maxTables));
+        shrinkMaxToShort(maxTables));
     return FilterUtils.filterTableNamesIfEnabled(
         isClientFilterEnabled, filterHook, catName, dbName, tableNames);
   }
@@ -2651,7 +2651,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
   protected List<String> listPartitionNamesInternal(String catName, String dbName, String tableName,
       int maxParts) throws TException {
     return client.get_partition_names(
-        prependCatalogToDbName(catName, dbName, conf), tableName, shrinkMaxtoShort(maxParts));
+        prependCatalogToDbName(catName, dbName, conf), tableName, shrinkMaxToShort(maxParts));
   }
 
   @Override
@@ -2672,7 +2672,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
   protected List<String> listPartitionNamesInternal(String catName, String db_name, String tbl_name,
       List<String> part_vals, int max_parts) throws TException {
     return client.get_partition_names_ps(prependCatalogToDbName(catName, db_name, conf), tbl_name,
-        part_vals, shrinkMaxtoShort(max_parts));
+        part_vals, shrinkMaxToShort(max_parts));
   }
 
   @Override
@@ -3400,8 +3400,8 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
 
   @Override
   public GetRoleGrantsForPrincipalResponse get_role_grants_for_principal(
-          GetRoleGrantsForPrincipalRequest getRolePrincReq) throws MetaException, TException {
-    return client.get_role_grants_for_principal(getRolePrincReq);
+          GetRoleGrantsForPrincipalRequest getRolePrincipalReq) throws MetaException, TException {
+    return client.get_role_grants_for_principal(getRolePrincipalReq);
   }
 
   @Override
@@ -4432,7 +4432,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
   @Override
   public List<WMTrigger> getTriggersForResourcePlan(String resourcePlan, String ns)
       throws NoSuchObjectException, MetaException, TException {
-    WMGetTriggersForResourePlanRequest request = new WMGetTriggersForResourePlanRequest();
+    WMGetTriggersForResourcePlanRequest request = new WMGetTriggersForResourcePlanRequest();
     request.setResourcePlanName(resourcePlan);
     request.setNs(ns);
     return client.get_triggers_for_resourceplan(request).getTriggers();
@@ -4596,7 +4596,7 @@ public class HiveMetaStoreClient implements IMetaStoreClient, AutoCloseable {
     return writeIdList!=null?writeIdList.toString():null;
   }
 
-  private short shrinkMaxtoShort(int max) {
+  private short shrinkMaxToShort(int max) {
     if (max < 0) {
       return -1;
     } else if (max <= Short.MAX_VALUE) {

@@ -36,7 +36,7 @@ import org.apache.hadoop.io.Text;
  * GenericUDFSplit.
  *
  */
-@Description(name = "split", value = "_FUNC_(str, regex) - Splits str around occurances that match "
+@Description(name = "split", value = "_FUNC_(str, regex) - Splits str around occurrences that match "
     + "regex", extended = "Example:\n"
     + "  > SELECT _FUNC_('oneAtwoBthreeC', '[ABC]') FROM src LIMIT 1;\n"
     + "  [\"one\", \"two\", \"three\"]")

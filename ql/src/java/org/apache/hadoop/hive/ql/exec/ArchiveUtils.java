@@ -209,7 +209,7 @@ public final class ArchiveUtils {
   }
 
   /**
-   * Get a prefix of the given parition's string representation. The second
+   * Get a prefix of the given partition's string representation. The second
    * argument, level, is used for the prefix length. For example, partition
    * (ds='2010-01-01', hr='00', min='00'), level 1 will return 'ds=2010-01-01',
    * and level 2 will return 'ds=2010-01-01/hr=00'.
@@ -248,7 +248,7 @@ public final class ArchiveUtils {
    * @param db - Hive object
    * @param tbl - table where partition is
    * @param partSpec - partition specification with possible nulls in case of
-   * dynamic partiton inserts
+   * dynamic partition inserts
    * @return null if partition can be inserted, string with colliding archive
    * name when it can't
    * @throws HiveException

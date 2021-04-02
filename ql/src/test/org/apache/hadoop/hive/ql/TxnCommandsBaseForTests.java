@@ -272,7 +272,7 @@ public abstract class TxnCommandsBaseForTests {
         return;
       }
     }
-    Assert.assertTrue("Din't find expected 'vectorized' in plan", !vectorized);
+    Assert.assertTrue("Didn't find expected 'vectorized' in plan", !vectorized);
   }
   /**
    * Will assert that actual files match expected.

@@ -203,7 +203,7 @@ public class MapRecordProcessor extends RecordProcessor {
       // after creation in case abort has been set.
       // Relying on the regular flow to clean up the actual operator. i.e. If an exception is
       // thrown, an attempt will be made to cleanup the op.
-      // If we are here - exit out via an exception. If we're in the middle of the opeartor.initialize
+      // If we are here - exit out via an exception. If we're in the middle of the operator.initialize
       // call further down, we rely upon op.abort().
       checkAbortCondition();
 

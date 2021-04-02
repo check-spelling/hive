@@ -189,7 +189,7 @@ public final class OpProcFactory {
      * For WindowingTableFunction if:
      * a. there is a Rank/DenseRank function: if there are unpushedPred of the form
      *    rnkValue < Constant; then use the smallest Constant val as the 'rankLimit'
-     *    on the WindowingTablFn.
+     *    on the WindowingTableFn.
      * b. If there are no Wdw Fns with an End Boundary past the current row, the
      *    condition can be pushed down as a limit pushdown(mapGroupBy=true)
      *
@@ -1227,20 +1227,20 @@ public final class OpProcFactory {
       return null;
     }
 
-    ExprNodeDesc condn = ExprNodeDescUtils.mergePredicates(preds);
+    ExprNodeDesc cond = ExprNodeDescUtils.mergePredicates(preds);
 
-    if (op instanceof TableScanOperator && condn instanceof ExprNodeGenericFuncDesc) {
+    if (op instanceof TableScanOperator && cond instanceof ExprNodeGenericFuncDesc) {
       boolean pushFilterToStorage;
       HiveConf hiveConf = owi.getParseContext().getConf();
       pushFilterToStorage =
         hiveConf.getBoolVar(HiveConf.ConfVars.HIVEOPTPPD_STORAGE);
       if (pushFilterToStorage) {
-        condn = pushFilterToStorageHandler(
+        cond = pushFilterToStorageHandler(
           (TableScanOperator) op,
-          (ExprNodeGenericFuncDesc)condn,
+          (ExprNodeGenericFuncDesc)cond,
           owi,
           hiveConf);
-        if (condn == null) {
+        if (cond == null) {
           // we pushed the whole thing down
           return null;
         }
@@ -1248,13 +1248,13 @@ public final class OpProcFactory {
     }
 
     // add new filter op
-    List<Operator<? extends OperatorDesc>> originalChilren = op
+    List<Operator<? extends OperatorDesc>> originalChildren = op
         .getChildOperators();
     op.setChildOperators(null);
     Operator<FilterDesc> output = OperatorFactory.getAndMakeChild(
-        new FilterDesc(condn, false), new RowSchema(inputRS.getSignature()), op);
-    output.setChildOperators(originalChilren);
-    for (Operator<? extends OperatorDesc> ch : originalChilren) {
+        new FilterDesc(cond, false), new RowSchema(inputRS.getSignature()), op);
+    output.setChildOperators(originalChildren);
+    for (Operator<? extends OperatorDesc> ch : originalChildren) {
       List<Operator<? extends OperatorDesc>> parentOperators = ch
           .getParentOperators();
       int pos = parentOperators.indexOf(op);

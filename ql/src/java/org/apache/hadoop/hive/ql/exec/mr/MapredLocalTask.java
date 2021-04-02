@@ -105,7 +105,7 @@ public class MapredLocalTask extends Task<MapredLocalWork> implements Serializab
   private static final Logger LOG = LoggerFactory.getLogger(MapredLocalTask.class);
 
   // not sure we need this exec context; but all the operators in the work
-  // will pass this context throught
+  // will pass this context through
   private ExecMapperContext execContext = null;
 
   private Process executor;
@@ -410,38 +410,38 @@ public class MapredLocalTask extends Task<MapredLocalWork> implements Serializab
   }
 
   public void startForward(String bigTableBucket) throws Exception {
-    boolean inputFileChangeSenstive = work.getInputFileChangeSensitive();
+    boolean inputFileChangeSensitive = work.getInputFileChangeSensitive();
     initializeOperators(new HashMap<FetchOperator, JobConf>());
     // for each big table's bucket, call the start forward
-    if (inputFileChangeSenstive) {
+    if (inputFileChangeSensitive) {
       for (Map<String, List<String>> bigTableBucketFiles : work
           .getBucketMapjoinContext().getAliasBucketFileNameMapping().values()) {
         if (bigTableBucket == null) {
           for (String bigTableBucketFile : bigTableBucketFiles.keySet()) {
-            startForward(inputFileChangeSenstive, bigTableBucketFile);
+            startForward(inputFileChangeSensitive, bigTableBucketFile);
           }
         } else if (bigTableBucketFiles.keySet().contains(bigTableBucket)) {
-          startForward(inputFileChangeSenstive, bigTableBucket);
+          startForward(inputFileChangeSensitive, bigTableBucket);
         }
       }
     } else {
-      startForward(inputFileChangeSenstive, null);
+      startForward(inputFileChangeSensitive, null);
     }
   }
 
-  private void startForward(boolean inputFileChangeSenstive, String bigTableBucket)
+  private void startForward(boolean inputFileChangeSensitive, String bigTableBucket)
       throws Exception {
     for (Operator<?> source : work.getAliasToWork().values()) {
       source.reset();
     }
-    if (inputFileChangeSenstive) {
+    if (inputFileChangeSensitive) {
       execContext.setCurrentBigBucketFile(bigTableBucket);
     }
     for (Map.Entry<String, FetchOperator> entry : fetchOperators.entrySet()) {
       String alias = entry.getKey();
       FetchOperator fetchOp = entry.getValue();
 
-      if (inputFileChangeSenstive) {
+      if (inputFileChangeSensitive) {
         fetchOp.clearFetchContext();
         setUpFetchOpContext(fetchOp, alias, bigTableBucket);
       }
@@ -482,7 +482,7 @@ public class MapredLocalTask extends Task<MapredLocalWork> implements Serializab
       // push down filters
       HiveInputFormat.pushFilters(jobClone, ts, null);
 
-      AcidUtils.setAcidOperationalProperties(jobClone, ts.getConf().isTranscationalTable(),
+      AcidUtils.setAcidOperationalProperties(jobClone, ts.getConf().isTransactionalTable(),
           ts.getConf().getAcidOperationalProperties(), ts.getConf().isFetchDeletedRows());
       AcidUtils.setValidWriteIdList(jobClone, ts.getConf());
 

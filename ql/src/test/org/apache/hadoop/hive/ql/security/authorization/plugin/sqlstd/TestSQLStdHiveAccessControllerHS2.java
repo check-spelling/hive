@@ -113,7 +113,7 @@ public class TestSQLStdHiveAccessControllerHS2 {
    * @param processedConf
    */
   private void verifyParamSettability(List<String> settableParams, HiveConf processedConf) {
-    // verify that the whitlelist params can be set
+    // verify that the whitelist params can be set
     for (String param : settableParams) {
       try {
         processedConf.verifyAndSet(param, "dummy");

@@ -205,7 +205,7 @@ public class HiveProtoLoggingHook implements ExecuteWithHookContext {
               conf, clock);
         }
       } catch (IOException e) {
-        LOG.error("Unable to intialize logger, logging disabled.", e);
+        LOG.error("Unable to initialize logger, logging disabled.", e);
       }
       this.logger = tmpLogger;
       if (logger == null) {
@@ -391,7 +391,7 @@ public class HiveProtoLoggingHook implements ExecuteWithHookContext {
         try {
           hiveInstanceAddress = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
-          LOG.error("Error tyring to get localhost address: ", e);
+          LOG.error("Error trying to get localhost address: ", e);
         }
       }
       addMapEntry(builder, OtherInfoType.HIVE_ADDRESS, hiveInstanceAddress);
@@ -555,7 +555,7 @@ public class HiveProtoLoggingHook implements ExecuteWithHookContext {
       EventLogger logger = EventLogger.getInstance(hookContext.getConf());
       logger.handle(hookContext);
     } catch (Exception e) {
-      LOG.error("Got exceptoin while processing event: ", e);
+      LOG.error("Got exception while processing event: ", e);
     }
   }
 }

@@ -72,7 +72,7 @@ public interface HS2ConnectionFileParser {
    * hive.cli.print.header=true#hivevar:mytbl=customers;hivevar:mycol=id it should return [
    * "url_prefix"="jdbc:hive2://", "hosts"="hs2-instance1.example.com:10000", "defaultDB"="default",
    * "user"="hive", "hiveconf"="hive.cli.print.currentdb=true, hive.cli.print.header=true",
-   * "hivevar"="hivevar:mytb1=customers, hivevar:mycol=id" ]
+   * "hivevar"="hivevar:mytbl=customers, hivevar:mycol=id" ]
    * </ul>
    *
    * @return Properties object which contain connection URL properties for Beeline connection. Returns an empty properties

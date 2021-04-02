@@ -63,7 +63,7 @@ public final class HCatConstants {
   public static final String HCAT_HIVE_CLIENT_EXPIRY_TIME = "hcatalog.hive.client.cache.expiry.time";
 
   // config parameter that suggests to hcat that metastore clients not be cached - default is false
-  // this parameter allows highly-parallel hcat usescases to not gobble up too many connections that
+  // this parameter allows highly-parallel hcat usecases to not gobble up too many connections that
   // sit in the cache, while not in use.
   public static final String HCAT_HIVE_CLIENT_DISABLE_CACHE = "hcatalog.hive.client.cache.disabled";
 
@@ -97,7 +97,7 @@ public final class HCatConstants {
   /**
    * The desired number of input splits produced for each partition. When the
    * input files are large and few, we want to split them into many splits,
-   * so as to increase the parallelizm of loading the splits. Try also two
+   * so as to increase the parallelism of loading the splits. Try also two
    * other parameters, mapred.min.split.size and mapred.max.split.size for
    * hadoop 1.x, or mapreduce.input.fileinputformat.split.minsize and
    * mapreduce.input.fileinputformat.split.maxsize in hadoop 2.x to

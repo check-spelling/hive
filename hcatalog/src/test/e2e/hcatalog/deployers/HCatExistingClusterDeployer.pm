@@ -34,7 +34,7 @@ our @ISA = "TestDeployer";
 # Sub: new
 # Constructor
 #
-# Paramaters:
+# Parameters:
 # None
 #
 # Returns:
@@ -56,7 +56,7 @@ sub new
 # particular deployment required the use of a database system it could
 # check here that the db was installed and accessible.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -91,7 +91,7 @@ sub checkPrerequisites
 # This is a no-op in this case because we're assuming both the cluster and the
 # database already exist
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -108,7 +108,7 @@ sub deploy
 # This is a no-op in this case because we're assuming both the cluster and the
 # database already exist
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -123,7 +123,7 @@ sub start
 # Sub: generateData
 # Generate any data needed for this test run.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -238,7 +238,7 @@ sub generateData
 # Load metadata into Hive, but don't load Mysql or HDFS, as we assume      
 # these have already been loaded.                                          
 #                                                                          
-# Paramaters:                                                              
+# Parameters:                                                              
 # cfg - hash from config file, including deployment config                 
 # log - log file handle                                                    
 #                                                                          
@@ -266,7 +266,7 @@ sub hiveMetaOnly
 # Run checks to confirm that the deployment was successful.  When this is 
 # done the testing environment should be ready to run.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -283,7 +283,7 @@ sub confirmDeployment
 # Sub: deleteData
 # Remove any data created that will not be removed by undeploying.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -299,7 +299,7 @@ sub deleteData
 # Stop any servers or systems that are no longer needed once testing is
 # completed.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -314,7 +314,7 @@ sub stop
 # Sub: undeploy
 # Remove any packages that were installed as part of the deployment.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #
@@ -331,7 +331,7 @@ sub undeploy
 # done anything that must be turned off or removed should be turned off or
 # removed.
 #
-# Paramaters:
+# Parameters:
 # globalHash - hash from config file, including deployment config
 # log - log file handle
 #

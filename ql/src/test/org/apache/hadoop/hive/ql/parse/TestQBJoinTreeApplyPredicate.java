@@ -84,8 +84,8 @@ public class TestQBJoinTreeApplyPredicate {
       QBJoinTree leftTree,
       String rightAlias) {
     QBJoinTree jT = new QBJoinTree();
-    JoinCond[] condn = new JoinCond[1];
-    condn[0] = new JoinCond(0, 1, type);
+    JoinCond[] cond = new JoinCond[1];
+    cond[0] = new JoinCond(0, 1, type);
     if ( leftTree == null ) {
       jT.setLeftAlias(leftAlias);
       String[] leftAliases = new String[1];
@@ -135,8 +135,8 @@ public class TestQBJoinTreeApplyPredicate {
       String rTbl, String rCol) throws SemanticException {
     ASTNode joinCond = constructEqualityCond(lTbl, lCol, rTbl, rCol);
 
-    ASTNode leftCondn = (ASTNode) joinCond.getChild(0);
-    ASTNode rightCondn = (ASTNode) joinCond.getChild(1);
+    ASTNode leftCond = (ASTNode) joinCond.getChild(0);
+    ASTNode rightCond = (ASTNode) joinCond.getChild(1);
 
     List<String> leftSrc = new ArrayList<String>();
     ArrayList<String> leftCondAl1 = new ArrayList<String>();
@@ -144,18 +144,18 @@ public class TestQBJoinTreeApplyPredicate {
     ArrayList<String> rightCondAl1 = new ArrayList<String>();
     ArrayList<String> rightCondAl2 = new ArrayList<String>();
 
-    sA.parseJoinCondPopulateAlias(jT, leftCondn, leftCondAl1, leftCondAl2, null, null);
-    sA.parseJoinCondPopulateAlias(jT, rightCondn, rightCondAl1, rightCondAl2, null, null);
+    sA.parseJoinCondPopulateAlias(jT, leftCond, leftCondAl1, leftCondAl2, null, null);
+    sA.parseJoinCondPopulateAlias(jT, rightCond, rightCondAl1, rightCondAl2, null, null);
 
     sA.applyEqualityPredicateToQBJoinTree(jT, JoinType.INNER, leftSrc, joinCond,
-        leftCondn,
-        rightCondn,
+        leftCond,
+        rightCond,
         leftCondAl1, leftCondAl2, rightCondAl1, rightCondAl2);
     return joinCond;
   }
 
   @Test
-  public void testSimpleCondn() throws SemanticException {
+  public void testSimpleCond() throws SemanticException {
     QBJoinTree jT = createJoinTree(JoinType.INNER, "a", null, "b");
     ASTNode joinCond = applyEqPredicate(jT, "a", "x", "b", "y");
     Assert.assertEquals(jT.getExpressions().get(0).get(0), joinCond.getChild(0));

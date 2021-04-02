@@ -106,8 +106,8 @@ public final class ColumnPrunerProcFactory {
         Object... nodeOutputs) throws SemanticException {
       FilterOperator op = (FilterOperator) nd;
       ColumnPrunerProcCtx cppCtx = (ColumnPrunerProcCtx) ctx;
-      ExprNodeDesc condn = op.getConf().getPredicate();
-      List<FieldNode> filterOpPrunedColLists = mergeFieldNodesWithDesc(cppCtx.genColLists(op), condn);
+      ExprNodeDesc cond = op.getConf().getPredicate();
+      List<FieldNode> filterOpPrunedColLists = mergeFieldNodesWithDesc(cppCtx.genColLists(op), cond);
       List<FieldNode> filterOpPrunedColListsOrderPreserved = preserveColumnOrder(op,
           filterOpPrunedColLists);
       cppCtx.getPrunedColLists().put(op,
@@ -304,7 +304,7 @@ public final class ColumnPrunerProcFactory {
    *   we assume all columns are needed.
    * - add column names referenced in WindowFn args and in WindowFn expressions
    *   to the pruned list of the child Select Op.
-   * - finally we set the prunedColList on the ColumnPrunerContx;
+   * - finally we set the prunedColList on the ColumnPrunerProcCtx;
    *   and update the RR &amp; signature on the PTFOp.
    */
   public static class ColumnPrunerPTFProc extends ColumnPrunerScriptProc {

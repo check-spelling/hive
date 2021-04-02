@@ -50,15 +50,15 @@ public class TestDynamicMultiDimeCollection {
     List<List<String>> actuals = ListBucketingPruner.DynamicMultiDimensionalCollection
         .uniqueElementsList(values, DEF_DIR);
 
-    List<List<String>> expecteds = new ArrayList<List<String>>();
+    List<List<String>> expects = new ArrayList<List<String>>();
     v1 = Arrays.asList("1", "2", "default");
     v2 = Arrays.asList("a", "b", "c", "default");
     v3 = Arrays.asList("x", "y", "default");
-    expecteds.add(v1);
-    expecteds.add(v2);
-    expecteds.add(v3);
+    expects.add(v1);
+    expects.add(v2);
+    expects.add(v3);
 
-    Assert.assertEquals(expecteds, actuals);
+    Assert.assertEquals(expects, actuals);
   }
 
   @Test
@@ -69,15 +69,15 @@ public class TestDynamicMultiDimeCollection {
     values.add(v1);
     List<List<String>> actuals = ListBucketingPruner.DynamicMultiDimensionalCollection
         .uniqueElementsList(values, DEF_DIR);
-    List<List<String>> expecteds = new ArrayList<List<String>>();
+    List<List<String>> expects = new ArrayList<List<String>>();
     v1 = Arrays.asList("1", "default");
     List<String> v2 = Arrays.asList("a", "default");
     List<String> v3 = Arrays.asList("x", "default");
-    expecteds.add(v1);
-    expecteds.add(v2);
-    expecteds.add(v3);
+    expects.add(v1);
+    expects.add(v2);
+    expects.add(v3);
 
-    Assert.assertEquals(expecteds, actuals);
+    Assert.assertEquals(expects, actuals);
   }
 
   @Test
@@ -94,11 +94,11 @@ public class TestDynamicMultiDimeCollection {
     values.add(v4);
     List<List<String>> actuals = ListBucketingPruner.DynamicMultiDimensionalCollection
         .uniqueElementsList(values, DEF_DIR);
-    List<List<String>> expecteds = new ArrayList<List<String>>();
+    List<List<String>> expects = new ArrayList<List<String>>();
     v1 = Arrays.asList("1", "2", "3", "4", "default");
-    expecteds.add(v1);
+    expects.add(v1);
 
-    Assert.assertEquals(expecteds, actuals);
+    Assert.assertEquals(expects, actuals);
   }
 
   @Test

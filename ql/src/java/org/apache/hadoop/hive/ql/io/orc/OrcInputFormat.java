@@ -2058,7 +2058,7 @@ public class OrcInputFormat implements InputFormat<NullWritable, OrcStruct>,
     AcidUtils.AcidOperationalProperties acidOperationalProperties
             = AcidUtils.getAcidOperationalProperties(options.getConfiguration());
     if(!acidOperationalProperties.isSplitUpdate()) {
-      throw new IllegalStateException("Expected SpliUpdate table: " + split.getPath());
+      throw new IllegalStateException("Expected SplitUpdate table: " + split.getPath());
     }
 
     Map<String, AcidInputFormat.DeltaMetaData> pathToDeltaMetaData = new HashMap<>();
@@ -2279,7 +2279,7 @@ public class OrcInputFormat implements InputFormat<NullWritable, OrcStruct>,
         }
       } else {
 
-        // parition column case.
+        // partition column case.
         // partition filter will be evaluated by partition pruner so
         // we will not evaluate partition filter here.
         truthValues[pred] = TruthValue.YES_NO_NULL;
@@ -2477,7 +2477,7 @@ public class OrcInputFormat implements InputFormat<NullWritable, OrcStruct>,
       typeDescriptionsFromHiveTypeProperty(String hiveTypeProperty,
                                            int maxColumns) {
 
-    // CONSDIER: We need a type name parser for TypeDescription.
+    // CONSIDER: We need a type name parser for TypeDescription.
 
     ArrayList<TypeInfo> typeInfoList = TypeInfoUtils.getTypeInfosFromTypeString(hiveTypeProperty);
     ArrayList<TypeDescription> typeDescrList =new ArrayList<TypeDescription>(typeInfoList.size());

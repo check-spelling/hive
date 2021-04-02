@@ -611,8 +611,8 @@ public class HiveDatabaseMetaData implements DatabaseMetaData {
     // using local schema with empty resultset
     return new HiveQueryResultSet.Builder(connection).setClient(client).setEmptyResultSet(true).
                   setSchema(
-                    Arrays.asList("PROCEDURE_CAT", "PROCEDURE_SCHEM", "PROCEDURE_NAME", "RESERVERD", "RESERVERD",
-                                  "RESERVERD", "REMARKS", "PROCEDURE_TYPE", "SPECIFIC_NAME"),
+                    Arrays.asList("PROCEDURE_CAT", "PROCEDURE_SCHEM", "PROCEDURE_NAME", "RESERVED", "RESERVED",
+                                  "RESERVED", "REMARKS", "PROCEDURE_TYPE", "SPECIFIC_NAME"),
                     Arrays.asList("STRING", "STRING", "STRING", "STRING", "STRING",
                                   "STRING", "STRING", "SMALLINT", "STRING"))
                   .build();

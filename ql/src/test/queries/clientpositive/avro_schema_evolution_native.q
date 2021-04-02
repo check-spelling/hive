@@ -65,7 +65,7 @@ SELECT * FROM episodes_partitioned_n0 WHERE doctor_pt > 6;
 SELECT * FROM episodes_partitioned_n0 ORDER BY air_date LIMIT 5;
 -- Fetch w/filter to specific partition
 SELECT * FROM episodes_partitioned_n0 WHERE doctor_pt = 6;
--- Fetch w/non-existent partition
+-- Fetch w/nonexistent partition
 SELECT * FROM episodes_partitioned_n0 WHERE doctor_pt = 7 LIMIT 5;
 
 set hive.fetch.task.conversion=none;

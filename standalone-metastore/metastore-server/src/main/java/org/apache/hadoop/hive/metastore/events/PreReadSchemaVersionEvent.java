@@ -6,29 +6,31 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.apache.hadoop.hive.metastore.events;
 
-package org.apache.hadoop.hive.ql.util;
+import org.apache.hadoop.hive.metastore.IHMSHandler;
+import org.apache.hadoop.hive.metastore.api.SchemaVersion;
 
-import org.apache.hadoop.hive.conf.HiveConf;
-import org.junit.Before;
+import java.util.List;
 
-/**
- * TestUpgradeToolWithRerturnPath.
- */
-public class TestUpgradeToolRerturnPath extends TestUpgradeTool {
-  @Before
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
-    hiveConf.setBoolVar(HiveConf.ConfVars.HIVE_CBO_RETPATH_HIVEOP, true);
+public class PreReadSchemaVersionEvent extends PreEventContext {
+  private final List<SchemaVersion> schemaVersions;
+
+  public PreReadSchemaVersionEvent(IHMSHandler handler, List<SchemaVersion> schemaVersions) {
+    super(PreEventType.READ_SCHEMA_VERSION, handler);
+    this.schemaVersions = schemaVersions;
+  }
+
+  public List<SchemaVersion> getSchemaVersions() {
+    return schemaVersions;
   }
 }

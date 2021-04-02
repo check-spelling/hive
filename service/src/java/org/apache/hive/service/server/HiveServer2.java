@@ -716,7 +716,7 @@ public class HiveServer2 extends CompositeService {
     try {
       startPrivilegeSynchronizer(hiveConf);
     } catch (Exception e) {
-      LOG.error("Error starting priviledge synchronizer: ", e);
+      LOG.error("Error starting privilege synchronizer: ", e);
       throw new ServiceException(e);
     }
 
@@ -1054,7 +1054,7 @@ public class HiveServer2 extends CompositeService {
         ServerUtils.cleanUpScratchDir(hiveConf);
         // Schedule task to cleanup dangling scratch dir periodically,
         // initial wait for a random time between 0-10 min to
-        // avoid intial spike when using multiple HS2
+        // avoid initial spike when using multiple HS2
         scheduleClearDanglingScratchDir(hiveConf, new Random().nextInt(600));
 
         server = new HiveServer2();

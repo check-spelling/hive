@@ -371,7 +371,7 @@ public final class QueryResultsCache {
     FsPermission fsPermission = new FsPermission("700");
     fs.mkdirs(cacheDirPath, fsPermission);
 
-    // Create non-existent path for 0-row results
+    // Create nonexistent path for 0-row results
     zeroRowsPath = new Path(cacheDirPath, "dummy_zero_rows");
 
     // Results cache directory should be cleaned up at process termination.
@@ -646,7 +646,7 @@ public final class QueryResultsCache {
       }
       if (entriesToInvalidate != null) {
         for (CacheEntry entry : entriesToInvalidate) {
-          // Ignore updates that occured before this cached query was created.
+          // Ignore updates that occurred before this cached query was created.
           if (entry.getQueryInfo().getQueryTime() <= updateTime) {
             removeEntry(entry);
           }
@@ -814,7 +814,7 @@ public final class QueryResultsCache {
       }
     }
 
-    LOG.info("Could not free enough space for cache entry for query: [{}] withe size {}",
+    LOG.info("Could not free enough space for cache entry for query: [{}] with size {}",
         entry.getQueryText(), size);
     return false;
   }

@@ -55,7 +55,7 @@ import com.google.common.collect.Sets;
  *
  * Depending on the table Hive might need to write it's data in some specific bucketing version.
  *
- * In case a bucketed table is read from the table location; the data should be threated as described by the table's bucketing_version property.
+ * In case a bucketed table is read from the table location; the data should be treated as described by the table's bucketing_version property.
  *
  */
 public class BucketVersionPopulator extends Transform {

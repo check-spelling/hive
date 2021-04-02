@@ -199,7 +199,7 @@ public class DagUtils {
   /**
    * Notifiers to synchronize resource localization across threads. If one thread is localizing
    * a file, other threads can wait on the corresponding notifier object instead of just sleeping
-   * before re-checking HDFS. This is used just to avoid unnecesary waits; HDFS check still needs
+   * before re-checking HDFS. This is used just to avoid unnecessary waits; HDFS check still needs
    * to be performed to make sure the resource is there and matches the expected file.
    */
   private final ConcurrentHashMap<String, Object> copyNotifiers = new ConcurrentHashMap<>();
@@ -446,7 +446,7 @@ public class DagUtils {
 
     if (mapWork instanceof MergeFileWork) {
       MergeFileWork mfWork = (MergeFileWork) mapWork;
-      // This mapper class is used for serializaiton/deserializaiton of merge
+      // This mapper class is used for serialization/deserialization of merge
       // file work.
       conf.set("mapred.mapper.class", MergeFileMapper.class.getName());
       conf.set("mapred.input.format.class", mfWork.getInputformat());
@@ -462,7 +462,7 @@ public class DagUtils {
    * Edge between them.
    *
    * @param group The parent VertexGroup
-   * @param vConf The job conf of one of the parrent (grouped) vertices
+   * @param vConf The job conf of one of the parent (grouped) vertices
    * @param w The child vertex
    * @param edgeProp the edge property of connection between the two
    * endpoints.
@@ -1794,7 +1794,7 @@ public class DagUtils {
           return size * 1024 * 1024;
         case 'g':
         case 'G':
-          // -Xmx speficied in GB
+          // -Xmx specified in GB
           return size * 1024 * 1024 * 1024;
       }
     }

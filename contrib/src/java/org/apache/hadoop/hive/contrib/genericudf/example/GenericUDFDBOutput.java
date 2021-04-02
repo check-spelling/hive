@@ -48,7 +48,7 @@ import org.apache.hadoop.io.IntWritable;
  * key should safeguard against duplicate data.
  * 
  * Use hive's ADD JAR feature to add your JDBC Driver to the distributed cache,
- * otherwise GenericUDFDBoutput will fail.
+ * otherwise GenericUDFDBOutput will fail.
  */
 @Description(name = "dboutput",
     value = "_FUNC_(jdbcstring,username,password,preparedstatement,[arguments])"
@@ -84,7 +84,7 @@ public class GenericUDFDBOutput extends GenericUDF {
       throws UDFArgumentTypeException {
     argumentOI = arguments;
 
-    // this should be connection url,username,password,query,column1[,columnn]*
+    // this should be connection url,username,password,query,column1[,column]*
     for (int i = 0; i < 4; i++) {
       if (arguments[i].getCategory() == ObjectInspector.Category.PRIMITIVE) {
         PrimitiveObjectInspector poi = ((PrimitiveObjectInspector) arguments[i]);
@@ -100,7 +100,7 @@ public class GenericUDFDBOutput extends GenericUDF {
     for (int i = 4; i < arguments.length; i++) {
       if (arguments[i].getCategory() != ObjectInspector.Category.PRIMITIVE) {
         throw new UDFArgumentTypeException(i,
-            "The argument of function should be primative" + ", but \""
+            "The argument of function should be primitive" + ", but \""
             + arguments[i].getTypeName() + "\" is found");
       }
     }

@@ -70,7 +70,7 @@ public abstract class AbstractHBaseKeyPredicateDecomposer {
 
   /**
    * Get an optional {@link IndexPredicateAnalyzer.FieldValidator validator}. A validator can be
-   * used to optinally filter out the predicates which need not be decomposed. By default this
+   * used to optionally filter out the predicates which need not be decomposed. By default this
    * method returns {@code null} which means that all predicates are pushed but consumers can choose
    * to override this to provide a custom validator as well.
    * */

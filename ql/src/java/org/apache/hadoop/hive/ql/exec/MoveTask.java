@@ -617,10 +617,10 @@ public class MoveTask extends Task<MoveWork> implements Serializable {
             db, table, partn, ti.bucketCols, ti.numBuckets, ti.sortCols);
       }
 
-      WriteEntity enty = new WriteEntity(partn,
+      WriteEntity entity = new WriteEntity(partn,
         getWriteType(tbd, work.getLoadTableWork().getWriteType()));
       if (work.getOutputs() != null) {
-        DDLUtils.addIfAbsentByName(enty, work.getOutputs());
+        DDLUtils.addIfAbsentByName(entity, work.getOutputs());
       }
       // Need to update the queryPlan's output as well so that post-exec hook get executed.
       // This is only needed for dynamic partitioning since for SP the the WriteEntity is
@@ -630,7 +630,7 @@ public class MoveTask extends Task<MoveWork> implements Serializable {
       if (queryPlan.getOutputs() == null) {
         queryPlan.setOutputs(new LinkedHashSet<WriteEntity>());
       }
-      queryPlan.getOutputs().add(enty);
+      queryPlan.getOutputs().add(entity);
 
       // update columnar lineage for each partition
       dc = new DataContainer(table.getTTable(), partn.getTPartition());

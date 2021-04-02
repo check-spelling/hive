@@ -140,7 +140,7 @@ public class TestHiveMetastoreTransformer {
       tProps.put("PROPERTIES", properties.toString());
       Table tbl = createTableWithCapabilities(tProps);
 
-      setHMSClient("testTranformerWithOldTables", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
+      setHMSClient("testTransformerWithOldTables", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       Table tbl2 = client.getTable(dbName, tblName);
       assertEquals("Created and retrieved tables do not match:" + tbl2.getTableName() + ":" + tblName,
           tbl2.getTableName(), tblName);
@@ -216,9 +216,9 @@ public class TestHiveMetastoreTransformer {
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match expected value:" + tblName,
           0, tbl2.getAccessType());
-      assertEquals(buckets, tbl2.getSd().getNumBuckets()); // no tranformation
+      assertEquals(buckets, tbl2.getSd().getNumBuckets()); // no transformation
 
-      setHMSClient("testTranformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
+      setHMSClient("testTransformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match the expected value:" + tblName,
           ACCESSTYPE_READWRITE, tbl2.getAccessType());
@@ -545,7 +545,7 @@ public class TestHiveMetastoreTransformer {
           ACCESSTYPE_READONLY, tbl2.getAccessType());
       resetHMSClient();
 
-      setHMSClient("testTranformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
+      setHMSClient("testTransformerExternalTable", (new String[] { "HIVEBUCKET2", "EXTREAD", "EXTWRITE"}));
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match the expected value:" + tblName,
           ACCESSTYPE_NONE, tbl2.getAccessType());
@@ -694,7 +694,7 @@ public class TestHiveMetastoreTransformer {
 
       tbl2 = client.getTable(dbName, tblName);
       assertEquals("Table access type does not match expected value:" + tblName,
-          0, tbl2.getAccessType()); // View has capabilities, processor doesnt, no tranformation
+          0, tbl2.getAccessType()); // View has capabilities, processor does not, no transformation
 
       setHMSClient("testTransformerMQTFullSet", (new String[] { "HIVEFULLACIDREAD", "HIVEONLYMQTWRITE",
           "HIVEMANAGESTATS", "HIVEMQT", "CONNECTORREAD" }));
@@ -1031,7 +1031,7 @@ public class TestHiveMetastoreTransformer {
         table = createTableWithCapabilities(tProps);
         fail("CreateTable expected to fail, but passed for " + tblName);
       } catch (MetaException me) {
-        LOG.info("Create table expected to fail as ACID table cannot be created without possessing capabilities");
+        LOG.info("Create table expected to fail as ACID table cannot be created without possessiong capabilities");
       }
 
       capabilities = new ArrayList<>();
@@ -1082,7 +1082,7 @@ public class TestHiveMetastoreTransformer {
         table = createTableWithCapabilities(tProps);
         fail("CreateTable expected to fail, but passed for " + tblName);
       } catch (MetaException me) {
-        LOG.info("Create table expected to fail as ACID table cannot be created without possessing capabilities");
+        LOG.info("Create table expected to fail as ACID table cannot be created without possessiong capabilities");
       }
 
       tblName = "test_create_table_acid_mgd_wcw";
@@ -1147,7 +1147,7 @@ public class TestHiveMetastoreTransformer {
         table = createTableWithCapabilities(tProps);
         fail("CreateTable expected to fail, but passed for " + tblName);
       } catch (MetaException me) {
-        LOG.info("Create table expected to fail as ACID table cannot be created without possessing capabilities");
+        LOG.info("Create table expected to fail as ACID table cannot be created without possessiong capabilities");
       }
 
       capabilities = new ArrayList<>();
@@ -1383,7 +1383,7 @@ public class TestHiveMetastoreTransformer {
   }
 
   @Test
-  public void testTransformerAlterTableWithoutLocationChangeDoesntValidateLocation() throws Exception {
+  public void testTransformerAlterTableWithoutLocationChangeDoesNotValidateLocation() throws Exception {
     try {
       resetHMSClient();
       String dbName = "dbalter";
@@ -1864,20 +1864,20 @@ public class TestHiveMetastoreTransformer {
         LOG.info("Drop type failed for " + typeName);
       }
 
-      Type typ1 = new Type();
-      typ1.setName(typeName);
-      typ1.setFields(new ArrayList<>(2));
-      typ1.getFields().add(
+      Type type1 = new Type();
+      type1.setName(typeName);
+      type1.setFields(new ArrayList<>(2));
+      type1.getFields().add(
           new FieldSchema("name", ColumnType.STRING_TYPE_NAME, ""));
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema("income", ColumnType.INT_TYPE_NAME, ""));
-      client.createType(typ1);
+      client.createType(type1);
 
       TableBuilder builder = new TableBuilder()
           .setCatName(catalog)
           .setDbName(dbName)
           .setTableName(tblName)
-          .setCols(typ1.getFields())
+          .setCols(type1.getFields())
           .setType(type.name())
           .setLocation(location)
           .setNumBuckets(buckets)

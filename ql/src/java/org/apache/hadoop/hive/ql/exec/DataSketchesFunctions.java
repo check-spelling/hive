@@ -97,7 +97,7 @@ public final class DataSketchesFunctions implements HiveUDFPlugin {
     registerFrequencies();
 
     buildCalciteFns();
-    buildDescritors();
+    buildDescriptors();
   }
 
   @Override
@@ -117,7 +117,7 @@ public final class DataSketchesFunctions implements HiveUDFPlugin {
     return sketchClasses.get(className).fnMap.get(function);
   }
 
-  private void buildDescritors() {
+  private void buildDescriptors() {
     for (SketchDescriptor sketchDescriptor : sketchClasses.values()) {
       descriptors.addAll(sketchDescriptor.fnMap.values());
     }

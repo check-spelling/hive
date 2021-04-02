@@ -56,7 +56,7 @@ SHOW PARTITIONS dest2_n37;
 DROP TABLE dest1_n143;
 DROP TABLE dest2_n37;
 
--- partitio spec within column spec
+-- partition spec within column spec
 CREATE TABLE table1_n15 (name string, age int) PARTITIONED BY (country string, state string);
 INSERT INTO table1_n15 values ('John Doe', 23, 'USA', 'CA'), ('Jane Doe', 22, 'USA', 'TX');
 SHOW PARTITIONS table1_n15;

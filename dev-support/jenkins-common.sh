@@ -59,7 +59,7 @@ _test_get_branch_name() {
     [[ "$ACTUAL" == "$EXPECTED" ]] || echoerr "$PATCH_NAME failed ($ACTUAL != $EXPECTED)"
   }
 
-  # Branch not spcified in patch name
+  # Branch not specified in patch name
   do_test "HIVE-123.patch" "master"
   do_test "HIVE-123.1.patch" "master"
 
@@ -83,7 +83,7 @@ get_attachment_id() {
   basename $(dirname $jira_attachment_url)
 }
 
-# Fetchs JIRA information, and save it in a file specified as a parameter
+# Fetches JIRA information, and save it in a file specified as a parameter
 initialize_jira_info() {
   local jira_issue="$1" 
   local output_file="$2"
@@ -136,7 +136,7 @@ is_clear_cache_set() {
   grep -q "CLEAR LIBRARY CACHE" $1
 }
 
-# Parses the JIRA/patch to find relavent information.
+# Parses the JIRA/patch to find relevant information.
 # Exports two variables of import:
 # * BUILD_PROFILE - the profile which the ptest server understands
 # * BUILD_OPTS - additional test options to be sent to ptest cli

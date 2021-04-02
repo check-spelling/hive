@@ -250,7 +250,7 @@ public class TestFileSinkOperator {
           break;
         case WITH_RECORD_ID_AND_PARTITION_VALUE:
           r = new RowWithPartNRecID(
-              new Text("its fleect was white as snow"),
+              new Text("its fleece was white as snow"),
               (i < 5) ? new Text("Monday") : new Text("Tuesday"),
                   new RecordIdentifier(1, 1, i));
           break;
@@ -850,13 +850,13 @@ public class TestFileSinkOperator {
 
     @Override
     public Writable serialize(Object obj, ObjectInspector objInspector) throws SerDeException {
-      assert obj instanceof Row : "Expected Row or decendent, got " + obj.getClass().getName();
+      assert obj instanceof Row : "Expected Row or decedent, got " + obj.getClass().getName();
       return (Row)obj;
     }
 
     @Override
     public Object deserialize(Writable blob) throws SerDeException {
-      assert blob instanceof Row : "Expected Row or decendent, got "+ blob.getClass().getName();
+      assert blob instanceof Row : "Expected Row or decedent, got "+ blob.getClass().getName();
       return blob;
     }
 

@@ -84,7 +84,7 @@
        |  need to be uploaded to a server, using the timestamp.
        |
        |  The default path is relative to the core webapp directory.
-       |  An asolute path can be used.
+       |  An absolute path can be used.
        +-->
    <!--   <checksums-uri>build/work/checksums</checksums-uri>-->
 
@@ -98,7 +98,7 @@
        |     <broken-links type="none"/>
        |
        |   Two attributes to this node specify whether a page should
-       |   be generated when an error has occured. 'generate' specifies
+       |   be generated when an error has occurred. 'generate' specifies
        |   whether a page should be generated (default: true) and
        |   extension specifies an extension that should be appended
        |   to the generated page's filename (default: none)
@@ -197,7 +197,7 @@
        | patterns are specified, a URI is first checked against the
        | include patterns, and then against the exclude patterns.
        |
-       | Multiple patterns can be given, using muliple include or exclude
+       | Multiple patterns can be given, using multiple include or exclude
        | nodes.
        |
        | The order of the elements is not significant, as only the first

@@ -118,7 +118,7 @@ public class TestMetastoreConf {
     return buf.toString();
   }
 
-  private Map<String, String> instaMap(String... vals) {
+  private Map<String, String> instantMap(String... vals) {
     Map<String, String> properties = new HashMap<>(vals.length / 2);
     for (int i = 0; i < vals.length; i+= 2) {
       properties.put(vals[i], vals[i+1]);
@@ -154,7 +154,7 @@ public class TestMetastoreConf {
 
   @Test
   public void readMetastoreSiteWithMetastoreConfDir() throws IOException {
-    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instaMap(
+    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instantMap(
         "test.str", "notthedefault",
         "test.long", "37",
         "test.double", "1.8",
@@ -188,7 +188,7 @@ public class TestMetastoreConf {
 
   @Test
   public void readMetastoreSiteWithMetastoreHomeDir() throws IOException {
-    createConfFile("metastore-site.xml", true, "METASTORE_HOME", instaMap(
+    createConfFile("metastore-site.xml", true, "METASTORE_HOME", instantMap(
         "test.long", "24"
     ));
     conf = MetastoreConf.newMetastoreConf();
@@ -197,7 +197,7 @@ public class TestMetastoreConf {
 
   @Test
   public void readHiveSiteWithHiveConfDir() throws IOException {
-    createConfFile("hive-site.xml", false, "HIVE_CONF_DIR", instaMap(
+    createConfFile("hive-site.xml", false, "HIVE_CONF_DIR", instantMap(
         "test.double", "1.8"
     ));
     conf = MetastoreConf.newMetastoreConf();
@@ -207,7 +207,7 @@ public class TestMetastoreConf {
 
   @Test
   public void readHiveSiteWithHiveHomeDir() throws IOException {
-    createConfFile("hive-site.xml", true, "HIVE_HOME", instaMap(
+    createConfFile("hive-site.xml", true, "HIVE_HOME", instantMap(
         "test.bool", "false"
     ));
     conf = MetastoreConf.newMetastoreConf();
@@ -216,7 +216,7 @@ public class TestMetastoreConf {
 
   @Test
   public void readHiveMetastoreSiteWithHiveConfDir() throws IOException {
-    createConfFile("hivemetastore-site.xml", false, "HIVE_CONF_DIR", instaMap(
+    createConfFile("hivemetastore-site.xml", false, "HIVE_CONF_DIR", instantMap(
         "test.double", "1.8"
     ));
     conf = MetastoreConf.newMetastoreConf();
@@ -226,7 +226,7 @@ public class TestMetastoreConf {
 
   @Test
   public void readHiveMetastoreSiteWithHiveHomeDir() throws IOException {
-    createConfFile("hivemetastore-site.xml", true, "HIVE_HOME", instaMap(
+    createConfFile("hivemetastore-site.xml", true, "HIVE_HOME", instantMap(
         "test.bool", "false"
     ));
     conf = MetastoreConf.newMetastoreConf();
@@ -275,7 +275,7 @@ public class TestMetastoreConf {
 
   @Test
   public void hiveNames() throws IOException {
-    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instaMap(
+    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instantMap(
         "hive.test.str", "hivedefault",
         "hive.test.double", "1.9",
         "hive.test.long", "89",
@@ -316,7 +316,7 @@ public class TestMetastoreConf {
   @Test
   public void testDeprecatedConfigs() throws IOException {
     // set with deprecated key
-    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instaMap(
+    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instantMap(
         "hive.test.str", "hivedefault",
         "this.is.the.metastore.deprecated.name", "1" // default is 0
     ));
@@ -324,7 +324,7 @@ public class TestMetastoreConf {
     Assert.assertEquals(1, MetastoreConf.getIntVar(conf, ConfVars.DEPRECATED_TEST_ENTRY));
 
     // set with hive (HiveConf) deprecated key
-    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instaMap(
+    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instantMap(
         "hive.test.str", "hivedefault",
         "this.is.the.hive.deprecated.name", "2" // default is 0
     ));
@@ -332,7 +332,7 @@ public class TestMetastoreConf {
     Assert.assertEquals(2, MetastoreConf.getIntVar(conf, ConfVars.DEPRECATED_TEST_ENTRY));
 
     // set with normal key
-    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instaMap(
+    createConfFile("metastore-site.xml", false, "METASTORE_CONF_DIR", instantMap(
         "hive.test.str", "hivedefault",
         "test.deprecated", "3" // default is 0
     ));
@@ -459,7 +459,7 @@ public class TestMetastoreConf {
 
   @Test
   public void dumpConfig() throws IOException {
-    createConfFile("metastore-site.xml", true, "METASTORE_HOME", instaMap(
+    createConfFile("metastore-site.xml", true, "METASTORE_HOME", instantMap(
         "test.long", "23"
     ));
     conf = MetastoreConf.newMetastoreConf();
@@ -484,7 +484,7 @@ public class TestMetastoreConf {
         DefaultStorageSchemaReader.class.getName());
     Assert.assertEquals(MetastoreConf.HIVE_ALTER_HANDLE_CLASS,
         HiveAlterHandler.class.getName());
-    Assert.assertEquals(MetastoreConf.MATERIALZIATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS,
+    Assert.assertEquals(MetastoreConf.MATERIALIZATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS,
         MaterializationsRebuildLockCleanerTask.class.getName());
     Assert.assertEquals(MetastoreConf.METASTORE_TASK_THREAD_CLASS,
         MetastoreTaskThread.class.getName());

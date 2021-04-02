@@ -105,7 +105,7 @@ public class SkewJoinHandler {
     noOuterJoin = joinOp.noOuterJoin;
   }
 
-  public void initiliaze(Configuration hconf) {
+  public void initialize(Configuration hconf) {
     this.hconf = hconf;
     JoinDesc desc = joinOp.getConf();
     skewKeyDefinition = desc.getSkewKeyDefinition();
@@ -132,7 +132,7 @@ public class SkewJoinHandler {
       TableDesc joinKeyDesc = desc.getKeyTableDesc();
       List<String> keyColNames = Utilities.getColumnNames(joinKeyDesc
           .getProperties());
-      StructObjectInspector structTblKeyInpector = ObjectInspectorFactory
+      StructObjectInspector structTblKeyInspector = ObjectInspectorFactory
           .getStandardStructObjectInspector(keyColNames, skewTableKeyInspectors);
 
       try {
@@ -153,13 +153,13 @@ public class SkewJoinHandler {
       if (valTblDesc != null) {
         valColNames = Utilities.getColumnNames(valTblDesc.getProperties());
       }
-      StructObjectInspector structTblValInpector = ObjectInspectorFactory
+      StructObjectInspector structTblValInspector = ObjectInspectorFactory
           .getStandardStructObjectInspector(valColNames,
           joinOp.joinValuesStandardObjectInspectors[i]);
 
-      StructObjectInspector structTblInpector = ObjectInspectorFactory
-          .getUnionStructObjectInspector(Arrays.asList(structTblValInpector, structTblKeyInpector));
-      skewKeysTableObjectInspector.put((byte) i, structTblInpector);
+      StructObjectInspector structTblInspector = ObjectInspectorFactory
+          .getUnionStructObjectInspector(Arrays.asList(structTblValInspector, structTblKeyInspector));
+      skewKeysTableObjectInspector.put((byte) i, structTblInspector);
     }
 
     // reset rowcontainer's serde, objectinspector, and tableDesc.
@@ -181,7 +181,7 @@ public class SkewJoinHandler {
       RowContainer<ArrayList<Object>> bigKey = (RowContainer)joinOp.storage[currBigKeyTag];
       Path outputPath = getOperatorOutputPath(specPath);
       FileSystem destFs = outputPath.getFileSystem(hconf);
-      bigKey.copyToDFSDirecory(destFs, outputPath);
+      bigKey.copyToDFSDirectory(destFs, outputPath);
 
       for (int i = 0; i < numAliases; i++) {
         if (((byte) i) == currBigKeyTag) {
@@ -191,7 +191,7 @@ public class SkewJoinHandler {
         if (values != null) {
           specPath = conf.getSmallKeysDirMap().get((byte) currBigKeyTag).get(
               (byte) i);
-          values.copyToDFSDirecory(destFs, getOperatorOutputPath(specPath));
+          values.copyToDFSDirectory(destFs, getOperatorOutputPath(specPath));
         }
       }
     }

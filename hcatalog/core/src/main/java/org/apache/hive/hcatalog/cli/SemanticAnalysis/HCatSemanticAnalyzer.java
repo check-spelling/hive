@@ -317,7 +317,7 @@ public class HCatSemanticAnalyzer extends HCatSemanticAnalyzerBase {
       authorize(cntxt.getHive().getDatabase(dbName), Privilege.SELECT);
     } else if (ddlDesc instanceof AlterTableDropPartitionDesc) {
       AlterTableDropPartitionDesc dropPartition = (AlterTableDropPartitionDesc)ddlDesc;
-      //this is actually a ALTER TABLE DROP PARITITION statement
+      //this is actually a ALTER TABLE DROP PARTITION statement
       for (AlterTableDropPartitionDesc.PartitionDesc partSpec : dropPartition.getPartSpecs()) {
         // partitions are not added as write entries in drop partitions in Hive
         Table table = hive.getTable(SessionState.get().getCurrentDatabase(), dropPartition.getTableName());

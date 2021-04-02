@@ -168,9 +168,9 @@ public class HiveLockObject {
         builder.append(queryStr);
       }
 
-      boolean clienIp_present = clientIp == null;
+      boolean clientIp_present = clientIp == null;
       builder.append(clientIp);
-      if (clienIp_present) {
+      if (clientIp_present) {
         builder.append(clientIp);
       }
 

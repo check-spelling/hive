@@ -245,7 +245,7 @@ public class LoadTable {
           parentDb, tblDesc.getTableName(), tblDesc.isExternal()
       );
     }
-    // dont use TableType.EXTERNAL_TABLE.equals(tblDesc.tableType()) since this comes in as managed always for tables.
+    // don't use TableType.EXTERNAL_TABLE.equals(tblDesc.tableType()) since this comes in as managed always for tables.
     if (tblDesc.isExternal()) {
       if (tblDesc.getLocation() == null) {
         // this is the use case when the table got converted to external table as part of migration

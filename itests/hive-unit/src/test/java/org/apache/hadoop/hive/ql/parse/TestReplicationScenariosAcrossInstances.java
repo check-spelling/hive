@@ -933,7 +933,7 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
   }
 
   @Test
-  public void testShouldDumpMetaDataForNonNativeTableIfSetMeataDataOnly() throws Throwable {
+  public void testShouldDumpMetaDataForNonNativeTableIfSetMetaDataOnly() throws Throwable {
     String tableName = testName.getMethodName() + "_table";
     String createTableQuery =
             "CREATE TABLE " + tableName + " ( serde_id bigint COMMENT 'from deserializer', name string "
@@ -1572,7 +1572,7 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
             .run("insert into table t1 values ('testCheck')")
             .run("create table t2 (place string) partitioned by (country string)")
             .run("insert into table t2 partition(country='china') values ('shenzhen')")
-            .run("insert into table t2 partition(country='india') values ('banaglore')")
+            .run("insert into table t2 partition(country='india') values ('bangalore')")
             .dump(primaryDbName);
 
     // fail setting ckpt directory property for table t1.
@@ -1590,8 +1590,8 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
       }
     };
 
-    // Fail repl load before the ckpt proeprty is set for t1 and after it is set for t2. So in the next run, for
-    // t2 it goes directly to partion load with no task for table tracker and for t1 it loads the table
+    // Fail repl load before the ckpt property is set for t1 and after it is set for t2. So in the next run, for
+    // t2 it goes directly to partition load with no task for table tracker and for t1 it loads the table
     // again from start.
     InjectableBehaviourObjectStore.setAlterTableModifier(callerVerifier);
     try {
@@ -1918,7 +1918,7 @@ public class TestReplicationScenariosAcrossInstances extends BaseReplicationAcro
   @Test
   public void testRangerReplicationRetryExhausted() throws Throwable {
     List<String> clause = Arrays.asList("'" + HiveConf.ConfVars.REPL_INCLUDE_AUTHORIZATION_METADATA + "'='true'",
-      "'" + HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY + "'='1s'", "'" + HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION
+      "'" + HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY + "'='1s'", "'" + HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION
         + "'='30s'", "'" + HiveConf.ConfVars.HIVE_IN_TEST_REPL + "'='false'", "'" + HiveConf.ConfVars.HIVE_IN_TEST
         + "'='false'");
     List<String> testClause = Arrays.asList("'hive.repl.include.authorization.metadata'='true'",

@@ -112,9 +112,9 @@ public class TestParser {
         expandTestProperties(excludedTests, properties);
       }
       Set<String> isolatedTests = Sets.newHashSet();
-      for(String ioslatedTestGroup : TEST_SPLITTER.split(testContext.getString("isolate", ""))) {
+      for(String isolatedTestGroup : TEST_SPLITTER.split(testContext.getString("isolate", ""))) {
         isolatedTests.addAll(Arrays.asList(testContext.
-            getString(Joiner.on(".").join("groups", ioslatedTestGroup), "").trim().split(" ")));
+            getString(Joiner.on(".").join("groups", isolatedTestGroup), "").trim().split(" ")));
         expandTestProperties(isolatedTests, properties);
       }
 
@@ -158,7 +158,7 @@ public class TestParser {
     List<String> testBatch = Lists.newArrayList();
     for(final String test : qFileTestNames) {
       if(excluded.contains(test)) {
-        logger.info("Exlcuding test " + driver + " " + test);
+        logger.info("Excluding test " + driver + " " + test);
       } else if(isolated.contains(test)) {
         logger.info("Executing isolated test " + driver + " " + test);
         testBatches.add(new QFileTestBatch(batchIdCounter, testCasePropertyName, driver, queryFilesProperty,
@@ -234,7 +234,7 @@ public class TestParser {
         String result = (String) props.get(propValue);
         if (result == null || result.isEmpty()) {
           logger.warn("No properties found in file: " + propName + " for property: " + propValue);
-          throw new IllegalArgumentException("No propertifies found in file: " + propName + " for property: " + propValue);
+          throw new IllegalArgumentException("No properties found in file: " + propName + " for property: " + propValue);
         }
         Iterable<String> splits = TEST_SPLITTER.split(result);
         for (String split : splits) {

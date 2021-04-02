@@ -68,8 +68,8 @@ public class TestServer {
   @Test
   public void testVerifyPropertyParam() {
     // HIVE-15410: Though there are not restrictions to Hive table property key and it could be any
-    // combination of the letters, digits and even punctuations, we support conventional property
-    // name in WebHCat (e.g. prepery name starting with a letter or digit probably with period (.),
+    // combination of the letters, digits and even punctuation, we support conventional property
+    // name in WebHCat (e.g. property name starting with a letter or digit probably with period (.),
     // underscore (_) and hyphen (-) only in the middle like auto.purge, last_modified_by etc)
     String [] validTblProperties = {"abcd", "Abcd", "1Abcd", "abc1d", "Abcd.efgh", "Abcd-efgh",
         "Abcd_efgh", "A", "b", "1"};

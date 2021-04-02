@@ -25,7 +25,7 @@ import org.apache.hadoop.hive.common.metrics.common.MetricsConstant;
 import org.apache.hadoop.hive.conf.HiveConf;
 
 /**
- * Abstract class for connection metrics tests. Implementors of this class are
+ * Abstract class for connection metrics tests. Implementers of this class are
  * {@link TestHs2ConnectionMetricsBinary} and {@link TestHs2ConnectionMetricsBinary}. These two
  * classes are responsible for testing the connection metrics either in binary or in http mode.
  */

@@ -237,10 +237,10 @@ import java.util.function.Predicate;
         table.getParameters()
             .get(KafkaTableProperties.WRITE_SEMANTIC_PROPERTY.getName())
             .equals(KafkaOutputFormat.WriteSemantic.EXACTLY_ONCE.name());
-    String optimiticCommitVal = table.getParameters().get(KafkaTableProperties.HIVE_KAFKA_OPTIMISTIC_COMMIT.getName());
-    boolean isTwoPhaseCommit = !Boolean.parseBoolean(optimiticCommitVal);
+    String optimisticCommitVal = table.getParameters().get(KafkaTableProperties.HIVE_KAFKA_OPTIMISTIC_COMMIT.getName());
+    boolean isTwoPhaseCommit = !Boolean.parseBoolean(optimisticCommitVal);
     if (!isExactlyOnce || !isTwoPhaseCommit) {
-      //Case it is not 2 phase commit no open transaction to handel.
+      //Case it is not 2 phase commit no open transaction to handle.
       return;
     }
 
@@ -277,7 +277,7 @@ import java.util.function.Predicate;
       @Override public Void perform() throws Exception {
         assert producersMap.size() == 0;
         transactionsMap.forEach((key, value) -> {
-          // Base Producer propeties, missing the transaction Id.
+          // Base Producer properties, missing the transaction Id.
           baseProducerPros.setProperty(ProducerConfig.TRANSACTIONAL_ID_CONFIG, key);
           HiveKafkaProducer<byte[], byte[]> producer = new HiveKafkaProducer<>(baseProducerPros);
           producer.resumeTransaction(value.getLeft(), value.getRight());
@@ -297,9 +297,9 @@ import java.util.function.Predicate;
       }
     };
     final Predicate<Throwable>
-        isRetrayable = (error) -> !KafkaUtils.exceptionIsFatal(error) && !(error instanceof ProducerFencedException);
+        isRetryable = (error) -> !KafkaUtils.exceptionIsFatal(error) && !(error instanceof ProducerFencedException);
     try {
-      RetryUtils.retry(buildProducersTask, isRetrayable, cleanUpTheMap, maxTries, "Error while Builing Producers");
+      RetryUtils.retry(buildProducersTask, isRetryable, cleanUpTheMap, maxTries, "Error while Building Producers");
     } catch (Exception e) {
       // Can not go further
       LOG.error("Can not fetch build produces due [{}]", e);
@@ -325,14 +325,14 @@ import java.util.function.Predicate;
     };
 
     try {
-      RetryUtils.retry(commitTask, isRetrayable, maxTries);
+      RetryUtils.retry(commitTask, isRetryable, maxTries);
     } catch (Exception e) {
-      // at this point we are in a funky state if one commit happend!! close and log it
+      // at this point we are in a funky state if one commit happened!! close and log it
       producersMap.forEach((key, producer) -> producer.close(0, TimeUnit.MILLISECONDS));
       LOG.error("Commit transaction failed", e);
       if (committedTx.size() > 0) {
-        LOG.error("Partial Data Got Commited Some actions need to be Done");
-        committedTx.stream().forEach(key -> LOG.error("Transaction [{}] is an orphen commit", key));
+        LOG.error("Partial Data Got Committed Some actions need to be Done");
+        committedTx.stream().forEach(key -> LOG.error("Transaction [{}] is an orphan commit", key));
       }
       throw new MetaException(e.getMessage());
     }
@@ -348,13 +348,13 @@ import java.util.function.Predicate;
       RetryUtils.retry(cleanQueryDirTask, (error) -> error instanceof IOException, maxTries);
     } catch (Exception e) {
       //just log it
-      LOG.error("Faild to clean Query Working Directory [{}] due to [{}]", queryWorkingDir, e.getMessage());
+      LOG.error("Failed to clean Query Working Directory [{}] due to [{}]", queryWorkingDir, e.getMessage());
     }
   }
 
   @Override public void preInsertTable(Table table, boolean overwrite) throws MetaException {
     if (overwrite) {
-      throw new MetaException("Kafa Table does not support the overwite SQL Smentic");
+      throw new MetaException("Kafka Table does not support the overwrite SQL Semantic");
     }
   }
 

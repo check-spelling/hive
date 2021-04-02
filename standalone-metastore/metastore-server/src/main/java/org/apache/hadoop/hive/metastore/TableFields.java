@@ -26,7 +26,7 @@ import java.util.*;
 
 // This class validates the Table fields and creates a mapping to the JDO Column names. When DirectSQL is implemented
 // this class should be integrated with the PartitionProjectionEvaluator class. The PartitionProjectionEvaluator class
-// should be converted to a tempalte that works for both partition and tables.
+// should be converted to a template that works for both partition and tables.
 public class TableFields {
     // this map stores all the single valued fields in the table class and maps them to the corresponding
     // single-valued fields from the MTable class. This map is used to parse the given table fields.

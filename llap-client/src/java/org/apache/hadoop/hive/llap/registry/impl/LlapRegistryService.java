@@ -132,7 +132,7 @@ public class LlapRegistryService extends AbstractService {
     if (this.registry != null) {
       this.registry.stop();
     } else {
-      LOG.warn("Stopping non-existent registry service");
+      LOG.warn("Stopping nonexistent registry service");
     }
   }
 
@@ -166,8 +166,8 @@ public class LlapRegistryService extends AbstractService {
       throw new IllegalStateException("Not allowed to call lockForConfigChange before serviceInit");
     }
     if (isDynamic) {
-      LlapZookeeperRegistryImpl zkRegisty = (LlapZookeeperRegistryImpl)registry;
-      return zkRegisty.lockForConfigChange(windowStart, windowEnd);
+      LlapZookeeperRegistryImpl zkRegistry = (LlapZookeeperRegistryImpl)registry;
+      return zkRegistry.lockForConfigChange(windowStart, windowEnd);
     } else {
       throw new UnsupportedOperationException("Acquiring config lock is only allowed for dynamic registries");
     }

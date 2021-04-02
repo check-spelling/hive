@@ -191,7 +191,7 @@ import static org.apache.hadoop.hive.conf.HiveConf.ConfVars.*;
  * -- A boolean field indicating whether or not the file is block compressed.
  * -- This field is *always* false. According to comments in the original
  * -- RCFile implementation this field was retained for backwards
- * -- compatability with the SequenceFile format.
+ * -- compatibility with the SequenceFile format.
  *
  * file-is-block-compressed ::= Byte[1] {false}
  *

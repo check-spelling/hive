@@ -276,7 +276,7 @@ public class HyperLogLog implements NumDistinctValueEstimator {
   }
 
   public long estimateNumDistinctValues() {
-    // FMSketch treats the ndv of all nulls as 1 but hll treates the ndv as 0.
+    // FMSketch treats the ndv of all nulls as 1 but hll treats the ndv as 0.
     // In order to get rid of divide by 0 problem, we follow FMSketch
     return count() > 0 ? count() : 1;
   }

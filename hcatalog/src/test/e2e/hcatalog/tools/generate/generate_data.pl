@@ -45,7 +45,7 @@ sub randomName()
 our @city = ("albuquerque", "bombay", "calcutta", "danville", "eugene",
     "frankfurt", "grenoble", "harrisburg", "indianapolis",
     "jerusalem", "kellogg", "lisbon", "marseilles",
-    "nice", "oklohoma city", "paris", "queensville", "roswell",
+    "nice", "oklahoma city", "paris", "queensville", "roswell",
     "san francisco", "twin falls", "umatilla", "vancouver", "wheaton",
     "xacky", "youngs town", "zippy");
 
@@ -68,8 +68,8 @@ sub randomState()
 our @classname = ("american history", "biology", "chemistry", "debate",
     "education", "forestry", "geology", "history", "industrial engineering",
     "joggying", "kindergarten", "linguistics", "mathematics", "nap time",
-    "opthamology", "philosophy", "quiet hour", "religion", "study skills",
-    "topology", "undecided", "values clariffication", "wind surfing", 
+    "ophthalmology", "philosophy", "quiet hour", "religion", "study skills",
+    "topology", "undecided", "values clarification", "wind surfing", 
     "xylophone band", "yard duty", "zync studies");
 
 sub randomClass()
@@ -294,13 +294,13 @@ my $testvar = "\N{U+03b1}\N{U+03b3}\N{U+03b1}\N{U+03c0}\N{U+03b7}";
 
 sub getBulkCopyCmd($$;$)
 {
-    my ($tableName, $delimeter, $filename) = @_;
+    my ($tableName, $delimiter, $filename) = @_;
 
     $filename = $tableName if (!defined($filename));
         
     return "load data local infile '" . cwd . "/$filename'
             into table $tableName
-            columns terminated by '$delimeter';" 
+            columns terminated by '$delimiter';" 
 }
 
 sub generateSecondHalfCreateTable($$$;$$$)

@@ -31,7 +31,7 @@ import org.junit.Test;
 public class TestOptionsProcessor {
 
   /**
-   * test pase parameters for Hive
+   * test passes parameters for Hive
    */
   @Test
   public void testOptionsProcessor() {

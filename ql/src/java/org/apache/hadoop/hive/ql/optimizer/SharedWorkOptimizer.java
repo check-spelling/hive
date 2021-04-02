@@ -316,13 +316,13 @@ public class SharedWorkOptimizer extends Transform {
     /**
      * Fuses two filtered table scans into a single one.
      *
-     * Dynamic filter subtree is kept on both sides - but the table is onlt scanned once.
+     * Dynamic filter subtree is kept on both sides - but the table is only scanned once.
      */
     DPPUnion;
   }
 
   /**
-   * Analyzes the TS and exposes dynamic filters separetly.
+   * Analyzes the TS and exposes dynamic filters separately.
    */
   static class DecomposedTs {
 
@@ -570,7 +570,7 @@ public class SharedWorkOptimizer extends Transform {
         // A shared TSop across branches can not have probeContext that utilizes single branch info
         // Filtered-out rows from one branch might be needed by another branch sharing a TSop
         if (retainableTsOp.getProbeDecodeContext() != null) {
-          LOG.debug("Removing probeDecodeCntx for merged TS op {}", retainableTsOp);
+          LOG.debug("Removing probeDecodeContext for merged TS op {}", retainableTsOp);
           retainableTsOp.setProbeDecodeContext(null);
           retainableTsOp.getConf().setProbeDecodeContext(null);
         }
@@ -725,14 +725,14 @@ public class SharedWorkOptimizer extends Transform {
 
   private static void downStreamMerge(Operator<?> op, SharedWorkOptimizerCache optimizerCache, ParseContext pctx)
       throws SemanticException {
-    List<Operator<?>> childs = op.getChildOperators();
-    for (int i = 0; i < childs.size(); i++) {
-      Operator<?> cI = childs.get(i);
+    List<Operator<?>> children = op.getChildOperators();
+    for (int i = 0; i < children.size(); i++) {
+      Operator<?> cI = children.get(i);
       if (cI instanceof ReduceSinkOperator || cI instanceof JoinOperator || cI.getParentOperators().size() != 1) {
         continue;
       }
-      for (int j = i + 1; j < childs.size(); j++) {
-        Operator<?> cJ = childs.get(j);
+      for (int j = i + 1; j < children.size(); j++) {
+        Operator<?> cJ = children.get(j);
         if (cI.logicalEquals(cJ)) {
           LOG.debug("downstream merge: from {} into {}", cJ, cI);
           adoptChildren(cI, cJ);
@@ -1676,7 +1676,7 @@ public class SharedWorkOptimizer extends Transform {
 
       if (StringUtils.equals(op1Conf.getKeyColString(), op2Conf.getKeyColString()) &&
         StringUtils.equals(op1Conf.getValueColsString(), op2Conf.getValueColsString()) &&
-        StringUtils.equals(op1Conf.getParitionColsString(), op2Conf.getParitionColsString()) &&
+        StringUtils.equals(op1Conf.getPartitionColsString(), op2Conf.getPartitionColsString()) &&
         op1Conf.getTag() == op2Conf.getTag() &&
         StringUtils.equals(op1Conf.getOrder(), op2Conf.getOrder()) &&
         StringUtils.equals(op1Conf.getNullOrder(), op2Conf.getNullOrder()) &&
@@ -1803,7 +1803,7 @@ public class SharedWorkOptimizer extends Transform {
     Set<OperatorGraph.Cluster> cc2 = og.clusterOf(op2).childClusters(edgePredicate);
 
     if (!Collections.disjoint(cc1, cc2)) {
-      LOG.debug("merge would create an unsupported parallel edge(CHILDS)", op1, op2);
+      LOG.debug("merge would create an unsupported parallel edge(CHILDren)", op1, op2);
       return false;
     }
 
@@ -1812,7 +1812,7 @@ public class SharedWorkOptimizer extends Transform {
       return false;
     }
 
-    // 4) We check whether we will end up with same operators inputing on same work.
+    // 4) We check whether we will end up with same operators inputting on same work.
     //
     //       Work1        (merge TS in W2 & W3)        Work1
     //       /   \                  ->                  | |       X

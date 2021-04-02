@@ -61,7 +61,7 @@ public final class MetaStoreFactoryForTests {
     MetastoreConf.setLongVar(conf, MetastoreConf.ConfVars.BATCH_RETRIEVE_OBJECTS_MAX, 2);
     MetastoreConf.setLongVar(conf, MetastoreConf.ConfVars.LIMIT_PARTITION_REQUEST,
         DEFAULT_LIMIT_PARTITION_REQUEST);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     // Do this only on your own peril, and never in the production code
     conf.set("datanucleus.autoCreateTables", "false");

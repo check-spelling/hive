@@ -37,8 +37,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * MuxOperator is used in the Reduce side of MapReduce jobs optimized by Correlation Optimizer.
- * Correlation Optimizer will remove unnecessary ReduceSinkOperaotrs,
- * and MuxOperators are used to replace those ReduceSinkOperaotrs.
+ * Correlation Optimizer will remove unnecessary ReduceSinkOperators,
+ * and MuxOperators are used to replace those ReduceSinkOperators.
  * Example: The original operator tree is ...
  *      JOIN2
  *      /    \
@@ -219,7 +219,7 @@ public class MuxOperator extends Operator<MuxDesc> implements Serializable{
   }
 
   /**
-   * Calls initialize on each of the children with outputObjetInspector as the
+   * Calls initialize on each of the children with outputObjectInspector as the
    * output row format.
    */
   @Override

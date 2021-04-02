@@ -593,7 +593,7 @@ import com.google.common.annotations.VisibleForTesting;
   }
 
   // Set of GenericUDFs which require need implicit type casting of decimal parameters.
-  // Vectorization for mathmatical functions currently depends on decimal params automatically
+  // Vectorization for mathematical functions currently depends on decimal params automatically
   // being converted to the return type (see getImplicitCastExpression()), which is not correct
   // in the general case. This set restricts automatic type conversion to just these functions.
   private static final Set<Class<?>> udfsNeedingImplicitDecimalCast = new HashSet<>();
@@ -842,14 +842,14 @@ import com.google.common.annotations.VisibleForTesting;
   /**
    * Marks all actual scratch columns.
    *
-   * They can be decomissioned with {@link #freeMarkedScratchColumns()}.
+   * They can be decommissioned with {@link #freeMarkedScratchColumns()}.
    */
   public void markActualScratchColumns() {
     ocm.markScratchColumns();
   }
 
   /**
-   * Frees up actually marked scract columns.
+   * Frees up actually marked scratch columns.
    */
   public void freeMarkedScratchColumns() {
     ocm.freeMarkedScratchColumns();

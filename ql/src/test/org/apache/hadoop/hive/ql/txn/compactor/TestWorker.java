@@ -577,12 +577,12 @@ public class TestWorker extends CompactorTest {
   }
 
   /**
-   * These tests are starting to be a hack.  The files writtern by addDeltaFile() are not proper
+   * These tests are starting to be a hack.  The files written by addDeltaFile() are not proper
    * Acid files and the {@link CompactorTest.MockRawReader} performs no merging of delta files and
    * fakes isDelete() as a shortcut.  This makes files created on disk to not be representative of
    * what they should look like in a real system.
    * Making {@link org.apache.hadoop.hive.ql.txn.compactor.CompactorTest.MockRawReader} do proper
-   * delete event handling would be duplicating either OrcRawRecordMerger or VectorizedOrcAcidRowBatchReaer.
+   * delete event handling would be duplicating either OrcRawRecordMerger or VectorizedOrcAcidRowBatchReader.
    * @param type
    * @throws Exception
    */

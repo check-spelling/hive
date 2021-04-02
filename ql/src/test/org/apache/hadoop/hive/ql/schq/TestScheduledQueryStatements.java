@@ -148,14 +148,14 @@ public class TestScheduledQueryStatements {
   @Test(expected = CommandProcessorException.class)
   public void testNonExistentTable1() throws ParseException, Exception {
     IDriver driver = createDriver();
-    driver.run("create scheduled query nonexist cron '* * * * * ? *' as select 1 from nonexist");
+    driver.run("create scheduled query nonexistent cron '* * * * * ? *' as select 1 from nonexistent");
   }
 
   @Test(expected = CommandProcessorException.class)
   public void testNonExistentTable2() throws ParseException, Exception {
     IDriver driver = createDriver();
     driver.run("use asd");
-    driver.run("create scheduled query nonexist2 cron '* * * * * ? *' as select 1 from tu");
+    driver.run("create scheduled query nonexistent2 cron '* * * * * ? *' as select 1 from tu");
   }
 
   @Test

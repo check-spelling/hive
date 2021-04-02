@@ -690,7 +690,7 @@ public class VectorColumnGroupGenerator {
     case STRUCT:
     case UNION:
     default:
-      throw new RuntimeException("Unepected generate category " + category);
+      throw new RuntimeException("Unexpected generate category " + category);
     }
   }
 }

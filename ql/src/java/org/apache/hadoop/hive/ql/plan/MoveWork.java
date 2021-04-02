@@ -47,7 +47,7 @@ public class MoveWork implements Serializable {
   private transient ReplicationMetricCollector metricCollector;
 
   /**
-   * ReadEntitites that are passed to the hooks.
+   * ReadEntities that are passed to the hooks.
    */
   protected Set<ReadEntity> inputs;
   /**

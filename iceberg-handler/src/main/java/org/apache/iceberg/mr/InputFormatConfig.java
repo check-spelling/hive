@@ -56,7 +56,7 @@ public class InputFormatConfig {
   public static final String EXTERNAL_TABLE_PURGE = "external.table.purge";
   public static final String FILE_IO = "iceberg.mr.file.io";
   public static final String LOCATION_PROVIDER = "iceberg.mr.location.provider";
-  public static final String ENCRYPTION_MANAGER = "iceberg.mr.encription.manager";
+  public static final String ENCRYPTION_MANAGER = "iceberg.mr.encryption.manager";
 
   public static final String COMMIT_THREAD_POOL_SIZE = "iceberg.mr.commit.thread.pool.size";
   public static final int COMMIT_THREAD_POOL_SIZE_DEFAULT = 10;

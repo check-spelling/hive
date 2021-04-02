@@ -62,7 +62,7 @@ public class ScriptErrorHeuristic extends RegexErrorHeuristic {
           String errorCode = m2.group();
 
           es = new ErrorAndSolution(
-            "A user-supplied transfrom script has exited with error code " +
+            "A user-supplied transform script has exited with error code " +
             errorCode + " instead of 0.",
             "Verify that the script can properly handle all the input rows " +
             "without throwing exceptions and exits properly.");

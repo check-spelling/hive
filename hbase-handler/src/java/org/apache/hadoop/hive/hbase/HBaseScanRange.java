@@ -54,7 +54,7 @@ public class HBaseScanRange implements Serializable {
 
   public void addFilter(Filter filter) throws Exception {
     Class<? extends Filter> clazz = filter.getClass();
-    clazz.getMethod("parseFrom", byte[].class);   // valiade
+    clazz.getMethod("parseFrom", byte[].class);   // validate
     filterDescs.add(new FilterDesc(clazz.getName(), filter.toByteArray()));
   }
 

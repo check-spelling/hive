@@ -121,7 +121,7 @@ public class HiveAccumuloTableInputFormat implements
           log.info("Job credential tokens: " + jobConf.getCredentials().getAllTokens());
           AuthenticationToken unwrappedToken = ConfiguratorBase.unwrapAuthenticationToken(jobConf, token);
           log.info("Converted authentication token from Configuration into: " + unwrappedToken);
-          // It's possible that the Job doesn't have the token in its credentials. In this case, unwrapAuthenticatinoToken
+          // It's possible that the Job doesn't have the token in its credentials. In this case, unwrapAuthenticationToken
           // will return back the original token (which we know is insufficient)
           if (unwrappedToken != token) {
             log.info("Creating Accumulo Connector with unwrapped delegation token");
@@ -211,7 +211,7 @@ public class HiveAccumuloTableInputFormat implements
 
       log.info("Split: " + rangeSplit);
 
-      // The RangeInputSplit *should* have all of the necesary information contained in it
+      // The RangeInputSplit *should* have all of the necessary information contained in it
       // which alleviates us from re-parsing our configuration from the AccumuloStorageHandler
       // and re-setting it into the Configuration (like we did in getSplits(...)). Thus, it should
       // be unnecessary to re-invoke configure(...)

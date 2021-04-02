@@ -518,7 +518,7 @@ public class UpgradeTool {
     if(!TableType.MANAGED_TABLE.name().equalsIgnoreCase(t.getTableType())) {
       return;
     }
-    //todo: are HBase, Druid talbes managed in 2.x? 3.0?
+    //todo: are HBase, Druid tables managed in 2.x? 3.0?
     String fullTableName = Warehouse.getQualifiedName(t);
     /*
      * ORC uses table props for settings so things like bucketing, I/O Format, etc should
@@ -530,7 +530,7 @@ public class UpgradeTool {
         convertToAcid.add("ALTER TABLE " + Warehouse.getQualifiedName(t) + " SET TBLPROPERTIES (" +
             "'transactional'='true')");
         //do this before alterTable in case files need to be renamed, else
-        // TransactionalMetastoreListerner will squak
+        // TransactionalMetastoreListener will squak
         handleRenameFiles(t, new Path(t.getSd().getLocation()), execute, db.getConf(),
             t.getSd().getBucketColsSize() > 0, pw);
         if(execute) {
@@ -653,9 +653,9 @@ public class UpgradeTool {
       //cannot be acid
       return false;
     }
-    String transacationalValue = t.getParameters()
+    String transactionalValue = t.getParameters()
         .get(hive_metastoreConstants.TABLE_IS_TRANSACTIONAL);
-    if (transacationalValue != null && "true".equalsIgnoreCase(transacationalValue)) {
+    if (transactionalValue != null && "true".equalsIgnoreCase(transactionalValue)) {
       System.out.println("Found Acid table: " + Warehouse.getQualifiedName(t));
       return true;
     }

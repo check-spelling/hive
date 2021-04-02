@@ -395,7 +395,7 @@ public class TestHiveMetaStoreTxns {
   @BeforeClass
   public static void setUpDB() throws Exception {
     conf.setBoolean(ConfVars.HIVE_IN_TEST.getVarname(), true);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     TestTxnDbUtil.setConfValues(conf);
     TestTxnDbUtil.prepDb(conf);
     client = new HiveMetaStoreClient(conf);

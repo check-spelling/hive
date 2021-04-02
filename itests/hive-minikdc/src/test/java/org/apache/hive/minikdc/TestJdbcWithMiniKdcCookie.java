@@ -57,7 +57,7 @@ public class TestJdbcWithMiniKdcCookie {
   @Parameterized.Parameter
   public String transportMode =  null;
 
-  @Parameterized.Parameters(name = "{index}: tranportMode={0}")
+  @Parameterized.Parameters(name = "{index}: transportMode={0}")
   public static Collection<Object[]> transportModes() {
     return Arrays.asList(new Object[][]{{MiniHS2.HS2_ALL_MODE}, {MiniHS2.HS2_HTTP_MODE}});
   }
@@ -121,7 +121,7 @@ public class TestJdbcWithMiniKdcCookie {
 
   public void testCookieNegative() throws Exception {
     try {
-      // Trying to connect with a non-existent user should still fail with
+      // Trying to connect with a nonexistent user should still fail with
       // login failure.
       getConnection(HIVE_NON_EXISTENT_USER);
     } catch (IOException e) {

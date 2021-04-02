@@ -479,8 +479,8 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
     BigTableSelectorForAutoSMJ bigTableMatcher =
         ReflectionUtils.newInstance(bigTableMatcherClass, null);
     JoinDesc joinDesc = joinOp.getConf();
-    JoinCondDesc[] joinCondns = joinDesc.getConds();
-    Set<Integer> joinCandidates = MapJoinProcessor.getBigTableCandidates(joinCondns);
+    JoinCondDesc[] joinConds = joinDesc.getConds();
+    Set<Integer> joinCandidates = MapJoinProcessor.getBigTableCandidates(joinConds);
     if (joinCandidates.isEmpty()) {
       // This is a full outer join. This can never be a map-join
       // of any type. So return false.
@@ -717,7 +717,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
   private void preserveOperatorInfos(Operator<?> newOp, Operator<?> oldOp, OptimizeTezProcContext context) {
     newOp.setStatistics(oldOp.getStatistics());
     // linking these two operator declares that they are representing the same thing
-    // currently important because statistincs are actually gather for newOp; but the lookup is done using oldOp
+    // currently important because statistics are actually gather for newOp; but the lookup is done using oldOp
     context.parseContext.getContext().getPlanMapper().link(oldOp, newOp);
   }
 
@@ -834,7 +834,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
         if (bucketingVersion == -1) {
           bucketingVersion = localVersion;
         } else if (bucketingVersion != localVersion) {
-          // versions dont match, return false.
+          // versions don't match, return false.
           LOG.debug("SMB Join can't be performed due to bucketing version mismatch");
           return false;
         }
@@ -1596,7 +1596,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
     }
     // Calculate number of different entries and evaluate
     ReduceSinkOperator rsOp = (ReduceSinkOperator) joinOp.getParentOperators().get(position);
-    List<String> keys = StatsUtils.getQualifedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
+    List<String> keys = StatsUtils.getQualifiedReducerKeyNames(rsOp.getConf().getOutputKeyColumnNames());
     Statistics inputStats = rsOp.getStatistics();
     List<ColStatistics> columnStats = new ArrayList<>();
     for (String key : keys) {
@@ -1646,7 +1646,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
   private static long estimateNDV(long numRows, List<ColStatistics> columnStats) {
     // If there is a single column, return the number of distinct values
     if (columnStats.size() == 1) {
-      return columnStats.get(0).getCountDistint();
+      return columnStats.get(0).getCountDistinct();
     }
 
     // The expected number of distinct values when choosing p values
@@ -1657,7 +1657,7 @@ public class ConvertJoinMapJoin implements SemanticNodeProcessor {
     // distributed attribute with N1 * ... * Nm distinct values.
     long n = 1L;
     for (ColStatistics cs : columnStats) {
-      final long ndv = cs.getCountDistint();
+      final long ndv = cs.getCountDistinct();
       if (ndv > 1) {
         n = StatsUtils.safeMult(n, ndv);
       }

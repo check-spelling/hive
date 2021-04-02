@@ -69,7 +69,7 @@ public class TestPartitionManagement {
     conf = MetastoreConf.newMetastoreConf();
     conf.setClass(MetastoreConf.ConfVars.EXPRESSION_PROXY_CLASS.getVarname(),
       MsckPartitionExpressionProxy.class, PartitionExpressionProxy.class);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     conf.setBoolean(ConfVars.MULTITHREADED.getVarname(), false);
     conf.setBoolean(ConfVars.HIVE_IN_TEST.getVarname(), true);
     MetaStoreTestUtils.startMetaStoreWithRetry(HadoopThriftAuthBridge.getBridge(), conf);
@@ -164,7 +164,7 @@ public class TestPartitionManagement {
         throw new IllegalArgumentException("partKeys and partKeyTypes size should be same");
       }
       if (partVals.isEmpty()) {
-        throw new IllegalArgumentException("partVals cannot be empty for patitioned table");
+        throw new IllegalArgumentException("partVals cannot be empty for partitioned table");
       }
       for (int i = 0; i < partKeys.size(); i++) {
         tb.addPartCol(partKeys.get(i), partKeyTypes.get(i));

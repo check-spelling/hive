@@ -46,7 +46,7 @@ public class NumericOpMethodResolver implements UDFMethodResolver {
   Class<? extends UDF> udfClass;
 
   /**
-   * Constuctor.
+   * Constructor.
    */
   public NumericOpMethodResolver(Class<? extends UDF> udfClass) {
     this.udfClass = udfClass;

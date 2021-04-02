@@ -351,7 +351,7 @@ public class StatsUpdaterThread extends Thread implements MetaStoreThread {
       LOG.debug("Processing partition ({} in batch), {}", currentIxInBatch, partName);
 
       // Skip the partitions in progress, and the ones for which stats update is disabled.
-      // We could filter the skipped partititons out as part of the initial names query,
+      // We could filter the skipped partitions out as part of the initial names query,
       // but we assume it's extremely rare for individual partitions.
       Map<String, String> params = part.getParameters();
       String skipParam = params.get(SKIP_STATS_AUTOUPDATE_PROPERTY);

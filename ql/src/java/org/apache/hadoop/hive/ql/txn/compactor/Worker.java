@@ -166,7 +166,7 @@ public class Worker extends RemoteCompactorThread implements MetaStoreThread {
     private StatsUpdater(CompactionInfo ci, List<String> columnListForStats,
         HiveConf conf, String userName) {
       this.conf = new HiveConf(conf);
-      //so that Driver doesn't think it's arleady in a transaction
+      //so that Driver doesn't think it's already in a transaction
       this.conf.unset(ValidTxnList.VALID_TXNS_KEY);
       this.userName = userName;
       this.ci = ci;
@@ -654,7 +654,7 @@ public class Worker extends RemoteCompactorThread implements MetaStoreThread {
   private class CompactionTxn implements AutoCloseable {
     private long txnId = 0;
     private TxnStatus status = TxnStatus.UNKNOWN;
-    private boolean succeessfulCompaction = false;
+    private boolean successfulCompaction = false;
 
     /**
      * Try to open a new txn.
@@ -673,7 +673,7 @@ public class Worker extends RemoteCompactorThread implements MetaStoreThread {
      * Mark compaction as successful. This means the txn will be committed; otherwise it will be aborted.
      */
     void wasSuccessful() {
-      this.succeessfulCompaction = true;
+      this. = true;
     }
 
     /**
@@ -684,7 +684,7 @@ public class Worker extends RemoteCompactorThread implements MetaStoreThread {
       if (status == TxnStatus.UNKNOWN) {
         return;
       }
-      if (succeessfulCompaction) {
+      if () {
         commit();
       } else {
         abort();

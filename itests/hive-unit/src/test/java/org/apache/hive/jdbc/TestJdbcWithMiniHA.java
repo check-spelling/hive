@@ -176,7 +176,7 @@ public class TestJdbcWithMiniHA {
     stmt.execute("DROP TABLE " + tableName);
   }
 
-  // create table and pupulate with kv1.txt
+  // create table and populate with kv1.txt
   private void setupKv1Tabs(String tableName) throws SQLException {
     Statement stmt = hs2Conn.createStatement();
     // create table
@@ -189,7 +189,7 @@ public class TestJdbcWithMiniHA {
         + dataFilePath.toString() + "' into table " + tableName);
   }
 
-  // run given query and validate expecated result
+  // run given query and validate expected result
   private void verifyResult(String queryStr, String expString, int colPos)
       throws SQLException {
     ResultSet res = stmt.executeQuery(queryStr);

@@ -629,7 +629,7 @@ public class HiveMetaStore extends ThriftHiveMetastore {
         // This is a massive hack.  The compactor threads have to access packages in ql (such as
         // AcidInputFormat).  ql depends on metastore so we can't directly access those.  To deal
         // with this the compactor thread classes have been put in ql and they are instantiated here
-        // dyanmically.  This is not ideal but it avoids a massive refactoring of Hive packages.
+        // dynamically.  This is not ideal but it avoids a massive refactoring of Hive packages.
         //
         // Wrap the start of the threads in a catch Throwable loop so that any failures
         // don't doom the rest of the metastore.

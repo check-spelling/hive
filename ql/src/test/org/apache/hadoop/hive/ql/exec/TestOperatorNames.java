@@ -71,7 +71,7 @@ public class TestOperatorNames {
 
   /*
    * If there's a mismatch between static and object name, or a mismatch between
-   * vector and non-vector operator name, the optimizer doens't work correctly.
+   * vector and non-vector operator name, the optimizer doesn't work correctly.
    */
   @Test
   public void testOperatorNames() throws Exception {

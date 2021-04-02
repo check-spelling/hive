@@ -253,7 +253,7 @@ public class TableScanOperator extends Operator<TableScanDesc> implements
             (StructObjectInspector) inputObjInspectors[0], ObjectInspectorCopyOption.WRITABLE);
 
         for (Object o : writable) {
-          // It's possible that a parition column may have NULL value, in which case the row belongs
+          // It's possible that a partition column may have NULL value, in which case the row belongs
           // to the special partition, __HIVE_DEFAULT_PARTITION__.
           values.add(o == null ? defaultPartitionName : o.toString());
         }
@@ -361,8 +361,8 @@ public class TableScanOperator extends Operator<TableScanDesc> implements
     return "TS";
   }
 
-  public void setNeededColumnIDs(List<Integer> orign_columns) {
-    conf.setNeededColumnIDs(orign_columns);
+  public void setNeededColumnIDs(List<Integer> origin_columns) {
+    conf.setNeededColumnIDs(origin_columns);
   }
 
   public List<Integer> getNeededColumnIDs() {

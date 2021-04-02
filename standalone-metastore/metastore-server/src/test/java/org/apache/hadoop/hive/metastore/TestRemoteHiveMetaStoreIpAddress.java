@@ -50,7 +50,7 @@ public class TestRemoteHiveMetaStoreIpAddress {
 
 
     System.setProperty(ConfVars.EVENT_LISTENERS.toString(), IpAddressListener.class.getName());
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetaStoreTestUtils.startMetaStoreWithRetry(HadoopThriftAuthBridge.getBridge(), conf);
 
     msc = new HiveMetaStoreClient(conf);

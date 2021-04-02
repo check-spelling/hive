@@ -185,7 +185,7 @@ public class SharedCache {
   public void setConcurrencyLevel(int cl){
     this.concurrencyLevel = cl;
   }
-  //number of miliseconds between size updates.
+  //number of milliseconds between size updates.
   public void setRefreshInterval(int interval){
     this.refreshInterval = interval;
   }
@@ -519,7 +519,7 @@ public class SharedCache {
     /**
      * Common method to cache constraints
      * @param constraintsList list of constraints to add to cache
-     * @param fromPrewarm is this method called as part of perwarm phase
+     * @param fromPrewarm is this method called as part of prewarm phase
      * @param mn Constraint type
      * @return memory constraint is handled by cache eviction policy hence this method will always return true
      * if correct constraint type is provided.
@@ -1090,13 +1090,13 @@ public class SharedCache {
       }
     }
 
-    public ColumStatsWithWriteId getPartitionColStats(List<String> partVal, String colName, String writeIdList) {
+    public ColumnStatsWithWriteId getPartitionColStats(List<String> partVal, String colName, String writeIdList) {
       try {
         tableLock.readLock().lock();
         ColumnStatisticsObj statisticsObj =
-            partitionColStatsCache.get(CacheUtils.buildPartitonColStatsCacheKey(partVal, colName));
+            partitionColStatsCache.get(CacheUtils.buildPartitionColStatsCacheKey(partVal, colName));
         if (statisticsObj == null || writeIdList == null) {
-          return new ColumStatsWithWriteId(-1, statisticsObj);
+          return new ColumnStatsWithWriteId(-1, statisticsObj);
         }
         PartitionWrapper wrapper = partitionCache.get(CacheUtils.buildPartitionCacheKey(partVal));
         if (wrapper == null) {
@@ -1112,7 +1112,7 @@ public class SharedCache {
           LOG.debug("Write id list " + writeIdList + " is not compatible with write id " + writeId);
           return null;
         }
-        return new ColumStatsWithWriteId(writeId, statisticsObj);
+        return new ColumnStatsWithWriteId(writeId, statisticsObj);
       } finally {
         tableLock.readLock().unlock();
       }
@@ -1133,7 +1133,7 @@ public class SharedCache {
           List<String> partVal = Warehouse.getPartValuesFromPartName(partName);
           for (String colName : colNames) {
             ColumnStatisticsObj statisticsObj =
-                partitionColStatsCache.get(CacheUtils.buildPartitonColStatsCacheKey(partVal, colName));
+                partitionColStatsCache.get(CacheUtils.buildPartitionColStatsCacheKey(partVal, colName));
             if (statisticsObj != null) {
               statObject.add(statisticsObj);
             } else {
@@ -1178,7 +1178,7 @@ public class SharedCache {
         int statsSize = 0;
         for (ColumnStatisticsObj colStatObj : colStatsObjs) {
           // Get old stats object if present
-          String key = CacheUtils.buildPartitonColStatsCacheKey(partVal, colStatObj.getColName());
+          String key = CacheUtils.buildPartitionColStatsCacheKey(partVal, colStatObj.getColName());
           ColumnStatisticsObj oldStatsObj = partitionColStatsCache.get(key);
           if (oldStatsObj != null) {
             // Update existing stat object's field
@@ -1208,7 +1208,7 @@ public class SharedCache {
       try {
         tableLock.writeLock().lock();
         ColumnStatisticsObj statsObj =
-            partitionColStatsCache.remove(CacheUtils.buildPartitonColStatsCacheKey(partVals, colName));
+            partitionColStatsCache.remove(CacheUtils.buildPartitionColStatsCacheKey(partVals, colName));
         if (statsObj != null) {
           int statsSize = getObjectSize(ColumnStatisticsObj.class, statsObj);
           updateMemberSize(MemberName.PARTITION_COL_STATS_CACHE, -1 * statsSize, SizeMode.Delta);
@@ -1262,7 +1262,7 @@ public class SharedCache {
                     + "; the partition column list we have is dirty");
                 return;
               }
-              String key = CacheUtils.buildPartitonColStatsCacheKey(partVal, colStatObj.getColName());
+              String key = CacheUtils.buildPartitionColStatsCacheKey(partVal, colStatObj.getColName());
               newPartitionColStatsCache.put(key, colStatObj.deepCopy());
               statsSize += getObjectSize(ColumnStatisticsObj.class, colStatObj);
             }
@@ -1492,11 +1492,11 @@ public class SharedCache {
     }
   }
 
-  public static class ColumStatsWithWriteId {
+  public static class ColumnStatsWithWriteId {
     private long writeId;
     private ColumnStatisticsObj columnStatisticsObj;
 
-    public ColumStatsWithWriteId(long writeId, ColumnStatisticsObj columnStatisticsObj) {
+    public ColumnStatsWithWriteId(long writeId, ColumnStatisticsObj columnStatisticsObj) {
       this.writeId = writeId;
       this.columnStatisticsObj = columnStatisticsObj;
     }
@@ -1519,7 +1519,7 @@ public class SharedCache {
         cacheLock.writeLock().lock();
         // Since we allow write operations on cache while prewarm is happening:
         // 1. Don't add databases that were deleted while we were preparing list for prewarm
-        // 2. Skip overwriting exisiting db object
+        // 2. Skip overwriting existing db object
         // (which is present because it was added after prewarm started)
         if (catalogsDeletedDuringPrewarm.contains(catCopy.getName())) {
           continue;
@@ -1622,7 +1622,7 @@ public class SharedCache {
         cacheLock.writeLock().lock();
         // Since we allow write operations on cache while prewarm is happening:
         // 1. Don't add databases that were deleted while we were preparing list for prewarm
-        // 2. Skip overwriting exisiting db object
+        // 2. Skip overwriting existing db object
         // (which is present because it was added after prewarm started)
         String key = CacheUtils.buildDbKey(dbCopy.getCatalogName().toLowerCase(), dbCopy.getName().toLowerCase());
         if (databasesDeletedDuringPrewarm.contains(key)) {
@@ -2578,9 +2578,9 @@ public class SharedCache {
     }
   }
 
-  public ColumStatsWithWriteId getPartitionColStatsFromCache(String catName, String dbName, String tblName,
+  public ColumnStatsWithWriteId getPartitionColStatsFromCache(String catName, String dbName, String tblName,
       List<String> partVal, String colName, String writeIdList) {
-    ColumStatsWithWriteId colStatObj = null;
+    ColumnStatsWithWriteId colStatObj = null;
     try {
       cacheLock.readLock().lock();
       TableWrapper tblWrapper = tableCache.getIfPresent(CacheUtils.buildTableKey(catName, dbName, tblName));
@@ -2707,7 +2707,7 @@ public class SharedCache {
   }
 
   /**
-   * This resets the contents of the cataog cache so that we can re-fill it in another test.
+   * This resets the contents of the catalog cache so that we can re-fill it in another test.
    */
   void resetCatalogCache() {
     isCatalogCachePrewarmed = false;

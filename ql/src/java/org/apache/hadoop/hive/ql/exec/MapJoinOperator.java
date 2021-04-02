@@ -122,7 +122,7 @@ public class MapJoinOperator extends AbstractMapJoinOperator<MapJoinDesc> implem
 
   /*
    * Small Table key match tracking used for FULL OUTER MapJoin.  Otherwise, null.
-   * Since the Small Table hash table can be shared among vertces, we require this non-shared object
+   * Since the Small Table hash table can be shared among vertices, we require this non-shared object
    * for our vertex (i.e. operator private) key match tracking.
    */
   protected transient MatchTracker matchTracker;
@@ -294,7 +294,7 @@ public class MapJoinOperator extends AbstractMapJoinOperator<MapJoinDesc> implem
     // This will be set during the first process call or during closeOp if no rows processed.
     matchTracker = null;
 
-    isFullOuterMapJoin = (condn.length == 1 && condn[0].getType() == JoinDesc.FULL_OUTER_JOIN);
+    isFullOuterMapJoin = (cond.length == 1 && cond[0].getType() == JoinDesc.FULL_OUTER_JOIN);
     if (isFullOuterMapJoin) {
       fullOuterBigTableRetainSize = conf.getRetainList().get(posBigTable).size();
     } else {
@@ -644,7 +644,7 @@ public class MapJoinOperator extends AbstractMapJoinOperator<MapJoinDesc> implem
   protected void generateFullOuterSmallTableNoMatches(byte smallTablePos,
       MapJoinTableContainer substituteSmallTable) throws HiveException {
 
-    // FUTURE: Currently, in the MapJoinOperaotr, we only support FULL OUTER MapJoin for
+    // FUTURE: Currently, in the MapJoinOperator, we only support FULL OUTER MapJoin for
     // FUTURE  MapJoinBytesTableContainer.  NOTE: Vectorization code will override this method.
 
     if (matchTracker == null) {

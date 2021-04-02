@@ -99,22 +99,22 @@ public class TestMacroSemanticAnalyzer {
   }
 
   @Test
-  public void testZeroInputParamters() throws Exception {
+  public void testZeroInputParameters() throws Exception {
     analyze(parse("CREATE TEMPORARY MACRO FIXED_NUMBER() 1"));
   }
 
   @Test
-  public void testOneInputParamters() throws Exception {
+  public void testOneInputParameters() throws Exception {
     analyze(parse("CREATE TEMPORARY MACRO SIGMOID (x DOUBLE) 1.0 / (1.0 + EXP(-x))"));
   }
 
   @Test
-  public void testTwoInputParamters() throws Exception {
+  public void testTwoInputParameters() throws Exception {
     analyze(parse("CREATE TEMPORARY MACRO DUMB_ADD (x INT, y INT) x + y"));
   }
 
   @Test
-  public void testThreeInputParamters() throws Exception {
+  public void testThreeInputParameters() throws Exception {
     analyze(parse("CREATE TEMPORARY MACRO DUMB_ADD (x INT, y INT, z INT) x + y + z"));
   }
 

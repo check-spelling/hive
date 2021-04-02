@@ -495,7 +495,7 @@ public interface IMetaStoreClient {
    * @param dbName database the table is in.
    * @param tableName table name.
    * @param deleteData whether associated data should be deleted.
-   * @param ignoreUnknownTable whether a non-existent table name should be ignored
+   * @param ignoreUnknownTable whether a nonexistent table name should be ignored
    * @param ifPurge whether dropped data should be immediately removed rather than placed in HDFS
    *               trash.
    * @throws MetaException something went wrong, usually in the RDBMS or storage.
@@ -515,7 +515,7 @@ public interface IMetaStoreClient {
    * @param dbName database the table is in.
    * @param tableName table name.
    * @param deleteData whether associated data should be deleted.
-   * @param ignoreUnknownTable whether a non-existent table name should be ignored
+   * @param ignoreUnknownTable whether a nonexistent table name should be ignored
    * @throws MetaException something went wrong, usually in the RDBMS or storage.
    * @throws NoSuchObjectException No table of this name exists, only thrown if
    * ignoreUnknownTable is false.
@@ -1103,7 +1103,7 @@ public interface IMetaStoreClient {
       throws MetaException, UnknownTableException, NoSuchObjectException, TException;
 
   /**
-   * Get a list of partittions for a table.
+   * Get a list of partitions for a table.
    * @param db_name database name
    * @param tbl_name table name
    * @param max_parts maximum number of parts to return, -1 for all
@@ -1116,7 +1116,7 @@ public interface IMetaStoreClient {
       throws NoSuchObjectException, MetaException, TException;
 
   /**
-   * Get a list of partittions for a table.
+   * Get a list of partitions for a table.
    * @param catName catalog name
    * @param db_name database name
    * @param tbl_name table name
@@ -1291,7 +1291,7 @@ public interface IMetaStoreClient {
   /**
    * Get a list of partition values
    * @param request request
-   * @return reponse
+   * @return response
    * @throws MetaException error accessing RDBMS
    * @throws TException thrift transport error
    * @throws NoSuchObjectException no such table
@@ -1879,7 +1879,7 @@ public interface IMetaStoreClient {
    * Drop a database.
    * @param name name of the database to drop.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a nonexistent database
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
    * ignoreUnknownDb is false.
    * @throws InvalidOperationException The database cannot be dropped because it is not empty.
@@ -1894,7 +1894,7 @@ public interface IMetaStoreClient {
    * Drop a database.
    * @param name database name.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a nonexistent database
    * @param cascade whether to drop contained tables, etc.  If this is false and there are
    *                objects still in the database the drop will fail.
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
@@ -1912,7 +1912,7 @@ public interface IMetaStoreClient {
    *                {@link Warehouse#DEFAULT_CATALOG_NAME} will be assumed.
    * @param dbName database name.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a nonexistent database
    * @param cascade whether to drop contained tables, etc.  If this is false and there are
    *                objects still in the database the drop will fail.
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
@@ -1932,7 +1932,7 @@ public interface IMetaStoreClient {
    *                {@link Warehouse#DEFAULT_CATALOG_NAME} will be assumed.
    * @param dbName database name.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a nonexistent database
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
    * ignoreUnknownDb is false.
    * @throws InvalidOperationException The database contains objects and cascade is false.
@@ -3284,7 +3284,7 @@ public interface IMetaStoreClient {
 
   /**
    * Seed or increment the global txnId to the given value.
-   * If the actual txnId is greater or equal than the seed value, it wil fail
+   * If the actual txnId is greater or equal than the seed value, it will fail
    * @param seedTxnId The seed value for the next transactions
    * @throws TException
    */
@@ -3358,7 +3358,7 @@ public interface IMetaStoreClient {
 
   /**
    * Unlock a set of locks.  This can only be called when the locks are not
-   * assocaited with a transaction.
+   * associated with a transaction.
    * @param lockid lock id returned by
    * {@link #lock(org.apache.hadoop.hive.metastore.api.LockRequest)}
    * @throws NoSuchLockException if the requested lockid does not exist.
@@ -3575,25 +3575,25 @@ public interface IMetaStoreClient {
    * get all role-grants for users/roles that have been granted the given role
    * Note that in the returned list of RolePrincipalGrants, the roleName is
    * redundant as it would match the role_name argument of this function
-   * @param getPrincRoleReq
+   * @param getPrincipalRoleReq
    * @return
    * @throws MetaException
    * @throws TException
    */
-  GetPrincipalsInRoleResponse get_principals_in_role(GetPrincipalsInRoleRequest getPrincRoleReq)
+  GetPrincipalsInRoleResponse get_principals_in_role(GetPrincipalsInRoleRequest getPrincipalRoleReq)
       throws MetaException, TException;
 
   /**
    * get all role-grants for roles that have been granted to given principal
    * Note that in the returned list of RolePrincipalGrants, the principal information
    * redundant as it would match the principal information in request
-   * @param getRolePrincReq
+   * @param getRolePrincipalReq
    * @return
    * @throws MetaException
    * @throws TException
    */
   GetRoleGrantsForPrincipalResponse get_role_grants_for_principal(
-      GetRoleGrantsForPrincipalRequest getRolePrincReq) throws MetaException, TException;
+      GetRoleGrantsForPrincipalRequest getRolePrincipalReq) throws MetaException, TException;
 
   /**
    * Get aggregated column stats for a set of partitions.
@@ -3665,7 +3665,7 @@ public interface IMetaStoreClient {
       List<Long> fileIds, ByteBuffer sarg, boolean doGetFooters) throws TException;
 
   /**
-   * Cleares the file metadata cache for respective file IDs.
+   * Clears the file metadata cache for respective file IDs.
    */
   void clearFileMetadata(List<Long> fileIds) throws TException;
 
@@ -4178,7 +4178,7 @@ public interface IMetaStoreClient {
   /**
    * Returns details about a scheduled query by name.
    * 
-   * @throws NoSuchObjectException if an object by the given name dosen't exists.
+   * @throws NoSuchObjectException if an object by the given name doesn't exists.
    */
   ScheduledQuery getScheduledQuery(ScheduledQueryKey scheduleKey) throws TException;
 

@@ -180,7 +180,7 @@ parse_pyint(PyObject* o, int32_t* ret, int32_t min, int32_t max) {
 }
 
 
-/* --- FUNCTIONS TO PARSE STRUCT SPECIFICATOINS --- */
+/* --- FUNCTIONS TO PARSE STRUCT SPECIFICATIONS --- */
 
 static bool
 parse_set_list_args(SetListTypeArgs* dest, PyObject* typeargs) {
@@ -298,7 +298,7 @@ static void writeDouble(PyObject* outbuf, double dub) {
 }
 
 
-/* --- MAIN RECURSIVE OUTPUT FUCNTION -- */
+/* --- MAIN RECURSIVE OUTPUT FUNCTION -- */
 
 static int
 output_val(PyObject* output, PyObject* value, TType type, PyObject* typeargs) {
@@ -896,7 +896,7 @@ decode_struct(DecodeBuffer* input, PyObject* output, PyObject* spec_seq) {
 }
 
 
-/* --- MAIN RECURSIVE INPUT FUCNTION --- */
+/* --- MAIN RECURSIVE INPUT FUNCTION --- */
 
 // Returns a new reference.
 static PyObject*

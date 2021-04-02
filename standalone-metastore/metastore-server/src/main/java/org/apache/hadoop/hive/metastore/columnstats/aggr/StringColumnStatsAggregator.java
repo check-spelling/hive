@@ -198,7 +198,7 @@ public class StringColumnStatsAggregator extends ColumnStatsAggregator implement
           adjustedIndexMap, adjustedStatsMap, -1);
     }
     LOG.debug(
-        "Ndv estimatation for {} is {} # of partitions requested: {} # of partitions found: {}",
+        "Ndv estimation for {} is {} # of partitions requested: {} # of partitions found: {}",
         colName, columnStatisticsData.getStringStats().getNumDVs(), partNames.size(),
         colStatsWithSourceInfo.size());
     statsObj.setStatsData(columnStatisticsData);

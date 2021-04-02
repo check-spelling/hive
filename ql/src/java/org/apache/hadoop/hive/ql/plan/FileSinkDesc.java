@@ -72,7 +72,7 @@ public class FileSinkDesc extends AbstractOperatorDesc implements IStatsGatherDe
   // Consider a query like:
   // insert overwrite table T3 select ... from T1 join T2 on T1.key = T2.key;
   // where T1, T2 and T3 are sorted and bucketed by key into the same number of buckets,
-  // We dont need a reducer to enforce bucketing and sorting for T3.
+  // We don't need a reducer to enforce bucketing and sorting for T3.
   // The field below captures the fact that the reducer introduced to enforce sorting/
   // bucketing of T3 has been removed.
   // In this case, a sort-merge join is needed, and so the sort-merge join between T1 and T2
@@ -491,7 +491,7 @@ public class FileSinkDesc extends AbstractOperatorDesc implements IStatsGatherDe
    */
   @Override
   @Explain(displayName = "Stats Publishing Key Prefix", explainLevels = { Level.EXTENDED })
-  // FIXME: including this in the signature will almost certenly differ even if the operator is doing the same
+  // FIXME: including this in the signature will almost certainly differ even if the operator is doing the same
   // there might be conflicting usages of logicalCompare?
   @Signature
   public String getStatsAggPrefix() {
@@ -654,7 +654,7 @@ public class FileSinkDesc extends AbstractOperatorDesc implements IStatsGatherDe
     return getBucketingVersion();
   }
   /**
-   * Whether this is CREATE TABLE SELECT or CREATE MATERIALIZED VIEW statemet
+   * Whether this is CREATE TABLE SELECT or CREATE MATERIALIZED VIEW statement
    * Set by semantic analyzer this is required because CTAS/CM requires some special logic
    * in mvFileToFinalPath
    */

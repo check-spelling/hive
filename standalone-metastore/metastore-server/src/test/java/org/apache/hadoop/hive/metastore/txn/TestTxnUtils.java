@@ -177,7 +177,7 @@ public class TestTxnUtils {
   }
   @Test
   public void testSQLGenerator() throws Exception {
-    //teseted on Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+    //tested on Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
 
     DatabaseProduct.reset();
     SQLGenerator sqlGenerator =

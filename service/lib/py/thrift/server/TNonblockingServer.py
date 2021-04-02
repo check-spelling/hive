@@ -18,7 +18,7 @@
 #
 """Implementation of non-blocking server.
 
-The main idea of the server is reciving and sending requests
+The main idea of the server is receiving and sending requests
 only from main thread.
 
 It also makes thread pool server in tasks terms, not connections.
@@ -243,7 +243,7 @@ class TNonblockingServer:
     def wake_up(self):
         """Wake up main thread.
         
-        The server usualy waits in select call in we should terminate one.
+        The server usually waits in select call in we should terminate one.
         The simplest way is using socketpair.
         
         Select always wait to read from the first socket of socketpair.

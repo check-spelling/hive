@@ -200,14 +200,14 @@ public final class ParseUtils {
   }
 
   /*
-   * if the given filterCondn refers to only 1 table alias in the QBJoinTree,
+   * if the given filterCond refers to only 1 table alias in the QBJoinTree,
    * we return that alias's position. Otherwise we return -1
    */
-  static int checkJoinFilterRefersOneAlias(String[] tabAliases, ASTNode filterCondn) {
+  static int checkJoinFilterRefersOneAlias(String[] tabAliases, ASTNode filterCond) {
 
-    switch(filterCondn.getType()) {
+    switch(filterCond.getType()) {
     case HiveParser.TOK_TABLE_OR_COL:
-      String tableOrCol = SemanticAnalyzer.unescapeIdentifier(filterCondn.getChild(0).getText()
+      String tableOrCol = SemanticAnalyzer.unescapeIdentifier(filterCond.getChild(0).getText()
           .toLowerCase());
       return getIndex(tabAliases, tableOrCol);
     case HiveParser.Identifier:
@@ -224,9 +224,9 @@ public final class ParseUtils {
       return -1;
     default:
       int idx = -1;
-      int i = filterCondn.getType() == HiveParser.TOK_FUNCTION ? 1 : 0;
-      for (; i < filterCondn.getChildCount(); i++) {
-        int cIdx = checkJoinFilterRefersOneAlias(tabAliases, (ASTNode) filterCondn.getChild(i));
+      int i = filterCond.getType() == HiveParser.TOK_FUNCTION ? 1 : 0;
+      for (; i < filterCond.getChildCount(); i++) {
+        int cIdx = checkJoinFilterRefersOneAlias(tabAliases, (ASTNode) filterCond.getChild(i));
         if ( cIdx != idx ) {
           if ( idx != -1 && cIdx != -1 ) {
             return -1;

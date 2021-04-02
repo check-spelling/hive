@@ -451,7 +451,7 @@ class MetaStoreDirectSql {
   /**
    * Get table names by using direct SQL queries.
    * @param catName catalog name
-   * @param dbName Metastore database namme
+   * @param dbName Metastore database name
    * @param tableType Table type, or null if we want to get all tables
    * @return list of table names
    */
@@ -482,7 +482,7 @@ class MetaStoreDirectSql {
   /**
    * Get table names by using direct SQL queries.
    *
-   * @param dbName Metastore database namme
+   * @param dbName Metastore database name
    * @return list of table names
    */
   public List<String> getMaterializedViewsForRewriting(String dbName) throws MetaException {
@@ -695,7 +695,7 @@ class MetaStoreDirectSql {
    * @param includeParamKeyPattern The SQL regex pattern which is used to include the parameter keys. Can include _ or %
    *                               When this pattern is set, only the partition parameter key-value pairs where the key matches
    *                               the pattern will be returned. This is applied in conjunction with excludeParamKeyPattern if it is set.
-   * @param excludeParamKeyPattern The SQL regex paterrn which is used to exclude the parameter keys. Can include _ or %
+   * @param excludeParamKeyPattern The SQL regex pattern which is used to exclude the parameter keys. Can include _ or %
    *                               When this pattern is set, all the partition parameters where key is NOT LIKE the pattern
    *                               are returned. This is applied in conjunction with the includeParamKeyPattern if it is set.
    * @param filterSpec             The filterSpec from <code>GetPartitionsRequest</code> which includes the filter mode (BY_EXPR, BY_VALUES or BY_NAMES)

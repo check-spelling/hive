@@ -53,7 +53,7 @@ public final class DDLUtils {
   }
 
   /**
-   * There are many places where "duplicate" Read/WriteEnity objects are added.  The way this was
+   * There are many places where "duplicate" Read/WriteEntity objects are added.  The way this was
    * initially implemented, the duplicate just replaced the previous object.
    * (work.getOutputs() is a Set and WriteEntity#equals() relies on name)
    * This may be benign for ReadEntity and perhaps was benign for WriteEntity before WriteType was

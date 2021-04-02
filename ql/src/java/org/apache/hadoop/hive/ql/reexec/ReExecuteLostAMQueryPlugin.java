@@ -82,6 +82,6 @@ public class ReExecuteLostAMQueryPlugin implements IReExecutionPlugin {
   }
 
   @Override
-  public void afterExecute(PlanMapper planMapper, boolean successfull) {
+  public void afterExecute(PlanMapper planMapper, boolean successful) {
   }
 }

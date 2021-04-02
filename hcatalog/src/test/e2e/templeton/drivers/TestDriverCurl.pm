@@ -50,7 +50,7 @@ my $dependStr = 'failed_dependency';
 #  Static function, can be used by test_harness.pl
 #  Print the results so far, given the testStatuses hash.
 #
-# Paramaters:
+# Parameters:
 # testStatuses - reference to hash of test status results.
 # log    - reference to file handle to print results to.
 # prefix - A title to prefix to the results
@@ -83,7 +83,7 @@ sub printResults
 #  Sub: printGroupResultsXml
 #  Print the results for the group using junit xml schema using values from the testStatuses hash.
 #
-# Paramaters:
+# Parameters:
 # $report       - the report object to use to generate the report
 # $groupName    - the name of the group to report totals for
 # $testStatuses - the hash containing the results for the tests run so far
@@ -117,7 +117,7 @@ sub printGroupResultsXml
 #  Sub: new
 # Constructor, should only be called by TestDriverFactory.
 #
-# Paramaters:
+# Parameters:
 # None
 #
 # Returns:
@@ -141,7 +141,7 @@ sub new
 # setup.  This function will only be called once, before all the tests are
 # run.  A driver need not implement it.  It is a virtual function.
 #
-# Paramaters:
+# Parameters:
 # globalHash - Top level hash from config file (does not have any group
 # or test information in it).
 # log - log file handle
@@ -230,7 +230,7 @@ sub globalSetup
 # cleanup.  This function will only be called once, after all the tests are
 # run.  A driver need not implement it.  It is a virtual function.
 #
-# Paramaters:
+# Parameters:
 # globalHash - Top level hash from config file (does not have any group
 # or test information in it).
 # log - log file handle
@@ -800,7 +800,7 @@ sub compare
         }while (defined $url_requested && $url_requested  ne $testCmd->{'callback_url'});
         $d->close;
         if (!defined $url_requested || $url_requested  ne $testCmd->{'callback_url'}) {
-            print $log "failed to recieve request on call back url";
+            print $log "failed to receive request on call back url";
             $result = 0;
         }
 
@@ -1025,7 +1025,7 @@ sub wrongExecutionMode($$)
 
     if ($wrong) {
         print $log "Skipping test $testCmd->{'group'}" . "_" .
-            $testCmd->{'num'} . " since it is not suppsed to be run in hadoop 23\n";
+            $testCmd->{'num'} . " since it is not supposed to be run in hadoop 23\n";
     }
 
     return  $wrong;
@@ -1185,7 +1185,7 @@ sub checkResStatusCode{
 # Record results of the test run.  The required fields are filled in by the
 # test harness.  This call gives an individual driver a chance to fill in
 # additional fields of cmd, cmd_id, expected_results, and actual_results.
-# this function does not have to be implemened.
+# this function does not have to be implemented.
 # This is a virtual function.
 #
 # Parameters:
@@ -1553,7 +1553,7 @@ sub tmpIPCRunSplitStdoe {
     #DIE IF Test Failed, otherwise return stdout and stderr
     if ( $failed ) {
 
-        $msg = "$0::$subName FATAL: Faied from $runningSubName \nSTDOUT:" . $stdout . "\nSTDERR:" . $stderr . "\n" if ( $failed );
+        $msg = "$0::$subName FATAL: Failed from $runningSubName \nSTDOUT:" . $stdout . "\nSTDERR:" . $stderr . "\n" if ( $failed );
         print $log "$msg";
         die $msg if ( $die != "1" ); #die by defaultast
         return ( -1, $stdout, $stderr );

@@ -189,7 +189,7 @@ public class CompactorMR {
 
   /**
    * Parse tblproperties to override relevant properties of compactor MR job with specified values.
-   * For example, compactor.mapreuce.map.memory.mb=1024
+   * For example, compactor.mapreduce.map.memory.mb=1024
    * @param job the compactor MR job
    * @param properties table properties
    */
@@ -621,7 +621,7 @@ public class CompactorMR {
             dir.getName().startsWith(AcidUtils.DELETE_DELTA_PREFIX)) {
           boolean sawBase = dir.getName().startsWith(AcidUtils.BASE_PREFIX);
           boolean isRawFormat = !dir.getName().startsWith(AcidUtils.DELETE_DELTA_PREFIX)
-            && AcidUtils.MetaDataFile.isRawFormat(dir, fs, null);//deltes can't be raw format
+            && AcidUtils.MetaDataFile.isRawFormat(dir, fs, null);//deletes can't be raw format
 
           FileStatus[] files = fs.listStatus(dir, isRawFormat ? AcidUtils.originalBucketFilter
             : AcidUtils.bucketFileFilter);

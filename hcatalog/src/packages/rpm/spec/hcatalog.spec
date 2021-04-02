@@ -47,7 +47,7 @@
     /usr/lib/rpm/redhat/brp-strip-comment-note %{__strip} %{__objdump} \
     /usr/lib/rpm/brp-python-bytecompile %{nil}
 
-# RPM searches perl files for dependancies and this breaks for non packaged perl lib
+# RPM searches perl files for dependencies and this breaks for non packaged perl lib
 # like thrift so disable this
 %define _use_internal_dependency_generator 0
 

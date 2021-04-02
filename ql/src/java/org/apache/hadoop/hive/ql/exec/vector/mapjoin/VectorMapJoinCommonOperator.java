@@ -515,7 +515,7 @@ private static final Logger LOG = LoggerFactory.getLogger(CLASS_NAME);
    */
   private void initializeFullOuterObjects() throws HiveException {
 
-    // The Small Table key type jnfo is the same as Big Table's.
+    // The Small Table key type info is the same as Big Table's.
     TypeInfo[] smallTableKeyTypeInfos = bigTableKeyTypeInfos;
     final int allKeysSize = smallTableKeyTypeInfos.length;
 
@@ -765,7 +765,7 @@ private static final Logger LOG = LoggerFactory.getLogger(CLASS_NAME);
    */
   public void firstBatchSetup(VectorizedRowBatch batch) throws HiveException {
     // Make sure small table BytesColumnVectors have room for string values in the big table and
-    // overflow batchs...
+    // overflow batches...
     for (int column: smallTableByteColumnVectorColumns) {
       BytesColumnVector bytesColumnVector = (BytesColumnVector) batch.cols[column];
       bytesColumnVector.initBuffer();

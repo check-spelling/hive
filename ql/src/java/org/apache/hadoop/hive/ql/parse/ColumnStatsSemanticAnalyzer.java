@@ -146,7 +146,7 @@ public class ColumnStatsSemanticAnalyzer extends SemanticAnalyzer {
       }
     }
 
-    // Check if user have erroneously specified non-existent partitioning columns
+    // Check if user have erroneously specified nonexistent partitioning columns
     for (String partKey : partSpec.keySet()) {
       if (!partKeys.contains(partKey)) {
         throw new SemanticException(ErrorMsg.COLUMNSTATSCOLLECTOR_INVALID_PART_KEY.getMsg() + " : " + partKey);

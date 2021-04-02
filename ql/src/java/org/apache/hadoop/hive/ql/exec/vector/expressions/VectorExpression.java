@@ -49,7 +49,7 @@ import org.apache.hadoop.hive.ql.metadata.HiveException;
  *
  * A ExprNodeGenericFuncDesc's generic function can vectorize to many different vectorized objects
  * depending on the parameter expression kinds (column, constant, etc) and data types.  Each
- * vectorized class implements the getDecription which indicates the particular expression kind
+ * vectorized class implements the getDescription which indicates the particular expression kind
  * and data type specialization that class is designed for.  The Description is used by the
  * VectorizationContext class in matching the right vectorized class.
  *

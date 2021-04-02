@@ -121,9 +121,9 @@ public class AppConfig extends Configuration {
    * operations in templeton service. If more number of concurrent requests comes then
    * they will be rejected with BusyException.
    */
-  public static final String JOB_SUBMIT_MAX_THREADS = "templeton.parallellism.job.submit";
-  public static final String JOB_STATUS_MAX_THREADS = "templeton.parallellism.job.status";
-  public static final String JOB_LIST_MAX_THREADS = "templeton.parallellism.job.list";
+  public static final String JOB_SUBMIT_MAX_THREADS = "templeton.parallelism.job.submit";
+  public static final String JOB_STATUS_MAX_THREADS = "templeton.parallelism.job.status";
+  public static final String JOB_LIST_MAX_THREADS = "templeton.parallelism.job.list";
 
   /*
    * These parameters controls the maximum time job submit/status/list operation is
@@ -210,7 +210,7 @@ public class AppConfig extends Configuration {
   public static final String HIVE_EXTRA_FILES = "templeton.hive.extra.files";
 
   public static final String XSRF_FILTER_ENABLED = "templeton.xsrf.filter.enabled";
-  public static final String FRAME_OPTIONS_FILETER = "templeton.frame.options.filter";
+  public static final String FRAME_OPTIONS_FILTER = "templeton.frame.options.filter";
 
   private static final Logger LOG = LoggerFactory.getLogger(AppConfig.class);
 
@@ -236,7 +236,7 @@ public class AppConfig extends Configuration {
     }
     ProxyUserSupport.processProxyuserConfig(this);
     handleHiveProperties();
-    LOG.info(dumpEnvironent());
+    LOG.info(dumpEnvironment());
   }
   /**
    * When auto-shipping hive tar (for example when hive query or pig script
@@ -297,7 +297,7 @@ public class AppConfig extends Configuration {
    * Dumps all env and config state.  Should be called once on WebHCat start up to facilitate 
    * support/debugging.  Later it may be worth adding a REST call which will return this data.
    */
-  private String dumpEnvironent() {
+  private String dumpEnvironment() {
     StringBuilder sb = TempletonUtils.dumpPropMap("========WebHCat System.getenv()========", System.getenv());
     sb.append("START========WebHCat AppConfig.iterator()========: \n");
     HiveConfUtil.dumpConfig(this, sb);

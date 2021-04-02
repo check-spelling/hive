@@ -102,7 +102,7 @@ desirable to have new partitions created automatically (say on a
 hourly basis). In such cases requiring the Hive admin to pre-create
 the necessary partitions may not be reasonable.  Consequently the
 streaming API allows streaming clients to create partitions as
-needed. <b>HiveEndPoind.newConnection()</b> accepts a argument to
+needed. <b>HiveEndPoint.newConnection()</b> accepts a argument to
 indicate if the partition should be auto created. Partition creation
 being an atomic action, multiple clients can race to create the
 partition, but only one would succeed, so streaming clients need not
@@ -148,7 +148,7 @@ record if necessary to map them to the corresponding columns in the
 Hive Table. A streaming client will instantiate an appropriate
 <b>RecordWriter</b> type and pass it to 
 <b>StreamingConnection.fetchTransactionBatch()</b>.  The streaming client 
-does not directly interact with the <b>RecordWriter</b> therafter, but 
+does not directly interact with the <b>RecordWriter</b> thereafter, but 
 relies on the <b>TransactionBatch</b> to do so.</p>
 
 <p>
@@ -174,7 +174,7 @@ additional implementations of the <b>RecordWriter</b> interface.
 </p>
 <p>
   Each StreamingConnection can have at most 1 outstanding TransactionBatch and each TransactionBatch
-  may have at most 2 threads operaing on it.
+  may have at most 2 threads operating on it.
   See <a href="TransactionBatch.html"><b>TransactionBatch</b></a>
 </p>
 </body>

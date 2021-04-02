@@ -109,11 +109,11 @@ public class TestConfiguration {
     } else if(SVN.equals(repositoryType)) {
       branch = Strings.nullToEmpty(null);
     } else {
-      throw new IllegalArgumentException("Unkown repository type '" + repositoryType + "'");
+      throw new IllegalArgumentException("Unknown repository type '" + repositoryType + "'");
     }
     buildTool = context.getString(BUILD_TOOL, ANT).trim();
     if(!(MAVEN.endsWith(buildTool) || ANT.equals(buildTool))) {
-      throw new IllegalArgumentException("Unkown build tool type '" + buildTool + "'");
+      throw new IllegalArgumentException("Unknown build tool type '" + buildTool + "'");
     }
     antArgs =  context.getString(ANT_ARGS, "").trim();
     antTestArgs =  context.getString(ANT_TEST_ARGS, "").trim();

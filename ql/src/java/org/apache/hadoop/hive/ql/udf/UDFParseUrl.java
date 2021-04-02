@@ -26,7 +26,7 @@ import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDF;
 
 /**
- * UDF to extract specfic parts from URL For example,
+ * UDF to extract specific parts from URL For example,
  * parse_url('http://facebook.com/path/p1.php?query=1', 'HOST') will return
  * 'facebook.com' For example,
  * parse_url('http://facebook.com/path/p1.php?query=1', 'PATH') will return

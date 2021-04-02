@@ -129,7 +129,7 @@ index 0000000..c3949f2
 +    return monitorThread != null;
 +  }
 +
-+  public long getNumGcWarnThreadholdExceeded() {
++  public long getNumGcWarnThresholdExceeded() {
 +    return numGcWarnThresholdExceeded;
 +  }
 +
@@ -819,7 +819,7 @@ index 0000000..13a5336
 +import java.io.IOException;
 +
 +/**
-+ * Generic Metics interface.
++ * Generic Metrics interface.
 + */
 +public interface Metrics {
 +
@@ -1455,10 +1455,10 @@ index 0000000..c14c7ee
 +    mbs.setAttribute(oname, attr);
 +
 +    mBeanInfo = mbs.getMBeanInfo(oname);
-+    MBeanAttributeInfo[] attrinuteInfos = mBeanInfo.getAttributes();
-+    assertEquals(1, attrinuteInfos.length);
++    MBeanAttributeInfo[] attributeInfos = mBeanInfo.getAttributes();
++    assertEquals(1, attributeInfos.length);
 +    boolean attrFound = false;
-+    for (MBeanAttributeInfo info : attrinuteInfos) {
++    for (MBeanAttributeInfo info : attributeInfos) {
 +      if ("fooMetric".equals(info.getName())) {
 +        assertEquals("java.lang.Long", info.getType());
 +        assertTrue(info.isReadable());
@@ -1750,10 +1750,10 @@ index e85d3f8..0000000
 -    mbs.setAttribute(oname, attr);
 -
 -    mBeanInfo = mbs.getMBeanInfo(oname);
--    MBeanAttributeInfo[] attrinuteInfos = mBeanInfo.getAttributes();
--    assertEquals(1, attrinuteInfos.length);
+-    MBeanAttributeInfo[] attributeInfos = mBeanInfo.getAttributes();
+-    assertEquals(1, attributeInfos.length);
 -    boolean attrFound = false;
--    for (MBeanAttributeInfo info : attrinuteInfos) {
+-    for (MBeanAttributeInfo info : attributeInfos) {
 -      if ("fooMetric".equals(info.getName())) {
 -        assertEquals("java.lang.Long", info.getType());
 -        assertTrue(info.isReadable());
@@ -2535,5 +2535,5 @@ index 5a6bc44..5b7e7f6 100644
 -  public void startPauseMonitor(Configuration conf);
 -
    /**
-    * Check wether MR is configured to run in local-mode
+    * Check whether MR is configured to run in local-mode
     * @param conf

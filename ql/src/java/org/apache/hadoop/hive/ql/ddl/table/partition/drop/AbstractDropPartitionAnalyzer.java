@@ -58,7 +58,7 @@ abstract class AbstractDropPartitionAnalyzer extends AbstractAlterTableAnalyzer 
 
     boolean ifExists = (command.getFirstChildWithType(HiveParser.TOK_IFEXISTS) != null)
         || HiveConf.getBoolVar(conf, ConfVars.DROP_IGNORES_NON_EXISTENT);
-    // If the drop has to fail on non-existent partitions, we cannot batch expressions.
+    // If the drop has to fail on nonexistent partitions, we cannot batch expressions.
     // That is because we actually have to check each separate expression for existence.
     // We could do a small optimization for the case where expr has all columns and all
     // operators are equality, if we assume those would always match one partition (which
@@ -82,7 +82,7 @@ abstract class AbstractDropPartitionAnalyzer extends AbstractAlterTableAnalyzer 
         // We just return in that case, no drop needed.
         return;
         // TODO : the contains message check is fragile, we should refactor SemanticException to be
-        // queriable for error code, and not simply have a message
+        // queryable for error code, and not simply have a message
         // NOTE : IF_EXISTS might also want to invoke this, but there's a good possibility
         // that IF_EXISTS is stricter about table existence, and applies only to the ptn.
         // Therefore, ignoring IF_EXISTS here.

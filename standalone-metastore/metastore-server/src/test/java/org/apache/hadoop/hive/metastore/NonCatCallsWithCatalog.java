@@ -99,7 +99,7 @@ public abstract class NonCatCallsWithCatalog {
   public void setUp() throws Exception {
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setBoolVar(this.conf, ConfVars.HIVE_IN_TEST, true);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     // Get new client
     client = getClient();
@@ -431,7 +431,7 @@ public abstract class NonCatCallsWithCatalog {
     Assert.assertEquals(tableNames[3], fetchedNames.get(0));
 
     Assert.assertTrue("Table exists", client.tableExists(dbName, tableNames[0]));
-    Assert.assertFalse("Table not exists", client.tableExists(dbName, "non_existing_table"));
+    Assert.assertFalse("Table not exists", client.tableExists(dbName, "nonexistent_table"));
   }
 
   @Test

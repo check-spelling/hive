@@ -298,7 +298,7 @@ public class LlapDaemon extends CompositeService implements ContainerRunner, Lla
         try {
           intervalList.add(Integer.valueOf(strInterval));
         } catch (NumberFormatException e) {
-          LOG.warn("Ignoring task pre-emption metrics interval {} from {} as it is invalid",
+          LOG.warn("Ignoring task preemption metrics interval {} from {} as it is invalid",
               strInterval, Arrays.toString(strIntervals));
         }
       }
@@ -510,7 +510,7 @@ public class LlapDaemon extends CompositeService implements ContainerRunner, Lla
     this.registry.init(getConfig());
     this.registry.start();
     LOG.info(
-        "LlapDaemon serviceStart complete. RPC Port={}, ManagementPort={}, ShuflePort={}, WebPort={}",
+        "LlapDaemon serviceStart complete. RPC Port={}, ManagementPort={}, ShufflePort={}, WebPort={}",
         server.getBindAddress().getPort(), server.getManagementBindAddress().getPort(),
         ShuffleHandler.get().getPort(), (webServices == null ? "" : webServices.getPort()));
   }

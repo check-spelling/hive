@@ -70,7 +70,7 @@ public class MetastoreConf {
   static final String HIVE_ALTER_HANDLE_CLASS =
       "org.apache.hadoop.hive.metastore.HiveAlterHandler";
   @VisibleForTesting
-  static final String MATERIALZIATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS =
+  static final String MATERIALIZATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS =
       "org.apache.hadoop.hive.metastore.MaterializationsRebuildLockCleanerTask";
   @VisibleForTesting
   static final String METASTORE_TASK_THREAD_CLASS =
@@ -119,7 +119,7 @@ public class MetastoreConf {
   }
 
   @VisibleForTesting
-  static final String TEST_ENV_WORKAROUND = "metastore.testing.env.workaround.dont.ever.set.this.";
+  static final String TEST_ENV_WORKAROUND = "metastore.testing.env.workaround.do.not.ever.set.this.";
 
   public static enum StatsUpdateMode {
     NONE, EXISTING, ALL
@@ -837,7 +837,7 @@ public class MetastoreConf {
         "Stat entries which are older than this are removed."),
 
     SCHEDULED_QUERIES_ENABLED("metastore.scheduled.queries.enabled", "hive.metastore.scheduled.queries.enabled", true,
-        "Wheter scheduled query metastore requests be processed"),
+        "Whether scheduled query metastore requests be processed"),
     SCHEDULED_QUERIES_EXECUTION_PROGRESS_TIMEOUT("metastore.scheduled.queries.execution.timeout",
         "hive.metastore.scheduled.queries.progress.timeout", 120, TimeUnit.SECONDS,
         "If a scheduled query is not making progress for this amount of time it will be considered TIMED_OUT"),
@@ -996,7 +996,7 @@ public class MetastoreConf {
     REPLCMRETIAN("metastore.repl.cm.retain", "hive.repl.cm.retain",  24 * 10, TimeUnit.HOURS,
         "Time to retain removed files in cmrootdir."),
     REPLCMINTERVAL("metastore.repl.cm.interval", "hive.repl.cm.interval", 3600, TimeUnit.SECONDS,
-        "Inteval for cmroot cleanup thread."),
+        "Interval for cmroot cleanup thread."),
     REPLCMENABLED("metastore.repl.cm.enabled", "hive.repl.cm.enabled", false,
         "Turn on ChangeManager, so delete files will go to cmrootdir."),
     REPLDIR("metastore.repl.rootdir", "hive.repl.rootdir", "/user/${system:user.name}/repl/",
@@ -1125,7 +1125,7 @@ public class MetastoreConf {
     STRICT_MANAGED_TABLES("metastore.strict.managed.tables", "hive.strict.managed.tables", false,
             "Whether strict managed tables mode is enabled. With this mode enabled, " +
             "only transactional tables (both full and insert-only) are allowed to be created as managed tables"),
-    SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES("metastore.support.special.characters.tablename",
+    SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES("metastore.support.special.characters.tablename",
         "hive.support.special.characters.tablename", true,
         "This flag should be set to true to enable support for special characters in table names.\n"
             + "When it is set to false, only [a-zA-Z_0-9]+ are supported.\n"
@@ -1144,7 +1144,7 @@ public class MetastoreConf {
         ACID_HOUSE_KEEPER_SERVICE_CLASS + "," +
             ACID_TXN_CLEANER_SERVICE_CLASS + "," +
             ACID_OPEN_TXNS_COUNTER_SERVICE_CLASS + "," +
-            MATERIALZIATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS + "," +
+            MATERIALIZATIONS_REBUILD_LOCK_CLEANER_TASK_CLASS + "," +
             PARTITION_MANAGEMENT_TASK_CLASS,
         "Comma-separated list of tasks that will be started in separate threads.  These will be" +
             " started only when the metastore is running as a separate service.  They must " +
@@ -1285,7 +1285,7 @@ public class MetastoreConf {
     TXN_OPENTXN_TIMEOUT("metastore.txn.opentxn.timeout", "hive.txn.opentxn.timeout", 1000, TimeUnit.MILLISECONDS,
         "Time before an open transaction operation should persist, otherwise it is considered invalid and rolled back"),
     TXN_USE_MIN_HISTORY_LEVEL("metastore.txn.use.minhistorylevel", "hive.txn.use.minhistorylevel", true,
-        "Set this to false, for the TxnHandler and Cleaner to not use MinHistoryLevel table and take advantage of openTxn optimisation.\n"
+        "Set this to false, for the TxnHandler and Cleaner to not use MinHistoryLevel table and take advantage of openTxn optimization.\n"
             + "If the table is dropped HMS will switch this flag to false."),
     URI_RESOLVER("metastore.uri.resolver", "hive.metastore.uri.resolver", "",
             "If set, fully qualified class name of resolver for hive metastore uri's"),
@@ -1414,7 +1414,7 @@ public class MetastoreConf {
     HIVE_METRICS_REPORTER("hive.service.metrics.reporter", "hive.service.metrics.reporter", "",
         "Reporter implementations for metric class "
             + "org.apache.hadoop.hive.common.metrics.metrics2.CodahaleMetrics;" +
-            "Deprecated, use METRICS_REPORTERS instead. This configuraiton will be"
+            "Deprecated, use METRICS_REPORTERS instead. This configuration will be"
             + " overridden by HIVE_CODAHALE_METRICS_REPORTER_CLASSES and METRICS_REPORTERS if " +
             "present. Comma separated list of JMX, CONSOLE, JSON_FILE, HADOOP2"),
     // Planned to be removed in HIVE-21024

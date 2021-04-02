@@ -46,7 +46,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 /**
- * Responsible for adding not null rules to joins, when the declaration of a join implies that some coulmns
+ * Responsible for adding not null rules to joins, when the declaration of a join implies that some columns
  * may not be null.
  */
 public final class HiveJoinAddNotNullRule extends RelOptRule {
@@ -81,7 +81,7 @@ public final class HiveJoinAddNotNullRule extends RelOptRule {
 
     // For anti join case add the not null on right side even if the condition is always true.
     // This is done because during execution, anti join expect the right side to be empty and
-    // if we dont put null check on right, for null only right side table and condition always
+    // if we don't put null check on right, for null only right side table and condition always
     // true, execution will produce 0 records as the post processing to filter out null value
     // is not done for always true conditions during execution.
     // eg  select * from left_tbl where (select 1 from all_null_right limit 1) is null

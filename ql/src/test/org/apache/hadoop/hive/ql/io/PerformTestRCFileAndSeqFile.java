@@ -76,7 +76,7 @@ public class PerformTestRCFileAndSeqFile {
     System.out.println("SequenceFile:" + testSeqFile.toString());
   }
 
-  private void writeSeqenceFileTest(FileSystem fs, int rowCount, Path file,
+  private void writeSequenceFileTest(FileSystem fs, int rowCount, Path file,
       int columnNum, CompressionCodec codec) throws IOException {
 
     byte[][] columnRandom;
@@ -212,7 +212,7 @@ public class PerformTestRCFileAndSeqFile {
 
     // sequence file write
     start = System.currentTimeMillis();
-    writeSeqenceFileTest(fs, rowCount, testSeqFile, columnNum, codec);
+    writeSequenceFileTest(fs, rowCount, testSeqFile, columnNum, codec);
     cost = System.currentTimeMillis() - start;
     fileLen = fs.getFileStatus(testSeqFile).getLen();
     System.out.println("Write SequenceFile with " + columnNum
@@ -288,11 +288,11 @@ public class PerformTestRCFileAndSeqFile {
   }
 
   public int performRCFileReadFirstColumnTest(FileSystem fs, Path file,
-      int allColumnsNumber, boolean chechCorrect) throws IOException {
+      int allColumnsNumber, boolean checkCorrect) throws IOException {
 
     byte[][] checkBytes = null;
     BytesRefArrayWritable checkRow = new BytesRefArrayWritable(allColumnsNumber);
-    if (chechCorrect) {
+    if (checkCorrect) {
       resetRandomGenerators();
       checkBytes = new byte[allColumnsNumber][];
     }
@@ -309,7 +309,7 @@ public class PerformTestRCFileAndSeqFile {
     while (reader.next(rowID)) {
       reader.getCurrentRow(cols);
       boolean ok = true;
-      if (chechCorrect) {
+      if (checkCorrect) {
         nextRandomRow(checkBytes, checkRow);
         ok = ok && (checkRow.get(0).equals(cols.get(0)));
       }
@@ -322,11 +322,11 @@ public class PerformTestRCFileAndSeqFile {
   }
 
   public int performRCFileReadFirstAndLastColumnTest(FileSystem fs, Path file,
-      int allColumnsNumber, boolean chechCorrect) throws IOException {
+      int allColumnsNumber, boolean checkCorrect) throws IOException {
 
     byte[][] checkBytes = null;
     BytesRefArrayWritable checkRow = new BytesRefArrayWritable(allColumnsNumber);
-    if (chechCorrect) {
+    if (checkCorrect) {
       resetRandomGenerators();
       checkBytes = new byte[allColumnsNumber][];
     }
@@ -344,7 +344,7 @@ public class PerformTestRCFileAndSeqFile {
     while (reader.next(rowID)) {
       reader.getCurrentRow(cols);
       boolean ok = true;
-      if (chechCorrect) {
+      if (checkCorrect) {
         nextRandomRow(checkBytes, checkRow);
         ok = ok && (checkRow.get(0).equals(cols.get(0)));
         ok = ok
@@ -360,11 +360,11 @@ public class PerformTestRCFileAndSeqFile {
   }
 
   public int performRCFileFullyReadColumnTest(FileSystem fs, Path file,
-      int allColumnsNumber, boolean chechCorrect) throws IOException {
+      int allColumnsNumber, boolean checkCorrect) throws IOException {
 
     byte[][] checkBytes = null;
     BytesRefArrayWritable checkRow = new BytesRefArrayWritable(allColumnsNumber);
-    if (chechCorrect) {
+    if (checkCorrect) {
       resetRandomGenerators();
       checkBytes = new byte[allColumnsNumber][];
     }
@@ -379,7 +379,7 @@ public class PerformTestRCFileAndSeqFile {
     while (reader.next(rowID)) {
       reader.getCurrentRow(cols);
       boolean ok = true;
-      if (chechCorrect) {
+      if (checkCorrect) {
         nextRandomRow(checkBytes, checkRow);
         ok = ok && checkRow.equals(cols);
       }

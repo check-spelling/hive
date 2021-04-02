@@ -399,7 +399,7 @@ public class TestAddPartitionsFromPartSpec extends MetaStoreClientTest {
     createTable();
     Partition partition = buildPartition(DB_NAME, TABLE_NAME, DEFAULT_YEAR_VALUE);
     PartitionSpecProxy partitionSpecProxy =
-        buildPartitionSpec("nonexistingdb", TABLE_NAME, null, Lists.newArrayList(partition));
+        buildPartitionSpec("nonexistentdb", TABLE_NAME, null, Lists.newArrayList(partition));
     client.add_partitions_pspec(partitionSpecProxy);
   }
 
@@ -409,7 +409,7 @@ public class TestAddPartitionsFromPartSpec extends MetaStoreClientTest {
     createTable();
     Partition partition = buildPartition(DB_NAME, TABLE_NAME, DEFAULT_YEAR_VALUE);
     PartitionSpecProxy partitionSpecProxy =
-        buildPartitionSpec(DB_NAME, "nonexistingtable", null, Lists.newArrayList(partition));
+        buildPartitionSpec(DB_NAME, "nonexistenttable", null, Lists.newArrayList(partition));
     client.add_partitions_pspec(partitionSpecProxy);
   }
 

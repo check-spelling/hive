@@ -78,7 +78,7 @@ public class TestConditionalResolverCommonJoin {
 
     conf.setLongVar(HiveConf.ConfVars.HIVESMALLTABLESFILESIZE, 65536);
 
-    // alias1, alias2, alias3 all can be selected but overriden by biggest one (alias3)
+    // alias1, alias2, alias3 all can be selected but overridden by biggest one (alias3)
     resolved = resolver.resolveMapJoinTask(ctx, conf);
     Assert.assertEquals("alias3", resolved.getId());
 

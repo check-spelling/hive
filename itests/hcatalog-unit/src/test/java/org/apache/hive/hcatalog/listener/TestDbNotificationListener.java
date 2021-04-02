@@ -154,7 +154,7 @@ public class TestDbNotificationListener {
   // Note - above looks funny because it seems like we're instantiating a static var, and
   // then a non-static var as the rule, but the reason this is required is because Rules
   // are not allowed to be static, but we wind up needing it initialized from a static
-  // context. So, bcompat is initialzed in a static context, but this rule is initialized
+  // context. So, bcompat is initialized in a static context, but this rule is initialized
   // before the tests run, and will pick up an initialized value of bcompat.
 
   /* This class is used to verify that HiveMetaStore calls the non-transactional listeners with the

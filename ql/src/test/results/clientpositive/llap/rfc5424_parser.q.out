@@ -355,11 +355,11 @@ POSTHOOK: Input: default@logs2@dt=2019-01-03/ns=foo/app=hs2
 POSTHOOK: Input: default@logs2@dt=2019-11-23/ns=bar/app=hs2
 #### A masked pattern was here ####
 1074
-PREHOOK: query: select count(*) from logs2 where severity="INFO" and app='non-existent'
+PREHOOK: query: select count(*) from logs2 where severity="INFO" and app='nonexistent'
 PREHOOK: type: QUERY
 PREHOOK: Input: default@logs2
 #### A masked pattern was here ####
-POSTHOOK: query: select count(*) from logs2 where severity="INFO" and app='non-existent'
+POSTHOOK: query: select count(*) from logs2 where severity="INFO" and app='nonexistent'
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@logs2
 #### A masked pattern was here ####

@@ -103,7 +103,7 @@ public class HiveFilter extends Filter implements HiveRelNode {
           RelNode input = ((RexSubQuery)node).rel.getInput(0);
           while(input != null && !(input instanceof HiveFilter)
                   && input.getInputs().size() >=1) {
-              //we don't expect corr vars withing JOIN or UNION for now
+              //we don't expect corr vars within JOIN or UNION for now
               // we only expect cor vars in top level filter
               if(input.getInputs().size() > 1) {
                   return;

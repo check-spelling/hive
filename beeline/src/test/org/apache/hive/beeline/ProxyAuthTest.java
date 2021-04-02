@@ -35,7 +35,7 @@ import org.apache.hadoop.hive.shims.Utils;
 /**
  * Simple client application to test various direct and proxy connection to HiveServer2
  * Note that it's not an automated test at this point. It requires a manually configured
- * secure HivServer2. It also requires a super user and a normal user principal.
+ * secure HiveServer2. It also requires a super user and a normal user principal.
  * Steps to run the test -
  *   kinit <super-user>
  *   hive --service jar beeline/target/hive-beeline-0.13.0-SNAPSHOT-tests.jar \
@@ -101,7 +101,7 @@ public class ProxyAuthTest {
     url = "jdbc:hive2://" + host + ":" + port + "/default;principal=" + serverPrincipal;
     currentResultFile = generateSQL(null);
     beeLineArgs = new String[] { "-u", url, "-n", "foo", "-p", "bar"};
-    System.out.println("Connection with kerberos, user/password via args, using input rediction");
+    System.out.println("Connection with kerberos, user/password via args, using input prediction");
     BeeLine.mainWithInputRedirection(beeLineArgs, inpStream);
     compareResults( currentResultFile);
 
@@ -207,7 +207,7 @@ public class ProxyAuthTest {
 
   // run sql operations
   private static void runTest() throws Exception {
-    // craete table and check dir ownership
+    // create table and check dir ownership
     runDMLs();
 
     // run queries

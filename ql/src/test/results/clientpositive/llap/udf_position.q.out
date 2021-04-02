@@ -2,12 +2,12 @@ PREHOOK: query: DESCRIBE FUNCTION position
 PREHOOK: type: DESCFUNCTION
 POSTHOOK: query: DESCRIBE FUNCTION position
 POSTHOOK: type: DESCFUNCTION
-position(substr, str[, pos]) - Returns the position of the first occurance of substr in str after position pos
+position(substr, str[, pos]) - Returns the position of the first occurrence of substr in str after position pos
 PREHOOK: query: DESCRIBE FUNCTION EXTENDED position
 PREHOOK: type: DESCFUNCTION
 POSTHOOK: query: DESCRIBE FUNCTION EXTENDED position
 POSTHOOK: type: DESCFUNCTION
-position(substr, str[, pos]) - Returns the position of the first occurance of substr in str after position pos
+position(substr, str[, pos]) - Returns the position of the first occurrence of substr in str after position pos
 Synonyms: locate
 Example:
   > SELECT position('bar', 'foobarbar', 5) FROM src LIMIT 1;

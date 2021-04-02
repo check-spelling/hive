@@ -1464,7 +1464,7 @@ public class Vectorizer implements PhysicalPlanResolver {
           inputFileFormatClassName.equals(SequenceFileInputFormat.class.getName()) &&
                   (deserializerClassName.equals(LazyBinarySerDe.class.getName()) ||
                           deserializerClassName.equals(LazyBinarySerDe2.class.getName()));
-      boolean isVectorDeserializeEligable = isTextFormat || isSequenceFormat;
+      boolean isVectorDeserializeEligible = isTextFormat || isSequenceFormat;
 
       if (useVectorDeserialize) {
 
@@ -1568,7 +1568,7 @@ public class Vectorizer implements PhysicalPlanResolver {
         }
       } else {
         // Only offer these when the input file format is not the fast vectorized formats.
-        if (isVectorDeserializeEligable) {
+        if (isVectorDeserializeEligible) {
           Preconditions.checkState(!useVectorDeserialize);
           enabledConditionsNotMetList.add(HiveConf.ConfVars.HIVE_VECTORIZATION_USE_VECTOR_DESERIALIZE.varname);
         } else {
@@ -1993,7 +1993,7 @@ public class Vectorizer implements PhysicalPlanResolver {
         supportRemovedReasons.add(removeString);
       }
 
-      // Now rememember what is supported for this query and any support that was
+      // Now remember what is supported for this query and any support that was
       // removed.
       vectorTaskColumnInfo.setSupportSetInUse(supportSet);
       vectorTaskColumnInfo.setSupportRemovedReasons(supportRemovedReasons);

@@ -42,13 +42,13 @@ public class TestMetaStoreInitListener {
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setLongVar(conf, ConfVars.THRIFT_CONNECTION_RETRIES, 3);
     MetastoreConf.setBoolVar(conf, ConfVars.HIVE_SUPPORT_CONCURRENCY, false);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     MetaStoreTestUtils.startMetaStoreWithRetry(HadoopThriftAuthBridge.getBridge(), conf);
   }
 
   @Test
   public void testMetaStoreInitListener() throws Exception {
-    // DummyMataStoreInitListener's onInit will be called at HMSHandler
+    // DummyMetaStoreInitListener's onInit will be called at HMSHandler
     // initialization, and set this to true
     Assert.assertTrue(DummyMetaStoreInitListener.wasCalled);
   }

@@ -414,7 +414,7 @@ public class TestOrcSerDeStats {
         Long.MAX_VALUE, (float) 2.0, -5.0, bytes(), "bye",
         new MiddleStruct(inner(1, "bye"), inner(2, "sigh")),
         list(inner(100000000, "cat"), inner(-100000, "in"), inner(1234, "hat")),
-        map(inner(5, "chani"), inner(1, "mauddib")), Timestamp.valueOf("2000-03-11 15:00:00"),
+        map(inner(5, "chani"), inner(1, "muaddib")), Timestamp.valueOf("2000-03-11 15:00:00"),
         HiveDecimal.create("12345678.6547452")));
     writer.close();
     long rowCount = writer.getNumberOfRows();
@@ -508,7 +508,7 @@ public class TestOrcSerDeStats {
         Long.MAX_VALUE, (float) 2.0, -5.0, bytes(), "bye",
         new MiddleStruct(inner(1, "bye"), inner(2, "sigh")),
         list(inner(100000000, "cat"), inner(-100000, "in"), inner(1234, "hat")),
-        map(inner(5, "chani"), inner(1, "mauddib")), Timestamp.valueOf("2000-03-11 15:00:00"),
+        map(inner(5, "chani"), inner(1, "muaddib")), Timestamp.valueOf("2000-03-11 15:00:00"),
         HiveDecimal.create("12345678.6547452")));
     writer.close();
     long rowCount = writer.getNumberOfRows();

@@ -55,7 +55,7 @@ import java.util.Set;
  * EstimateUniqueKeys provides an ability to estimate unique keys based on statistics.
  */
 //TODO: Ideally RelMdUniqueKeys should be modified (on Calcite side) to accept a parameter based on which
-// this logic whoud be implemented
+// this logic would be implemented
 public final class EstimateUniqueKeys {
   //~ Constructors -----------------------------------------------------------
   private EstimateUniqueKeys() {
@@ -76,7 +76,7 @@ public final class EstimateUniqueKeys {
   }
 
 
-  //Infer Uniquenes if: - rowCount(col) = ndv(col) - TBD for numerics: max(col)
+  //Infer Uniqueness if: - rowCount(col) = ndv(col) - TBD for numerics: max(col)
   // - min(col) = rowCount(col)
   private static Set<ImmutableBitSet> generateKeysUsingStatsEstimation(Project rel,
                                                                        HiveTableScan tScan) {
@@ -103,7 +103,7 @@ public final class EstimateUniqueKeys {
     for (ColStatistics cStat : colStats) {
       boolean isKey = false;
       if (!cStat.isEstimated()) {
-        if (cStat.getCountDistint() >= numRows) {
+        if (cStat.getCountDistinct() >= numRows) {
           isKey = true;
         }
         if (!isKey && cStat.getRange() != null && cStat.getRange().maxValue != null

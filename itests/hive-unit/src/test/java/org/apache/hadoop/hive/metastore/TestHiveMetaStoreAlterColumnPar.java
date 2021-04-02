@@ -39,7 +39,7 @@ import java.util.HashMap;
  *
  * Two connections are created.  In one connection
  * metaconf:hive.metastore.disallow.incompatible.col.type.changes is set to false.  Then the
- * columm type can changed from int to smallint.  In the other connection
+ * column type can changed from int to smallint.  In the other connection
  * metaconf:hive.metastore.disallow.incompatible.col.type.changes is left with the default value
  * true.  In that connection changing column type from int to smallint will throw an error.
  *

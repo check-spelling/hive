@@ -222,14 +222,14 @@ public class TestAppendPartitions extends MetaStoreClientTest {
   public void testAppendPartitionNonExistingDB() throws Exception {
 
     List<String> partitionValues = Lists.newArrayList("2017", "may");
-    client.appendPartition("nonexistingdb", tableWithPartitions.getTableName(), partitionValues);
+    client.appendPartition("nonexistentdb", tableWithPartitions.getTableName(), partitionValues);
   }
 
   @Test(expected = InvalidObjectException.class)
   public void testAppendPartitionNonExistingTable() throws Exception {
 
     List<String> partitionValues = Lists.newArrayList("2017", "may");
-    client.appendPartition(tableWithPartitions.getDbName(), "nonexistingtable", partitionValues);
+    client.appendPartition(tableWithPartitions.getDbName(), "nonexistenttable", partitionValues);
   }
 
   @Test(expected = InvalidObjectException.class)
@@ -396,14 +396,14 @@ public class TestAppendPartitions extends MetaStoreClientTest {
   public void testAppendPartNonExistingDB() throws Exception {
 
     String partitionName = "year=2017/month=april";
-    client.appendPartition("nonexistingdb", tableWithPartitions.getTableName(), partitionName);
+    client.appendPartition("nonexistentdb", tableWithPartitions.getTableName(), partitionName);
   }
 
   @Test(expected = InvalidObjectException.class)
   public void testAppendPartNonExistingTable() throws Exception {
 
     String partitionName = "year=2017/month=april";
-    client.appendPartition(tableWithPartitions.getDbName(), "nonexistingtable", partitionName);
+    client.appendPartition(tableWithPartitions.getDbName(), "nonexistenttable", partitionName);
   }
 
   @Test(expected = InvalidObjectException.class)

@@ -77,7 +77,7 @@ public class HiveSamlHttpServlet extends HttpServlet {
   }
 
   private void generateFormData(HttpServletResponse response, String url, String token,
-      boolean sucess, String msg) {
+      boolean success, String msg) {
     StringBuilder sb = new StringBuilder();
     sb.append("<html>");
     sb.append("<body onload='document.forms[\"form\"].submit()'>");
@@ -86,7 +86,7 @@ public class HiveSamlHttpServlet extends HttpServlet {
         .format("<input type='hidden' name='%s' value='%s'>", HiveSamlUtils.TOKEN_KEY,
             token));
     sb.append(String.format("<input type='hidden' name='%s' value='%s'>",
-        HiveSamlUtils.STATUS_KEY, sucess));
+        HiveSamlUtils.STATUS_KEY, c));
     sb.append(String
         .format("<input type='hidden' name='%s' value='%s'>", HiveSamlUtils.MESSAGE_KEY,
             msg));

@@ -220,7 +220,7 @@ public abstract class HCatClient {
    * Deserializer for an HCatPartition.
    * @param hcatPartitionStringRep The String representation of the HCatPartition, presumably retrieved from {@link #serializePartition(HCatPartition)}
    * @return HCatPartition instance reconstructed from the string.
-   * @throws HCatException on failure to deserialze.
+   * @throws HCatException on failure to deserialize.
    */
   public abstract HCatPartition deserializePartition(String hcatPartitionStringRep) throws HCatException;
 

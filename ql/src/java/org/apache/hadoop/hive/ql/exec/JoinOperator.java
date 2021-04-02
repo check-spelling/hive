@@ -68,7 +68,7 @@ public class JoinOperator extends CommonJoinOperator<JoinDesc> implements Serial
     super.initializeOp(hconf);
     if (handleSkewJoin) {
       skewJoinKeyContext = new SkewJoinHandler(this);
-      skewJoinKeyContext.initiliaze(hconf);
+      skewJoinKeyContext.initialize(hconf);
       skewJoinKeyContext.setSkewJoinJobCounter(skewjoin_followup_jobs);
     }
     statsMap.put(SkewkeyTableCounter.SKEWJOINFOLLOWUPJOBS.toString(), skewjoin_followup_jobs);
@@ -98,8 +98,8 @@ public class JoinOperator extends CommonJoinOperator<JoinDesc> implements Serial
       // Are we consuming too much memory
       if (alias == numAliases - 1 && !(handleSkewJoin && skewJoinKeyContext.currBigKeyTag >= 0) &&
           !hasLeftSemiJoin && !hasLeftAntiSemiJoin) {
-        if (sz == joinEmitInterval && !hasFilter(condn[alias-1].getLeft()) &&
-                !hasFilter(condn[alias-1].getRight())) {
+        if (sz == joinEmitInterval && !hasFilter(cond[alias-1].getLeft()) &&
+                !hasFilter(cond[alias-1].getRight())) {
           // The input is sorted by alias, so if we are already in the last join
           // operand,
           // we can emit some results now.

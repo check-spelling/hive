@@ -466,7 +466,7 @@ public final class BytesBytesMultiHashMap implements MemoryEstimate {
    * @param key Key buffer.
    * @param offset the offset to the key in the buffer
    * @param hashMapResult The object to fill in that can read the values.
-   * @param matchTracker Opitional object for tracking key matches.
+   * @param matchTracker Optional object for tracking key matches.
    * @return The state byte.
    */
   public byte getValueResult(byte[] key, int offset, int length, Result hashMapResult,

@@ -154,7 +154,7 @@ public class TestObjectStore {
     // Events that get cleaned happen in batches of 1 to exercise batching code
     MetastoreConf.setLongVar(conf, MetastoreConf.ConfVars.EVENT_CLEAN_MAX_EVENTS, 1L);
 
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     setupRandomObjectStoreUrl();
 
@@ -561,7 +561,7 @@ public class TestObjectStore {
    * Checks if the directSQL partition drop removes every connected data from the RDBMS tables.
    */
   @Test
-  public void testDirectSQLDropParitionsCleanup() throws Exception {
+  public void testDirectSQLDropPartitionsCleanup() throws Exception {
 
     createPartitionedTable(true, true);
 
@@ -605,7 +605,7 @@ public class TestObjectStore {
   /**
    * Creates DB1 database, TABLE1 table with 3 partitions.
    * @param withPrivileges Should we create privileges as well
-   * @param withStatistics Should we create statitics as well
+   * @param withStatistics Should we create statistics as well
    */
   private void createPartitionedTable(boolean withPrivileges, boolean withStatistics)
       throws Exception {
@@ -777,7 +777,7 @@ public class TestObjectStore {
             "org.apache.hadoop.hive.common.metrics.metrics2.JmxMetricsReporter"
     );
 
-    // recall setup so that we get an object store with the metrics initalized
+    // recall setup so that we get an object store with the metrics initialized
     setUp();
     Counter directSqlErrors =
         Metrics.getRegistry().getCounters().get(MetricsConstants.DIRECTSQL_ERRORS);
@@ -887,7 +887,7 @@ public class TestObjectStore {
     String value1 = "another_value";
     Assume.assumeTrue(System.getProperty(key) == null);
     Configuration localConf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(localConf);
+    MetaStoreTestUtils.setConfForStandaloneMode(localConf);
     localConf.set(key, value);
     localConf.set(key1, value1);
     objectStore = new ObjectStore();
@@ -978,7 +978,7 @@ public class TestObjectStore {
             .debug(NUM_THREADS + " threads going to add notification"));
 
     Configuration conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     /*
        Below are the properties that need to be set based on what database this test is going to be run
      */
@@ -990,7 +990,7 @@ public class TestObjectStore {
 //    conf.setVar(HiveConf.ConfVars.METASTOREPWD, "");
 
     /*
-     we have to  add this one manually as for tests the db is initialized via the metastoreDiretSQL
+     we have to  add this one manually as for tests the db is initialized via the metastoreDirectSQL
      and we don't run the schema creation sql that includes the an insert for notification_sequence
      which can be locked. the entry in notification_sequence happens via notification_event insertion.
     */
@@ -1067,7 +1067,7 @@ public class TestObjectStore {
       // DN class initialization can reach a deadlock situation
       // in case the one holding the write lock doesn't get a connection from the CP manager
       conf.set(dataSourceProp, Integer.toString( 2 * numThreads ));
-      MetaStoreTestUtils.setConfForStandloneMode(conf);
+      MetaStoreTestUtils.setConfForStandaloneMode(conf);
       results.add(executor.submit(new Callable<Void>() {
         @Override
         public Void call() throws Exception {

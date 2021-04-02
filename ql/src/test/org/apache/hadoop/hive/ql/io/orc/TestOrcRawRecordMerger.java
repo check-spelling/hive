@@ -1168,7 +1168,7 @@ public class TestOrcRawRecordMerger {
         ru.update(100, new BigRow(i, i, values[i], i, i, i, 0, BUCKET_PROPERTY));
       }
     }
-    //do this before next update so that delte_delta is properly sorted
+    //do this before next update so that delete_delta is properly sorted
     ru.delete(100, new BigRow(8, 0, BUCKET_PROPERTY));
     //because row 8 was updated and thus has a different RecordIdentifier now
     ru.update(100, new BigRow(7, 7, values[values.length - 1], 7, 7, 2, 1, BUCKET_PROPERTY));
@@ -1293,7 +1293,7 @@ public class TestOrcRawRecordMerger {
         ru.update(100, new BigRow(i, i, values[i], i, i, i, 0, BUCKET_PROPERTY));
       }
     }
-    //do this before next update so that delte_delta is properly sorted
+    //do this before next update so that delete_delta is properly sorted
     ru.delete(100, new BigRow(8, 0, BUCKET_PROPERTY));
     //because row 8 was updated and thus has a different RecordIdentifier now
     ru.update(100, new BigRow(7, 7, values[values.length - 1], 7, 7, 2, 1, BUCKET_PROPERTY));

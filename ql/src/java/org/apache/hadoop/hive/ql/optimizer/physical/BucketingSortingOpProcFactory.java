@@ -123,7 +123,7 @@ public class BucketingSortingOpProcFactory {
    * Processor for Join Operator.
    *
    * This handles common joins, the tree should look like
-   * ReducSinkOperator
+   * ReduceSinkOperator
    *                      \
    *     ....           ---  JoinOperator
    *                      /

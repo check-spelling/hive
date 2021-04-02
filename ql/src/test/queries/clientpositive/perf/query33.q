@@ -31,7 +31,7 @@ where i_category in ('Books'))
          customer_address,
          item
  where
-         i_manufact_id               in (select
+         i_manufacturer_id           in (select
   i_manufact_id
 from
  item
@@ -52,7 +52,7 @@ where i_category in ('Books'))
          customer_address,
          item
  where
-         i_manufact_id               in (select
+         i_manufacturer_id           in (select
   i_manufact_id
 from
  item

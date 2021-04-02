@@ -91,7 +91,7 @@ public class GenTezProcContext implements NodeProcessorCtx {
 
   // last work we've processed (in order to hook it up to the current
   // one.
-  public BaseWork preceedingWork;
+  public BaseWork precedingWork;
 
   // map that keeps track of the last operator of a task to the work
   // that follows it. This is used for connecting them later.

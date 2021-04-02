@@ -407,7 +407,7 @@ public abstract class ThriftCLIService extends AbstractService implements TCLISe
       }
       LOG.info("Login attempt is successful for user : " + userName);
     } catch (Exception e) {
-      LOG.error("Login attempt is failed for user : " + userName + ". Error Messsage :" + e.getMessage());
+      LOG.error("Login attempt is failed for user : " + userName + ". Error Message :" + e.getMessage());
       LOG.warn("Error opening session: ", e);
       resp.setStatus(HiveSQLException.toTStatus(e));
     }
@@ -513,7 +513,7 @@ public abstract class ThriftCLIService extends AbstractService implements TCLISe
 
     if (userName != null) {
       if (hiveAuthFactory != null && hiveAuthFactory.isSASLKerberosUser()) {
-        // KerberosName.getShorName can only be used for kerberos user, but not for the user
+        // KerberosName.getShortName can only be used for kerberos user, but not for the user
         // logged in via other authentications such as LDAP
         KerberosNameShim fullKerberosName = ShimLoader.getHadoopShims().getKerberosNameShim(userName);
         ret = fullKerberosName.getShortName();

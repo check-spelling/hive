@@ -129,7 +129,7 @@ public class TestObjectStoreSchemaMethods {
   public void schemaWithInvalidDatabase() throws MetaException, AlreadyExistsException,
       NoSuchObjectException {
     ISchema schema = new ISchemaBuilder()
-        .setName("thisSchemaDoesntHaveADb")
+        .setName("thisSchemaDoesNotHaveADb")
         .setDbName("no.such.database")
         .setSchemaType(SchemaType.AVRO)
         .build();
@@ -439,7 +439,7 @@ public class TestObjectStoreSchemaMethods {
 
   @Test(expected = NoSuchObjectException.class)
   public void dropNonExistentSchemaVersion() throws NoSuchObjectException, MetaException {
-    objectStore.dropSchemaVersion(new SchemaVersionDescriptor(new ISchemaName(DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME, "ther is no schema named this"), 23));
+    objectStore.dropSchemaVersion(new SchemaVersionDescriptor(new ISchemaName(DEFAULT_CATALOG_NAME, DEFAULT_DATABASE_NAME, "there is no schema named this"), 23));
   }
 
   @Test

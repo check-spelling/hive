@@ -1858,7 +1858,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
               // TODO Nothing else should be done for this task. Move on.
             }
 
-            // Try pre-empting a task so that a higher priority task can take it's place.
+            // Try preempting a task so that a higher priority task can take it's place.
             // Preempt only if there's no pending preemptions to avoid preempting twice for a task.
             String[] potentialHosts;
             if (scheduleResult == ScheduleResult.DELAYED_LOCALITY) {
@@ -1888,7 +1888,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
               boolean shouldPreempt = true;
               for (String host : potentialHosts) {
                 // Preempt only if there are no pending preemptions on the same host
-                // When the premption registers, the request at the highest priority will be given the slot,
+                // When the preemption registers, the request at the highest priority will be given the slot,
                 // even if the initial preemption was caused by some other task.
                 // TODO Maybe register which task the preemption was for, to avoid a bad non-local allocation.
                 MutableInt pendingHostPreemptions = pendingPreemptionsPerHost.get(host);
@@ -2090,7 +2090,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
         LOG.info("Preempting task {}", taskInfo);
         getContext().preemptContainer(taskInfo.containerId);
         // Preemption will finally be registered as a deallocateTask as a result of preemptContainer
-        // That resets preemption info and allows additional tasks to be pre-empted if required.
+        // That resets preemption info and allows additional tasks to be preempted if required.
       }
     }
     // The schedule loop will be triggered again when the deallocateTask request comes in for the
@@ -2470,7 +2470,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
         // will be handled in the next run.
         // A new request may come in right after this is set to false, but before the actual scheduling.
         // This will be handled in this run, but will cause an immediate run after, which is harmless.
-        // This is mainly to handle a trySchedue request while in the middle of a run - since the event
+        // This is mainly to handle a trySchedule request while in the middle of a run - since the event
         // which triggered it may not be processed for all tasks in the run.
         pendingScheduleInvocations.set(false);
         // Schedule outside of the scheduleLock - which should only be used to wait on the condition.
@@ -2480,7 +2480,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
           if (isShutdown.get()) {
             return null; // We are good.
           }
-          LOG.error("Scheduler thread was interrupte without shutdown and will now exit", ie);
+          LOG.error("Scheduler thread was interrupted without shutdown and will now exit", ie);
           throw ie;
         } catch (Throwable t) {
           // TODO: we might as well kill the AM at this point. How do we do that from here?
@@ -2574,7 +2574,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
 
       int oldNumSchedulableTasks = numSchedulableTasks;
       if (numSchedulableTasksConf == 0) {
-        int pendingQueueuCapacity = 0;
+        int pendingQueueCapacity = 0;
         String pendingQueueCapacityString = serviceInstance.getProperties()
                 .get(LlapRegistryService.LLAP_DAEMON_TASK_SCHEDULER_ENABLED_WAIT_QUEUE_SIZE);
         if (pendingQueueCapacityString == null) {
@@ -2585,9 +2585,9 @@ public class LlapTaskSchedulerService extends TaskScheduler {
                 serviceInstance, serviceInstance.getResource().getVirtualCores(),
                 pendingQueueCapacityString, serviceInstance.getResource().getMemory());
         if (pendingQueueCapacityString != null) {
-          pendingQueueuCapacity = Integer.parseInt(pendingQueueCapacityString);
+          pendingQueueCapacity = Integer.parseInt(pendingQueueCapacityString);
         }
-        this.numSchedulableTasks = numVcores + pendingQueueuCapacity;
+        this.numSchedulableTasks = numVcores + pendingQueueCapacity;
       } else {
         this.numSchedulableTasks = numSchedulableTasksConf;
         LOG.info("Setting up node: " + serviceInstance + " with schedulableCapacity=" + this.numSchedulableTasks);
@@ -2682,7 +2682,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
       return hadCommFailure;
     }
 
-    boolean _canAccepInternal() {
+    boolean _canAcceptInternal() {
       return !hadCommFailure && !disabled
           &&(numSchedulableTasks == -1 || ((numSchedulableTasks - numScheduledTasks) > 0));
     }
@@ -2691,7 +2691,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
     may be running in the system. Also depends upon the capacity usage configuration
      */
     boolean canAcceptTask() {
-      boolean result = _canAccepInternal();
+      boolean result = _canAcceptInternal();
       if (LOG.isTraceEnabled()) {
         LOG.trace(constructCanAcceptLogResult(result));
       }
@@ -2746,7 +2746,7 @@ public class LlapTaskSchedulerService extends TaskScheduler {
 
     private String toShortString() {
       StringBuilder sb = new StringBuilder();
-      sb.append(", canAcceptTask=").append(_canAccepInternal());
+      sb.append(", canAcceptTask=").append(_canAcceptInternal());
       sb.append(", st=").append(numScheduledTasks);
       sb.append(", ac=").append((numSchedulableTasks - numScheduledTasks));
       sb.append(", commF=").append(hadCommFailure);

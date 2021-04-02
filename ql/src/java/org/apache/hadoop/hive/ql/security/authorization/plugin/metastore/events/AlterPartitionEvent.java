@@ -102,8 +102,8 @@ public class AlterPartitionEvent extends HiveMetaStoreAuthorizableEvent {
 
     if (tbl != null) {
       String tblName    = (StringUtils.isNotEmpty(tbl) ? " " + tbl : "");
-      String partionStr = (partition != null) ? partition.toString() : "";
-      ret               = String.format(cmdStr, tblName, partionStr);
+      String partitionStr = (partition != null) ? partition.toString() : "";
+      ret               = String.format(cmdStr, tblName, partitionStr);
     }
 
     return ret;

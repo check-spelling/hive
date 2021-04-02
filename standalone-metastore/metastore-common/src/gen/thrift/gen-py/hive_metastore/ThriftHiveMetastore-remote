@@ -238,7 +238,7 @@ if len(sys.argv) <= 1 or sys.argv[1] == '--help':
     print('  WMCreateTriggerResponse create_wm_trigger(WMCreateTriggerRequest request)')
     print('  WMAlterTriggerResponse alter_wm_trigger(WMAlterTriggerRequest request)')
     print('  WMDropTriggerResponse drop_wm_trigger(WMDropTriggerRequest request)')
-    print('  WMGetTriggersForResourePlanResponse get_triggers_for_resourceplan(WMGetTriggersForResourePlanRequest request)')
+    print('  WMGetTriggersForResourcePlanResponse get_triggers_for_resourceplan(WMGetTriggersForResourcePlanRequest request)')
     print('  WMCreatePoolResponse create_wm_pool(WMCreatePoolRequest request)')
     print('  WMAlterPoolResponse alter_wm_pool(WMAlterPoolRequest request)')
     print('  WMDropPoolResponse drop_wm_pool(WMDropPoolRequest request)')

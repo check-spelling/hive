@@ -300,7 +300,7 @@ public class SecretManager extends ZKDelegationTokenSecretManager<LlapTokenIdent
     }
     for (ACL acl : acls) {
       if (!user.equals(acl.getId())) {
-        throw new SecurityException("The ACL " + acl + " is unnacceptable for " + path
+        throw new SecurityException("The ACL " + acl + " is unacceptable for " + path
             + "; only " + user + " is allowed. " + DISABLE_MESSAGE);
       }
     }

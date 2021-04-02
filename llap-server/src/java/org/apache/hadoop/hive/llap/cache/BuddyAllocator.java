@@ -1104,7 +1104,7 @@ public final class BuddyAllocator
       while (stackSize > 0) {
         --stackSize;
         long next = stack[stackSize];
-        int listLevel = getFirstInt(next); // This is not an actual list; see intermList.
+        int listLevel = getFirstInt(next); // This is not an actual list; see interimList.
         int sourceHeaderIx = getSecondInt(next);
         // Find the buddy of the header at list level. We don't know what list it is actually in.
         int levelBuddyHeaderIx = getBuddyHeaderIx(listLevel, sourceHeaderIx);
@@ -1127,8 +1127,8 @@ public final class BuddyAllocator
         // sub-tree where our buddy is not on the same level as us (i.e. does not cover the entire
         // sub-tree).
         int actualBuddyListIx = getSecondInt(result);
-        for (int intermListIx = listLevel - 1; intermListIx >= actualBuddyListIx; --intermListIx) {
-          stack[stackSize++] = makeIntPair(intermListIx, levelBuddyHeaderIx);
+        for (int interimListIx = listLevel - 1; interimListIx >= actualBuddyListIx; --interimListIx) {
+          stack[stackSize++] = makeIntPair(interimListIx, levelBuddyHeaderIx);
         }
       }
       return makeIntPair(victimCount, totalMoveSize);
@@ -1490,8 +1490,8 @@ public final class BuddyAllocator
         try {
           init(arenaIx);
           // if init did not throw interrupt exception then allocation succeeded and so increment and commit the arena
-          boolean isCommited = allocatedArenas.compareAndSet(-arenaCount - 1, arenaCount + 1);
-          assert isCommited;
+          boolean isCommitted = allocatedArenas.compareAndSet(-arenaCount - 1, arenaCount + 1);
+          assert isCommitted;
           metrics.incrAllocatedArena();
         } catch (ClosedByInterruptException e) {
           LlapIoImpl.LOG.info("Received interrupt during arena {} allocation.. Ignoring..", arenaIx);

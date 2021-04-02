@@ -320,7 +320,7 @@ public class PlanModifierForASTConv {
   private static boolean validGBParent(RelNode gbNode, RelNode parent) {
     boolean validParent = true;
 
-    // TOODO: Verify GB having is not a seperate filter (if so we shouldn't
+    // TOODO: Verify GB having is not a separate filter (if so we shouldn't
     // introduce derived table)
     if (parent instanceof Join || parent instanceof SetOp
         || parent instanceof Aggregate

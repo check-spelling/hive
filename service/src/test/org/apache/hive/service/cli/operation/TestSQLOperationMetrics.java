@@ -67,13 +67,13 @@ public class TestSQLOperationMetrics {
   public void testSubmittedQueryCount() throws Exception {
     String json = ((CodahaleMetrics) metrics).dumpJson();
     MetricsTestUtils.verifyMetricsJson(json, MetricsTestUtils.TIMER,
-        MetricsConstant.HS2_SUBMITTED_QURIES, "0");
+        MetricsConstant.HS2_SUBMITTED_QUERIES, "0");
 
     operation.onNewState(OperationState.FINISHED, OperationState.RUNNING);
 
     json = ((CodahaleMetrics) metrics).dumpJson();
     MetricsTestUtils.verifyMetricsJson(json, MetricsTestUtils.TIMER,
-        MetricsConstant.HS2_SUBMITTED_QURIES, "1");
+        MetricsConstant.HS2_SUBMITTED_QUERIES, "1");
   }
 
   @Test

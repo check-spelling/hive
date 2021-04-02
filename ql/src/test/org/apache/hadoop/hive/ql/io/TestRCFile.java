@@ -96,9 +96,9 @@ public class TestRCFile {
       new IntWritable(789), new LongWritable(1000), new DoubleWritable(5.3),
       new Text("hive and hadoop"), null, null};
 
-  private final Object[] expectedPartitalFieldsData = {null, null,
+  private final Object[] expectedPartialFieldsData = {null, null,
       new IntWritable(789), new LongWritable(1000), null, null, null, null};
-  private final BytesRefArrayWritable patialS = new BytesRefArrayWritable();
+  private final BytesRefArrayWritable partialS = new BytesRefArrayWritable();
   private byte[][] bytesArray;
   private BytesRefArrayWritable s;
   private int numRepeat = 1000;
@@ -132,16 +132,16 @@ public class TestRCFile {
     s.set(7, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
 
     // partial test init
-    patialS.set(0, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
-    patialS.set(1, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
-    patialS.set(2, new BytesRefWritable("789".getBytes(StandardCharsets.UTF_8)));
-    patialS.set(3, new BytesRefWritable("1000".getBytes(StandardCharsets.UTF_8)));
-    patialS.set(4, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(0, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(1, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(2, new BytesRefWritable("789".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(3, new BytesRefWritable("1000".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(4, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
     // LazyString has no so-called NULL sequence. The value is empty string if not.
-    patialS.set(5, new BytesRefWritable("".getBytes(StandardCharsets.UTF_8)));
-    patialS.set(6, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(5, new BytesRefWritable("".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(6, new BytesRefWritable("NULL".getBytes(StandardCharsets.UTF_8)));
     // LazyString has no so-called NULL sequence. The value is empty string if not.
-    patialS.set(7, new BytesRefWritable("".getBytes(StandardCharsets.UTF_8)));
+    partialS.set(7, new BytesRefWritable("".getBytes(StandardCharsets.UTF_8)));
 
     numRepeat = (int) Math.ceil((double)SequenceFile.SYNC_INTERVAL / (double)bytesArray.length);
   }
@@ -590,7 +590,7 @@ public class TestRCFile {
             .copyToStandardObject(fieldData, fieldRefs.get(i)
             .getFieldObjectInspector(), ObjectInspectorCopyOption.WRITABLE);
         assertEquals("Field " + i, standardWritableData,
-            expectedPartitalFieldsData[i]);
+            expectedPartialFieldsData[i]);
       }
 
       assertEquals(
@@ -598,7 +598,7 @@ public class TestRCFile {
           BytesRefArrayWritable.class, serDe.getSerializedClass());
       BytesRefArrayWritable serializedBytes = (BytesRefArrayWritable) serDe
           .serialize(row, oi);
-      assertEquals("Serialized data", patialS, serializedBytes);
+      assertEquals("Serialized data", partialS, serializedBytes);
     }
     reader.close();
     long cost = System.currentTimeMillis() - start;

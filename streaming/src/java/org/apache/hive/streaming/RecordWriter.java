@@ -45,7 +45,7 @@ public interface RecordWriter {
    * @param connection - streaming connection
    * @param minWriteId - min write id
    * @param maxWriteID - max write id
-   * @param statementId - statemenId. Note this number can't be bigger than 2^12
+   * @param statementId - statementId. Note this number can't be bigger than 2^12
    * @throws StreamingException - thrown when initialization failed
    */
   default void init(StreamingConnection connection, long minWriteId,

@@ -170,7 +170,7 @@ public class HBaseSerDeHelper {
               // a composite key class was provided. But neither the types
               // property was set and
               // neither the getParts() method of HBaseCompositeKey was
-              // overidden in the
+              // overridden in the
               // implementation. Flag exception.
               throw new SerDeException(
                   "Either the hbase.composite.key.types property should be set or the getParts method must be overridden in "

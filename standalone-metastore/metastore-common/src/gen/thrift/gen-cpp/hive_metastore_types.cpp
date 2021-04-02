@@ -4823,8 +4823,8 @@ void RolePrincipalGrant::__set_grantorName(const std::string& val) {
   this->grantorName = val;
 }
 
-void RolePrincipalGrant::__set_grantorPrincipalType(const PrincipalType::type val) {
-  this->grantorPrincipalType = val;
+void RolePrincipalGrant::__set_grantorPrincipalipalType(const PrincipalType::type val) {
+  this->grantorPrincipalipalType = val;
 }
 std::ostream& operator<<(std::ostream& out, const RolePrincipalGrant& obj)
 {
@@ -4908,8 +4908,8 @@ uint32_t RolePrincipalGrant::read(::apache::thrift::protocol::TProtocol* iprot) 
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast147;
           xfer += iprot->readI32(ecast147);
-          this->grantorPrincipalType = (PrincipalType::type)ecast147;
-          this->__isset.grantorPrincipalType = true;
+          this->grantorPrincipalipalType = (PrincipalType::type)ecast147;
+          this->__isset.grantorPrincipalipalType = true;
         } else {
           xfer += iprot->skip(ftype);
         }
@@ -4955,8 +4955,8 @@ uint32_t RolePrincipalGrant::write(::apache::thrift::protocol::TProtocol* oprot)
   xfer += oprot->writeString(this->grantorName);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("grantorPrincipalType", ::apache::thrift::protocol::T_I32, 7);
-  xfer += oprot->writeI32((int32_t)this->grantorPrincipalType);
+  xfer += oprot->writeFieldBegin("grantorPrincipalipalType", ::apache::thrift::protocol::T_I32, 7);
+  xfer += oprot->writeI32((int32_t)this->grantorPrincipalipalType);
   xfer += oprot->writeFieldEnd();
 
   xfer += oprot->writeFieldStop();
@@ -4972,7 +4972,7 @@ void swap(RolePrincipalGrant &a, RolePrincipalGrant &b) {
   swap(a.grantOption, b.grantOption);
   swap(a.grantTime, b.grantTime);
   swap(a.grantorName, b.grantorName);
-  swap(a.grantorPrincipalType, b.grantorPrincipalType);
+  swap(a.grantorPrincipalipalType, b.grantorPrincipalipalType);
   swap(a.__isset, b.__isset);
 }
 
@@ -4983,7 +4983,7 @@ RolePrincipalGrant::RolePrincipalGrant(const RolePrincipalGrant& other148) {
   grantOption = other148.grantOption;
   grantTime = other148.grantTime;
   grantorName = other148.grantorName;
-  grantorPrincipalType = other148.grantorPrincipalType;
+  grantorPrincipalipalType = other148.grantorPrincipalipalType;
   __isset = other148.__isset;
 }
 RolePrincipalGrant& RolePrincipalGrant::operator=(const RolePrincipalGrant& other149) {
@@ -4993,7 +4993,7 @@ RolePrincipalGrant& RolePrincipalGrant::operator=(const RolePrincipalGrant& othe
   grantOption = other149.grantOption;
   grantTime = other149.grantTime;
   grantorName = other149.grantorName;
-  grantorPrincipalType = other149.grantorPrincipalType;
+  grantorPrincipalipalType = other149.grantorPrincipalipalType;
   __isset = other149.__isset;
   return *this;
 }
@@ -5006,7 +5006,7 @@ void RolePrincipalGrant::printTo(std::ostream& out) const {
   out << ", " << "grantOption=" << to_string(grantOption);
   out << ", " << "grantTime=" << to_string(grantTime);
   out << ", " << "grantorName=" << to_string(grantorName);
-  out << ", " << "grantorPrincipalType=" << to_string(grantorPrincipalType);
+  out << ", " << "grantorPrincipalipalType=" << to_string(grantorPrincipalipalType);
   out << ")";
 }
 
@@ -36358,27 +36358,27 @@ void WMDropTriggerResponse::printTo(std::ostream& out) const {
 }
 
 
-WMGetTriggersForResourePlanRequest::~WMGetTriggersForResourePlanRequest() noexcept {
+WMGetTriggersForResourcePlanRequest::~WMGetTriggersForResourcePlanRequest() noexcept {
 }
 
 
-void WMGetTriggersForResourePlanRequest::__set_resourcePlanName(const std::string& val) {
+void WMGetTriggersForResourcePlanRequest::__set_resourcePlanName(const std::string& val) {
   this->resourcePlanName = val;
 __isset.resourcePlanName = true;
 }
 
-void WMGetTriggersForResourePlanRequest::__set_ns(const std::string& val) {
+void WMGetTriggersForResourcePlanRequest::__set_ns(const std::string& val) {
   this->ns = val;
 __isset.ns = true;
 }
-std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourePlanRequest& obj)
+std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourcePlanRequest& obj)
 {
   obj.printTo(out);
   return out;
 }
 
 
-uint32_t WMGetTriggersForResourePlanRequest::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t WMGetTriggersForResourcePlanRequest::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -36427,10 +36427,10 @@ uint32_t WMGetTriggersForResourePlanRequest::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t WMGetTriggersForResourePlanRequest::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t WMGetTriggersForResourcePlanRequest::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("WMGetTriggersForResourePlanRequest");
+  xfer += oprot->writeStructBegin("WMGetTriggersForResourcePlanRequest");
 
   if (this->__isset.resourcePlanName) {
     xfer += oprot->writeFieldBegin("resourcePlanName", ::apache::thrift::protocol::T_STRING, 1);
@@ -36447,49 +36447,49 @@ uint32_t WMGetTriggersForResourePlanRequest::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-void swap(WMGetTriggersForResourePlanRequest &a, WMGetTriggersForResourePlanRequest &b) {
+void swap(WMGetTriggersForResourcePlanRequest &a, WMGetTriggersForResourcePlanRequest &b) {
   using ::std::swap;
   swap(a.resourcePlanName, b.resourcePlanName);
   swap(a.ns, b.ns);
   swap(a.__isset, b.__isset);
 }
 
-WMGetTriggersForResourePlanRequest::WMGetTriggersForResourePlanRequest(const WMGetTriggersForResourePlanRequest& other1312) {
+WMGetTriggersForResourcePlanRequest::WMGetTriggersForResourcePlanRequest(const WMGetTriggersForResourcePlanRequest& other1312) {
   resourcePlanName = other1312.resourcePlanName;
   ns = other1312.ns;
   __isset = other1312.__isset;
 }
-WMGetTriggersForResourePlanRequest& WMGetTriggersForResourePlanRequest::operator=(const WMGetTriggersForResourePlanRequest& other1313) {
+WMGetTriggersForResourcePlanRequest& WMGetTriggersForResourcePlanRequest::operator=(const WMGetTriggersForResourcePlanRequest& other1313) {
   resourcePlanName = other1313.resourcePlanName;
   ns = other1313.ns;
   __isset = other1313.__isset;
   return *this;
 }
-void WMGetTriggersForResourePlanRequest::printTo(std::ostream& out) const {
+void WMGetTriggersForResourcePlanRequest::printTo(std::ostream& out) const {
   using ::apache::thrift::to_string;
-  out << "WMGetTriggersForResourePlanRequest(";
+  out << "WMGetTriggersForResourcePlanRequest(";
   out << "resourcePlanName="; (__isset.resourcePlanName ? (out << to_string(resourcePlanName)) : (out << "<null>"));
   out << ", " << "ns="; (__isset.ns ? (out << to_string(ns)) : (out << "<null>"));
   out << ")";
 }
 
 
-WMGetTriggersForResourePlanResponse::~WMGetTriggersForResourePlanResponse() noexcept {
+WMGetTriggersForResourcePlanResponse::~WMGetTriggersForResourcePlanResponse() noexcept {
 }
 
 
-void WMGetTriggersForResourePlanResponse::__set_triggers(const std::vector<WMTrigger> & val) {
+void WMGetTriggersForResourcePlanResponse::__set_triggers(const std::vector<WMTrigger> & val) {
   this->triggers = val;
 __isset.triggers = true;
 }
-std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourePlanResponse& obj)
+std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourcePlanResponse& obj)
 {
   obj.printTo(out);
   return out;
 }
 
 
-uint32_t WMGetTriggersForResourePlanResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t WMGetTriggersForResourcePlanResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -36542,10 +36542,10 @@ uint32_t WMGetTriggersForResourePlanResponse::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t WMGetTriggersForResourePlanResponse::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t WMGetTriggersForResourcePlanResponse::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("WMGetTriggersForResourePlanResponse");
+  xfer += oprot->writeStructBegin("WMGetTriggersForResourcePlanResponse");
 
   if (this->__isset.triggers) {
     xfer += oprot->writeFieldBegin("triggers", ::apache::thrift::protocol::T_LIST, 1);
@@ -36565,24 +36565,24 @@ uint32_t WMGetTriggersForResourePlanResponse::write(::apache::thrift::protocol::
   return xfer;
 }
 
-void swap(WMGetTriggersForResourePlanResponse &a, WMGetTriggersForResourePlanResponse &b) {
+void swap(WMGetTriggersForResourcePlanResponse &a, WMGetTriggersForResourcePlanResponse &b) {
   using ::std::swap;
   swap(a.triggers, b.triggers);
   swap(a.__isset, b.__isset);
 }
 
-WMGetTriggersForResourePlanResponse::WMGetTriggersForResourePlanResponse(const WMGetTriggersForResourePlanResponse& other1320) {
+WMGetTriggersForResourcePlanResponse::WMGetTriggersForResourcePlanResponse(const WMGetTriggersForResourcePlanResponse& other1320) {
   triggers = other1320.triggers;
   __isset = other1320.__isset;
 }
-WMGetTriggersForResourePlanResponse& WMGetTriggersForResourePlanResponse::operator=(const WMGetTriggersForResourePlanResponse& other1321) {
+WMGetTriggersForResourcePlanResponse& WMGetTriggersForResourcePlanResponse::operator=(const WMGetTriggersForResourcePlanResponse& other1321) {
   triggers = other1321.triggers;
   __isset = other1321.__isset;
   return *this;
 }
-void WMGetTriggersForResourePlanResponse::printTo(std::ostream& out) const {
+void WMGetTriggersForResourcePlanResponse::printTo(std::ostream& out) const {
   using ::apache::thrift::to_string;
-  out << "WMGetTriggersForResourePlanResponse(";
+  out << "WMGetTriggersForResourcePlanResponse(";
   out << "triggers="; (__isset.triggers ? (out << to_string(triggers)) : (out << "<null>"));
   out << ")";
 }

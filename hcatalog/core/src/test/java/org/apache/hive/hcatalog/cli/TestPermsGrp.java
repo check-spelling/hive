@@ -262,11 +262,11 @@ public class TestPermsGrp {
 
 
     msc.dropType(typeName);
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<FieldSchema>(1));
-    typ1.getFields().add(new FieldSchema("name", serdeConstants.STRING_TYPE_NAME, ""));
-    msc.createType(typ1);
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<FieldSchema>(1));
+    type1.getFields().add(new FieldSchema("name", serdeConstants.STRING_TYPE_NAME, ""));
+    msc.createType(type1);
 
     Table tbl = new Table();
     tbl.setDbName(dbName);
@@ -279,7 +279,7 @@ public class TestPermsGrp {
     sd.setInputFormat(HiveInputFormat.class.getName());
     sd.setOutputFormat(HiveOutputFormat.class.getName());
     tbl.setSd(sd);
-    sd.setCols(typ1.getFields());
+    sd.setCols(type1.getFields());
 
     sd.setSerdeInfo(new SerDeInfo());
     return tbl;

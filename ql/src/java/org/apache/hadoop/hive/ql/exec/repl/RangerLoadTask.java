@@ -153,7 +153,7 @@ public class RangerLoadTask extends Task<RangerLoadWork> implements Serializable
       work.getMetricCollector().reportStageEnd(getName(), Status.SUCCESS);
       return 0;
     } catch (RuntimeException e) {
-      LOG.error("Runtime Excepton during RangerLoad", e);
+      LOG.error("Runtime Exception during RangerLoad", e);
       setException(e);
       try{
         ReplUtils.handleException(true, e, work.getCurrentDumpPath().getParent().toString(), work.getMetricCollector(),

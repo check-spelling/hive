@@ -166,7 +166,7 @@ public interface HadoopShims {
   public JobContext newJobContext(Job job);
 
   /**
-   * Check wether MR is configured to run in local-mode
+   * Check whether MR is configured to run in local-mode
    * @param conf
    * @return
    */
@@ -440,7 +440,7 @@ public interface HadoopShims {
 
   /**
    * Check if the configured UGI has access to the path for the given file system action.
-   * Method will return successfully if action is permitted. AccessControlExceptoin will
+   * Method will return successfully if action is permitted. AccessControlException will
    * be thrown if user does not have access to perform the action. Other exceptions may
    * be thrown for non-access related errors.
    * @param fs
@@ -515,7 +515,7 @@ public interface HadoopShims {
    * @param dst Path to the destination file or directory
    * @param conf The hadoop configuration object
    * @param proxyUser The user to perform the distcp as
-   * @return True if it is successfull; False otherwise.
+   * @return True if it is successful; False otherwise.
    */
   boolean runDistCpAs(List<Path> srcPaths, Path dst, Configuration conf, UserGroupInformation proxyUser)
           throws IOException;
@@ -528,7 +528,7 @@ public interface HadoopShims {
    * @param srcPaths List of Path to the source files or directories to copy
    * @param dst Path to the destination file or directory
    * @param conf The hadoop configuration object
-   * @return True if it is successfull; False otherwise.
+   * @return True if it is successful; False otherwise.
    */
   public boolean runDistCp(List<Path> srcPaths, Path dst, Configuration conf) throws IOException;
 

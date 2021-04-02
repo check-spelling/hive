@@ -53,7 +53,7 @@ public class TestHCatStorer extends AbstractHCatStorerTest {
       add("testPartitionPublish");
       add("testStoreFuncAllSimpleTypes");
       add("testStoreFuncSimple");
-      add("testStoreInPartiitonedTbl");
+      add("testStoreInPartitionedTbl");
       add("testStoreMultiTables");
       add("testStoreWithNoCtorArgs");
       add("testStoreWithNoSchema");
@@ -202,9 +202,9 @@ public class TestHCatStorer extends AbstractHCatStorerTest {
 
   @Test
   @Override
-  public void testStoreInPartiitonedTbl() throws Exception {
+  public void testStoreInPartitionedTbl() throws Exception {
     assumeTrue(!TestUtil.shouldSkip(storageFormat, DISABLED_STORAGE_FORMATS));
-    super.testStoreInPartiitonedTbl();
+    super.testStoreInPartitionedTbl();
   }
 
   @Test

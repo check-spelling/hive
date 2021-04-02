@@ -1316,7 +1316,7 @@ public class TestLlapTaskSchedulerService {
       ArgumentCaptor<ContainerId> cIdArgCaptor = ArgumentCaptor.forClass(ContainerId.class);
       verify(tsWrapper.mockAppCallback).preemptContainer(cIdArgCaptor.capture());
 
-      // Determin which task has been preempted. Normally task2 would be preempted based on it starting
+      // Determine which task has been preempted. Normally task2 would be preempted based on it starting
       // later. However - both may have the same start time, so either could be picked.
       Object deallocatedTask1; // De-allocated now
       Object deallocatedTask2; // Will be de-allocated later.
@@ -1420,7 +1420,7 @@ public class TestLlapTaskSchedulerService {
       ArgumentCaptor<ContainerId> cIdArgCaptor = ArgumentCaptor.forClass(ContainerId.class);
       verify(tsWrapper.mockAppCallback).preemptContainer(cIdArgCaptor.capture());
 
-      // Determin which task has been preempted. Normally task2 would be preempted based on it starting
+      // Determine which task has been preempted. Normally task2 would be preempted based on it starting
       // later. However - both may have the same start time, so either could be picked.
       Object deallocatedTask1; // De-allocated now
       Object deallocatedTask2; // Will be de-allocated later.
@@ -1654,7 +1654,7 @@ public class TestLlapTaskSchedulerService {
   }
 
   @Test(timeout = 10000)
-  public void testDelayedQueeTaskSelectionAfterScheduled() throws IOException,
+  public void testDelayedQueueTaskSelectionAfterScheduled() throws IOException,
       InterruptedException {
     Priority priority1 = Priority.newInstance(1);
     String [] hosts = new String[] {HOST1, HOST2};
@@ -1918,7 +1918,7 @@ public class TestLlapTaskSchedulerService {
       // Mark a task as failed due to a comm failure.
       tsWrapper.deallocateTask(task1, false, TaskAttemptEndReason.COMMUNICATION_ERROR);
 
-      // Node1 has free capacity but is disabled. Node 2 has capcaity. Delay > re-enable tiemout
+      // Node1 has free capacity but is disabled. Node 2 has capacity. Delay > re-enable timeout
       tsWrapper.ensureNoChangeInTotalAllocations(2, 2000l);
     } finally {
       tsWrapper.shutdown();
@@ -2282,7 +2282,7 @@ public class TestLlapTaskSchedulerService {
 
     @Override
     protected void schedulePendingTasks() throws InterruptedException {
-      LOG.info("Attempted schedulPendingTasks");
+      LOG.info("Attempted schedulePendingTasks");
       testLock.lock();
       try {
         if (controlScheduling.get()) {
@@ -2387,7 +2387,7 @@ public class TestLlapTaskSchedulerService {
             while (!shouldRun) {
               triggerRunCondition.await();
             }
-            // Preven subsequent runs until a new trigger is set.
+            // Prevent subsequent runs until a new trigger is set.
             shouldRun = false;
           } finally {
             lock.unlock();

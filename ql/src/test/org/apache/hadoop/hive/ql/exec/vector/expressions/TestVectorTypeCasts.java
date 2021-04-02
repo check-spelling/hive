@@ -604,7 +604,7 @@ public class TestVectorTypeCasts {
 
   public static final long NANOSECONDS_PER_SECOND = TimeUnit.SECONDS.toNanos(1);
   public static final long MILLISECONDS_PER_SECOND = TimeUnit.SECONDS.toMillis(1);
-  public static final long NANOSECONDS_PER_MILLISSECOND = TimeUnit.MILLISECONDS.toNanos(1);
+  public static final long NANOSECONDS_PER_MILLISECOND = TimeUnit.MILLISECONDS.toNanos(1);
 
   private VectorizedRowBatch getBatchTimestampDecimal(HiveDecimal[] hiveDecimalValues) {
     Random r = new Random(994);
@@ -623,11 +623,11 @@ public class TestVectorTypeCasts {
         break;
       case 2:
         // Limit to milliseconds only...
-        optionalNanos = r.nextInt((int) MILLISECONDS_PER_SECOND) * (int) NANOSECONDS_PER_MILLISSECOND;
+        optionalNanos = r.nextInt((int) MILLISECONDS_PER_SECOND) * (int) NANOSECONDS_PER_MILLISECOND;
         break;
       case 3:
         // Limit to below milliseconds only...
-        optionalNanos = r.nextInt((int) NANOSECONDS_PER_MILLISSECOND);
+        optionalNanos = r.nextInt((int) NANOSECONDS_PER_MILLISECOND);
         break;
       }
       long millis = RandomTypeUtil.randomMillis(r);

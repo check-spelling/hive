@@ -233,15 +233,15 @@ public class TestAcidTableSetup {
   }
 
   private Type createType(String typeName, Map<String, String> fields) throws Throwable {
-    Type typ1 = new Type();
-    typ1.setName(typeName);
-    typ1.setFields(new ArrayList<>(fields.size()));
+    Type type1 = new Type();
+    type1.setName(typeName);
+    type1.setFields(new ArrayList<>(fields.size()));
     for(String fieldName : fields.keySet()) {
-      typ1.getFields().add(
+      type1.getFields().add(
           new FieldSchema(fieldName, fields.get(fieldName), ""));
     }
-    client.createType(typ1);
-    return typ1;
+    client.createType(type1);
+    return type1;
   }
 }
 

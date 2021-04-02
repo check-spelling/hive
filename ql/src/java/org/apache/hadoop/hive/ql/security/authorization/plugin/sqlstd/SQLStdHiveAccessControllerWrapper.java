@@ -61,28 +61,28 @@ public class SQLStdHiveAccessControllerWrapper implements HiveAccessController {
   @Override
   public void grantPrivileges(List<HivePrincipal> hivePrincipals,
       List<HivePrivilege> hivePrivileges, HivePrivilegeObject hivePrivObject,
-      HivePrincipal grantorPrincipal, boolean grantOption) throws HiveAuthzPluginException,
+      HivePrincipal grantorPrincipalipal, boolean grantOption) throws HiveAuthzPluginException,
       HiveAccessControlException {
     // validate principals
     hivePrincipals = SQLAuthorizationUtils.getValidatedPrincipals(hivePrincipals);
-    grantorPrincipal = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrincipal);
+    grantorPrincipalipal = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrincipalipal);
 
     hiveAccessController.grantPrivileges(hivePrincipals, hivePrivileges, hivePrivObject,
-        grantorPrincipal, grantOption);
+        grantorPrincipalipal, grantOption);
 
   }
 
   @Override
   public void revokePrivileges(List<HivePrincipal> hivePrincipals,
       List<HivePrivilege> hivePrivileges, HivePrivilegeObject hivePrivObject,
-      HivePrincipal grantorPrincipal, boolean grantOption) throws HiveAuthzPluginException,
+      HivePrincipal grantorPrincipalipal, boolean grantOption) throws HiveAuthzPluginException,
       HiveAccessControlException {
     // validate principals
     hivePrincipals = SQLAuthorizationUtils.getValidatedPrincipals(hivePrincipals);
-    grantorPrincipal = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrincipal);
+    grantorPrincipalipal = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrincipalipal);
 
     hiveAccessController.revokePrivileges(hivePrincipals, hivePrivileges, hivePrivObject,
-        grantorPrincipal, grantOption);
+        grantorPrincipalipal, grantOption);
   }
 
   @Override
@@ -105,26 +105,26 @@ public class SQLStdHiveAccessControllerWrapper implements HiveAccessController {
 
   @Override
   public void grantRole(List<HivePrincipal> hivePrincipals, List<String> roles,
-      boolean grantOption, HivePrincipal grantorPrinc) throws HiveAuthzPluginException,
+      boolean grantOption, HivePrincipal grantorPrincipal) throws HiveAuthzPluginException,
       HiveAccessControlException {
     // validate principals
     hivePrincipals = SQLAuthorizationUtils.getValidatedPrincipals(hivePrincipals);
     roles = getLowerCaseRoleNames(roles);
-    grantorPrinc = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrinc);
+    grantorPrincipal = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrincipal);
 
-    hiveAccessController.grantRole(hivePrincipals, roles, grantOption, grantorPrinc);
+    hiveAccessController.grantRole(hivePrincipals, roles, grantOption, grantorPrincipal);
   }
 
   @Override
   public void revokeRole(List<HivePrincipal> hivePrincipals, List<String> roles,
-      boolean grantOption, HivePrincipal grantorPrinc) throws HiveAuthzPluginException,
+      boolean grantOption, HivePrincipal grantorPrincipal) throws HiveAuthzPluginException,
       HiveAccessControlException {
     // validate
     hivePrincipals = SQLAuthorizationUtils.getValidatedPrincipals(hivePrincipals);
     roles = getLowerCaseRoleNames(roles);
-    grantorPrinc = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrinc);
+    grantorPrincipal = SQLAuthorizationUtils.getValidatedPrincipal(grantorPrincipal);
 
-    hiveAccessController.revokeRole(hivePrincipals, roles, grantOption, grantorPrinc);
+    hiveAccessController.revokeRole(hivePrincipals, roles, grantOption, grantorPrincipal);
   }
 
   @Override

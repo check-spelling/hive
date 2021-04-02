@@ -897,7 +897,7 @@ public class TestTxnCommands extends TxnCommandsBaseForTests {
         "WHEN MATCHED THEN UPDATE set b = 1\n" +
         "WHEN MATCHED THEN DELETE\n" +
         "WHEN NOT MATCHED AND a < 1 THEN INSERT VALUES(1,2)");
-    Assert.assertEquals(ErrorMsg.MERGE_PREDIACTE_REQUIRED, ((HiveException)e.getCause()).getCanonicalErrorMsg());
+    Assert.assertEquals(ErrorMsg.MERGE_PREDICATE_REQUIRED, ((HiveException)e.getCause()).getCanonicalErrorMsg());
   }
   @Test
   public void testMergeNegative2() throws Exception {
@@ -912,7 +912,7 @@ public class TestTxnCommands extends TxnCommandsBaseForTests {
   /**
    * `1` means 1 is a column name and '1' means 1 is a string literal
    * HiveConf.HIVE_QUOTEDID_SUPPORT
-   * HiveConf.HIVE_SUPPORT_SPECICAL_CHARACTERS_IN_TABLE_NAMES
+   * HiveConf.HIVE_SUPPORT_SPECIAL_CHARACTERS_IN_TABLE_NAMES
    * {@link TestTxnCommands#testMergeType2SCD01()}
    */
   @Test
@@ -1212,7 +1212,7 @@ public class TestTxnCommands extends TxnCommandsBaseForTests {
     long start = System.currentTimeMillis();
     runStatementOnDriver("alter table "+ TestTxnCommands2.Table.ACIDTBL +" compact 'major' AND WAIT");
     //no Worker so it stays in initiated state
-    //w/o AND WAIT the above alter table retunrs almost immediately, so the test here to check that
+    //w/o AND WAIT the above alter table returns almost immediately, so the test here to check that
     //> 2 seconds pass, i.e. that the command in Driver actually blocks before cancel is fired
     Assert.assertTrue(System.currentTimeMillis() > start + 2);
   }

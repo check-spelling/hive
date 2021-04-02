@@ -61,8 +61,8 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @PowerMockIgnore({ "javax.management.*" })
 public class TestCopyUtils {
   /*
-  Distcp currently does not copy a single file in a distributed manner hence we dont care about
-  the size of file, if there is only file, we dont want to launch distcp.
+  Distcp currently does not copy a single file in a distributed manner hence we don't care about
+  the size of file, if there is only file, we don't want to launch distcp.
    */
   @Test
   public void distcpShouldNotBeCalledOnlyForOneFile() throws Exception {

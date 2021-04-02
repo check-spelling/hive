@@ -66,7 +66,7 @@ public class TestAggregateStatsCache {
 
   @BeforeClass
   public static void beforeTest() {
-    // All data intitializations
+    // All data initializations
     initializeTables();
     initializePartitions();
     initializeColumns();
@@ -150,7 +150,7 @@ public class TestAggregateStatsCache {
     ColumnStatisticsObj aggrColStatsCached = aggrStatsCached.getColStats();
     Assert.assertEquals(aggrColStats, aggrColStatsCached);
 
-    // Now get a non-existant entry
+    // Now get a nonexistent entry
     aggrStatsCached = cache.get(DEFAULT_CATALOG_NAME, "dbNotThere", tblName, colName, partNames);
     Assert.assertNull(aggrStatsCached);
   }

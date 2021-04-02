@@ -312,7 +312,7 @@ public class HiveAccumuloHelper {
   }
 
   /**
-   * Sets all jars requried by Accumulo input/output tasks in the configuration to be dynamically
+   * Sets all jars required by Accumulo input/output tasks in the configuration to be dynamically
    * loaded when the task is executed.
    */
   public void loadDependentJars(Configuration conf) {
@@ -341,7 +341,7 @@ public class HiveAccumuloHelper {
     AuthenticationToken token = getDelegationToken(conn);
 
     // Make sure the Accumulo token is set in the Configuration (only a stub of the Accumulo
-    // AuthentiationToken is serialized, not the entire token). configureJobConf may be
+    // AuthenticationToken is serialized, not the entire token). configureJobConf may be
     // called multiple times with the same JobConf which results in an error from Accumulo
     // MapReduce API. Catch the error, log a debug message and just keep going
     try {

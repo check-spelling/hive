@@ -316,7 +316,7 @@ public class SkewJoinOptimizer extends Transform {
           for (ExprNodeDesc keyColDesc : rsDesc.getKeyCols()) {
             ExprNodeColumnDesc keyCol = null;
 
-            // If the key column is not a column, then dont apply this optimization.
+            // If the key column is not a column, then don't apply this optimization.
             // This will be fixed as part of https://issues.apache.org/jira/browse/HIVE-3445
             // for type conversion UDFs.
             if (keyColDesc instanceof ExprNodeColumnDesc) {

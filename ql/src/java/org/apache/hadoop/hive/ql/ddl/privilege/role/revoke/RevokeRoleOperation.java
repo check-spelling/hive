@@ -44,13 +44,13 @@ public class RevokeRoleOperation extends DDLOperation<RevokeRoleDesc> {
 
     List<HivePrincipal> principals = AuthorizationUtils.getHivePrincipals(desc.getPrincipals(),
         PrivilegeUtils.getAuthorizationTranslator(authorizer));
-    HivePrincipal grantorPrincipal = null;
+    HivePrincipal grantorPrincipalipal = null;
     if (desc.getGrantor() != null) {
-      grantorPrincipal =
+      grantorPrincipalipal =
           new HivePrincipal(desc.getGrantor(), AuthorizationUtils.getHivePrincipalType(PrincipalType.USER));
     }
 
-    authorizer.revokeRole(principals, desc.getRoles(), desc.isGrantOption(), grantorPrincipal);
+    authorizer.revokeRole(principals, desc.getRoles(), desc.isGrantOption(), grantorPrincipalipal);
 
     return 0;
   }

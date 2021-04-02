@@ -143,7 +143,7 @@ public class TestStreaming {
     public FileStatus getFileStatus(Path path) throws IOException {
       File file = pathToFile(path);
       if (!file.exists()) {
-        throw new FileNotFoundException("Can'table find " + path);
+        throw new FileNotFoundException("Can't find " + path);
       }
       // get close enough
       short mod = 0;
@@ -1366,7 +1366,7 @@ public class TestStreaming {
 
     connection.beginTransaction();
     conf.setTimeVar(HiveConf.ConfVars.HIVE_TIMEDOUT_TXN_REAPER_START, 0, TimeUnit.SECONDS);
-    //ensure txn timesout
+    //ensure txn times out
     conf.setTimeVar(HiveConf.ConfVars.HIVE_TXN_TIMEOUT, 2, TimeUnit.MILLISECONDS);
     AcidHouseKeeperService houseKeeperService = new AcidHouseKeeperService();
     houseKeeperService.setConf(conf);
@@ -1426,7 +1426,7 @@ public class TestStreaming {
       response = msClient.showLocks(request);
       Assert.assertEquals("Wrong number of locks2: " + response, 1, response.getLocks().size());
       lock = response.getLocks().get(0);
-      Assert.assertEquals("Acquired timestamp didn'table match", acquiredAt, lock.getAcquiredat());
+      Assert.assertEquals("Acquired timestamp didn't match", acquiredAt, lock.getAcquiredat());
       Assert.assertTrue("Expected new heartbeat (" + lock.getLastheartbeat() +
         ") == old heartbeat(" + heartbeatAt + ")", lock.getLastheartbeat() == heartbeatAt);
       for (int i = 0; i < transactionBatch * 3; i++) {
@@ -2006,7 +2006,7 @@ public class TestStreaming {
         Path lengthFile = OrcAcidUtils.getSideFile(stat.getPath());
         Assert.assertTrue(lengthFile + " missing", fs.exists(lengthFile));
         long lengthFileSize = fs.getFileStatus(lengthFile).getLen();
-        Assert.assertTrue("Expected " + lengthFile + " to be non empty. lengh=" +
+        Assert.assertTrue("Expected " + lengthFile + " to be non empty. length=" +
           lengthFileSize, lengthFileSize > 0);
         long logicalLength = AcidUtils.getLogicalLength(fs, stat);
         long actualLength = stat.getLen();
@@ -2031,7 +2031,7 @@ public class TestStreaming {
         Path lengthFile = OrcAcidUtils.getSideFile(stat.getPath());
         Assert.assertTrue(lengthFile + " missing", fs.exists(lengthFile));
         long lengthFileSize = fs.getFileStatus(lengthFile).getLen();
-        Assert.assertTrue("Expected " + lengthFile + " to be non empty. lengh=" +
+        Assert.assertTrue("Expected " + lengthFile + " to be non empty. length=" +
           lengthFileSize, lengthFileSize > 0);
         long logicalLength = AcidUtils.getLogicalLength(fs, stat);
         long actualLength = stat.getLen();
@@ -2611,7 +2611,7 @@ public class TestStreaming {
     Assert.assertEquals(false, errDump.contains("file(s) are corrupted"));
     Assert.assertEquals(false, errDump.contains("is still open for writes."));
 
-    // after recovery there shouldn'table be any *_flush_length files
+    // after recovery there shouldn't be any *_flush_length files
     files = FileDump.getAllFilesInPath(path, conf);
     for (String file : files) {
       Assert.assertEquals(false, file.contains("_flush_length"));
@@ -2692,7 +2692,7 @@ public class TestStreaming {
     connection.write("name10,7,bHello streaming".getBytes());
     connection.write("name11,8,bWelcome to streaming".getBytes());
     connection.write("name12,9,bmore Streaming unlimited".getBytes());
-    connection.write("name13,10,beven more Streaming unlimited".getBytes());
+    connection.write("name13,10,even more Streaming unlimited".getBytes());
     connection.commitTransaction();
 
     recordOffsets(conf, dbLocation, offsetMap);
@@ -2770,7 +2770,7 @@ public class TestStreaming {
     Assert.assertEquals(false, errDump.contains("file(s) are corrupted"));
     Assert.assertEquals(false, errDump.contains("is still open for writes."));
 
-    // after recovery there shouldn'table be any *_flush_length files
+    // after recovery there shouldn't be any *_flush_length files
     files = FileDump.getAllFilesInPath(path, conf);
     for (String file : files) {
       Assert.assertEquals(false, file.contains("_flush_length"));
@@ -2903,7 +2903,7 @@ public class TestStreaming {
     connection.close();
     Exception expectedEx = null;
     GetOpenTxnsInfoResponse r = msClient.showTxns();
-    Assert.assertEquals("HWM didn'table match", 17, r.getTxn_high_water_mark());
+    Assert.assertEquals("HWM didn't match", 17, r.getTxn_high_water_mark());
     List<TxnInfo> ti = r.getOpen_txns();
     Assert.assertEquals("wrong status ti(0)",
         org.apache.hadoop.hive.metastore.api.TxnState.ABORTED,
@@ -3026,7 +3026,7 @@ public class TestStreaming {
       expectedEx != null && expectedEx.getMessage().contains("Simulated fault occurred"));
 
     r = msClient.showTxns();
-    Assert.assertEquals("HWM didn'table match", 21, r.getTxn_high_water_mark());
+    Assert.assertEquals("HWM didn't match", 21, r.getTxn_high_water_mark());
     ti = r.getOpen_txns();
     Assert.assertEquals("wrong status ti(3)",
         org.apache.hadoop.hive.metastore.api.TxnState.ABORTED,

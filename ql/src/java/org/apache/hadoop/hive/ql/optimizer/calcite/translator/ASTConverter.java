@@ -879,10 +879,10 @@ public class ASTConverter {
     }
 
     Schema(HiveJdbcConverter scan) {
-      HiveJdbcConverter jdbcHiveCoverter = scan;
-      final JdbcHiveTableScan jdbcTableScan = jdbcHiveCoverter.getTableScan();
+      HiveJdbcConverter jdbcHiveConverter = scan;
+      final JdbcHiveTableScan jdbcTableScan = jdbcHiveConverter.getTableScan();
       String tabName = jdbcTableScan.getHiveTableScan().getTableAlias();
-      for (RelDataTypeField field : jdbcHiveCoverter.getRowType().getFieldList()) {
+      for (RelDataTypeField field : jdbcHiveConverter.getRowType().getFieldList()) {
         add(new ColumnInfo(tabName, field.getName()));
       }
     }
@@ -940,7 +940,7 @@ public class ASTConverter {
      * Assumption:<br>
      * 1. Project will always be child of Sort.<br>
      * 2. In Calcite every projection in Project is uniquely named
-     * (unambigous) without using table qualifier (table name).<br>
+     * (unambiguous) without using table qualifier (table name).<br>
      *
      * @param order
      *          Hive Sort Node

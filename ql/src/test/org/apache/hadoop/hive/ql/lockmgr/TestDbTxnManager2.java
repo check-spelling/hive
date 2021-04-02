@@ -874,13 +874,13 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
         skip = false;
       }
     }
-    Assert.fail("Could't find {" + expectedType + ", " + expectedState + ", " + expectedDb
+    Assert.fail("Couldn't find {" + expectedType + ", " + expectedState + ", " + expectedDb
        + ", " + expectedTable  + ", " + expectedPartition + "} in " + actuals);
     throw new IllegalStateException("How did it get here?!");
   }
 
   /**
-   * SessionState is stored in ThreadLoacal; UnitTest runs in a single thread (otherwise Derby wedges)
+   * SessionState is stored in ThreadLocal; UnitTest runs in a single thread (otherwise Derby wedges)
    * {@link HiveTxnManager} instances are per SessionState.
    * So to be able to simulate concurrent locks/transactions s/o forking threads we just swap
    * the TxnManager instance in the session (hacky but nothing is actually threading so it allows us
@@ -2251,7 +2251,7 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
     testConcurrentMergeInsert("insert into source values (3, 4)", false, false,false);
   }
 
-  private void testConcurrentMergeInsert(String query, boolean sharedWrite, boolean slowCompile, boolean extectedDuplicates) throws Exception {
+  private void testConcurrentMergeInsert(String query, boolean sharedWrite, boolean slowCompile, boolean expectedDuplicates) throws Exception {
     dropTable(new String[]{"target", "source"});
     conf.setBoolVar(HiveConf.ConfVars.TXN_WRITE_X_LOCK, !sharedWrite);
     driver2.getConf().setBoolVar(HiveConf.ConfVars.TXN_WRITE_X_LOCK, !sharedWrite);
@@ -2288,8 +2288,8 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
     driver.run("select * from target");
     List res = new ArrayList();
     driver.getFetchTask().fetch(res);
-    Assert.assertEquals("Duplicate records " + (extectedDuplicates ? "" : "not") + "found",
-      extectedDuplicates ? 5 : 4, res.size());
+    Assert.assertEquals("Duplicate records " + (expectedDuplicates ? "" : "not") + "found",
+      expectedDuplicates ? 5 : 4, res.size());
     dropTable(new String[]{"target", "source"});
   }
 
@@ -2953,7 +2953,7 @@ public class TestDbTxnManager2 extends DbTxnManagerEndToEndTestBase{
     checkLock(LockType.EXCLUSIVE, LockState.WAITING, "default", "T7", "p=1", locks);
 
     txnMgr.commitTxn(); //release locks from "select a from T7" - to unblock the drop partition
-    //re-test the "drop partiton" X lock
+    //re-test the "drop partition" X lock
     ((DbLockManager)txnMgr2.getLockManager()).checkLock(locks.get(zeroWaitRead ? 2 : 4).getLockid());
     locks = getLocks();
     Assert.assertEquals("Unexpected lock count", (zeroWaitRead ? 1 : 3), locks.size());

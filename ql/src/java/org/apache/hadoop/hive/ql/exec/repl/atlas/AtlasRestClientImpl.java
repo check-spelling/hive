@@ -59,7 +59,7 @@ public class AtlasRestClientImpl extends RetryingClientTimeBased implements Atla
   public AtlasRestClientImpl(AtlasClientV2 clientV2, HiveConf conf) {
     this.clientV2 = clientV2;
     this.totalDurationInSeconds = conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_TOTAL_DURATION, TimeUnit.SECONDS);
-    this.initialDelayInSeconds = conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INTIAL_DELAY, TimeUnit.SECONDS);
+    this.initialDelayInSeconds = conf.getTimeVar(HiveConf.ConfVars.REPL_RETRY_INITIAL_DELAY, TimeUnit.SECONDS);
     this.maxRetryDelayInSeconds = conf.getTimeVar(HiveConf.ConfVars
       .REPL_RETRY_MAX_DELAY_BETWEEN_RETRIES, TimeUnit.SECONDS);
     this.backOff = conf.getFloatVar(HiveConf.ConfVars.REPL_RETRY_BACKOFF_COEFFICIENT);

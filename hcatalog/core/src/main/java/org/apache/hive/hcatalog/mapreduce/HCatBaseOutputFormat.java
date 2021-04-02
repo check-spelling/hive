@@ -100,7 +100,7 @@ public abstract class HCatBaseOutputFormat extends OutputFormat<WritableComparab
   }
 
   /**
-   * Gets the HCatOuputJobInfo object by reading the Configuration and deserializing
+   * Gets the HCatOutputJobInfo object by reading the Configuration and deserializing
    * the string. If InputJobInfo is not present in the configuration, throws an
    * exception since that means HCatOutputFormat.setOutput has not been called.
    * @param conf the job Configuration object
