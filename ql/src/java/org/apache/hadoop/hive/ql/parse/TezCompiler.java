@@ -1589,7 +1589,7 @@ public class TezCompiler extends TaskCompiler {
       } else if (!TypeInfoUtils.doPrimitiveCategoriesMatch(keyCol.getTypeInfo(), originTSColExpr.getTypeInfo())) {
         // src Col -> HT key Col needs explicit or implicit (Casting) conversion
         // as a result we cannot perform direct lookups on the HT
-        LOG.warn("ProbeDecode origTSCol {} type missmatch mjCol {}", originTSColExpr, keyCol);
+        LOG.warn("ProbeDecode origTSCol {} type mismatch mjCol {}", originTSColExpr, keyCol);
       } else {
         tsProbeDecodeCtx = new TableScanOperator.ProbeDecodeContext(mjCacheKey, mjSmallTablePos,
             originTSColExpr.getColumn(), selectedMJOpRatio);

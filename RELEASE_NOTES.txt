@@ -1143,7 +1143,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17298] - export when running distcp for large number of files should not run as privileged user 
     * [HIVE-17301] - Make JSONMessageFactory.getTObj method thread safe
     * [HIVE-17302] - ReduceRecordSource should not add batch string to Exception message
-    * [HIVE-17303] - Missmatch between roaring bitmap library used by druid and the one coming from tez
+    * [HIVE-17303] - Mismatch between roaring bitmap library used by druid and the one coming from tez
     * [HIVE-17305] - New insert overwrite dynamic partitions qtest need to have the golden file regenerated
     * [HIVE-17309] - alter partition onto a table not in current database throw InvalidOperationException
     * [HIVE-17311] - Numeric overflow in the HiveConf
