@@ -304,7 +304,7 @@ public final class ColumnPrunerProcFactory {
    *   we assume all columns are needed.
    * - add column names referenced in WindowFn args and in WindowFn expressions
    *   to the pruned list of the child Select Op.
-   * - finally we set the prunedColList on the ColumnPrunerContx;
+   * - finally we set the prunedColList on the ColumnPrunerProcCtx;
    *   and update the RR &amp; signature on the PTFOp.
    */
   public static class ColumnPrunerPTFProc extends ColumnPrunerScriptProc {
