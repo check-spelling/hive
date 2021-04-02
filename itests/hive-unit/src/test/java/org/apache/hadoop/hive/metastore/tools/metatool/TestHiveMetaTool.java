@@ -264,7 +264,7 @@ public class TestHiveMetaTool {
     // Also checks count of partitions in tbl-location.
     // inputs   (default database)
     //          ../ext/t1 - table1 location containing 3/5 partitions
-    //          ../ext/t2 - table2 location containining 2/4 partitions
+    //          ../ext/t2 - table2 location containing 2/4 partitions
     //          ../ext/dir1/dir2/dir3 - 2 partitions of table1, 1 partition of table2, table loc of table3 with 0 partitions.
     //          ../ext    - partitions of table3
     // expected output : [../ext/t1, ../ext/t2, ../ext/dir1/dir2/dir3/t1_parts (2 partitions), ../ext/dir1/dir2/dir3/t2_parts(2 partitions),
