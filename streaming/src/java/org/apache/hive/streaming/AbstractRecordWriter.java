@@ -454,7 +454,7 @@ public abstract class AbstractRecordWriter implements RecordWriter {
       List<String> partitionValues = getPartitionValues(encodedRow);
       getRecordUpdater(partitionValues, bucket).insert(writeId, encodedRow);
 
-      // ingest size bytes gets resetted on flush() whereas connection stats is not
+      // ingest size bytes gets reset on flush() whereas connection stats is not
       conn.getConnectionStats().incrementRecordsWritten();
       conn.getConnectionStats().incrementRecordsSize(record.length);
     } catch (IOException e) {

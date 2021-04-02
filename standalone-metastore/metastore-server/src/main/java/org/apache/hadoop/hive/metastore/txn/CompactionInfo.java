@@ -39,7 +39,7 @@ public class CompactionInfo implements Comparable<CompactionInfo> {
    *  with the static methods {@code compactionStructToInfo()} and
    *  {@code compactionInfoToStruct()}. This class is going to be deserialized
    *  and serialized so missing this may result in the value of the field
-   *  being resetted. This will be fixed at HIVE-21056.
+   *  being reset. This will be fixed at HIVE-21056.
    */
   public long id;
   public String dbname;
