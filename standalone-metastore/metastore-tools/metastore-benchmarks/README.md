@@ -53,11 +53,11 @@ Alternatively you can use [bin/hbench](../bin/hbench) script which use Maven to 
 
 ### Using single jar
 
-    java -jar hbench-jar-with-dependencies.jar <optins> [test]...
+    java -jar hbench-jar-with-dependencies.jar <options> [test]...
 
 ### Using hbench on kerberized cluster
 
-    java -jar hbench-jar-with-dependencies.jar -H `hostname` <optins> [test]...
+    java -jar hbench-jar-with-dependencies.jar -H `hostname` <options> [test]...
 
 ### Examples
 1. Run all tests with default settings
