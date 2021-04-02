@@ -212,7 +212,7 @@ public class TestMSCKRepairOnAcid extends TxnCommandsBaseForTests {
     runStatementOnDriver("drop table if exists " + acidTblPartMsck);
   }
   /**
-   * A new partition copied under a table containing compactd delta.
+   * A new partition copied under a table containing compacted delta.
    * @throws Exception ex
    */
   @Test
