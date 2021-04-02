@@ -519,7 +519,7 @@ public class SharedCache {
     /**
      * Common method to cache constraints
      * @param constraintsList list of constraints to add to cache
-     * @param fromPrewarm is this method called as part of perwarm phase
+     * @param fromPrewarm is this method called as part of prewarm phase
      * @param mn Constraint type
      * @return memory constraint is handled by cache eviction policy hence this method will always return true
      * if correct constraint type is provided.
