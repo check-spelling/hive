@@ -173,7 +173,7 @@ public class ExprNodeGenericFuncEvaluator extends ExprNodeEvaluator<ExprNodeGene
     } else {
       // It is a bit unfortunate that currently the UDF configuration signature expects a
       // MapredContext (even if execution is tez or another engine) - this causes an
-      // impedence mismatch. For example: MapredContext has Reporter objects that may or
+      // impedance mismatch. For example: MapredContext has Reporter objects that may or
       // may not make sense for the current engine.
       //
       // We attempt to create a dummyContext that has at least access to a Configuration
