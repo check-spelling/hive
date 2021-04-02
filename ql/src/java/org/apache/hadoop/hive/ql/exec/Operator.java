@@ -685,7 +685,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
     // call the operator specific close routine
     closeOp(abort);
 
-    // closeOp can be overriden
+    // closeOp can be overridden
     if (conf != null && conf.getRuntimeStatsTmpDir() != null) {
       publishRunTimeStats();
     }
