@@ -223,7 +223,7 @@ public class Driver implements IDriver {
    * @return If the txn manager should be set.
    */
   private boolean validateTxnList() throws CommandProcessorException {
-    int retryShapshotCount = 0;
+    int retrySnapshotCount = 0;
     int maxRetrySnapshotCount = HiveConf.getIntVar(driverContext.getConf(),
         HiveConf.ConfVars.HIVE_TXN_MAX_RETRYSNAPSHOT_COUNT);
     boolean shouldSet = false;
@@ -233,7 +233,7 @@ public class Driver implements IDriver {
         driverContext.setOutdatedTxn(false);
         // Inserts will not invalidate the snapshot, that could cause duplicates.
         if (!driverTxnHandler.isValidTxnListState()) {
-          LOG.info("Re-compiling after acquiring locks, attempt #" + retryShapshotCount);
+          LOG.info("Re-compiling after acquiring locks, attempt #" + retrySnapshotCount);
           // Snapshot was outdated when locks were acquired, hence regenerate context, txn list and retry.
           // TODO: Lock acquisition should be moved before analyze, this is a bit hackish.
           // Currently, we acquire a snapshot, compile the query with that snapshot, and then - acquire locks.
@@ -266,9 +266,9 @@ public class Driver implements IDriver {
         }
         // Re-check snapshot only in case we had to release locks and open a new transaction,
         // otherwise exclusive locks should protect output tables/partitions in snapshot from concurrent writes.
-      } while (driverContext.isOutdatedTxn() && ++retryShapshotCount <= maxRetrySnapshotCount);
+      } while (driverContext.isOutdatedTxn() && ++retrySnapshotCount <= maxRetrySnapshotCount);
 
-      shouldSet = shouldSetTxnManager(retryShapshotCount, maxRetrySnapshotCount);
+      shouldSet = shouldSetTxnManager(retrySnapshotCount, maxRetrySnapshotCount);
     } catch (LockException | SemanticException e) {
       DriverUtils.handleHiveException(driverContext, e, 13, null);
     }
@@ -276,16 +276,16 @@ public class Driver implements IDriver {
     return shouldSet;
   }
 
-  private boolean shouldSetTxnManager(int retryShapshotCount, int maxRetrySnapshotCount)
+  private boolean shouldSetTxnManager(int retrySnapshotCount, int maxRetrySnapshotCount)
       throws CommandProcessorException {
-    if (retryShapshotCount > maxRetrySnapshotCount) {
+    if (retrySnapshotCount > maxRetrySnapshotCount) {
       // Throw exception
       HiveException e = new HiveException(
           "Operation could not be executed, " + SNAPSHOT_WAS_OUTDATED_WHEN_LOCKS_WERE_ACQUIRED + ".");
       DriverUtils.handleHiveException(driverContext, e, 14, null);
     }
 
-    return retryShapshotCount != 0;
+    return retrySnapshotCount != 0;
   }
 
   private void setInitialStateForRun(boolean alreadyCompiled) throws CommandProcessorException {
