@@ -511,7 +511,7 @@ public class TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the un-setted sql statement should throw exception",
+        "Execute the un-set sql statement should throw exception",
         expectedException);
 
     // set some of parameters for prepared sql, not all of them.
@@ -524,7 +524,7 @@ public class TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the invalid setted sql statement should throw exception",
+        "Execute the invalid set sql statement should throw exception",
         expectedException);
 
     // set the wrong type parameters for prepared sql.
@@ -539,7 +539,7 @@ public class TestJdbcDriver2 {
       expectedException = e;
     }
     assertNotNull(
-        "Execute the invalid setted sql statement should throw exception",
+        "Execute the invalid set sql statement should throw exception",
         expectedException);
 
     // setObject to the yet unknown type java.util.Date
