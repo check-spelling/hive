@@ -48,7 +48,7 @@ import org.apache.hadoop.io.IntWritable;
  * key should safeguard against duplicate data.
  * 
  * Use hive's ADD JAR feature to add your JDBC Driver to the distributed cache,
- * otherwise GenericUDFDBoutput will fail.
+ * otherwise GenericUDFDBOutput will fail.
  */
 @Description(name = "dboutput",
     value = "_FUNC_(jdbcstring,username,password,preparedstatement,[arguments])"

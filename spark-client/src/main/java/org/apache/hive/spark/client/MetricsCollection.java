@@ -173,7 +173,7 @@ public class MetricsCollection {
       long shuffleRecordsWritten = 0L;
 
       // Input metrics.
-      boolean hasOuputMetrics = false;
+      boolean hasOutputMetrics = false;
       long bytesWritten = 0L;
       long recordsWritten = 0L;
 
@@ -214,7 +214,7 @@ public class MetricsCollection {
         }
 
         if (m.outputMetrics != null) {
-          hasOuputMetrics = true;
+          hasOutputMetrics = true;
           bytesWritten += m.outputMetrics.bytesWritten;
           recordsWritten += m.outputMetrics.recordsWritten;
         }

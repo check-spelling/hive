@@ -89,7 +89,7 @@ public class KuduOutputFormat extends OutputFormat<NullWritable, KuduWritable>
 
   @Override
   public OutputCommitter getOutputCommitter(TaskAttemptContext context) {
-    return new KuduOuputCommitter();
+    return new KuduOutputCommitter();
   }
 
   static class KuduRecordWriter extends RecordWriter<NullWritable, KuduWritable>
@@ -174,7 +174,7 @@ public class KuduOutputFormat extends OutputFormat<NullWritable, KuduWritable>
   /**
    * A dummy committer class that does not do anything.
    */
-  static class KuduOuputCommitter extends OutputCommitter {
+  static class KuduOutputCommitter extends OutputCommitter {
     @Override
     public void setupJob(JobContext jobContext) {
       // do nothing.

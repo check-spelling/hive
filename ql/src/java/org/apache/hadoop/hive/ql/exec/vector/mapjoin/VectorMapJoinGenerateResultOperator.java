@@ -532,7 +532,7 @@ public abstract class VectorMapJoinGenerateResultOperator extends VectorMapJoinC
     HashPartition hp = ht.getHashPartitions()[partitionId];
 
     VectorRowBytesContainer rowBytesContainer = hp.getMatchfileRowBytesContainer();
-    Output output = rowBytesContainer.getOuputForRowBytes();
+    Output output = rowBytesContainer.getOutputForRowBytes();
     bigTableVectorSerializeRow.setOutputAppend(output);
     bigTableVectorSerializeRow.serializeWrite(batch, batchIndex);
     rowBytesContainer.finishRow();

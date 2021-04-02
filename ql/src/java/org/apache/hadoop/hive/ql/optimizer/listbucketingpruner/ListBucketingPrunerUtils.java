@@ -45,7 +45,7 @@ public final class ListBucketingPrunerUtils {
   /**
    * Decide if pruner skips the skewed directory
    * Input: if the skewed value matches the expression tree
-   * Ouput: if pruner should skip the directory represented by the skewed value
+   * Output: if pruner should skip the directory represented by the skewed value
    * If match result is unknown(null) or true, pruner doesn't skip the directory
    * If match result is false, pruner skips the dir.
    * @param bool

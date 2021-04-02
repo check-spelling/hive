@@ -42,7 +42,7 @@ public class MetaToolTaskDiffExtTblLocs extends MetaToolTask {
     try {
       File file1 = new File(args[0]);
       File file2 = new File(args[1]);
-      String ouputDir = args[2];
+      String outputDir = args[2];
       String outFileName = "diff_" + System.currentTimeMillis();
       System.out.println("Writing diff to " + outFileName);
       if (!file1.exists()) {
@@ -54,7 +54,7 @@ public class MetaToolTaskDiffExtTblLocs extends MetaToolTask {
         return;
       }
       JSONObject jsonObject = getDiffJson(file1, file2);
-      FileWriter fw = new FileWriter(ouputDir + "/" + outFileName);
+      FileWriter fw = new FileWriter(outputDir + "/" + outFileName);
       PrintWriter pw = new PrintWriter(fw);
       pw.println(jsonObject.toString(4).replace("\\", ""));
       pw.close();
