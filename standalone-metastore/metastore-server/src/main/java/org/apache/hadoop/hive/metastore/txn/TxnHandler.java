@@ -1472,7 +1472,7 @@ abstract class TxnHandler implements TxnStore, TxnStore.MutexAPI {
   }
 
   /**
-   * Create Notifiaction Events on txn commit
+   * Create Notification Events on txn commit
    * @param dbConn DatabaseConnection
    * @param txnid committed txn
    * @param txnType transaction type
