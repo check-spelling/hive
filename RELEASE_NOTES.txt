@@ -1277,7 +1277,7 @@ Release Notes - Hive - Version 3.0.0
     * [HIVE-17777] - Add maven coordinates in itests/pom.xml
     * [HIVE-17781] - Map MR settings to Tez settings via DeprecatedKeys
     * [HIVE-17782] - Inconsistent cast behavior from string to numeric types with regards to leading/trailing spaces
-    * [HIVE-17785] - Encription tests are not running
+    * [HIVE-17785] - Encryption tests are not running
     * [HIVE-17792] - Enable Bucket Map Join when there are extra keys other than bucketed columns
     * [HIVE-17795] - Add distribution management tag in pom
     * [HIVE-17798] - When replacing the src table names in BeeLine testing, the table names shouldn't be changed to lower case
