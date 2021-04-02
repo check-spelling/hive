@@ -135,7 +135,7 @@ public class ParallelEdgeFixer extends Transform {
       if (values.size() <= 1) {
         continue;
       }
-      // operator order must in stabile order - or we end up with falky plans causing flaky tests...
+      // operator order must in stabile order - or we end up with flaky plans causing flaky tests...
       values.sort(new OperatorPairComparator());
 
       // remove one optionally unsupported edge (it will be kept as is)
