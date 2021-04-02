@@ -1759,7 +1759,7 @@ public class TestOrcFile {
       }
     }
     boolean[] columns = new boolean[reader.getStatistics().length];
-    columns[5] = true; // long colulmn
+    columns[5] = true; // long column
     columns[9] = true; // text column
     rows = reader.rowsOptions(new Reader.Options()
         .range(offsetOfStripe2, offsetOfStripe4 - offsetOfStripe2)
@@ -1878,7 +1878,7 @@ public class TestOrcFile {
       }
     }
     boolean[] columns = new boolean[reader.getStatistics().length];
-    columns[5] = true; // long colulmn
+    columns[5] = true; // long column
     columns[9] = true; // text column
     /* use zero copy record reader */
     rows = reader.rowsOptions(new Reader.Options()

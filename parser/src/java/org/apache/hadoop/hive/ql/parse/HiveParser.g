@@ -2665,7 +2665,7 @@ deleteStatement
    KW_DELETE KW_FROM tableName (whereClause)? -> ^(TOK_DELETE_FROM tableName whereClause?)
    ;
 
-/*SET <columName> = (3 + col2)*/
+/*SET <columnName> = (3 + col2)*/
 columnAssignmentClause
    :
    tableOrColumn EQUAL^ precedencePlusExpression
