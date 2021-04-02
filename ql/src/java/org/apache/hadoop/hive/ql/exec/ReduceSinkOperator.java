@@ -122,11 +122,11 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
    * If there is no distinct expression, cachedKeys is simply like this.
    * cachedKeys[0] = [col0][col1]
    *
-   * with two distict expression, union(tag:key) is attached for each distinct expression
+   * with two distinct expression, union(tag:key) is attached for each distinct expression
    * cachedKeys[0] = [col0][col1][0:dist1]
    * cachedKeys[1] = [col0][col1][1:dist2]
    *
-   * in this case, child GBY evaluates distict values with expression like KEY.col2:0.dist1
+   * in this case, child GBY evaluates distinct values with expression like KEY.col2:0.dist1
    * see {@link ExprNodeColumnEvaluator}
    */
   // TODO: we only ever use one row of these at a time. Why do we need to cache multiple?
