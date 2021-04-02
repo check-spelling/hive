@@ -308,7 +308,7 @@ public class DynamicPartitionPruningOptimization implements SemanticNodeProcesso
     if (conf.getBoolVar(HiveConf.ConfVars.HIVE_DISABLE_UNSAFE_EXTERNALTABLE_OPERATIONS)) {
       // We already have the TableScan for one side of the join. Check this now.
       if (MetaStoreUtils.isExternalTable(ts.getConf().getTableMetadata().getTTable())) {
-        LOG.debug("Disabling semijoin optimzation on {} since it is an external table.",
+        LOG.debug("Disabling semijoin optimization on {} since it is an external table.",
             ts.getConf().getTableMetadata().getFullyQualifiedName());
         disableSemiJoin = true;
       } else {

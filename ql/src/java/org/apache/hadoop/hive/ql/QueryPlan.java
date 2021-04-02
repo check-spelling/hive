@@ -199,7 +199,7 @@ public class QueryPlan implements Serializable {
    * To get the statementId, first the FSO has to be found in the acidSinks list. To do that, use
    * the ACID operation, the path, the writeId and the moveTaskId.
    *
-   * For queries with union all optimisation, there will be multiple FSOs with the same operation, writeId and moveTaskId.
+   * For queries with union all optimization, there will be multiple FSOs with the same operation, writeId and moveTaskId.
    * But one of these FSOs doesn't write data and its statementId is not valid, so if this FSO is selected and its statementId
    * is returned, the file listing will find nothing. So check the acidSinks and if two of them have the same writeId, path
    * and moveTaskId, then return -1 as statementId. With doing this, the file listing will find all partitions and files correctly.
@@ -237,7 +237,7 @@ public class QueryPlan implements Serializable {
    * identify which delta directory was written by which FSO. But in case of insert overwrite, base directories will be created
    * without statementIds, so we need the partition information to identify which folders to list.
    *
-   * For queries with union all optimisation, there will be multiple FSOs with the same operation, writeId and moveTaskId.
+   * For queries with union all optimization, there will be multiple FSOs with the same operation, writeId and moveTaskId.
    * But one of these FSOs doesn't contain the partition specifications, so if this FSO is selected, the file listing will not be correct.
    * So check the acidSinks and if two of them have the same writeId, path and moveTaskId, then return null.
    * With doing this, the file listing will find all partitions and files correctly.

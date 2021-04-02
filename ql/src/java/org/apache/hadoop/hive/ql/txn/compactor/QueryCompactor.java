@@ -129,8 +129,8 @@ abstract class QueryCompactor {
           // corrupted files. To fix this, the FileSinkOperator has been extended to be able to handle rows from different buckets.
           // But we also had to be sure that all rows from the same bucket would end up in the same FileSinkOperator. Therefore
           // the ReduceSinkOperator has also been extended to distribute the rows by bucket numbers. To use this logic,
-          // these two optimisations have to be turned off for the MINOR compaction. The MAJOR compaction works differently
-          // and its query doesn't use reducers, so these optimisations should not be turned off for MAJOR compaction.
+          // these two optimizations have to be turned off for the MINOR compaction. The MAJOR compaction works differently
+          // and its query doesn't use reducers, so these optimizations should not be turned off for MAJOR compaction.
           conf.set("hive.optimize.bucketingsorting", "false");
           conf.set("hive.vectorized.execution.enabled", "false");
         }

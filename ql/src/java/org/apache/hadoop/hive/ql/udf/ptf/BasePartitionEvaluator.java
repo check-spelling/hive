@@ -258,7 +258,7 @@ public class BasePartitionEvaluator {
 
     AggregationBuffer aggBuffer = wrappedEvaluator.getNewAggregationBuffer();
     if (isCountEvaluator && parameters == null) {
-      // count(*) specific optimisation, where record count would be equal to itr count
+      // count(*) specific optimization, where record count would be equal to itr count
       // No need to iterate through entire iterator and read rowContainer again
       return ObjectInspectorUtils.copyToStandardObject(new LongWritable(pItr.count()), outputOI);
     }
